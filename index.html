@@ -52,10 +52,7 @@
 				margin-top: .25rem;
 			}
 
-			.entry-date {
-				color: #9ca3af;
-			}
-
+			.entry-date,
 			.entry-save {
 				color: #9ca3af;
 			}
@@ -96,10 +93,10 @@
 					<ul id="entries" class="list-none m-0 p-0"></ul>
 				</div>
 			</section>
-			<div id="controls" class="flex gap-4">
+			<div id="controls" class="flex gap-4 mt-8">
 				<a href="./" class="btn-secondary">Reset</a>
 			</div>
-			<p class="mt-5">A defense tool by <a href="https://iadefensa.com/" target="_blank">IA Defensa</a>. (<a href="https://github.com/iadefensa/feed-ghost/issues/new" target="_blank">Found an issue?</a>)</p>
+			<p class="mt-5">A digital defense tool by <a href="https://iadefensa.com/" target="_blank">IA Defensa</a>. (<a href="https://github.com/iadefensa/feed-ghost/issues/new" target="_blank">Found an issue?</a>)</p>
 		</div>
 		<script>
 			const ARCHIVE_WEB = 'https://web.archive.org/web/';
@@ -178,11 +175,11 @@
 			function renderResults(feedTitle, entries) {
 				feedTitleEl.textContent = feedTitle || 'Feed';
 				entriesEl.innerHTML = '';
+				resultsEl.style.display = 'block';
+				resetEl.style.display = 'flex';
 
 				if (!entries.length) {
 					entriesEl.innerHTML = '<li class="text-sm py-4">No entries found in this feed.</li>';
-					resultsEl.style.display = '';
-					resetEl.style.display = '';
 					return;
 				}
 
@@ -196,7 +193,6 @@
 						const a = document.createElement('a');
 						a.href = ARCHIVE_WEB + url;
 						a.target = '_blank';
-						a.rel = 'noopener';
 						a.textContent = title;
 						titleDiv.appendChild(a);
 					} else {
@@ -216,9 +212,8 @@
 						const saveA = document.createElement('a');
 						saveA.href = ARCHIVE_SAVE + url;
 						saveA.target = '_blank';
-						saveA.rel = 'noopener';
 						saveA.className = 'entry-save';
-						saveA.textContent = 'Save to archive';
+						saveA.textContent = 'Save new snapshot to Internet Archive';
 						metaDiv.appendChild(saveA);
 					}
 					if (metaDiv.children.length) li.appendChild(metaDiv);
@@ -226,8 +221,6 @@
 					entriesEl.appendChild(li);
 				}
 
-				resultsEl.style.display = '';
-				resetEl.style.display = '';
 			}
 
 			form.addEventListener('submit', async event => {
