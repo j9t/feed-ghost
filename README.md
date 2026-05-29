@@ -1,6 +1,6 @@
 # IA Defensa Feed Ghost
 
-A dual-purpose feed anonymization tool for browsing and archiving RSS/Atom feeds via the [Internet Archive](https://web.archive.org/)—useful to avoid subscribing to services that may excessively track you or otherwise not match your values.
+A dual-purpose feed anonymization tool for browsing and “anonymizing” RSS/Atom feeds via the [Internet Archive](https://web.archive.org/)—useful to avoid subscribing to sites that may excessively track you or otherwise not match your values.
 
 1. [**Interactive feed viewer:**](https://iadefensa.github.io/feed-ghost/) A tool where you enter any feed URL and browse its entries, with each item linked to `web.archive.org` instead of the original site.
 2. **Automated feed anonymization service:** Fork this repo, configure one or more feeds to follow, and a weekly GitHub Action fetches them, rewrites all item links to `web.archive.org`, and publishes the modified feeds to your own GitHub Pages site so that you can follow the URLs in your feed reader.
@@ -76,12 +76,12 @@ Your feeds will be available at `https://[your-username].github.io/feed-ghost/fe
 
 The Action runs automatically each week, but you can trigger it immediately:
 
-1. Go to **Actions → Update anonymized feeds**
+1. Go to **Actions → Update feeds**
 2. Click **Run workflow → Run workflow**
 
-The Action will fetch your configured feeds, rewrite their item links, and commit the results to `feeds/` in your repository. GitHub Pages will then redeploy automatically.
+The Action will fetch your configured feeds, rewrite their item links, and commit the results to `feeds/` and a `generate-feeds.log` summary to your repository. GitHub Pages will then redeploy automatically.
 
-### e. Finding Your Feeds
+### e. Locating Your Feeds
 
 After the Action runs:
 
