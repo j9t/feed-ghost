@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 18 Jul 2026 13:43:15 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 22:14:43 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,749 @@
       <height>32</height>
     </image>
     <item>
+      <title>Google just bet its inference future on a chip built for one model</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/google-frozen-gemini-chip/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 20 Jul 2026 22:14:41 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Infrastructure</category>
+      <category>Hardware</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830908</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2025/07/aff5997d-mcp-developer-security-blueprint-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="&amp;quot;MCP: A Practical Security Blueprint for Developers&amp;quot; featured image. Abstract architectural image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2025/07/aff5997d-mcp-developer-security-blueprint.jpg" /&gt;&lt;p&gt;The race to make AI inference cheaper is pushing chip design beyond general-purpose accelerators. We&amp;#8217;re now moving toward silicon that&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-frozen-gemini-chip/"&gt;Google just bet its inference future on a chip built for one model&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2025/07/aff5997d-mcp-developer-security-blueprint-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="&amp;quot;MCP: A Practical Security Blueprint for Developers&amp;quot; featured image. Abstract architectural image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2025/07/aff5997d-mcp-developer-security-blueprint.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;The race to make AI inference cheaper&lt;/strong&gt; is pushing chip design beyond general-purpose accelerators. We&amp;#8217;re now moving toward silicon that is tailored to individual models. And Google&amp;rsquo;s reported &amp;ldquo;Frozen v2&amp;rdquo; project suggests the Gemini AI model is part of the movement.&lt;/p&gt;
+
+
+
+&lt;p&gt;First reported by &lt;em&gt;&lt;a href="https://www.theinformation.com/articles/google-plans-new-frozen-chip-run-ai-models-efficiently" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Information&lt;/a&gt;&lt;/em&gt;, the unannounced chip would reportedly hardwire parts of Gemini&amp;rsquo;s architecture while leaving its weights updatable. That compromise could give Google much of the efficiency of model-specific silicon without making the hardware obsolete every time Gemini changes.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;A spokesperson for Google tells &lt;em&gt;The New Stack,&lt;/em&gt; &amp;#8220;Our teams are constantly researching and experimenting with new innovations to deliver maximum performance and efficiency for our users and customers.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;A spokesperson for Google tells &lt;em&gt;The New Stack,&lt;/em&gt; &amp;#8220;Our teams are constantly researching and experimenting with new innovations to deliver maximum performance and efficiency for our users and customers. While not every project moves into production, this rigorous exploration is central to our full stack approach. By co-designing our hardware and software from the ground up, we ensure our systems are integrated and highly optimized for real-world workloads.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;According to the reporting, Google hopes the chip will help relieve the &lt;a href="https://thenewstack.io/ibm-earnings-ai-infrastructure/" class="local-link"&gt;AI compute crunch&lt;/a&gt; that&amp;#8217;s made it harder for cloud providers to keep up with demand, while also making Gemini much cheaper and more efficient to serve. Internal projections reportedly estimate the design could deliver six to ten times more tokens per watt than Google&amp;#8217;s current generation of AI chips.&lt;/p&gt;
+
+
+
+&lt;p&gt;If the project moves forward, it would represent a different approach to AI infrastructure because Google would be building hardware specifically for Gemini. For developers, that&amp;#8217;s an early indication that future AI systems may be designed with much tighter integration between the model and the hardware beneath it.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-specialized-silicon-replaces-flexibility"&gt;Specialized silicon replaces flexibility&lt;/h2&gt;
+
+
+
+&lt;p&gt;Currently, the vast majority of AI inferences run on Nvidia GPUs or Google&amp;rsquo;s own Tensor Processing Units (TPUs). Because these chips are intended to accommodate a wide variety of AI models, they carry a high degree of processing load.&lt;/p&gt;
+
+
+
+&lt;p&gt;There&amp;#8217;s precedent for this kind of shift. Bitcoin mining followed a similar path, starting with CPUs, then GPUs, before ultimately settling on ASICs. AI inference may be headed in the same direction. Training still benefits from the flexibility of GPUs, but once a model reaches production, the priority shifts to serving as many requests as possible while using less power.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Training still benefits from the flexibility of GPUs, but once a model reaches production, the priority shifts to serving as many requests as possible while using less power.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-competitors-hardwire-their-own"&gt;Competitors hardwire their own&lt;/h2&gt;
+
+
+
+&lt;p&gt;Google isn&amp;#8217;t the only company looking beyond general-purpose GPUs for AI inference. As inference becomes a larger share of AI workloads, more companies are experimenting with specialized hardware designed to improve performance while using less power. Even Nvidia, whose GPUs dominate the AI market, has invested heavily in inference, &lt;a href="https://www.precedenceresearch.com/news/nvidia-20b-groq-deal-ai-inference" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;striking a reported $20 billion deal with Groq&lt;/a&gt; last year to license the startup&amp;#8217;s technology.&lt;/p&gt;
+
+
+
+&lt;p&gt;Among the more ambitious efforts is Canadian startup &lt;a href="https://www.buysellram.com/blog/17000-tokens-second-is-taalas-hardwired-silicon-the-ultimate-solution-to-the-ai-memory-wall-and-hbm-shortage/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Taalas&lt;/a&gt;. The company has demonstrated a chip with an entire 8-billion-parameter Llama model embedded directly into the silicon. By keeping the model on the chip instead of constantly moving data back and forth from external memory, Taalas says it can dramatically speed up inference, claiming throughput of roughly 17,000 tokens per second. Meanwhile, other companies are optimizing the spatial distance between memory and compute to avoid &lt;a href="https://thenewstack.io/future-proof-ai-infrastructure/" class="local-link"&gt;hardware lock-in&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;p&gt;d-Matrix&amp;#8217;s new Corsair platform uses an SRAM-based in-memory compute architecture rather than relying on standard high-bandwidth memory (HBM) packaging. Similarly, &lt;a href="https://sambanova.ai/products/dataflow-architecture" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SambaNova&lt;/a&gt; is deploying custom dataflow technology with a three-tier memory architecture to maximize tokens per watt for advanced workflows.&lt;/p&gt;
+
+
+
+&lt;p&gt;Google&amp;rsquo;s Frozen v2 sits uniquely in this landscape &amp;mdash; borrowing the hyper-efficiency of hardwired architectures like Taalas, but retaining just enough flexibility to remain viable across multiple product cycles.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-freezing-architecture-not-weights"&gt;Freezing architecture, not weights&lt;/h2&gt;
+
+
+
+&lt;p&gt;The &amp;#8220;Frozen&amp;#8221; name reportedly comes from the idea of permanently etching part of Gemini&amp;#8217;s design into the chip itself. According to &lt;em&gt;The Information&lt;/em&gt;, Google&amp;#8217;s engineers have spent years trying to find the right balance between efficiency and flexibility.&lt;/p&gt;
+
+
+
+&lt;p&gt;An earlier concept, led by Google DeepMind Chief Scientist &lt;a href="https://www.linkedin.com/in/jeff-dean-8b212555/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jeff Dean&lt;/a&gt;, reportedly would have embedded Gemini&amp;#8217;s model weights directly into the silicon. That idea was eventually abandoned because it would have tied the hardware to a single version of the model, dramatically limiting its useful life as Gemini continued to evolve.&lt;/p&gt;
+
+
+
+&lt;p&gt;Frozen v2 reportedly takes a different approach. Rather than locking in the weights, the chip would hardwire parts of Gemini&amp;#8217;s underlying design while still allowing the weights to be updated over time. That would let Google continue improving the model without needing to replace the hardware every time Gemini receives a new version.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Rather than locking in the weights, the chip would hardwire parts of Gemini&amp;#8217;s underlying design while still allowing the weights to be updated over time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-cheaper-inference-reaches-developers"&gt;Cheaper inference reaches developers&lt;/h2&gt;
+
+
+
+&lt;p&gt;By moving some of Gemini&amp;#8217;s execution into the chip itself, Google could reduce some of the overhead that comes with running models on more general-purpose hardware. That could translate into lower latency, especially for applications that depend on near real-time responses.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Google&amp;#8217;s reported goal of delivering six to ten times more tokens per watt is ultimately about efficiency, and those savings could eventually make their way to &lt;a href="https://thenewstack.io/karp-mensch-ai-lockin/" class="local-link"&gt;enterprise teams building on Gemini&lt;/a&gt;, through lower API costs or more available capacity. While Google hasn&amp;#8217;t said how it would pass those gains along, &lt;a href="https://thenewstack.io/tokenomics-foundation/" class="local-link"&gt;reducing the cost of inference has become a priority across the industry&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-frozen-gemini-chip/"&gt;Google just bet its inference future on a chip built for one model&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Google&amp;#039;s reported &amp;quot;Frozen v2&amp;quot; chip would hardwire Gemini&amp;#039;s architecture into silicon, potentially delivering 6–10x more tokens per watt and reshaping AI inference economics.</content:encoded>
+    </item>
+    <item>
+      <title>Claude Fable 5 vs. Kimi K3: Same results, one-third the cost, 4x slower</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/kimi-k3-fable-coding-benchmark/</link>
+      <dc:creator>Nick Lucchesi</dc:creator>
+      <pubDate>Mon, 20 Jul 2026 18:07:20 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830885</guid>
+      <description>&lt;img width="1024" height="785" src="https://cdn.thenewstack.io/media/2026/07/c5603317-mohammad-bazar-hqndzjhaiei-unsplash-1024x785.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="&amp;quot;Abstract yellow striped illustration with round bulging shapes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/c5603317-mohammad-bazar-hqndzjhaiei-unsplash-scaled.jpg" /&gt;&lt;p&gt;Moonshot AI released Kimi K3 in mid-July, selling it as a serious professional coding tool that competes head-on with Claude&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kimi-k3-fable-coding-benchmark/"&gt;Claude Fable 5 vs. Kimi K3: Same results, one-third the cost, 4x slower&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="785" src="https://cdn.thenewstack.io/media/2026/07/c5603317-mohammad-bazar-hqndzjhaiei-unsplash-1024x785.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="&amp;quot;Abstract yellow striped illustration with round bulging shapes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/c5603317-mohammad-bazar-hqndzjhaiei-unsplash-scaled.jpg" /&gt;&lt;p&gt;Moonshot AI &lt;a href="https://thenewstack.io/kimi-k3-open-weight-coding/" class="local-link"&gt;released Kimi K3&lt;/a&gt; in mid-July, selling it as a serious professional coding tool that competes head-on with Claude and GPT, at a lower price. It’s a 2.8-trillion-parameter open-weight model, the largest ever out of China. The company says it rivals Anthropic’s &lt;a href="https://thenewstack.io/claude-opus-48-release/" class="local-link"&gt;Opus 4.8&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Kimi K3 API runs $3 per million input tokens and $15 per million output. Anthropic’s top model, Fable 5, costs $10 per million input tokens and $50 per million output. That’s more than three times the price for both input and output.&lt;/p&gt;
+
+
+
+&lt;p&gt;A model that costs a third as much is only a good deal if the output and user experience meet current expectations. To find out where Kimi K3 stands against the professional tools it’s chasing, I gave Kimi K3 and Fable 5 the same three real coding jobs and tracked every token.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;See also:&lt;/strong&gt; &lt;a href="https://thenewstack.io/kimi-k3-open-weight-coding/" class="local-link"&gt;Kimi K3 tops Arena’s coding leaderboard — and it’s open-weight&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tests"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p&gt;I used &lt;a href="https://github.com/sharkdp/fd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;fd&lt;/a&gt;, the Rust file-finder from sharkdp. fd is a fast, friendlier replacement for the Unix find command. I chose it because it is real production Rust with a deep, documented bug history to pull from.&lt;/p&gt;
+
+
+
+&lt;p&gt;Kimi K3 is not available in coding tools like Cursor yet, so I completed the three tests using native CLIs. I ran Kimi K3 inside Moonshot’s new Kimi Code terminal agent (version 0.27.0), and Fable 5 inside Claude Code (version 2.1.212). I used identical prompts, so the model and CLIs were the only variables. I built a new folder for each test on each model (six total), so each test was standalone.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here are the three tests I ran (in this order): &lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;a bug fix&lt;/li&gt;
+
+
+
+&lt;li&gt;a multi-file refactor&lt;/li&gt;
+
+
+
+&lt;li&gt;a feature build&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For every test, I recorded time (using a stopwatch), tokens, and cost from Cursor’s usage dashboard.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;Earlier this week, I ran Grok 4.5 against Claude Opus 4.8 on the same three tasks in the same repo using identical prompts, which you can read here [add link]. Since all four models ran the same tests, you could consider this pair of articles Fable vs Kimi vs Opus vs Grok.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-setting-up-kimi"&gt;Setting up Kimi&lt;/h3&gt;
+
+
+
+&lt;p&gt;This was a very easy setup. The Kimi Code CLI installed with one curl command, and the account setup was simple. There was one hiccup, though. My test command of “say hello” hung for a few minutes without a reply or an error message. The cause showed up later as a 429 error. My brand-new API account had no balance, and Kimi won’t respond until you add a card and top up. The nice surprise was that once I recharged, Moonshot gave me a $5 signup voucher, so new accounts do get some free credit.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Moonshot AI’s Kimi K3 matched Anthropic’s Fable 5 line for line on three real coding tasks and cost a third as much… but took four times as long to do it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;(I couldn’t write this post without saying the one thing that’s been on my mind during the test. The name Kimi K kept putting Kim Kardashian in my head. I never think about Kim Kardashian. I have now thought about her for two days straight.)&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-1-the-bug-fix"&gt;Test 1: The bug fix&lt;/h2&gt;
+
+
+
+&lt;p&gt;The prompt:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;There is a bug in this codebase (the fd command-line tool). When you pass the –no-ignore-vcs flag, fd also stops respecting ignore files in parent directories. It should not do that. Find the root cause and fix it so –no-ignore-vcs no longer disables parent-directory ignore files. Do not change any other behavior.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;I checked out fd at the commit right before the real 2021 fix for this bug (issue #907) and wiped the git history so neither model could look up the maintainers’ answer. Both models found the root cause and removed the same single line from src/main.rs. The diffs were byte-for-byte identical. Four models, four identical diffs. All 70 tests passed for both.&lt;/p&gt;
+
+
+
+&lt;p&gt;The difference came down to numbers. Fable finished in 1 minute 4 seconds on about 347K tokens and cost $0.85. Kimi took 3 minutes 7 seconds on 238K tokens and cost six cents. K3’s bug test was the lowest cost but highest time I’ve seen on this test.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-2-the-refactor"&gt;Test 2: The refactor&lt;/h2&gt;
+
+
+
+&lt;p&gt;The prompt:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;In src/main.rs, the construct_config function is large and does most of its work inline. Refactor it to improve readability and structure: move it, along with any helper logic it needs, into a dedicated new module (for example src/config_builder.rs), and break the work into smaller focused functions. Do not change any behavior. Every existing test must still pass, and the CLI must behave exactly the same.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Both models did the same thing: a new &lt;code&gt;config_builder.rs&lt;/code&gt; module, the big function split into focused helpers, all 264 tests green, diffs within a few dozen lines of each other in size.&lt;/p&gt;
+
+
+
+&lt;p&gt;The results were the same, but the engineering process wasn’t. Kimi was the more thorough engineer. It snapshotted the old binary before touching anything, then diffed the old and new binaries across roughly 40 CLI scenarios to prove behavior had not changed.&lt;/p&gt;
+
+
+
+&lt;p&gt;But this came at the cost of efficient time. It took 14 minutes 50 seconds on 928K tokens, the slowest run of any model on any test I’ve run in the last few months. Fable did the same refactor in 3 minutes 11 seconds on about 639K tokens. Kimi cost $0.70, Fable $2.32.&lt;/p&gt;
+
+
+
+&lt;p&gt;This tells a similar story to the last test. Same results, lower cost, longer time.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-3-the-feature-build"&gt;Test 3: The feature build&lt;/h2&gt;
+
+
+
+&lt;p&gt;The prompt:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;Add a new –count flag to fd (the command-line file finder). When –count is passed, fd should not print the matching paths. Instead, it prints a single line: the total number of entries that matched, respecting all the usual filters (so for example “fd –count –extension rs” prints how many .rs files matched). Add the flag to the CLI, wire it through the search and output path, and make sure all existing behavior and tests still pass.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Both delivered a correct, working &lt;code&gt;--count flag&lt;/code&gt;. Kimi touched six files and updated the man page. Fable touched seven and went one step further, updating the &lt;code&gt;zsh&lt;/code&gt; shell completions too. Fable miscounted the test environment twice while writing its own test, guessed 13, then 10, then landed on 11, but it caught and fixed itself both times without my help.&lt;/p&gt;
+
+
+
+&lt;p&gt;Kimi took almost 5x longer than Fable to deliver the &lt;code&gt;--count flag&lt;/code&gt;. Their times, tokens, and costs were 10 minutes 21 seconds, 2.1 million tokens, $1.38, and 2 minutes 34 seconds, about 1.46 million tokens, $2.81, respectively.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-results"&gt;The results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;The metric&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Kimi K3&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Fable 5&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug fix&lt;/td&gt;&lt;td&gt;identical fix, 70/70 tests&lt;/td&gt;&lt;td&gt;identical fix, 70/70 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Refactor&lt;/td&gt;&lt;td&gt;264/264 tests&lt;/td&gt;&lt;td&gt;264/264 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Feature&lt;/td&gt;&lt;td&gt;correct, 6 files&lt;/td&gt;&lt;td&gt;correct, 7 files&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;~28 min 18 s&lt;/td&gt;&lt;td&gt;~6 min 49 s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens&lt;/td&gt;&lt;td&gt;~3.3M&lt;/td&gt;&lt;td&gt;~2.4M&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$2.13&lt;/td&gt;&lt;td&gt;$5.98&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Across the three jobs, Kimi cost $2.13 to Fable’s $5.98, almost exactly a third of the price that Moonshot’s rates promise. But the discount comes from the discounted rates alone. Kimi used more tokens than Fable, 3.3 million to 2.4 million. Then there’s the time cost. Fable finished all three jobs in under 7 minutes. Kimi needed just over 28. I run different tests on models weekly, and this was by far the longest time I’ve seen.&lt;/p&gt;
+
+
+
+&lt;p&gt;So what do I really think about Kimi? The results are solid, but this is a crowded market with established frontrunners. We’re still in the AI freemium era, so lower costs matter, just not nearly as much as speed. Kimi will need to match the speeds of the other models to compete, which means cutting its time by 5x in some cases. &lt;/p&gt;
+
+
+
+&lt;p&gt;It’s also worth remembering we’re in the land of done is better than perfect. This is the first public iteration of K3, and it will change. &lt;/p&gt;
+
+
+
+&lt;p&gt;I don’t see a place for it in the current landscape, but I’m interested in watching it improve over the next few months. Will it speed up enough to earn its seat at the table? I look forward to Moonshot’s next batch of updates so we can benchmark again and find out.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kimi-k3-fable-coding-benchmark/"&gt;Claude Fable 5 vs. Kimi K3: Same results, one-third the cost, 4x slower&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Moonshot&amp;#039;s open-weight Kimi K3 matched Anthropic&amp;#039;s Fable 5 on three coding tasks for a third of the cost — but ran four times slower. Here&amp;#039;s the data.</content:encoded>
+    </item>
+    <item>
+      <title>Amazon, Microsoft, and Google are converging on the same enterprise agent architecture</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/agent-platform-portability-contract/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Mon, 20 Jul 2026 17:43:11 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Platform Engineering</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830842</guid>
+      <description>&lt;img width="1024" height="853" src="https://cdn.thenewstack.io/media/2026/07/58744e26-eva-wahyuni-kjdretrfc6o-unsplash-1024x853.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract textured illustration of radiating shapes in blue and teal" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/58744e26-eva-wahyuni-kjdretrfc6o-unsplash-scaled.png" /&gt;&lt;p&gt;Over the past nine months, Amazon, Microsoft, and Google have each introduced or renamed an enterprise agent platform. And all&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-platform-portability-contract/"&gt;Amazon, Microsoft, and Google are converging on the same enterprise agent architecture&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="853" src="https://cdn.thenewstack.io/media/2026/07/58744e26-eva-wahyuni-kjdretrfc6o-unsplash-1024x853.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract textured illustration of radiating shapes in blue and teal" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/58744e26-eva-wahyuni-kjdretrfc6o-unsplash-scaled.png" /&gt;&lt;p&gt;&lt;strong&gt;Over the past nine months&lt;/strong&gt;, Amazon, Microsoft, and Google have each introduced or renamed an enterprise agent platform. And all three have converged on the same core architecture. Runtime, memory, tool gateway, identity, observability, and governance now appear in &lt;a href="https://aws.amazon.com/about-aws/whats-new/2025/10/amazon-bedrock-agentcore-available" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amazon Bedrock AgentCore&lt;/a&gt;, &lt;a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Microsoft Foundry&lt;/a&gt;, and the &lt;a href="https://cloud.google.com/products/gemini-enterprise-agent-platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini Enterprise Agent Platform&lt;/a&gt;, albeit under slightly different names. Each vendor presents these components as the foundation for production agents. What was a fragmented collection of libraries just 18 months ago is becoming a distinct platform layer.&lt;/p&gt;
+
+
+
+&lt;p&gt;To see where that shift may lead, consider the evolution of platform as a service. Between 2011 and 2016, developers built applications from virtual machines, load balancers, message queues, secret stores, and monitoring agents — each with its own API and operational model. &lt;a href="https://thenewstack.io/open-source-platform-engineering-a-decade-of-cloud-foundry/" class="local-link"&gt;Cloud Foundry&lt;/a&gt; and Heroku unified those pieces around an application contract. Developers could think less about machines and more about applications. The agent ecosystem is approaching a similar inflection point, but it still lacks an equivalent contract — and no open-source project has stepped forward to define one.&lt;/p&gt;
+
+
+
+&lt;p&gt;To appreciate where this goes, we need to look at the evolution of platform as a service. Between 2011 and 2016, developers assembled applications from virtual machines, load balancers, message queues, secret stores, and monitoring agents, each with its own API and operational model. &lt;a href="https://thenewstack.io/open-source-platform-engineering-a-decade-of-cloud-foundry/" class="local-link"&gt;Cloud Foundry&lt;/a&gt; and Heroku unified those pieces around an application contract. Developers stopped thinking about machines and started thinking about applications. The agent ecosystem has no equivalent contract, and no open project has claimed it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-plumbing-a-production-agent-still-needs"&gt;The plumbing a production agent still needs&lt;/h2&gt;
+
+
+
+&lt;p&gt;Imagine a platform team putting a customer support agent into production this quarter. They choose a model provider, then a framework, and finally a place to store session state and long-term memory. They add a tool gateway so the agent can reach the ticketing system. An identity layer follows, so the agent acts on behalf of the person who asked, and a sandbox keeps generated code somewhere safe. Evaluation and tracing are considered last, once someone asks how quality regressions will surface before customers find them.&lt;/p&gt;
+
+
+
+&lt;p&gt;Each of those choices looks small on its own. When combined, they decide which cloud the workload lives in. Session state resides in a single provider’s managed store. The traces are logged in that same provider’s telemetry service, and the agent’s identity is derived from its directory. Moving that agent a year later means rebuilding the whole assembly, which is where enterprises were before PaaS gave applications a portable shape.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-cloud-foundry-got-right-before-it-lost-the-market"&gt;What Cloud Foundry got right before it lost the market&lt;/h2&gt;
+
+
+
+&lt;p&gt;Cloud Foundry reduced application deployment to a single command, and the platform took responsibility for everything after it. &lt;a href="https://buildpacks.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Buildpacks&lt;/a&gt; detected the language and produced a runnable artifact. Service brokers provisioned a database or a message broker and bound the credentials into the application environment. Routing, logging, autoscaling, and health checks arrived as platform behavior, not as a queue of tickets aimed at an operations team.&lt;/p&gt;
+
+
+
+&lt;p&gt;What mattered was the contract, not the implementation. An application declared what it needed and stayed agnostic of where it ran. Buildpacks began life at Heroku back in 2011. Pivotal and Heroku started the Cloud Native Buildpacks project in January 2018, and the CNCF accepted it that October. A PaaS idea outlived the platform that produced it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Cloud Foundry never became the dominant platform. Kubernetes did, and the Cloud Foundry community eventually rebuilt its abstraction on top of Kubernetes through &lt;a href="https://www.cloudfoundry.org/technology/korifi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Korifi&lt;/a&gt;. The design principles traveled anyway, and enterprises running that platform in 2016 had portability that most agent teams cannot buy today.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-same-primitives-across-three-clouds"&gt;The same primitives across three clouds&lt;/h2&gt;
+
+
+
+&lt;p&gt;Let me dissect the three platforms because the similarities are conveniently hidden behind the branding.&lt;/p&gt;
+
+
+
+&lt;p&gt;AgentCore reached general availability in October 2025 with seven composable services, namely runtime, gateway, memory, browser, code interpreter, identity, and observability. The runtime offers eight-hour execution windows with complete session isolation. The gateway connects to existing MCP servers and turns APIs and Lambda functions into agent-compatible tools, while observability exports through OpenTelemetry into CloudWatch.&lt;/p&gt;
+
+
+
+&lt;p&gt;Microsoft renamed Azure AI Foundry to Microsoft Foundry effective January 1, 2026. Foundry Agent Service covers the same ground. Microsoft documents hosted agents running in a session-isolated managed runtime, with Entra Agent ID handling identity. Managed memory spans session, user, and procedural scopes, and tracing is built on OpenTelemetry.&lt;/p&gt;
+
+
+
+&lt;p&gt;Google retired the Vertex AI name at Cloud Next 2026 and folded the platform into &lt;a href="https://thenewstack.io/google-gemini-agent-platform/" class="local-link"&gt;Gemini Enterprise Agent Platform&lt;/a&gt;. What was Agent Engine became Deployments, and Memory Bank, Sessions, Agent Registry, Policies, and Gateways sit alongside it under an agent-first information architecture.&lt;/p&gt;
+
+
+
+&lt;p&gt;The convergence is rational behavior rather than a conspiracy, since infrastructure companies build vertically integrated platforms because integration is where the margin lives. The consequence lands on customers rather than on the vendors. Identity, telemetry, and deployment all terminate within a single provider, which makes the operational layer beneath the agent the part that resists moving. Recently, I analyzed the runtime aspect of this problem in a piece about Google’s &lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/" class="local-link"&gt;Agent Substrate&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-contract-an-agent-platform-would-inherit"&gt;The contract an agent platform would inherit&lt;/h2&gt;
+
+
+
+&lt;p&gt;Any agent platform can be tested by one question: what would a Cloud Foundry-style contract look like if it had been written for agents rather than for web applications? The mapping is close enough to be instructive and different enough to be interesting.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;PaaS abstraction&lt;/th&gt;&lt;th&gt;Agent platform equivalent&lt;/th&gt;&lt;th&gt;Where portability breaks today&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Application source&lt;/td&gt;&lt;td&gt;Agent code, instructions and evaluation suite&lt;/td&gt;&lt;td&gt;Each framework defines its own package shape&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Buildpack&lt;/td&gt;&lt;td&gt;Framework detection and agent packaging&lt;/td&gt;&lt;td&gt;No shared build contract across SDKs&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Backing service&lt;/td&gt;&lt;td&gt;Model, memory, retrieval or tool provider&lt;/td&gt;&lt;td&gt;Providers are wired into agent logic&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Service binding&lt;/td&gt;&lt;td&gt;Authenticated attachment of tools and data&lt;/td&gt;&lt;td&gt;Credentials are issued by the host cloud&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Router&lt;/td&gt;&lt;td&gt;Agent endpoint, MCP or A2A interface&lt;/td&gt;&lt;td&gt;The protocols exist but not the lifecycle&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Logs and metrics&lt;/td&gt;&lt;td&gt;Traces, tool calls, cost and quality scores&lt;/td&gt;&lt;td&gt;GenAI conventions remain in development&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Release promotion&lt;/td&gt;&lt;td&gt;Evaluate, version and progressively deploy&lt;/td&gt;&lt;td&gt;Evaluation couples to one vendor’s harness&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Platform policy&lt;/td&gt;&lt;td&gt;Agent identity, permissions and approvals&lt;/td&gt;&lt;td&gt;Identity ties to the provider’s directory&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Real deployments will mix these rows rather than adopt them cleanly, and no team needs the complete set from day one.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-package-the-agent-as-one-deployable-unit"&gt;Package the agent as one deployable unit&lt;/h3&gt;
+
+
+
+&lt;p&gt;The thing developers ship has to be versionable, testable, and movable as a single artifact. The code, the instructions, the tool dependencies, the memory contract, the permissions, and the evaluation suite all travel together, or none of them do. AWS gets close with its &lt;a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-is-now-generally-available-go-from-idea-to-production-grade-agent-in-minutes/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;harness&lt;/a&gt; export path. One command turns a configured harness into Strands code, and AWS says the export preserves the model, prompt, tools, memory wiring, and container environment. Customers can easily move from configuration to code without an architecture rewrite, which is the right instinct pointed at a single cloud.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-bind-capabilities-rather-than-embed-providers"&gt;Bind capabilities rather than embed providers&lt;/h3&gt;
+
+
+
+&lt;p&gt;The &lt;a href="https://12factor.net/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Twelve-Factor App&lt;/a&gt; taught developers to treat databases and caches as attached resources reached through configuration. Models, memory stores, retrieval engines, browsers and tool gateways deserve the same treatment. An agent that names its model provider inside application logic has already given up portability, whatever the platform brochure claims.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-make-operations-part-of-the-abstraction"&gt;Make operations part of the abstraction&lt;/h3&gt;
+
+
+
+&lt;p&gt;Rather than just enabling deployment, PaaS proved its value by offering built-in capabilities like routing, logging, autoscaling, and rollback. The questions that matter for agents look different, and they should be the ones enterprises must ask. Platform teams want to know whether the agent completed the task and whether it chose the right tools. They also want to know whether it exceeded its authority, what the run cost was, and whether quality regressed after a model update.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-how-agents-differ-from-applications"&gt;How agents differ from applications&lt;/h2&gt;
+
+
+
+&lt;p&gt;Agents are not web applications with a model attached, and a platform built on that assumption will fail in production. Three differences carry most of the weight here. Agent behavior is probabilistic, so two identical inputs can produce different tool calls. Agents act with delegated user authority, which turns a permissions bug into a real-world side effect rather than an error page. An agent’s dependencies can also change its behavior without any code deployment. A model update or a revised tool description alters what the agent decides to do.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Twelve-Factor rule that processes should be stateless does not survive that. An agent platform needs disposable execution workers alongside durable, inspectable, and portable agent state. &lt;a href="https://docs.langchain.com/oss/python/langgraph/durable-execution" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LangGraph&lt;/a&gt; already demonstrates the combination in open source, with checkpointing at every step, first-class human interrupts, and execution that resumes after a crash. The control plane around it is part of the commercial LangSmith product, covering deployment, evaluation, and observability. The fragmentation appears within a single project.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-the-open-protocols-leave-out"&gt;What the open protocols leave out&lt;/h2&gt;
+
+
+
+&lt;p&gt;Most of the primitives a neutral platform would need already exist. The &lt;a href="https://modelcontextprotocol.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Model Context Protocol&lt;/a&gt; standardizes how agents access tools and data. &lt;a href="https://a2a-protocol.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;A2A&lt;/a&gt; covers discovery and communication between independent agents. &lt;a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenTelemetry&lt;/a&gt; is defining GenAI conventions for agent spans, tool calls, and token usage, though most of those attributes remain marked as in development. OCI images stay available as the packaging escape hatch for anything a managed runtime cannot host.&lt;/p&gt;
+
+
+
+&lt;p&gt;The vendors have already conceded that a neutral layer matters. The Linux Foundation &lt;a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; the Agentic AI Foundation in December 2025. Its founding projects were MCP from Anthropic, goose from Block, and AGENTS.md from OpenAI, and AWS, Google, and Microsoft joined as platinum members. Google also moved A2A into the Linux Foundation.&lt;/p&gt;
+
+
+
+&lt;p&gt;Protocols are not the same thing as a lifecycle platform. A foundation that governs how agents talk to tools says nothing about versioning an agent. It says nothing about promoting that agent through environments, or rolling it back when an evaluation regresses. Enterprises running diligence on agent platforms can work through three plain questions. The first is governance: whether the project is controlled by a neutral foundation or by the vendor selling the managed version. The second is packaging, where the same agent artifact should run on two different clouds without a rewrite. The third is state, where memory has to live somewhere the enterprise can export from. No open project answers all three today.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-where-is-this-headed"&gt;Where is this headed?&lt;/h2&gt;
+
+
+
+&lt;p&gt;Kubernetes defined pods, deployments, and services, and those abstractions influenced how an entire industry thinks about running software. The equivalent agent abstractions have not been fixed yet. Whoever ends up owning the agent control plane will not merely own deployment. That owner defines what an agent is, which components it contains, and what a platform team is permitted to swap out.&lt;/p&gt;
+
+
+
+&lt;p&gt;In summary, hyperscalers are building robust platforms that effectively address operational questions. They also answer them inside a single cloud. If a neutral project assembles the same lifecycle atop the protocols already in place at the Linux Foundation, enterprises will regain the negotiating position that buildpacks and service brokers once gave them. An open, cloud-agnostic agent platform would benefit vendors as much as buyers, because a stable contract is what allowed the cloud-native ecosystem to grow beyond any single provider.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-platform-portability-contract/"&gt;Amazon, Microsoft, and Google are converging on the same enterprise agent architecture&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Amazon, Microsoft, and Google now ship near-identical agent platforms. Why enterprises still can&amp;#039;t move an agent between clouds — and what would fix it.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic employees worked “literally around the clock” to keep Fable 5 from disappearing</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/fable-5-permanent-subscription-access/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 20 Jul 2026 16:38:09 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>AI Models</category>
+      <category>AI Strategy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830862</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/05/1add10bc-by-yuniaz-gkl8wko39hm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract illustration of a purple hand holding a tilted hourglass with red sand, symbolizing a closing compliance timeline." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/1add10bc-by-yuniaz-gkl8wko39hm-unsplash-scaled.jpg" /&gt;&lt;p&gt;After weeks of extending temporary access while bringing additional inference capacity online, Anthropic has finalized Claude Fable 5 subscriptions. In&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/fable-5-permanent-subscription-access/"&gt;Anthropic employees worked &amp;#8220;literally around the clock&amp;#8221; to keep Fable 5 from disappearing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/05/1add10bc-by-yuniaz-gkl8wko39hm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract illustration of a purple hand holding a tilted hourglass with red sand, symbolizing a closing compliance timeline." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/1add10bc-by-yuniaz-gkl8wko39hm-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;After weeks of extending temporary access &lt;/strong&gt;while bringing additional inference capacity online, Anthropic has finalized Claude Fable 5 subscriptions.&lt;/p&gt;
+
+
+
+&lt;p&gt;In a Friday announcement on X, the company said Claude Fable 5 will become a permanent part of Max and Team Premium &lt;a href="https://x.com/claudeai/status/2078302415804379218" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;subscriptions beginning Monday&lt;/a&gt;, July 20, at 50% of each plan&amp;#8217;s usage limits. Pro and Team Standard users will transition to using the model through usage credits and will receive a one-time $100 credit.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;An Anthropic spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;ldquo;Friday&amp;rsquo;s announcement means that Fable 5 at 50% of usage limits is now a standard, permanent part of Max and Team Premium plans.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The changes bring an end to &lt;a href="https://thenewstack.io/fable-5-honeycomb-opus/" class="local-link"&gt;weeks of temporary extensions&lt;/a&gt; that left subscribers wondering whether Fable 5 would remain part of their subscription. Rather than introducing a new usage policy, Anthropic is making permanent the same access level subscribers have had since Fable 5 was &lt;a href="https://x.com/claudeai/status/2072402639644766602" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;redeployed on July 1&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-capacity-drove-the-timeline"&gt;Capacity drove the timeline&lt;/h2&gt;
+
+
+
+&lt;p&gt;The move gives a glimpse into &lt;a href="https://thenewstack.io/future-proof-ai-infrastructure/" class="local-link"&gt;the economics of serving frontier AI models&lt;/a&gt;. Although Anthropic repeatedly extended temporary access over the past several weeks, the company says making Fable 5 a permanent part of Max and Team Premium subscriptions was always the goal.&lt;/p&gt;
+
+
+
+&lt;p&gt;An Anthropic spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;ldquo;Friday&amp;rsquo;s announcement means that Fable 5 at 50% of usage limits is now a standard, permanent part of Max and Team Premium plans. This was always our intention with Fable access (see more in our original launch blog on June 9). We planned to expand Fable 5 access in stages as we brought additional inference capacity online, with the ultimate goal of making it a standard part of subscription plans.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-fable-5-usage-limits-explained"&gt;Fable 5 usage limits explained&lt;/h2&gt;
+
+
+
+&lt;p&gt;Anthropic has not explained exactly how it calculates the 50% limit or how many prompts that will translate to in practice. &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;Developers using Fable 5 for heavy workflows&lt;/a&gt; are likely to reach the limit sooner than lighter users.&lt;/p&gt;
+
+
+
+&lt;p&gt;The company has said demand for Claude Fable 5 was difficult to predict and that broader access depended on bringing more capacity online. Reuters reported earlier this week that the company is in talks with &lt;a href="https://thenewstack.io/meta-iris-ai-chip/" class="local-link"&gt;Meta over a potential compute lease&lt;/a&gt; worth up to $10 billion, which could give Anthropic access to Meta&amp;rsquo;s AI infrastructure for as long as two years.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-meta-compute-deal-looms"&gt;Meta compute deal looms&lt;/h2&gt;
+
+
+
+&lt;p&gt;Thariq Shihipar, an Anthropic product leader involved in the Fable rollout, &lt;a href="https://x.com/trq212/status/2078514180051906864" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted on X,&lt;/a&gt; crediting the company&amp;rsquo;s employees with getting the necessary capacity online&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;This was due to a heroic effort by many people at Anthropic working sometimes literally around the clock,&amp;rdquo; Shihipar wrote on X. &amp;ldquo;It was not at all clear that we&amp;rsquo;d be able to do this in time, and so proud of everyone who made it happen. Enjoy Fable.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;This was due to a heroic effort by many people at Anthropic working sometimes literally around the clock. It was not at all clear that we&amp;#8217;d be able to do this in time, and so proud of everyone who made it happen. Enjoy Fable.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-claude-expands-into-india"&gt;Claude expands into India&lt;/h2&gt;
+
+
+
+&lt;p&gt;The revised policy reflects broader changes across the AI industry. Frontier models are becoming expensive, which means AI companies are forced to balance compute costs with subscription pricing. OpenAI recently introduced &lt;a href="https://thenewstack.io/gpt-5-6-developer-reactions/" class="local-link"&gt;GPT-5.6 Sol&lt;/a&gt;, while Chinese AI companies have released increasingly capable open-weight models, including Moonshot AI&amp;rsquo;s Kimi K3. Although Anthropic has not linked today&amp;rsquo;s pricing decision to competitive pressure, both model capability and the cost of serving those models have become key competitive factors.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;hellip;both model capability and the cost of serving those models have become key competitive factors.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Alongside the subscription changes, Anthropic is also formalizing its presence in one of its fastest-growing markets by introducing local pricing for Claude in India.&lt;/p&gt;
+
+
+
+&lt;p&gt;Indian customers can now pay for Claude in rupees instead of U.S. dollars, with GST included in the listed prices. That removes foreign currency conversions and other cross-border payment costs that previously came with subscribing. Claude Pro is now priced at Rs. 2,000 per month with annual billing or Rs. 2,399 on a month-to-month plan (previously $20 USD per month).&lt;/p&gt;
+
+
+
+&lt;p&gt;Industry reports have identified India as Claude&amp;#8217;s second-largest user base after the United States. Together, the announcements show Anthropic expanding Claude in two ways: by making subscriptions easier to purchase in a major growth market while locking in an access policy determined by the compute required to serve Fable 5.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/fable-5-permanent-subscription-access/"&gt;Anthropic employees worked &amp;#8220;literally around the clock&amp;#8221; to keep Fable 5 from disappearing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic finalizes Claude Fable 5 as a permanent Max and Team Premium feature at 50% usage limits after weeks of temporary extensions and infrastructure buildout.</content:encoded>
+    </item>
+    <item>
+      <title>Grok 4.5 vs. Claude Opus 4.8: Costs and what works, not the spec sheet</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/grok-opus-coding-tokens/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Mon, 20 Jul 2026 13:38:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <category>Rust</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830794</guid>
+      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="TV static glitch effect with red and blue distortion pattern" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-scaled.jpg" /&gt;&lt;p&gt;Can Grok 4.5 really match Opus for a quarter of the tokens? xAI released Grok 4.5 on July 8. It&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-opus-coding-tokens/"&gt;Grok 4.5 vs. Claude Opus 4.8: Costs and what works, not the spec sheet&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="TV static glitch effect with red and blue distortion pattern" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-scaled.jpg" /&gt;&lt;p&gt;Can Grok 4.5 really match Opus for a quarter of the tokens?&lt;/p&gt;
+
+
+
+&lt;p&gt;xAI released &lt;a href="https://thenewstack.io/grok-45-opus-killer-launch/" class="local-link"&gt;Grok 4.5&lt;/a&gt; on July 8. It was trained with Cursor session data added in training. xAI says the model roughly matches Claude &lt;a href="https://thenewstack.io/claude-opus-48-release/" class="local-link"&gt;Opus 4.8&lt;/a&gt; on coding. It just uses about &lt;a href="https://x.ai/news/grok-4-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;4.2 times fewer output tokens&lt;/a&gt; to do it. xAI’s pitch is aimed straight at developers now watching their token spend.&lt;/p&gt;
+
+
+
+&lt;p&gt;Grok is also cheaper to run out of the box. It costs $2 per million input tokens and $6 per million output. Opus is $5 and $25. That is less than half the price on both.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;xAI says Grok 4.5 matches Opus 4.8 on real coding for a fraction of the tokens. I gave both the same three jobs in one Rust repo. Both models wrote nearly identical code but Opus used 4.3 times more tokens.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The benchmarks mostly back xAI’s marketing. &lt;a href="https://x.ai/news/grok-4-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Terminal-Bench 2.1&lt;/a&gt; measures how well a model handles real work at the command line. There, xAI puts Grok 4.5 at 83.3%, just above Opus 4.8’s 78.9%. SWE-Bench Pro is the harder one. It scores how well a model fixes real bugs pulled from open-source projects. On that test, Opus still wins. So the marketing claim is not “better.” It is “as good, for far less.”&lt;/p&gt;
+
+
+
+&lt;p&gt;Just by reading these benchmarks and looking at pricing, it appears as if xAI wants to take some of Anthropic’s market share. Anthropic is the current fan favorite when it comes to AI companies, so for this to become a possibility, the marketing claims will need to hold up. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;So the marketing claim is not “better.” It is “as good, for far less.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;In pursuit of this answer, I put Grok 4.5 and Claude Opus 4.8 head-to-head on three jobs in the same codebase and tracked every token.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tests"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p&gt;I used &lt;a href="https://github.com/sharkdp/fd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;fd&lt;/a&gt;, the popular Rust file-finder from sharkdp. fd is a fast, friendlier replacement for the Unix find command, and I chose it because it is real production Rust with a deep, documented bug history to pull from.&lt;/p&gt;
+
+
+
+&lt;p&gt;Grok and Opus both ran inside Cursor in Agent mode. The tool and the prompts stayed identical, so the model was the only variable. I built a new folder for each test on each model (six total), so each test was a stand-alone test.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here are the three tests I ran (in this order): &lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;a bug fix&lt;/li&gt;
+
+
+
+&lt;li&gt;a multi-file refactor&lt;/li&gt;
+
+
+
+&lt;li&gt;a feature build&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For every test, I recorded time (using a stopwatch), tokens, and cost from Cursor’s usage dashboard.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-test-1-the-bug-fix"&gt;Test 1: The bug fix&lt;/h3&gt;
+
+
+
+&lt;p&gt;The prompt:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;There is a bug in this codebase (the fd command-line tool). When you pass the –no-ignore-vcs flag, fd also stops respecting ignore files in parent directories. It should not do that. Find the root cause and fix it so –no-ignore-vcs no longer disables parent-directory ignore files. Do not change any other behavior.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For the bug fix, I checked out fd at the commit right before a real 2021 fix (issue #907), where the `–no-ignore-vcs` flag wrongly switched off ignore files in parent directories too. I reset the git history first so neither model could look up the maintainers’ answer. The refactor and the feature ran on the current fd. For every run, I recorded wall-clock time, tokens, and cost from Cursor’s usage dashboard.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both models found the bug in the same place and wrote identical fixes. Each removed exactly one line from &lt;code&gt;src/main.rs&lt;/code&gt;, the byte-for-byte same diff, and both left all 70 tests passing. I rebuilt each one, confirmed the bug was gone, and checked that the neighboring flags still behaved. I even diffed their fix against the maintainers’ real 2021 fix. The official fix from 2021 deleted three lines, while the models deleted one, but when I tested every related flag, the behavior was identical. The extra deletions were just cleanup.&lt;/p&gt;
+
+
+
+&lt;p&gt;With code being identical, the winner came down to the numbers. Opus finished in 30.43 seconds on 174.1K tokens in a single request. Grok took 46.25 seconds and 210.2K tokens across two requests.&lt;/p&gt;
+
+
+
+&lt;p&gt;On the smallest of the three tests, the Opus was the clear winner. xAI’s marketing claims don’t hold up here.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-test-2-the-refactor"&gt;Test 2: The refactor&lt;/h3&gt;
+
+
+
+&lt;p&gt;The prompt:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;In src/main.rs, the construct_config function is large and does most of its work inline. Refactor it: move it, along with any helper logic it needs, into a dedicated new module, and break the work into smaller focused functions. Do not change any behavior. Every existing test must still pass.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The code quality story remains the same from test 1. Both models produced identical results. They moved &lt;code&gt;construct_config&lt;/code&gt; into a new &lt;code&gt;config_builder.rs&lt;/code&gt;, split it into focused helpers, and left all 264 tests green. The two diffs were within six lines of each other in size.&lt;/p&gt;
+
+
+
+&lt;p&gt;The numbers tell a different story. Grok did it in 1 minute 23 seconds on 197.1K tokens. Opus took about 5.5 minutes and 953.7K tokens. That is 4.8 times the tokens for the same result. Cost tracked it: Grok’s run billed at $0.27, Opus at $1.67. Because Opus was so much faster and cheaper in the first test, these results surprised me.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-test-3-the-feature-build"&gt;Test 3: The feature build&lt;/h3&gt;
+
+
+
+&lt;p&gt;The prompt:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;Add a new –count flag to fd. When –count is passed, fd should not print the matching paths. Instead it prints a single line: the total number of entries that matched, respecting all the usual filters. Add the flag to the CLI, wire it through, and make sure all existing behavior and tests still pass.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Here’s where the code details diverge for each model. Both delivered `–count`, correctly. Grok touched six files, added a test, and updated the changelog. Opus touched seven, added more test coverage, and went one better by writing the man page entry.  Opus’s version was the more thorough of the two. I ran both binaries and confirmed `–count` returned the right number and matched `fd | wc -l`, with and without filters.&lt;/p&gt;
+
+
+
+&lt;p&gt;Though there was a slight difference in the code quality, the numbers show a much wider gap. Grok completed the feature build in 1 minute 37 seconds, using 602.6K tokens and costing $0.54. Opus did it in about five and a half minutes, using 3.2 million tokens and costing $3.25. On the largest job, Opus burned more than five times the tokens to deliver a slightly more thorough but functionally similar result.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-results"&gt;The results&lt;/h2&gt;
+
+
+
+&lt;p&gt;Here are the quick stats on where each model landed on each test&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Grok 4.5&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Opus 4.8&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug fix&lt;/td&gt;&lt;td&gt;identical fix, 70/70 tests&lt;/td&gt;&lt;td&gt;identical fix, 70/70 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Refactor&lt;/td&gt;&lt;td&gt;264/264 tests&lt;/td&gt;&lt;td&gt;264/264 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Feature&lt;/td&gt;&lt;td&gt;–count correct, 6 files&lt;/td&gt;&lt;td&gt;–count correct, 7 files&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;~3 min 46 s&lt;/td&gt;&lt;td&gt;~11 min 40 s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens&lt;/td&gt;&lt;td&gt;1.01M&lt;/td&gt;&lt;td&gt;4.33M&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost (as billed)&lt;/td&gt;&lt;td&gt;$1.00&lt;/td&gt;&lt;td&gt;$5.14&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Across the three jobs, Opus used 4.3 times as many tokens as Grok did. That is almost exactly, but marginally wider than the 4.2x gap xAI advertised. Let me say, this result was very surprising. I use Claude as my primary AI model, and while I have my issues with it, I just assume it’s always the best. I don’t know where I got that idea, but it’s what my brain tells me. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;I use Claude as my primary AI model, and while I have my issues with it, I just assume it’s always the best. I don’t know where I got that idea…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Now for some testing FYIs I think are important to mention. These are Cursor’s blended token counts, not raw API numbers, so they fold in the context each agent re-sends every turn. Grok ran on Cursor’s “fast” tier and Opus on its “thinking” tier, so some of Opus’s token pile is extended reasoning rather than waste. Grok’s dollar figures also carried a 50 percent promo. Even doubled to full rate, its three jobs came to about $2 against Opus’s $5.14. And this is three tasks in one repo, not three hundred.&lt;/p&gt;
+
+
+
+&lt;p&gt;All those things considered, the pattern held in the main scoring criteria. On the code, these two models were interchangeable: same bug fix, same refactor, same feature, with Opus a shade more thorough on the docs. &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;This leads me to conclude that Grok did the same work for roughly a quarter (23%) of the tokens, a third of the time, and a fraction of the price.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;If you’re a developer who’s no longer interested in tokenmaxxing, Grok might be the model for you. &lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-opus-coding-tokens/"&gt;Grok 4.5 vs. Claude Opus 4.8: Costs and what works, not the spec sheet&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>xAI says Grok 4.5 matches Claude Opus 4.8 on coding for a fraction of the tokens. We ran both on three real Rust jobs and tracked every token.</content:encoded>
+    </item>
+    <item>
       <title>Spark 4.2 has a feature that could retire your vector database</title>
       <link>https://web.archive.org/web/https://thenewstack.io/spark-4-2-ai-workloads/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +771,10 @@
       <category>Data</category>
       <category>Python</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22830747</guid>
-      <description>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2022/07/c372c76c-depositphotos_315346876_l-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2022/07/c372c76c-depositphotos_315346876_l.jpg" /&gt;&lt;p&gt;Apache Spark 4.2 launched last week, and it signals an expansion of Spark&amp;#8217;s decade-plus role at the center of enterprise&lt;/p&gt;
+      <description>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2022/07/c372c76c-depositphotos_315346876_l-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2022/07/c372c76c-depositphotos_315346876_l.jpg" /&gt;&lt;p&gt;Apache Spark 4.2 launched last week, and it signals an expansion of Spark&amp;#8217;s decade-plus role at the center of enterprise&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/spark-4-2-ai-workloads/"&gt;Spark 4.2 has a feature that could retire your vector database&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2022/07/c372c76c-depositphotos_315346876_l-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2022/07/c372c76c-depositphotos_315346876_l.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2022/07/c372c76c-depositphotos_315346876_l-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2022/07/c372c76c-depositphotos_315346876_l.jpg" /&gt;
 &lt;p&gt;Apache Spark 4.2 launched last week, and it signals an expansion of Spark&amp;#8217;s decade-plus role at the center of enterprise data processing&lt;/p&gt;
 
 
@@ -154,7 +897,7 @@
       <category>sponsor-aviator</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22830757</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/e1faa31b-daniel-mirlea-hy_rw4tunvu-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract aerial photograph of a deep blue stream cutting a path through dark black sand, creating a dramatic visual metaphor for shifting engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e1faa31b-daniel-mirlea-hy_rw4tunvu-unsplash.jpg" /&gt;&lt;p&gt;The pull request as we know it is roughly 20 years old, younger than the careers of many people now&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/e1faa31b-daniel-mirlea-hy_rw4tunvu-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract aerial photograph of a deep blue stream cutting a path through dark black sand, creating a dramatic visual metaphor for shifting engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e1faa31b-daniel-mirlea-hy_rw4tunvu-unsplash.jpg" /&gt;&lt;p&gt;The pull request as we know it is roughly 20 years old, younger than the careers of many people now&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/move-code-review-upstream/"&gt;Move code review before the code&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/e1faa31b-daniel-mirlea-hy_rw4tunvu-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract aerial photograph of a deep blue stream cutting a path through dark black sand, creating a dramatic visual metaphor for shifting engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e1faa31b-daniel-mirlea-hy_rw4tunvu-unsplash.jpg" /&gt;
@@ -1180,195 +1923,6 @@
       <content:encoded>AI coding agents overwhelm environment workflows. Learn how a serving model scales platform engineering for AI-native code velocity.</content:encoded>
     </item>
     <item>
-      <title>I trust Claude for everything. This test made me rethink that.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/grok-opus-coding-tokens/</link>
-      <dc:creator>Jessica Wachtel</dc:creator>
-      <pubDate>Sat, 18 Jul 2026 13:01:42 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <category>Rust</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830794</guid>
-      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="TV static glitch effect with red and blue distortion pattern" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-scaled.jpg" /&gt;&lt;p&gt;Can Grok 4.5 really match Opus for a quarter of the tokens? xAI released Grok 4.5 on July 8. It&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-opus-coding-tokens/"&gt;I trust Claude for everything. This test made me rethink that.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="TV static glitch effect with red and blue distortion pattern" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9bc73653-egor-komarov-eahtohw_wou-unsplash-scaled.jpg" /&gt;&lt;p&gt;Can Grok 4.5 really match Opus for a quarter of the tokens?&lt;/p&gt;
-
-
-
-&lt;p&gt;xAI released &lt;a href="https://thenewstack.io/grok-45-opus-killer-launch/" class="local-link"&gt;Grok 4.5&lt;/a&gt; on July 8. It was trained with Cursor session data added in training. xAI says the model roughly matches Claude &lt;a href="https://thenewstack.io/claude-opus-48-release/" class="local-link"&gt;Opus 4.8&lt;/a&gt; on coding. It just uses about &lt;a href="https://x.ai/news/grok-4-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;4.2 times fewer output tokens&lt;/a&gt; to do it. xAI’s pitch is aimed straight at developers now watching their token spend.&lt;/p&gt;
-
-
-
-&lt;p&gt;Grok is also cheaper to run out of the box. It costs $2 per million input tokens and $6 per million output. Opus is $5 and $25. That is less than half the price on both.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;xAI says Grok 4.5 matches Opus 4.8 on real coding for a fraction of the tokens. I gave both the same three jobs in one Rust repo. Both models wrote nearly identical code but Opus used 4.3 times more tokens.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The benchmarks mostly back xAI’s marketing. &lt;a href="https://x.ai/news/grok-4-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Terminal-Bench 2.1&lt;/a&gt; measures how well a model handles real work at the command line. There, xAI puts Grok 4.5 at 83.3%, just above Opus 4.8’s 78.9%. SWE-Bench Pro is the harder one. It scores how well a model fixes real bugs pulled from open-source projects. On that test, Opus still wins. So the marketing claim is not “better.” It is “as good, for far less.”&lt;/p&gt;
-
-
-
-&lt;p&gt;Just by reading these benchmarks and looking at pricing, it appears as if xAI wants to take some of Anthropic’s market share. Anthropic is the current fan favorite when it comes to AI companies, so for this to become a possibility, the marketing claims will need to hold up. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;So the marketing claim is not “better.” It is “as good, for far less.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;In pursuit of this answer, I put Grok 4.5 and Claude Opus 4.8 head-to-head on three jobs in the same codebase and tracked every token.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-tests"&gt;The tests&lt;/h2&gt;
-
-
-
-&lt;p&gt;I used &lt;a href="https://github.com/sharkdp/fd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;fd&lt;/a&gt;, the popular Rust file-finder from sharkdp. fd is a fast, friendlier replacement for the Unix find command, and I chose it because it is real production Rust with a deep, documented bug history to pull from.&lt;/p&gt;
-
-
-
-&lt;p&gt;Grok and Opus both ran inside Cursor in Agent mode. The tool and the prompts stayed identical, so the model was the only variable. I built a new folder for each test on each model (six total), so each test was a stand-alone test.&lt;/p&gt;
-
-
-
-&lt;p&gt;Here are the three tests I ran (in this order): &lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;a bug fix&lt;/li&gt;
-
-
-
-&lt;li&gt;a multi-file refactor&lt;/li&gt;
-
-
-
-&lt;li&gt;a feature build&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;For every test, I recorded time (using a stopwatch), tokens, and cost from Cursor’s usage dashboard.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-test-1-the-bug-fix"&gt;Test 1: The bug fix&lt;/h3&gt;
-
-
-
-&lt;p&gt;The prompt:&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;There is a bug in this codebase (the fd command-line tool). When you pass the –no-ignore-vcs flag, fd also stops respecting ignore files in parent directories. It should not do that. Find the root cause and fix it so –no-ignore-vcs no longer disables parent-directory ignore files. Do not change any other behavior.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;For the bug fix, I checked out fd at the commit right before a real 2021 fix (issue #907), where the `–no-ignore-vcs` flag wrongly switched off ignore files in parent directories too. I reset the git history first so neither model could look up the maintainers’ answer. The refactor and the feature ran on the current fd. For every run, I recorded wall-clock time, tokens, and cost from Cursor’s usage dashboard.&lt;/p&gt;
-
-
-
-&lt;p&gt;Both models found the bug in the same place and wrote identical fixes. Each removed exactly one line from &lt;code&gt;src/main.rs&lt;/code&gt;, the byte-for-byte same diff, and both left all 70 tests passing. I rebuilt each one, confirmed the bug was gone, and checked that the neighboring flags still behaved. I even diffed their fix against the maintainers’ real 2021 fix. The official fix from 2021 deleted three lines, while the models deleted one, but when I tested every related flag, the behavior was identical. The extra deletions were just cleanup.&lt;/p&gt;
-
-
-
-&lt;p&gt;With code being identical, the winner came down to the numbers. Opus finished in 30.43 seconds on 174.1K tokens in a single request. Grok took 46.25 seconds and 210.2K tokens across two requests.&lt;/p&gt;
-
-
-
-&lt;p&gt;On the smallest of the three tests, the Opus was the clear winner. xAI’s marketing claims don’t hold up here.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-test-2-the-refactor"&gt;Test 2: The refactor&lt;/h3&gt;
-
-
-
-&lt;p&gt;The prompt:&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;In src/main.rs, the construct_config function is large and does most of its work inline. Refactor it: move it, along with any helper logic it needs, into a dedicated new module, and break the work into smaller focused functions. Do not change any behavior. Every existing test must still pass.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;The code quality story remains the same from test 1. Both models produced identical results. They moved &lt;code&gt;construct_config&lt;/code&gt; into a new &lt;code&gt;config_builder.rs&lt;/code&gt;, split it into focused helpers, and left all 264 tests green. The two diffs were within six lines of each other in size.&lt;/p&gt;
-
-
-
-&lt;p&gt;The numbers tell a different story. Grok did it in 1 minute 23 seconds on 197.1K tokens. Opus took about 5.5 minutes and 953.7K tokens. That is 4.8 times the tokens for the same result. Cost tracked it: Grok’s run billed at $0.27, Opus at $1.67. Because Opus was so much faster and cheaper in the first test, these results surprised me.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-test-3-the-feature-build"&gt;Test 3: The feature build&lt;/h3&gt;
-
-
-
-&lt;p&gt;The prompt:&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;Add a new –count flag to fd. When –count is passed, fd should not print the matching paths. Instead it prints a single line: the total number of entries that matched, respecting all the usual filters. Add the flag to the CLI, wire it through, and make sure all existing behavior and tests still pass.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;Here’s where the code details diverge for each model. Both delivered `–count`, correctly. Grok touched six files, added a test, and updated the changelog. Opus touched seven, added more test coverage, and went one better by writing the man page entry.  Opus’s version was the more thorough of the two. I ran both binaries and confirmed `–count` returned the right number and matched `fd | wc -l`, with and without filters.&lt;/p&gt;
-
-
-
-&lt;p&gt;Though there was a slight difference in the code quality, the numbers show a much wider gap. Grok completed the feature build in 1 minute 37 seconds, using 602.6K tokens and costing $0.54. Opus did it in about five and a half minutes, using 3.2 million tokens and costing $3.25. On the largest job, Opus burned more than five times the tokens to deliver a slightly more thorough but functionally similar result.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-results"&gt;The results&lt;/h2&gt;
-
-
-
-&lt;p&gt;Here are the quick stats on where each model landed on each test&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Grok 4.5&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Opus 4.8&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug fix&lt;/td&gt;&lt;td&gt;identical fix, 70/70 tests&lt;/td&gt;&lt;td&gt;identical fix, 70/70 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Refactor&lt;/td&gt;&lt;td&gt;264/264 tests&lt;/td&gt;&lt;td&gt;264/264 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Feature&lt;/td&gt;&lt;td&gt;–count correct, 6 files&lt;/td&gt;&lt;td&gt;–count correct, 7 files&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;~3 min 46 s&lt;/td&gt;&lt;td&gt;~11 min 40 s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens&lt;/td&gt;&lt;td&gt;1.01M&lt;/td&gt;&lt;td&gt;4.33M&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost (as billed)&lt;/td&gt;&lt;td&gt;$1.00&lt;/td&gt;&lt;td&gt;$5.14&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;Across the three jobs, Opus used 4.3 times as many tokens as Grok did. That is almost exactly, but marginally wider than the 4.2x gap xAI advertised. Let me say, this result was very surprising. I use Claude as my primary AI model, and while I have my issues with it, I just assume it’s always the best. I don’t know where I got that idea, but it’s what my brain tells me. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;I use Claude as my primary AI model, and while I have my issues with it, I just assume it’s always the best. I don’t know where I got that idea…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Now for some testing FYIs I think are important to mention. These are Cursor’s blended token counts, not raw API numbers, so they fold in the context each agent re-sends every turn. Grok ran on Cursor’s “fast” tier and Opus on its “thinking” tier, so some of Opus’s token pile is extended reasoning rather than waste. Grok’s dollar figures also carried a 50 percent promo. Even doubled to full rate, its three jobs came to about $2 against Opus’s $5.14. And this is three tasks in one repo, not three hundred.&lt;/p&gt;
-
-
-
-&lt;p&gt;All those things considered, the pattern held in the main scoring criteria. On the code, these two models were interchangeable: same bug fix, same refactor, same feature, with Opus a shade more thorough on the docs. &lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;This leads me to conclude that Grok did the same work for roughly a quarter (23%) of the tokens, a third of the time, and a fraction of the price.&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;If you’re a developer who’s no longer interested in tokenmaxxing, Grok might be the model for you. &lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-opus-coding-tokens/"&gt;I trust Claude for everything. This test made me rethink that.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>xAI says Grok 4.5 matches Claude Opus 4.8 on coding for a fraction of the tokens. We ran both on three real Rust jobs and tracked every token.</content:encoded>
-    </item>
-    <item>
       <title>Musk open-sourced Grok Build to fight Anthropic. Anthropic pays him $1.25 billion a month.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/musk-spacexai-grok-open-source/</link>
       <dc:creator>Matthew Burns</dc:creator>
@@ -1976,146 +2530,6 @@ json
       <content:encoded>AI agents need more than raw data. Learn how structured evidence packets ensure trustworthy, auditable, and verifiable AI decision-making.</content:encoded>
     </item>
     <item>
-      <title>Arm and Google offer a smarter option to run agentic AI workloads</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cpu-agentic-ai-axion/</link>
-      <dc:creator>Poornima Apte</dc:creator>
-      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>FinOps</category>
-      <category>sponsor-arm</category>
-      <category>sponsor-google</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830632</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Warp speed light streaks radiating outward on blue background" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-scaled.jpg" /&gt;&lt;p&gt;As enterprise leaders start deploying agentic workflows, they must establish the infrastructure to build and run them, one capable of&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cpu-agentic-ai-axion/"&gt;Arm and Google offer a smarter option to run agentic AI workloads&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Warp speed light streaks radiating outward on blue background" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;As enterprise leaders start deploying agentic workflows&lt;/strong&gt;, they must establish the infrastructure to build and run them, one capable of fluidly routing a diverse set of workloads across the most efficient compute resources.&lt;/p&gt;
-
-
-
-&lt;p&gt;This requires the ability to manage heterogeneous infrastructure, utilizing high-performance accelerators for large-scale training and inference, and utilizing CPUs for the critical orchestration layer of agentic AI. As autonomous agents become more prevalent, CPUs are ideally suited for managing agent state, semantic routing, tool selection, and spinning up secure, isolated sandboxes to safely execute untrusted generated code.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-google-axion-advantage"&gt;The Google Axion advantage&lt;/h2&gt;
-
-
-
-&lt;p&gt;Google Cloud, with its workload-optimized Compute Engine portfolio, which includes general-purpose and specialized offerings, shines in addressing this need.&lt;/p&gt;
-
-
-
-&lt;p&gt;Google Axion processors within this portfolio comprise a family of custom Arm processors engineered for performance, efficiency, and versatility, with a feature set that supports general-purpose workloads, CPU-based AI workloads, and other specialized tasks requiring Arm-native compatibility and direct hardware access.&lt;/p&gt;
-
-
-
-&lt;p&gt;Axion is Google&amp;#8217;s first custom Arm-based server CPU, &lt;a href="https://cloud.google.com/transform/axion-arm-cpus-custom-silicon-advantage-history?e=48754805" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;introduced in April 2024&lt;/a&gt;. It is designed specifically for hyperscale cloud and AI-era data center workloads.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Axion also leverages more than a decade of Google&amp;#8217;s custom silicon innovation. This enables Google to more readily incorporate customer feedback into chip designs and address the more general, though complex, needs of CPUs.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-matching-workload-type-to-the-processor"&gt;&lt;strong&gt;Matching workload type to the processor&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/bhumikpatel?utm_source=share_via&amp;amp;utm_content=profile&amp;amp;utm_medium=member_ios" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bhumik Patel&lt;/a&gt;, Director of Software Ecosystem Development at Arm, says the key to all of this is to match the workload type as closely as possible to computing capacity. CPU-powered cloud instances are a practical option for certain AI workloads, particularly those with smaller datasets or less complex models.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Agentic tasks such as orchestrating, talking to APIs, and memory management are all ones CPUs are good at, so it&amp;#8217;s a distributed and concurrent AI workload,&amp;rdquo; Patel tells &lt;em&gt;The New Stack&lt;/em&gt;. Intelligent workload-processing apportionment makes agentic AI more cost-effective and efficient than running all workloads on a single compute type.&lt;/p&gt;
-
-
-
-&lt;p&gt;This efficiency is quantifiable. The &lt;a href="https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google Kubernetes Engine Agent Sandbox&lt;/a&gt; running on Google Axion N4A provides up to &lt;a href="https://cloud.google.com/blog/products/compute/ai-infrastructure-at-next26" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;30% better price performance&lt;/a&gt; than the next hyperscale cloud provider, says Google&amp;#8217;s &lt;a href="https://www.linkedin.com/in/mfarhat?utm_source=share_via&amp;amp;utm_content=profile&amp;amp;utm_medium=member_ios" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mo Farhat&lt;/a&gt;, Axion Group Product Manager. The GKE Sandbox is an open-source Kubernetes-native primitive designed to execute untrusted AI-generated code safely.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Agentic tasks such as orchestrating, talking to APIs, and memory management are all ones CPUs are good at, so it&amp;#8217;s a distributed and concurrent AI workload.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Intelligent workload decoupling makes agentic AI significantly more cost-effective. Google Cloud&amp;rsquo;s fluid computing foundation enables engineering teams to reserve specialized accelerators strictly for heavy reasoning and generative workloads, while leveraging Axion CPUs for high-concurrency orchestration and context management.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-secure-execution-with-the-gke-agent-sandbox"&gt;&lt;strong&gt;Secure execution with the GKE Agent Sandbox&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;As agents begin to generate and execute dynamic code autonomously, security is non-negotiable. Running AI-generated code directly in a standard cluster poses severe security risks, as untrusted code could potentially access other apps or the underlying cluster node.&lt;/p&gt;
-
-
-
-&lt;p&gt;The Google Kubernetes Engine (GKE) Agent Sandbox resolves this by providing an isolated environment for safely executing untrusted code. Running on Axion-powered N4A instances, the sandbox provides up to 30% better price performance than comparable workloads on other hyperscalers.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The vertical stack isolates sensitive tasks at the kernel level with sub-second latency.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The vertical stack isolates sensitive tasks at the kernel level with sub-second latency.&amp;nbsp; GKE Agent Sandbox natively supports &lt;a href="https://gvisor.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gVisor&lt;/a&gt; (an open-source application kernel developed by Google that acts as a secure sandbox for containers) and default-deny Kubernetes network policy. Agent Sandbox provides pluggable interfaces for open-source sandboxes, such as &lt;a href="https://katacontainers.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kata Containers&lt;/a&gt;, enabling users to customize their kernel isolation.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Powered by gVisor technologies with software support from Arm&amp;rsquo;s architecture, the sandboxes intercept and validate system calls before they reach the host kernel. These isolated execution environments enable deployment of autonomous systems at scale without sacrificing performance or operational agility.&lt;/p&gt;
-
-
-
-&lt;p&gt;To manage resources efficiently when agents sit idle, GKE Pod snapshots allow users to save and restore the exact process state of sandboxed environments. This functionality provides four major architectural benefits:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Fast startup:&lt;/strong&gt; Reduces sandbox startup time by restoring from a pre-warmed snapshot rather than initializing from scratch.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Long-running agents:&lt;/strong&gt; Pauses sandboxes that take a long time to run and resumes them later&amp;mdash;or moves them across nodes&amp;mdash;without losing progress.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Stateful workloads:&lt;/strong&gt; Persist an agent&amp;#8217;s context, such as conversation history or intermediate calculations.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Reproducibility:&lt;/strong&gt; Captures a specific state to use as a baseline for spinning up multiple new sandboxes.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-getting-started"&gt;&lt;strong&gt;Getting started&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;As token generation, autonomous workflows, and continuous agent interactions grow exponentially, relying exclusively on accelerator-backed stacks for every task will become financially and architecturally unsustainable.&lt;/p&gt;
-
-
-
-&lt;p&gt;The combination of CPU and accelerator execution accounts for bursts in agent activity and unpredictable demand spikes by eliminating the inference tax. Google Cloud&amp;rsquo;s full-stack advantage enables organizations to deploy the right machine for the job.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;By using Google Axion and GKE Agent Sandbox, builders can optimize total cost of ownership and security while maintaining the performance required for AI agents.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Learn more about &lt;/em&gt;&lt;/strong&gt;&lt;a href="https://cloud.google.com/products/axion" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Google Axion&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cpu-agentic-ai-axion/"&gt;Arm and Google offer a smarter option to run agentic AI workloads&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Here&amp;#039;s how Google Axion CPUs and the GKE Agent Sandbox optimize agentic AI costs.</content:encoded>
-    </item>
-    <item>
       <title>From intent to enforcement: Lessons from operating Kubernetes controllers at scale</title>
       <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-controllers-at-scale/</link>
       <dc:creator>Sri Saran Balaji Vellore Rajakumar</dc:creator>
@@ -2300,6 +2714,146 @@ json
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-controllers-at-scale/"&gt;From intent to enforcement: Lessons from operating Kubernetes controllers at scale&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Learn how Amazon EKS scales Kubernetes controllers, manages state memory, and ensures correct network policy enforcement at scale.</content:encoded>
+    </item>
+    <item>
+      <title>Arm and Google offer a smarter option to run agentic AI workloads</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cpu-agentic-ai-axion/</link>
+      <dc:creator>Poornima Apte</dc:creator>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>FinOps</category>
+      <category>sponsor-arm</category>
+      <category>sponsor-google</category>
+      <category>Sponsored</category>
+      <category>sponsored-post</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830632</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Warp speed light streaks radiating outward on blue background" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-scaled.jpg" /&gt;&lt;p&gt;As enterprise leaders start deploying agentic workflows, they must establish the infrastructure to build and run them, one capable of&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cpu-agentic-ai-axion/"&gt;Arm and Google offer a smarter option to run agentic AI workloads&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Warp speed light streaks radiating outward on blue background" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/43ff9957-getty-images-n4uygggomes-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;As enterprise leaders start deploying agentic workflows&lt;/strong&gt;, they must establish the infrastructure to build and run them, one capable of fluidly routing a diverse set of workloads across the most efficient compute resources.&lt;/p&gt;
+
+
+
+&lt;p&gt;This requires the ability to manage heterogeneous infrastructure, utilizing high-performance accelerators for large-scale training and inference, and utilizing CPUs for the critical orchestration layer of agentic AI. As autonomous agents become more prevalent, CPUs are ideally suited for managing agent state, semantic routing, tool selection, and spinning up secure, isolated sandboxes to safely execute untrusted generated code.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-google-axion-advantage"&gt;The Google Axion advantage&lt;/h2&gt;
+
+
+
+&lt;p&gt;Google Cloud, with its workload-optimized Compute Engine portfolio, which includes general-purpose and specialized offerings, shines in addressing this need.&lt;/p&gt;
+
+
+
+&lt;p&gt;Google Axion processors within this portfolio comprise a family of custom Arm processors engineered for performance, efficiency, and versatility, with a feature set that supports general-purpose workloads, CPU-based AI workloads, and other specialized tasks requiring Arm-native compatibility and direct hardware access.&lt;/p&gt;
+
+
+
+&lt;p&gt;Axion is Google&amp;#8217;s first custom Arm-based server CPU, &lt;a href="https://cloud.google.com/transform/axion-arm-cpus-custom-silicon-advantage-history?e=48754805" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;introduced in April 2024&lt;/a&gt;. It is designed specifically for hyperscale cloud and AI-era data center workloads.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Axion also leverages more than a decade of Google&amp;#8217;s custom silicon innovation. This enables Google to more readily incorporate customer feedback into chip designs and address the more general, though complex, needs of CPUs.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-matching-workload-type-to-the-processor"&gt;&lt;strong&gt;Matching workload type to the processor&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/bhumikpatel?utm_source=share_via&amp;amp;utm_content=profile&amp;amp;utm_medium=member_ios" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bhumik Patel&lt;/a&gt;, Director of Software Ecosystem Development at Arm, says the key to all of this is to match the workload type as closely as possible to computing capacity. CPU-powered cloud instances are a practical option for certain AI workloads, particularly those with smaller datasets or less complex models.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Agentic tasks such as orchestrating, talking to APIs, and memory management are all ones CPUs are good at, so it&amp;#8217;s a distributed and concurrent AI workload,&amp;rdquo; Patel tells &lt;em&gt;The New Stack&lt;/em&gt;. Intelligent workload-processing apportionment makes agentic AI more cost-effective and efficient than running all workloads on a single compute type.&lt;/p&gt;
+
+
+
+&lt;p&gt;This efficiency is quantifiable. The &lt;a href="https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google Kubernetes Engine Agent Sandbox&lt;/a&gt; running on Google Axion N4A provides up to &lt;a href="https://cloud.google.com/blog/products/compute/ai-infrastructure-at-next26" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;30% better price performance&lt;/a&gt; than the next hyperscale cloud provider, says Google&amp;#8217;s &lt;a href="https://www.linkedin.com/in/mfarhat?utm_source=share_via&amp;amp;utm_content=profile&amp;amp;utm_medium=member_ios" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mo Farhat&lt;/a&gt;, Axion Group Product Manager. The GKE Sandbox is an open-source Kubernetes-native primitive designed to execute untrusted AI-generated code safely.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Agentic tasks such as orchestrating, talking to APIs, and memory management are all ones CPUs are good at, so it&amp;#8217;s a distributed and concurrent AI workload.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Intelligent workload decoupling makes agentic AI significantly more cost-effective. Google Cloud&amp;rsquo;s fluid computing foundation enables engineering teams to reserve specialized accelerators strictly for heavy reasoning and generative workloads, while leveraging Axion CPUs for high-concurrency orchestration and context management.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-secure-execution-with-the-gke-agent-sandbox"&gt;&lt;strong&gt;Secure execution with the GKE Agent Sandbox&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;As agents begin to generate and execute dynamic code autonomously, security is non-negotiable. Running AI-generated code directly in a standard cluster poses severe security risks, as untrusted code could potentially access other apps or the underlying cluster node.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Google Kubernetes Engine (GKE) Agent Sandbox resolves this by providing an isolated environment for safely executing untrusted code. Running on Axion-powered N4A instances, the sandbox provides up to 30% better price performance than comparable workloads on other hyperscalers.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The vertical stack isolates sensitive tasks at the kernel level with sub-second latency.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The vertical stack isolates sensitive tasks at the kernel level with sub-second latency.&amp;nbsp; GKE Agent Sandbox natively supports &lt;a href="https://gvisor.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gVisor&lt;/a&gt; (an open-source application kernel developed by Google that acts as a secure sandbox for containers) and default-deny Kubernetes network policy. Agent Sandbox provides pluggable interfaces for open-source sandboxes, such as &lt;a href="https://katacontainers.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kata Containers&lt;/a&gt;, enabling users to customize their kernel isolation.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Powered by gVisor technologies with software support from Arm&amp;rsquo;s architecture, the sandboxes intercept and validate system calls before they reach the host kernel. These isolated execution environments enable deployment of autonomous systems at scale without sacrificing performance or operational agility.&lt;/p&gt;
+
+
+
+&lt;p&gt;To manage resources efficiently when agents sit idle, GKE Pod snapshots allow users to save and restore the exact process state of sandboxed environments. This functionality provides four major architectural benefits:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fast startup:&lt;/strong&gt; Reduces sandbox startup time by restoring from a pre-warmed snapshot rather than initializing from scratch.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Long-running agents:&lt;/strong&gt; Pauses sandboxes that take a long time to run and resumes them later&amp;mdash;or moves them across nodes&amp;mdash;without losing progress.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Stateful workloads:&lt;/strong&gt; Persist an agent&amp;#8217;s context, such as conversation history or intermediate calculations.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Reproducibility:&lt;/strong&gt; Captures a specific state to use as a baseline for spinning up multiple new sandboxes.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-getting-started"&gt;&lt;strong&gt;Getting started&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;As token generation, autonomous workflows, and continuous agent interactions grow exponentially, relying exclusively on accelerator-backed stacks for every task will become financially and architecturally unsustainable.&lt;/p&gt;
+
+
+
+&lt;p&gt;The combination of CPU and accelerator execution accounts for bursts in agent activity and unpredictable demand spikes by eliminating the inference tax. Google Cloud&amp;rsquo;s full-stack advantage enables organizations to deploy the right machine for the job.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;By using Google Axion and GKE Agent Sandbox, builders can optimize total cost of ownership and security while maintaining the performance required for AI agents.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Learn more about &lt;/em&gt;&lt;/strong&gt;&lt;a href="https://cloud.google.com/products/axion" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Google Axion&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cpu-agentic-ai-axion/"&gt;Arm and Google offer a smarter option to run agentic AI workloads&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Here&amp;#039;s how Google Axion CPUs and the GKE Agent Sandbox optimize agentic AI costs.</content:encoded>
     </item>
     <item>
       <title>Microsoft just open-sourced the app that put Comic Sans on the map</title>
@@ -3806,621 +4360,6 @@ return response;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-no-laws/"&gt;&amp;#8220;There are no laws, only suggestions&amp;#8221;: What AI agents do with your instructions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Why AI agents delete production databases despite direct commands, and how to build the structural safeguards needed to stop them.</content:encoded>
-    </item>
-    <item>
-      <title>Kubernetes won the container decade. Google’s Agent Substrate wants the next one.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-ai-agent-runtime/</link>
-      <dc:creator>Janakiram MSV</dc:creator>
-      <pubDate>Wed, 15 Jul 2026 18:17:02 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Kubernetes</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830332</guid>
-      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/07/002c10b3-designiments-1h9npslkf_g-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract blurred glowing shapes in pink, yellow, and blue on black background" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/002c10b3-designiments-1h9npslkf_g-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google made GKE Agent Sandbox generally available in May 2026 and, in the same post, introduced a second project called&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/"&gt;Kubernetes won the container decade. Google&amp;#8217;s Agent Substrate wants the next one.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/07/002c10b3-designiments-1h9npslkf_g-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract blurred glowing shapes in pink, yellow, and blue on black background" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/002c10b3-designiments-1h9npslkf_g-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google made &lt;a href="https://agent-sandbox.sigs.k8s.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GKE Agent Sandbox&lt;/a&gt; generally available in May 2026 and, in the same post, &lt;a href="https://cloud.google.com/blog/products/containers-kubernetes/bringing-you-agent-sandbox-on-gke-and-agent-substrate" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;introduced&lt;/a&gt; a second project called &lt;a href="https://github.com/agent-substrate/substrate" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Substrate&lt;/a&gt;. These two announcements concede a point that Kubernetes veterans have been reluctant to call out. &lt;/p&gt;
-
-
-
-&lt;p&gt;That indirect admission is that the platform that won the container decade is not the right control plane for AI agents. Agent Sandbox provides agents with a secure environment to run untrusted code. Agent Substrate adds a scheduling layer that routes around the Kubernetes control plane because the API server was never designed for how agents behave.&lt;/p&gt;
-
-
-
-&lt;p&gt;Compare agents to processes in an operating system rather than services in a data center, and the mismatch is obvious. A modern OS runs thousands of processes that spend most of their life asleep. It wakes each one on an event, hands it a slice of a CPU, then pages its idle memory out to disk to make room for the next. Agents behave almost exactly like those processes. Kubernetes was originally created to manage a fixed set of long-running, replicated services. This fundamental design explains why much of the agent infrastructure now runs on Kubernetes rather than being integrated into it as one of the workloads, such as a Deployment or a StatefulSet.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-an-agent-actually-is-as-a-workload"&gt;What an agent actually is as a workload&lt;/h2&gt;
-
-
-
-&lt;p&gt;An agent is a long-running, stateful session that stays idle for most of its life, wakes to execute a burst of code, then goes quiet again. The code it runs is generated by a model at runtime. The host has to treat it as untrusted by default. Each session needs a stable identity, the ability to pause and resume without losing memory, and hard isolation from its neighbors.&lt;/p&gt;
-
-
-
-&lt;p&gt;Think of the agent as a process in a time-sharing OS. Just as the scheduler suspends a sleeping process and restores it the moment a keystroke arrives, an agent runtime must hibernate an idle session and restore it with its working memory intact. The wake path is where the user is waiting, so every millisecond on it is felt.&lt;/p&gt;
-
-
-
-&lt;p&gt;Consider a coding agent that a developer leaves open across an afternoon. It runs for ten seconds when a prompt lands, then waits twenty minutes for the next one. Multiply that by every developer on a team, and you have thousands of sessions that are alive on paper and asleep in practice.&lt;/p&gt;
-
-
-
-&lt;p&gt;The hyperscalers have already &lt;a href="https://thenewstack.io/agent-session-aware-runtime/" class="local-link"&gt;moved in this direction&lt;/a&gt;. The session-aware, isolated runtime for agents has now become the fourth compute offering in addition to virtual machines, containers, and serverless.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-sessions-that-sleep-for-hours"&gt;Sessions that sleep for hours&lt;/h3&gt;
-
-
-
-&lt;p&gt;Agent sessions are bursty in a way web services never are. Holding a full Pod for each idle session wastes the memory and CPU that the Pod reserves, which is why the emerging runtimes snapshot idle sessions out of compute entirely.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-code-the-platform-did-not-write"&gt;Code the platform did not write&lt;/h3&gt;
-
-
-
-&lt;p&gt;Because a model writes the code an agent executes, the runtime cannot assume the workload is well-behaved. It must be able to run a process capable of performing any action, which moves isolation responsibilities from the container boundary to the kernel boundary.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-state-that-has-to-survive-a-nap"&gt;State that has to survive a nap&lt;/h3&gt;
-
-
-
-&lt;p&gt;An agent that loses its context each time it suspends becomes unusable. So, the runtime must save its volatile RAM and filesystem state during hibernation and restore them upon resuming.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-the-kubernetes-control-plane-sits-in-the-wrong-place"&gt;Why the Kubernetes control plane sits in the wrong place&lt;/h2&gt;
-
-
-
-&lt;p&gt;Kubernetes schedules work through a central API server and a scheduler designed for a modest number of long-lived Pods. That design assumes placement decisions are rare and durable. Agents violate the assumption by generating a constant stream of fine-grained scheduling events, making the control plane the bottleneck rather than the referee.&lt;/p&gt;
-
-
-
-&lt;p&gt;The scheduling policies are the first to be strained. Researchers studying agent scheduling have &lt;a href="https://arxiv.org/abs/2606.21401" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documented&lt;/a&gt; that the round-robin and random placement strategies common in Kubernetes clusters work well when requests are short and arrival rates are high, because a bad decision is amortized quickly. Agent requests run longer and arrive less often, so a poor routing choice lingers, amplifying tail latency for the user stuck behind it.&lt;/p&gt;
-
-
-
-&lt;p&gt;The second pressure point is the API server itself. Storing every agent, active or idle, as a Kubernetes object would mean millions of resources in a system never sized for that many. Agent Substrate’s own architecture notes are blunt about this, acknowledging that there is no clever way to make the standard control plane hold that many objects, so the runtime keeps most agents out of it. Routing takes a similar detour, with a dedicated networking layer that sends each request straight to the correct session and wakes it if it is asleep.&lt;/p&gt;
-
-
-
-&lt;p&gt;Kubernetes is a fine data center scheduler, and it stays useful for provisioning the machines underneath. It is the wrong scheduler for a workload that looks like a swarm of sleeping processes.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agent-sandbox-a-secure-box-for-untrusted-code"&gt;Agent Sandbox, a secure box for untrusted code&lt;/h2&gt;
-
-
-
-&lt;p&gt;Agent Sandbox is the layer that answers the isolation problem. It is an open-source execution environment built on Kubernetes that gives each agent a hardened place to run model-generated code, and Google moved it to general availability after roughly 16x growth in GKE sandboxes in under five months.&lt;/p&gt;
-
-
-
-&lt;p&gt;The mental model is a jail rather than a container. A normal container shares the host kernel and trusts the workload to stay in its lane, whereas a sandbox assumes the workload is hostile and puts a real boundary around it. Agent Sandbox reaches that boundary through &lt;a href="https://gvisor.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gVisor&lt;/a&gt; by default, adds a default-deny network policy, and exposes a pluggable interface so teams can swap in Kata Containers for full kernel isolation.&lt;/p&gt;
-
-
-
-&lt;p&gt;Customers such as LangChain and Lovable are already running millions of agents on it, which is what forced the performance work. The result is a runtime that treats security and speed as the same problem rather than opposing ones.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-warm-pools-for-the-cold-start-problem"&gt;Warm pools for the cold-start problem&lt;/h3&gt;
-
-
-
-&lt;p&gt;Spinning up a fresh sandbox per request would add seconds of latency, so Agent Sandbox keeps a warm pool of pre-provisioned replicas. Google reports the API can allocate 300 sandboxes per second per cluster, with 90 percent of allocations finishing in 200 milliseconds.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-pod-snapshots-for-idle-sessions"&gt;Pod snapshots for idle sessions&lt;/h3&gt;
-
-
-
-&lt;p&gt;Idle agents are suspended via Pod snapshots and resumed on demand in seconds, freeing the underlying compute rather than paying to keep a sleeping session resident.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-kernel-isolation-as-the-default"&gt;Kernel isolation as the default&lt;/h3&gt;
-
-
-
-&lt;p&gt;The isolation is not an add-on for the paranoid. gVisor and network lockdown ship as the baseline, on the assumption that any agent might run something it should not.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agent-substrate-a-runtime-for-millions-of-mostly-idle-agents"&gt;Agent Substrate, a runtime for millions of mostly-idle agents&lt;/h2&gt;
-
-
-
-&lt;p&gt;If Agent Sandbox is the secure box, Agent Substrate is the runtime that decides which agent runs where. It reuses the secure runtime and snapshotting from Agent Sandbox and pairs them with a small, focused control plane that sits alongside a Kubernetes cluster, taking the standard control plane off the critical path.&lt;/p&gt;
-
-
-
-&lt;p&gt;The trick is virtual memory overcommit applied to compute. An OS lets programs address far more memory than the machine physically holds by paging cold pages to disk. Agent Substrate does the same with sessions, multiplexing a large registry of stateful actors onto a much smaller pool of pre-warmed worker Pods and snapshotting the idle ones out to storage. The project reports 30x or more oversubscription with sub-second activation, because the worker Pods are already running when an event arrives and never wait on the Kubernetes scheduler.&lt;/p&gt;
-
-
-
-&lt;p&gt;The developer-facing shape consists of two custom resources, a WorkerPool that defines the ready compute, and an ActorTemplate that defines the agents. Substrate is framework-agnostic, running ADK, LangChain, Claude Code, or any OCI container as an actor, which is what lets it host full agent harnesses rather than single agents.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-a-control-plane-beside-kubernetes-not-inside-it"&gt;A control plane beside Kubernetes, not inside it&lt;/h3&gt;
-
-
-
-&lt;p&gt;Substrate does not replace Kubernetes. It uses Pods and autoscaling for provisioning and layers its own scheduler on top for the agent-specific decisions Kubernetes handles poorly.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-the-path-to-production-through-kagent"&gt;The path to production through kagent&lt;/h3&gt;
-
-
-
-&lt;p&gt;Solo.io has already wired Substrate into &lt;a href="https://www.solo.io/blog/agent-substrate-powers-kubernetes-agents-with-kagent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;kagent&lt;/a&gt;, its Kubernetes-native agent platform, exposing Agent Substrate as a selectable runtime so an OpenClaw-style harness can be scheduled as an actor onto a worker pool from a single UI.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-choosing-where-your-agents-run"&gt;Choosing where your agents run&lt;/h2&gt;
-
-
-
-&lt;p&gt;The two projects are not competitors, and neither replaces the cluster underneath. The decision is about which layer owns which job, and most real deployments will use all three together.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Requirement&lt;/th&gt;&lt;th&gt;Recommended layer&lt;/th&gt;&lt;th&gt;Rationale&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Running untrusted model-generated code safely&lt;/td&gt;&lt;td&gt;Agent Sandbox&lt;/td&gt;&lt;td&gt;Kernel isolation via gVisor, though it adds overhead&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Millions of idle sessions on limited hardware&lt;/td&gt;&lt;td&gt;Agent Substrate&lt;/td&gt;&lt;td&gt;Actor multiplexing trades some cold-path latency for density&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Provisioning machines and long-lived services&lt;/td&gt;&lt;td&gt;Kubernetes&lt;/td&gt;&lt;td&gt;Proven at scale, but not tuned for bursty agents&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;A production agent platform with a UI&lt;/td&gt;&lt;td&gt;kagent on Substrate&lt;/td&gt;&lt;td&gt;Packages the runtime, still early and evolving&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;In practice, most teams will not pick just one of these. A team running coding agents at scale is likely to sandbox the code, schedule it through Substrate, and let Kubernetes provision the nodes beneath both.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-this-means-to-the-cloud-native-ecosystem"&gt;What this means to the Cloud Native ecosystem&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anyone who has managed a busy cluster will easily recognize this pattern. The agent is a process, the worker pool is a set of CPU cores, snapshotting an idle session is paging memory to disk, and oversubscription is the same bet virtual memory has always made. Kubernetes remains the underlying machine, and the layer that schedules agents is being rebuilt on top of it to better match how agents actually run.&lt;/p&gt;
-
-
-
-&lt;p&gt;The open question is who owns that layer. Agent Substrate is a first look rather than a finished product; kagent is early, and rival runtimes will arrive as the cost of idle agents becomes a line item that platform teams can no longer ignore. The next thing worth watching is whether this agent control plane consolidates around a single open project, the way container orchestration once settled on Kubernetes. The alternative is that every hyperscaler ships its own, and the fragmentation that agents were meant to escape returns one layer up.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/"&gt;Kubernetes won the container decade. Google&amp;#8217;s Agent Substrate wants the next one.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google&amp;#039;s Agent Sandbox and Substrate concede Kubernetes was never built for AI agents. Inside the new runtime taking shape on top of the cluster.</content:encoded>
-    </item>
-    <item>
-      <title>Trust, transactions and tokenomics: AI agent infrastructure begins to standardize</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/x402-foundation-ai-agents-standards/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Wed, 15 Jul 2026 18:03:22 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Compliance</category>
-      <category>FinOps</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830197</guid>
-      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/07/b9f5857a-ruliff-andrean-gdq6essrizg-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A flat-illustration graphic of a terracotta wallet with a maroon flap, secured by a padlock and chain, resting on gold coins marked with dollar and hash symbols, depicting tokens, trust, and transactions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/b9f5857a-ruliff-andrean-gdq6essrizg-unsplash-scaled.jpg" /&gt;&lt;p&gt;As AI agents gain greater autonomy across the internet, a system of governance is emerging around three questions: how much&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/x402-foundation-ai-agents-standards/"&gt;Trust, transactions and tokenomics: AI agent infrastructure begins to standardize&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/07/b9f5857a-ruliff-andrean-gdq6essrizg-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A flat-illustration graphic of a terracotta wallet with a maroon flap, secured by a padlock and chain, resting on gold coins marked with dollar and hash symbols, depicting tokens, trust, and transactions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/b9f5857a-ruliff-andrean-gdq6essrizg-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;As AI agents gain greater autonomy across the internet&lt;/strong&gt;, a system of governance is emerging around three questions: how much they cost to run, whether their behavior can be trusted, and how they pay their way.&lt;/p&gt;
-
-
-
-&lt;p&gt;Token cost management is perhaps one of the biggest defining themes of &lt;a href="https://thenewstack.io/biggest-ai-moments-2026/" class="local-link"&gt;AI&amp;#8217;s turbulent year so far&lt;/a&gt;, with recent data &lt;a href="https://thenewstack.io/ramp-ai-token-spend-management/" class="local-link"&gt;suggesting that average monthly token spend&lt;/a&gt; increased 13-fold in the year leading up to April 2026 &amp;#8212; with costs among heavy users surging by 50% or more in a single quarter. For enterprises and hobbyists trying to budget their AI spend, that kind of volatility makes token costs one of the hardest line items to plan for.&lt;/p&gt;
-
-
-
-&lt;p&gt;Elsewhere, trust in AI still runs largely on a company&amp;#8217;s word. A kettle carries a safety mark, while a building gets signed off before anyone moves in. AI has no equivalent, with nobody downstream able to verify a company&amp;#8217;s claim that its system is safe, fair, or compliant.&lt;/p&gt;
-
-
-
-&lt;p&gt;And that is why the Linux Foundation debuted two new governance bodies back in June: &lt;a href="https://thenewstack.io/tokenomics-foundation/" class="local-link"&gt;the Tokenomics Foundation&lt;/a&gt;, designed to standardize how token costs are measured and compared, backed by the likes of Google, Microsoft, and Salesforce; and &lt;a href="https://thenewstack.io/google-microsoft-and-openai-join-forces-to-help-create-ais-missing-trust-layer/" class="local-link"&gt;the Appia Foundation&lt;/a&gt;, which is all about making AI safety and compliance claims verifiable, with backing from industry heavyweights such as Google, Microsoft, and OpenAI. &lt;/p&gt;
-
-
-
-&lt;p&gt;Now, the Linux Foundation is adding a new leg to that stool in the form of the &lt;a href="https://x402.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;X402 Foundation&lt;/a&gt;, which focuses on &amp;#8220;internet-native payments&amp;#8221; for transactions among agents, APIs, and applications.&lt;br&gt;&lt;br&gt;At its core, &lt;a href="https://github.com/x402-foundation/x402" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;x402&lt;/a&gt; lets one piece of software pay another for access to something &amp;mdash; a live weather lookup, a stock quote, a slice of compute, a chunk of scraped data &amp;mdash; the same kind of thing companies have always sold through APIs, just paid for per request rather than through an account.&lt;/p&gt;
-
-
-
-&lt;p&gt;Enabling an AI agent to use one of these paid APIs typically meant going through the same setup a human developer would: registering an account with the provider, passing identity checks to attach a payment method, prepaying for a credit balance or subscription, and managing an API key indefinitely.&lt;/p&gt;
-
-
-
-&lt;p&gt;With x402 in tow, the agent instead pays at the moment it needs the API: it sends a normal HTTP request, receives a &amp;#8220;payment required&amp;#8221; response, settles the payment using a connected stablecoin wallet, and gets the requested data back immediately &amp;mdash; no account, no advance relationship with the provider, and no key to manage.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-x402-s-road-to-neutral-governance"&gt;x402&amp;#8217;s road to neutral governance&lt;/h2&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s worth noting that x402 isn&amp;#8217;t an entirely new proposition, with Coinbase &lt;a href="https://www.coinbase.com/developer-platform/discover/launches/x402" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;unveiling the protocol&lt;/a&gt; back in May, 2025. The following September, &lt;a href="https://blog.cloudflare.com/x402/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Coinbase partnered with Cloudflare&lt;/a&gt; to announce a dedicated foundation to govern the protocol independently of Coinbase alone &amp;mdash; with Cloudflare, whose edge network handles a meaningful share of global web traffic, contributing its own early integration at the same time.&lt;/p&gt;
-
-
-
-&lt;p&gt;Fast-forward to April 2026, and &lt;a href="https://www.linuxfoundation.org/press/linux-foundation-is-launching-the-x402-foundation-and-welcoming-the-contribution-of-the-x402-protocol" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;news emerged&lt;/a&gt; that &lt;a href="https://x.com/coinbase/status/2039689438922522728?lang=en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Coinbase was donating&lt;/a&gt; x402 to the Linux Foundation. On Tuesday, the Foundation &lt;a href="https://www.linuxfoundation.org/press/linux-foundation-announces-operational-launch-of-x402-foundation-to-standardize-internet-native-payments-for-ai-agents-and-applications" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;confirmed&lt;/a&gt; its formal operational launch, with some 40 high-profile members, including Google, AWS, American Express, Cloudflare, Coinbase, Mastercard, Shopify, Stripe, and Visa.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/michaelkdolan/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mike Dolan&lt;/a&gt;, who leads the projects and legal teams at the Linux Foundation,&amp;nbsp;tells &lt;em&gt;The New Stack &lt;/em&gt;that the common thread permeating recent Linux Foundation creations is the &amp;#8220;shift toward autonomous AI agents executing workflows across the web independently.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Organizations are far more likely to collaborate on shared infrastructure if they trust that it is governed neutrally.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Put simply, agents need shared infrastructure to function autonomously and safely online.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;For this economy to work at scale, agents need an open, multi-layered economic and regulatory fabric covering cost, compliance, and payments,&amp;#8221; Dolan says. &amp;#8220;Organizations are far more likely to collaborate on shared infrastructure if they trust that it is governed neutrally. It is essential that these layers have a neutral home so that no single corporate gatekeeper can dictate the rules of the agentic economy, ensuring the future web remains open and interoperable.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;In real terms, x402 has now moved into fully independent governance. Dolan says that the foundation&amp;#8217;s inaugural members are the ones calling the shots from here.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The strategic direction and technical roadmap are being led by a governing board and a technical steering committee composed of representatives from our members.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Like many Linux Foundation projects at launch, the strategic direction and technical roadmap are being led by a governing board and a technical steering committee composed of representatives from our members,&amp;#8221; he says.&lt;/p&gt;
-
-
-
-&lt;p&gt;Notably absent from the initial membership list are two of the biggest frontier model labs, Anthropic and OpenAI. Asked whether they&amp;#8217;d been invited and whether he expects them to eventually join, Dolan points to existing ties between the Linux Foundation&amp;#8217;s other efforts, including the Agentic AI Foundation (AAIF), which &lt;a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched last year&lt;/a&gt; with both Anthropic and OpenAI on board.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;By collaborating directly with the Agentic AI Foundation&amp;#8217;s agentic commerce working group and aligning our strategic priorities with the AAIF Board and technical teams, we ensure that x402&amp;#8217;s transaction standards map to the models they are building,&amp;#8221; he says. &amp;#8220;We always welcome new members and would embrace their participation.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-aws-and-cloudflare-deploy-x402"&gt;AWS and Cloudflare deploy x402&lt;/h2&gt;
-
-
-
-&lt;p&gt;The numbers suggest x402 is already seeing some traction. Over the past 30 days alone, x402 reports that it has processed more than 75 million transactions worth $24.24 million &amp;mdash; spanning 94,060 buyers (agents or applications making payments) and 22,000 sellers (services accepting them), though that is according to its own tracker, which doesn&amp;#8217;t break the figures down by actual use case.&lt;/p&gt;
-
-
-
-&lt;p&gt;But some of the biggest names in tech have already started putting x402 to work. In June, AWS and Coinbase &lt;a href="https://www.coinbase.com/en-gb/blog/coinbase-and-aws-let-publishers-accept-agents-as-customers-via-x402" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;teamed up&lt;/a&gt; to let any website running on AWS&amp;#8217;s cloud infrastructure charge AI agents per request, with Coinbase&amp;#8217;s facilitator handling verification and settlement behind the scenes. A &lt;a href="https://blog.cloudflare.com/monetization-gateway/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;few weeks later&lt;/a&gt;, Cloudflare followed with a similar tool of its own, letting customers charge for web pages, datasets, APIs, or AI tools using the same protocol.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Standards thrive when the industry actually shows up to build them&amp;#8230; we&amp;rsquo;re building the trusted, open architecture that will let agents transact at Internet scale.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;In the press release announcing the formal launch, &lt;a href="https://www.linkedin.com/in/stephanieecohen/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Stephanie Cohen&lt;/a&gt;, Cloudflare chief strategy officer, credited the sheer number of companies willing to build the standard together as proof of how badly it was needed.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Standards thrive when the industry actually shows up to build them,&amp;#8221; Cohen notes. &amp;#8220;Together, we&amp;rsquo;re building the trusted, open architecture that will let agents transact at Internet scale.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Between these three new foundations, the agentic AI stack now has dedicated bodies covering cost, compliance, and payments. But we&amp;#8217;re still in the early days of the agentic economy actually taking shape, and Dolan reckons there&amp;#8217;s room for more standards to emerge alongside them.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Trust and identity are critical to the agentic AI stack,&amp;#8221; he says. &amp;#8220;It&amp;#8217;s important to have vendor-neutral standards underpinning payments, checkout, identity, and conformance to ensure accountability in agent transactions. There is a lot of opportunity to build community and standards in these areas.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/x402-foundation-ai-agents-standards/"&gt;Trust, transactions and tokenomics: AI agent infrastructure begins to standardize&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>In six weeks, the Linux Foundation has stood up three bodies covering AI&amp;#039;s token costs, compliance, and payments. Here&amp;#039;s why.</content:encoded>
-    </item>
-    <item>
-      <title>Elon Musk: “We will make the entire codebase of X open source, with no exceptions.”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/x-open-source-codebase/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 15 Jul 2026 17:59:43 +0000</pubDate>
-      <category>Open Source</category>
-      <category>Software Development</category>
-      <category>Tech Culture</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830388</guid>
-      <description>&lt;img width="1024" height="639" src="https://cdn.thenewstack.io/media/2026/05/80697ecd-curated-lifestyle-mognjm4qrwq-unsplash-1-1024x639.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A repeating grid of hundreds of diverse individuals standing with their arms raised, symbolizing the collective movement of 157,000 developers choosing sovereign, open-source AI tools over managed vendor platforms." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/80697ecd-curated-lifestyle-mognjm4qrwq-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Elon Musk, the billionaire owner of X, wants to make the social network one of the most transparent major technology&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/x-open-source-codebase/"&gt;Elon Musk: &amp;#8220;We will make the entire codebase of X open source, with no exceptions.&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="639" src="https://cdn.thenewstack.io/media/2026/05/80697ecd-curated-lifestyle-mognjm4qrwq-unsplash-1-1024x639.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A repeating grid of hundreds of diverse individuals standing with their arms raised, symbolizing the collective movement of 157,000 developers choosing sovereign, open-source AI tools over managed vendor platforms." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/80697ecd-curated-lifestyle-mognjm4qrwq-unsplash-1-scaled.jpg" /&gt;
-&lt;p&gt;Elon Musk, the billionaire owner of X, wants to make the social network one of the most transparent major technology platforms to date.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;On Wednesday, he announced that X will open-source its entire codebase once an internal security vulnerability review is complete. The plan includes inviting independent third-party reviewers to confirm that the live production system runs the same code published on the site.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-from-partial-to-full-transparency"&gt;From partial to full transparency&lt;/h2&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s safe to say this latest announcement has been a long time coming. Since acquiring X in 2022, Musk has gradually pushed the platform toward greater transparency, first open-sourcing parts of its recommendation algorithm in March 2023. &lt;/p&gt;
-
-
-
-&lt;p&gt;Then, in January 2026, it expanded that effort by releasing the code behind the algorithm powering X&amp;#8217;s &amp;ldquo;For You&amp;rdquo; feed. This helped developers get a closer look at how content is ranked and surfaced for users.&amp;nbsp;One of the biggest criticisms of corporate open-source projects is that there&amp;#8217;s no way to know whether the published code is actually what&amp;#8217;s running in production.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Once we have completed our review for security vulnerabilities, we will make the entire codebase of &amp;#120143; open source, with no exceptions. &lt;br&gt;&lt;br&gt;Moreover, we will invite third party reviewers to examine the system that is running to confirm that the open source code is what is running.&amp;hellip;&lt;/p&gt;&amp;mdash; Elon Musk (@elonmusk) &lt;a href="https://x.com/elonmusk/status/2077361679034118271?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;July 15, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;One of the biggest criticisms of corporate open-source projects is that there&amp;#8217;s no way to know whether the published code is actually what&amp;#8217;s running in production.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-competitors-face-new-transparency-pressure"&gt;Competitors face new transparency pressure&lt;/h2&gt;
-
-
-
-&lt;p&gt;If X follows through, it will be doing something no other major social platform has done yet. Meta, for example, has released AI models such as Llama under its own licensing terms, but its core platform infrastructure and ranking systems remain proprietary. TikTok has kept the code behind its recommendation engine private, while YouTube has limited its transparency efforts to researcher access programs rather than opening the underlying system.&lt;/p&gt;
-
-
-
-&lt;p&gt;This move would raise the bar for transparency and could put pressure on the competition to explain why their own systems remain closed.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-open-source-rewires-the-operational-model"&gt;How open source rewires the operational model&lt;/h2&gt;
-
-
-
-&lt;p&gt;The extreme visibility that comes from making architectural decisions and implementation details public instantly raises the bar for code quality and documentation. For software engineers and open-source contributors, this is a jackpot. The chance to study a production-grade, massive-scale social media stack doesn&amp;#8217;t happen often.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The chance to study a production-grade, massive-scale social media stack doesn&amp;#8217;t happen often.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;If X opens everything, developers will get an unprecedented look at how a platform handles hundreds of millions of daily active users. It also opens the door to community contributions, allowing developers to submit pull requests to evolve X&amp;#8217;s infrastructure, much like they do for Linux or Postgres. (Past releases omitted weights/data and were not independently runnable.)&lt;/p&gt;
-
-
-
-&lt;p&gt;Not to mention, if this approach gains traction, it could shift expectations across the industry. Developers may expect platforms to become more transparent. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-developers-should-watch"&gt;What developers should watch&lt;/h2&gt;
-
-
-
-&lt;p&gt;What developers should watch for now is the actual repo drop date, the exact parameters of the independent review process, and how X plans to handle community contributions. &lt;/p&gt;
-
-
-
-&lt;p id="h-whether-musk-ultimately-follows-through-will-test-whether-a-global-consumer-platform-can-operate-with-a-level-of-transparency-that-has-rarely-existed-in-social-media-for-developers-the-code-itself-will-be-valuable-for-the-wider-industry-the-bigger-question-is-whether-verifiable-transparency-becomes-a-competitive-advantage-or-remains-an-experiment-that-no-other-platform-is-willing-to-repeat"&gt;Whether Musk ultimately follows through will test if a global consumer platform can operate with a level of transparency that has rarely existed in social media. For developers, the code itself will be valuable, but for the wider industry, Musk may be hoping for a competitive advantage.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Whether Musk ultimately follows through will test whether a global consumer platform can operate with a level of transparency that has rarely existed in social media.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Related stories:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/fable-5-honeycomb-opus/" class="local-link"&gt;Anthropic extends Fable 5 again &amp;mdash; and won&amp;rsquo;t talk about what developers found inside Cursor&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/gpt-5-6-codex-user-surge/" class="local-link"&gt;OpenAI hits 8 million Codex users &amp;mdash; what developers need to know&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/nadella-reverse-information-paradox/" class="local-link"&gt;Microsoft CEO Satya Nadella says you&amp;rsquo;re paying for AI twice &amp;mdash; the second price is worse&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/x-open-source-codebase/"&gt;Elon Musk: &amp;#8220;We will make the entire codebase of X open source, with no exceptions.&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Elon Musk says X will open-source its entire codebase after a security review, with third-party reviewers verifying the live production code matches.</content:encoded>
-    </item>
-    <item>
-      <title>Atlassian wants developers to finally like Jira</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/atlassian-jira-coding-agents/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 15 Jul 2026 17:52:28 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830395</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/07/810e82e0-img_3830-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/810e82e0-img_3830-scaled.jpg" /&gt;&lt;p&gt;Atlassian wants developers to spend more of their days in Jira. To get them there, Atlassian on Wednesday launched a&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/atlassian-jira-coding-agents/"&gt;Atlassian wants developers to finally like Jira&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/07/810e82e0-img_3830-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/810e82e0-img_3830-scaled.jpg" /&gt;
-&lt;p&gt;Atlassian wants developers to spend more of their days in Jira. To get them there, Atlassian on Wednesday &lt;a href="https://www.atlassian.com/blog/company-news/ai-sdlc" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; a batch of AI-centric features to bring Jira deeper into the modern software development lifecycle.&lt;/p&gt;
-
-
-
-&lt;p&gt;Teams can now, for example, assign Jira work items directly to&amp;nbsp;&lt;a href="https://thenewstack.io/claude-code-vs-cursor-vs-codex-vs-antigravity-2026/" class="local-link"&gt;Claude Code, Cursor, or GitHub Copilot&lt;/a&gt;, with&amp;nbsp;&lt;a href="https://thenewstack.io/openais-superapp-takes-shape/" class="local-link"&gt;OpenAI&amp;#8217;s Codex&lt;/a&gt;&amp;nbsp;coming later. A built-in Jira Coding Agent, included in every paid plan, turns work items into pull requests without anyone setting up a local environment. The new Jira Planner pulls from Jira and Confluence history and team context to generate a technical spec in Confluence. Jira for Slack lets you file work items by asking @Jira inside a thread. Automation rules can route bug fixes, vulnerability remediation, and test generation to agents in the background.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s known, developers don&amp;#8217;t like to interact with Jira.&amp;#8221; &amp;#8212; &lt;a href="https://www.linkedin.com/in/mingwu1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ming Wu&lt;/a&gt;, Atlassian&amp;#8217;s head of engineering for DevAI.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;As&amp;nbsp;&lt;a href="https://www.linkedin.com/in/mingwu1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ming Wu&lt;/a&gt;, the company&amp;#8217;s head of engineering for DevAI, tells&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;, &amp;#8220;It&amp;#8217;s known, developers don&amp;#8217;t like to interact with Jira.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;That may actually be an understatement if you look at the usual comments on Hacker News, but the company hopes that these new updates will bring enough useful features together to keep developers &amp;mdash; and not just product managers &amp;mdash; in&amp;nbsp;&lt;a href="https://thenewstack.io/why-developers-hate-jira-and-what-atlassian-is-doing-about-it/" class="local-link"&gt;Atlassian&amp;#8217;s project management tool&lt;/a&gt;. &amp;#8220;The developer is a tough crowd,&amp;#8221; Wu notes later on in our conversation.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/07/07d66033-download.gif" alt="" class="wp-image-22830398"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Atlassian.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;&amp;#8220;It is our hypothesis, or our intention, to get developers to spend more time in Jira,&amp;#8221; Wu says. &amp;#8220;The experience is designed to actually try to attract the developer, make them feel like this is actually a good place, a convenient place for you to do a lot of work. Otherwise, it&amp;#8217;s actually inconvenient going back to the IDE, you have to pull all the context. What&amp;#8217;s the natural environment for a lot of this work to happen? We feel like Jira is positioned to facilitate that.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Historically, Jira has skewed toward engineering managers and tech leads, Wu says, especially during planning. &amp;#8220;By nature people just don&amp;#8217;t like writing a lot of details on that,&amp;#8221; she says. &amp;#8220;Also, their work is happening locally, and they want to go back to their IDE. That is true. But with a lot of things we do in Jira now, like assigning [work to agents], you can use the cloud agent. You can automate your work.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;The Jira Coding Agent was, until recently, called&amp;nbsp;&lt;a href="https://thenewstack.io/agentic-ai-for-the-whole-sldc-with-atlassian-rovo-dev-agents/" class="local-link"&gt;Rovo Dev&lt;/a&gt;, Wu says. It runs in the cloud, not on a laptop, and every work item now carries a choice of assignee. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;The agent and human side by side,&amp;#8221; Wu says, &amp;#8220;so you can pick which one is more suitable.&amp;#8221; &lt;/p&gt;
-
-
-
-&lt;p&gt;Clicking into a running session opens a VS Code-like editor with a code diff and a terminal, or as Wu puts it, &amp;#8220;basically your IDE environment in the cloud.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-human-bottleneck"&gt;The human bottleneck&lt;/h2&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/07/05f3eb5b-download-2.gif" alt="" class="wp-image-22830399"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Atlassian.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;One issue the entire industry is thinking about is whether faster code generation just&amp;nbsp;&lt;a href="https://thenewstack.io/merge-gate-coding-agents/" class="local-link"&gt;moves the bottleneck to the review stage&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;At the end of the day, I would say, the bottleneck is human,&amp;#8221; Wu says. The pain, she says, comes from the switching. &amp;#8220;Right now it&amp;#8217;s very hard, because you do the context switch and you&amp;#8217;re trying to catch up. However, there&amp;#8217;s nothing to facilitate you, so that&amp;#8217;s where the pain is from.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Review itself is evolving, too, she says, even if that isn&amp;#8217;t obvious yet. She cites guided tours that push reviewers toward the areas that matter, and AI-powered auto-review that clears the small stuff so people can spend their attention on the big things. &amp;#8220;The longer the code, the harder to actually review,&amp;#8221; Wu says. &amp;#8220;That&amp;#8217;s just a fact, no matter how much facilitation you have.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;A lot of things will eventually be fully automated,&amp;#8221; she says. &amp;#8220;I truly believe that we&amp;#8217;re not there yet, but it is happening.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Wu says, &amp;#8220;Right now, you&amp;#8217;re already seeing that a lot of the interfaces already don&amp;#8217;t have an editor anymore. It&amp;#8217;s all chat. I personally feel that&amp;#8217;s not very convenient, but it&amp;#8217;s moving that way. The more agents write code, the less the developer will write code.&amp;#8221; More and more, she says, you won&amp;#8217;t need the editor at all. &amp;#8220;I think it happens. It&amp;#8217;s just a matter of how much time it takes to completely eradicate the editing process.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;None of it makes the PM or the engineering manager redundant, though, Wu argues. Instead, the boundaries between crafts will blur. PMs can prototype faster now, where they used to have to go ask for engineering resources, and developers pull product requirements and context they wouldn&amp;#8217;t have touched before. &amp;#8220;Everybody actually got uplifted,&amp;#8221; Wu says. &amp;#8220;You used to have to be an expert on one thing.&amp;#8221; But she also acknowledges that this won&amp;#8217;t be easy and at the beginning, she says, it will be &amp;#8220;painful and confusing.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-planning-moves-into-jira"&gt;Planning moves into Jira&lt;/h2&gt;
-
-
-
-&lt;p&gt;In practical terms, today&amp;#8217;s updates aim to move more of the entire workflow into Jira. The idea is for developers to&amp;nbsp;&lt;a href="https://thenewstack.io/vibe-coding-spec-driven/" class="local-link"&gt;plan with the AI&lt;/a&gt;, publish the resulting artifact to a Confluence space, and then break it into technical work items that file back into Jira, where each one is then assigned to an agent. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;That&amp;#8217;s our hope that it will change the behavior. We&amp;#8217;ll have to see,&amp;#8221; Wu says.&lt;/p&gt;
-
-
-
-&lt;p&gt;Atlassian clearly hopes that Jira&amp;#8217;s focus on working in teams will be an advantage here. &amp;#8220;We&amp;#8217;re trying to make this planning stage be more collaborative,&amp;#8221; Wu says. &amp;#8220;You can pull your teammates in. That&amp;#8217;s one of the things in the SDLC. We heard the pain points. Collaboration is hard.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-context-layer"&gt;The context layer&lt;/h2&gt;
-
-
-
-&lt;p&gt;Atlassian is reaching for the same surface as&amp;nbsp;&lt;a href="https://thenewstack.io/github-agent-hq/" class="local-link"&gt;GitHub&lt;/a&gt;, Slack, and the IDE vendors. &amp;#8220;The more sustainable strategy,&amp;#8221; Wu says, &amp;#8220;is to play into your strengths.&amp;#8221; And Atlassian&amp;#8217;s strength, she believes, is &amp;#8220;actually in its ecosystem and context.&amp;#8221; Atlassian, like its competitors, is betting that it knows its customers &amp;mdash; and their specific ways of working &amp;mdash; better than anyone else.&lt;/p&gt;
-
-
-
-&lt;p&gt;The&amp;nbsp;&lt;a href="https://thenewstack.io/atlassian-teamwork-graph-agents/" class="local-link"&gt;Teamwork Graph&lt;/a&gt;, Atlassian&amp;#8217;s context layer, spans Jira, Confluence, Slack, GitHub, and Jira Product Discovery.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;You don&amp;#8217;t have to make efforts to&amp;nbsp;&lt;a href="https://thenewstack.io/when-is-mcp-actually-worth-it/" class="local-link"&gt;MCP&lt;/a&gt;&amp;nbsp;or do all the configuration work,&amp;#8221; Wu says. Codebase context is coming too, and she says it&amp;#8217;ll work across source control providers: &amp;#8220;Even if your code is on GitHub or Bitbucket, some companies cross SCM, we can actually support all that.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-atlassian-s-numbers"&gt;Atlassian&amp;#8217;s numbers&lt;/h2&gt;
-
-
-
-&lt;p&gt;Atlassian ran a&amp;nbsp;&lt;a href="https://getdx.com/report/ai-and-engineering-velocity-a-longitudinal-analysis/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;longitudinal study&lt;/a&gt;&amp;nbsp;with DX &amp;mdash; the developer productivity platform it&amp;nbsp;&lt;a href="https://thenewstack.io/how-atlassian-is-driving-the-ai-agent-assisted-workflow/" class="local-link"&gt;bought for $1 billion&lt;/a&gt;&amp;nbsp;last year &amp;mdash; that found developer productivity gains from AI topped out at a 15% increase, with many organizations below 10%. DX&amp;#8217;s own headline on the same data was blunter: &amp;#8220;AI productivity gains are 10%, not 10x.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Atlassian says an internal study of its 6,000 engineers using the new capabilities produced a 44% boost in agent task completion efficiency, a 48% drop in token consumption, a 36% reduction in PR cycle time, and 51% of routine code vulnerabilities resolved autonomously and queued for developer review.&lt;/p&gt;
-
-
-
-&lt;p&gt;Wu attributes the token number to the Teamwork Graph context and says quality improved alongside it. &amp;#8220;There are definitely some caveats,&amp;#8221; she says, &amp;#8220;like your agent depends on the model, how you use those tools.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Vendors may post a single example to social media, Wu says, without the edge cases or the benchmark testing behind it. Atlassian built internal eval and benchmark sets instead, but Wu says the same problems like sample size, representativeness, and bias show up there, too.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-beyond-code"&gt;Beyond code&lt;/h2&gt;
-
-
-
-&lt;p&gt;Agents have been assignable in Jira for a while, Wu says, and the coding agents are the newest addition. For a while now, Atlassian has been working on getting non-technical users onto its platform and non-technical ticket assignment &amp;#8220;is already happening. We see a lot of usage there,&amp;#8221; Wu explains. People are already pointing coding agents at documentation, and Wu uses one for budget planning herself.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Coding is actually the harder one,&amp;#8221; she says. &amp;#8220;Other tasks are actually relatively simpler.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Planner isn&amp;#8217;t coding-specific either, though Wu says that wasn&amp;#8217;t the focus. The team built versions for different personas internally, then found the stages similar enough that one tool covered them.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-no-roadmap"&gt;No roadmap&lt;/h2&gt;
-
-
-
-&lt;p&gt;With all of the changes in how software is being developed, life has gotten harder for product owners, and Atlassian itself isn&amp;#8217;t planning much past the next quarter.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;There&amp;#8217;s no roadmap,&amp;#8221; Wu says. &amp;#8220;We basically put in a quarter.&amp;#8221; Six months is the outer limit, she says, and past that, &amp;#8220;let&amp;#8217;s take a guess.&amp;#8221; The SDLC experience &amp;#8220;might actually start shifting more obviously,&amp;#8221; Wu says. &amp;#8220;It&amp;#8217;s already starting, but it might be very different six months or a year from now.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/atlassian-jira-coding-agents/"&gt;Atlassian wants developers to finally like Jira&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Atlassian is betting new Jira coding agents, AI planning, and Slack integration will finally get developers to spend their days in the ticket tracker.</content:encoded>
     </item>
   </channel>
 </rss>
