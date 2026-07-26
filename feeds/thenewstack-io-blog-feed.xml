@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 24 Jul 2026 19:24:28 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2026 14:38:12 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,16 +20,704 @@
       <height>32</height>
     </image>
     <item>
+      <title>Stop correcting AI code. Build the system agents need.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/stop-correcting-ai-code-build-the-system-agents-need/</link>
+      <dc:creator>Jennifer Riggins</dc:creator>
+      <pubDate>Sat, 25 Jul 2026 17:00:00 +0000</pubDate>
+      <category>AI</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830848</guid>
+      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with fragmented red, blue and black shapes, representing AI-driven software development and coding disruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-scaled.jpg" /&gt;&lt;p&gt;If software engineers are no longer writing code, what are they doing? That&amp;#8217;s the question on millions of minds.&amp;#160; AI&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/stop-correcting-ai-code-build-the-system-agents-need/"&gt;Stop correcting AI code. Build the system agents need.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with fragmented red, blue and black shapes, representing AI-driven software development and coding disruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;If software engineers are no longer writing code, what are they doing? That&amp;rsquo;s the question on millions of minds.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;AI tools are now &lt;a href="https://thenewstack.io/ai-engineering/" class="local-link"&gt;widely used&lt;/a&gt; by developers, but &lt;a href="https://www.theguardian.com/technology/ng-interactive/2026/jul/12/software-developers-engineers-ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;fear of layoffs&lt;/a&gt; remains a concern. On the other hand, coding is only one part of software engineering. This creates an opportunity for engineers to get closer to the business and to the context of their role&amp;rsquo;s purpose within their organization and industry.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I like to think in parallels. In 2009, I was like, what if Ops was more like Dev?&amp;rdquo; wondered &lt;a href="https://www.linkedin.com/in/patrickdebois/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Patrick Debois&lt;/a&gt;, a member of technical staff at Tessl, &lt;a href="https://thenewstack.io/qa-patrick-debois-on-the-past-present-and-future-of-devops/" class="local-link"&gt;coiner of the term DevOps, and founder of the DevOpsDays global event series&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;p&gt;His comments came during PlatformCon London earlier this summer&lt;span style="box-sizing: border-box; margin: 0px; padding: 0px;"&gt;, wher&lt;/span&gt;e he told the audience that as context &amp;mdash; the specified knowledge AI uses for tasks &amp;mdash; replaces human code, &lt;span style="box-sizing: border-box; margin: 0px; padding: 0px;"&gt;&amp;ldquo;th&lt;/span&gt;e software development lifecycle becomes the&amp;nbsp;context development lifecycle.&amp;#8221; &amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;This lifecycle has grown from a single CI/CD feedback loop to a series of concentric loops around generating, evaluating via test-driven development, distributing context as a package, and observation. This growth is being spurred by a shift in how individual developers, teams, and whole organizations think. And it opens a whole new opportunity for &lt;a href="https://thenewstack.io/platform-engineering/" class="local-link"&gt;platform engineering&lt;/a&gt; teams.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="549" src="https://cdn.thenewstack.io/media/2026/07/495764a7-context-development-lifecycle-1024x549.png" alt="" class="wp-image-22830849"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The mindset change for a developer that I would advocate is that if the agent didn&amp;rsquo;t do what you want, stop correcting the code. Improve the system, not the prompt,&amp;rdquo; Debois tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;That kind of shift is from &amp;lsquo;I&amp;rsquo;ll do it together with my agent,&amp;rsquo; over to &amp;lsquo;I&amp;rsquo;ll help my agent do it better&amp;rsquo;.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Debois sees this as a necessary shift from deterministic to non-deterministic and probabilistic systems and workflows. And it&amp;rsquo;s one that involves as many changes to the way we work as to the technology itself. But it can&amp;rsquo;t be just done by an individual engineer or at the team level. Like DevOps, it is a change that can only be realized at scale.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-how-to-become-a-context-driven-organization"&gt;How to become a context-driven organization&lt;/h2&gt;
+
+
+
+&lt;p&gt;It may have felt like we flipped a switch and every company was &amp;mdash; &lt;em&gt;wham!&lt;/em&gt; &amp;mdash; &amp;#8220;AI-first.&amp;#8221; In reality, just like DevOps, microservices, and cloud transformations before it, AI is making a continuous transition into the foreseeable future. So how does your engineering organization get onto the right context-driven path?&lt;/p&gt;
+
+
+
+&lt;p&gt;At the team level, Debois says, a good question to ask is how many touches does one need for agents to work? Different engineers across different teams will feed in different points of context, including:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Codebase&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href="https://thenewstack.io/spec-driven-development-the-key-to-scalable-ai-agents/" class="local-link"&gt;Specifications&lt;/a&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;Post-mortems&lt;/li&gt;
+
+
+
+&lt;li&gt;Documentation Slack messages&lt;/li&gt;
+
+
+
+&lt;li&gt;Architectural decision records&lt;/li&gt;
+
+
+
+&lt;li&gt;Code samples&lt;/li&gt;
+
+
+
+&lt;li&gt;Use cases&lt;/li&gt;
+
+
+
+&lt;li&gt;Compliance guidelines&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For context and therefore agents to scale, you need to know what agents individuals and teams are producing and their outputs.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;When you&amp;rsquo;re optimizing for A, and we&amp;rsquo;re optimizing for B, let&amp;rsquo;s make sure that the whole context that we give is optimized for the whole team,&amp;rdquo; Debois explains, including &amp;ldquo;If you are optimizing the system for your laptop, can we optimize it for the team workflow? And then you just scale up, like, can we do this on the platform level? Or across multiple teams?&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;It&amp;rsquo;s not something you seek out,&amp;rdquo; Debois tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;Maybe they can speed it up, but you would see the signs of &amp;lsquo;Oh, I have context, and you have context. Sure, it&amp;rsquo;s on Slack. What if this was in the repo and I can reuse this?&amp;rdquo; following the pattern in tech that has any trend spreading from a single enthusiast, to an enthusiastic team, to a couple of teams, and eventually being built into the platform.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Like all tool-driven changes, AI is as much about the people and processes as it is the tech. But, he argues, the tools open up possibilities for behavioral changes.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The fundamental change is the system, not the prompt,&amp;rdquo; he continues. &amp;ldquo;And then look for collaboration directions from solo to sharing things, and now working on the [context building] as a team together.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-context-engineering-evolves-to-harness-engineering"&gt;Context engineering evolves to harness engineering&lt;/h2&gt;
+
+
+
+&lt;p&gt;Organizations may think that context is fed into your agentic systems just once, or a couple of times a year when rules change, but, Debois warned, it&amp;rsquo;s not meant to be Waterfall. It&amp;rsquo;s iterative. If the context isn&amp;rsquo;t, then engineers fall back into the bad habit of rephrasing prompts or just fixing the code itself. Relying solely on traditional feedback loops means your AI agent fleet will not return on its investment.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;There is the industry narrative that if there&amp;rsquo;s a problem with AI, we just use more AI,&amp;rdquo; Debois tells the PlatformCon audience. He gave the example of how one large language model (LLM) or AI agent generates some code. &amp;ldquo;We ask the LLM to assess this, and it will call almost like a unit test. It hasn&amp;rsquo;t run the code; it just looks at the code.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;There&amp;rsquo;s some value in that, perhaps in enforcing API endpoints or other binary quality gates, but, he says, it&amp;rsquo;s not enough. Instead, if you specify what you need within the context, then that drives how the agent runs and evaluates the code.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;But it shouldn&amp;rsquo;t stop there. The next stage of agentic AI maturity, he contends, is grounded in harnesses and loops.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Harness engineering focuses on building the infrastructure, guardrails, and tools that wrap around an LLM to support the development of reliable, autonomous agents.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Debois defines an agent&amp;rsquo;s inner harness as logs, metrics, and traces behind query APIs, &amp;ldquo;so the coding agent sees the consequences and improves,&amp;rdquo; all of which feed into that living loop of generation, evaluation, distribution, and observation.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/07/dc6e7834-agent-inner-harness-1024x563.png" alt="" class="wp-image-22830850"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;With this pattern, the agents &amp;ldquo;autonomically know that something is wrong without you having to tell them all the time,&amp;rdquo; he says, because &amp;ldquo;it has sensors in a way that knows what fails, what it improved, and then can go back to improving these walls,&amp;rdquo; even when engineers are hard-coding something.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Again, harnesses should not be built in isolation serving a single developer or team.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;They&amp;rsquo;re building a harness for the whole world, so imagine the consensus of this is how we do tests, and this is how we do verification, and all the knowledge that is currently in all these different teams,&amp;rdquo; Debois says. &amp;ldquo;People start building on that same pipeline.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;The reality is that most organizations end up with multiple pipelines, but these loops become the next evolution of each organization&amp;#8217;s feedback loops. And thus, building for AI coordination leads to better organizational collaboration.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/stop-correcting-ai-code-build-the-system-agents-need/"&gt;Stop correcting AI code. Build the system agents need.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>The tech industry is going loopy for loops, but what does that even mean in the context of AI-driven software development?</content:encoded>
+    </item>
+    <item>
+      <title>5 steps to build great service architecture and operational resilience</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/build-resilient-service-architecture/</link>
+      <dc:creator>Debora Cambe</dc:creator>
+      <pubDate>Sat, 25 Jul 2026 16:00:00 +0000</pubDate>
+      <category>AI Operations</category>
+      <category>DevOps</category>
+      <category>Operations</category>
+      <category>sponsor-pagerduty</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22831594</guid>
+      <description>&lt;img width="1024" height="691" src="https://cdn.thenewstack.io/media/2026/07/5a28343e-sumaid-pal-singh-bakshi-x1-l6j1pxjk-unsplash-1024x691.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing wireframe geometric structure resting in a dark digital vortex, representing complex service architecture and operational resilience." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/5a28343e-sumaid-pal-singh-bakshi-x1-l6j1pxjk-unsplash.jpg" /&gt;&lt;p&gt;When operations teams get an alert, three questions need to be answered before any action can take place:&amp;#160; Without a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/build-resilient-service-architecture/"&gt;5 steps to build great service architecture and operational resilience&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="691" src="https://cdn.thenewstack.io/media/2026/07/5a28343e-sumaid-pal-singh-bakshi-x1-l6j1pxjk-unsplash-1024x691.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing wireframe geometric structure resting in a dark digital vortex, representing complex service architecture and operational resilience." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/5a28343e-sumaid-pal-singh-bakshi-x1-l6j1pxjk-unsplash.jpg" /&gt;
+&lt;p&gt;When operations teams get an alert, three questions need to be answered before any action can take place:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;What broke?&lt;/li&gt;
+
+
+
+&lt;li&gt;What depends on it?&lt;/li&gt;
+
+
+
+&lt;li&gt;Who owns it?&amp;nbsp;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;Without a clear map of how business and technical services connect, finding the answers to those questions can turn into hours of trial and error, frustrated customers, and even lost revenue.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Service mapping and service architecture design are critical to minimizing service disruption and accelerating incident recovery, as they can both enable faster, more accurate mobilization and more efficient &lt;a href="https://thenewstack.io/elastic-agentic-observability-enterprise-adoption/" data-wpil-monitor-id="3999" class="local-link"&gt;root cause analysis&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As more of that triage work shifts from people to automated and AI-driven systems, it becomes even more evident that those systems are only as good as the service map they&amp;#8217;re reasoning over.&lt;/p&gt;
+
+
+
+&lt;p&gt;Well-designed service architecture begins with a clear understanding of what a service is: a self-contained unit of functionality with a single owning team. It&amp;rsquo;s also important to distinguish technical from business services:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Technical services: The APIs, databases, authentication systems, and microservices that power digital operations.&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;Business services: The customer-facing capabilities built on top.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;In short, technical services show how things work under the hood while business services show what the customer actually experiences.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Technical services show how things work under the hood while business services show what the customer actually experiences.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;A single business service might need several underlying technical services to function, while one technical service might power multiple business services. This complexity is precisely what slows &lt;a href="https://thenewstack.io/when-ai-fails-the-new-reality-of-incident-management/" type="link" id="https://thenewstack.io/when-ai-fails-the-new-reality-of-incident-management/" class="local-link"&gt;incident management&lt;/a&gt;, but it can be solved with proper service mapping.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-five-steps-to-guide-service-architecture-design"&gt;Five steps to guide service architecture design&lt;/h2&gt;
+
+
+
+&lt;p&gt;Organizations can take the following steps to structure their business and technical services with a clear architectural design:&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-1-start-with-customer-facing-business-services"&gt;1: Start with customer-facing business services&lt;/h3&gt;
+
+
+
+&lt;p&gt;Begin with the services that matter most to customers, rather than getting bogged down in a complex web of underlying technical components. It can be an online checkout system for an e-commerce provider, or a claims processing function for an insurer. The bottom line is that it&amp;rsquo;s something customers recognize and depend on. Teams should identify these services and map them first, as this will help engineers and operations teams&amp;mdash;as well as any automated systems triaging on their behalf&amp;mdash;to target and prioritize the underlying technical services when something goes wrong.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;2: Map the supporting technical services&lt;/h3&gt;
+
+
+
+&lt;p&gt;The next step is understanding which underlying components make up each business service. Without a clear view of these dependencies, incident management becomes a matter of guesswork, prolonging outages, eroding customer loyalty, and negatively impacting revenue in the long term.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;An accurate map connecting business to technical services gives engineers and digital operations teams a powerful analytical tool to cut through the noise of alerts and narrow in on the cause of a failing service.&lt;/p&gt;
+
+
+
+&lt;p&gt;For example, a wire transfer service might be supported by multiple technical services, including a transaction authorization service, fraud detection API, payment gateway service, notification service, and so on. If operations teams (and the automation meant to assist them) can&amp;rsquo;t see the downstream impacts of a wire transfer service outage, they risk flying blind.&lt;/p&gt;
+
+
+
+&lt;p&gt;Regulators around the world are increasingly formalizing this expectation. Financial services companies in the European Union, for example, are now required to demonstrate they can identify critical services and their dependencies, and restore them within a defined tolerance.&lt;/p&gt;
+
+
+
+&lt;p&gt;This means good service architecture is becoming a compliance requirement for some industries.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;3: Assign clear ownership&lt;/h3&gt;
+
+
+
+&lt;p&gt;Each service should have one accountable team. Assign one team to each business function so incidents have a defined response path, and ensure each technical service has a single owner.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Good service architecture is becoming a compliance requirement for some industries.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That doesn&amp;rsquo;t mean a team can&amp;rsquo;t &amp;ldquo;own&amp;rdquo; multiple services, but it does mean that if something goes wrong, it&amp;rsquo;s immediately clear who needs to be mobilized. Such specificity lowers the operational cost of every incident and reduces unnecessary interruptions for subject matter experts who may not be able to help.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams without this clarity incur both operational and human costs: responders repeatedly alerted to the same unresolved issue are much more vulnerable to burnout.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;4: Use deployment cycles as a guide&lt;/h3&gt;
+
+
+
+&lt;p&gt;If something deploys independently, teams should treat it as a standalone service and use this rule of thumb when technical service boundaries aren&amp;#8217;t obvious.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Breaking technical components down into individual services provides more accurate operational insight. This way, when a problem occurs, it&amp;rsquo;s easier to pinpoint the cause and relevant team. If a service is made too broad, then the failure gets hidden.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;5: Connect operational data&lt;/h3&gt;
+
+
+
+&lt;p&gt;The final step is to connect operational data into a single reliable source of truth. Integrations should consolidate monitoring signals, and the service directory should be synced with the developer portal so that service architecture, on-call schedules, and incident data are all kept in one place. Additionally, connect existing configuration management data to surface sources of service and dependency data that already exist.&lt;/p&gt;
+
+
+
+&lt;p&gt;The goal is a single, continuously updated system that connects engineers, operations teams, and any AI or automation layered on top to the right intelligence.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Start small for incremental wins&lt;/h2&gt;
+
+
+
+&lt;p&gt;If this all seems like a significant extra workload on top of day-to-day operations, it&amp;rsquo;s better to break it down into bite-sized pieces. Pick one of the organization&amp;rsquo;s most critical business services and map its underlying technical services. Define ownership, set escalation policies, and connect monitoring tools. Then repeat.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Pick one of the organization&amp;rsquo;s most critical business services and map its underlying technical services. Define ownership, set escalation policies, and connect monitoring tools. Then repeat.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Once the service architecture is complete, it gives digital &lt;a href="https://thenewstack.io/what-can-incident-teams-learn-from-crisis-management/" data-wpil-monitor-id="3998" class="local-link"&gt;operations teams&lt;/a&gt; the context to show the blast radius of an incident and which teams to mobilize. The cost of every incident that follows is lowered, and a stronger foundation for operational resilience is built. As more of the incident response process becomes automated, that mapping is what gives AI-driven tools the context they need to act correctly, making service architecture as much a foundation for the future of operations as it is a fix for today&amp;#8217;s incidents.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/build-resilient-service-architecture/"&gt;5 steps to build great service architecture and operational resilience&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Master service architecture with 5 practical steps. Improve operational resilience, streamline incident management, and empower AI triage.</content:encoded>
+    </item>
+    <item>
+      <title>How routing keys isolate Kafka consumer tests on a shared broker</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/isolate-kafka-consumer-tests/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 25 Jul 2026 13:00:00 +0000</pubDate>
+      <category>Data Streaming</category>
+      <category>Developer tools</category>
+      <category>Software Testing</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22831606</guid>
+      <description>&lt;img width="1024" height="455" src="https://cdn.thenewstack.io/media/2026/07/e85bd733-getty-images-xjq1ccy7v0e-unsplash-1-1024x455.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital background with glowing blue light streaks and binary data, representing high-speed Kafka event streaming and data routing." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e85bd733-getty-images-xjq1ccy7v0e-unsplash-1.jpg" /&gt;&lt;p&gt;A change to a service that consumes from Kafka is not validated until it has run against the real system:&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/isolate-kafka-consumer-tests/"&gt;How routing keys isolate Kafka consumer tests on a shared broker&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="455" src="https://cdn.thenewstack.io/media/2026/07/e85bd733-getty-images-xjq1ccy7v0e-unsplash-1-1024x455.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital background with glowing blue light streaks and binary data, representing high-speed Kafka event streaming and data routing." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e85bd733-getty-images-xjq1ccy7v0e-unsplash-1.jpg" /&gt;
+&lt;p&gt;A change to a service that consumes from Kafka is not validated until it has run against the real system: real partitions, real consumer groups, the events other teams produce. Coding agents sharpen the requirement. An agent iterating on a consumer needs to publish an event, &lt;a href="https://thenewstack.io/open-observability-ai-platforms/"  data-wpil-monitor-id="4000" class="local-link"&gt;observe what its change&lt;/a&gt; did downstream, read the failure and rerun, many times per change and in parallel with every other agent&amp;#8217;s loops. That only works if a realistic environment is available on demand, for every change.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Testing Kafka consumers is hard. You have to deploy Kafka, producers, consumers, and other service dependencies to validate flows e2e. There is a better pattern.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For synchronous services, the architectural pattern we enable at Signadot delivers exactly that: lightweight &lt;a href="https://thenewstack.io/smart-ephemeral-environments-share-more-copy-less/" class="local-link"&gt;ephemeral environments&lt;/a&gt; on a shared cluster. Instead of duplicating the stack per change, you run one shared environment continuously deployed from main and deploy only the changed service next to it. Test requests carry a tag, each hop routes tagged traffic to the version under test, and everything else falls through to the shared stable versions.&lt;/p&gt;
+
+
+
+&lt;p&gt;That model rides on request routing, and request routing stops at the first Kafka topic. Nothing between a producer and its consumers picks a destination per message, so the tag that isolates a change everywhere else in the system stops meaning anything at the async hop.&lt;/p&gt;
+
+
+
+&lt;p&gt;Extending the model across that hop takes three mechanisms: a routing key that rides the message, producers that stamp it, and consumers that filter on it. The rest is detail, and the detail is where the pattern succeeds or fails.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-request-routing-stops-at-the-topic"&gt;Why request routing stops at the topic&lt;/h2&gt;
+
+
+
+&lt;p&gt;A synchronous call passes through something that can choose a destination per request: a sidecar, a proxy, a client library. A Kafka record is written once and then pulled by every subscribed consumer group at its own pace and its own offset. There is no delivery-time decision point to hook.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The tag that isolates a change everywhere else in the system stops meaning anything at the async hop.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Deploying a changed consumer next to the stable one fails both ways available to you. Put it in the stable consumer group and partition assignment splits the topic between the two versions arbitrarily. Give it a separate group and both versions process every message, doubling every side effect.&lt;/p&gt;
+
+
+
+&lt;p&gt;The contamination runs in both directions. The version under test executes unreviewed code against other people&amp;#8217;s messages and writes the results into a shared downstream state. The stable consumer processes your test events, so you cannot tell whether the new code handled them. And because an async flow leaves no request chain to follow, the contamination is hard to even see.&lt;/p&gt;
+
+
+
+&lt;p&gt;The standard workarounds trade the wrong things. A duplicated cluster per environment means brokers, connectors, schema registry, and seed data drifting from production from day one. Per-environment topics push the cost into topic lifecycle automation and per-environment rewiring of every producer and consumer config. A single-node throwaway broker from Testcontainers is the right tool for unit-level consumer logic and says nothing about the shared system.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="528" src="https://cdn.thenewstack.io/media/2026/07/a1e8e24b-image3-1024x528.png" alt="Diagram showing test isolation failure on a shared Kafka topic, where both stable and test consumers process each other's messages." class="wp-image-22831608"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The fix is a routing key that rides the message&lt;/h2&gt;
+
+
+
+&lt;p&gt;Give each test deployment an opaque routing key, k7 in the examples below. Tag the initiating test request with that key at the edge. On the synchronous legs, the key travels in OpenTelemetry baggage, and you need only the context propagation part of OpenTelemetry, not tracing.&lt;/p&gt;
+
+
+
+&lt;p&gt;At publish time, copy the key from the request context into the record headers. Headers, not payload: the message body stays untouched, and consumers can filter without deserializing. Every mainstream broker has an equivalent slot: message attributes in SQS and Pub/Sub, headers in AMQP.&lt;/p&gt;
+
+
+
+&lt;p&gt;Put the copying in shared code, not in each service. OpenTelemetry producer instrumentation can do it, or a thin internal wrapper around the standard client, so a service publishes exactly as before and propagation stays uniform across teams.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The key names the test, not the workload&lt;/h2&gt;
+
+
+
+&lt;p&gt;This is the detail that makes the pattern compose. The key identifies the test context that caused a message, not the deployment that produced it. A stable producer serving a request tagged k7 emits records tagged k7.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The key identifies the test context that caused a message, not the deployment that produced it.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That is how a consumer change gets tested in isolation. No test version of the producer exists; the stable producer stamps your key, and only your consumer version picks it up.&lt;/p&gt;
+
+
+
+&lt;p&gt;On the consumer side, restore the key from the headers into the processing context before the handler runs, so every downstream call and every further publish carries it onward. Isolation holds only while that chain is unbroken. Flows without an originating request need the key seeded explicitly, and &lt;a href="https://thenewstack.io/change-data-capture-for-real-time-access-to-backend-databases/"  data-wpil-monitor-id="4001" class="local-link"&gt;change data capture&lt;/a&gt; (CDC) is the sharpest case: the connector has no request context, so the key goes into a metadata column and the connector copies it into headers.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Consumers filter, and exactly one version processes each message&lt;/h2&gt;
+
+
+
+&lt;p&gt;Every consumer version subscribes to the shared topic and receives everything. The decision is per message, in a should-process gate ahead of the handler. A test consumer processes a message only when the header key matches its own test context. The stable consumer processes untagged traffic, plus tagged messages whose key no live test consumer claims.&lt;/p&gt;
+
+
+
+&lt;p&gt;The fallback clause does two jobs. A producer-only test still works, because stable consumers handle its tagged messages downstream. And another test&amp;#8217;s key never reaches your version under test. The net effect: exactly one consumer version processes each message.&lt;/p&gt;
+
+
+
+&lt;p&gt;Consumer groups keep the versions from interfering at the offset level. Each test consumer joins a fresh group named after its deployment, tracks its own offsets, and starts at the latest offset so it does not replay the topic&amp;#8217;s backlog. The stable group&amp;#8217;s commits are untouched. The group is created with the test deployment and deleted with it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Consumers learn which keys are claimed from a small in-cluster mapping service that holds key-to-deployment state. Poll it and cache the result, or stream updates from it. The gate consults the cached map on every message.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="511" src="https://cdn.thenewstack.io/media/2026/07/c951791d-image2-1024x511.png" alt="Diagram showing message routing rules where routing keys determine whether a stable consumer or a test consumer processes a message on a shared topic." class="wp-image-22831610"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A validation run, end-to-end&lt;/h2&gt;
+
+
+
+&lt;p&gt;Here is the loop as an agent runs it. The agent changes the payment consumer and deploys the modified version alongside the stable one, with key k7, its own consumer group, and a registration in the routing map.&lt;/p&gt;
+
+
+
+&lt;p&gt;The agent then sends a request tagged k7 at the edge, or produces a tagged event directly. The stable order producer stamps k7 into the records it publishes. On the topic, those records sit interleaved with everyone else&amp;#8217;s traffic. The k7 consumer processes them, the stable consumer skips them, and the effects flow downstream still carrying k7.&lt;/p&gt;
+
+
+
+&lt;p&gt;The agent asserts on downstream state, reads whatever failed, patches the consumer, redeploys and reruns. Between iterations, only the changed deployment moves. When the change merges, deleting the test deployment removes the group and the map entry, and nothing else in the system changes. Dozens of these loops run on one cluster at once, each seeing real partitions, real rebalancing, and real traffic from producers other teams operate.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="560" src="https://cdn.thenewstack.io/media/2026/07/1746b8f8-image1-1024x560.png" alt="Diagram illustrating end-to-end context propagation of routing key k7 from a test request, through a shared topic, to an isolated consumer under test." class="wp-image-22831611"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A few things to keep in mind&lt;/h2&gt;
+
+
+
+&lt;p&gt;The routing key is not the partition key. Each version sees its messages in partition order, but a test that depends on strict ordering across interleaved tests and production traffic will not get it. Batch consumers must split each batch by key before processing. The routing map cache is stale for a few seconds around deployment create and delete, which is exactly when a first message tends to arrive.&lt;/p&gt;
+
+
+
+&lt;p&gt;Some cases still call for duplicated infrastructure: when the broker configuration is itself the thing under test, and when compliance requires hard tenant separation. Everything else gets a different cost model, a test environment that amounts to the changed services plus a consumer group.&lt;/p&gt;
+
+
+
+&lt;p&gt;There is also a second approach worth knowing. Instead of routing on a shared topic, you can spin up ephemeral topics and point the producers and consumers at them for the life of the test. That swaps the routing work for reconfiguration: every producer and consumer in the flow has to be rewired to the new topic names when the environment comes up, and switched back when it goes away. Our &lt;a href="https://www.signadot.com/docs/reference/resource-plugins/overview?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;resource plugin framework&lt;/a&gt; is built for exactly this. A plugin provisions the topics on sandbox creation, tears them down on deletion, and passes the connection details into the sandboxed workloads.&lt;/p&gt;
+
+
+
+&lt;p&gt;A concrete check for your own system: trace how the last schema change to a shared topic was validated before merge, and how long it waited for an environment where that was possible. If the answer involves a calendar, that topic is where your isolation ends and where your agents will queue. We &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;built Signadot around this pattern&lt;/a&gt;, and it plugs into the Kafka implementation you already have.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/isolate-kafka-consumer-tests/"&gt;How routing keys isolate Kafka consumer tests on a shared broker&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Isolate Kafka consumer tests on shared brokers using routing keys instead of costly topic duplication or multi-cluster setups.</content:encoded>
+    </item>
+    <item>
+      <title>Microsoft, Nvidia, Meta and 22 others defended open weights. Anthropic and OpenAI didn’t sign.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/microsoft-nvidia-meta-and-open-weights/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Sat, 25 Jul 2026 10:30:00 +0000</pubDate>
+      <category>AI</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22831385</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/192eff7f-getty-images-b0d_fkuits8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="American flag beside the U.S. Capitol under dramatic pink clouds, with translucent red and blue overlays across the dome." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/192eff7f-getty-images-b0d_fkuits8-unsplash-scaled.jpg" /&gt;&lt;p&gt;The fight over open-weight AI entered a new round over the last week. On July 22, White House officials accused&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-nvidia-meta-and-open-weights/"&gt;Microsoft, Nvidia, Meta and 22 others defended open weights. Anthropic and OpenAI didn&amp;#8217;t sign.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/192eff7f-getty-images-b0d_fkuits8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="American flag beside the U.S. Capitol under dramatic pink clouds, with translucent red and blue overlays across the dome." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/192eff7f-getty-images-b0d_fkuits8-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;The fight over open-weight AI&lt;/strong&gt; entered a new round over the last week.&lt;/p&gt;
+
+
+
+&lt;p&gt;On July 22, &lt;a href="https://thenewstack.io/moonshot-fable5-distillation-accusations/" class="local-link"&gt;White House officials accused China’s Moonshot AI&lt;/a&gt; of stealing American IP through distillation and floated sanctions and repercussions. Anthropic’s policy chief called the alleged operation “industrial espionage.” Then the startups showed up, with nearly 200 co-signing a letter to President Trump urging him not to cut off the open models they rely on. On Friday, a statement signed by 25 major organizations &lt;a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;warned Washington&lt;/a&gt; against “premature restrictions” on open weights. And Nvidia’s Jensen Huang, asked by &lt;em&gt;Axios&lt;/em&gt; whether open labs should be allowed to distill closed models, answered that distillation is “fundamental to intelligence.”&lt;/p&gt;
+
+
+
+&lt;p&gt;Let me be clear: Running an open-weight Chinese AI model is not a fringe act, and it’s not disloyal. It’s how many AI-native startups and developers keep their token bills under control because Anthropic and OpenAI are becoming too expensive to build on at scale.&lt;/p&gt;
+
+
+
+&lt;p&gt;Washington wants to draw the line between legitimate openness and Chinese theft. Inside the technology industry, the more revealing line is open versus closed. Microsoft, Nvidia, Meta, and 22 other organizations signed the statement, warning against premature restrictions and defending distillation as a legitimate model-development technique. Anthropic and OpenAI did not sign. &lt;/p&gt;
+
+
+
+&lt;p&gt;For developers, the stakes are not abstract. The affordable model they can download, adapt, and run themselves is exactly what this fight could make harder to access.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-developers-already-picked-open-weights-because-of-cost"&gt;Developers already picked open weights because of cost&lt;/h2&gt;
+
+
+
+&lt;p&gt;Startups are on the front line here. America’s frontier labs priced many of them onto Chinese open weights. Nearly 200 companies, Y Combinator and Proton among them, &lt;a href="https://www.politico.com/news/2026/07/22/startup-founders-urge-trump-not-to-shut-off-chinese-open-weight-ai-01008992" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;told the President&lt;/a&gt; through the new Little Tech Association not to cut off Chinese open weights, and to use “a scalpel rather than a sledgehammer.” Particle founder Shuail Doshi put it plainly: “There’ll be hundreds of companies that instantly die. It’s great for Anthropic. We’re all going to have to spend money on Anthropic.”&lt;/p&gt;
+
+
+
+&lt;p&gt;Why the panic? It’s the price. I’ve been talking about this for months. Moonshot’s Kimi K3 is a near-frontier model that’s extremely powerful. My colleague Jessica Wachetel &lt;a href="https://thenewstack.io/kimi-k3-fable-coding-benchmark/" class="local-link"&gt;ran Kimi K3 head-to-head&lt;/a&gt; against Anthropic’s best coding model across a bug fix, a refactor, and a feature build; &lt;strong&gt;Kimi K3 wrote the same code as Claude Fable 5 for about a third of the cost&lt;/strong&gt;. It was roughly four times slower. &lt;/p&gt;
+
+
+
+&lt;!-- TNS chart - paste this whole block into a WordPress "Custom HTML" block. --&gt;
+&lt;div class="tns-price"&gt;
+  &lt;style&gt;
+    .tns-price{
+      --navy:#142640; --pink:#FF3287; --line:#E4E8EE; --zebra:#F6F8FA; --muted:#6B7A8D;
+      font-family:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--navy); max-width:720px; margin:1.2em 0;
+    }
+    .tns-price *{box-sizing:border-box;}
+    .tns-price .wrap{border:1px solid var(--line); border-top:3px solid var(--pink); border-radius:6px; overflow:hidden;}
+    .tns-price table{width:100%; border-collapse:collapse; font-size:15px; line-height:1.35;}
+    .tns-price caption{caption-side:top; text-align:left; font-weight:700; color:var(--navy); font-size:15px; padding:0 2px 8px;}
+    .tns-price .wrap thead th{background-color:#142640 !important; color:#ffffff !important; font-weight:600; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; text-align:left; padding:8px 12px;}
+    .tns-price thead th.num{text-align:right;}
+    .tns-price tbody td{padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+    .tns-price tbody tr:last-child td{border-bottom:none;}
+    .tns-price tbody tr:nth-child(even) td{background:var(--zebra);}
+    .tns-price tbody tr:hover td{background:#F0F3F7;}
+    .tns-price td.model strong{color:var(--navy); font-weight:700;}
+    .tns-price td.model .lab{margin-left:6px; font-size:12.5px; font-weight:400; color:var(--muted);}
+    .tns-price td.num{text-align:right; white-space:nowrap; font-weight:700; color:var(--navy); font-variant-numeric:tabular-nums;}
+    .tns-price td.pos{color:#3A4A5A;}
+    .tns-price .src{font-size:12px; color:var(--muted); padding:6px 2px 0;}
+
+    @media (max-width:560px){
+      .tns-price .wrap{border:none;}
+      .tns-price thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
+      .tns-price tbody tr{display:block; border:1px solid var(--line); border-top:3px solid var(--pink); border-radius:6px; overflow:hidden; margin-bottom:10px;}
+      .tns-price tbody tr:nth-child(even) td, .tns-price tbody tr:hover td{background:transparent;}
+      .tns-price tbody td{display:flex; justify-content:space-between; gap:16px; align-items:baseline; padding:7px 12px; border-bottom:1px solid var(--line);}
+      .tns-price tbody td:last-child{border-bottom:none;}
+      .tns-price tbody td::before{content:attr(data-label); font-weight:600; font-size:11.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--muted);}
+      .tns-price tbody td.model{display:block; background-color:#142640 !important; padding:8px 12px;}
+      .tns-price tbody td.model::before{content:none;}
+      .tns-price tbody td.model strong{color:#ffffff !important;}
+      .tns-price tbody td.model .lab{color:#C9D5E2;}
+      .tns-price td.num{text-align:right;}
+    }
+  &lt;/style&gt;
+
+  &lt;div class="wrap"&gt;
+    &lt;div class="table-scroll-wrap"&gt;&lt;table&gt;
+      &lt;caption&gt;Claude Fable 5 vs. Kimi K3: same code, a third the cost, four times slower&lt;/caption&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope="col" style="background-color:#142640 !important;color:#ffffff !important;"&gt;Model&lt;/th&gt;
+          &lt;th scope="col" class="num" style="background-color:#142640 !important;color:#ffffff !important;"&gt;Price (in / out)&lt;/th&gt;
+          &lt;th scope="col" class="num" style="background-color:#142640 !important;color:#ffffff !important;"&gt;3-task cost&lt;/th&gt;
+          &lt;th scope="col" class="num" style="background-color:#142640 !important;color:#ffffff !important;"&gt;3-task time&lt;/th&gt;
+          &lt;th scope="col" style="background-color:#142640 !important;color:#ffffff !important;"&gt;Code produced&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td class="model"&gt;&lt;strong&gt;Claude Fable 5&lt;/strong&gt;&lt;span class="lab"&gt;Anthropic&lt;/span&gt;&lt;/td&gt;
+          &lt;td class="num" data-label="Price (in / out)"&gt;$10 / $50&lt;/td&gt;
+          &lt;td class="num" data-label="3-task cost"&gt;$5.98&lt;/td&gt;
+          &lt;td class="num" data-label="3-task time"&gt;~7 min&lt;/td&gt;
+          &lt;td class="pos" data-label="Code produced"&gt;Baseline&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td class="model"&gt;&lt;strong&gt;Kimi K3&lt;/strong&gt;&lt;span class="lab"&gt;Moonshot · open weight&lt;/span&gt;&lt;/td&gt;
+          &lt;td class="num" data-label="Price (in / out)"&gt;$3 / $15&lt;/td&gt;
+          &lt;td class="num" data-label="3-task cost"&gt;$2.13&lt;/td&gt;
+          &lt;td class="num" data-label="3-task time"&gt;~28 min&lt;/td&gt;
+          &lt;td class="pos" data-label="Code produced"&gt;Same result&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="src"&gt;Source: The New Stack, Jessica Wachtel’s Fable 5 vs. Kimi K3 head-to-head. Prices are published API rates per 1M tokens (input / output).&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;p&gt;For a startup counting tokens, four times slower is a fine price for a third of the bill. And they’re paying it. On OpenRouter, Chinese models have &lt;a href="https://aiweekly.co/alerts/chinese-ai-models-hit-record-58-of-us-openrouter-traffic" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;accounted for more than 30% of token usage&lt;/a&gt; by U.S. customers every week since February, peaking at 46%. OpenRouter is only one slice of the market, but it captures the direction. A meaningful share of developers has already voted with their tokens, routing real workloads toward much-cheaper Chinese models.&lt;/p&gt;
+
+
+
+&lt;p&gt;The pitch for &lt;a href="https://thenewstack.io/anthropics-opus-5-almost-fable-5/" class="local-link"&gt;Opus 5, which debuted on Friday&lt;/a&gt;, is almost all about cost. It matches or beats Anthropic’s pricier Fable 5 across most of the company’s own benchmarks while costing $5 per million input tokens and $25 per million output tokens, half of Fable 5 and the same as the older Opus 4.8. Anthropic’s case is cost per finished task, not cost per token: A model that solves the job in one pass can be the cheaper one even at a higher sticker price. It’s a fair point, and it helps narrow the gap. Anthropic cut the price of its frontier performance in half, and yet, it still charges more per token than Kimi K3.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tech-industry-is-split"&gt;The tech industry is split&lt;/h2&gt;
+
+
+
+&lt;p&gt;So who actually wants powerful open weights restricted? Anthropic has taken the clearest position, and &lt;em&gt;Axios&lt;/em&gt; reports that OpenAI has aligned with it in warning Washington about powerful Chinese open-weight models. The White House, meanwhile, is trying to draw a narrower line by defending open weights generally while punishing Chinese companies it believes used distillation to steal American capabilities. &lt;/p&gt;
+
+
+
+&lt;p&gt;Across from them are many of the companies that supply the chips, clouds, tools, and applications the AI economy runs on. The statement they signed, “&lt;a href="https://www.microsoft.com/en-us/corporate-responsibility/topics/open-weight/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Open Weights and American AI Leadership&lt;/a&gt;,” calls distillation “a widely used technique” and warns policymakers not to conflate legitimate model development with unlawful extraction. Its signatories include Microsoft, Nvidia, Meta, Hugging Face, IBM, Mozilla, Palantir, Perplexity, Mistral, and Y Combinator. Anthropic and OpenAI did not sign it. Right now, no ban has been drafted; the White House calls the reporting “baseless speculation,” and our own Amanda Caswell notes that &lt;a href="https://thenewstack.io/moonshot-fable5-distillation-accusations/" class="local-link"&gt;the distillation allegation&lt;/a&gt; itself has not been backed by publicly verifiable evidence. But the sides are now on the record. &lt;/p&gt;
+
+
+
+&lt;p&gt;Huang, &lt;a href="https://www.axios.com/2026/07/22/nvidia-jensen-huang-china-open-source-ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;speaking to &lt;em&gt;Axios&lt;/em&gt;&lt;/a&gt;, talked about whether open labs should be allowed to distill closed models and rejected the blanket theft framing. American companies should “absolutely” use excellent Chinese models, he said, and distillation itself is “fundamental to intelligence.” He added that privacy and contract violations should still carry consequences. But learning from other systems, in his view, is not theft. It’s how intelligence works.&lt;/p&gt;
+
+
+
+&lt;p&gt;Everyone here is talking about their book. Nvidia sells its chips to Anthropic and OpenAI as eagerly as to anyone running open models, and Microsoft is one of OpenAI’s largest investors. These are not companies with a simple grudge against the closed labs. They have money on both sides, and they still signed this letter anyway. &lt;/p&gt;
+
+
+
+&lt;p&gt;So look at the record. Distilling a model and pirating a book are not the same legal question. But both controversies began with the same accusation: An AI company benefited from material it did not own. The conduct and the law are different, and the hypocrisy is still hard to miss: A court this week approved Anthropic’s 2025 agreement to pay $1.5 billion for &lt;a href="https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;downloading and retaining pirated books&lt;/a&gt; (the court separately held that using books to train Claude was fair use). Anthropic has also spent more on federal lobbying in the first half of the year than in all of 2025. Its open-source record is real and beside the point: Anthropic backs the open source that expands Claude’s ecosystem, like MCP, while warning Washington about open weights that can compete with it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-it-s-okay-to-use-open-weights"&gt;It’s okay to use open weights&lt;/h2&gt;
+
+
+
+&lt;p&gt;This is where it stops being Anthropic’s story and starts being yours. &lt;/p&gt;
+
+
+
+&lt;p&gt;A few weeks ago I wrote about the day a sudden government ruling &lt;a href="https://thenewstack.io/anthropic-claude-mythos-fable-5/)" class="local-link"&gt;forced Anthropic to pull Fable&lt;/a&gt;, and the developers who had built on it scrambled to swap in other models. They scrambled because Fable is a hosted service, which is the kind of dependency that can change without notice. Open weights are different. If you’ve already downloaded them and can run them on infrastructure you control, they’re far harder to take away than an API someone else owns. &lt;/p&gt;
+
+
+
+&lt;p&gt;The catch is that much of today’s Chinese-model usage still isn’t like that. Many companies and developers access Kimi and other open-weight models through hosted APIs that could disappear overnight if policy changes. Those developers would end up scrambling just like the Fable users did. &lt;/p&gt;
+
+
+
+&lt;p&gt;So don’t just experiment with an open-weight model. Download one. Run it. Know that your stack works before you need it. Not because Kimi is about to disappear, but because the tools you build on can now be switched off by people you’ve never met.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-nvidia-meta-and-open-weights/"&gt;Microsoft, Nvidia, Meta and 22 others defended open weights. Anthropic and OpenAI didn&amp;#8217;t sign.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>White House officials and Anthropic called Moonshot AI&amp;#039;s alleged distillation operation &amp;quot;IP theft&amp;quot; and &amp;quot;industrial espionage,&amp;quot; while Treasury floated sanctions. Within 48 hours, nearly 200 startups, 25 organizations including Microsoft and Nvidia, and Jensen Huang himself pushed back.</content:encoded>
+    </item>
+    <item>
       <title>Opus 5 costs a third of the price — and that’s actually the problem</title>
       <link>https://web.archive.org/web/https://thenewstack.io/opus-5-agentic-coding-cost/</link>
       <dc:creator>Amanda Caswell</dc:creator>
       <pubDate>Fri, 24 Jul 2026 19:06:23 +0000</pubDate>
       <category>AI</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22831547</guid>
-      <description>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract layered landscape with wave patterns, a rigid orange grid layer, and traditional cloud textures, symbolizing structured data pipelines and probabilistic AI system monitoring." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-scaled.jpg" /&gt;&lt;p&gt;On Friday, Anthropic launched Opus 5, the latest iteration of its heavyweight model. Arriving just two months after Opus 4.8&lt;/p&gt;
+      <description>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract layered landscape with wave patterns, a rigid orange grid layer, and traditional cloud textures, symbolizing structured data pipelines and probabilistic AI system monitoring." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-scaled.jpg" /&gt;&lt;p&gt;On Friday, Anthropic launched Opus 5, the latest iteration of its heavyweight model. Arriving just two months after Opus 4.8&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/opus-5-agentic-coding-cost/"&gt;Opus 5 costs a third of the price — and that&amp;#8217;s actually the problem&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract layered landscape with wave patterns, a rigid orange grid layer, and traditional cloud textures, symbolizing structured data pipelines and probabilistic AI system monitoring." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-scaled.jpg" /&gt;&lt;p&gt;On Friday, &lt;a href="https://thenewstack.io/anthropics-opus-5-almost-fable-5/" class="local-link"&gt;Anthropic launched Opus 5&lt;/a&gt;, the latest iteration of its heavyweight model. Arriving just two months after Opus 4.8 and following the June releases of Mythos 5, &lt;a href="https://thenewstack.io/fable-5-permanent-subscription-access/" class="local-link"&gt;Fable 5&lt;/a&gt;, and Sonnet 5, Opus 5 rounds out the new generation — only the lightweight Haiku waits for an upgrade. &lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract layered landscape with wave patterns, a rigid orange grid layer, and traditional cloud textures, symbolizing structured data pipelines and probabilistic AI system monitoring." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/314bba73-getty-images-qhb6bumnmno-unsplash-scaled.jpg" /&gt;&lt;p&gt;On Friday, &lt;a href="https://thenewstack.io/anthropics-opus-5-almost-fable-5/" class="local-link"&gt;Anthropic launched Opus 5&lt;/a&gt;, the latest iteration of its heavyweight model. Arriving just two months after Opus 4.8 and following the June releases of Mythos 5, &lt;a href="https://thenewstack.io/fable-5-permanent-subscription-access/" class="local-link"&gt;Fable 5&lt;/a&gt;, and Sonnet 5, Opus 5 rounds out the new generation — only the lightweight Haiku waits for an upgrade. &lt;/p&gt;
 
 
 
@@ -149,7 +837,7 @@
       <category>AI Models</category>
       <category>AI Strategy</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22831473</guid>
-      <description>&lt;img width="1024" height="589" src="https://cdn.thenewstack.io/media/2024/03/c206efb3-jensen_huang-nvidia-1024x589.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/03/c206efb3-jensen_huang-nvidia.png" /&gt;&lt;p&gt;Nvidia CEO Jensen Huang used his first post on X to share a public letter backing frontier open-weight models. Signed&lt;/p&gt;
+      <description>&lt;img width="1024" height="589" src="https://cdn.thenewstack.io/media/2024/03/c206efb3-jensen_huang-nvidia-1024x589.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/03/c206efb3-jensen_huang-nvidia.png" /&gt;&lt;p&gt;Nvidia CEO Jensen Huang used his first post on X to share a public letter backing frontier open-weight models. Signed&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-open-weight-letter/"&gt;Jensen Huang made his first X post. He used it to lobby Washington about open-weight AI.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="589" src="https://cdn.thenewstack.io/media/2024/03/c206efb3-jensen_huang-nvidia-1024x589.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/03/c206efb3-jensen_huang-nvidia.png" /&gt;
@@ -3468,585 +4156,6 @@ Respond only with YES or NO.
 </content:encoded>
       <enclosure url="https://cdn.thenewstack.io/media/2026/07/7857e254-block-buzz-ai-agents-product-demo-video-4k.mp4" length="43468632" type="video/mp4" />
       <content:encoded>Block just launched Buzz, a free, open source workspace built on Nostr that lets AI agents join channels and threads as full members alongside humans.</content:encoded>
-    </item>
-    <item>
-      <title>Google ships 3 new Gemini models. Just not the one everyone’s waiting for.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/google-ships-3-new-gemini-models-just-not-the-one-everyones-waiting-for/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 15:00:52 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830969</guid>
-      <description>&lt;img width="1024" height="641" src="https://cdn.thenewstack.io/media/2026/02/08eb79e4-mitchell-luo-jz4ca36oj_m-unsplash-scaled-1024x641.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/08eb79e4-mitchell-luo-jz4ca36oj_m-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google on Tuesday launched three new Gemini models: Gemini 3.6 Flash, a cheaper and faster 3.5 Flash-Lite, and 3.5 Flash&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-ships-3-new-gemini-models-just-not-the-one-everyones-waiting-for/"&gt;Google ships 3 new Gemini models. Just not the one everyone&amp;#8217;s waiting for.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="641" src="https://cdn.thenewstack.io/media/2026/02/08eb79e4-mitchell-luo-jz4ca36oj_m-unsplash-scaled-1024x641.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/08eb79e4-mitchell-luo-jz4ca36oj_m-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Google on Tuesday launched three new Gemini models: Gemini 3.6 Flash, a cheaper and faster 3.5 Flash-Lite, and 3.5 Flash Cyber, a model optimized for cybersecurity use cases that generally outperforms &lt;a href="https://thenewstack.io/anthropics-opus-4-6-is-a-step-change-for-the-enterprise/" class="local-link"&gt;Anthropic&amp;#8217;s 4.6 Opus&lt;/a&gt; model.&lt;/p&gt;
-
-
-
-&lt;p&gt;What is sorely missing in this lineup, and now weeks past its promised launch date, is 3.5 Pro, Google&amp;#8217;s latest flagship model. Google first announced 3.5 Pro at its I/O conference in May with the promise of launching it in June. Google says the Pro model is &amp;#8220;currently in testing with partners&amp;#8221; and that it plans to make it broadly available &amp;#8220;as soon as it&amp;#8217;s ready.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Never one not to look ahead, Google also says that it has started its pre-training run for Gemini 4.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-3-6-flash"&gt;3.6 Flash&lt;/h2&gt;
-
-
-
-&lt;p&gt;Most of us didn&amp;#8217;t expect to see an update to the Gemini Flash model before the Gemini 3.5 Pro model, but here we are. &lt;/p&gt;
-
-
-
-&lt;p&gt;The good news is that 3.6 Flash is a meaningful update to its predecessor &amp;mdash; and it&amp;#8217;s a bit cheaper. The input price per million tokens remains at $1.50, but Google reduces the price per million output tokens from $9 to $7.50.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Most of us didn&amp;#8217;t expect to see an update to the Gemini Flash model before the Gemini 3.5 Pro model, but here we are.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Google also specifically notes that 3.6 Flash takes fewer reasoning steps and tool calls to achieve its goals in agentic workflows, which should also make it more cost-effective to run. According to Artificial Analysis, it uses 17% fewer tokens.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-3-6-flash-benchmarks"&gt;3.6 Flash Benchmarks&lt;/h2&gt;
-
-
-
-&lt;p&gt;In most benchmarks, 3.6 Flash easily surpasses its predecessor, especially when it comes to coding. On the new &lt;a href="https://deepswe.datacurve.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DeepSWE software engineering benchmark&lt;/a&gt;, 3.6 Flash scores 49% vs &lt;a href="https://thenewstack.io/googles-gemini-3-5-flash-beats-the-frontier-models/" class="local-link"&gt;3.5 Flash&lt;/a&gt;&amp;#8216;s 37%, for example. That&amp;#8217;s not the greatest result, though. &lt;a href="https://thenewstack.io/claude-sonnet-5-launch/" class="local-link"&gt;Anthropic&amp;#8217;s Claude Sonnet 5&lt;/a&gt; gets to 54% here, with the top-end frontier models scoring over 70%.&lt;/p&gt;
-
-
-
-&lt;p&gt;The team also saw large gains in the MLE Bench machine learning research benchmark (63.9% vs 49.7%) and the &lt;a href="https://benchlm.ai/benchmarks/osWorldVerified" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OSWorld-Verified&lt;/a&gt; computer use test (83% vs. 78.4%). Most modern models score in a similar range here, which is actually quite impressive for a mid-range model like 3.6 Flash. Claude Fable, in comparison, does only slightly better at 85%.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="548" src="https://cdn.thenewstack.io/media/2026/07/830ad80f-screenshot-2026-07-21-at-8.32.12-am-1024x548.png" alt="" class="wp-image-22831005"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Google.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;For knowledge work, 3.6 Flash hits 1421 on &lt;a href="https://artificialanalysis.ai/evaluations/gdpval-aa" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GDPval-AA v2&lt;/a&gt;, which is much better than 3.5 Flash at 1349, but at this point, that&amp;#8217;s well below other frontier labs&amp;#8217; mid-range models like Anthropic&amp;#8217;s Claude Sonnet 5 (at 1600) and Open&amp;#8217;s GPT-5.6 Terra at 1581.&lt;/p&gt;
-
-
-
-&lt;p&gt;What&amp;#8217;s important to remember here, of course, is that Google is also competing on price, but even there, the picture is complicated. 3.6 Flash doesn&amp;#8217;t always outperform &lt;a href="https://thenewstack.io/openai-gpt-56-live/" class="local-link"&gt;GPT 5.6 Luna&lt;/a&gt;, for example, and that&amp;#8217;s available for $1/$6 per million input/output tokens (but only as long as the context window is under 272,000 tokens). Anthropic&amp;#8217;s Sonnet 5 is available for an introductory price of $2/$10 until the end of August, too.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-3-6-flash-and-3-5-flash-lite-availability"&gt;3.6 Flash and 3.5 Flash Lite availability&lt;/h2&gt;
-
-
-
-&lt;p&gt;3.6 Flash and 3.5 Flash Lite are now available in the Gemini API via Google AI Studio and Android Studio, while 3.6 Flash is also available in &lt;a href="https://thenewstack.io/hands-on-with-antigravity-googles-newest-ai-coding-experiment/" class="local-link"&gt;Google&amp;#8217;s Antigravity agentic coding tool&lt;/a&gt; and for enterprise users in the Gemini Enterprise Agent Platform (previously known as Vertex AI).&lt;/p&gt;
-
-
-
-&lt;p&gt;For consumers, 3.5 Flash-Lite is coming to Google Search.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-3-5-flash-lite"&gt;3.5 Flash-Lite&lt;/h2&gt;
-
-
-
-&lt;p&gt;3.5 Flash-Lite is Google&amp;#8217;s newest low-end model. Given that 3.1 Flash Lite, the most recent &amp;#8216;lite&amp;#8217; release, is &lt;a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;almost half a year old&lt;/a&gt;, it&amp;#8217;s no surprise that 3.5 Flash shows an improvement across the board. But it&amp;#8217;s also a bit more expensive, at $0.3/$2.5 per million input/output tokens (up from $0.25/$1.5).&lt;/p&gt;
-
-
-
-&lt;p&gt;In terms of benchmarks, it&amp;#8217;s not going to break any records, but that isn&amp;#8217;t the purpose of this model either. It&amp;#8217;s meant for high-throughput tasks like agentic search and document processing, not for tasks where reasoning and planning agentic workloads are key. &lt;/p&gt;
-
-
-
-&lt;p&gt;That said, it is a significantly better model than 3.1 Flash Lite, though. On GDPval-AA v2, it scores 1140 compared to the previous lite models&amp;#8217; 642. SWE-Bench Pro numbers go up from 49.6% to 54.2%, and on OSWorld-Verified, it hits 74% now.&lt;/p&gt;
-
-
-
-&lt;p&gt;For many companies, it will land in a sweet spot for latency-sensitive workloads, as Ramp&amp;#8217;s head of applied AI Veeral Patel notes. &amp;#8220;Gemini 3.5 Flash-Lite landed on the Pareto frontier in our receipt extraction benchmark, offering one of the best tradeoffs we&amp;rsquo;ve tested between accuracy, latency, and cost,&amp;#8221; he writes in today&amp;#8217;s announcement. &amp;#8220;That combination is critical at Ramp, where we need to process receipts quickly and reliably at scale.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-3-5-flash-cyber-same-price-limited-access"&gt;3.5 Flash Cyber: same price, limited access&lt;/h2&gt;
-
-
-
-&lt;p&gt;With Gemini 3.5 Flash Cyber, Google is getting deeper into using AI for cybersecurity use cases &amp;#8212; without risking any &lt;a href="https://thenewstack.io/us-gov-orders-anthropic-to-pull-fable-5-and-mythos-5-three-days-after-launch/" class="local-link"&gt;Fable 5-like fallout&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p&gt;As Google notes, today&amp;#8217;s &amp;#8220;AI models have become capable of finding security vulnerabilities faster than current systems can fix them. The company built 3.5 Flash Cyber on top of the regular 3.5 Flash model and is charging the same for it, too, which gives Google the ability to claim that it &amp;#8220;offers a cost-efficient and highly capable alternative to large, costly cybersecurity models.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;But you won&amp;#8217;t be able to get your hands on the Cyber model just yet. It is only available in a limited-access pilot exclusively for governments and trusted partners, and only in Google&amp;#8217;s own CodeMender tool. The plan is to expand access over time.&lt;/p&gt;
-
-
-
-&lt;p&gt;It seems unlikely that 3.5 Flash Cyber is at the level of an &lt;a href="https://thenewstack.io/anthropic-claude-mythos-cybersecurity/" class="local-link"&gt;Anthropic Mythos&lt;/a&gt; when it comes to finding and exploiting software vulnerabilities, but this goes to show how nervous frontier labs now are about rolling out these models. &amp;#8220;This will give frontline defenders a head start in finding and fixing critical vulnerabilities before they can be exploited, while mitigating against broader misuse,&amp;#8221; Google notes.&lt;/p&gt;
-
-
-
-&lt;p&gt;Meanwhile, many Chinese open-source models like &lt;a href="https://thenewstack.io/kimi-k3-open-weight-coding/" class="local-link"&gt;Kimi K3&lt;/a&gt; are probably at the same level as 3.5 Flash Cyber.&lt;/p&gt;
-
-
-
-&lt;p&gt;Google says it performs at the level of Opus 4.6 and notes that &amp;#8220;more recent competitor models perform less well than Claude Opus 4.6 because of guardrails.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-ships-3-new-gemini-models-just-not-the-one-everyones-waiting-for/"&gt;Google ships 3 new Gemini models. Just not the one everyone&amp;#8217;s waiting for.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google has launched Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber — but its flagship 3.5 Pro is still missing, weeks past its promised launch date.</content:encoded>
-    </item>
-    <item>
-      <title>Kubernetes made deploying easy. Nobody warned you about the databases.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-database-operations-platform/</link>
-      <dc:creator>Oliver Wolf</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 15:00:00 +0000</pubDate>
-      <category>Databases</category>
-      <category>Kubernetes</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-anynines</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830201</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/07/791d341e-tobias-fischer-pkbzaheg2ng-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Multi-level modern library interior with white bookshelves and spiral staircases" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/791d341e-tobias-fischer-pkbzaheg2ng-unsplash-scaled.jpg" /&gt;&lt;p&gt;The DevOps movement, set in motion nearly 20 years ago, broke down the traditional divide between software developers and IT&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-database-operations-platform/"&gt;Kubernetes made deploying easy. Nobody warned you about the databases.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/07/791d341e-tobias-fischer-pkbzaheg2ng-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Multi-level modern library interior with white bookshelves and spiral staircases" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/791d341e-tobias-fischer-pkbzaheg2ng-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;The DevOps movement, set in motion nearly 20 years ago, broke down the traditional divide between software developers and IT operations and adopted the &lt;a href="https://queue.acm.org/detail.cfm?id=1142065#:~:text=You%20build%20it%2C%20you%20run%20it." class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;maxim&lt;/a&gt; of &amp;ldquo;you build it, you run it&amp;rdquo; as its own. However, in &lt;a href="https://thenewstack.io/kubernetes/" class="local-link"&gt;Kubernetes environments&lt;/a&gt;, that model can become unrealistic when application teams are also expected to operate databases and data services. In practice, DevOps database operations still require much more structure than many teams expect.&lt;/p&gt;
-
-
-
-&lt;p&gt;In my role as senior cloud platform engineer at the cloud-native services provider &lt;a href="https://anynines.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;anynines&lt;/strong&gt;&lt;/a&gt;, I&amp;rsquo;ve seen this time and time again: developers who are highly skilled and highly effective at building software have to deal with databases that sit in a completely different realm and require a different kind of operational expertise.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Developers who are highly skilled and highly effective at building software have to deal with databases that sit in a completely different realm&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s especially true in platform engineering database management, where the goal should be to reduce operational burden, not shift it onto application teams. A strong &lt;a class="wpil_keyword_link local-link" href="https://thenewstack.io/7-core-elements-of-an-internal-developer-platform/" title="internal developer platform" data-wpil-keyword-link="linked" data-wpil-monitor-id="3994"&gt;internal developer platform&lt;/a&gt; should make platform engineering databases easier to consume, rather than harder to run.&lt;/p&gt;
-
-
-
-&lt;p&gt;Tools like the &lt;a href="https://anynines.com/products/hub/?utm_campaign=434127036-a9s%20Hub&amp;amp;utm_source=thenewstack&amp;amp;utm_medium=referral&amp;amp;utm_content=your-dev-teams-should-not-need-to-be-experts-in-database-operations" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;a9s Hub&lt;/strong&gt;&lt;/a&gt; demonstrate this model in practice: by enabling developers to request databases through Kubernetes-native workflows while a centralized control plane handles provisioning, backups, patching, and governance.&lt;br&gt;&lt;br&gt;It&amp;rsquo;s easy enough to deploy Postgres, Redis, or OpenSearch with a few steps. Run a Helm install command, for example, and the service is up and running, provided everything works. The challenge comes when something falters, and those services need to remain reliable, which means patching, monitoring, backing up, and properly recovering them. That&amp;rsquo;s not something most product teams were ever meant to build deep expertise in.&lt;br&gt;&lt;br&gt;Modern applications rarely depend on a single data service. A software-as-a-service application might need Postgres on Kubernetes for core data, Redis on Kubernetes for caching, and OpenSearch or Elasticsearch for search and indexing, all running in a highly available setup. That&amp;rsquo;s why I think &amp;ldquo;you build it, you run it&amp;rdquo; only works when developers can request the services they need through automation, while the complex operational work happens behind the scenes.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-where-teams-get-stuck"&gt;Where teams get stuck&lt;/h2&gt;
-
-
-
-&lt;p&gt;More often than not, the first failure points appear when you have to update the database. Imagine Postgres is deployed on a specific version, and a few weeks later, a critical security vulnerability is discovered, requiring you to update the system. Depending on the upgrade, you might need to read through the change logs, decide whether it&amp;rsquo;s safe to run, or prepare for several steps before you can proceed. Here&amp;rsquo;s where database automation and Kubernetes become essential, because upgrades are part of database lifecycle management. It can never be a one-time setup.&lt;br&gt;&lt;br&gt;With Postgres running on a single node, it&amp;rsquo;s easy to handle and update. To avoid downtime, though, you need a Postgres cluster, often made up of three nodes, so that when one goes down, the other can take over. That setup boosts resilience, but also introduces problems and can create the downtime it was intended to prevent. It&amp;rsquo;s why Postgres, Kubernetes, and other databases need careful ownership&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-when-failover-goes-wrong"&gt;When failover goes wrong&lt;/h2&gt;
-
-
-
-&lt;p id="h-upgrading-the-three-node-cluster-has-to-happen-one-node-at-a-time-and-so-failover-can-get-messy-if-the-election-that-determines-which-node-takes-over-fails-two-nodes-can-end-up-thinking-they-re-in-charge-leading-to-inconsistent-writes-and-in-the-worst-case-data-corruption-sometimes-the-issue-is-resolved-in-minutes-by-restarting-the-cluster-and-re-establishing-the-leader-but-if-the-data-is-genuinely-corrupted-or-you-can-t-work-out-what-went-wrong-that-outage-can-stretch-into-hours-the-business-impact-becomes-hard-to-ignore-say-i-m-running-a-booking-platform-for-a-large-hotel-chain-and-the-database-goes-down-none-of-those-hotels-can-take-room-reservations-if-backups-haven-t-worked-properly-the-recovery-problem-worsens-you-might-not-just-lose-uptime-you-might-lose-actual-bookings-with-no-clue-who-s-arriving-tomorrow-or-next-week"&gt;Upgrading the three-node cluster has to happen one node at a time, and so failover can get messy. If the election that determines which node takes over fails, two nodes can end up thinking they&amp;rsquo;re in charge, leading to inconsistent writes and, in the worst case, data corruption. Sometimes the issue is resolved in minutes by restarting the cluster and re-establishing the leader. But if the data is genuinely corrupted, or you can&amp;rsquo;t work out what went wrong, that outage can stretch into hours.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;If the election that determines which node takes over fails, two nodes can end up thinking they&amp;#8217;re in charge, leading to inconsistent writes and, in the worst case, data corruption.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p id="h-upgrading-the-three-node-cluster-has-to-happen-one-node-at-a-time-and-so-failover-can-get-messy-if-the-election-that-determines-which-node-takes-over-fails-two-nodes-can-end-up-thinking-they-re-in-charge-leading-to-inconsistent-writes-and-in-the-worst-case-data-corruption-sometimes-the-issue-is-resolved-in-minutes-by-restarting-the-cluster-and-re-establishing-the-leader-but-if-the-data-is-genuinely-corrupted-or-you-can-t-work-out-what-went-wrong-that-outage-can-stretch-into-hours-the-business-impact-becomes-hard-to-ignore-say-i-m-running-a-booking-platform-for-a-large-hotel-chain-and-the-database-goes-down-none-of-those-hotels-can-take-room-reservations-if-backups-haven-t-worked-properly-the-recovery-problem-worsens-you-might-not-just-lose-uptime-you-might-lose-actual-bookings-with-no-clue-who-s-arriving-tomorrow-or-next-week"&gt;The business impact becomes hard to ignore. Say I&amp;rsquo;m running a booking platform for a large hotel chain, and the database goes down; none of those hotels can take room reservations. If backups haven&amp;rsquo;t worked properly, the recovery problem worsens: you might not just lose uptime; you might lose actual bookings, with no clue who&amp;rsquo;s arriving tomorrow or next week.&lt;/p&gt;
-
-
-
-&lt;p id="h-upgrading-the-three-node-cluster-has-to-happen-one-node-at-a-time-and-so-failover-can-get-messy-if-the-election-that-determines-which-node-takes-over-fails-two-nodes-can-end-up-thinking-they-re-in-charge-leading-to-inconsistent-writes-and-in-the-worst-case-data-corruption-sometimes-the-issue-is-resolved-in-minutes-by-restarting-the-cluster-and-re-establishing-the-leader-but-if-the-data-is-genuinely-corrupted-or-you-can-t-work-out-what-went-wrong-that-outage-can-stretch-into-hours-the-business-impact-becomes-hard-to-ignore-say-i-m-running-a-booking-platform-for-a-large-hotel-chain-and-the-database-goes-down-none-of-those-hotels-can-take-room-reservations-if-backups-haven-t-worked-properly-the-recovery-problem-worsens-you-might-not-just-lose-uptime-you-might-lose-actual-bookings-with-no-clue-who-s-arriving-tomorrow-or-next-week"&gt;For me, that&amp;rsquo;s the central issue. Developers end up spending time understanding database failure modes, recovery procedures, and backup issues, instead of building the application itself. That slows them down as they&amp;rsquo;re forced to troubleshoot constantly and pulls them away from the work they&amp;rsquo;re best at.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-you-can-t-just-hire-out"&gt;You can&amp;#8217;t just hire out&lt;/h2&gt;
-
-
-
-&lt;p&gt;The deeper problem is that you can&amp;rsquo;t solve this by simply hiring your way out. First, you have to find the right people, and that&amp;rsquo;s easier said than done &amp;mdash; specialists in database operations are hard to come by.&amp;nbsp;The U.S. Bureau of Labor Statistics projects &lt;a href="https://www.bls.gov/ooh/computer-and-information-technology/database-administrators.htm" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;just 4% growth&lt;/a&gt; for database administrators and architects from 2024 to 2034, with most openings coming from replacement rather than an explosive new supply.&lt;/p&gt;
-
-
-
-&lt;p&gt;Even when you do find them, they can&amp;rsquo;t cover everything on their own. These problems don&amp;rsquo;t just appear when you&amp;rsquo;re at your laptop; they often happen at night, so you need a proper on-call schedule, and one expert is rarely enough. Let&amp;rsquo;s remember that people get sick, take vacations, or might leave the company. Dependency on individual specialists is problematic.&lt;/p&gt;
-
-
-
-&lt;p&gt;The other challenge is breadth. Different databases need different specialists, and it&amp;rsquo;s difficult to find someone who can operate all of them equally well. That means you&amp;rsquo;re not just building one on-call schedule; you&amp;rsquo;re building several, each tied to a different technology stack. It might work in a small team with a fixed number of data services, but as your teams grow, your application count increases, and your database estate expands, making the whole model much harder to manage.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-operations-made-invisible"&gt;Operations, made invisible&lt;/h2&gt;
-
-
-
-&lt;p&gt;Good database operations should be invisible &lt;em&gt;most&lt;/em&gt; of the time. Security patches are applied automatically, backups run on schedule, and those backups are actually usable when needed. In other words, the developer should wake up to find the database already in a safer state, without having to chase it themselves.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Good database operations should be invisible most of the time&amp;hellip; the developer should wake up to find the database already in a safer state, without having to chase it themselves.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s why I believe the split between application teams and platform teams matters so much. There are only a few moments in the database lifecycle where developers really need to get involved. When they want a new database, need credentials, or want to trigger a backup before a risky release. Everything else should be handled by automation and the platform behind it. Just because developers deploy applications on Kubernetes doesn&amp;rsquo;t mean they should be expected to become database ops experts. My ideal, always, is that developers stay focused on what they&amp;rsquo;re good at &amp;mdash; delivering the application itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;The &amp;ldquo;you build it, you run it&amp;rdquo; tenet introduced all those years ago did a brilliant job of solving deployment, but not operations. It can, though, be made realistic at scale through centralized automation. A centralized control plane is especially useful as an organization grows. The more databases you have, the more important it is to know which ones need patching, which ones are compliant, and which ones need action now, not next week. In larger companies, that sort of governance can&amp;rsquo;t rely on teams coordinating manually. It has to be visible and manageable from one place.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s the real promise of a9s Hub: it gives developers the experience of working with a database as if it were running locally in their Kubernetes cluster, while the actual provisioning, patching, backups, and governance are handled centrally. It supports on-prem environments, where the same level of managed database service is often missing. It also works across different stacks, from Kubernetes to VMs and AWS-backed services, without losing that central layer of control. The result is faster delivery and better efficiency, enabling developers to spend more time innovating and less time firefighting.&lt;br&gt;&lt;br&gt;&lt;a href="https://anynines.com/products/hub/?utm_campaign=434127036-a9s%20Hub&amp;amp;utm_source=thenewstack&amp;amp;utm_medium=referral&amp;amp;utm_content=your-dev-teams-should-not-need-to-be-experts-in-database-operations" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;&lt;strong&gt;Explore the a9s Hub&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-database-operations-platform/"&gt;Kubernetes made deploying easy. Nobody warned you about the databases.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Why &amp;quot;you build it, you run it&amp;quot; breaks down for databases on Kubernetes — and how platform engineering can automate Postgres, Redis and OpenSearch ops.</content:encoded>
-    </item>
-    <item>
-      <title>Is retrieval engineering becoming AI’s next bottleneck?</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-retrieval-engineering-bottleneck/</link>
-      <dc:creator>Tim Young</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 14:00:00 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Infrastructure</category>
-      <category>AI Strategy</category>
-      <category>sponsor-vespa-ai</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830819</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/bf75efb9-kamran-abdullayev-siqlitva6a8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of a metallic geometric vortex spiraling inward, representing complex AI engineering workflows and data infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/bf75efb9-kamran-abdullayev-siqlitva6a8-unsplash.jpg" /&gt;&lt;p&gt;Public AI assistants have become so commonplace that software vendors are increasingly adding AI search, conversational experiences, and AI agents&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-retrieval-engineering-bottleneck/"&gt;Is retrieval engineering becoming AI&amp;#8217;s next bottleneck?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/bf75efb9-kamran-abdullayev-siqlitva6a8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of a metallic geometric vortex spiraling inward, representing complex AI engineering workflows and data infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/bf75efb9-kamran-abdullayev-siqlitva6a8-unsplash.jpg" /&gt;
-&lt;p&gt;Public AI assistants have become so commonplace that software vendors are increasingly adding AI search, conversational experiences, and AI agents to their own applications. From eCommerce and customer support to enterprise software, AI is rapidly becoming the primary interface to many applications.&lt;/p&gt;
-
-
-
-&lt;p&gt;Companies that build products around proprietary information are particularly well positioned to benefit from this shift. Whether they provide financial intelligence, market intelligence, legal research, scientific publishing, or business information, their products help professionals make better decisions by transforming trusted information into actionable insight.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;AI allows these organizations to deliver that expertise through entirely new user experiences. Increasingly, they compete not only on the quality of their proprietary information, but on how intelligently they retrieve, understand, and transform it into customer value.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Increasingly, they compete not only on the quality of their proprietary information, but on how intelligently they retrieve, understand, and transform it into customer value.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;A new competitive battleground is emerging. As AI becomes the primary interface to proprietary knowledge, the ability to retrieve, verify, rank, and assemble information is becoming almost as important as the proprietary information itself.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Much of the industry&amp;#8217;s attention has focused on increasingly capable language models, but those models are only as effective as the context they receive. Designing retrieval workflows that consistently deliver trusted, relevant, and up-to-date information is rapidly becoming &lt;a href="https://thenewstack.io/retrieval-ai-agent-architecture/" class="local-link"&gt;one of the defining engineering challenges&lt;/a&gt; for AI-native applications.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-retrieval-engineering-optimizing-the-workflow"&gt;Retrieval engineering: optimizing the workflow&lt;/h2&gt;
-
-
-
-&lt;p&gt;For decades, search engineering has focused on helping people find the right information. Whether searching a website, a legal database, or a financial research platform, the challenge was to retrieve the most relevant results while balancing competing priorities such as relevance, latency, scalability, and cost. The search system&amp;#8217;s job was to retrieve relevant information. The human&amp;#8217;s job was to evaluate it.&lt;/p&gt;
-
-
-
-&lt;p&gt;AI fundamentally changes that role.&lt;/p&gt;
-
-
-
-&lt;p&gt;Instead of retrieving information for people to evaluate, retrieval systems increasingly assemble the context that &lt;a href="https://thenewstack.io/the-architects-guide-to-understanding-agentic-ai/" data-wpil-monitor-id="3990" class="local-link"&gt;large language models and AI agents&lt;/a&gt; use to investigate, reason, and act. Every retrieval decision now becomes part of an automated workflow in which relevance, freshness, latency, and trust directly influence the final answer.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Prompt engineering influences how a language model reasons. Retrieval Engineering determines what it has to reason about.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This shifts the engineering challenge away from individual technologies and towards the retrieval workflow itself. The goal is no longer simply finding relevant documents, but orchestrating retrieval, ranking, filtering, inference, and real-time updates so they work together efficiently. We believe this emerging discipline deserves its own name: Retrieval Engineering. Prompt engineering influences how a language model reasons. Retrieval Engineering determines what it has to reason about. Both matter, but as AI applications become increasingly autonomous, the quality of retrieval increasingly determines the quality of the outcome.&lt;/p&gt;
-
-
-
-&lt;p&gt;As AI applications evolve from conversational assistants to deep research systems and autonomous agents, optimizing workflows rather than individual components becomes increasingly important. A single user request may trigger dozens&amp;mdash;or even hundreds&amp;mdash;of retrieval operations before a response is generated.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The challenge isn&amp;#8217;t vector search&lt;/h2&gt;
-
-
-
-&lt;p&gt;Vector databases solved an important problem by making semantic retrieval practical at scale. But &lt;a href="https://thenewstack.io/tensors-beyond-vector-search/" type="link" id="https://thenewstack.io/tensors-beyond-vector-search/" class="local-link"&gt;semantic retrieval is only one stage&lt;/a&gt; of a much larger workflow.&lt;/p&gt;
-
-
-
-&lt;p&gt;Production AI applications increasingly combine vector similarity with keyword search, structured filtering, business rules, personalization, machine-learned ranking, and real-time inference to assemble the context that language models depend on. The engineering challenge is no longer selecting the best retrieval technology&amp;mdash;it is orchestrating increasingly sophisticated retrieval workflows that remain accurate, responsive, and cost-effective.&lt;/p&gt;
-
-
-
-&lt;p&gt;Many organizations address this by combining specialist technologies. A vector database provides semantic retrieval. A search engine handles lexical matching. Additional services provide reranking, personalization, and inference. This works well initially, but every additional component introduces another network hop, another operational dependency, and another source of latency. The problem is no longer vector search. It is engineering an efficient retrieval architecture.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;From components to platforms&lt;/h2&gt;
-
-
-
-&lt;p&gt;This shift is changing how retrieval infrastructure is designed. Instead of optimizing individual components in isolation, engineering teams increasingly need to optimize the retrieval workflow as a complete system&amp;mdash;balancing retrieval quality, latency, freshness, scalability, and infrastructure cost.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The problem is no longer vector search. It is engineering an efficient retrieval architecture.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That is why AI Search Platforms are emerging. Rather than stitching together retrieval, ranking, inference, and serving from multiple independent services, they execute the workflow within a single distributed architecture. The optimization problem changes from integrating components to engineering the workflow itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;AI has transformed the user interface. It is now transforming the retrieval infrastructure behind it. For organizations building applications around proprietary knowledge, the next competitive advantage will not come solely from larger language models or better embeddings. It will come from building retrieval workflows that consistently deliver trusted, relevant, and timely context at scale.&lt;/p&gt;
-
-
-
-&lt;p&gt;Retrieval Engineering is rapidly becoming one of the disciplines defining the next generation of AI-native applications.&lt;/p&gt;
-
-
-
-&lt;p&gt;If you&amp;#8217;re interested in exploring these ideas in more depth&amp;mdash;including Retrieval Engineering, AI Search Platforms, and the architectural patterns behind AI-native information platforms&amp;mdash;we cover them in our ebook, &lt;a href="https://cta-eu1.hubspot.com/web-interactives/public/v1/track/redirect?encryptedPayload=AVxigLKhPc7tGa99qZixT7Hn%2BRVoA6Upjt2fk8aFadTHOXv5DJ73aXn4pLXvWifgNnI3fLAjh1ancwluQkA0jSwwJQTSEeBsa9YmuqfeyawJ6m%2F8lcmkG9yFHFpZ2cHzAspLJzgl9xstQCZA%2BDMOe3Of%2BENa%2Fp75OwPSwY3hnIVFvTV9GAN%2BydJ1XJEmTn3JIDXBVxO0LCT6oSpHoOMEnF2cpw7ysUT0lGJVmH1ULQLm%2FnDz4dK5lmDyCiibMs2ribcEncNnsE9kbHt6i%2FO66g%3D%3D&amp;amp;webInteractiveContentId=434338471126&amp;amp;portalId=143590857" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Building AI-Native Information Platforms&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-retrieval-engineering-bottleneck/"&gt;Is retrieval engineering becoming AI&amp;#8217;s next bottleneck?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Is retrieval engineering AI&amp;#039;s next bottleneck? Learn how optimizing workflow orchestration delivers the context autonomous agents need.</content:encoded>
-    </item>
-    <item>
-      <title>The rise of the agent runtime: The compute platform behind production agents</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agent-runtime-application-server/</link>
-      <dc:creator>Mary Branscombe</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 14:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Cloud Services</category>
-      <category>sponsor-microsoft-azure</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830690</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/dd6803c2-alex-shuper-yyznrk8nrsw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Data center aisle with rows of illuminated server racks" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/dd6803c2-alex-shuper-yyznrk8nrsw-unsplash-scaled.jpg" /&gt;&lt;p&gt;The fast pace of AI research means organizations now have a wide range of models to choose from that can&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-runtime-application-server/"&gt;The rise of the agent runtime: The compute platform behind production agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/dd6803c2-alex-shuper-yyznrk8nrsw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Data center aisle with rows of illuminated server racks" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/dd6803c2-alex-shuper-yyznrk8nrsw-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;The fast pace of AI research&lt;/strong&gt; means organizations now have a wide range of models to choose from that can power AI agents to solve real business problems. But choosing a model doesn&amp;rsquo;t guarantee you effective agents or even good performance. For that, you need to run your agents in an environment that provides them with tools, state, security, and scale, with fast startup times and good integration with your existing business systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;Picking the right agent runtime environment is like picking an enterprise app server but for AI systems &amp;mdash; and &lt;a href="https://thenewstack.io/securing-kubernetes-ai-agents/" class="local-link"&gt;agents have very different needs&lt;/a&gt; from traditional applications.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Gartner predicts more than 40% of agentic projects will be canceled by 2027; not because models aren&amp;#8217;t powerful enough to be useful but because of unclear business value, inadequate risk controls and ballooning costs.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Gartner predicts more than 40% of agentic projects will be canceled by 2027; not because models aren&amp;rsquo;t powerful enough to be useful but because of unclear business value, inadequate risk controls and ballooning costs.&amp;nbsp; Agents that deliver in proof-of-concept systems will fail in production if the runtime stack powering them can&amp;rsquo;t keep up and keep them under control.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agentic-compute-is-different"&gt;Agentic compute is different&lt;/h2&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s easy to think of an AI agent as just another microservice that takes unstructured input, runs APIs or queries, and returns messages. But infrastructure designed for traditional enterprise applications with predictable business logic or even cloud-native stateless workloads doesn&amp;rsquo;t fit agents with their bursty, long-running, stateful, non-deterministic, code-writing, tool-invoking behaviors that might be triggered by a system event or an email &amp;mdash; not just a chat session.&lt;/p&gt;
-
-
-
-&lt;p&gt;Model inference needs GPUs for speed, but agents also need reliable, durable compute that supports stateful sessions for long-running processes, along with strong security and real-time visibility.&lt;/p&gt;
-
-
-
-&lt;p&gt;You still need to think about familiar issues like hosting, scaling, identity, and security, but all that is complicated by the unpredictable, multi-stage workflow of the agent reasoning loop.&lt;/p&gt;
-
-
-
-&lt;p&gt;An agent pulls in input from multiple sources, reasons over its context about the execution plan for accomplishing the goal, calls other tools or writes its own code, iterates over the results of those calls, and maybe builds on them or switches to another approach that requires another reasoning loop and eventually delivers output. That might be updating a system or sending an email rather than just displaying an answer.&lt;/p&gt;
-
-
-
-&lt;p&gt;Model performance is only one part of making that useful. Architecting a successful agent system that can run at enterprise scale requires considering the agent runtime, the application layer that agents call, and the tools, APIs, and MCP servers they consume.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-more-on-microsoft-azure"&gt;More on Microsoft Azure&lt;/h3&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/securing-kubernetes-ai-agents/" class="local-link"&gt;How to secure Kubernetes in the age of AI workloads&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/in-the-ai-age-java-is-more-relevant-than-ever/" class="local-link"&gt;In the AI age, Java is more relevant than ever&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p&gt;You have to be able to integrate with business logic and existing systems, manage the usual quotas, rate limits and SLAs for APIs so agents don&amp;rsquo;t overload them &amp;mdash; and you have to do all that while keeping up with AI developments that are moving too fast for you to build the infrastructure primitives you need to rely on from scratch every time.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-requirements-of-modern-agentic-infrastructure"&gt;Requirements of modern agentic infrastructure&lt;/h2&gt;
-
-
-
-&lt;p&gt;Instead, you should look for flexible infrastructure that fits the way the agent works. As with any technology, if you build on an existing platform like Azure Container Apps, you can save effort in areas where your business can differentiate. And while AI agents have flaws (from hallucinations to high token costs) that aren&amp;rsquo;t fully solved, you can pick an agent runtime environment that makes it easier to get useful results despite them.&lt;/p&gt;
-
-
-
-&lt;p&gt;Agentic compute needs fast startup and resume. Whether it&amp;rsquo;s a human typing into a chat prompt or system events automatically launching multiple agents, agent infrastructure needs to spin up quickly. If it takes a few seconds to spin up a container, the reasoning loop can&amp;rsquo;t start till that&amp;rsquo;s done.&lt;/p&gt;
-
-
-
-&lt;p&gt;It also needs to scale up and down responsively, without costing you anything when it&amp;rsquo;s not running.&lt;/p&gt;
-
-
-
-&lt;p&gt;Because agent workloads are long-running and event-driven, agents need to start up, do some work, go idle for hours or even days, and then resume instantly with their memory, context, caches, connections, identity, and security intact. That means persisting and restoring state so long-running agents don&amp;rsquo;t have to pay the same startup tax over and over again. Whether the last stage of the agent&amp;#8217;s reasoning loop was successful or a failure, it has to take another approach; you don&amp;rsquo;t want it to do the same work again.&lt;/p&gt;
-
-
-
-&lt;p&gt;Rather than building your own custom microVM stack, the new &lt;a href="https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Azure Container Apps Sandboxes&lt;/strong&gt;&lt;/a&gt; provide a temporary, secure, and stateful compute environment that spins up, executes code, snapshots disk and memory, then automatically idles and resumes just as fast. This is the stateful equivalent of &lt;a href="https://learn.microsoft.com/en-us/azure/container-apps/sessions" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Dynamic Sessions&lt;/strong&gt;&lt;/a&gt;, with sub-second startup from pre-warmed pools; you can burst out to hundreds (and eventually thousands) of concurrent sandboxes when you need them, then scale back down to zero.&lt;/p&gt;
-
-
-
-&lt;p&gt;An agent runtime needs to be secure by default because agents are only useful when they take action &amp;mdash; and by definition, they&amp;rsquo;re likely to do unexpected things, write and execute their own untrusted code, and keep trying to achieve their goal (sometimes even when there&amp;rsquo;s a policy that should stop certain behaviors).&lt;/p&gt;
-
-
-
-&lt;p&gt;To give agents secure, auditable access to the resources they need, run them and the code they generate in a sandbox, rather than on a developer laptop with production credentials and admin rights. Identity, access control, and execution boundaries have to be enforced at the runtime layer, not bolted on in a hidden prompt.&lt;/p&gt;
-
-
-
-&lt;p&gt;ACA Sandboxes have egress and access policies, so you can control outbound calls and limit what URLs they can access. If you can&amp;rsquo;t use managed identity for all the services an agent needs to connect to you, you can protect secrets by injecting API keys through an external egress gateway instead of hard-coding them. Because the gateway is external, outbound call decisions are controlled by policy outside the sandbox, not by agent code that will relentlessly try any method to get through.&lt;/p&gt;
-
-
-
-&lt;p&gt;If agents are useful, you&amp;rsquo;re going to run a lot of them, often simultaneously. AI agents need strong isolation for each task, so every untrusted code execution happens in its own sandbox and no data leaks between tasks.&lt;/p&gt;
-
-
-
-&lt;p&gt;You can manage them as groups, but each ACA Sandbox has its own secure boundary, so details from one customer support agent won&amp;#8217;t end up in a chat with a different customer. If the untrusted code &lt;a href="https://www.wiz.io/blog/ghostapproval-a-trust-boundary-gap-in-ai-coding-assistants" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;does turn out to be problematic&lt;/a&gt;, isolated sandboxes at least contain the blast radius.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-manage-the-tools-agents-call"&gt;Manage the tools agents call&lt;/h2&gt;
-
-
-
-&lt;p&gt;You don&amp;rsquo;t want to rely on fragile glue code or ad hoc orchestration that you have to rewrite any time systems change for the calls agents make to tools, APIs, cloud services, and other workflows. You also don&amp;rsquo;t want to rely on manual cleanup of resources no longer needed. A runtime with built-in agent tool execution makes agents more robust. It takes the drudgery out of connecting the agent environment to your other systems, enabling them to interact securely, in isolation, and at scale.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s not just about where the agent is running and what the capabilities of the agent are, but also what actions the agent can take.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It&amp;rsquo;s not just about where the agent is running and what the capabilities of the agent are, but also what actions the agent can take,&amp;rdquo; points out &lt;a href="https://www.linkedin.com/in/vyomnagrani/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Vyom Nagrani&lt;/strong&gt;&lt;/a&gt;, who runs the team of PMs responsible for both Azure Container Apps and the &lt;a href="https://learn.microsoft.com/en-us/azure/sre-agent/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Azure SRE Agent&lt;/strong&gt;&lt;/a&gt; that&amp;rsquo;s built on ACA Sandboxes. Sandboxes have access to a connector framework with over 1,400 enterprise-grade connectors, enabling them to take actions not only on Azure and Microsoft services but also on third-party tools.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The runtime provides those connectors, and it provides a managed way of authenticating against all of these third-party systems, so now you can build an agent which can talk to many, many, &lt;em&gt;many&lt;/em&gt; different systems. It&amp;#8217;s not boxed into one authentication boundary,&amp;rdquo; Nagrani tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;MCP servers are a built-in capability of the connector framework. &amp;ldquo;You can take any of these connectors; you can take any REST API and expose it as an MCP server, which then the agent can consume.&amp;rdquo; Or if you want to build a custom MCP server, you can host that in a sandbox too. ACA Sandboxes can be both where agents run and, if that&amp;rsquo;s appropriate, where the tools they use are hosted.&lt;/p&gt;
-
-
-
-&lt;p&gt;If you&amp;rsquo;re building a user interface to wrap your agents, the application layer that makes calls to the agents can run in &lt;a href="https://learn.microsoft.com/en-us/azure/container-apps/express-overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Azure Container Apps Express&lt;/strong&gt;&lt;/a&gt;, a new service now in public preview, Nagrani says.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It&amp;rsquo;s a simplified app hosting stack for the app layer that responds to HTTP traffic and serves web traffic: that&amp;rsquo;s where the human interactivity comes in.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-putting-it-all-together"&gt;Putting it all together&lt;/h2&gt;
-
-
-
-&lt;p&gt;ACA Sandboxes offers an agent runtime environment that answers the key questions architects need to consider: where agents and the ephemeral compute they need access to run; where the application layer that calls agents runs; and how agents get access to all the tools, APIs, services, MCP servers, and existing business logic they need to orchestrate.&lt;/p&gt;
-
-
-
-&lt;p&gt;Whether you&amp;rsquo;re a platform engineer, a software vendor or a startup building a new AI platform, treating agent runtimes as the new application server and MCP servers as the new APIs requires agent infrastructure that supports agent workloads effectively, allowing governance to shift left into the runtime layer where it can scale with the ever-increasing numbers of agents.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-real-platforms-build-on-agent-runtimes"&gt;How real platforms build on agent runtimes&lt;/h2&gt;
-
-
-
-&lt;p&gt;Azure Container Apps is already a strong platform for running agents. Auger, a startup launched by the former CEO of Amazon&amp;rsquo;s global consumer business to help mid-size enterprises get their complex supply chains out of Excel spreadsheets, used it to build a multi-agent system that can give real-time answers about shipments and forecasts in a world where mines or critical shipping lanes might be closed at any time by war or weather.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Backend agents pull the unstructured data with all the details to answer those questions from different siloes, building ETL pipelines and creating an ontology of the supply chain ecosystem for each customer that includes functions and actions &amp;mdash; all of which need to be audited and reversible. Frontend agents use that ontology to answer questions such as, &amp;ldquo;What happens if I build a new warehouse here or switch to a supplier in this country?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;ACA Sandboxes take the power of Azure Container Apps, which is built on, and make it easier for any organization to build their own agent service with strong isolation, dynamic scaling, fast startup, durable state, and connectors to a wide range of tools and services.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s just what the Foundry team was looking for when they started work on the &lt;a href="https://azure.microsoft.com/en-us/products/ai-foundry/agent-service" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Microsoft Foundry Agent Service&lt;/strong&gt;&lt;/a&gt; managed agent runtime. ACA Sandboxes gave them a platform that delivers fast start/resume, built&amp;#8209;in tool execution (including for untrusted code), persistent state for long&amp;#8209;running agents, strong per&amp;#8209;agent isolation, and secure&amp;#8209;by&amp;#8209;default operations. Agent identity, &amp;ldquo;on&amp;#8209;behalf&amp;#8209;of&amp;rdquo; authentication to existing business services, and strict isolation are critical capabilities they didn&amp;rsquo;t have to build themselves.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s the same enterprise-grade infrastructure behind Microsoft&amp;#8217;s own agentic products, now available for all Azure customers to build on.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The Foundry Agent Service adds a layer of visibility and observability into agent actions and conversations, allowing customers to monitor agent performance and see where the system is doing well and where it needs improvement.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Azure Container Apps Sandboxes package the hard parts of an agent runtime into a first-class Azure resource &amp;mdash; sub-second start and resume, built-in execution of tools and untrusted code, and snapshot-based state that lets long-running agents pick up exactly where they left off. Every agent gets its own hardware-isolated environment with secure-by-default operations, so builders can focus on what their agents do, not on the plumbing underneath,&amp;rdquo; Nagrani points out.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It&amp;#8217;s the same enterprise-grade infrastructure behind Microsoft&amp;#8217;s own agentic products, now available for all Azure customers to build on.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-runtime-application-server/"&gt;The rise of the agent runtime: The compute platform behind production agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Picking an AI model won&amp;#039;t guarantee good agents. Here&amp;#039;s why the runtime — fast startup, durable state, security, isolation — is what makes them work.</content:encoded>
     </item>
   </channel>
 </rss>
