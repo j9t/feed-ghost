@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 25 Jul 2026 14:38:12 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2026 15:02:13 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,13 +20,369 @@
       <height>32</height>
     </image>
     <item>
+      <title>MCP’s biggest update removes the machinery many servers were built around</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/mcp-release-candidate-rewrite/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Sun, 26 Jul 2026 16:00:00 +0000</pubDate>
+      <category>API Management</category>
+      <category>Developer tools</category>
+      <category>Model Context Protocol</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22831200</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/9ecb805c-getty-images-183ra32ukdi-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Orange and yellow Ethernet cables connected to network equipment in a crowded server rack." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9ecb805c-getty-images-183ra32ukdi-unsplash-scaled.jpg" /&gt;&lt;p&gt;The biggest update to the Model Context Protocol (MCP) since its launch is almost here. Lead maintainers froze the release&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-release-candidate-rewrite/"&gt;MCP’s biggest update removes the machinery many servers were built around&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/9ecb805c-getty-images-183ra32ukdi-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Orange and yellow Ethernet cables connected to network equipment in a crowded server rack." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9ecb805c-getty-images-183ra32ukdi-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;The biggest update to the Model Context Protocol (MCP) since its launch is almost here. Lead maintainers &lt;a href="https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;froze&lt;/a&gt; the release candidate on May 21, with the final specification set to arrive July 28.&lt;/p&gt;
+
+
+
+&lt;p&gt;At first glance, the &lt;a href="https://modelcontextprotocol.io/specification/draft/changelog" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;changelog&lt;/a&gt; sounds drastic: Sessions and the initialization handshake are will disappear, and three core features are being deprecated. Look closer, though, and the revision is really about simplifying MCP by handing familiar jobs back to the infrastructure already built to handle them. For operators, that addresses a long-running frustration: Running a remote MCP server shouldn&amp;rsquo;t require specialized machinery that an ordinary stateless service doesn&amp;rsquo;t need.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tax-mcp-was-charging-its-own-users"&gt;The tax MCP was charging its own users&lt;/h2&gt;
+
+
+
+&lt;p&gt;To understand the removals, you have to examine the gap between MCP&amp;#8217;s original design and its actual deployment. Its earliest and most recognizable form was a desktop app communicating with a local process via standard input and output, where a startup handshake was inexpensive to perform over a long-lasting connection.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;A team shipping an MCP server was paying to solve a distributed-systems problem the protocol had created for them.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;As more servers moved into remote, horizontally scaled deployments, those sessions became the problem. A server minted an  &lt;code&gt;Mcp-Session-Id&lt;/code&gt;, which pinned the client to the issuing instance. To scale out, this often requires session affinity, an externally shared session store, or MCP-aware gateway logic that parses JSON bodies to determine call routing. A team shipping an MCP server was paying to solve a distributed-systems problem the protocol had created for them.&lt;/p&gt;
+
+
+
+&lt;p&gt;Capability negotiation added a second cost. Because capabilities were exchanged once at connect time, list results could vary by connection, which made caching across sessions or in a shared intermediary hard to reason about.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-the-maintainers-optimized-for"&gt;What the maintainers optimized for&lt;/h2&gt;
+
+
+
+&lt;p&gt;Six Specification Enhancement Proposals converge on a single goal: making every request stand on its own. Protocol version and client capabilities now travel in &lt;code&gt;_meta&lt;/code&gt; on each call. Clients are expected to include their identity there too, and a new &lt;code&gt;server/discover&lt;/code&gt; method makes server capabilities independently queryable either up front or when needed. The release post calls this the underlying principle of pay-as-you-go complexity: The core stays lean, and statefulness shows up only where a feature genuinely needs it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The release post calls the underlying principle pay-as-you-go complexity, where the core stays lean, and statefulness shows up only where a feature genuinely needs it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The obvious objection is that plenty of servers do need to remember things. One principal answer is the explicit handle, which is the pattern every shopping cart built over HTTP has used for twenty years. A tool mints a &lt;code&gt;basket_id&lt;/code&gt;, returns it in the result, and the model passes it back as an ordinary argument on the next call. Account state, resource URIs, task handles, and ordinary database identifiers all remain available for anything that should not travel that route.&lt;/p&gt;
+
+
+
+&lt;p&gt;What makes the handle more than a workaround is that it is visible to the model. Session state hidden in transport metadata was something the model could never reason about, whereas a handle in a tool result can be composed across tools and handed between workflow steps. The trade-off is that it also appears in prompts, transcripts, and logs, so bind it to the authenticated principal and verify permissions with each use instead of considering it as proof of authorization.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-developers-actually-get"&gt;What developers actually get&lt;/h2&gt;
+
+
+
+&lt;p&gt;For server authors, a remote MCP server can now be operated much more like a conventional stateless HTTP service. Three replicas behind round-robin, no affinity configuration, and no protocol session store to run or recover. Rolling deploys no longer invalidate sessions or strand a client on a removed instance, though they can still interrupt in-flight requests and subscription streams, and since resumability is gone, the client reissues that work under a new request ID.&lt;/p&gt;
+
+
+
+&lt;p&gt;For platform teams, the required &lt;code&gt;Mcp-Method&lt;/code&gt; header, plus &lt;code&gt;Mcp-Name&lt;/code&gt; for the named tool, resource, and prompt operations, means a gateway can rate-limit or authorize by operation without inspecting a request body. That only holds under the &lt;a href="https://modelcontextprotocol.io/specification/draft/basic/transports/streamable-http" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;transport validation rules&lt;/a&gt;, where the backend rejects any header that disagrees with the body and a policy-enforcing intermediary refuses protocol versions that do not guarantee the check. Skip that and a benign header can front a different call underneath.&lt;/p&gt;
+
+
+
+&lt;p&gt;The caching change deserves more attention than it has received. Affected list and read results must now include &lt;code&gt;ttlMs&lt;/code&gt; and &lt;code&gt;cacheScope&lt;/code&gt;, modeled on HTTP &lt;code&gt;Cache-Control&lt;/code&gt;, so a client can hold a catalog for a stated interval rather than refetching it. The draft treats &lt;code&gt;ttlMs&lt;/code&gt; as a freshness hint rather than a promise that the data still holds. Servers are also asked to return tools in deterministic order, which the draft ties to better prompt cache hit rates, and at volume that can mean lower latency or token cost wherever the provider prices prompt caching.&lt;/p&gt;
+
+
+
+&lt;p&gt;One caveat belongs here rather than in a footnote. Statelessness at the protocol layer buys routability, not determinism. Two replicas will accept the same request without consulting protocol state, and they will still return different answers if they run different versions or read different downstream data.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-care-about-extensions"&gt;Why care about extensions&lt;/h2&gt;
+
+
+
+&lt;p&gt;The ecosystem argument is stronger than any single feature. &lt;a href="https://modelcontextprotocol.io/extensions/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Extensions&lt;/a&gt; now get namespaced identifiers, official ones under &lt;code&gt;io.modelcontextprotocol&lt;/code&gt; and third-party ones under a reversed domain the author owns, plus their own &lt;code&gt;ext-&lt;/code&gt; repositories and release cadences. Anyone who has written a Kubernetes custom resource definition will recognize the shape, where a capability ships and matures outside the core release train.&lt;/p&gt;
+
+
+
+&lt;p&gt;Tasks is the proof of why that matters. It shipped as an experimental core feature in 2025-11-25, real production use exposed design problems, and it has been redesigned as an extension. Moving it out of core is itself a breaking specification change, but the next iteration is not, because extensions evolve through capability flags or settings-level versioning, with a fresh identifier only when a break is unavoidable. MCP Apps, already available as an extension, now sits inside a formally governed negotiation framework rather than a process that did not exist.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-the-deprecation-policy-buys"&gt;What the deprecation policy buys&lt;/h2&gt;
+
+
+
+&lt;p&gt;The &lt;a href="https://modelcontextprotocol.io/community/feature-lifecycle" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;feature lifecycle policy&lt;/a&gt; gives every feature an Active, Deprecated, and Removed state, with a minimum twelve-month window measured from the revision in which the feature first becomes Deprecated. The floor can be shortened only for an active security risk carrying a published advisory or documented exploitation, and even then ninety days is the hard minimum. A public registry lists what is on the way out and by when, and a Standards Track proposal cannot reach Final until a matching scenario lands in the conformance suite.&lt;/p&gt;
+
+
+
+&lt;p&gt;For a developer, that reads like housekeeping. For anyone who has to justify an MCP integration to a platform review board, a written deprecation guarantee is worth more than any capability in the release.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-it-costs"&gt;What it costs&lt;/h2&gt;
+
+
+
+&lt;p&gt;None of this arrives free of charge. Anyone who built against the experimental Tasks API migrates to the new lifecycle, and any server that issued its own requests to the client moves onto the &lt;a href="https://modelcontextprotocol.io/specification/draft/basic/patterns/mrtr" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Multi Round-Trip Requests&lt;/a&gt; pattern, where the server returns what it still needs, and the client retries with the answers. That server also has to authenticate any echoed &lt;code&gt;requestState&lt;/code&gt; that can influence authorization or business logic, and one-time workflows still need their own replay tracking.&lt;/p&gt;
+
+
+
+&lt;p&gt;The deprecations are migration directions rather than drop-in replacements, and Sampling is the sharpest case. A server using client-mediated Sampling needed no provider credentials and generally did not carry the model bill, whereas calling a provider API directly turns it into a credential holder, a billing party, and a separate processor of user data. Logging tells a similar story, since &lt;code&gt;stderr&lt;/code&gt; and OpenTelemetry answer operator observability without giving a remote client any equivalent of the structured log stream it used to receive.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The protocol stopped managing state, which is not the same as the state going away.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Application state does not disappear either. Handles, carts, task records, and idempotency keys still need somewhere to live. The protocol stopped managing state, which is not the same as the state going away.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-road-ahead"&gt;The road ahead&lt;/h2&gt;
+
+
+
+&lt;p&gt;Removing a foundational abstraction less than two years into a protocol&amp;rsquo;s life is a calculated risk, and the maintainers hedged it sensibly with a ten-week validation window and beta SDKs for Python, TypeScript, Go, and C#.&lt;/p&gt;
+
+
+
+&lt;p&gt;They also defined a migration path where clients probe with &lt;code&gt;server/discover&lt;/code&gt; first and fall back to &lt;code&gt;initialize&lt;/code&gt; &amp;mdash; only when they encounter a legacy-only server. It&amp;#8217;s a wire-level break with a negotiated path across it rather than an ecosystem flag day.&lt;/p&gt;
+
+
+
+&lt;p&gt;The release-candidate window is the right time to inventory session dependencies and test them, with production rollout following ratification and stable SDKs. From individual server authors to platform teams to the vendors building gateways and registries around it, the payoff is a protocol layer that fits far more naturally onto infrastructure the industry already knows how to operate.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-release-candidate-rewrite/"&gt;MCP’s biggest update removes the machinery many servers were built around&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>MCP&amp;#039;s biggest revision removes sessions and the initialization handshake, shifts state into handles, and makes remote servers act more like stateless HTTP.</content:encoded>
+    </item>
+    <item>
+      <title>Microsoft and Google DeepMind agree on AI control — but not on who holds it</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/nadella-hassabis-ai-frameworks/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Sun, 26 Jul 2026 15:30:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>AI Strategy</category>
+      <category>Compliance</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22830492</guid>
+      <description>&lt;img width="1024" height="578" src="https://cdn.thenewstack.io/media/2024/11/ad046534-nadella-ignite24-1024x578.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/11/ad046534-nadella-ignite24.png" /&gt;&lt;p&gt;Over two days this month, two of the most credible people in the industry published framework manifestos on X. Microsoft&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nadella-hassabis-ai-frameworks/"&gt;Microsoft and Google DeepMind agree on AI control — but not on who holds it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="578" src="https://cdn.thenewstack.io/media/2024/11/ad046534-nadella-ignite24-1024x578.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/11/ad046534-nadella-ignite24.png" /&gt;
+&lt;p&gt;Over two days this month, two of the most credible people in the industry published framework manifestos on X. &lt;/p&gt;
+
+
+
+&lt;p&gt;Microsoft CEO Satya Nadella posted &amp;#8220;The Reverse Information Paradox&amp;#8221; on July 12. &lt;/p&gt;
+
+
+
+&lt;p&gt;And then Google DeepMind CEO Demis Hassabis posted &amp;#8220;A Framework for Frontier AI and the Dawning of a New Age&amp;#8221; on July 14.&lt;/p&gt;
+
+
+
+&lt;p&gt;When read side by side, each proposal reinforces the layer where its author&amp;#8217;s company is already strongest.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-two-manifestos-two-boundary-lines-one-week"&gt;Two manifestos, two boundary lines, one week&lt;/h2&gt;
+
+
+
+&lt;p&gt;Nadella&amp;#8217;s argument is about value capture. Enterprises pay for AI twice, he writes in the Reverse Information Paradox, once in tokens and again in the proprietary know-how they leak back into the model through prompts, corrections, and evals. His fix is to own the learning loop &amp;mdash; meaning the data, the traces, the evals, the adapted weights, and the memory &amp;mdash; then put a model-agnostic orchestration layer on top so any model stays cheap and swappable. Make the model a commodity and the value flows to the layers around it.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;See also: &lt;a href="https://thenewstack.io/nadella-reverse-information-paradox/" class="local-link"&gt;Microsoft CEO Satya Nadella says you&amp;rsquo;re paying for AI twice &amp;mdash; the second price is worse&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Hassabis is drawing a very different line. His concern is not who captures the value but who governs the risk. In his &lt;a href="https://x.com/demishassabis/status/2076957440109625718" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;article&lt;/a&gt;, he calls for a standards body modeled on FINRA, industry-funded and subject to government oversight, that tests frontier models for cyber, bio, and deception before they ship. Labs would submit models up to 30 days before release, voluntarily at first, then as a hard gate for deploying in the US market.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-both-frameworks-route-through-the-author-s-own-strength"&gt;Both frameworks route through the author&amp;#8217;s own strength&lt;/h2&gt;
+
+
+
+&lt;p&gt;Neither framework offers a neutral read of the field. Nadella&amp;#8217;s advice to own your data and keep models swappable is correct, and it also routes enterprises straight to Azure and Foundry, where the orchestration, billing, deployment, and governance stay with Microsoft no matter which model wins. The overlap between that advice and the product stack Microsoft already sells is difficult to ignore.&lt;/p&gt;
+
+
+
+&lt;p&gt;Hassabis&amp;#8217;s gate subtly emphasizes the importance of scale. Large incumbents can absorb testing costs, run sophisticated safety teams, and shape standards more easily than smaller challengers. Google DeepMind already operates its own internal Frontier Safety Framework, so an incumbent with an established safety apparatus would likely begin with a compliance advantage, especially if major labs influence the eventual protocol. That does not prove Hassabis planned it this way, but the incentive still leans toward the same outcome the proposal describes.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-value-moves-toward-the-layer-each-one-governs"&gt;The value moves toward the layer each one governs&lt;/h2&gt;
+
+
+
+&lt;p&gt;The pattern in both posts is that they have stopped competing solely on benchmark leadership and now compete over the systems that govern how models are used and released. Nadella wants the decisive layer to be the enterprise boundary, so the model provider cannot harvest the customer&amp;#8217;s knowledge. &lt;/p&gt;
+
+
+
+&lt;p&gt;Hassabis wants it to be the frontier gate, so nobody deploys a top-tier model without an industry-run body signing off on it. Different layers, but the same instinct: put durable value where your company is already positioned.&lt;/p&gt;
+
+
+
+&lt;p&gt;The counter is that Hassabis proposes a wider net than self-interest alone would draw. His regime would cover every frontier model, regardless of national origin or openness. It would get independent experts and open-source representatives on the board and answer to the US government. &lt;/p&gt;
+
+
+
+&lt;p&gt;Those provisions complicate any claim that the body would simply serve Google. Read most fairly, both frameworks may solve real problems while also favoring the firms best equipped to supply the solution.&lt;/p&gt;
+
+
+
+&lt;p&gt;The model is no longer the only scarce asset. Value is moving toward whoever controls the data boundary, the deployment layer, and the rules of admission, and this month, two of the most influential in the AI ecosystem staked a public claim to control them.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nadella-hassabis-ai-frameworks/"&gt;Microsoft and Google DeepMind agree on AI control — but not on who holds it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Satya Nadella and Demis Hassabis propose AI frameworks that shift value toward enterprise data control, frontier model gates and strict industry oversight.</content:encoded>
+    </item>
+    <item>
+      <title>5 ways SRE AI agents are set to augment human capabilities</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/sre-ai-agents-capabilities/</link>
+      <dc:creator>Mandi Walls</dc:creator>
+      <pubDate>Sun, 26 Jul 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Operations</category>
+      <category>DevOps</category>
+      <category>sponsor-pagerduty</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22831620</guid>
+      <description>&lt;img width="1024" height="580" src="https://cdn.thenewstack.io/media/2026/07/465d70d6-imkara-visual-vyoup02lktk-unsplash-1024x580.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark green digital particle wave visualization representing SRE AI agents and system data." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/465d70d6-imkara-visual-vyoup02lktk-unsplash.jpg" /&gt;&lt;p&gt;In digital operations management, AI agents give organizations a competitive edge by reducing incident volume and accelerating recovery. The potential&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/sre-ai-agents-capabilities/"&gt;5 ways SRE AI agents are set to augment human capabilities&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="580" src="https://cdn.thenewstack.io/media/2026/07/465d70d6-imkara-visual-vyoup02lktk-unsplash-1024x580.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark green digital particle wave visualization representing SRE AI agents and system data." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/465d70d6-imkara-visual-vyoup02lktk-unsplash.jpg" /&gt;
+&lt;p&gt;In digital operations management, AI agents give organizations a competitive edge by reducing incident volume and accelerating recovery. The potential for transformation is real, but only when agents are deployed against a single targeted use case, rather than simply adding an &amp;ldquo;AI layer&amp;rdquo; to existing capabilities.&lt;/p&gt;
+
+
+
+&lt;p&gt;One practical area where enterprise AI agents can reshape traditional workflows is site reliability engineering (SRE), where the standard operating model is reactive and human-centric. This model carries a heavy cost, burdening engineers with repetitive toil that swallows their time and can lead to burnout.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/the-future-of-ai-in-sre-preventing-failures-not-fixing-them/" type="link" id="https://thenewstack.io/the-future-of-ai-in-sre-preventing-failures-not-fixing-them/" class="local-link"&gt;SRE AI agents&lt;/a&gt; offer a way to change how site reliability engineers work, turning them from &amp;ldquo;doers&amp;rdquo; manually managing operations to &amp;ldquo;managers&amp;rdquo; leading a team of agents that proactively drive operational improvements.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-from-runbooks-to-root-cause-analysis-where-agents-help-most"&gt;From runbooks to root cause analysis: where agents help most&lt;/h2&gt;
+
+
+
+&lt;p&gt;There are five practical ways SRE AI agents can lighten the load on engineering teams:&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-1-working-autonomously"&gt;1. Working autonomously&lt;/h3&gt;
+
+
+
+&lt;p&gt;Traditional SRE work is guided by the runbooks that engineers write and update. After receiving an alert, engineers log in, run diagnostics, apply fixes, and, where possible, build automation to speed up remediations of similar incidents in the future. Even when automation is added, the incident management process relies on a human to manage it end-to-end.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;SRE AI agents change that. After ingesting an alert and &lt;a href="https://thenewstack.io/context-lake-ai-agents/" type="link" id="https://thenewstack.io/context-lake-ai-agents/" class="local-link"&gt;understanding its context&lt;/a&gt; &amp;ndash; for example, correlating a memory-spike alert with a recent update or deployment &amp;ndash; they can execute actions to solve routine issues autonomously.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-2-building-memory-from-operations-data"&gt;2. Building memory from operations data&lt;/h3&gt;
+
+
+
+&lt;p&gt;SREs rely on considerable firsthand experience to piece together an incident and its contributing factors. But as digital systems grow more complex, that institutional knowledge becomes much harder to scale. If a subject matter expert is unavailable, the organization loses access to the necessary knowledge to resolve the incident quickly.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Working at machine speed to process this data, AI agents can make appropriate recommendations and even repair issues themselves in the case of low-risk, routine problems.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;SRE AI agents trained on real, historical incident data can draw from prior incidents and the corresponding actions taken to quickly diagnose and remediate repeat issues. Working at machine speed to process this data, AI agents can make appropriate recommendations and even repair issues themselves in the case of low-risk, routine problems.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-3-eliminating-toil"&gt;3. Eliminating toil&lt;/h3&gt;
+
+
+
+&lt;p&gt;Engineers put a great deal of time and effort into automating manual, repetitive tasks to reduce toil, but automation isn&amp;rsquo;t the same as autonomy. These automated workflows still need an engineer to trigger the start and assess the outputs.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;SRE AI agents go a step further and eliminate entire classes of toil altogether, such as autonomously restarting a downed service without needing to be scripted or triggered by a human first.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-4-proactive-approach"&gt;4. Proactive approach&lt;/h3&gt;
+
+
+
+&lt;p&gt;SRE teams spend much of their time in firefighting mode, reactively fixing issues rather than improving long-term systems health and reliability. With an SRE AI agent managing incidents, engineers gain time to focus on reinforcing system resilience, enhancing observability, and strengthening architecture for the future.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;As agents take on more of the day-to-day work of incident management, the SRE role evolves from tactical fixer to strategic decision-maker.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;As agents take on more of the day-to-day work of incident management, the SRE role evolves from tactical fixer to strategic decision-maker.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-5-shifting-humans-to-context-engineering"&gt;&lt;em&gt;5.&lt;/em&gt; Shifting humans to context engineering&lt;/h3&gt;
+
+
+
+&lt;p&gt;Engineers bring deep technical knowledge of systems, scripting languages, and infrastructure tools. That expertise doesn&amp;rsquo;t disappear with agents; it moves up a level. Instead of running commands themselves, engineers use their knowledge to train AI agents about their environment: the tools they can use, the actions they can take safely, and their relevant service dependencies. Engineers&amp;rsquo; roles shift from execution to setting the &lt;a href="https://thenewstack.io/skiplabs-ai-guardrails-skipper/" type="link" id="https://thenewstack.io/skiplabs-ai-guardrails-skipper/" class="local-link"&gt;guardrails within which the AI agents operate&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The new role of the SRE&lt;/h2&gt;
+
+
+
+&lt;p&gt;SREs face a constant uphill struggle against being overwhelmed. To fight this, some organizations have set strict toil limits for engineers. However, toil limits still force engineers to spend up to half of their working time manually resolving incidents.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The underlying workload doesn&amp;#8217;t disappear; it simply gets capped rather than solved. SRE AI agents shift engineers from technology practitioners manually remediating breakages to strategic operators overseeing a suite of AI agents.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The underlying workload doesn&amp;#8217;t disappear; it simply gets capped rather than solved. SRE AI agents shift engineers from technology practitioners, to strategic operators overseeing a suite of AI agents.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The new shape of the roles changes how engineers experience their work day-to-day, with reduced stress and burnout risk, more mental space for innovation, system improvements, and other high-value work that brings real value to the organization, not just keeps it afloat.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/sre-ai-agents-capabilities/"&gt;5 ways SRE AI agents are set to augment human capabilities&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Learn how SRE AI agents shift engineers from manual toil to strategic decision-making and proactive digital operations management.</content:encoded>
+    </item>
+    <item>
       <title>Stop correcting AI code. Build the system agents need.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/stop-correcting-ai-code-build-the-system-agents-need/</link>
       <dc:creator>Jennifer Riggins</dc:creator>
       <pubDate>Sat, 25 Jul 2026 17:00:00 +0000</pubDate>
       <category>AI</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22830848</guid>
-      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with fragmented red, blue and black shapes, representing AI-driven software development and coding disruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-scaled.jpg" /&gt;&lt;p&gt;If software engineers are no longer writing code, what are they doing? That&amp;#8217;s the question on millions of minds.&amp;#160; AI&lt;/p&gt;
+      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with fragmented red, blue and black shapes, representing AI-driven software development and coding disruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-scaled.jpg" /&gt;&lt;p&gt;If software engineers are no longer writing code, what are they doing? That&amp;#8217;s the question on millions of minds.&amp;#160; AI&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/stop-correcting-ai-code-build-the-system-agents-need/"&gt;Stop correcting AI code. Build the system agents need.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with fragmented red, blue and black shapes, representing AI-driven software development and coding disruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/1bfa6f60-egor-komarov-pmi7jiclb80-unsplash-scaled.jpg" /&gt;
@@ -50,7 +406,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="549" src="https://cdn.thenewstack.io/media/2026/07/495764a7-context-development-lifecycle-1024x549.png" alt="" class="wp-image-22830849"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="549" src="https://cdn.thenewstack.io/media/2026/07/495764a7-context-development-lifecycle-1024x549.png" alt="" class="wp-image-22830849"/&gt;&lt;/figure&gt;
 
 
 
@@ -156,7 +512,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/07/dc6e7834-agent-inner-harness-1024x563.png" alt="" class="wp-image-22830850"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/07/dc6e7834-agent-inner-harness-1024x563.png" alt="" class="wp-image-22830850"/&gt;&lt;/figure&gt;
 
 
 
@@ -3791,371 +4147,6 @@ Respond only with YES or NO.
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kimi-k3-inference-bottleneck/"&gt;Moonshot launched Kimi K3. Then demand shut down subscriptions in 48 hours.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>The AI bottleneck is shifting from training to inference as Kimi K3&amp;#039;s subscription freeze reveals GPU capacity can&amp;#039;t keep up with surging demand for agentic workloads.</content:encoded>
-    </item>
-    <item>
-      <title>Single-pass AI code isn’t dead, but “high-reasoning” is the next frontier</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/high-reasoning-ai-coding/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 17:13:17 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830962</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/07/ad086542-ardian-pranomo-u9zqs1bzbas-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/ad086542-ardian-pranomo-u9zqs1bzbas-unsplash-scaled.jpg" /&gt;&lt;p&gt;Ask an AI model what comes next after &amp;#8220;bacon-double&amp;#8221;, and the return is fairly unanimously &amp;#8220;cheeseburger.&amp;#8221; It&amp;#8217;s a pattern-matched, single-pass&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/high-reasoning-ai-coding/"&gt;Single-pass AI code isn&amp;#8217;t dead, but &amp;#8220;high-reasoning&amp;#8221; is the next frontier&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/07/ad086542-ardian-pranomo-u9zqs1bzbas-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/ad086542-ardian-pranomo-u9zqs1bzbas-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Ask an AI model what comes next after &amp;ldquo;bacon-double&amp;rdquo;&lt;/strong&gt;, and the return is fairly unanimously &amp;#8220;cheeseburger.&amp;#8221; It&amp;rsquo;s a pattern-matched, single-pass output for the user, and it&amp;rsquo;s the one that we expect.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Above digital burger joint simplicity, we enter the world of high-reasoning, where multi-step problem-solving sees models execute &lt;a href="https://www.ibm.com/think/topics/chain-of-thoughts" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;chain-of-thought processes&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Going beyond a single pass is more akin to human reasoning, as it breaks down elaborate problems into more manageable, sequentially executed intermediate steps (with backtracks on errors) to provide an answer. &lt;/p&gt;
-
-
-&lt;div class="wp-block-image wp-duotone-unset-1"&gt;
-&lt;figure class="alignright size-full"&gt;&lt;img loading="lazy" decoding="async" width="294" height="207" src="https://cdn.thenewstack.io/media/2026/07/2fbec2c1-screenshot-2026-07-21-at-13.09.56.png" alt="" class="wp-image-22831032"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;OpenAI&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;The &lt;a href="https://thenewstack.io/gpt-5s-enhanced-reasoning-comes-with-a-steep-hidden-cost/" class="local-link"&gt;trade-off is a higher volume&lt;/a&gt; of more complex code, which is harder to detect errors in at code review, but the model itself will typically perform better.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;The question now becomes, when do we introduce (or perhaps even insist upon) high reasoning as part of the frontier model mix, and is it the next chasm to cross?&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-relegating-single-pass-to-the-simple-end-of-the-workload"&gt;Relegating single pass to the simple end of the workload&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://tracking.us.nylas.com/l/ce4f024bd5de4b2fb296222148eda1d8/0/d18384216df65cf934d912d6b5a95488d54b80f858d443a7a0aa0510020568d8?cache_buster=1784122535" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CloudBees&lt;/a&gt;&amp;#8216; CEO &lt;a href="https://tracking.us.nylas.com/l/ce4f024bd5de4b2fb296222148eda1d8/1/ae2830a51c7316d11f1ac47df7182b9fe8f44df786df91cc7049ea17ae17e780?cache_buster=1784122535" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Moritz Plassnig&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that single-pass AI coding is like &amp;ldquo;answering with the first thing that comes to mind&amp;rdquo; in the reasoning debate. That means it&amp;rsquo;s fine for simple problems, but not for ones with real depth or ambiguity.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Single-pass AI coding is like &amp;ldquo;answering with the first thing that comes to mind.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;I don&amp;#8217;t think single-pass is dead, but I do think it&amp;#8217;ll be relegated to the simpler end of the workload,&amp;rdquo; Plassnig says. &amp;ldquo;What&amp;#8217;s more interesting is teams routing work intelligently: lower-end models for boilerplate [routine predictable] tasks, but high-reasoning for anything architecturally complex or security-critical, rather than just treating &amp;lsquo;more reasoning&amp;rsquo; as a universal upgrade.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Plassnig confirms that he fully expects the &amp;ldquo;current trajectory of developers demanding more high-reasoning to evolve into the harness itself&amp;rdquo;, before those same software engineers then being happy to choose the right model for the task at hand.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;What&amp;#8217;s interesting is teams routing work intelligently: rather than just treating &amp;lsquo;more reasoning&amp;rsquo; as a universal upgrade.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-sometimes-the-first-response-is-the-right-one"&gt;Sometimes the first response is the right one&lt;/h2&gt;
-
-
-
-&lt;p&gt;General manager of &amp;lsquo;&lt;a href="https://www.teamsparq.com/insights/sparq-opens-the-shop/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Shop&lt;/a&gt;&amp;rsquo; (a practical use case company division) at AI software operations engineering company &lt;a href="https://www.teamsparq.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sparq&lt;/a&gt;, &lt;a href="http://linkedin.com/in/jackson-stakeman" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jackson Stakeman,&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that he&amp;rsquo;s somewhat (but not wholly) in consensus with CloudBees CEO Plassnig&amp;rsquo;s thoughts. Rather than defining single-pass AI coding as blurting the first thing that comes to mind, he defines it as &amp;ldquo;responding when you think you actually have something of value to add&amp;rdquo; to a query.&lt;/p&gt;
-
-
-
-&lt;p&gt;He reminds us that single-pass blurt or not, sometimes the first response is the right one, so pretending otherwise just adds cost and latency to problems that didn&amp;#8217;t need it.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;That said, I agree that routing work intelligently beats treating more reasoning as a universal upgrade &amp;mdash; I&amp;#8217;d just frame where we are a bit differently,&amp;rdquo; Stakeman says. &amp;ldquo;We&amp;#8217;re still early in AI adoption at enterprise scale. The simple workloads are the thick part of the bell curve, and the complex multi-agent orchestration tasks are the long tail. For companies that aren&amp;#8217;t primarily technology businesses, but that use technology to drive value, what they mostly need from AI is for it to work.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;We&amp;#8217;re still early in AI adoption at enterprise scale. The simple workloads are the thick part of the bell curve, and the complex multi-agent orchestration tasks are the long tail.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-catch-is-that-the-model-becomes-a-black-box"&gt;The catch is that the model becomes a black box&lt;/h2&gt;
-
-
-
-&lt;p&gt;In his essentially practical, hands-on role, Stakeman underlines the fact that high-reasoning tools let organizations that never built strong prompt engineering skills skip that step, for a price.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The catch is that the model becomes a black box,&amp;rdquo; he warns. &amp;ldquo;It might solve your problem, but it won&amp;#8217;t tell you whether a custom orchestration would have solved it better. In the conversations we&amp;#8217;re having with customers, it&amp;#8217;s rare to hear about a custom LangChain-style build that&amp;#8217;s actually kept pace with how fast the frontier models keep improving.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;He restates his view that frontier model labs seem to be moving faster than most in-house stacks can keep up. It&amp;rsquo;s a development that&amp;#8217;s starting to force a financial conversation that&amp;#8217;s only just getting going: real skepticism about whether the premium on models like GPT-5.6 Sol or Fable 5 are worth it for a given task.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;As of now, &lt;a href="https://openai.com/index/gpt-5-6/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI appears to talk&lt;/a&gt; more directly about &amp;ldquo;medium, max, and scientific&amp;rdquo; reasoning, rather than high reasoning, even in relation to GPT-5.6 Sol. In a somewhat similar vein, &lt;a href="https://www.anthropic.com/research/reasoning-models-dont-say-think" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic talks about chain-of-thought faithfulness&lt;/a&gt; when discussing why reasoning models don&amp;rsquo;t always say what they think.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;In our view, the deciding factor isn&amp;#8217;t really the model; it&amp;#8217;s whether a team has a clear way to measure ROI on AI spend. Teams with that mechanism can experiment and compare a cheap, fast model against a high-reasoning one, task by task. Teams without it tend to default to whatever&amp;#8217;s marketed as &amp;lsquo;best&amp;rsquo;, and those are exactly the teams most likely to get steered away from high-reasoning the moment the bill comes due. Not because it&amp;#8217;s the wrong tool, but because they can&amp;#8217;t prove it is the right one,&amp;rdquo; Stakeman clarifies.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-high-reasoning-is-not-rocket-science-or-frontiermath"&gt;High reasoning is not rocket science, or FrontierMath&lt;/h2&gt;
-
-
-
-&lt;p&gt;By way of clarification, high reasoning is not the same as FrontierMath, but there is a degree of overlap between these two occasionally connected cousins. &lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI commissioned Epoch AI to produce 300 math questions for the FrontierMath benchmark, which &lt;a href="https://epoch.ai/latest/openai-and-frontiermath" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the nonadvocacy research nonprofit confirmed&lt;/a&gt; at the start of 2025. In terms of use, FrontierMath can act as a benchmark for evaluating advanced mathematical reasoning in AI of the type that features high reasoning.&lt;/p&gt;
-
-
-
-&lt;p&gt;What do developers think of high-reasoning?&amp;nbsp;It might still be early days; there&amp;rsquo;s precious little ascerbic commentary out there just now.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;That may be down to the still-emerging nature of these functions, or it could be because &amp;ldquo;high-reasoning&amp;rdquo; is sometimes used to describe &lt;a href="https://news.ycombinator.com/item?id=31072931" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;governmental policymaking&lt;/a&gt; and even &lt;a href="https://www.psypost.org/evil-geniuses-people-high-in-machiavellianism-may-have-superior-reasoning-abilities/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Machiavellianism&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;What (arguably) matters most in the immediate months (and yes, this is AI, so it could be weeks or days) ahead is how well enterprise organizations are able to assess any given AI tool for its worth. That measure of worthiness comes down to correctness and effectiveness, multiplied by cost and divided by its ability to integrate and orchestrate before it attempts to accelerate and (dare we even say the word?) innovate.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/high-reasoning-ai-coding/"&gt;Single-pass AI code isn&amp;#8217;t dead, but &amp;#8220;high-reasoning&amp;#8221; is the next frontier&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>CloudBees and Sparq leaders debate whether high-reasoning AI coding models are worth the cost, or if single-pass tools still do the job.</content:encoded>
-    </item>
-    <item>
-      <title>Microsoft is building an AI stack it doesn’t fully own — on purpose</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/microsoft-mistral-sovereign-ai/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 17:05:16 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>AI Strategy</category>
-      <category>Cloud Services</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22830985</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/bec1f55c-osarugue-igbinoba-hg2ubsnwfes-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful digital static resembling TV signal noise, evoking uncertainty over how AI agents like ChatGPT Work and Claude Cowork manage control, state, and data." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/bec1f55c-osarugue-igbinoba-hg2ubsnwfes-unsplash-scaled.jpg" /&gt;&lt;p&gt;Microsoft and Mistral are deepening their partnership with a multibillion-dollar agreement focused on enterprise AI infrastructure. The goal is to&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-mistral-sovereign-ai/"&gt;Microsoft is building an AI stack it doesn&amp;#8217;t fully own — on purpose&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/bec1f55c-osarugue-igbinoba-hg2ubsnwfes-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful digital static resembling TV signal noise, evoking uncertainty over how AI agents like ChatGPT Work and Claude Cowork manage control, state, and data." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/bec1f55c-osarugue-igbinoba-hg2ubsnwfes-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Microsoft and Mistral are deepening their partnership&lt;/strong&gt; with a multibillion-dollar agreement focused on enterprise AI infrastructure. The goal is to give organizations more flexibility over where they run frontier models and how those deployments are managed, particularly in regions with tight data residency and &lt;a href="https://thenewstack.io/palantir-nvidia-sovereign-ai/" class="local-link"&gt;sovereignty requirements&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;Under the deal, &lt;a href="https://news.microsoft.com/source/2026/07/21/microsoft-and-mistral-expand-strategic-partnership-to-give-enterprises-and-regulated-industries-frontier-ai-they-can-control/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced Tuesday&lt;/a&gt;, Microsoft will use &lt;a href="https://thenewstack.io/karp-mensch-ai-lockin/" class="local-link"&gt;Mistral&amp;#8217;s&lt;/a&gt; expanding European compute infrastructure to increase regional capacity. Mistral, meanwhile, plans to deploy thousands of NVIDIA Vera Rubin GPUs to power everything from model training to multi-agent workloads.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;For engineering teams in regulated industries, the announcement emphasizes where enterprise AI is heading. Many organizations no longer want the public cloud to be the only place they can run AI models. They&amp;#8217;re asking for deployments that fit into the infrastructure they already have, including on-premises and air-gapped environments.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-sovereign-compute-meets-agentic-ai-nbsp"&gt;Sovereign compute meets agentic AI&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p&gt;At the compute layer, the agreement gives Microsoft access to European-operated infrastructure outside its traditional first-party data centers and leased facilities. The move builds on Microsoft&amp;#8217;s European Digital Commitments, announced in 2025, which focus on keeping customer data in Europe and helping organizations meet regional regulatory requirements.&lt;/p&gt;
-
-
-
-&lt;p&gt;Crucially, Mistral will power this infrastructure with NVIDIA&amp;#8217;s next-generation Vera Rubin rack-scale platform. Because sovereign environments support multi-step &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;agentic workflows,&lt;/a&gt; this hardware pairing is essential. NVIDIA claims the platform delivers up to 10x the agent throughput at scale compared to its Grace Blackwell generation.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Europe should have access to the world&amp;#8217;s most capable AI without compromising control over their data, operations or digital future.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Even though exact financial terms, capacity allocations, and rollout timelines have not been made public, the agreement positions Mistral as both an AI model supplier and an independent European compute vendor for Microsoft&amp;rsquo;s enterprise ecosystem. For European companies wary of the US CLOUD Act, the appeal is obvious &amp;mdash; though whether a US-headquartered provider can fully place data beyond its reach remains legally contested.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Europe should have access to the world&amp;#8217;s most capable AI without compromising control over their data, operations or digital future,&amp;#8221; said &lt;a href="https://thenewstack.io/nadella-reverse-information-paradox/" class="local-link"&gt;Microsoft Vice Chair and President Brad Smith&lt;/a&gt; in the announcement.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-model-layer"&gt;The model layer &lt;/h2&gt;
-
-
-
-&lt;p&gt;At the model and API tier, Microsoft announced that Mistral Medium 3.5 and Mistral OCR 4 are now live in Microsoft Foundry, with Medium 3.5 also integrated into Microsoft Copilot Studio.&lt;/p&gt;
-
-
-
-&lt;p&gt;Among the models coming to Azure AI Foundry is Mistral Medium 3.5, an open-weight model with 128 billion parameters and a 256,000-token context window, which could indicate it&amp;#8217;s better suited for applications that need to work across large documents or extended conversations.&lt;/p&gt;
-
-
-
-&lt;p&gt;Microsoft is also adding Mistral OCR 4, which is designed for document-heavy AI workflows. The model can process documents in 170 languages and preserve information about page layout, including bounding boxes, document structure, and confidence levels. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The model can process documents in 170 languages and preserve information about page layout, including bounding boxes, document structure, and confidence levels&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-air-gapped-deployments-go-mainstream-nbsp"&gt;Air-gapped deployments go mainstream&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p&gt;For developers, the primary technical win is architectural symmetry. Engineers can build, test, and fine-tune applications inside Microsoft Foundry and migrate those workloads across public Azure, Azure Local, or sovereign infrastructure operated by Mistral without having to refactor underlying workflows. &lt;/p&gt;
-
-
-
-&lt;p&gt;This hybrid portability targets industries bound by strict compliance regulations. The deployment options also include fully air-gapped environments, allowing organizations to run AI workloads on networks that remain completely isolated from the public internet.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-deployment-flexibility-drives-decisions"&gt;Deployment flexibility drives decisions&lt;/h2&gt;
-
-
-
-&lt;p&gt;The partnership indicates that deployment flexibility is becoming part of the &lt;a href="https://thenewstack.io/ibm-earnings-ai-infrastructure/" class="local-link"&gt;buying decision&lt;/a&gt;. Many organizations want the freedom to run AI in the cloud, on-premises, or in regional infrastructure &lt;a href="https://thenewstack.io/future-proof-ai-infrastructure/" class="local-link"&gt;without being locked into a single approach&lt;/a&gt;. And that&amp;#8217;s where Microsoft&amp;#8217;s expanded relationship with Mistral fits so well. &lt;/p&gt;
-
-
-
-&lt;p&gt;The companies are betting that giving customers more deployment options will weigh just as much as offering competitive models. If the strategy works, Microsoft will be &lt;a href="https://thenewstack.io/enterprise-ai-model-routing/" class="local-link"&gt;providing the control plane&lt;/a&gt; for how the world&amp;#8217;s most regulated industries run it.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;If the strategy works, Microsoft will be &lt;a href="https://thenewstack.io/enterprise-ai-model-routing/" class="local-link"&gt;providing the control plane&lt;/a&gt; for how the world&amp;#8217;s most regulated industries run it.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-mistral-sovereign-ai/"&gt;Microsoft is building an AI stack it doesn&amp;#8217;t fully own — on purpose&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Microsoft and Mistral deepen their AI partnership with European sovereign compute, NVIDIA Vera Rubin GPUs, and hybrid deployment options for regulated industries.</content:encoded>
-    </item>
-    <item>
-      <title>Block built a Slack for AI agents — and gave each one its own passport</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/block-buzz-agent-workspace/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 21 Jul 2026 16:30:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831012</guid>
-      <description>&lt;img width="1024" height="606" src="https://cdn.thenewstack.io/media/2026/07/161c52bc-screenshot-2026-07-21-at-8.54.06-am-1024x606.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/161c52bc-screenshot-2026-07-21-at-8.54.06-am.png" /&gt;&lt;p&gt;Block on Tuesday launched Buzz, a free, open-source workspace meant to give people and AI agents a Slack-like service for&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/block-buzz-agent-workspace/"&gt;Block built a Slack for AI agents — and gave each one its own passport&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="606" src="https://cdn.thenewstack.io/media/2026/07/161c52bc-screenshot-2026-07-21-at-8.54.06-am-1024x606.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/161c52bc-screenshot-2026-07-21-at-8.54.06-am.png" /&gt;
-&lt;p&gt;Block on Tuesday launched &lt;a href="https://buzz.xyz/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Buzz&lt;/a&gt;, a free, open-source workspace meant to give people and AI agents a Slack-like service for collaboration.&lt;/p&gt;
-
-
-
-&lt;p&gt;The company built Buzz on Nostr, the decentralized messaging protocol best known as a censorship-resistant alternative to Twitter and backed for years by Block founder Jack Dorsey. Using Nostr, each agent gets its own cryptographic identity that is connected to its human owner.&lt;/p&gt;
-
-
-
-&lt;p&gt;At first, Buzz looks a lot like Slack or Discord, with channels, threads, direct messages, voice, media sharing, and code repositories. But the difference here is that it treats agents as full participants in these conversations. It can work with any model and any popular agent harness, so teams can plug in Claude Code, Codex, &lt;a href="https://thenewstack.io/block-goose-agentic-foundation/" class="local-link"&gt;goose&lt;/a&gt; (which came out of Block), or bring their own.&lt;/p&gt;
-
-
-
-&lt;p&gt;The code for Buzz has actually been on GitHub (under an Apache 2.0 license) since earlier this year, but recently, Block decided to host its own Nostr relay for Buzz, and with this launch, public signups are now open.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="740" src="https://cdn.thenewstack.io/media/2026/07/67cb9b69-block-buzz-ai-agents-app-macos-screenshot-2-1024x740.png" alt="" class="wp-image-22831021"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Block.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;As Bradley Axen, Block&amp;#8217;s head of AI capabilities, tells &lt;em&gt;The New Stack&lt;/em&gt;, much of the actual work with coding agents happens in private and then disappears.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Everyone misses that second conversation, and at least for building software, that&amp;#8217;s where the conversation is really interesting. That&amp;#8217;s where you make all the technical decisions.&amp;#8221; &lt;br&gt;&amp;mdash;Bradley Axen, Head of AI Capabilities, Block.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Right now, you&amp;#8217;ll make a post, you&amp;#8217;ll go work by yourself for an hour with an agent, and then you&amp;#8217;ll maybe copy and paste something the agent said back in as if it&amp;#8217;s from you,&amp;#8221; Axen says. &amp;#8220;Everyone misses that second conversation, and at least for building software, that&amp;#8217;s where the conversation is really interesting. That&amp;#8217;s where you make all the technical decisions.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-an-identity-of-its-own"&gt;An identity of its own&lt;/h2&gt;
-
-
-
-&lt;p&gt;On Nostr, every participant is, at its core, a public-private keypair. Buzz gives an agent its own keypair and treats it as an independent actor, but what&amp;rsquo;s important here is that it then also adds a second signature that ties it back to a person.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;It starts like a human. It&amp;#8217;s just got its own public key, and it signs events, and then there&amp;#8217;s one extra message that we publish on the relay,&amp;#8221; Axen says. &amp;#8220;We&amp;#8217;ve got this cryptographic paper trail that neither of us could have done alone that says, okay, this is my agent, and anyone else can review and confirm that that&amp;#8217;s true.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-video"&gt;&lt;video height="2160" style="aspect-ratio: 3840 / 2160;" width="3840" controls muted src="https://cdn.thenewstack.io/media/2026/07/7857e254-block-buzz-ai-agents-product-demo-video-4k.mp4" playsinline&gt;&lt;/video&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Block.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;That paper trail lets a workspace enforce rules, such as allowing only agents owned by a member into a private channel. Block has proposed the identity scheme to Nostr as an upstream extension, though it hasn&amp;#8217;t been accepted just yet.&lt;/p&gt;
-
-
-
-&lt;p&gt;Agents connect through the &lt;a href="https://zed.dev/acp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Client Protocol&lt;/a&gt; (ACP), the open standard Zed introduced last year for wiring coding agents into different tools. Axen sits on the steering committee of the Linux Foundation&amp;#8217;s &lt;a href="https://thenewstack.io/agentic-ai-foundation-launch/" class="local-link"&gt;Agentic AI Foundation&lt;/a&gt; and says the group is looking at bringing ACP into its fold.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-relay-you-own"&gt;&amp;rsquo;A relay you own&amp;#8217;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Buzz needs a Nostr relay to work and any team can stand up its own and have full control of its infrastructure with nothing routing through Block. Axen&amp;#8217;s comparison is a Discord server, except that no single company owns it. Still, Block spent the final weeks before launch building a hosted option, betting that most teams won&amp;#8217;t want to deal with the added complexity of running their own relay.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;I&amp;#8217;m really excited that you can, but I think the majority of people just want an off-the-shelf solution,&amp;#8221; Axen says.&lt;/p&gt;
-
-
-
-&lt;p&gt;Block&amp;#8217;s hosted relays are free at launch, which Axen calls a beta. The company hasn&amp;#8217;t set usage limits yet. Axen says a 10-person open-source project is cheap to host, while a replacement for &amp;#8220;enterprise-grade Slack&amp;#8221; would eventually need a different arrangement.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-from-goose-to-builderbot"&gt;From goose to BuilderBot&lt;/h2&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s worth noting that Buzz isn&amp;#8217;t Block&amp;#8217;s first agent project. The company, after all, open-sourced goose, its agent framework, in January 2025. That project now has more than 50,000 GitHub stars.&lt;br&gt;In June, Block also detailed &lt;a href="https://thenewstack.io/how-block-manages-its-fleet-of-ai-coding-agents-from-slack/" class="local-link"&gt;BuilderBot&lt;/a&gt;, an internal system engineers summon by tagging it in Slack. The company says it runs more than 200,000 operations a day, merges about 1,500 pull requests a week, and accounts for about 15 percent of Block&amp;#8217;s production code changes.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-living-alongside-slack"&gt;Living alongside Slack&lt;/h2&gt;
-
-
-
-&lt;p&gt;Block isn&amp;#8217;t alone in wiring agents into the tools teams already use. Atlassian has added agents to Jira, and companies across the industry now run coding agents inside Slack. Block still uses Slack internally, and Axen argues that the two can be used in parallel.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Can it be a full replacement for Slack? We&amp;#8217;ll have to see over time, because Slack also encodes a lot of business workflows,&amp;#8221; he says. &amp;#8220;We&amp;#8217;ve got a decade of history in Slack.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;For now, Buzz is still in its early days. The repository, public since earlier this year, has drawn just over 100 stars, a small fraction of goose&amp;#8217;s.&lt;/p&gt;
-
-
-
-&lt;p&gt;The launch also comes as Block reshapes itself around AI. In February, the company cut more than 40 percent of its staff, from more than 10,000 employees to just under 6,000, with Dorsey citing AI as enabling what he called &amp;#8220;a new way of working.&amp;#8221;&lt;br&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;Buzz is the collaboration layer Block is building for that smaller, more agent-heavy company.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/block-buzz-agent-workspace/"&gt;Block built a Slack for AI agents — and gave each one its own passport&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <enclosure url="https://cdn.thenewstack.io/media/2026/07/7857e254-block-buzz-ai-agents-product-demo-video-4k.mp4" length="43468632" type="video/mp4" />
-      <content:encoded>Block just launched Buzz, a free, open source workspace built on Nostr that lets AI agents join channels and threads as full members alongside humans.</content:encoded>
     </item>
   </channel>
 </rss>
