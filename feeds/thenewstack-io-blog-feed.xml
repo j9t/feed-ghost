@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 31 Jul 2026 01:08:39 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 18:10:44 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,9 +20,488 @@
       <height>32</height>
     </image>
     <item>
+      <title>Forget humans “in” the loop. Harness engineering puts humans “on” the loop.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-harness-engineering/</link>
+      <dc:creator>Jennifer Riggins</dc:creator>
+      <pubDate>Fri, 31 Jul 2026 17:18:13 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>CI/CD</category>
+      <category>Software Development</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832095</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with distorted geometric diamond patterns on a black background, evoking an AI hallucination loop or system data corruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash.jpg" /&gt;&lt;p&gt;AI has us quickly forgetting humans as the software delivery loop. Now, forget humans in the loop. For Thoughtworks&amp;#8217; distinguished&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-harness-engineering/"&gt;Forget humans “in” the loop. Harness engineering puts humans “on” the loop.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with distorted geometric diamond patterns on a black background, evoking an AI hallucination loop or system data corruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;AI has us quickly forgetting humans &lt;em&gt;as&lt;/em&gt; the software delivery loop. &lt;/strong&gt;Now, forget &lt;a href="https://thenewstack.io/bridging-the-ai-human-divide-ai-as-your-operations-teammate/" class="local-link"&gt;humans &lt;em&gt;in&lt;/em&gt; the loop&lt;/a&gt;. For Thoughtworks&amp;rsquo; distinguished engineer &lt;a href="https://www.linkedin.com/in/kiefmorris/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kief Morris&lt;/a&gt;, we need to pay more attention to the human &lt;em&gt;on&lt;/em&gt; the loop to keep defining what is good code and what are good systems.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;If you&amp;rsquo;re using AI to build software, you need to make sure that you&amp;rsquo;re building production-ready software, and I think the default approaches that people are taking right now don&amp;rsquo;t include&amp;rdquo; these engineering best practices, Morris told &lt;em&gt;The New Stack &lt;/em&gt;during &lt;a href="https://platformcon.com/live-day-london" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;PlatformCon in London&lt;/a&gt; last month.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Even if you&amp;rsquo;re not giving the agents free rein, you have to be building into your process [and] you have to be thinking about how to use agents to help you do that in a safe way, and that can&amp;rsquo;t wait; that&amp;rsquo;s not like future-pie-in-the-sky,&amp;#8221; Morris said. &amp;#8220;That&amp;rsquo;s something you have to do now.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;At the speed of AI, organizations have to focus a lot less on speed to deploy, and a lot more on the guardrails that ensure what you are deploying is safe, secure, and of high quality. Fortunately, that solution goes back to the software delivery best practices that have been accepted for more than a decade now. But only if your CI/CD pipeline is production-ready.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-is-good-anymore-anyway"&gt;&lt;strong&gt;What is &lt;/strong&gt;&amp;#8220;&lt;strong&gt;good&amp;#8221; anymore, anyway?&amp;nbsp;&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The question on the minds of many right now is how to get more out of their AI agents, but, as Morris explored that idea at PlatformCon in London, he noted that we need to step back from what the agents are doing to ask these questions first: &amp;ldquo;What does that mean for us? How do we keep controlling this?&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Morris is worried that we&amp;rsquo;ve delegated so much of the code building to AI agents that we&amp;#8217;ve become distant from the details of &lt;em&gt;what&lt;/em&gt; they&amp;#8217;re building, which has us losing track of making sure the AI is building things &lt;em&gt;well&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;That means we get better at defining good, and I don&amp;rsquo;t think we&amp;rsquo;ve been really good at this.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;That means we get better at defining good, and I don&amp;rsquo;t think we&amp;rsquo;ve been really good at this,&amp;rdquo; Morris said in his talk. As he works out how to define that &amp;mdash; and it will be different for every team&amp;rsquo;s and every company&amp;rsquo;s requirements &amp;mdash; he has been &amp;ldquo;maximizing&amp;rdquo; or pushing agents to their limits, into an end-to-end, hands-off agentic workflow.&lt;/p&gt;
+
+
+
+&lt;p&gt;To achieve that, he believes that using continuous delivery pipelines within agentic workflows helps build better software. And we should take the CI/CD approach to agents, too.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The idea of continuous delivery with DevOps is that when you find a bug in production, you don&amp;rsquo;t just fix the code in production; you fix it in the source, [and] you work out how they get through my pipeline, what do I need to change &amp;ndash; my tests? &amp;ndash; and whatever it may take to avoid this kind of mistake slipping through again,&amp;rdquo; Morris continued.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;It&amp;rsquo;s very similar when I&amp;rsquo;m working with agents that if an agent isn&amp;rsquo;t producing what I want, it&amp;rsquo;s not that I&amp;rsquo;m just going to correct it because the next time I use an agent to make a modification of my code, it&amp;rsquo;s potentially going to undo it.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;Then the next step is figuring out what you can put in place so that you don&amp;#8217;t even have to look at the code at all. As &lt;a href="https://thenewstack.io/ai-code-bottleneck-myth/" class="local-link"&gt;code review has quickly become the new bottleneck&lt;/a&gt;, Morris offers this question that developers need to answer: &amp;ldquo;What do I need in order to feel comfortable that the code that is being built is good enough?&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;What do I need in order to feel comfortable that the code that is being built is good enough?&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For many organizations, they are hedging their bets that good enough for the large language model (LLM) is good enough in general. For him, that definition of &amp;ldquo;good&amp;rdquo; must always come back to what your users care about.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I think we can learn a lot by trying to push these approaches to the max, even if it&amp;#8217;s even a little bit further than we might be able to safely do in certain business circumstances,&amp;rdquo; he continues.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;LLMs don&amp;rsquo;t care about building software to last, they just want to build the next feature, so we need to figure out how to do it anyway.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;LLMs don&amp;rsquo;t care about building software to last, they just want to build the next feature, so we need to figure out how to do it anyway,&amp;#8221; or it&amp;#8217;ll leave the wrong last impact.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;&lt;strong&gt;The cognitive debt holding us back&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The key problem is we often don&amp;rsquo;t know what we don&amp;rsquo;t know.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;In AI-generated and even AI-deployed code, it&amp;rsquo;s answering, as Morris describes, &amp;ldquo;Even if I&amp;rsquo;m not looking at the code, how do I understand what&amp;rsquo;s happening, what it has built, and how is it put together, so it doesn&amp;rsquo;t run ahead of me and then you lose track of it, and it becomes harder to make changes to it and fix things, because you&amp;rsquo;re not in control anymore.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/margaret-anne-storey/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Margaret-Anne Storey&lt;/a&gt;, co-author of the SPACE framework for developer productivity, recently released her &lt;a href="https://spawn-queue.acm.org/doi/10.1145/3807966" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Triple Debt Model&lt;/a&gt;, exploring the hidden human cost of AI-accelerated software development within three buckets:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Technical debt&lt;/strong&gt;, which sits in the code.&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Cognitive debt&lt;/strong&gt;, which sits within the people on teams.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Intent debt&lt;/strong&gt;, which sits within the externalized knowledge, made up of the underlying rationale, goals, and design constraints that are insufficiently documented.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;So how do we avoid this cognitive debt in order to not reach, as Morris calls it, cognitive surrender, while still not having to look at the code? That comes with finding ways to enforce quality conventions, including across citizen developers.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;At least that answer has existed for 16 years now &amp;mdash; in the CI/CD pipeline. That&amp;rsquo;s where, he says, you put humans &lt;em&gt;on &lt;/em&gt;the loop managing how agents build software that lasts, in a way that closes that cognitive gap.&lt;/p&gt;
+
+
+
+&lt;p&gt;To achieve that, it comes down to the next layer of continuous delivery called &lt;a href="https://thenewstack.io/harness-ai-tackles-software-developments-real-bottleneck/" class="local-link"&gt;harness engineering&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-harnessing-code-quality-via-harness-engineering"&gt;&lt;strong&gt;Harnessing code quality via harness engineering&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;In harness engineering, software builders &amp;mdash; both technical and potentially non-technical &amp;mdash; work on the harness around the code.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;By Morris&amp;rsquo;s definition, the harness allows you to prompt an idea, then the AI builds, and then you iterate around the process. Teams work to create guides that tell the agents how to build, including architectural decision records that provide context over time.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;In order to achieve that, he says, we must sense operability &amp;mdash; the combination of software, plus infrastructure, plus processes &amp;mdash; via the classic cross-functional and non-functional metrics:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Lagging metrics&lt;/strong&gt; &amp;#8211; deliverability metrics including &lt;a href="https://thenewstack.io/google-says-you-might-be-doing-dora-metrics-wrong/" class="local-link"&gt;DORA metrics&lt;/a&gt;, user satisfaction, business operations metrics (transactions, cost), commercial metrics&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Leading metrics&lt;/strong&gt; &amp;#8211; deployability metrics including failure rates, performance and scalability testing, failure scenario testing, penetration testing, and compliance auditing&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;These all feed into making sure the codebase is always production-ready.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;This isn&amp;rsquo;t the exciting agentic stuff, he admits, but how many teams are doing at least some of these essential leading metrics? By the time you realize dips in your lagging metrics, it could be too late. These leading indicators can be tedious, but this is also where AI agents usually excel in implementation &amp;ndash; so long as the agents have clarity into what &amp;#8220;good&amp;#8221; looks like.&lt;/p&gt;
+
+
+
+&lt;p&gt;Then, once these software engineering best practices are finally in place, Morris proposes that your existing continuous delivery pipeline acts as an operability harness, with all the leading metric sensors built right in.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Now is the time to learn as much as we can about AI-driven software development, which, he argues, comes by going all-in. But you can only go all-in if you have the right harness in place, which can only happen if you build the system that builds the system.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The resistance happens when you get into the specifics, like when I said in the [PlatformCon] presentation that maybe you shouldn&amp;rsquo;t even look at the code,&amp;rdquo; Morris says.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-harness-engineering/"&gt;Forget humans “in” the loop. Harness engineering puts humans “on” the loop.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Kief Morris explains how CI/CD and harness engineering keep AI-generated software safe and secure, production-ready and aligned with real-world user needs.</content:encoded>
+    </item>
+    <item>
+      <title>Nscale just bought Anyscale. Here’s why it matters for multi-cloud neutrality.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/nscale-anyscale-acquisition-neocloud-lockin/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Fri, 31 Jul 2026 17:04:23 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Infrastructure</category>
+      <category>AI Operations</category>
+      <category>Cloud Services</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832409</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cloud platform company Nscale announced this week a definitive agreement to acquire AI workload scaling specialist Anyscale, in a move&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nscale-anyscale-acquisition-neocloud-lockin/"&gt;Nscale just bought Anyscale. Here&amp;#8217;s why it matters for multi-cloud neutrality.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;Cloud platform company &lt;a href="https://www.nscale.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nscale&lt;/a&gt; announced this week a definitive agreement to acquire AI workload scaling specialist &lt;a href="https://www.anyscale.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anyscale&lt;/a&gt;, in a move that signals a new test of whether cloud-neutral AI software can stay neutral once it is paired with a GPU neocloud.&lt;/p&gt;
+
+
+
+&lt;p&gt;The purchase coalesces Nscale&amp;#8217;s infrastructure capabilities, which span control systems that oversee GPUs, datacenters, power consumption, and the application layer where AI services themselves are executed, with &lt;a href="https://thenewstack.io/anyscale-new-optimized-runtime-for-ray-kubernetes-operator/" class="local-link"&gt;Anyscale&amp;rsquo;s software layer&lt;/a&gt; for scaling AI workloads across data processing, training, inference, and reinforcement learning.&lt;/p&gt;
+
+
+
+&lt;p&gt;Argued by Nscale to be the coming together of &amp;ldquo;&lt;a href="https://www.nscale.com/press-releases/nscale-acquires-anyscale" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;two highly complementary companies&lt;/a&gt;&amp;rdquo;,&amp;nbsp;Nscale scooping up Anyscale could be a fundamental change in the resulting business model.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-is-this-the-start-of-gpu-neocloud-lock-in"&gt;Is this the start of GPU neocloud lock-in?&lt;/h2&gt;
+
+
+
+&lt;p&gt;It&amp;rsquo;s important to remember that &lt;a href="https://www.reuters.com/business/ai-cloud-provider-nscale-buy-software-startup-anyscale-2026-07-30/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nscale is a GPU neocloud&lt;/a&gt; (a specialized cloud provider running bare-metal GPUs and infrastructure optimized for AI and machine learning workloads), meaning that it runs its own GPU-rich datacenters and its own software &amp;#8203;stack. At the same time, Anyscale is an independent cloud-neutral software orchestration multi-cloud control plane that works with any cloud hyperscaler&amp;#8230; but now owned by a single neocloud.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;That doesn&amp;rsquo;t sound quite so much like &lt;a href="https://thenewstack.io/the-next-stages-of-ai-conformance-in-the-cloud-native-open-source-world/" class="local-link"&gt;cloud-neutrality&lt;/a&gt; and agnosticism; it sounds more like a vertically integrated AI cloud provider proposition.&lt;/p&gt;
+
+
+
+&lt;p&gt;Chief product officer at Nscale, &lt;a href="https://www.linkedin.com/in/danielbathurst/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dan Bathurst&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that the Anyscale platform &amp;ldquo;continues to be its own brand and product,&amp;rdquo; and that includes working with bring-your-own-cloud deployments on AWS, GCP, Azure, and the other clouds.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Where we want to win is on performance, not on any sort of vendor lock-in or forcing of someone to choose Nscale as the infrastructure provider.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;But what really changes &amp;mdash; or how it&amp;#8217;s changing &amp;mdash; is that customers now also get this first-party option, where they can have Anyscale running on Nscale fleet as a full-stack, highly-optimized solution. Where we want to win is on performance, not on any sort of vendor lock-in or forcing of someone to choose Nscale as the infrastructure provider,&amp;rdquo; Bathurst says.&lt;/p&gt;
+
+
+
+&lt;p&gt;He insists that it is in Nscale&amp;rsquo;s interest to ensure that it is making it easy for software engineering teams to get the outcomes they want with the workloads that they&amp;#8217;re trying to run.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;For us, the existing commitments will carry forward, so Anyscale&amp;#8217;s value really is meeting instances where the compute already lives,&amp;rdquo; he says.&amp;nbsp;&amp;#8220;Where we want to win is on performance, not on any sort of vendor lock-in or forcing of someone to choose Anyscale as the infrastructure provider.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-neutrality-on-the-platform-layer-differentiation-on-the-infrastructure-layer"&gt;Neutrality on the platform layer, differentiation on the infrastructure layer&lt;/h2&gt;
+
+
+
+&lt;p&gt;Bathurst invites users to think of it as &amp;ldquo;neutrality on the platform layer, but differentiation on the infrastructure layer&amp;rdquo; because the combination of the two organizations is a full-stack play.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The differentiation comes from the fact that Nscale is fully vertically integrated with Anyscale. Therefore, if users want that first-party option, they can choose Anyscale and get the most optimized solution because, obviously, we&amp;#8217;re designing, optimizing, and co-engineering every layer of that stack from power to the datacenter through to the application. It&amp;#8217;s quite a unique proposition, but it&amp;#8217;s not something we are going to force upon any customer,&amp;rdquo; confirms Bathurst.&lt;/p&gt;
+
+
+
+&lt;p&gt;Not everyone is convinced by the company&amp;rsquo;s pledge to maintain an agnostic and neutral open house. &lt;a href="https://www.linkedin.com/in/sanjmo/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sanjeev Mohan&lt;/a&gt;, principal analyst, SanjMo and former Gartner research VP for data and analytics, tells &lt;em&gt;The New Stack &lt;/em&gt;that Anyscale &amp;ldquo;stops being a neutral player&amp;rdquo; the moment its best features and most optimal pricing land on Nscale first.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The software will still run anywhere, but &amp;#8216;runs anywhere&amp;#8217; and &amp;#8216;runs best somewhere&amp;#8217; are different things, and buyers will feel the gap in performance and cost. At that point, neutrality is a label.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-runs-anywhere-but-runs-best-somewhere"&gt;Runs anywhere, but&amp;hellip; runs best somewhere&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The software will still run anywhere, but &amp;lsquo;runs anywhere&amp;rsquo; and &amp;lsquo;runs best somewhere&amp;rsquo; are different things, and buyers will feel the gap in performance and cost. At that point, neutrality is a label,&amp;rdquo; says Mohan.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;He agrees that integrating software and compute will produce measurable cost, performance and reliability gains. Defining this as &amp;ldquo;the strongest part of the deal&amp;rdquo;, Mohan explains that with Nscale controlling both the silicon and Anyscale&amp;#8217;s control plane, it can tune scheduling, memory, and networking together in ways the compute-neutral Anyscale never could.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-anyscale-commercial-support-for-ray"&gt;Anyscale commercial support for Ray&lt;/h2&gt;
+
+
+
+&lt;p&gt;Anyscale was founded by the creators of &lt;a href="https://www.anyscale.com/product/open-source/ray?utm_source=the%20new%20stack&amp;amp;utm_medium=referral&amp;amp;utm_content=inline-mention&amp;amp;utm_campaign=tns%20platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ray&lt;/a&gt;, an open source project that provides a distributed computing framework designed to scale Python workloads across any infrastructure into live production application jobs and services.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/ray-comes-to-the-pytorch-foundation/" class="local-link"&gt;Ray was donated to the PyTorch Foundation&lt;/a&gt; in 2025. Anyscale continues to provide its commercially supported services for Ray, which include a &amp;ldquo;no DevOps&amp;rdquo; route to 100% managed cloud infrastructure and serverless autoscaling, making it simpler to create, deploy, and monitor machine learning workflows in production.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anyscale supports data processing, model training, batch inference, and LLMs across public and private cloud environments. As open source as this all feels, are we still edging towards narrower proprietary channels, or the possible threat of deeper application and data service dependencies that developers will ultimately have to wrangle around?&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I don&amp;rsquo;t think so, primarily because the way that the platform works, it&amp;#8217;s designed to orchestrate across various different clouds and different infrastructure. It&amp;#8217;s like a heterogeneous distributed compute platform. So the platform&amp;#8217;s always gonna remain multi-cloud,&amp;rdquo; confirms Nscale&amp;rsquo;s Bathurst.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-pricing-permutations-and-hyperscalers-hearsay"&gt;Pricing permutations and hyperscalers hearsay&lt;/h2&gt;
+
+
+
+&lt;p&gt;Pressed on any forthcoming pricing changes or likely reactions from the major cloud hyperscalers in relation to Nscale now being a credible alternative, Bathurst and team were (perhaps understandably one day after an acquisition deal announcement) politely tight-lipped.&lt;/p&gt;
+
+
+
+&lt;p&gt;More voluble is always-affable analyst Mohan, who says that, &amp;ldquo;Every optimization that only shows up on Nscale hardware is a dependency. So, an argument can be made either way. Standalone orchestration software and independent tooling vendors are getting absorbed into whoever owns the GPUs, because the economics only work when you control both. Expect more of it,&amp;rdquo; Mohan underlines.&lt;/p&gt;
+
+
+
+&lt;p&gt;He explains that Nscale &amp;ldquo;now becomes a real specialist cloud services provider alternative,&amp;rdquo; i.e., not a general-purpose one like AWS, Azure and Google Cloud with their plethora of managed services, from databases and data warehousing to container orchestration through to AI/ML pipeline technology.&amp;nbsp; However, he does see space for Nscale to become a strong player in raw training and inference at scale.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-from-cryptocurrency-to-cloud-contender"&gt;From cryptocurrency to cloud contender&lt;/h2&gt;
+
+
+
+&lt;p&gt;London, UK-based Nscale was established in 2024 from what was originally a cryptocurrency mining business.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As suggested, Anyscale will retain its brand name as part of the Nscale family, and the company has restated its stance that customers are &amp;ldquo;free to choose the cloud infrastructure on which they run their AI workloads&amp;rdquo; today.&lt;/p&gt;
+
+
+
+&lt;p&gt;The company&amp;rsquo;s initial press statement said that &amp;ldquo;over time&amp;rdquo; users will gain the additional option of running the Anyscale software layer on Nscale&amp;rsquo;s full-stack AI platform.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-first-full-stack-ai-hyperscaler"&gt;The first full-stack AI hyperscaler?&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Companies are moving beyond simply using AI to actually building their own. Doing that well requires the software and the infrastructure it runs on to be designed together,&amp;rdquo; says &lt;a href="https://www.linkedin.com/in/keertimelkote/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Keerti Melkote&lt;/a&gt;, CEO of Anyscale in the press release announcing the acquisition.&lt;/p&gt;
+
+
+
+&lt;p&gt;Melkote has defined the combination of Anyscale&amp;#8217;s platform &amp;mdash; built on Ray &amp;mdash; with Nscale&amp;#8217;s datacenter, compute and AI cloud services as the &amp;ldquo;first full-stack AI hyperscaler,&amp;rdquo; i.e., one that runs any AI workload at greater scale, so more software engineering teams can build and own their AI applications and services.&lt;/p&gt;
+
+
+
+&lt;p&gt;With this acquisition and the fusion of Nscale with Anyscale&amp;rsquo;s software layer, the organization will aim to widen its customer base. Existing work sees the company working in verticals from healthcare to e-commerce to robotics. It says its full stack offering will help companies speed up image and document processing, fine-tune LLMs on their proprietary data, and deploy AI agents in-house using open-source models.&lt;/p&gt;
+
+
+
+&lt;p&gt;The transaction is subject to closing conditions and regulatory approvals and is expected to close in the second half of 2026. Financial terms of the transaction were not disclosed, although &lt;a href="https://www.bloomberg.com/news/articles/2026-07-30/nscale-to-buy-ai-software-startup-anyscale-for-1-65-billion?accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2UiOiJTdWJzY3JpYmVyR2lmdGVkQXJ0aWNsZSIsImlhdCI6MTc4NTQxMDIyNywiZXhwIjoxNzg2MDE1MDI3LCJhcnRpY2xlSWQiOiJUSVhaU0hLSkg2VkUwMCIsImJjb25uZWN0SWQiOiJEQ0FGMjNFM0YyMkE0Qzk5OTM0RUMyRDEwNkM0ODc0NyJ9.1hChskM6Twv1RarQXZnJwXh8vZCjp_93Gr18w86cZ1I&amp;amp;leadSource=article-gifting" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Reuters reports&lt;/a&gt; a source stating that the deal price is &amp;ldquo;about $1.65 billion&amp;rdquo;, according to a person familiar with the deal.&lt;/p&gt;
+
+
+
+&lt;p&gt;AWS, Google Cloud and Microsoft Azure representatives were all contacted and invited to comment on this story.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nscale-anyscale-acquisition-neocloud-lockin/"&gt;Nscale just bought Anyscale. Here&amp;#8217;s why it matters for multi-cloud neutrality.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Nscale&amp;#039;s Anyscale acquisition raises lock-in questions as the GPU neocloud builds what its CEO calls the first full-stack AI hyperscaler.</content:encoded>
+    </item>
+    <item>
+      <title>Gemini Robotics 2 brings us one step closer to physical AGI</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/gemini-robotics-2/</link>
+      <dc:creator>Meredith Shubel</dc:creator>
+      <pubDate>Fri, 31 Jul 2026 15:56:51 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <category>Hardware</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832356</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/7b9405b2-a-chosen-soul-tdpppqotzp0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/7b9405b2-a-chosen-soul-tdpppqotzp0-unsplash-scaled.jpg" /&gt;&lt;p&gt;This week, Google DeepMind revealed Gemini Robotics 2, an intelligence layer comprising three new models to power more adaptable physical&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-robotics-2/"&gt;Gemini Robotics 2 brings us one step closer to physical AGI&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/7b9405b2-a-chosen-soul-tdpppqotzp0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/7b9405b2-a-chosen-soul-tdpppqotzp0-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;This week, Google DeepMind revealed Gemini Robotics 2, an intelligence layer comprising three new models to power more adaptable physical AI. Together, Google says these models will give robots more dexterous, full-body control to work together and complete a wide range of multi-step tasks.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Google announced the vision-language-action (VLA) model, &lt;a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini Robotics 2&lt;/a&gt;, on Thursday, and converts vision and language inputs into motor control so robots can flex from feet to fingertips with enough dexterity in hands and grippers to complete delicate tasks, like closing a Ziploc bag. The lightweight version, Gemini Robotics On-Device 2, runs locally so robotic applications can keep running even without internet connectivity.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="400" height="222" src="https://cdn.thenewstack.io/media/2026/07/83ca1108-robot.gif" alt="" class="wp-image-22832406" style="width:704px;height:auto"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Meanwhile, the embodied reasoning (ER) model, Gemini Robotics ER 2, lets robots understand their surroundings and communicate with humans so they can devise plans to carry out multi-step tasks &amp;mdash; think emptying a dishwasher and putting items away.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/chrismatthieu/details/experience/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Chris Matthieu&lt;/a&gt;, VP of the developer ecosystem at &lt;a href="https://www.realsenseai.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RealSense&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; this is what it&amp;rsquo;ll take for robots to graduate from simple, isolated actions to real-world physical assistance:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The hard part isn&amp;rsquo;t making the first decision &amp;mdash; it&amp;rsquo;s recovering from the hundredth when the world has changed. Doors are closed, objects get moved, people walk into the scene, batteries drain, and sensors become partially occluded.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="Gemini Robotics 2 brings whole body intelligence to robots" width="500" height="281" src="https://www.youtube.com/embed/4lSQnrMC6nY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-full-body-control-and-greater-dexterity"&gt;Full-body control and greater dexterity&lt;/h2&gt;
+
+
+
+&lt;p&gt;According to Google, combining VLA and ER models means humanoids can go further to complete a range of tasks, literally. &lt;/p&gt;
+
+
+
+&lt;p&gt;Where its previous &lt;a href="https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini Robotics 1.5&lt;/a&gt; model could only control a robot&amp;rsquo;s upper body to perform tabletop tasks, Gemini Robotics 2 brings intelligence to the entire humanoid body, enabling it to walk, crouch, stretch, and handle various objects. That means developers could create systems where robots are capable of executing commands like, &amp;ldquo;fetch the book from the top shelf.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Humans make this look effortless because our visual cortex constantly feeds our motor cortex with spatial information. Physical AI needs that same continuous perception loop.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;With full-body control also comes finer motor skills. Referencing the five-fingered, 22-degree-of-freedom SharpaWave hand on Apptronik&amp;rsquo;s Apollo 2 humanoid robot, Google says its Gemini Robotics 2 enables the robot to perform intricate tasks, like tying a knot, with the finesse and dexterity of a human hand.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/6144a132-image-1024x576.png" alt="" class="wp-image-22832358"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Source: &lt;a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google&lt;/a&gt;&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;What may seem like simple tasks for humans, Matthieu tells &lt;em&gt;The New Stack&lt;/em&gt; that these capabilities represent a profound leap for humanoids as every subsystem must become interdependent to avoid obstacles, localize itself, and coordinate both arms and legs:&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Humans make this look effortless because our visual cortex constantly feeds our motor cortex with spatial information. Physical AI needs that same continuous perception loop.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-multi-step-minutes-long-task-execution-from-one-robot-or-a-whole-group"&gt;Multi-step, minutes-long task execution &amp;ndash; from one robot or a whole group&lt;/h2&gt;
+
+
+
+&lt;p&gt;When asked what&amp;rsquo;s been holding back &lt;a href="https://thenewstack.io/physical-ai-models-frontier/" class="local-link"&gt;the next breakthrough in robotics&lt;/a&gt;, Matthieu points to the unpredictability of the real world, telling &lt;em&gt;The New Stack&lt;/em&gt;: &amp;ldquo;Long-horizon autonomy requires continuous replanning based on real-time perception rather than blindly following an original plan.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Now, Google is trying to help robots find their way with its ER model, which it calls &amp;ldquo;the robot&amp;rsquo;s high-level brain.&amp;#8221; It can communicate with people, process task instructions, and then coordinate with the VLA model to carry out actions until completion &amp;mdash; even those that last several minutes and require hundreds of decisions. Notably, the ER model also enables robots to self-correct if something goes awry.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Plus, Gemini Robotics 2 should allow developers to quickly adapt to different robot embodiments, requiring as few as 200 examples and just a couple of hours of adaptation time for new bi-arm robot embodiments. That means skills can be adapted to new systems, even those with different shapes, sensors, and degrees of freedom.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;And if one intelligent, highly dexterous humanoid isn&amp;rsquo;t enough to do the job on its own, Google says Gemini Robotics 2 also allows it to collaborate with other robots to carry out more complex workflows.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-local-intelligence-and-a-new-safety-benchmark-nbsp"&gt;Local intelligence and a new safety benchmark&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;While Gemini Robotics 2 and Gemini Robotics ER 2 seem to do most of the heavy lifting, the lightweight version of the VLA model shouldn&amp;rsquo;t be overlooked. Actually, Matthieu tells &lt;em&gt;The New Stack&lt;/em&gt; that&amp;rsquo;s where he sees a keen advantage for privacy, reliability, and determinism, noting, &amp;ldquo;A robot shouldn&amp;rsquo;t have to wait on an Internet connection before deciding whether to stop, avoid a person, or grasp an object.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Eventually, he predicts robotic systems will adopt a hybrid architecture, where perception, motion planning, and safety decisions take place at the edge and cloud models handle deeper reasoning and long-term learning.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;A robot shouldn&amp;rsquo;t have to wait on an Internet connection before deciding whether to stop, avoid a person, or grasp an object.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Of course, keeping a fleet of intelligent humanoids in check will require more controls. Google also introduces &lt;a href="https://huggingface.co/datasets/google/asimov_agentic/blob/main/README.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ASIMOV-Agentic&lt;/a&gt;, a new benchmark for agentic safety orchestration and uncertainty resolution that can measure the agent&amp;rsquo;s ability to refuse unsafe tool calls and flag a human for help when it&amp;rsquo;s not sure it can complete a task safely.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Gemini Robotics ER 2 is now available on &lt;a href="https://ai.dev/prompts/new_chat?model=gemini-robotics-er-2-preview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google AI Studio&lt;/a&gt; and in private preview on &lt;a href="https://console.cloud.google.com/agent-platform/publishers/google/model-garden/gemini-robotics-er-2-preview-info" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini Enterprise Agent Platform&lt;/a&gt;. Both VLA models are available to &lt;a href="https://docs.google.com/forms/d/1sM5GqcVMWv-KmKY3TOMpVtQ-lDFeAftQ-d9xQn92jCE/viewform?ts=67cef986&amp;amp;edit_requested=true" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;early-access partners&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-robotics-2/"&gt;Gemini Robotics 2 brings us one step closer to physical AGI&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Google DeepMind’s three new models give robots full-body control, greater dexterity, and reasoning capabilities to execute multi-step tasks</content:encoded>
+    </item>
+    <item>
       <title>Why your company should (try to) build its own AI SRE</title>
       <link>https://web.archive.org/web/https://thenewstack.io/ai-sre-root-cause-analysis/</link>
-      <dc:creator>Nick Lucchesi</dc:creator>
+      <dc:creator>Alex Wilhelm</dc:creator>
       <pubDate>Thu, 30 Jul 2026 20:30:56 +0000</pubDate>
       <category>AI Agents</category>
       <category>AI Operations</category>
@@ -32,7 +511,7 @@
       <category>sponsored-podcast</category>
       <category>Video</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22832340</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/7d594e6f-new-thumbnail-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, Sam Farid and Nate Heinrich of Chronosphere argue that AI agents should also be used for root-cause analysis, helping teams diagnose failures more quickly as model capabilities continue to improve." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/7d594e6f-new-thumbnail.png" /&gt;&lt;p&gt;Companies ship more code today than ever, thanks to agentic coding tools. For product teams, this accelerated pace of development&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/7d594e6f-new-thumbnail-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, Sam Farid and Nate Heinrich of Chronosphere argue that AI agents should also be used for root-cause analysis, helping teams diagnose failures more quickly as model capabilities continue to improve." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/7d594e6f-new-thumbnail.png" /&gt;&lt;p&gt;Companies ship more code today than ever, thanks to agentic coding tools. For product teams, this accelerated pace of development&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-sre-root-cause-analysis/"&gt;Why your company should (try to) build its own AI SRE&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/7d594e6f-new-thumbnail-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, Sam Farid and Nate Heinrich of Chronosphere argue that AI agents should also be used for root-cause analysis, helping teams diagnose failures more quickly as model capabilities continue to improve." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/7d594e6f-new-thumbnail.png" /&gt;
@@ -48,7 +527,7 @@
 
 
 
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="YouTube video player" src="https://www.youtube.com/embed/1cTHDJVHMgY?si=Tp36VrgSWHV4c8MZ" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="YouTube video player" src="https://www.youtube.com/embed/1cTHDJVHMgY?si=Tp36VrgSWHV4c8MZ" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 
 
 
@@ -60,7 +539,7 @@
 
 
 
-&lt;p&gt;&lt;iframe src="https://player.simplecast.com/6ea4c49f-e9e2-4bb6-bcd5-201bfb73d5c1?dark=true" width="100%" height="200px" frameborder="no" scrolling="no" seamless=""&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;&lt;iframe loading="lazy" src="https://player.simplecast.com/6ea4c49f-e9e2-4bb6-bcd5-201bfb73d5c1?dark=true" width="100%" height="200px" frameborder="no" scrolling="no" seamless=""&gt;&lt;/iframe&gt;&lt;/p&gt;
 
 
 
@@ -86,7 +565,7 @@
       <content:encoded>Leaders at Chronosphere, a Palo Alto Networks company, say building an in-house AI SRE helps teams map systems, investigate incidents, and support reliable software delivery at scale.</content:encoded>
     </item>
     <item>
-      <title>Chinese AI competitors may have forced OpenAI’s hand on pricing</title>
+      <title>OpenAI slashes API costs amid rising global competition</title>
       <link>https://web.archive.org/web/https://thenewstack.io/gpt-5-6-api-price-cuts/</link>
       <dc:creator>Amanda Caswell</dc:creator>
       <pubDate>Thu, 30 Jul 2026 19:28:02 +0000</pubDate>
@@ -95,7 +574,7 @@
       <category>API Management</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22832295</guid>
       <description>&lt;img width="1024" height="648" src="https://cdn.thenewstack.io/media/2026/07/efea7753-screenshot-2026-07-30-at-15.25.19-e1785439638411-1024x648.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman in an OpenAI video released in October 2025." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/efea7753-screenshot-2026-07-30-at-15.25.19-e1785439638411.png" /&gt;&lt;p&gt;OpenAI has lowered API prices for two GPT-5.6 models only three weeks after their launch. On Thursday, the company announced&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/"&gt;Chinese AI competitors may have forced OpenAI&amp;#8217;s hand on pricing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/"&gt;OpenAI slashes API costs amid rising global competition&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="648" src="https://cdn.thenewstack.io/media/2026/07/efea7753-screenshot-2026-07-30-at-15.25.19-e1785439638411-1024x648.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman in an OpenAI video released in October 2025." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/efea7753-screenshot-2026-07-30-at-15.25.19-e1785439638411.png" /&gt;
 &lt;p&gt;&lt;strong&gt;OpenAI has lowered API prices for two GPT-5.6 models&lt;/strong&gt; only three weeks after their launch. On Thursday, the company announced that GPT-5.6 Luna is now 80% cheaper and GPT-5.6 Terra is 20% cheaper, while the price for its main reasoning model, GPT-5.6 Sol, stays the same.&lt;/p&gt;
@@ -189,7 +668,7 @@
 
 
 &lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/"&gt;Chinese AI competitors may have forced OpenAI&amp;#8217;s hand on pricing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/"&gt;OpenAI slashes API costs amid rising global competition&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
     </item>
     <item>
@@ -409,7 +888,7 @@
 
 
 
-&lt;p&gt;Early adopters are reporting measurable operational improvements:&lt;/p&gt;
+&lt;p&gt;Successful users of Elastic&amp;#8217;s security features are reporting measurable operational improvements:&lt;/p&gt;
 
 
 
@@ -441,6 +920,140 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-elastic-enterprise-context/"&gt;OpenAI and Elastic are tackling the AI problem enterprises can’t ignore&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>OpenAI and Elastic have deepened their partnership to give enterprise AI agents secure context, better observability, and quicker, evidence-based threat response.</content:encoded>
+    </item>
+    <item>
+      <title>Why linting alone can’t govern agentic development</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/governing-agentic-software-development/</link>
+      <dc:creator>Robert Curlee</dc:creator>
+      <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Software Development</category>
+      <category>sponsor-sonarsource</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832251</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;&lt;p&gt;There&amp;#8217;s no question that AI agents are changing software development. They can move from an idea to a working implementation&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;
+&lt;p&gt;There&amp;rsquo;s no question that AI agents are changing software development. They can move from an idea to a working implementation quickly, explore alternatives, and take on larger bodies of work that might otherwise have stayed in the backlog. The opportunity is real. The question now is how to turn that speed into reliable, lasting value.&lt;/p&gt;
+
+
+
+&lt;p&gt;Linting has an important role in that effort. Linters provide fast, local feedback on syntax errors, undefined variables, formatting, and common mistakes. They help teams establish consistent standards without slowing development. In agentic workflows, that immediacy and consistency become even more valuable.&lt;/p&gt;
+
+
+
+&lt;p&gt;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work. An agent can produce code that is well formatted, idiomatic, and apparently complete. Developers still need confidence that the changes made behave correctly, fit the surrounding system, and meet security and reliability requirements.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;This calls for the same engineering discipline applied to any high-leverage system: define the goal, provide useful context and constraints, and verify the outcome before it reaches production.&lt;/p&gt;
+
+
+
+&lt;p&gt;The original promise of linting has always been immediate, actionable guidance for developers as they write code. That principle should carry forward as teams add the &lt;a href="https://thenewstack.io/verifying-async-ai-agents/" data-wpil-monitor-id="4005" class="local-link"&gt;verification layers that agentic development&lt;/a&gt; requires.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-verify-behavior-across-the-system"&gt;Verify behavior across the system&lt;/h2&gt;
+
+
+
+&lt;p&gt;Linting excels at inspecting code locally. Many consequential software issues emerge across execution paths, data movement, and interactions between components.&lt;/p&gt;
+
+
+
+&lt;p&gt;Consider code that looks reasonable in every individual function but passes an unvalidated value through several calls before it reaches a database query, file-system operation, or authentication decision. Or consider a condition that appears defensible in isolation but renders a meaningful branch unreachable. These questions concern how the system behaves as a whole.&lt;/p&gt;
+
+
+
+&lt;p&gt;Control-flow analysis can reason about the paths a program may take. Data-flow and taint analysis can trace how values move from external inputs to sensitive operations. Together, these techniques help teams understand what software can do in practice, especially when a change spans multiple files or system boundaries.&lt;/p&gt;
+
+
+
+&lt;p&gt;The goal is to keep feedback proportional to impact. Fast checks belong in the agent&amp;rsquo;s inner reasoning loop, while deeper analysis can focus on security-sensitive paths, business-critical workflows, and broader changes.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Verify the broader software supply chain&lt;/h2&gt;
+
+
+
+&lt;p&gt;Agentic development can accelerate more than first-party code. Agents may also introduce dependencies, configuration changes, pipeline updates, and shortcuts that expose secrets.&lt;/p&gt;
+
+
+
+&lt;p&gt;Each of these elements deserves verification. Teams benefit from knowing which components enter their software, scanning dependencies for known and emerging risks, detecting secrets before they spread, and reviewing workflow configuration as a security-relevant part of the codebase.&lt;/p&gt;
+
+
+
+&lt;p&gt;In an agentic environment, the security perimeter extends beyond application source files. It includes the tools, packages, configurations, and instructions that shape how agents build software. Automating these safeguards helps teams apply the same speed and consistency to verification that agents bring to generation.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Keep the codebase ready for the next change&lt;/h2&gt;
+
+
+
+&lt;p&gt;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership, and dependencies that defy architectural boundaries meant to ensure proper abstraction.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Agents accelerate this accumulation because they produce a large amount of individually plausible code in a short period of time. Evaluating each change for current functionality is essential; evaluating its effect on the long-term health of the system is equally important.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Maintainability is part of agent productivity. Agents work more effectively when they can understand the codebase in which they operate. Clear architecture, manageable complexity, and explicit constraints provide a better map of the problem. They help agents make stronger choices on the next task and help developers review those choices with greater confidence. However, agents don&amp;rsquo;t do well with keeping the right context of your codebase in the limited memory space they have.&lt;/p&gt;
+
+
+
+&lt;p&gt;To create a productive cycle, agents need immediate, dynamic, and specification-relevant context as your codebase changes. Well-maintained systems support more effective agents, and effective agents create more capacity to improve the system. Over time, that gives teams a durable foundation for innovation.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Build verification into the loop&lt;/h2&gt;
+
+
+
+&lt;p&gt;The most useful framing is straightforward: Agents create more value when verification is designed into the workflow.&lt;/p&gt;
+
+
+
+&lt;p&gt;That means &lt;a href="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" type="link" id="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" class="local-link"&gt;giving agents relevant context&lt;/a&gt; and constraints before they generate code. Keeping linting in the inner loop for immediate feedback. Applying behavioral, security, and architectural checks as changes grow in scope and consequence. And using quality gates and review practices to verify the final outcome, not merely the appearance of the patch.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Linting, testing, deeper static analysis, dependency controls, secrets detection, architecture checks, and &lt;a href="https://thenewstack.io/human-purpose-ai-agents/" type="link" id="https://thenewstack.io/human-purpose-ai-agents/" class="local-link"&gt;human judgment&lt;/a&gt; each provide a distinct signal. Together, they give teams the confidence to move quickly while protecting the systems they are building.&lt;/p&gt;
+
+
+
+&lt;p&gt;AI agents are making code generation abundant. The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable and resilient with every new wave of development.&lt;/p&gt;
+
+
+
+&lt;p&gt;Linting remains essential to that strategy. It delivers immediate feedback, while the broader verification workflow gives teams the confidence to move quickly and build durable systems.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Linting alone can&amp;#039;t govern agentic AI development. Learn how multi-layered verification keeps codebases secure and resilient.</content:encoded>
     </item>
     <item>
       <title>DNS is infrastructure. It’s time to manage it that way.</title>
@@ -642,140 +1255,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/dns-domain-management-automation/"&gt;DNS is infrastructure. It’s time to manage it that way.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>DNSimple founder and CEO Anthony Eden explains how IaC, APIs and CLI automation can help prevent DNS failures and bring domain management under control.</content:encoded>
-    </item>
-    <item>
-      <title>Why linting alone can’t govern agentic development</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/governing-agentic-software-development/</link>
-      <dc:creator>Robert Curlee</dc:creator>
-      <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Software Development</category>
-      <category>sponsor-sonarsource</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832251</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;&lt;p&gt;There&amp;#8217;s no question that AI agents are changing software development. They can move from an idea to a working implementation&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;
-&lt;p&gt;There&amp;rsquo;s no question that AI agents are changing software development. They can move from an idea to a working implementation quickly, explore alternatives, and take on larger bodies of work that might otherwise have stayed in the backlog. The opportunity is real. The question now is how to turn that speed into reliable, lasting value.&lt;/p&gt;
-
-
-
-&lt;p&gt;Linting has an important role in that effort. Linters provide fast, local feedback on syntax errors, undefined variables, formatting, and common mistakes. They help teams establish consistent standards without slowing development. In agentic workflows, that immediacy and consistency become even more valuable.&lt;/p&gt;
-
-
-
-&lt;p&gt;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work. An agent can produce code that is well formatted, idiomatic, and apparently complete. Developers still need confidence that the changes made behave correctly, fit the surrounding system, and meet security and reliability requirements.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This calls for the same engineering discipline applied to any high-leverage system: define the goal, provide useful context and constraints, and verify the outcome before it reaches production.&lt;/p&gt;
-
-
-
-&lt;p&gt;The original promise of linting has always been immediate, actionable guidance for developers as they write code. That principle should carry forward as teams add the &lt;a href="https://thenewstack.io/verifying-async-ai-agents/" data-wpil-monitor-id="4005" class="local-link"&gt;verification layers that agentic development&lt;/a&gt; requires.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-verify-behavior-across-the-system"&gt;Verify behavior across the system&lt;/h2&gt;
-
-
-
-&lt;p&gt;Linting excels at inspecting code locally. Many consequential software issues emerge across execution paths, data movement, and interactions between components.&lt;/p&gt;
-
-
-
-&lt;p&gt;Consider code that looks reasonable in every individual function but passes an unvalidated value through several calls before it reaches a database query, file-system operation, or authentication decision. Or consider a condition that appears defensible in isolation but renders a meaningful branch unreachable. These questions concern how the system behaves as a whole.&lt;/p&gt;
-
-
-
-&lt;p&gt;Control-flow analysis can reason about the paths a program may take. Data-flow and taint analysis can trace how values move from external inputs to sensitive operations. Together, these techniques help teams understand what software can do in practice, especially when a change spans multiple files or system boundaries.&lt;/p&gt;
-
-
-
-&lt;p&gt;The goal is to keep feedback proportional to impact. Fast checks belong in the agent&amp;rsquo;s inner reasoning loop, while deeper analysis can focus on security-sensitive paths, business-critical workflows, and broader changes.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Verify the broader software supply chain&lt;/h2&gt;
-
-
-
-&lt;p&gt;Agentic development can accelerate more than first-party code. Agents may also introduce dependencies, configuration changes, pipeline updates, and shortcuts that expose secrets.&lt;/p&gt;
-
-
-
-&lt;p&gt;Each of these elements deserves verification. Teams benefit from knowing which components enter their software, scanning dependencies for known and emerging risks, detecting secrets before they spread, and reviewing workflow configuration as a security-relevant part of the codebase.&lt;/p&gt;
-
-
-
-&lt;p&gt;In an agentic environment, the security perimeter extends beyond application source files. It includes the tools, packages, configurations, and instructions that shape how agents build software. Automating these safeguards helps teams apply the same speed and consistency to verification that agents bring to generation.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Keep the codebase ready for the next change&lt;/h2&gt;
-
-
-
-&lt;p&gt;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership, and dependencies that defy architectural boundaries meant to ensure proper abstraction.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Agents accelerate this accumulation because they produce a large amount of individually plausible code in a short period of time. Evaluating each change for current functionality is essential; evaluating its effect on the long-term health of the system is equally important.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Maintainability is part of agent productivity. Agents work more effectively when they can understand the codebase in which they operate. Clear architecture, manageable complexity, and explicit constraints provide a better map of the problem. They help agents make stronger choices on the next task and help developers review those choices with greater confidence. However, agents don&amp;rsquo;t do well with keeping the right context of your codebase in the limited memory space they have.&lt;/p&gt;
-
-
-
-&lt;p&gt;To create a productive cycle, agents need immediate, dynamic, and specification-relevant context as your codebase changes. Well-maintained systems support more effective agents, and effective agents create more capacity to improve the system. Over time, that gives teams a durable foundation for innovation.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Build verification into the loop&lt;/h2&gt;
-
-
-
-&lt;p&gt;The most useful framing is straightforward: Agents create more value when verification is designed into the workflow.&lt;/p&gt;
-
-
-
-&lt;p&gt;That means &lt;a href="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" type="link" id="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" class="local-link"&gt;giving agents relevant context&lt;/a&gt; and constraints before they generate code. Keeping linting in the inner loop for immediate feedback. Applying behavioral, security, and architectural checks as changes grow in scope and consequence. And using quality gates and review practices to verify the final outcome, not merely the appearance of the patch.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Linting, testing, deeper static analysis, dependency controls, secrets detection, architecture checks, and &lt;a href="https://thenewstack.io/human-purpose-ai-agents/" type="link" id="https://thenewstack.io/human-purpose-ai-agents/" class="local-link"&gt;human judgment&lt;/a&gt; each provide a distinct signal. Together, they give teams the confidence to move quickly while protecting the systems they are building.&lt;/p&gt;
-
-
-
-&lt;p&gt;AI agents are making code generation abundant. The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable and resilient with every new wave of development.&lt;/p&gt;
-
-
-
-&lt;p&gt;Linting remains essential to that strategy. It delivers immediate feedback, while the broader verification workflow gives teams the confidence to move quickly and build durable systems.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Linting alone can&amp;#039;t govern agentic AI development. Learn how multi-layered verification keeps codebases secure and resilient.</content:encoded>
     </item>
     <item>
       <title>When do AI agents need permission boundaries?</title>
@@ -3546,485 +4025,6 @@ json
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/mate-security-context-graph/"&gt;Mate Security bets a context-first AI architecture can reinvent the SOC as it lands $35M Series A&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Mate Security’s Security Context Graph gives AI agents richer enterprise context as the startup raises $35M to challenge copilot-led security operations in the SOC.</content:encoded>
-    </item>
-    <item>
-      <title>Diagrid gives failed AI agents a way to resume</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/diagrid-catalyst-agent-recovery/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 28 Jul 2026 13:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Compliance</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831837</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/418acfc4-getty-images-4oky858elvi-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/418acfc4-getty-images-4oky858elvi-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI agents can impress in a demo and still fumble in production. Diagrid&amp;#8217;s Catalyst 2.0 aims to make them more&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/diagrid-catalyst-agent-recovery/"&gt;Diagrid gives failed AI agents a way to resume&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/418acfc4-getty-images-4oky858elvi-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/418acfc4-getty-images-4oky858elvi-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;AI agents can impress in a demo and still fumble in production. Diagrid&amp;rsquo;s Catalyst 2.0 aims to make them more resilient &amp;mdash; and their actions tamper-evident &amp;mdash; for high-stakes work.&lt;/p&gt;
-
-
-
-&lt;p&gt;With the launch of Catalyst 2.0, &lt;a href="https://www.diagrid.io" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Diagrid&lt;/a&gt; on Tuesday has added a durable execution and attestation layer to agents built with LangGraph, Microsoft Agent Framework, Google&amp;rsquo;s Agent Development Kit, OpenAI Agents SDK, and other popular frameworks.&lt;/p&gt;
-
-
-
-&lt;p&gt;The point here, the company notes, isn&amp;rsquo;t to get developers to adopt yet another agent framework. Instead, Catalyst runs underneath the existing frameworks and turns the agent&amp;rsquo;s model calls, tool calls, and handoffs into steps in a durable workflow. Diagrid says this allows an agent to resume from its last completed step when it&amp;#8217;s interrupted, without having to repeat the entire run from step one.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;If the agent gets a prompt and it chooses to run 100 tools for the job and it fails at the 99th, it really needs to start back up from 99,&amp;rdquo; Diagrid co-founder and CTO &lt;a href="https://www.linkedin.com/in/yaron-schneider-2130b7a3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yaron Schneider&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-picking-back-up-at-tool-call-99"&gt;Picking back up at tool call 99&lt;/h2&gt;
-
-
-
-&lt;p&gt;Catalyst is built on the open source &lt;a href="https://dapr.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Distributed Application Runtime (Dapr)&lt;/a&gt;, which the Diagrid team helped build at Microsoft, and its built-in workflow engine. For each supported agent framework, Diagrid provides a runner that intercepts the framework&amp;rsquo;s execution loop and registers its operations as workflow activities.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We hooked into their agent runner lifecycle, and we&amp;rsquo;re essentially able to take the agentic steps that are being executed in real time and register them as workflow steps for our workflow engine in Catalyst,&amp;rdquo; Schneider says.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="504" src="https://cdn.thenewstack.io/media/2026/07/d45f2419-catalyst-architecture-light-1024x504.png" alt="" class="wp-image-22831838"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Diagrid&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;In a LangGraph application, for example, a developer compiles the graph as usual and passes it to Diagrid&amp;rsquo;s &lt;code&gt;DaprWorkflowGraphRunner&lt;/code&gt;. Catalyst records the inputs and outputs of the model and tool calls. Dapr&amp;rsquo;s workflow runtime can then replay the orchestration after a crash, while returning the stored results of completed activities instead of executing them again.&lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s worth noting that for LangGraph users, this isn&amp;rsquo;t the first form of durable execution. &lt;a href="https://docs.langchain.com/oss/python/langgraph/persistence" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LangGraph&amp;rsquo;s own persistence layer&lt;/a&gt; saves state at superstep boundaries and supports resuming from the last successful step. Its Agent Server also provides a durable task queue and persistent checkpoints.&lt;/p&gt;
-
-
-
-&lt;p&gt;Diagrid&amp;rsquo;s argument is that Catalyst provides the same execution model across more than 10 frameworks and extends it to individual model and tool calls, without requiring developers to build separate recovery logic for each framework. Schneider says LangGraph is &amp;ldquo;without a doubt, hands down&amp;rdquo; the most common framework among Diagrid&amp;rsquo;s customers, with AWS Strands and Microsoft Agent Framework also showing up. All the other supported frameworks, he says, are in the long tail but easy enough to support that it makes sense for Diagrid.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-signed-record-of-the-run"&gt;A signed record of the run&lt;/h2&gt;
-
-
-
-&lt;p&gt;There is a second part to Catalyst 2.0, though, which may be just as important for many enterprise users. With this update, the tool now brings the workflow-history signing features introduced in &lt;a href="https://docs.dapr.io/developing-applications/building-blocks/workflow/workflow-history-signing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dapr 1.18&lt;/a&gt; to the supported agent frameworks.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We keep like a ledger, like a diary,&amp;rdquo; Schneider says. &amp;ldquo;We log the input, we log the output, we log which systems we talk to.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;He describes the result as an immutable store but also notes that Catalyst doesn&amp;rsquo;t turn an arbitrary database into a blockchain. It creates a signed history that should reveal later modification.&lt;/p&gt;
-
-
-
-&lt;p&gt;Dapr computes a SHA-256 digest over batches of workflow-history events, links each digest to the previous signature, and signs the result with the Dapr sidecar&amp;rsquo;s &lt;a href="https://spiffe.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Secure Production Identity Framework for Everyone (SPIFFE)&lt;/a&gt; identity. It stores these signatures and certificates alongside the workflow history and verifies the chain whenever it loads the workflow state. If somebody were to modify, remove, or reorder a stored event, that verification chain breaks.&lt;/p&gt;
-
-
-
-&lt;p&gt;Schneider says Catalyst customers can use their own certificates and retain the encrypted history so it can be inspected even if they are no longer running Catalyst. The platform can use a customer-selected database, while the hash chain supplies the tamper evidence.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-one-part-of-the-compliance-problem"&gt;One part of the compliance problem&lt;/h2&gt;
-
-
-
-&lt;p&gt;Diagrid is positioning that tamperproof record as useful for financial services, health care, and other regulated industries. CEO Mark Fussell says some of the financial executives the company has talked to see the lack of a verifiable record as a blocker for deploying agents in sensitive workflows.&lt;/p&gt;
-
-
-
-&lt;p&gt;The European Union&amp;rsquo;s AI Act is another reason Diagrid is making this argument now. &lt;a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Article 12&lt;/a&gt; of the AI Act requires high-risk AI systems to support automatic event logging so operators can trace their behavior, identify risks, and monitor deployed systems, and a signed execution history could help with that requirement.&lt;/p&gt;
-
-
-
-&lt;p&gt;Fussell says Catalyst is meant to run alongside the agent services enterprises already use from the cloud providers. Teams can keep a provider&amp;rsquo;s identity, evaluation, and observability systems while using Catalyst for recovery and signed workflow history. Catalyst can run as a Diagrid-hosted service or in a customer&amp;rsquo;s environment, including air-gapped deployments.&lt;/p&gt;
-
-
-
-&lt;p&gt;Diagrid didn&amp;rsquo;t disclose pricing for the new release.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/diagrid-catalyst-agent-recovery/"&gt;Diagrid gives failed AI agents a way to resume&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Diagrid Catalyst 2.0 adds durable recovery and signed execution histories to LangGraph and other AI agent frameworks through Dapr workflows across clouds.</content:encoded>
-    </item>
-    <item>
-      <title>“There is a sell-by date on low-code, no-code”: What Tines thinks comes next</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/tines-ai-workflow-governance/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 28 Jul 2026 13:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Low Code / No Code</category>
-      <category>Vibe Coding</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831826</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/e303d221-paul-campbell-86ehnqvlpx4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e303d221-paul-campbell-86ehnqvlpx4-unsplash-scaled.jpg" /&gt;&lt;p&gt;After eight years of building a no-code automation platform, Tines launched 3B Tuesday, a new platform that uses AI to&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/tines-ai-workflow-governance/"&gt;&amp;#8220;There is a sell-by date on low-code, no-code&amp;#8221;: What Tines thinks comes next&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/e303d221-paul-campbell-86ehnqvlpx4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/e303d221-paul-campbell-86ehnqvlpx4-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;After eight years of building a no-code automation platform&lt;/strong&gt;, Tines launched 3B Tuesday, a new platform that uses AI to author enterprise workflows but still uses conventional code to execute them.&lt;/p&gt;
-
-
-
-&lt;p&gt;The idea here is for &lt;a href="https://www.tines.com/wildcode/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tines 3B&lt;/a&gt; to enable employees to describe a workflow, application, or agent in natural language. The service then writes the code and deploys it in an environment where IT and security teams remain in control.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.tines.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tines&lt;/a&gt; co-founder and CEO &lt;a href="https://www.linkedin.com/in/eoinhinchy/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eoin Hinchy&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that the company rebuilt its front end, middle layer, and back end for 3B from the ground up, even while its existing business was still growing. The company raised a $125 million Series C funding round at a $1.125 billion valuation last year, and Hinchy says its original platform now executes 1.5 billion automated actions every week.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Yes, things are going great, but no code, low code, at least to us, was clearly not the future,&amp;rdquo; Hinchy says about the decision to build a new platform.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;There is a sell-by date on low-code, no-code as a category.&amp;rdquo; &amp;mdash;Eoin Hinchy, CEO, Tines.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;For Tines, the problem wasn&amp;#8217;t that low code had failed. Large language models were getting good enough at writing code to reduce the need for a visual builder.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;There is a sell-by date on low-code, no-code as a category,&amp;rdquo; Hinchy says. &amp;ldquo;It was the right solution for a particular moment in time.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/0df5cb69-tines_eoin_hinchy_2025_00003-1024x683.jpg" alt="" class="wp-image-22831831"/&gt;&lt;figcaption class="wp-element-caption"&gt;Tines CEO Eoin Hinchy. Credit: Tines.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-low-code-s-ai-problem"&gt;Low code&amp;#8217;s AI problem&lt;/h2&gt;
-
-
-
-&lt;p&gt;Hinchy founded Tines in 2018 in Dublin with &lt;a href="https://www.linkedin.com/in/thomas-kinsella/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thomas Kinsella&lt;/a&gt; after spending much of his career in security and IT. The [original Tines Storyboard] gave security and IT staff a visual builder for automating work across otherwise disconnected tools without having to become software engineers.&lt;/p&gt;
-
-
-
-&lt;p&gt;As large language models improved, Tines added copilots, AI-centric data-transformation features, and [agentic actions] to that platform. Hinchy says the company nevertheless remained skeptical of using autonomous agents for every step of a production workflow.&lt;/p&gt;
-
-
-
-&lt;p&gt;In [a set of predictions published in late 2023], Hinchy argued that natural-language chat would replace no-code interfaces. About a year ago, he says, the team began asking whether a visual builder still made sense when models could generate code.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="655" src="https://cdn.thenewstack.io/media/2026/07/8b232e91-workflow-1024x655.jpg" alt="" class="wp-image-22831832"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Tines&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Building is now commoditized,&amp;rdquo; he says, and argues that this means that for a company like Tines, the job shifts from helping users assemble workflows to managing the code they produce, including credentials, integrations, and permissions &amp;mdash; and handling the runtime.&lt;/p&gt;
-
-
-
-&lt;p&gt;While Tines started out with a focus on security, Hinchy says about 40% of Tines customers already use its original product outside of security, but those users still need some technical ability to create a workflow. With 3B, the company wants to reach employees in teams such as finance and human resources who can describe the application or automation they need but don&amp;#8217;t know how to deploy and operate it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Tines typically ships a minimal product and iterates with customers, Hinchy says. This time, it built a complete product in stealth without customer feedback and only brought early customers into 3B over the past few months.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-ai-writes-the-workflow"&gt;AI writes the workflow&lt;/h2&gt;
-
-
-
-&lt;p&gt;The 3B builder starts with a natural-language prompt. The model can ask follow-up questions before generating a workflow and breaking it into individual steps. In the process, users can ask 3B to revise the whole application, if necessary, or just one generated step.&lt;/p&gt;
-
-
-
-&lt;p&gt;Once generated, each workflow step becomes code that runs in its own &lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/" class="local-link"&gt;ephemeral Docker container&lt;/a&gt;. Tines destroys and recreates those isolated environments for every execution, Hinchy says. The code and workflow diagram remain visible for when users want to inspect them (though he also argues that, in most cases, this shouldn&amp;rsquo;t be necessary).&lt;/p&gt;
-
-
-
-&lt;p&gt;Once deployed, 3B generates a shareable URL that users can share internally.&lt;/p&gt;
-
-
-
-&lt;p&gt;For admins, there is a dashboard that shows, for example, which workflows are running, which are failing, which have public internet access, and which depended on a given system or integration. The system will also try to fix any broken workflows automatically and suggest improvements, which admins can then accept in this same view, too.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="655" src="https://cdn.thenewstack.io/media/2026/07/5d3b5b07-monitoring_access_map-1024x655.jpg" alt="" class="wp-image-22831833"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Tines&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;&amp;#8217;I don&amp;#8217;t know anything about Git. I don&amp;#8217;t know anything about Vercel. I don&amp;#8217;t know anything about pipelines,&amp;#8217;&amp;rdquo; Hinchy says, describing the users Tines is targeting. &amp;ldquo;We take care of all that for them.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Customers can bring their own models in 3B, Hinchy says. Developers can also build with an external coding assistant and deploy the result to the platform. Tines&amp;#8217; existing connectors let administrators preconfigure access to services such as Snowflake, AWS, and Workday instead of handing production credentials to every employee who wants to create an internal tool.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-ai-builds-code-runs"&gt;AI builds, code runs&lt;/h2&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We&amp;#8217;re using AI in the creation of these workflows, but that&amp;#8217;s it,&amp;rdquo; Hinchy says. The generated code executes as a deterministic workflow or application rather than asking a model to reason through every step at runtime.&lt;/p&gt;
-
-
-
-&lt;p&gt;Hinchy says that should make common workflows faster, cheaper, more predictable, and easier to test. The promise here is that customers won&amp;rsquo;t need to pay the cost and extra latency of inference for steps that conventional code could easily handle. When needed, however, 3B can still call a model at runtime when a task depends on it, Hinchy says.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-from-shadow-ai-to-shady-ai"&gt;From shadow AI to &amp;ldquo;shady AI&amp;rdquo;&lt;/h2&gt;
-
-
-
-&lt;p&gt;As with similar platforms, Tines argues that by offering an easy platform to build with, employees won&amp;rsquo;t feel the need to go around IT and build with unapproved &amp;mdash; and unmanaged &amp;mdash; AI tools.&lt;br&gt;Hinchy argues that what is happening now is somewhat different from the shadow IT issues that have been a staple of enterprise security discussions for a long time. Today&amp;rsquo;s employees aren&amp;#8217;t simply bringing unauthorized tools into the workplace, he says. &lt;/p&gt;
-
-
-
-&lt;p&gt;Many are responding to mandates from executives who want them to use AI, with that pressure pushing them to build internal dashboards with coding assistants without considering security features, or to deploy applications through personal hosting accounts on Vercel or elsewhere.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It&amp;#8217;s more like shady AI than shadow AI,&amp;rdquo; Hinchy says.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="655" src="https://cdn.thenewstack.io/media/2026/07/7e1385d3-monitoring_workflows-1024x655.jpg" alt="" class="wp-image-22831834"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Tines&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;When using 3B, IT teams can decide which systems and data an employee can use before that employee starts building. An access map shows which users and workspaces can connect to a given service and what they can do there. Tines says each workflow also gets isolated execution, credential protection, and full logging.&lt;/p&gt;
-
-
-
-&lt;p&gt;The same features put 3B in competition with enterprise software vendors and startups building agent platforms. Hinchy points to major enterprise software companies working on similar products and says &amp;ldquo;half of YC&amp;rdquo; is building some version of the same idea.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Hinchy points to major enterprise software companies working on similar products and says &amp;ldquo;half of YC&amp;rdquo; is building some version of the same idea.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Tines&amp;#8217; advantage, he argues, is the experience it has gained running critical automations and the data generated by years of workflow executions. That history, he believes, helps the company recognize what a healthy workflow looks like, where one is likely to fail, and which controls large enterprises expect.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-old-tines-isn-t-going-away"&gt;The old Tines isn&amp;#8217;t going away&lt;/h2&gt;
-
-
-
-&lt;p&gt;Existing customers won&amp;#8217;t be forced to move their workflows into 3B. Hinchy says Tines has no migration deadline or sunset date for its original Tines Stories platform and will continue investing in it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Security and IT teams may also prefer the visual builder when they want precise control over a workflow&amp;#8217;s implementation. Hinchy expects customers to start new projects in 3B and move existing automations only when they are ready. Over time, though, he believes more customers will let AI own the implementation.&lt;/p&gt;
-
-
-
-&lt;p&gt;Tines isn&amp;#8217;t shutting down the existing visual builder, but Hinchy no longer sees it as the company&amp;#8217;s long-term interface. He assumes prompting will replace much of that work.&lt;/p&gt;
-
-
-
-&lt;p&gt;The visual builder made Tines useful to people who couldn&amp;#8217;t code. Now, thanks to coding agents, code is no longer the scarce (and scary) part. Instead, it is now figuring out how to deploy, secure, and govern what AI writes, which is where Tines believes it can take its existing knowledge of how companies operate in the real world and expand its platform to serve them, all while staying true to its workflow automation promises.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/tines-ai-workflow-governance/"&gt;&amp;#8220;There is a sell-by date on low-code, no-code&amp;#8221;: What Tines thinks comes next&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Tines says low code has a sell-by date. Its new 3B platform uses AI to write enterprise workflows, then runs them as deterministic code under IT controls.</content:encoded>
-    </item>
-    <item>
-      <title>When vendor-supplied support matters: How AI is changing the open source security equation</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-open-source-security/</link>
-      <dc:creator>Carly Page</dc:creator>
-      <pubDate>Tue, 28 Jul 2026 13:00:00 +0000</pubDate>
-      <category>DevOps</category>
-      <category>Open Source</category>
-      <category>Security</category>
-      <category>sponsor-vmware-tanzu</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831798</guid>
-      <description>&lt;img width="1024" height="791" src="https://cdn.thenewstack.io/media/2026/07/9f41a684-viyanca-h9p-ypjq4qs-unsplash-1024x791.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Stylized blue ocean waves crest beneath a black sun as three white cranes fly across a textured beige sky." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9f41a684-viyanca-h9p-ypjq4qs-unsplash-scaled.png" /&gt;&lt;p&gt;Every enterprise runs on open source, but keeping it secure has become significantly harder. Frontier AI models are uncovering vulnerabilities&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-open-source-security/"&gt;When vendor-supplied support matters: How AI is changing the open source security equation&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="791" src="https://cdn.thenewstack.io/media/2026/07/9f41a684-viyanca-h9p-ypjq4qs-unsplash-1024x791.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Stylized blue ocean waves crest beneath a black sun as three white cranes fly across a textured beige sky." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9f41a684-viyanca-h9p-ypjq4qs-unsplash-scaled.png" /&gt;
-&lt;p&gt;&lt;strong&gt;Every enterprise runs on open source&lt;/strong&gt;, but keeping it secure has become significantly harder. Frontier AI models are uncovering vulnerabilities faster than maintainers can comfortably process them, while giving attackers many of the same capabilities. The result is a growing backlog of fixes that organizations are expected to evaluate and deploy ever more quickly.&lt;/p&gt;
-
-
-
-&lt;p&gt;That shift is forcing enterprises to look beyond the software itself. The question is no longer simply which open-source projects to trust, but who is maintaining them &amp;mdash; and how quickly they can respond when new flaws emerge. &lt;/p&gt;
-
-
-
-&lt;p&gt;In that environment, first-party support from the maintainers of an open-source project is becoming less an operational convenience and more a critical part of enterprise risk management.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-ai-has-turned-a-trickle-into-a-flood"&gt;&lt;strong&gt;AI has turned a trickle into a flood&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Open source remains the foundation of modern software development. Virtually every enterprise application depends on hundreds &amp;ndash; or thousands &amp;ndash; of open source components. The challenge isn&amp;#8217;t adopting open source; it&amp;#8217;s keeping those dependencies secure when AI is finding flaws faster than organizations can reasonably process them.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/ryanmorgan2/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ryan Morgan&lt;/a&gt;, head of Spring R&amp;amp;D at Broadcom, tells &lt;em&gt;The New Stack&lt;/em&gt; that the industry has experienced a fundamental shift. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Historically, the trickle of a security vulnerability in this library, or that library, is something that was very manageable,&amp;#8221; Morgan says. &amp;#8220;What&amp;#8217;s happened with frontier AI is that what was a trickle has now turned into a tidal wave.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;What&amp;#8217;s happened with frontier AI is that what was a trickle has now turned into a tidal wave.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Organizations are now examining not only whether vulnerabilities exist, but also whether the projects they depend on have the resources to respond quickly.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;I don&amp;#8217;t want to say that the free lunch is over,&amp;#8221; Morgan says, &amp;#8220;But there&amp;#8217;s this temporary time where everyone is taking a closer look at what dependencies they take, the health of those communities, and really trying to future-proof what they&amp;#8217;re doing.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/michaelminella/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Michael Minella&lt;/a&gt;, director of Open Source Spring R&amp;amp;D at Broadcom, has watched that shift play out inside the Spring portfolio. Historically, the team received around seven security reports a month. Once frontier AI models entered the picture, those numbers climbed sharply.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;In March, we saw 55 reports coming from the community,&amp;#8221; Minella says. &amp;#8220;In April, that went to 112. April is also when we finally got access to those frontier models and started doing internal scanning, and our internal scans gave us another 370 internal reports.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;That isn&amp;#8217;t simply more work for maintainers; it&amp;rsquo;s forcing teams to rethink how software is triaged, validated, and released.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-finding-bugs-is-no-longer-the-hard-part"&gt;&lt;strong&gt;Finding bugs is no longer the hard part&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;If AI has changed one thing, it&amp;#8217;s where the bottleneck sits. Both Morgan and Minella say today&amp;#8217;s models are remarkably good at uncovering vulnerabilities and even generating proof-of-concept exploits. Producing reliable fixes that won&amp;#8217;t break production systems remains far more difficult.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;What we&amp;#8217;ve also seen is [AI is] not perfect yet at being able to automatically patch or create fixes for you,&amp;#8221; Morgan says, adding that Broadcom still relies on experienced engineers to write and validate every Spring security patch before release.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;For our most recent set of CVE patches, every single one of them was handwritten,&amp;#8221; Morgan says. &amp;ldquo;AI helped identify and validate the issues, but the actual code itself was written directly by humans because we want to be able to move fast, but we can&amp;#8217;t do so in a reckless way that&amp;#8217;s going to create regressions or bigger problems down the road.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;That distinction becomes particularly important for frameworks like Spring, where even small changes can affect millions of downstream applications.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-first-party-support-has-an-edge"&gt;&lt;strong&gt;Why first-party support has an edge&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;One advantage first-party maintainers have is that they&amp;#8217;re usually the first to hear about newly discovered vulnerabilities. Security researchers report flaws directly to the project team, giving maintainers time to investigate, develop a fix, and validate it before the details become public. That head start is becoming increasingly valuable as the gap between disclosure and exploitation continues to shrink.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We are the source of truth with regard to security vulnerabilities.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We are the source of truth with regard to security vulnerabilities,&amp;#8221; Minella says. &amp;#8220;If a security researcher is looking into Spring and they find a vulnerability, the Spring team at Broadcom is the one they report it to.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;That gives first-party maintainers a significant head start. &amp;#8220;We build the patch in private. We work with them&amp;#8230; before anybody else knows,&amp;#8221; Minella added. &amp;#8220;Every other third party, their clock starts to get their patch out when we&amp;#8217;ve already announced we fixed something.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;When some vulnerabilities are exploited within hours of disclosure, those days can matter.&lt;/p&gt;
-
-
-
-&lt;p&gt;Maintainers also understand the long-term roadmap for their projects &lt;a href="https://go-vmware.broadcom.com/the-fallacy-of-third-party-support" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in a way that third parties cannot&lt;/a&gt;. Fixes need to solve today&amp;#8217;s problem without creating tomorrow&amp;#8217;s compatibility headache, particularly for enterprise customers running applications expected to remain in production for years.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-keeping-pace-with-the-threat-landscape"&gt;&lt;strong&gt;Keeping pace with the threat landscape&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The volume of AI-generated findings has also forced maintainers to rethink their own development processes.&lt;/p&gt;
-
-
-
-&lt;p&gt;Historically, releasing updates across Spring&amp;#8217;s portfolio of more than 60 interconnected projects could take around two weeks. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;In a world where vulnerabilities are being exploited in less than a day, a two-week release cycle is outdated,&amp;#8221; Minella says.&lt;/p&gt;
-
-
-
-&lt;p&gt;The team is rebuilding the release process to ship coordinated updates across the entire Spring portfolio in a single day, giving customers a predictable cadence that&amp;#8217;s easier to consume.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;In a world where vulnerabilities are being exploited in less than a day, a two-week release cycle is outdated.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That matters because every release creates work for customers. Security updates need to arrive quickly, but they also need to be deployable in ways organizations can realistically use.&lt;/p&gt;
-
-
-
-&lt;p&gt;Morgan says enterprise patching strategies are changing just as rapidly. &amp;#8220;The biggest change that I&amp;#8217;ve seen is people have gotten away from trying to analyze piece by piece,&amp;#8221; he says. &amp;#8220;They&amp;#8217;re just patching and getting up to the latest across the board.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;That shift is forcing organizations to rethink their own deployment pipelines. Delivering patches faster only helps if customers can validate and deploy them just as quickly.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-open-source-isn-t-broken"&gt;&lt;strong&gt;Open source isn&amp;#8217;t broken&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Neither Morgan nor Minella sees AI as an existential threat to open source. If anything, they expect the current wave of vulnerability discovery to leave the ecosystem in a stronger position.&lt;/p&gt;
-
-
-
-&lt;p&gt;AI is exposing weaknesses that previously went unnoticed while encouraging maintainers to build security scanning earlier into the development lifecycle and collaborate more closely across projects. Commercial providers, meanwhile, are increasingly expected to take responsibility for proactively scanning and maintaining the software they steward rather than leaving that burden to customers.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;As AI accelerates vulnerability discovery, enterprises need fixes that are not only fast but also accurate, tested, and unlikely to break production systems.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;I do think we&amp;#8217;re already seeing today that there&amp;#8217;s going to be an expectation that, as providers of commercial open source, you&amp;#8217;re spending the time and the resources to do scanning of your own software,&amp;#8221; Morgan says.&lt;/p&gt;
-
-
-
-&lt;p&gt;Community-led development isn&amp;#8217;t going anywhere, but the demands placed on the people maintaining critical open source projects are changing rapidly. &lt;/p&gt;
-
-
-
-&lt;p&gt;As AI accelerates vulnerability discovery, enterprises need fixes that are not only fast but also accurate, tested, and unlikely to break production systems. That&amp;#8217;s increasingly where support from the teams actually building the open source software can make the biggest difference.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-open-source-security/"&gt;When vendor-supplied support matters: How AI is changing the open source security equation&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>&amp;quot;What&amp;#039;s happened with frontier AI is that what was a trickle has now turned into a tidal wave.&amp;quot; Open-source vulnerability is growing fast, and tested fixes and first-party support are central to enterprise security.</content:encoded>
     </item>
   </channel>
 </rss>
