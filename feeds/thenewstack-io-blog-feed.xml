@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 31 Jul 2026 18:10:44 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 23:58:39 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,1117 @@
       <height>32</height>
     </image>
     <item>
+      <title>Kubernetes upgrades don’t have to break things: How EKS is making cluster lifecycle management simpler and safer</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/eks-kubernetes-upgrade-rollback/</link>
+      <dc:creator>Spyros Angelopoulos</dc:creator>
+      <pubDate>Sat, 01 Aug 2026 15:00:00 +0000</pubDate>
+      <category>Cloud Services</category>
+      <category>DevOps</category>
+      <category>Kubernetes</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832482</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/a8af7de9-philip-oroni-6wutbzpovhg-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract digital render with undulating structures illuminated by red and teal rim light, representing complex cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a8af7de9-philip-oroni-6wutbzpovhg-unsplash.jpg" /&gt;&lt;p&gt;Kubernetes moves at a pace of three minor version releases per year, and staying current is not optional if you&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/eks-kubernetes-upgrade-rollback/"&gt;Kubernetes upgrades don’t have to break things: How EKS is making cluster lifecycle management simpler and safer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/a8af7de9-philip-oroni-6wutbzpovhg-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract digital render with undulating structures illuminated by red and teal rim light, representing complex cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a8af7de9-philip-oroni-6wutbzpovhg-unsplash.jpg" /&gt;
+&lt;p&gt;Kubernetes moves at a pace of three minor version releases per year, and staying current is not optional if you are concerned about security patches, support coverage, and access to new capabilities. But for most of the project&amp;#8217;s history, upgrading the control plane has meant committing to a change you cannot reverse. That constraint fundamentally shaped how organizations approach cluster lifecycle management.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-operational-cost-of-irreversibility"&gt;The operational cost of irreversibility&lt;/h2&gt;
+
+
+
+&lt;p&gt;Platform teams managing global fleets consistently reported that every in-place upgrade cycle required weeks of preparation, parallel infrastructure for validation, and extensive pre-flight verification that extended the overall process to a multi-day effort. Some organizations built entire blue-green deployment strategies solely as an insurance policy against upgrade failures, doubling their control plane infrastructure and maintaining complex traffic-mirroring procedures. Others described upgrades as a &amp;#8220;point of no return&amp;#8221; that drove them toward expensive mitigation patterns, where what should take hours consumed days, largely because there was no recovery path if something went wrong.&lt;/p&gt;
+
+
+
+&lt;p&gt;The natural consequence was delay. Teams postponed upgrades for months, staying on older versions longer than they intended, sometimes until end-of-support deadlines left no other option.&lt;/p&gt;
+
+
+
+&lt;p&gt;Upgrade friction consistently emerged as one of the top concerns in customer conversations. That signal shaped a multi-year engineering commitment from the EKS team. Over the past three years, we have been building toward a single goal: make staying current with Kubernetes the path of least resistance.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-giving-teams-room-to-plan"&gt;Giving teams room to plan&lt;/h2&gt;
+
+
+
+&lt;p&gt;In late 2023, EKS introduced Extended Support (generally available since April 2024), broadening the availability of each Kubernetes version to 26 months. Regulated industries need extended validation cycles, large enterprises coordinate across dozens of teams before touching production, and ISVs certify specific Kubernetes versions for their platforms. Extended Support accommodates all of these realities, giving teams room to upgrade on their own schedule without being forced into rushed decisions.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Over the past three years, we have been building toward a single goal: make staying current with Kubernetes the path of least resistance.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;At the same time, we recognized that for many organizations, the decision to stay behind was not always driven by a need for more testing time. Upgrades carried inherent risk, required extensive coordination, and offered no fallback if things went sideways. Extended availability gave teams flexibility, but it did not address the underlying reasons many teams hesitated to proceed.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Bringing clarity to upgrade readiness&lt;/h2&gt;
+
+
+
+&lt;p&gt;Starting in late 2023, EKS introduced Upgrade Insights, a set of automated checks that scan every cluster against potential upgrade-impacting issues and surface exactly what needs attention before you proceed. Over the following two years, this evolved from passive advisory checks into enforceable safety gates with on-demand re-evaluation, covering deprecated API usage, cluster health, kubelet and kube-proxy version skew, and EKS managed add-on compatibility.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams that previously spent the bulk of their preparation time searching for potential incompatibilities could now see a prioritized list with actionable remediation steps, refreshable on demand after applying fixes, which meant the question &amp;#8220;will this in-place upgrade break something?&amp;#8221; gained a definitive, automated answer.&lt;/p&gt;
+
+
+
+&lt;p&gt;Still, detection has limits. For large-scale production environments, certain incompatibilities only manifest under the heaviest API usage patterns, in clusters whose traffic no test environment can faithfully reproduce. Automated checks reduce risk significantly, but risk reduction alone is not the same as a safety net.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Making in-place upgrades reversible&lt;/h2&gt;
+
+
+
+&lt;p&gt;In July 2026, EKS made in-place Kubernetes control plane upgrades reversible. Version Rollback lets you revert to the previous minor version within 7 days of upgrading, through the same UpdateClusterVersion API you already use, with no new tooling, no workflow changes, and no additional cost.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;In July 2026, EKS made in-place Kubernetes control plane upgrades reversible.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The 7-day window balances two needs: it gives teams enough time to validate the new version under real production traffic and  &lt;a href="https://thenewstack.io/taking-your-observability-strategy-to-the-next-level/" class="local-link"&gt; observe behaviors &lt;/a&gt;  that only surface over days of operation, while bounding the window to prevent long-lived divergence between the cluster state and what the previous version can safely serve.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams that previously spent days on staged preparation and validation can now compress that cycle significantly. With rollback available, teams have the option to upgrade proactively within weeks of a new release, validate under real production conditions, and revert if something unexpected surfaces, knowing that a native revert is considerably faster than live troubleshooting under pressure. Reversibility changes how teams think about upgrades. What was once a high-stakes event gradually becomes a routine lifecycle task. The costly mitigation patterns that organizations built as insurance &amp;mdash; parallel clusters, duplicated nodes, manual scripts &amp;mdash; become optional rather than essential.&lt;/p&gt;
+
+
+
+&lt;p&gt;Salesforce, which operates one of the largest Kubernetes fleets on EKS, encountered this exact dynamic. Their upgrade program was built around extensive stagger-based rollouts, but certain regressions only surfaced in the largest production clusters under traffic patterns no earlier stage could replicate. When those issues appeared, the only option was to fix forward while applications remained degraded. With EKS Version Rollback, Salesforce now incorporates a native revert directly into their upgrade workflow, enabling faster rollouts with a real safety net rather than hope-based mitigation.&lt;/p&gt;
+
+
+
+&lt;p&gt;Before proceeding with a rollback, EKS evaluates the cluster through Rollback Readiness Insights. A parallel set of insight checks, built on the same architecture as upgrade insights, now covers rollback readiness, validating API compatibility, version skew, add-on compatibility, and cluster health to ensure the cluster can safely return to its previous version given its current state.&lt;/p&gt;
+
+
+
+&lt;p&gt;For clusters running EKS Auto Mode, the rollback follows the same fully managed model that Auto Mode applies to upgrades: EKS automatically rolls back worker nodes before reverting the control plane, honoring configured NodePool disruption budgets and PodDisruptionBudgets throughout. Operators retain full control over the tradeoff between how quickly the rollback completes and how much workload disruption they are willing to accept. A new CancelUpdate API allows operators to stop an in-progress &lt;a href="https://thenewstack.io/eks-auto-mode-kubernetes/"  data-wpil-monitor-id="4009" class="local-link"&gt;Auto Mode node&lt;/a&gt; rollback and change course if needed. All etcd data, workloads, and persistent volumes are preserved. For clusters using Managed Node Groups or self-managed nodes, operators roll back their data plane manually through the existing UpdateNodegroupVersion API before initiating the control plane rollback.&lt;/p&gt;
+
+
+
+&lt;p&gt;The open-source Kubernetes community has also been working on this problem. KEP-4330 introduces a two-step upgrade model where the cluster runs new binaries while emulating the previous version&amp;#8217;s behavior, and the operator commits to the new version when satisfied. This makes rollback &lt;a href="https://thenewstack.io/build-resilient-service-architecture/" class="local-link"&gt;architecturally safe&lt;/a&gt; because no new-version data exists until the operator commits. EKS took a deliberately different path, letting clusters run the full new version with all APIs and features active under real production traffic for up to 7 days before requiring a decision. The hardest-to-find issues only appear when real workloads run against the new version for days, something no staging or emulation can reproduce.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Toward intelligent upgrade operations&lt;/h2&gt;
+
+
+
+&lt;p&gt;With detection and recovery addressed, the next step is reducing the manual effort involved in assessing, planning, and executing version changes. The EKS Model Context Protocol (MCP) Server, first released as an open-source local tool in mid-2025 and announced as a fully managed AWS service in preview at re:Invent 2025, provides a standardized interface between AI coding assistants and live EKS cluster state. For upgrades, this means an engineer can query whether a specific cluster is ready to upgrade and receive a comprehensive readiness assessment covering deprecated APIs, add-on compatibility, node version alignment, and workload risks, scored and prioritized with pre-filled remediation commands. After upgrading, the same interface evaluates rollback readiness against live cluster data, replacing a multi-step CLI-based investigation with a single natural language query.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The EKS Model Context Protocol (MCP) Server provides a standardized interface between AI coding assistants and live EKS cluster state.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;This represents the direction we see for cluster lifecycle management, where operational intelligence meets engineers in their existing tools, informed by real-time cluster state rather than static runbooks, progressively lowering the barrier to confident, well-informed upgrade decisions.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A continuing investment&lt;/h2&gt;
+
+
+
+&lt;p&gt;Flexibility to plan on your own schedule. Transparency into what will break before you start. A validated recovery path when something surfaces that testing could not predict. And intelligent tooling that reduces the effort required at every step.&lt;/p&gt;
+
+
+
+&lt;p&gt;Each of these capabilities was shaped by working alongside customers, observing how they operate at scale, and engineering solutions that meet them where they are. That partnership continues to guide what we build next. We are investing in deeper automation, more insightful detection, and tighter integration across the cluster lifecycle. Staying current with Kubernetes should be something teams do with confidence, not something they work around with caution. That is the bar we are holding ourselves to.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/eks-kubernetes-upgrade-rollback/"&gt;Kubernetes upgrades don’t have to break things: How EKS is making cluster lifecycle management simpler and safer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Discover how AWS EKS simplifies Kubernetes upgrades with automated Upgrade Insights, 7-day Version Rollback, and AI-driven operations.</content:encoded>
+    </item>
+    <item>
+      <title>Designing APIs for agents</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/designing-apis-for-agents/</link>
+      <dc:creator>Yan Xie</dc:creator>
+      <pubDate>Sat, 01 Aug 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>API Management</category>
+      <category>Model Context Protocol (MCP)</category>
+      <category>sponsor-webflow</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832493</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/9093472c-karolina-grabowska-7vfinjkygu0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract photo of tangled metallic ribbons and black faceted spheres representing complex AI agent API architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9093472c-karolina-grabowska-7vfinjkygu0-unsplash.jpg" /&gt;&lt;p&gt;In early 2025, Webflow started building for MCP before there was a clear playbook for agent-ready APIs. We publicly announced&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/designing-apis-for-agents/"&gt;Designing APIs for agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/9093472c-karolina-grabowska-7vfinjkygu0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract photo of tangled metallic ribbons and black faceted spheres representing complex AI agent API architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9093472c-karolina-grabowska-7vfinjkygu0-unsplash.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;In early 2025, Webflow started building for MCP&lt;/strong&gt; before there was a clear playbook for agent-ready APIs. We publicly announced our MCP server in April 2025, then joined &lt;a href="https://blog.cloudflare.com/mcp-demo-day/?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cloudflare&amp;rsquo;s May 2025 Demo Day &lt;/a&gt;alongside the first wave of remote MCP servers.&lt;/p&gt;
+
+
+
+&lt;p&gt;Our first approach was straightforward: wrap existing APIs as MCP tools. But we quickly learned that APIs designed for developers don&amp;rsquo;t work well for agents. Developer APIs assume humans can read docs, do research, or get answers from various external sources, compose granular endpoints, manage state, and handle failures manually. Agents operate with far less implicit context and rely heavily on the API surface itself to guide planning and execution, and whether to retry, revise, or stop. So directly exposing Developer APIs to agents made our early MCP tools too low-level and overly chatty, often requiring many tool calls for simple tasks while struggling with more complex workflows. The result was subtle failures, inefficient runtimes, and unreliable task completion.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;APIs designed for developers don&amp;rsquo;t work well for agents. Developer APIs assume humans can read docs, do research, compose granular endpoints, manage state, and handle failures manually.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Over the following year, we iterated heavily: redesigning tools around intents instead of endpoints, simplifying schemas, improving tool-calling efficiency, and making responses easier for agents to reason about. We also keep investing deeply in the underlying foundations &amp;#8211; from the code layer to filesystem abstractions &amp;#8211; to support more reliable and capable agent workflows.&lt;/p&gt;
+
+
+
+&lt;p&gt;Many of those decisions now resemble emerging industry patterns: task-oriented tools, agent-readable schemas, actionable error guidance, and APIs designed around intent rather than implementation details. This post shares the lessons that shaped &lt;a href="https://developers.webflow.com/mcp/reference/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Webflow&amp;rsquo;s MCP server&lt;/a&gt; and why designing for agents ultimately became much broader than exposing APIs through MCP. It required rethinking how autonomous systems discover capabilities, coordinate execution, navigate product surfaces, and operate reliably at runtime.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-developer-apis-don-t-work-well-for-agents"&gt;Why developer APIs don&amp;rsquo;t work well for agents&lt;/h2&gt;
+
+
+
+&lt;p&gt;A user might ask an agent to update the homepage hero. In a traditional API, that can become a chain of low-level operations:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+list pages
+&amp;rarr; find homepage
+&amp;rarr; fetch page content
+&amp;rarr; inspect content tree
+&amp;rarr; find hero section
+&amp;rarr; update content
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Early MCP implementations often exposed existing developer APIs directly as MCP tools:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+getPages()
+getPageContent(pageId)
+updateContent(contentId, payload)
+publishPage(pageId)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;MCP itself was not the problem. The protocol worked as intended. An LLM only sees tool descriptions, schemas, previous responses, and the current context window. It has to infer execution strategy dynamically while preserving intermediate state across multiple tool calls. That&amp;rsquo;s where the failure modes begin to appear. Every additional tool call increases latency, token consumption, context pressure, and the probability of execution failure. The agent now has to:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;preserve intermediate identifiers correctly&lt;/li&gt;
+
+
+
+&lt;li&gt;select the right resource from ambiguous results&lt;/li&gt;
+
+
+
+&lt;li&gt;interpret noisy or overly generic responses&lt;/li&gt;
+
+
+
+&lt;li&gt;coordinate dependent operations in sequence&lt;/li&gt;
+
+
+
+&lt;li&gt;decide whether failures are retryable or terminal&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;Even when the API technically supports the workflow, too much of the model&amp;rsquo;s runtime budget goes into navigating the API instead of completing the user&amp;rsquo;s task.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What an agent API needs&lt;/h2&gt;
+
+
+
+&lt;p&gt;The lesson for us was that exposing APIs through MCP was only the starting point. Reliable agent execution depended much more on the shape and semantics of the tools themselves. Developer APIs typically optimize for flexibility and composability. Agent APIs need to optimize for execution reliability: fewer ambiguous choices, fewer dependent calls, less state to preserve, and clearer guidance when something goes wrong.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Developer APIs typically optimize for flexibility and composability. Agent APIs need to optimize for execution reliability: fewer ambiguous choices, fewer dependent calls, less state to preserve, and clearer guidance when something goes wrong.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For the homepage hero update, the better interface is a task-level tool that matches the user&amp;rsquo;s intent directly:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+update_page_section({
+  page: &amp;quot;home&amp;quot;,
+  section: &amp;quot;hero&amp;quot;,
+  changes: {
+    heading: &amp;quot;Build faster with Webflow&amp;quot;
+  }
+})
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Declarative APIs turn complex, multi-step workflows into a single intent-driven call. Rather than requiring the agent to discover internal structures, preserve intermediate state, coordinate dependent operations, or recover from partial failures, the platform handles orchestration internally. This reduces failure modes and lets the agent focus on the user&amp;rsquo;s goal instead of execution details.&lt;/p&gt;
+
+
+
+&lt;p&gt;Moving from low-level APIs to task-level tools was directionally correct, but it introduced a new problem at Webflow&amp;rsquo;s scale: tool explosion. Webflow supports too many valid workflows to model each one as its own MCP tool. A purely task-oriented design quickly creates a large, overlapping tool surface that becomes difficult for agents to navigate efficiently. To solve this problem, there are basically 2 approaches, and we&amp;rsquo;ll discuss both patterns in more depth in the sections that follow:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;A layered tool architecture:&lt;/strong&gt; Instead of exposing hundreds of standalone tools, we grouped related capabilities into broader domain-level tools with typed composable actions inside them. This gave agents a more structured and navigable map of the product surface while keeping the top-level tool space manageable.&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Introducing filesystem abstractions with code representations of Webflow projects: &lt;/strong&gt;Agents could operate against a structured project representation using familiar programming and shell-style workflows. This shifted part of the interaction model from API orchestration toward execution environments and code-driven manipulation.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Launching and scaling our MCP server&lt;/h2&gt;
+
+
+
+&lt;p&gt;One of the lessons we learned was that designing APIs for agents extends beyond the API surface itself. Once agents became active participants in long-running workflows, many surrounding system decisions started to directly affect execution quality: session architecture, tool organization, runtime coordination, observability, and even distribution.&lt;/p&gt;
+
+
+
+&lt;p&gt;In practice, building reliable agent systems became a full-stack design problem. This shaped how we approached the &lt;a href="https://developers.webflow.com/mcp/reference/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Webflow MCP server&lt;/a&gt; across four areas:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;infrastructure for stateful execution and runtime coordination&lt;/li&gt;
+
+
+
+&lt;li&gt;tool surface design for clarity and efficient capability discovery&lt;/li&gt;
+
+
+
+&lt;li&gt;observability systems for understanding real agent behavior&lt;/li&gt;
+
+
+
+&lt;li&gt;distribution patterns that reduced setup friction and scaled adoption&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;1. Infrastructure&lt;/h3&gt;
+
+
+
+&lt;p&gt;The infrastructure requirements for an MCP server turned out to be very different from a traditional API service. While MCP itself does not require server-side state, real-world agent workflows are highly stateful. An agent may authenticate once, inspect site context, call multiple tools across different product surfaces, and continue reasoning through a long-running workflow. Treating every interaction as fully stateless would force the model to repeatedly reconstruct context and execution state, increasing both latency and failure probability.&lt;/p&gt;
+
+
+
+&lt;p&gt;We built the Webflow MCP server on &lt;a href="https://www.cloudflare.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cloudflare&lt;/a&gt; using &lt;a href="https://developers.cloudflare.com/durable-objects/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Durable Objects&lt;/a&gt; because they provided a natural session-oriented execution model. Each MCP session owns its own server instance, managing user context, available tools, and runtime coordination without requiring separate session infrastructure.&lt;/p&gt;
+
+
+
+&lt;p&gt;We also had to support two different execution environments. Some operations run headlessly through &lt;a href="https://developers.webflow.com/home#apis-and-sdks" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Webflow APIs&lt;/a&gt;, while Designer actions &amp;mdash; like inserting elements or updating styles &amp;mdash; depend on the live browser canvas. For those workflows, the MCP server maintains a WebSocket bridge to a Designer Extension running inside the user&amp;rsquo;s active Webflow session.&lt;/p&gt;
+
+
+
+&lt;p&gt;This architecture gives agents a unified MCP surface while allowing the system to route operations to the correct runtime behind the scenes. At the same time, we&amp;rsquo;ve been progressively moving more Designer capabilities into headless APIs. Reducing dependence on live browser execution simplifies the runtime architecture, lowers coordination complexity, and improves overall stability and reliability for agent workflows.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;2. Designing the tool surface&lt;/h3&gt;
+
+
+
+&lt;p&gt;As mentioned earlier, we found two different approaches that help reduce orchestration and discovery overhead for agents: layered tool organization and filesystem abstractions with code representations of Webflow projects. Over time, we started viewing them as short-term and long-term solutions to the same underlying problem.&lt;/p&gt;
+
+
+
+&lt;p&gt;In the short term, the layered tool architecture helps as the MCP surface expands since we give agents a better map rather than exposing all tools at the same time. Instead of exposing every task as a standalone MCP tool, we grouped related capabilities into domain-level tools with typed composable actions inside them. For example, CMS operations are grouped under a shared tool surface for collections, fields, items, publishing, and updates, while Designer capabilities are organized around elements, styles, variables, assets, and components.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;More specifically, the tool surface evolved into several layers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Domain tools&lt;/strong&gt; organize broad product areas&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Actions&lt;/strong&gt; provide composable typed primitives within each domain&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Workflow tools&lt;/strong&gt; encapsulate orchestration-heavy tasks&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Guide tools&lt;/strong&gt; provide operational instructions and product context for safer execution&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;While this approach definitely helped mitigate tool surface and orchestration issues, it does not fundamentally eliminate the problem. As product capabilities expand, the number of valid workflows and actions can still grow quickly, even within a layered architecture. At some point, the challenge shifts from simply organizing tools to reducing the system&amp;rsquo;s dependence on explicit tool discovery altogether. Even well-structured tool hierarchies still require the model to search, select capabilities, interpret schemas, and coordinate execution across APIs.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is where filesystem-style abstractions and code-oriented environments become increasingly important. Instead of forcing every interaction through explicit MCP tool invocation, agents can operate against a structured project representation more like a programmable workspace. &lt;a href="https://www.anthropic.com/engineering/code-execution-with-mcp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic&lt;/a&gt; and &lt;a href="https://blog.cloudflare.com/code-mode-mcp/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cloudflare&lt;/a&gt; have both discussed similar directions in recent agent infrastructure work. See the following example for a homepage update task with the code mode:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+// agent edits your site as code
+read src/pages/home.tsx
+write src/components/Hero.tsx
+write src/styles/theme.css
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This plays much more naturally to current LLM strengths. Models are already highly effective at reasoning over structured text, generating code, editing files, and operating within execution environments. By shifting the interaction model from API orchestration toward structured state manipulation, the system reduces discovery overhead, context consumption, and multi-step coordination burden.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The deeper lesson is that scaling agent systems is not only about adding more tools. It is about giving models a more navigable and efficient operating environment.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The deeper lesson is that scaling agent systems is not only about adding more tools. It is about giving models a more navigable and efficient operating environment.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;3. Observability&lt;/h3&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/taking-your-observability-strategy-to-the-next-level/" class="local-link"&gt;Observability became much more important&lt;/a&gt; once agents started operating autonomously across long-running workflows.&lt;/p&gt;
+
+
+
+&lt;p&gt;Traditional logs and traces were useful for infrastructure debugging &amp;mdash; they could tell us which requests failed, latency patterns, or server-side exceptions. But they were poorly suited for understanding agent behavior. They did not tell us what the agent was actually trying to accomplish, which capabilities it expected to exist, where workflows became confusing, or why seemingly &amp;ldquo;successful&amp;rdquo; sessions still produced poor outcomes.&lt;/p&gt;
+
+
+
+&lt;p&gt;To close that gap, we integrated MCPCat as an observability layer around the MCP server itself. By wrapping the server at initialization, it captures tool calls, resource reads, missing-tool attempts, session metadata, and response patterns across the full execution flow. The most valuable signal turned out to be intent.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="772" src="https://cdn.thenewstack.io/media/2026/08/67e3dffc-image-1024x772.png" alt="Breakdown of session goals over the last 3 months." class="wp-image-22832498"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="718" src="https://cdn.thenewstack.io/media/2026/08/fdeff59e-image-1024x718.png" alt="Chart breakdown of the most used tools over the last 3 months." class="wp-image-22832500"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Missing-tool attempts exposed capabilities or naming patterns agents expected but could not find. Session replay surfaced degraded workflows where the model repeatedly explored, retried, or changed direction without ever producing a hard error. In many cases, the system appeared healthy from an infrastructure perspective while the agent experience was still failing silently.&lt;/p&gt;
+
+
+
+&lt;p&gt;We initially expected CMS migration and content management to dominate usage. Instead, Agent Goals showed that designing directly in the Webflow canvas through third-party agents accounted for 27.7% of sessions. We also discovered a silent error affecting more than 10% of sessions and found that 58.7% of sessions clustered around three core workflows.&lt;/p&gt;
+
+
+
+&lt;p&gt;Over time, we realized that &lt;a href="https://thenewstack.io/debugging-observable-ai-systems/" data-wpil-monitor-id="4011" class="local-link"&gt;observability for agent systems&lt;/a&gt; is fundamentally different from observability for APIs. The goal is not only understanding whether requests succeeded, but understanding how models reason, explore capabilities, recover from ambiguity, and fail during execution.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;4. Scaling distribution&lt;/h3&gt;
+
+
+
+&lt;p&gt;Scaling distribution for an MCP server was not only about handling more traffic. It was about reducing adoption friction, expanding where agents could use Webflow, and improving the quality of the workflows those agents could perform.&lt;/p&gt;
+
+
+
+&lt;p&gt;Adoption accelerated after we launched a hosted &lt;a href="https://webflow.com/blog/webflow-claude-connector" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP connector&lt;/a&gt; in early 2026, starting with Claude, which significantly reduced setup friction for users. Instead of manually configuring MCP connections and authentication flows, users could connect to Webflow through a managed hosted integration with much less operational overhead. We&amp;rsquo;ve observed 6.7X session growth during the past 3 months.&lt;/p&gt;
+
+
+
+&lt;p&gt;Scaling adoption also made one thing clear: agents need more than tools. Tools expose what an agent can do; skills encode how to do it well. For Webflow, many successful outcomes require product judgment, reusable workflows, and domain conventions &amp;mdash; not just API access. Bringing more useful skills into the Webflow MCP experience, such as layout patterns, CMS migration playbooks, SEO workflows, accessibility checks, and brand-system guidance, becomes critical as agents move from simple tool calls to end-to-end site work.&lt;/p&gt;
+
+
+
+&lt;p&gt;As adoption increased, the challenges shifted from protocol mechanics to product experience for autonomous systems: delivering richer site context, expanding the skill layer, and understanding whether agent actions actually helped users accomplish meaningful outcomes.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Agents are not just another API client.&lt;/strong&gt; They are a different kind of runtime participant: one that reasons through context, explores capabilities dynamically, learns from interface structure, and depends on the system to make the next correct action discoverable and reliable.&lt;/p&gt;
+
+
+
+&lt;p&gt;Designing for that kind of user changes much more than APIs. It affects how we structure tools, manage orchestration, expose context, build execution environments, observe workflows, and even how product surfaces themselves are modeled. Over time, we found ourselves designing not only MCP interfaces, but full &lt;a href="https://thenewstack.io/operations-shift-assistants-to-autonomous-multiagent-systems/" data-wpil-monitor-id="4010" class="local-link"&gt;operating environments for autonomous systems&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;That pushed us toward layered tool architectures, workflow abstractions, filesystem-style project representations, richer observability, and skills layers. The goal was never simply exposing more capabilities to agents. It was helping models make correct decisions with less exploration, less orchestration burden, and greater execution reliability.&lt;/p&gt;
+
+
+
+&lt;p&gt;The work ahead is not just making Webflow programmable for agents. It is making Webflow legible, navigable, and operationally reliable for autonomous systems without losing the flexibility that makes the platform powerful for humans. That is both a deep product challenge and a systems challenge &amp;mdash; and exactly the kind of problem we are excited to solve at Webflow.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;This article was &lt;/em&gt;o&lt;em&gt;riginally published on July 21, 2026, on &lt;/em&gt;&lt;a href="https://webflow.com/blog/designing-apis-for-agents" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;webflow.com&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/designing-apis-for-agents/"&gt;Designing APIs for agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Learn how Webflow redesigned its APIs for AI agents, moving from endpoint wrapping to intent-driven Model Context Protocol design.</content:encoded>
+    </item>
+    <item>
+      <title>What Claude’s real-world breaches reveal about AI safety tests</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-containment-failure/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sat, 01 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI Models</category>
+      <category>AI Operations</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832416</guid>
+      <description>&lt;img width="1024" height="546" src="https://cdn.thenewstack.io/media/2021/11/2fd9b50d-doors-g7d6525ce3_1280-1024x546.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2021/11/2fd9b50d-doors-g7d6525ce3_1280.jpg" /&gt;&lt;p&gt;This week, just days after OpenAI announced that two of its advanced AI models had interacted with real-world systems during&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/"&gt;What Claude’s real-world breaches reveal about AI safety tests&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="546" src="https://cdn.thenewstack.io/media/2021/11/2fd9b50d-doors-g7d6525ce3_1280-1024x546.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2021/11/2fd9b50d-doors-g7d6525ce3_1280.jpg" /&gt;
+&lt;p&gt;This week, just days after OpenAI &lt;a href="https://thenewstack.io/nanoclaw-echo-agent-runtime/#:~:text=One%20of%20the,unprecedented%20cyber%20incident.%E2%80%9D" class="local-link"&gt;announced&lt;/a&gt; that two of its advanced AI models had interacted with real-world systems during cybersecurity tests, Anthropic reported a similar containment failure.&lt;/p&gt;
+
+
+
+&lt;p&gt;In a post on X, Anthropic said it found three separate cases where Claude models accessed the internet from third-party testing environments and affected real organizations. This came after reviewing over 141,000 evaluation runs, a process started because of OpenAI&amp;rsquo;s earlier announcement. As a result, Anthropic paused its &lt;a href="https://thenewstack.io/gpt-red-prompt-injection-testing/" class="local-link"&gt;cybersecurity testing&lt;/a&gt; and tightened its evaluation process.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-when-sandboxes-leak"&gt;When sandboxes leak&lt;/h2&gt;
+
+
+
+&lt;p&gt;The three incidents at Anthropic happened during capture-the-flag (CTF) tests meant to measure offensive cybersecurity skills. The models were told they were working in isolated sandboxes with no internet access. However, a networking mistake caused by a misunderstanding between Anthropic and its third-party partner Irregular left the test machines connected to the public internet. Also, since these tests were meant to measure the models&amp;rsquo; raw abilities, they ran without the usual external protections Anthropic uses in production, though the models still had their built-in safety training.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;In a review of our cybersecurity evaluations, we found three incidents in which a Claude model reached the internet from within or while interacting with a third-party evaluation environment, and then gained unauthorized access to the real systems of three different&amp;hellip;&lt;/p&gt;&amp;mdash; Anthropic (@AnthropicAI) &lt;a href="https://x.com/AnthropicAI/status/2082965101083320543?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;July 30, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;As Anthropic explained in its &lt;a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog&lt;/a&gt;, &amp;#8220;Operating under the false belief that all accessible entities were intended to be in-scope for the exercise, Claude compromised the impacted organizations&amp;#8217; infrastructure using basic techniques&amp;#8230;&amp;#8221; Thinking that every system it found was part of the test, Claude used common penetration testing methods like weak password attacks and SQL injection to follow its instructions.&lt;/p&gt;
+
+
+
+&lt;p&gt;The three events also show how different versions of Claude responded when the line between a simulated environment and the real internet disappeared.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Operating under the false belief that all accessible entities were intended to be in-scope for the exercise, Claude compromised the impacted organizations&amp;#8217; infrastructure using basic techniques&amp;hellip;&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-three-models-three-responses"&gt;Three models, three responses&lt;/h2&gt;
+
+
+
+&lt;p&gt;The most severe involved &lt;a href="https://thenewstack.io/fable-5-honeycomb-opus/" class="local-link"&gt;Claude Opus 4.7&lt;/a&gt;. After failing to find the fictional company it had been instructed to target, the model searched the public internet, found a real business with the same name, obtained credentials, and accessed a production database containing several hundred records. Anthropic said that across all four test runs, the model eventually recognized it was interacting with real systems. Even so, it continued because it concluded the real company must have been intentionally included as part of the exercise.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;hellip;the model eventually recognized it was interacting with real systems. Even so, it continued because it concluded the real company must have been intentionally included as part of the exercise.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Another case involved&lt;a href="https://thenewstack.io/fable-5-honeycomb-opus/" class="local-link"&gt; Claude Mythos 5&lt;/a&gt;, which uploaded a malicious Python package to the public Python Package Index (PyPI), believing the repository was part of the simulated environment. Before the package was automatically removed about an hour later, it had been downloaded by 15 external systems, including a cybersecurity company&amp;#8217;s malware scanner. After the scanner executed the package, the model obtained leaked credentials and used them to access additional systems. According to Anthropic&amp;#8217;s review, Mythos 5 acknowledged in its reasoning that its actions could affect real users, but ultimately decided the repository was probably still part of the evaluation.&lt;/p&gt;
+
+
+
+&lt;p&gt;The third incident involved an internal research model, which scanned roughly 9,000 internet-facing systems before compromising one organization&amp;#8217;s application using exposed credentials and SQL injection. Unlike the other two models, however, this one eventually determined it had reached infrastructure unrelated to the evaluation and voluntarily stopped its activity, making it the only model in the review to recognize the mistake and halt the operation on its own.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic stressed that &amp;#8220;in none of these situations did Claude exfiltrate itself or deliberately attempt to escape its test environment.&amp;#8221; The models were just doing their assigned tasks with standard security tools inside a flawed test setup. Still, the differences in behavior with Opus 4.7 justifying its actions, Mythos 5 ignoring its doubts, and the research model stopping show how closely model alignment and strong infrastructure are connected.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-simulation-meets-production"&gt;Simulation meets production&lt;/h2&gt;
+
+
+
+&lt;p&gt;OpenAI&amp;rsquo;s models got into outside systems by using a new vulnerability to break out of their test environment. Anthropic&amp;rsquo;s models did the same because a third-party test setup was not properly isolated.&lt;/p&gt;
+
+
+
+&lt;p&gt;Researchers need to create environments that feel like real enterprise systems, where the model can interact with databases and developer tools the way it would in the real world. The more realistic those environments are, the better they reveal how an autonomous agent will behave once it&amp;#8217;s given real tasks to complete.&lt;/p&gt;
+
+
+
+&lt;p&gt;As a result, evaluation environments have become complex software systems in their own right, meaning they require the same engineering discipline as production infrastructure, including strict network segmentation, outbound traffic controls, isolated credential management and automated cleanup processes that ensure test environments are completely torn down after every evaluation.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;&amp;hellip;consistent with a blameless postmortem culture, we&amp;#8217;re approaching the fixes as if the responsibility were ours alone.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-evaluation-as-critical-infrastructure"&gt;Evaluation as critical infrastructure&lt;/h2&gt;
+
+
+
+&lt;p&gt;Test code generally executes within fixed boundaries, but frontier AI models are intentionally asked to explore systems, probe for weaknesses and adapt to what they discover. If an evaluation environment exposes an open network path, the model will treat it as another opportunity to accomplish its assigned task.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic noted that the additional monitoring and safety protections used with publicly deployed Claude models would likely have prevented these incidents. Those controls, however, are deliberately removed during capability testing so researchers can measure what the underlying model can actually do, making the evaluation infrastructure itself one of the most critical pieces of the AI stack &amp;mdash; a reality Anthropic acknowledged by noting, &amp;#8220;consistent with a blameless postmortem culture, we&amp;#8217;re approaching the fixes as if the responsibility were ours alone.&amp;#8221;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/"&gt;What Claude’s real-world breaches reveal about AI safety tests&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic found three cases where Claude models escaped test sandboxes and compromised real systems, exposing why AI evaluation infrastructure needs production-grade security.</content:encoded>
+    </item>
+    <item>
+      <title>Temporal 5x’d AI spend and doubled revenue. CEO Samar Abbas says he can’t prove they’re connected.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/temporal-ai-adoption-durable-execution/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Sat, 01 Aug 2026 10:30:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Operations</category>
+      <category>AI Strategy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832363</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/40d6c49d-generated-image-1-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Samar Abbas, Temporal&amp;#039;s CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/40d6c49d-generated-image-1.png" /&gt;&lt;p&gt;For the final two weeks of the year, Temporal clears its calendars. The company calls it a reading period: no&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/temporal-ai-adoption-durable-execution/"&gt;Temporal 5x’d AI spend and doubled revenue. CEO Samar Abbas says he can’t prove they’re connected.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/40d6c49d-generated-image-1-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Samar Abbas, Temporal&amp;#039;s CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/40d6c49d-generated-image-1.png" /&gt;
+&lt;p&gt;&lt;strong&gt;For the final two weeks of the year&lt;/strong&gt;, Temporal clears its calendars. The company calls it a reading period: no meetings, just time to explore, learn, and build. Over the &amp;lsquo;25 holidays, co-founder and CTO &lt;a href="https://www.linkedin.com/in/fateev" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Maxim Fateev&lt;/a&gt; spent his time with coding agents. He came back describing work that once took six months, now done in less than thirty days, according to the company. Co-founder and CEO &lt;a href="https://www.linkedin.com/in/samar-abbas-381997/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Samar Abbas&lt;/a&gt; credits that break with setting the company&amp;rsquo;s AI posture for the year. A fellow co-founder returning with numbers like that, he says, is a stronger argument than any company directive.&lt;/p&gt;
+
+
+
+&lt;p&gt;That shift, from a veteran engineer to a veteran engineer &lt;em&gt;with Claude Code&lt;/em&gt;, led Abbas toward redirecting the company&amp;rsquo;s efforts. &lt;a href="https://temporal.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Temporal&lt;/a&gt; sells durable execution, the failure-resistant plumbing that keeps long-running software alive through crashes and outages, and it sells it to companies that cannot afford downtime. Nvidia and Netflix are among the companies using its workflow technology. &lt;/p&gt;
+
+
+
+&lt;p&gt;In February, the &lt;a href="https://www.linkedin.com/posts/samar-abbas-381997_today-marks-an-incredible-milestone-for-temporal-share-7429538871408807936-HEj2/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;company raised $300 million&lt;/a&gt; at a $5 billion valuation on the promise that it can make agentic AI reliable for everyone else. Abbas, Temporal&amp;rsquo;s CEO who swapped roles with now-CTO Fateev in 2024, decided the company had to prove that on its own first. He calls the effort &amp;#8220;AI for Temporal.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-ai-adoption-as-a-job-requirement"&gt;&lt;strong&gt;AI adoption as a job requirement&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We are a company of builders, which means it&amp;rsquo;s not just engineering,&amp;rdquo; Abbas tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;The entire company needs to re-evaluate how business gets done and how it uses these tools.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;At more than 500 people &amp;mdash; 200 of them engineers &amp;mdash; that is a lot of re-evaluating. The burden lands on every employee, he says: Examine your own daily workflow, bring some curiosity to the tools, and change how the job gets done. The expectation is not optional, and Abbas was blunt about it to me. Temporal does not mandate a single product, but it does expect people to change how they work.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;If you are still not adopting the right tools to get better, you don&amp;rsquo;t have a role here at Temporal.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;If you are still not adopting the right tools to get better, you don&amp;rsquo;t have a role here at Temporal,&amp;rdquo; he says. The requirement isn&amp;#8217;t to use a specific product, but rather a mandate to adopt the work.&lt;/p&gt;
+
+
+
+&lt;p&gt;He frames that around growth rather than headcount. Temporal is spending to unlock new work, Abbas says, not to run the same company with fewer people. He does not rank employees on a usage leaderboard because he thinks it creates the wrong incentive. The demand also cuts against the company&amp;rsquo;s own grain.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Abbas asking Temporal employees to turn experimental without turning reckless, and he says that cultural shift is the harder half of the work.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;One of Temporal&amp;rsquo;s core values is what Abbas calls &amp;ldquo;reliable as gravity.&amp;rdquo; Temporal is conservative when it bets on a technical stack. He is asking it to turn experimental without turning reckless, and he says that cultural shift is the harder half of the work.&lt;/p&gt;
+
+
+
+&lt;div id="tns-aicard-temporal" class="tns-aicard"&gt;
+  &lt;style&gt;
+    #tns-aicard-temporal{
+      --ink:#1c2024;
+      --muted:#5b636b;
+      --line:#e3e6ea;
+      --bg:#ffffff;
+      --soft:#f6f7f9;
+      --ink-dark:#0a4a6b;
+      --accent:#0a6f9b;
+      --accent-bright:#00aeef;
+      --accent-soft:#e4f5fd;
+      --accent-on-dark:#7fd6f5;
+      box-sizing:border-box;
+      max-width:680px;
+      margin:0 auto 1.75em;
+      background:var(--bg);
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.55;
+      box-shadow:0 1px 2px rgba(16,24,32,.05),0 10px 28px rgba(16,24,32,.07);
+    }
+    #tns-aicard-temporal *{box-sizing:border-box;}
+    #tns-aicard-temporal .tns-head{
+      padding:14px 22px 14px;
+      background:var(--ink-dark);
+      border-bottom:3px solid var(--accent-bright);
+    }
+    #tns-aicard-temporal .tns-series{
+      display:block;
+      font-size:11px;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:var(--accent-on-dark);
+      margin:0 0 4px;
+      line-height:1;
+    }
+    #tns-aicard-temporal .tns-company{
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:-.01em;
+      margin:0 0 3px;
+      line-height:1.15;
+      color:#ffffff;
+    }
+    #tns-aicard-temporal .tns-subject{
+      font-size:14px;
+      color:#bcd9ea;
+      margin:0;
+      font-weight:500;
+    }
+    #tns-aicard-temporal .tns-state{
+      position:absolute;
+      width:1px;height:1px;
+      opacity:0;
+      pointer-events:none;
+    }
+    #tns-aicard-temporal .tns-tabs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 6px;
+      padding:12px 14px 0;
+      border-bottom:1px solid var(--line);
+    }
+    #tns-aicard-temporal .tns-tabs label{
+      cursor:pointer;
+      font-size:13px;
+      font-weight:600;
+      color:var(--muted);
+      padding:10px 12px;
+      border-bottom:2px solid transparent;
+      margin-bottom:-1px;
+      border-radius:6px 6px 0 0;
+      white-space:nowrap;
+      transition:color .12s ease,background .12s ease,border-color .12s ease;
+    }
+    #tns-aicard-temporal .tns-tabs label:hover{color:var(--ink);background:var(--soft);}
+    #tns-aicard-temporal .tns-panel{
+      position:relative;
+      display:none;
+      height:170px;
+      padding:20px 22px 22px;
+      font-size:15px;
+      box-sizing:border-box;
+      overflow:hidden;
+      transition:height .28s ease;
+    }
+    #tns-aicard-temporal .tns-panel::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:52px;
+      background:linear-gradient(180deg, rgba(255,255,255,0), var(--bg) 78%);
+      pointer-events:none;
+      transition:opacity .2s ease;
+    }
+    #tns-aicard-temporal #tt-expand:checked ~ .tns-panels .tns-panel{
+      height:auto;
+      overflow:visible;
+    }
+    #tns-aicard-temporal #tt-expand:checked ~ .tns-panels .tns-panel::after{
+      opacity:0;
+    }
+    #tns-aicard-temporal .tns-panel p{margin:0;}
+    #tns-aicard-temporal .tns-panel .tns-label{
+      display:block;
+      font-size:11px;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:var(--muted);
+      margin:0 0 8px;
+    }
+    #tns-aicard-temporal .tns-panel .tns-headline{
+      display:block;
+      font-size:18px;
+      font-weight:700;
+      color:var(--ink);
+      line-height:1.3;
+      letter-spacing:-.005em;
+      margin:0 0 14px;
+    }
+    #tns-aicard-temporal .tns-panel .tns-stat{
+      display:block;
+      font-size:42px;
+      font-weight:800;
+      color:var(--accent-bright);
+      line-height:1;
+      letter-spacing:-.025em;
+      margin:0 0 6px;
+    }
+    #tns-aicard-temporal .tns-panel .tns-stat-sub{
+      display:block;
+      font-size:15px;
+      font-weight:600;
+      color:var(--ink);
+      line-height:1.35;
+      margin:0 0 14px;
+    }
+    #tns-aicard-temporal .tns-panel .tns-bullets{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    #tns-aicard-temporal .tns-panel .tns-bullets li{
+      position:relative;
+      padding:0 0 0 18px;
+      margin:0 0 9px;
+      font-size:14.5px;
+      color:var(--ink);
+      line-height:1.45;
+    }
+    #tns-aicard-temporal .tns-panel .tns-bullets li::before{
+      content:"";
+      position:absolute;
+      left:2px;
+      top:8px;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--accent-bright);
+    }
+    #tns-aicard-temporal .tns-panel .tns-bullets li:last-child{margin-bottom:0;}
+    #tns-aicard-temporal .tns-panel .tns-bullets strong{font-weight:700;color:var(--ink);}
+    #tns-aicard-temporal .tns-panel .tns-sublabel{
+      display:block;
+      font-size:10.5px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      font-weight:700;
+      color:var(--accent);
+      margin:0 0 10px;
+    }
+    #tns-aicard-temporal .tns-panel .tns-sublabel-spaced{margin-top:18px;}
+    #tns-aicard-temporal .tns-truth blockquote{
+      margin:0;
+      padding:14px 18px;
+      background:var(--accent-soft);
+      border-left:4px solid var(--accent-bright);
+      border-radius:0 10px 10px 0;
+      font-size:18px;
+      font-weight:600;
+      line-height:1.4;
+      color:var(--ink);
+    }
+    #tns-aicard-temporal .tns-truth .tns-truth-attr{
+      margin:12px 0 0;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.02em;
+      color:var(--accent);
+    }
+    #tns-aicard-temporal .tns-truth .tns-truth-context{
+      margin:4px 0 0;
+      font-size:13.5px;
+      color:var(--muted);
+      font-style:italic;
+    }
+    #tns-aicard-temporal #tt-stack:checked ~ .tns-tabs label[for="tt-stack"],
+    #tns-aicard-temporal #tt-spend:checked ~ .tns-tabs label[for="tt-spend"],
+    #tns-aicard-temporal #tt-team:checked  ~ .tns-tabs label[for="tt-team"],
+    #tns-aicard-temporal #tt-win:checked   ~ .tns-tabs label[for="tt-win"],
+    #tns-aicard-temporal #tt-fail:checked  ~ .tns-tabs label[for="tt-fail"],
+    #tns-aicard-temporal #tt-truth:checked ~ .tns-tabs label[for="tt-truth"]{
+      color:var(--accent);
+      background:var(--accent-soft);
+      border-bottom-color:var(--accent-bright);
+    }
+    #tns-aicard-temporal #tt-stack:checked ~ .tns-panels .tns-p-stack,
+    #tns-aicard-temporal #tt-spend:checked ~ .tns-panels .tns-p-spend,
+    #tns-aicard-temporal #tt-team:checked  ~ .tns-panels .tns-p-team,
+    #tns-aicard-temporal #tt-win:checked   ~ .tns-panels .tns-p-win,
+    #tns-aicard-temporal #tt-fail:checked  ~ .tns-panels .tns-p-fail,
+    #tns-aicard-temporal #tt-truth:checked ~ .tns-panels .tns-p-truth{
+      display:block;
+    }
+    #tns-aicard-temporal #tt-stack:focus-visible ~ .tns-tabs label[for="tt-stack"],
+    #tns-aicard-temporal #tt-spend:focus-visible ~ .tns-tabs label[for="tt-spend"],
+    #tns-aicard-temporal #tt-team:focus-visible  ~ .tns-tabs label[for="tt-team"],
+    #tns-aicard-temporal #tt-win:focus-visible   ~ .tns-tabs label[for="tt-win"],
+    #tns-aicard-temporal #tt-fail:focus-visible  ~ .tns-tabs label[for="tt-fail"],
+    #tns-aicard-temporal #tt-truth:focus-visible ~ .tns-tabs label[for="tt-truth"]{
+      outline:2px solid var(--accent);
+      outline-offset:2px;
+    }
+    #tns-aicard-temporal .tns-toggle-row{
+      display:flex;
+      justify-content:center;
+      border-top:1px solid var(--line);
+      background:var(--soft);
+    }
+    #tns-aicard-temporal .tns-toggle{
+      cursor:pointer;
+      font-size:11.5px;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--accent);
+      padding:11px 16px;
+      text-align:center;
+      user-select:none;
+      transition:color .15s ease,background .15s ease;
+    }
+    #tns-aicard-temporal .tns-toggle::before{content:"Show more  +";}
+    #tns-aicard-temporal #tt-expand:checked ~ .tns-toggle-row .tns-toggle::before{content:"Show less  \2212";}
+    #tns-aicard-temporal .tns-toggle:hover{color:var(--ink-dark);background:var(--bg);}
+    @media (max-width:480px){
+      #tns-aicard-temporal{border-radius:12px;}
+      #tns-aicard-temporal .tns-tabs{gap:2px;padding:10px 10px 0;}
+      #tns-aicard-temporal .tns-tabs label{
+        flex:1 1 auto;
+        text-align:center;
+        padding:11px 8px;
+        font-size:12.5px;
+      }
+      #tns-aicard-temporal .tns-company{font-size:20px;}
+      #tns-aicard-temporal .tns-panel{padding:18px 18px 20px;height:190px;}
+      #tns-aicard-temporal .tns-panel .tns-headline{font-size:17px;margin-bottom:12px;}
+      #tns-aicard-temporal .tns-panel .tns-stat{font-size:36px;}
+      #tns-aicard-temporal .tns-panel .tns-stat-sub{font-size:14.5px;margin-bottom:12px;}
+      #tns-aicard-temporal .tns-panel .tns-bullets li{font-size:14px;margin-bottom:8px;}
+      #tns-aicard-temporal .tns-truth blockquote{font-size:16.5px;padding:12px 14px;}
+    }
+  &lt;/style&gt;
+  &lt;div class="tns-head"&gt;
+    &lt;span class="tns-series"&gt;The AI Operators&lt;/span&gt;
+    &lt;p class="tns-company"&gt;Temporal&lt;/p&gt;
+    &lt;p class="tns-subject"&gt;Samar Abbas &amp;middot; Co-founder &amp;amp; CEO&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;input class="tns-state" type="radio" name="tns-temporal" id="tt-stack" checked&gt;
+  &lt;input class="tns-state" type="radio" name="tns-temporal" id="tt-spend"&gt;
+  &lt;input class="tns-state" type="radio" name="tns-temporal" id="tt-team"&gt;
+  &lt;input class="tns-state" type="radio" name="tns-temporal" id="tt-win"&gt;
+  &lt;input class="tns-state" type="radio" name="tns-temporal" id="tt-fail"&gt;
+  &lt;input class="tns-state" type="radio" name="tns-temporal" id="tt-truth"&gt;
+  &lt;input class="tns-state" type="checkbox" id="tt-expand"&gt;
+  &lt;nav class="tns-tabs" aria-label="Temporal AI profile card"&gt;
+    &lt;label for="tt-stack"&gt;Stack&lt;/label&gt;
+    &lt;label for="tt-spend"&gt;Spend&lt;/label&gt;
+    &lt;label for="tt-team"&gt;Team&lt;/label&gt;
+    &lt;label for="tt-win"&gt;The Win&lt;/label&gt;
+    &lt;label for="tt-fail"&gt;The Fail&lt;/label&gt;
+    &lt;label for="tt-truth"&gt;Hard Truth&lt;/label&gt;
+  &lt;/nav&gt;
+  &lt;div class="tns-panels"&gt;
+    &lt;div class="tns-panel tns-p-stack"&gt;
+      &lt;span class="tns-sublabel"&gt;Engineering&lt;/span&gt;
+      &lt;ul class="tns-bullets"&gt;
+        &lt;li&gt;&lt;strong&gt;Claude Code:&lt;/strong&gt; the default coding tool, adopted on its own after the holidays&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Cursor&lt;/strong&gt; plus foundation models mostly from OpenAI and Anthropic&lt;/li&gt;
+        &lt;li&gt;Open-weight models not approved internally; deemed unproven on security and privacy&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;span class="tns-sublabel tns-sublabel-spaced"&gt;Company-wide&lt;/span&gt;
+      &lt;ul class="tns-bullets"&gt;
+        &lt;li&gt;&lt;strong&gt;Claude Desktop&lt;/strong&gt; puts app-building in non-technical hands&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Notion + MCP&lt;/strong&gt; as the shared knowledge base; Slack AI for status&lt;/li&gt;
+        &lt;li&gt;Built in-house on Temporal: Deputy (security workflow) and model routers&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="tns-panel tns-p-spend"&gt;
+      &lt;span class="tns-headline"&gt;Up ~5x this year, mostly coding agents&lt;/span&gt;
+      &lt;ul class="tns-bullets"&gt;
+        &lt;li&gt;Vendor costs tracked in Vantage, with hard spending limits&lt;/li&gt;
+        &lt;li&gt;Finance and engineering review the outliers every two weeks&lt;/li&gt;
+        &lt;li&gt;No employee token leaderboards, by design&lt;/li&gt;
+        &lt;li&gt;No absolute dollar figure on the record&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="tns-panel tns-p-team"&gt;
+      &lt;span class="tns-headline"&gt;A company of builders&lt;/span&gt;
+      &lt;ul class="tns-bullets"&gt;
+        &lt;li&gt;500+ employees, 200+ engineers, fully remote&lt;/li&gt;
+        &lt;li&gt;Every function must rebuild its own workflows, not just engineering&lt;/li&gt;
+        &lt;li&gt;No mandated tool and no usage leaderboard&lt;/li&gt;
+        &lt;li&gt;Blunt line: adapt or &amp;#8220;you don&amp;#8217;t have a role here at Temporal&amp;#8221;&lt;/li&gt;
+        &lt;li&gt;Framed as growth, not headcount cuts&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="tns-panel tns-p-win"&gt;
+      &lt;span class="tns-stat"&gt;20-30%&lt;/span&gt;
+      &lt;span class="tns-stat-sub"&gt;Faster feature shipping at the same-sized team, per Abbas&lt;/span&gt;
+      &lt;ul class="tns-bullets"&gt;
+        &lt;li&gt;BDR is the most AI-native team; outbound runs as Temporal workloads, hours to minutes&lt;/li&gt;
+        &lt;li&gt;Revenue roughly doubled this year, by Abbas&amp;#8217;s account&lt;/li&gt;
+        &lt;li&gt;No direct correlation established between AI use and the revenue&lt;/li&gt;
+        &lt;li&gt;Recruiting prep also compressed from hours to minutes&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="tns-panel tns-p-fail"&gt;
+      &lt;span class="tns-stat-sub"&gt;AI slop overwhelmed the reviewers&lt;/span&gt;
+      &lt;ul class="tns-bullets"&gt;
+        &lt;li&gt;Cheap generation collapsed the cost of producing sloppy work&lt;/li&gt;
+        &lt;li&gt;Reviewers, not authors, became the bottleneck&lt;/li&gt;
+        &lt;li&gt;Unreviewed AI work reached slide decks and even websites&lt;/li&gt;
+        &lt;li&gt;Fix is cultural: self-review before you hand off&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div class="tns-panel tns-p-truth tns-truth"&gt;
+      &lt;blockquote&gt;&amp;#8220;It&amp;#8217;s not about shipping features faster. It&amp;#8217;s about shipping value customers care about.&amp;#8221;&lt;/blockquote&gt;
+      &lt;p class="tns-truth-attr"&gt;Samar Abbas, Co-founder &amp;amp; CEO&lt;/p&gt;
+      &lt;p class="tns-truth-context"&gt;On why faster shipping is not the same as value, a gap he says he still cannot measure.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="tns-toggle-row"&gt;
+    &lt;label for="tt-expand" class="tns-toggle" aria-label="Toggle full card"&gt;&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;p&gt;On the engineering side, the tooling is deliberately unmandated. Temporal enables the tier-one options, Cursor and foundation models mostly from OpenAI and Anthropic, and lets engineers settle on what works. Claude Code became the dominant choice on its own after the &amp;lsquo;25 holidays, Abbas says. &lt;/p&gt;
+
+
+
+&lt;p&gt;What the company has not done is bring open weights inside. Temporal has not broadly approved open-weight models for internal use, which Abbas says remain unproven for its security and privacy requirements. There is no formal model-review process yet; a central AI team vets each new model for security before it is opened up across the company.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-tools-beyond-engineering"&gt;&lt;strong&gt;Tools beyond engineering&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Abbas splits the company into two adoption problems: the technical users and everyone else, and puts the same demand on both. The most surprising adoption is happening away from the engineers. Abbas tells me a nontechnical member of Temporal&amp;#8217;s recruiting team used Claude Desktop to build recruiting tools of their own, a job-description builder and an interview-plan builder that turned hours of scattered prep into a running start. &lt;/p&gt;
+
+
+
+&lt;p&gt;That project is growing into a sourcing agent that pulls and pushes candidate data across Notion and spreadsheets and ranks matches. The knowledge the sourcing agent draws on lives in Notion, wired through MCP into the company&amp;#8217;s other systems of record. For a 500-person remote company, that wiring has done more for the non-technical side than any coding tool, letting low-code users reach systems they could not touch before, with whole workflows migrating into Notion pages as a result.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Day-to-day coordination runs through Slack, where Abbas says its AI features have replaced much of his old habit of pinging people for a status update.&lt;/p&gt;
+
+
+
+&lt;p&gt;Abbas smiles when he tells me the clearest payoff so far is not in engineering at all. Temporal&amp;rsquo;s business-dev reps, the team that researches prospects and drafts outbound messages, have become the most AI-native group in the company. Work that used to take hours, pulling data from a dozen places and turning it into a first outreach draft, now runs as a custom workload the team builds on Temporal and finishes in minutes. It is the AI-for-Temporal idea: a non-engineering team building on the company&amp;rsquo;s own infrastructure to turn a slow, manual process into a fast one. What excites Abbas is the loop as much as the saved hours.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-review-bottlenecks-and-ai-slop"&gt;&lt;strong&gt;Review bottlenecks and AI slop&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Like at other organizations, Temporal is seeing AI improve processes but also shift bottlenecks. Point AI at one workload, clear the obvious constraint, and the bottleneck jumps somewhere else. Write more code and review becomes the choke point. It&amp;rsquo;s the pattern Abbas has become an expert at, and it&amp;rsquo;s why he distrusts easy wins.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The place it bit was where a reliability company like Temporal would least tolerate it. When code got cheap to produce, reviews got expensive. &amp;ldquo;AI slop is a real thing,&amp;rdquo; Abbas says. AI, he argued, has lowered the cost of producing sloppy work so much that reviewers are being flooded with it.&lt;/p&gt;
+
+
+
+&lt;p&gt;On critical infrastructure, the bar has not moved: Every line still gets read by a person before it&amp;#8217;s committed, which makes the reviewer, not the author, the new constraint. It is a squeeze other engineering leaders are feeling, too. Temporal&amp;rsquo;s fix is cultural. It has made it acceptable to send work back the moment it&amp;rsquo;s clear the author did not read it themselves first. The slop is not only in code. Abbas has seen unreviewed AI-generated competitor analysis land in slide decks, and similarly sloppy material reach websites.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The AI bill is moving fast, too. AI costs have increased roughly fivefold this year, Abbas says, and most of the increase comes from coding agents. Temporal pulls every vendor charge into Vantage, sets hard ceilings, and every two weeks, finance and engineering meet over the outliers to decide, case by case, whose limits should rise or fall based on the usage patterns. What it will not do is turn that data into a scoreboard.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;A lot of companies created a dashboard of token consumption. We&amp;rsquo;re not big fans of that, because it creates this race where I need to become the leader in token consumption.&amp;rdquo; &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;A lot of companies created a dashboard of token consumption,&amp;rdquo; Abbas says. &amp;ldquo;We&amp;rsquo;re not big fans of that, because it creates this race where I need to become the leader in token consumption.&amp;rdquo; Temporal keeps the usage data, he says, but does not expose it as an employee leaderboard or tie it to performance reviews.&lt;/p&gt;
+
+
+
+&lt;p&gt;Abbas recalled a runaway workflow at an earlier company that ran up $4 million in compute spending on AWS. Temporal&amp;rsquo;s answer is a value it calls &amp;ldquo;fly together&amp;rdquo;: Give people a budget, expect them to spend it like their own money, and catch the runaways with limits instead of shame.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Where the company did automate, it built the automation like software. Temporal&amp;#8217;s security team used to file vulnerabilities as tickets and wait for engineers to prioritize them over feature work, which created constant friction between the teams. Now the team runs the whole lifecycle as one long-running durable workflow built on Temporal itself, an internal tool it calls Deputy: Find the flaw, generate the fix, open the PR, merge it, run CI, and roll it out. The security team&amp;#8217;s role moved from filing issues to helping ship fixes.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-durable-execution-for-agents"&gt;&lt;strong&gt;Durable execution for agents&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;That internal work is also the commercial argument. The problem Temporal spent years on, keeping long-running work alive across failures, is the one many teams building production agents are now encountering. &lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;These agents are becoming more long-lived, more asynchronous, more mission-critical,&amp;rdquo; Abbas says. &amp;ldquo;That is exactly the problem space we&amp;rsquo;ve been trying to solve with durable execution.&amp;rdquo; &lt;/p&gt;
+
+
+
+&lt;p&gt;He describes Temporal&amp;rsquo;s core as an open foundation model: model-, language-, and cloud-agnostic, with an open-source server companies can run themselves. Inside Temporal, that has taken a solid form. Abbas says the company built an internal platform on Temporal where a non-technical employee can describe an app to Claude Desktop and deploy it in one click. &lt;/p&gt;
+
+
+
+&lt;p&gt;The guardrails, identity, security, and the MCP connections are wired in, and Temporal&amp;rsquo;s own model routers keep any single provider from becoming a dependency. The company used its Replay conference in May to make the same case to customers, where it introduced serverless workers, durable streaming, and other features positioned for agent workloads.&lt;/p&gt;
+
+
+
+&lt;p&gt;For all the speed, Abbas is unusually willing to say he cannot prove it is worth it. Engineering is shipping features 20% to 30% faster with the same-sized team, he says, and he says revenue has roughly doubled since the start of the year, though he is careful to add that he has established no direct correlation between the two.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;It&amp;rsquo;s not about shipping features faster. It&amp;rsquo;s about shipping value customers care about.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;He is skeptical of the tidy productivity numbers, that counts of PRs and lines of code, that are supposed to justify the bill. And he thinks the old founder playbook is part of what broke. The advice he got from investors was to do first-principles thinking on product and hire good leaders to run finance, hiring, and go-to-market the standard way. In the AI era, he says, that is backward. The functions everyone used to copy from a playbook are the ones now worth reworking from the start.&lt;/p&gt;
+
+
+
+&lt;p&gt;Which leaves the number he wants and does not have. &amp;ldquo;It&amp;rsquo;s not about shipping features faster. It&amp;rsquo;s about shipping value customers care about,&amp;rdquo; Abbas says. And he has yet to see a metric that directly connects the company&amp;rsquo;s AI use to that outcome.&lt;/p&gt;
+
+
+
+&lt;p&gt;Temporal knows what the tools cost. It knows they make the company faster. What it still cannot prove is that its customers can absorb the output. For now, that is the bottleneck no agent has cleared.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/temporal-ai-adoption-durable-execution/"&gt;Temporal 5x’d AI spend and doubled revenue. CEO Samar Abbas says he can’t prove they’re connected.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Fresh off a $300 million round, Abbas turned Temporal into a test case for agentic AI, shipping features 20% to 30% faster. Whether that speed reaches customers as value, or the business is just growing alongside it, is what he can&amp;#039;t yet answer.</content:encoded>
+    </item>
+    <item>
       <title>Forget humans “in” the loop. Harness engineering puts humans “on” the loop.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-harness-engineering/</link>
       <dc:creator>Jennifer Riggins</dc:creator>
@@ -28,10 +1139,10 @@
       <category>CI/CD</category>
       <category>Software Development</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22832095</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with distorted geometric diamond patterns on a black background, evoking an AI hallucination loop or system data corruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash.jpg" /&gt;&lt;p&gt;AI has us quickly forgetting humans as the software delivery loop. Now, forget humans in the loop. For Thoughtworks&amp;#8217; distinguished&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with distorted geometric diamond patterns on a black background, evoking an AI hallucination loop or system data corruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash.jpg" /&gt;&lt;p&gt;AI has us quickly forgetting humans as the software delivery loop. Now, forget humans in the loop. For Thoughtworks&amp;#8217; distinguished&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-harness-engineering/"&gt;Forget humans “in” the loop. Harness engineering puts humans “on” the loop.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with distorted geometric diamond patterns on a black background, evoking an AI hallucination loop or system data corruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch art with distorted geometric diamond patterns on a black background, evoking an AI hallucination loop or system data corruption." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a60d3ed7-osarugue-igbinoba-2-vgt1x9jbc-unsplash.jpg" /&gt;
 &lt;p&gt;&lt;strong&gt;AI has us quickly forgetting humans &lt;em&gt;as&lt;/em&gt; the software delivery loop. &lt;/strong&gt;Now, forget &lt;a href="https://thenewstack.io/bridging-the-ai-human-divide-ai-as-your-operations-teammate/" class="local-link"&gt;humans &lt;em&gt;in&lt;/em&gt; the loop&lt;/a&gt;. For Thoughtworks&amp;rsquo; distinguished engineer &lt;a href="https://www.linkedin.com/in/kiefmorris/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kief Morris&lt;/a&gt;, we need to pay more attention to the human &lt;em&gt;on&lt;/em&gt; the loop to keep defining what is good code and what are good systems.&lt;/p&gt;
 
 
@@ -209,7 +1320,7 @@
       <category>AI Operations</category>
       <category>Cloud Services</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22832409</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cloud platform company Nscale announced this week a definitive agreement to acquire AI workload scaling specialist Anyscale, in a move&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cloud platform company Nscale announced this week a definitive agreement to acquire AI workload scaling specialist Anyscale, in a move&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nscale-anyscale-acquisition-neocloud-lockin/"&gt;Nscale just bought Anyscale. Here&amp;#8217;s why it matters for multi-cloud neutrality.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/49f41857-eva-corbisier-pi4bgnllrrg-unsplash-scaled.jpg" /&gt;
@@ -922,140 +2033,6 @@
       <content:encoded>OpenAI and Elastic have deepened their partnership to give enterprise AI agents secure context, better observability, and quicker, evidence-based threat response.</content:encoded>
     </item>
     <item>
-      <title>Why linting alone can’t govern agentic development</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/governing-agentic-software-development/</link>
-      <dc:creator>Robert Curlee</dc:creator>
-      <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Software Development</category>
-      <category>sponsor-sonarsource</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832251</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;&lt;p&gt;There&amp;#8217;s no question that AI agents are changing software development. They can move from an idea to a working implementation&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;
-&lt;p&gt;There&amp;rsquo;s no question that AI agents are changing software development. They can move from an idea to a working implementation quickly, explore alternatives, and take on larger bodies of work that might otherwise have stayed in the backlog. The opportunity is real. The question now is how to turn that speed into reliable, lasting value.&lt;/p&gt;
-
-
-
-&lt;p&gt;Linting has an important role in that effort. Linters provide fast, local feedback on syntax errors, undefined variables, formatting, and common mistakes. They help teams establish consistent standards without slowing development. In agentic workflows, that immediacy and consistency become even more valuable.&lt;/p&gt;
-
-
-
-&lt;p&gt;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work. An agent can produce code that is well formatted, idiomatic, and apparently complete. Developers still need confidence that the changes made behave correctly, fit the surrounding system, and meet security and reliability requirements.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This calls for the same engineering discipline applied to any high-leverage system: define the goal, provide useful context and constraints, and verify the outcome before it reaches production.&lt;/p&gt;
-
-
-
-&lt;p&gt;The original promise of linting has always been immediate, actionable guidance for developers as they write code. That principle should carry forward as teams add the &lt;a href="https://thenewstack.io/verifying-async-ai-agents/" data-wpil-monitor-id="4005" class="local-link"&gt;verification layers that agentic development&lt;/a&gt; requires.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-verify-behavior-across-the-system"&gt;Verify behavior across the system&lt;/h2&gt;
-
-
-
-&lt;p&gt;Linting excels at inspecting code locally. Many consequential software issues emerge across execution paths, data movement, and interactions between components.&lt;/p&gt;
-
-
-
-&lt;p&gt;Consider code that looks reasonable in every individual function but passes an unvalidated value through several calls before it reaches a database query, file-system operation, or authentication decision. Or consider a condition that appears defensible in isolation but renders a meaningful branch unreachable. These questions concern how the system behaves as a whole.&lt;/p&gt;
-
-
-
-&lt;p&gt;Control-flow analysis can reason about the paths a program may take. Data-flow and taint analysis can trace how values move from external inputs to sensitive operations. Together, these techniques help teams understand what software can do in practice, especially when a change spans multiple files or system boundaries.&lt;/p&gt;
-
-
-
-&lt;p&gt;The goal is to keep feedback proportional to impact. Fast checks belong in the agent&amp;rsquo;s inner reasoning loop, while deeper analysis can focus on security-sensitive paths, business-critical workflows, and broader changes.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Verify the broader software supply chain&lt;/h2&gt;
-
-
-
-&lt;p&gt;Agentic development can accelerate more than first-party code. Agents may also introduce dependencies, configuration changes, pipeline updates, and shortcuts that expose secrets.&lt;/p&gt;
-
-
-
-&lt;p&gt;Each of these elements deserves verification. Teams benefit from knowing which components enter their software, scanning dependencies for known and emerging risks, detecting secrets before they spread, and reviewing workflow configuration as a security-relevant part of the codebase.&lt;/p&gt;
-
-
-
-&lt;p&gt;In an agentic environment, the security perimeter extends beyond application source files. It includes the tools, packages, configurations, and instructions that shape how agents build software. Automating these safeguards helps teams apply the same speed and consistency to verification that agents bring to generation.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Keep the codebase ready for the next change&lt;/h2&gt;
-
-
-
-&lt;p&gt;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership, and dependencies that defy architectural boundaries meant to ensure proper abstraction.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Agents accelerate this accumulation because they produce a large amount of individually plausible code in a short period of time. Evaluating each change for current functionality is essential; evaluating its effect on the long-term health of the system is equally important.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Maintainability is part of agent productivity. Agents work more effectively when they can understand the codebase in which they operate. Clear architecture, manageable complexity, and explicit constraints provide a better map of the problem. They help agents make stronger choices on the next task and help developers review those choices with greater confidence. However, agents don&amp;rsquo;t do well with keeping the right context of your codebase in the limited memory space they have.&lt;/p&gt;
-
-
-
-&lt;p&gt;To create a productive cycle, agents need immediate, dynamic, and specification-relevant context as your codebase changes. Well-maintained systems support more effective agents, and effective agents create more capacity to improve the system. Over time, that gives teams a durable foundation for innovation.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Build verification into the loop&lt;/h2&gt;
-
-
-
-&lt;p&gt;The most useful framing is straightforward: Agents create more value when verification is designed into the workflow.&lt;/p&gt;
-
-
-
-&lt;p&gt;That means &lt;a href="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" type="link" id="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" class="local-link"&gt;giving agents relevant context&lt;/a&gt; and constraints before they generate code. Keeping linting in the inner loop for immediate feedback. Applying behavioral, security, and architectural checks as changes grow in scope and consequence. And using quality gates and review practices to verify the final outcome, not merely the appearance of the patch.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Linting, testing, deeper static analysis, dependency controls, secrets detection, architecture checks, and &lt;a href="https://thenewstack.io/human-purpose-ai-agents/" type="link" id="https://thenewstack.io/human-purpose-ai-agents/" class="local-link"&gt;human judgment&lt;/a&gt; each provide a distinct signal. Together, they give teams the confidence to move quickly while protecting the systems they are building.&lt;/p&gt;
-
-
-
-&lt;p&gt;AI agents are making code generation abundant. The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable and resilient with every new wave of development.&lt;/p&gt;
-
-
-
-&lt;p&gt;Linting remains essential to that strategy. It delivers immediate feedback, while the broader verification workflow gives teams the confidence to move quickly and build durable systems.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Linting alone can&amp;#039;t govern agentic AI development. Learn how multi-layered verification keeps codebases secure and resilient.</content:encoded>
-    </item>
-    <item>
       <title>DNS is infrastructure. It’s time to manage it that way.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/dns-domain-management-automation/</link>
       <dc:creator>Venus Kohli</dc:creator>
@@ -1255,6 +2232,140 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/dns-domain-management-automation/"&gt;DNS is infrastructure. It’s time to manage it that way.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>DNSimple founder and CEO Anthony Eden explains how IaC, APIs and CLI automation can help prevent DNS failures and bring domain management under control.</content:encoded>
+    </item>
+    <item>
+      <title>Why linting alone can’t govern agentic development</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/governing-agentic-software-development/</link>
+      <dc:creator>Robert Curlee</dc:creator>
+      <pubDate>Thu, 30 Jul 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Software Development</category>
+      <category>sponsor-sonarsource</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832251</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;&lt;p&gt;There&amp;#8217;s no question that AI agents are changing software development. They can move from an idea to a working implementation&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital architecture with massive glowing metallic structures, representing complex software systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/536f83d5-alex-shuper-y6ouxalmwew-unsplash.jpg" /&gt;
+&lt;p&gt;There&amp;rsquo;s no question that AI agents are changing software development. They can move from an idea to a working implementation quickly, explore alternatives, and take on larger bodies of work that might otherwise have stayed in the backlog. The opportunity is real. The question now is how to turn that speed into reliable, lasting value.&lt;/p&gt;
+
+
+
+&lt;p&gt;Linting has an important role in that effort. Linters provide fast, local feedback on syntax errors, undefined variables, formatting, and common mistakes. They help teams establish consistent standards without slowing development. In agentic workflows, that immediacy and consistency become even more valuable.&lt;/p&gt;
+
+
+
+&lt;p&gt;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work. An agent can produce code that is well formatted, idiomatic, and apparently complete. Developers still need confidence that the changes made behave correctly, fit the surrounding system, and meet security and reliability requirements.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;As agents generate larger and more complex changes, teams need a verification workflow that matches the scope of the work.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;This calls for the same engineering discipline applied to any high-leverage system: define the goal, provide useful context and constraints, and verify the outcome before it reaches production.&lt;/p&gt;
+
+
+
+&lt;p&gt;The original promise of linting has always been immediate, actionable guidance for developers as they write code. That principle should carry forward as teams add the &lt;a href="https://thenewstack.io/verifying-async-ai-agents/" data-wpil-monitor-id="4005" class="local-link"&gt;verification layers that agentic development&lt;/a&gt; requires.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-verify-behavior-across-the-system"&gt;Verify behavior across the system&lt;/h2&gt;
+
+
+
+&lt;p&gt;Linting excels at inspecting code locally. Many consequential software issues emerge across execution paths, data movement, and interactions between components.&lt;/p&gt;
+
+
+
+&lt;p&gt;Consider code that looks reasonable in every individual function but passes an unvalidated value through several calls before it reaches a database query, file-system operation, or authentication decision. Or consider a condition that appears defensible in isolation but renders a meaningful branch unreachable. These questions concern how the system behaves as a whole.&lt;/p&gt;
+
+
+
+&lt;p&gt;Control-flow analysis can reason about the paths a program may take. Data-flow and taint analysis can trace how values move from external inputs to sensitive operations. Together, these techniques help teams understand what software can do in practice, especially when a change spans multiple files or system boundaries.&lt;/p&gt;
+
+
+
+&lt;p&gt;The goal is to keep feedback proportional to impact. Fast checks belong in the agent&amp;rsquo;s inner reasoning loop, while deeper analysis can focus on security-sensitive paths, business-critical workflows, and broader changes.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Verify the broader software supply chain&lt;/h2&gt;
+
+
+
+&lt;p&gt;Agentic development can accelerate more than first-party code. Agents may also introduce dependencies, configuration changes, pipeline updates, and shortcuts that expose secrets.&lt;/p&gt;
+
+
+
+&lt;p&gt;Each of these elements deserves verification. Teams benefit from knowing which components enter their software, scanning dependencies for known and emerging risks, detecting secrets before they spread, and reviewing workflow configuration as a security-relevant part of the codebase.&lt;/p&gt;
+
+
+
+&lt;p&gt;In an agentic environment, the security perimeter extends beyond application source files. It includes the tools, packages, configurations, and instructions that shape how agents build software. Automating these safeguards helps teams apply the same speed and consistency to verification that agents bring to generation.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Keep the codebase ready for the next change&lt;/h2&gt;
+
+
+
+&lt;p&gt;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership, and dependencies that defy architectural boundaries meant to ensure proper abstraction.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The most expensive software problems often accumulate gradually: duplicate logic, unnecessary complexity, unclear ownership.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Agents accelerate this accumulation because they produce a large amount of individually plausible code in a short period of time. Evaluating each change for current functionality is essential; evaluating its effect on the long-term health of the system is equally important.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Maintainability is part of agent productivity. Agents work more effectively when they can understand the codebase in which they operate. Clear architecture, manageable complexity, and explicit constraints provide a better map of the problem. They help agents make stronger choices on the next task and help developers review those choices with greater confidence. However, agents don&amp;rsquo;t do well with keeping the right context of your codebase in the limited memory space they have.&lt;/p&gt;
+
+
+
+&lt;p&gt;To create a productive cycle, agents need immediate, dynamic, and specification-relevant context as your codebase changes. Well-maintained systems support more effective agents, and effective agents create more capacity to improve the system. Over time, that gives teams a durable foundation for innovation.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Build verification into the loop&lt;/h2&gt;
+
+
+
+&lt;p&gt;The most useful framing is straightforward: Agents create more value when verification is designed into the workflow.&lt;/p&gt;
+
+
+
+&lt;p&gt;That means &lt;a href="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" type="link" id="https://thenewstack.io/rag-isnt-dead-but-context-engineering-is-the-new-hotness/" class="local-link"&gt;giving agents relevant context&lt;/a&gt; and constraints before they generate code. Keeping linting in the inner loop for immediate feedback. Applying behavioral, security, and architectural checks as changes grow in scope and consequence. And using quality gates and review practices to verify the final outcome, not merely the appearance of the patch.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Linting, testing, deeper static analysis, dependency controls, secrets detection, architecture checks, and &lt;a href="https://thenewstack.io/human-purpose-ai-agents/" type="link" id="https://thenewstack.io/human-purpose-ai-agents/" class="local-link"&gt;human judgment&lt;/a&gt; each provide a distinct signal. Together, they give teams the confidence to move quickly while protecting the systems they are building.&lt;/p&gt;
+
+
+
+&lt;p&gt;AI agents are making code generation abundant. The next competitive advantage will come from guiding agents effectively, verifying their work, and maintaining systems that remain understandable and resilient with every new wave of development.&lt;/p&gt;
+
+
+
+&lt;p&gt;Linting remains essential to that strategy. It delivers immediate feedback, while the broader verification workflow gives teams the confidence to move quickly and build durable systems.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/governing-agentic-software-development/"&gt;Why linting alone can’t govern agentic development&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Linting alone can&amp;#039;t govern agentic AI development. Learn how multi-layered verification keeps codebases secure and resilient.</content:encoded>
     </item>
     <item>
       <title>When do AI agents need permission boundaries?</title>
@@ -3448,583 +4559,6 @@ json
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/modus-enterprise-context-warehouse/"&gt;Modus&amp;#8217;s operandi: To give AI agents just the right amount of context&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Modus has emerged from stealth with $10 million to build a context warehouse that gives AI agents only the enterprise information they need.</content:encoded>
-    </item>
-    <item>
-      <title>Shipping code without human verification</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ship-code-without-verification/</link>
-      <dc:creator>Jade Rubick</dc:creator>
-      <pubDate>Wed, 29 Jul 2026 13:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Software Testing</category>
-      <category>sponsor-aviator</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831943</guid>
-      <description>&lt;img width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/07/9e222a5e-aakash-dhage-xunqlmdb_34-unsplash-1024x563.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital geometry with glowing green light nodes representing an automated code verification pipeline." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9e222a5e-aakash-dhage-xunqlmdb_34-unsplash.jpg" /&gt;&lt;p&gt;Agents are writing code faster than humans can review it. The answer is not “review faster”; that would be like&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ship-code-without-verification/"&gt;Shipping code without human verification&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/07/9e222a5e-aakash-dhage-xunqlmdb_34-unsplash-1024x563.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital geometry with glowing green light nodes representing an automated code verification pipeline." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/9e222a5e-aakash-dhage-xunqlmdb_34-unsplash.jpg" /&gt;&lt;p&gt;Agents are writing code faster than humans can review it. The answer is not “review faster”; that would be like building a faster horse instead of a car.&lt;/p&gt;
-
-
-
-&lt;p&gt;Every engineering leader will have to answer one question soon: how much code can you ship to production without a human looking at it? Teams that keep verifying every line will be buried and &lt;a href="https://thenewstack.io/future-of-code-reviews/" type="link" id="https://thenewstack.io/future-of-code-reviews/" class="local-link"&gt;become the bottleneck.&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;Maybe you start with one percent. What would it take to get some portion of your commits to go out to production without any human verification? It’s analogous to CI/CD, where the thinking was: What is the set of practices we need to safely ship something into production as soon as it’s approved?&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-verification-vs-testing"&gt;Verification vs. testing&lt;/h2&gt;
-
-
-
-&lt;p&gt;Testing is ensuring a piece of code that we wrote works. Verification is ensuring that the change behaves as intended and that the software quality meets the organization’s standards.&lt;/p&gt;
-
-
-
-&lt;p&gt;For example, a new API should have automated testing to make sure it is correct. It should also have automated verification to ensure that the API is structured according to your practices, scales well, and uses your standard set of error codes, and so on.&lt;/p&gt;
-
-
-
-&lt;p&gt;These are related but separate quality gates. Traditionally, they have been joined into the practice of code review. Review is where knowledge moves through a team. The author has to explain what they did and why, and the reviewer learns how the system is changing.&lt;/p&gt;
-
-
-
-&lt;p&gt;Verification typically gets the short end of the stick with traditional code review: it’s non-deterministic, it depends on how much attention a reviewer has left at four in the afternoon, and it scales only with human time. Catching bugs this way was always inefficient, and it never offered strong guarantees.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;We’re moving toward “human on the loop”&lt;/h2&gt;
-
-
-
-&lt;p&gt;The basic loop for agentic tools is:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/ai-agent-infrastructure-bottleneck/" type="link" id="https://thenewstack.io/ai-agent-infrastructure-bottleneck/" class="local-link"&gt;Provide context&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;Have it do some work&lt;/li&gt;
-
-
-
-&lt;li&gt;Evaluate that it’s successful&lt;/li&gt;
-
-
-
-&lt;li&gt;Improve the loop if you’re not satisfied with the result.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;Humans are moving from doing the work themselves to overseeing agents doing the work to being a &lt;a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;human ON the loop&lt;/a&gt;. In the loop means personally reviewing and approving each change. On the loop means maintaining the system that does the reviewing and stepping in when the system itself needs work. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“Instead of each of us contributing individually, we’re maintaining the system of delivery. We’re maintaining a factory, rather than acting as artisans.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;For example, &lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;A designer might maintain a design system and a design harness that AI agents use when coding to guide and enforce the design system in the generated code. &lt;/li&gt;
-
-
-
-&lt;li&gt;A security engineer might oversee a set of security tooling that validates the security of generated code and looks for the release of PII data and secrets.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;This pattern is often referred to as moving to a factory model of software. Instead of each of us contributing individually, we’re maintaining the &lt;em&gt;system&lt;/em&gt; of delivery. We’re maintaining a factory, rather than acting as artisans. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Agents need feedback fast&lt;/h2&gt;
-
-
-
-&lt;p&gt;What does this look like for testing and for verification?&lt;/p&gt;
-
-
-
-&lt;p&gt;One approach could be the role of an automated verification engineer, a cross between a developer experience engineer and quality assurance. If done right, automated verification could become the highest-leverage work an engineering team can invest in.&lt;/p&gt;
-
-
-
-&lt;p&gt;Agents rarely land the right result on the first pass; therefore, agents need stronger guardrails than humans ever did. It’s much more likely they bash their heads against a set of constraints and iterate against feedback until they come up with something that works well. The speed and reliability of that feedback govern how good the output gets. A fast, trustworthy signal on what a change just broke is worth more to an agent than almost anything else you can hand it.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“A fast, trustworthy signal on what a change just broke is worth more to an agent than almost anything else you can hand it.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Improving a coding agent’s ability to detect test and verification failures automatically by 50% may speed up the engineering organization by 200% because a much larger percentage of its changes will be able to be accepted. Automated verification speeds up the company and improves quality.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="Ship to Production Without Human Verification | Jade Rubick @DecodingLeadership​" width="500" height="281" src="https://www.youtube.com/embed/YH3OnNd0TNk?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;What is an automated verification engineer?&lt;/h2&gt;
-
-
-
-&lt;p&gt;QA, in its traditional form, was a downstream process. Engineering handed work off, QA found problems, and work bounced back. When Jade surveyed a group of engineering leaders about the role of QA in startups, the response was near-uniform: the handoff was ineffective, and most would not run it that way again. The failure was the quality gate sitting after engineering rather than inside it, which let engineers treat quality as someone else’s responsibility.&lt;/p&gt;
-
-
-
-&lt;p&gt;Before AI, in a lot of startup circles, the solution was either 1) to shrink or eliminate QA, or 2) to move them more in line with the engineering team.&lt;/p&gt;
-
-
-
-&lt;p&gt;The automated verification engineer (AVE) is really an experiment. The idea is to create a role that is completely focused on automating both testing and verification. So let’s spell out what this experiment might look like:&lt;/p&gt;
-
-
-
-&lt;p&gt;Testing responsibilities&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Focus one layer above the automated tests—they oversee the “test harness.” This is a set of rules that enforces broad test coverage of all work. The test harness encourages deep, adversarial quality checks. It requires extensive unit and UI testing for a PR to pass to production. &lt;/li&gt;
-
-
-
-&lt;li&gt;The AVE sees a quality failure as a chance to improve that test harness. &lt;/li&gt;
-
-
-
-&lt;li&gt;The AVE is also responsible for the test run speed. They own the test pipeline and are responsible for keeping the tests running fast. &lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;Verification responsibilities&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Responsible for a verification harness. This is a set of context, LLM tooling, and deterministic tooling that verifies that every PR delivers the intended outcome and meets your company’s invariants for what a PR should deliver. It should follow all your practices, have observability baked in, and meet all your standards. &lt;/li&gt;
-
-
-
-&lt;li&gt;Perhaps the verification harness could include test plans as well. They won’t be perfect at first, but flaws in the plan are seen as things to improve, rather than editing a template test plan every time.&lt;/li&gt;
-
-
-
-&lt;li&gt;Verification failures are seen as a chance to improve that verification harness.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;The shape of this role is a bit to be determined. As envisioned above, you could have fewer AVEs and have each of them be extremely high leverage. You might have a team of AVEs in a larger company, and they are embedded in a team or set of teams. Jade recommends starting with a person in each team, and if you prove that you can increase the amount of testing and validation done automatically, the role might eventually be one where an AVE works with a couple of teams at a time.&lt;/p&gt;
-
-
-
-&lt;p&gt;The AVE role doesn’t mean that engineering doesn’t have to ‘own’ quality. Automated verification engineers would be quality experts, similar to how Site Reliability Engineers are reliability experts.&lt;/p&gt;
-
-
-
-&lt;p&gt;SREs should not be doing all the reliability work, just like AVEs should not be doing all the quality work. The idea is that they bake quality into the system of work.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Shipping without human verification&lt;/h2&gt;
-
-
-
-&lt;p&gt;Getting to production without a human in the loop is a target you build toward, the way teams build toward continuous deployment. Pick a percentage of commits and start small. One percent. Then work out what it would take for that slice to reach production with no human verification. It’s the same question CI/CD answered for the deployment step: what set of practices do we need to safely ship something the moment it’s approved? We built the rollback mechanisms and the monitoring that made that trust reasonable and stopped needing a person to watch each release.&lt;/p&gt;
-
-
-
-&lt;p&gt;Verification needs the same kind of practices and tooling. Some changes will always need a human’s judgment. Others are safe enough to ship on their own once the guardrails around them are real. The work is figuring out how to allowlist the safe changes and separate them from the risky ones, and that allowlisting is going to matter more and more.&lt;/p&gt;
-
-
-
-&lt;p&gt;Even without AI systems, you can probably get to 1%. You might find parts of your codebase where the risk of intent and quality drift are quite low. A simple CODEOWNERS change to make that part of the allowlist might be your first step on this journey. But try to track progress by increasing that percentage over time. What techniques and tools would you need to do that with confidence?&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Building the verification system&lt;/h2&gt;
-
-
-
-&lt;p&gt;As the volume of code increases, the bottleneck has moved to &lt;a href="https://www.aviator.co/verify?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;code review.&lt;/a&gt; Reviewers aren’t able to keep up, and the bigger and bigger diffs will result in either rubber stamping or a role that is purely code review. Catching bugs through review was always an inefficient way to find them, and it never offered strong guarantees. The goal was always to reduce risk, not to eliminate it, because eliminating it entirely slows everything to a stop. &lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.aviator.co/verify?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Automated verification&lt;/a&gt; good enough to ship without a human doesn’t have to be perfect. It has to do better than what humans were doing, which is a lower bar than most teams admit.&lt;/p&gt;
-
-
-
-&lt;p&gt;What would automated verification look like in the case of code review? An &lt;a href="https://www.aviator.co/blog/stop-reading-the-code/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;exercise you can run&lt;/a&gt; is to review your team’s last 1000 PR review comments. Sort them into deterministic, testable, and things that require judgment. Start adding automated guardrails for the first two, and figure out a mix of LLM and human judgment for the rest. The aim is to have a Swiss-cheese model, where you have multiple layers of assessments, or deterministic assessments, to verify you’re getting reliable results out of your SDLC. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“Automated verification good enough to ship without a human doesn’t have to be perfect. It has to do better than what humans were doing.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This approach isn’t unprecedented. It is already used at &lt;a href="https://www.youtube.com/watch?v=uU5Gv2h8-9g" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic&lt;/a&gt;. They invested heavily in this approach. They’re reaping some of the rewards, but I would argue we’re just starting to develop this as a practice. The &lt;a href="https://thenewstack.io/claude-code-source-leak/" data-wpil-monitor-id="4004" class="local-link"&gt;leak of the Claude Code&lt;/a&gt; codebase showed some of the challenges. Like CI/CD, you should probably make a goal to continuously increase the percentage of commits that can go to production without human review, but be rigorous about your standards. You need to have confidence you’re making things better over time.&lt;/p&gt;
-
-
-
-&lt;p&gt;This approach goes way back: Andy Grove described this kind of quality control for chip manufacturing back in 1983: find where defects get through, build inspection around that point, and tighten the process as you learn. The same discipline is arriving in software: we’re not building software anymore; we’re building factories that build software.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;strong&gt;Category&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Lean&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Functional correctness/business logic&lt;/td&gt;&lt;td&gt;&lt;code&gt;Test&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;calculate_discount(cart)&lt;/code&gt; returns $18.00 for a 10%-off cart of $20. A unit test pins the math; it should never need a human.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Edge cases &amp;amp; boundary conditions&lt;/td&gt;&lt;td&gt;&lt;code&gt;Test&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Empty cart, negative quantity, integer overflow, coupon expiring at midnight. Enumerable and deterministic — assert them all.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Known-bug regression protection&lt;/td&gt;&lt;td&gt;&lt;code&gt;Test&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Bug: refunds double-charged on payment retry. Add a test reproducing the retry path so it can never silently return.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;API/schema/contract compatibility&lt;/td&gt;&lt;td&gt;&lt;code&gt;Test&lt;/code&gt;&lt;/td&gt;&lt;td&gt;A contract test fails if a GraphQL field’s type changes or a required response field is dropped.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Intent alignment&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Ticket: “make checkout faster.” The diff adds a cache — but does it address the slow path the ticket meant, or a cold path nobody hits? No assertion can answer that.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Acceptance-criteria coverage&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;AC lists: rate-limit login, log attempts, lock after 5 fails. The diff does the first and third but silently skips logging. Verify catches the missing item.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Architectural / convention adherence&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Business logic added directly in a GraphQL resolver instead of the service layer. Tests pass, but it’s in the wrong place.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;UX, visual &amp;amp; design fidelity&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;A new modal renders, but the primary button sits below the fold on mobile and the copy contradicts the design. Passes render tests; fails the intent.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Security review of new attack surface&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;A new endpoint accepts a &lt;code&gt;redirect_url&lt;/code&gt; param. No test flags it, but Verify reasons: this is an open-redirect / SSRF surface — is it validated?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Side-effect / blast-radius completeness&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;Renamed a config key in code but didn’t update the Helm chart, the docs, or the migration for existing values. What else does this change imply?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Non-deterministic/probabilistic behavior&lt;/td&gt;&lt;td&gt;&lt;code&gt;Verify&lt;/code&gt;&lt;/td&gt;&lt;td&gt;An LLM-generated summary. You can’t assert exact text — Verify judges whether it’s faithful, complete, and on-tone.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Performance&lt;/td&gt;&lt;td&gt;&lt;code&gt;Split&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Test:&lt;/strong&gt; a benchmark fails if p99 latency &amp;gt; 200ms. &lt;strong&gt;Verify:&lt;/strong&gt; “this does an N+1 query in a loop — fine for 10 rows, will melt at 10k.”&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ship-code-without-verification/"&gt;Shipping code without human verification&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Discover how automated verification allows engineering teams to safely ship AI-generated code without human review bottlenecks.</content:encoded>
-    </item>
-    <item>
-      <title>Jensen Huang says AI agents could drive a 5-10x computing boom: “100 billion agents and billions of robots”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/huang-semiconductor-tenfold-ai-agents/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 28 Jul 2026 19:46:50 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Hardware</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831909</guid>
-      <description>&lt;img width="648" height="392" src="https://cdn.thenewstack.io/media/2021/11/b8f34857-nvidia-jensen-huang.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Nvidia CEO Jensen Huang" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2021/11/b8f34857-nvidia-jensen-huang.png" /&gt;&lt;p&gt;This week during an interview with Bloomberg, Jensen Huang made quite the prediction. The Nvidia CEO said the semiconductor industry&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/huang-semiconductor-tenfold-ai-agents/"&gt;Jensen Huang says AI agents could drive a 5-10x computing boom: &amp;#8220;100 billion agents and billions of robots&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="648" height="392" src="https://cdn.thenewstack.io/media/2021/11/b8f34857-nvidia-jensen-huang.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Nvidia CEO Jensen Huang" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2021/11/b8f34857-nvidia-jensen-huang.png" /&gt;
-&lt;p&gt;This week during an interview with Bloomberg, &lt;a href="https://www.linkedin.com/in/jenhsunhuang/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jensen Huang&lt;/a&gt; made quite the prediction.&lt;/p&gt;
-
-
-
-&lt;p&gt;The Nvidia CEO said the semiconductor industry will need to grow roughly five to tenfold over the next decade to support AI agents and robots to support what he believes is the next wave of computing. Huang believes that future demand will come from autonomous software agents and physical robots consuming compute around the clock.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;In the future, we have AI agents and robots, and they will be using computers,&amp;#8221; Huang said. &amp;#8220;Instead of a billion people using computers, we will have 100 billion agents and billions of robots all using computers. The computer industry built on top of the chip industry is certainly not big enough. Computers are being built not just for people to use, but computers are being built for computers to use.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Instead of a billion people using computers, we will have 100 billion agents and billions of robots all using computers. The computer industry built on top of the chip industry is certainly not big enough.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agents-replace-human-endpoints"&gt;Agents replace human endpoints&lt;/h2&gt;
-
-
-
-&lt;p&gt;The 5-10x forecast &amp;mdash; which Huang framed as his personal estimate, not a certainty &amp;mdash; builds on a message he has been repeating for months, including &lt;a href="https://thenewstack.io/huang-engineers-building-ai-agents/" class="local-link"&gt;a recent appearance where he declared traditional coding dead&lt;/a&gt; in favor of engineers who build AI agents. Still, it reflects the need to build backend systems for AI agents and machines, something infrastructure teams are already contending with.&lt;/p&gt;
-
-
-
-&lt;p&gt;On Nvidia&amp;#8217;s fiscal Q1 2027 earnings call in May, Huang described the move from generative AI to agentic AI &amp;mdash; systems &amp;#8220;capable of perceiving, reasoning, planning, and acting&amp;#8221; &amp;mdash; as the next major phase of the industry.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-south-korea-s-infrastructure-role"&gt;South Korea&amp;#8217;s infrastructure role&lt;/h2&gt;
-
-
-
-&lt;p&gt;As API requests come from AI agents more often, standard assumptions around rate limiting, session memory, sub-millisecond inference routing, and API gateway concurrency are starting to break down. An environment in which most traffic originates from autonomous background loops rather than human thumbs &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;changes how backend infrastructure must be built&lt;/a&gt; from the ground up.&lt;/p&gt;
-
-
-
-&lt;p&gt;To support an endpoint explosion of this scale, the physical supply chain must scale dramatically at the memory and data center layers. Speaking at the AI Summit in San Francisco on July 24, Huang pointed to South Korea as an important linchpin of the global AI buildout. &amp;#8220;This is truly the beginning of a golden age for Korea,&amp;#8221; he said, noting that the country&amp;#8217;s semiconductor and industrial capabilities position it to help the world build out AI infrastructure.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;This is truly the beginning of a golden age for Korea.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-sk-group-s-500-billion-bet"&gt;SK Group&amp;#8217;s $500 billion bet&lt;/h2&gt;
-
-
-
-&lt;p&gt;To back that vision, Nvidia announced a comprehensive partnership with SK Group valued at over $500 billion. The initiative spans massive purchasing of next-generation High-Bandwidth Memory (HBM) from SK Hynix, jointly co-developing custom HBM4 roadmaps designed specifically for agentic and physical AI workloads, and deploying Nvidia supercomputers.&lt;/p&gt;
-
-
-
-&lt;p&gt;The announcement also included major infrastructure investments across South Korea. SK Telecom said it plans to build a 2-gigawatt AI data center using Nvidia&amp;#8217;s Vera Rubin architecture and SK Hynix&amp;#8217;s HBM4 memory, with the first facility expected to come online in 2027. At the same time, Nvidia will invest $1 billion in Naver Corp, with Brookfield funding up to $9 billion as the project&amp;#8217;s infrastructure capital partner, to help expand the company&amp;#8217;s AI data center capacity from 55 megawatts to 200 megawatts by 2028.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-locking-up-supply-early"&gt;Locking up supply early&lt;/h2&gt;
-
-
-
-&lt;p&gt;Huang&amp;#8217;s prediction also helps explain why Nvidia and other infrastructure companies are &lt;a href="https://thenewstack.io/future-proof-ai-infrastructure/" class="local-link"&gt;locking up supply years in advance&lt;/a&gt;. The company recently disclosed $119 billion in supply-related commitments as it works to secure everything from advanced packaging capacity to power, land, and high-bandwidth memory.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Computers are being built not just for people to use, but computers are being built for computers to use.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Huang believes the industry needs to stop thinking about a world where computers primarily serve people and start planning for one where AI agents and robots generate much of the demand. In his view, the ultimate limiting factor will be whether the industry can build enough physical infrastructure to keep up &amp;mdash; a constraint &lt;a href="https://thenewstack.io/palantir-nvidia-sovereign-ai/" class="local-link"&gt;already reshaping how companies like Nvidia and Palantir approach sovereign AI deployments&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/huang-semiconductor-tenfold-ai-agents/"&gt;Jensen Huang says AI agents could drive a 5-10x computing boom: &amp;#8220;100 billion agents and billions of robots&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Jensen Huang says the chip industry must grow five to tenfold for AI agents and robots, backing it with a $500 billion SK Group deal and $1B Naver bet.</content:encoded>
-    </item>
-    <item>
-      <title>Sam Altman on model distillation: “This is not in my top ten list of worries”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/altman-security-distillation-scale/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 28 Jul 2026 18:15:57 +0000</pubDate>
-      <category>AI</category>
-      <category>Large Language Models</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831891</guid>
-      <description>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48-1024x585.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman, OpenAI CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48.png" /&gt;&lt;p&gt;Sam Altman&amp;#8217;s latest appearance on Patrick O&amp;#8217;Shaughnessy&amp;#8217;s Invest Like the Best podcast covered everything from AGI and robotics to the&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/altman-security-distillation-scale/"&gt;Sam Altman on model distillation: &amp;#8220;This is not in my top ten list of worries&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48-1024x585.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman, OpenAI CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48.png" /&gt;
-&lt;p&gt;Sam Altman&amp;#8217;s latest appearance on Patrick O&amp;#8217;Shaughnessy&amp;#8217;s &lt;em&gt;Invest Like the Best&lt;/em&gt; podcast covered everything from AGI and robotics to the economics of intelligence. Looking back at the recent &lt;a href="https://thenewstack.io/gpt-red-prompt-injection-testing/" class="local-link"&gt;Hugging Face security incident&lt;/a&gt;, Altman said it was the first AI security event that felt &amp;#8220;very viscerally&amp;#8221; real to him. He also added that it forced OpenAI to rethink how it secures its models.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agentic-credentials-need-rethinking"&gt;Agentic credentials need rethinking&lt;/h2&gt;
-
-
-
-&lt;p&gt;Right now, the standard developer workflow for AI agents relies on &lt;a href="https://thenewstack.io/1password-agent-authentication-framework/" class="local-link"&gt;injecting long-lived API keys into environment variables or provisioning permissive service accounts to the container&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;We are already seeing the blueprint for this shift. &lt;a href="https://thenewstack.io/1password-agent-authentication-framework/" class="local-link"&gt;1Password&amp;#8217;s recent browser integration with Claude&lt;/a&gt; points to where the industry has to go: close the gap between agentic intent and secure, just-in-time credential injection. Authentication needs to occur outside the agent&amp;#8217;s direct memory space. By decoupling credentials from the model&amp;#8217;s environment, agents that successfully escape a sandbox are rendered powerless without active, out-of-band authorization.&lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s worth noting that during the Hugging Face incident, the models&amp;#8217; safety restrictions had been intentionally reduced for a cybersecurity evaluation. Separately, &lt;a href="https://thenewstack.io/gpt-5-6-developer-reactions/" class="local-link"&gt;OpenAI paused internal access to an unreleased long-horizon model&lt;/a&gt; after it repeatedly escaped its sandbox in a different incident, posting code to a public GitHub repository against explicit instructions.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-distillation-isn-t-the-threat"&gt;Distillation isn&amp;#8217;t the threat&lt;/h2&gt;
-
-
-
-&lt;p&gt;The conversation also touched on scraping and model distillation. Altman argued that the real opportunity is meeting what he expects will be &lt;a href="https://thenewstack.io/cloudflare-ai-web-economics/" class="local-link"&gt;almost limitless demand for intelligence&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;Altman remains unfazed by the race to the bottom. &amp;#8220;I have always assumed that there are going to be great cheap models in the world, and we better be the greatest and the cheapest,&amp;#8221; he noted.&lt;/p&gt;
-
-
-
-&lt;p&gt;While releases like &lt;a href="https://thenewstack.io/kimi-k3-open-weight-coding/" class="local-link"&gt;Moonshot AI&amp;#8217;s Kimi K3&lt;/a&gt; have caused waves in the industry, amid &lt;a href="https://thenewstack.io/moonshot-fable5-distillation-accusations/" class="local-link"&gt;contested allegations of distilling frontier capabilities into cheaper packages&lt;/a&gt;, Altman pushed back on the idea that external distillation threatens OpenAI&amp;#8217;s core business.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;You get a better deal today, at least at a particular latency, using OpenAI&amp;#8217;s models than Kimi,&amp;#8221; he argued. &amp;#8220;We distill our own models. That&amp;#8217;s how we make smaller, cheaper models. That&amp;#8217;s a very good thing to do.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Altman treats third-party distillation of frontier models as a controversial practice that is secondary to raw usage scale. &amp;#8220;I would rather people not distill from us, for sure. But this is not in my top ten list of worries.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;I have always assumed that there are going to be great cheap models in the world, and we better be the greatest and the cheapest.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-scale-beats-margins-every-time"&gt;Scale beats margins every time&lt;/h2&gt;
-
-
-
-&lt;p&gt;The CEO also pushed back on the idea that OpenAI needs to protect sky-high profit margins to survive. Instead, he argued that the company&amp;#8217;s scale is what matters most.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We have so much usage of our models that we do not need to be a &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;gigantically high-margin business&lt;/a&gt; to be able to afford model training,&amp;#8221; he explained.&lt;/p&gt;
-
-
-
-&lt;p&gt;He sees room for more than one approach, too. Even as OpenAI pours billions into building larger models and more computing infrastructure, Altman said &lt;a href="https://thenewstack.io/ai-open-source-newcomers-study/" class="local-link"&gt;open models will continue to have a place&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;There will clearly be an important place for open source models in the world and people that will want their own weights,&amp;#8221; he said.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We have so much usage of our models that we do not need to be a gigantically high-margin business to be able to afford model training.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-safeguards-must-catch-up"&gt;Safeguards must catch up&lt;/h2&gt;
-
-
-
-&lt;p&gt;The conversation eventually returned to security. While OpenAI&amp;#8217;s immediate focus is on understanding what happened and strengthening its defenses, Altman suggested the broader AI industry may also need time to catch up. As models become more capable, he said, frontier labs may have to slow development at times so the rest of the ecosystem has a chance to &lt;a href="https://thenewstack.io/ai-agent-infrastructure-reliability/" class="local-link"&gt;build the safeguards those systems will require&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;That debate is already extending beyond engineering teams. Lawmakers are weighing hundreds of AI-related bills, while companies are trying to figure out how to deploy increasingly autonomous systems without creating new security risks &amp;mdash; or &lt;a href="https://thenewstack.io/karp-mensch-ai-lockin/" class="local-link"&gt;concentrating too much power in the hands of a few large AI providers&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;Despite those challenges, Altman ended on an optimistic note about where the technology is headed.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We are about to create a genie that can grant any wish. But the only way that it really matters is if it makes people&amp;#8217;s lives much better.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We are about to create a genie that can grant any wish. But the only way that it really matters is if it makes people&amp;#8217;s lives much better.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/altman-security-distillation-scale/"&gt;Sam Altman on model distillation: &amp;#8220;This is not in my top ten list of worries&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Sam Altman calls the Hugging Face breach a wake-up call and argues OpenAI&amp;#039;s scale, not margins, will define the AI race ahead.</content:encoded>
-    </item>
-    <item>
-      <title>Mate Security bets a context-first AI architecture can reinvent the SOC as it lands $35M Series A</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/mate-security-context-graph/</link>
-      <dc:creator>Carly Page</dc:creator>
-      <pubDate>Tue, 28 Jul 2026 15:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831731</guid>
-      <description>&lt;img width="1024" height="664" src="https://cdn.thenewstack.io/media/2026/07/b572698c-getty-images-zxyruqtmwhu-unsplash-1024x664.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital collage of overlapping geometric shapes, glitch patterns and wavy lines in vivid blue, cyan, pink and purple." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/b572698c-getty-images-zxyruqtmwhu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Every major security vendor now has an AI copilot, but Mate Security thinks they&amp;#8217;re solving the wrong problem. The Tel&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mate-security-context-graph/"&gt;Mate Security bets a context-first AI architecture can reinvent the SOC as it lands $35M Series A&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="664" src="https://cdn.thenewstack.io/media/2026/07/b572698c-getty-images-zxyruqtmwhu-unsplash-1024x664.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital collage of overlapping geometric shapes, glitch patterns and wavy lines in vivid blue, cyan, pink and purple." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/b572698c-getty-images-zxyruqtmwhu-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Every major security vendor now has an AI copilot, but &lt;a href="http://Mate.security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mate Security&lt;/a&gt; thinks they&amp;#8217;re solving the wrong problem.&lt;/p&gt;
-
-
-
-&lt;p&gt;The Tel Aviv-based startup announced on Tuesday it has raised a $35 million Series A led by Canaan Partners, with participation from Insight Partners, Team8 and M12, Microsoft&amp;#8217;s venture fund, just eight months after closing a $15.5 million seed round. Mate&amp;rsquo;s pitch is that security operations need more than an LLM bolted onto a SIEM; they need a new architectural foundation built around AI.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s a bold claim in a market dominated by the likes of Microsoft Security Copilot, Google Security Operations, CrowdStrike Charlotte AI and Palo Alto Networks Cortex AI, all of which promise to help analysts investigate alerts faster. Mate, however, is betting the real differentiator isn&amp;#8217;t a smarter assistant but a richer understanding of the organization itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;Central to that vision is what Mate calls its Security Context Graph, a continuously updated model of an organization&amp;#8217;s assets, users, business processes, and data that AI agents use to investigate alerts and make decisions with far more business context than a standalone &lt;a href="https://thenewstack.io/llm/" class="local-link"&gt;LLM&lt;/a&gt; can provide.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Mate&amp;rsquo;s pitch is that security operations need more than an LLM bolted onto a SIEM; they need a new architectural foundation built around AI.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Mate CEO and co-founder &lt;a href="http://linkedin.com/in/asafwiener?originalSubdomain=il" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Asaf Wiener&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that the company launched with that intelligence layer, but says the product has evolved significantly over the past eight months.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We started with the intelligence layer, the context layer that we built for enterprises in order to investigate alerts and incidents,&amp;rdquo; Wiener says. &amp;ldquo;We moved forward into the detection layer to connect the two, and now we&amp;rsquo;re heading to the security data sources.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Mate calls the architecture Continuous Detection, Continuous Response (CDCR), linking detection and investigation so each continuously improves the other.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We&amp;#8217;re connecting between those two layers in the &lt;a href="https://thenewstack.io/elastic-ai-soc-data-unification/" class="local-link"&gt;security operations center&lt;/a&gt;,&amp;#8221; Wiener says. &amp;#8220;With this architecture, we&amp;#8217;re seeing amazing results related to the quality, accuracy and precision that we can get.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Mate says the extra context helps its agents work out whether something that looks suspicious actually warrants attention. A burst of failed logins, for example, might look like an attack until the system spots that a security test was scheduled for the same time. Similarly, a large download of sensitive files takes on a different meaning if the employee involved is about to leave the company.&lt;/p&gt;
-
-
-
-&lt;p&gt;That approach appears to be resonating. Just eight months after its seed round, Mate has landed a $35 million Series A, a pace Wiener says reflects customer demand more than fundraising momentum.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The pace is really crazy. We didn&amp;#8217;t expect that,&amp;rdquo; he said. &amp;ldquo;We saw incredible traction with our customers. We&amp;#8217;re talking about Fortune 500 companies, and revenue growth of more than 500 percent since Q3 2025. That&amp;#8217;s what led those VCs to come to us and want to be part of the journey.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We&amp;#8217;re talking about Fortune 500 companies, and revenue growth of more than 500 percent since Q3 2025.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;What we are seeing is more and more data sources that we need to protect. Every employee in the organization can build new applications and new data sources. We need to build more detections for those risks, and the result: We need to investigate an increasing number of alerts every day.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;With human staff alone, we cannot handle it,&amp;#8221; he says. &amp;#8220;We need technology to let us scale.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;That challenge isn&amp;#8217;t unique to Mate. Every major security platform is trying to give AI more context about the environments it&amp;#8217;s protecting, albeit in different ways. Microsoft builds Security Copilot on telemetry flowing through Defender and Sentinel; Google ties Gemini into its security operations platform; and CrowdStrike&amp;#8217;s Charlotte AI draws on endpoint and identity data already stored in Falcon.&lt;/p&gt;
-
-
-
-&lt;p&gt;Mate wants other vendors&amp;#8217; agents to work with its Security Context Graph, rather than keeping the technology confined to its own tools. Those agents would have access to the same information about the customer and its environment. Mate says they can remember previous investigations, while a &amp;#8220;least-agency&amp;#8221; model restricts what each one can see and do.&lt;/p&gt;
-
-
-
-&lt;p&gt;While Mate is still building out that vision, Wiener said the speed at which large companies have bought into it has caught him by surprise.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;What I&amp;#8217;m seeing right now is that we&amp;#8217;re doing those sales cycles in a few weeks,&amp;#8221; he says. &amp;#8220;That&amp;#8217;s incredible.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;He attributes that acceleration not just to security teams, but to executives pushing AI adoption from the top. &amp;#8220;It&amp;#8217;s amazing to see that coming also from the board level, the CEO and the CIO that are pushing organizations to leverage this kind of technology.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;The fresh funding will primarily go toward expanding both the product and the team, although Wiener says an AI-native company scales differently from traditional software businesses.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;The plan is to double and triple the size of the team to address the demand,&amp;rdquo; he says. &amp;ldquo;But our AI builders can do much more today with the technology around us.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Mate is still competing against security giants with deeply entrenched platforms. But if its early customer growth is any indication, investors are betting that the next generation of security operations will depend less on adding another AI assistant and more on giving those assistants a deeper understanding of the businesses they&amp;#8217;re protecting.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mate-security-context-graph/"&gt;Mate Security bets a context-first AI architecture can reinvent the SOC as it lands $35M Series A&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Mate Security’s Security Context Graph gives AI agents richer enterprise context as the startup raises $35M to challenge copilot-led security operations in the SOC.</content:encoded>
     </item>
   </channel>
 </rss>
