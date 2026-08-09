@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 07 Aug 2026 21:42:46 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Aug 2026 13:50:59 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -19,6 +19,705 @@
       <width>32</width>
       <height>32</height>
     </image>
+    <item>
+      <title>AI adoption isn’t the same as AI usage</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-adoption-versus-usage/</link>
+      <dc:creator>Harshal Shah</dc:creator>
+      <pubDate>Sat, 08 Aug 2026 15:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Strategy</category>
+      <category>Developer tools</category>
+      <category>sponsor-webflow</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832983</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark cyan LED pixel mesh texture representing digital metrics and software engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash.jpg" /&gt;&lt;p&gt;Every engineering org I&amp;#8217;ve talked to this year has some version of the same chart. Seat activations climbing. Token spend&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-adoption-versus-usage/"&gt;AI adoption isn’t the same as AI usage&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark cyan LED pixel mesh texture representing digital metrics and software engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash.jpg" /&gt;
+&lt;p&gt;Every engineering org I&amp;#8217;ve talked to this year has some version of the same chart. Seat activations climbing. Token spend climbing. Somebody&amp;#8217;s slide says 80% weekly active. Then you sit in that team&amp;#8217;s planning meeting, and nothing about how they build software has changed.&lt;/p&gt;
+
+
+
+&lt;p&gt;That gap is the actual problem, and most of the way we measure AI adoption is designed, accidentally, to hide it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-everything-you-re-measuring-is-a-usage-metric"&gt;Everything you&amp;#8217;re measuring is a usage metric&lt;/h2&gt;
+
+
+
+&lt;p&gt;Token spend tells you someone typed into a box. Pull request count tells you commits landed. &amp;#8220;Percentage of code written by AI&amp;#8221; tells you an autocomplete got accepted. None of it tells you the work got better.&lt;/p&gt;
+
+
+
+&lt;p&gt;Goodhart&amp;#8217;s Law, right on schedule. The moment a number becomes the target, it stops describing reality and starts describing the incentive.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The moment a number becomes the target, it stops describing reality and starts describing the incentive.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The clearest version of this failure isn&amp;#8217;t even AI-specific. Every engineer has watched a team clear a coverage gate with tests that assert nothing. &lt;code&gt;expect(true).toBe(true)&lt;/code&gt;. Line covered, number green, nothing tested. The metric was satisfied, and the goal was abandoned, and the dashboard has no way to tell the difference.&lt;/p&gt;
+
+
+
+&lt;p&gt;AI usage metrics have the same shape. If I tell my team that usage is a performance signal, usage goes up inside a week, and I&amp;#8217;ve learned nothing except that they can read incentives. Which I already knew.&lt;/p&gt;
+
+
+
+&lt;p&gt;Better question: if you removed these tools tomorrow, what would break? Not what people would complain about. What would break. If the honest answer is &amp;#8220;nothing, people would be mildly annoyed,&amp;#8221; you don&amp;#8217;t have adoption. You have a subscription.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Three things get called adoption. Only one lasts.&lt;/h2&gt;
+
+
+
+&lt;p&gt;When I dig into what &amp;#8220;we&amp;#8217;ve adopted AI&amp;#8221; means on a specific team, it&amp;#8217;s one of three things, and they aren&amp;#8217;t close in value.&lt;/p&gt;
+
+
+
+&lt;p&gt;Someone changes their own loop. They write commit messages with it, or use it to get oriented in unfamiliar code. Real, useful, almost entirely non-durable. First hard deadline, they revert to the way they already know works. That isn&amp;#8217;t a discipline problem. Under pressure, people take the lowest-uncertainty path available, and a new workflow is by definition the high-uncertainty one.&lt;/p&gt;
+
+
+
+&lt;p&gt;Someone permanently hands off a recurring job. Not &amp;#8220;I used AI today&amp;#8221; but &amp;#8220;I don&amp;#8217;t do this anymore, a workflow does, and I check the output.&amp;#8221; That survives deadlines, because going back would mean creating work for themselves. It also leaves when they do.&lt;/p&gt;
+
+
+
+&lt;p&gt;Or the team changes how it does something, on purpose. Somebody decided a step in the process now runs a certain way, wrote it down, and it holds whether or not any individual is feeling enthusiastic. Only the third one survives turnover and a bad quarter.&lt;/p&gt;
+
+
+
+&lt;p&gt;Most orgs celebrate the first, occasionally reach the second, and never get to the third. Because the third isn&amp;#8217;t a tooling problem. Buying licenses is a budget conversation. Changing a norm means saying out loud that the old way was worse, then owning it when the new way breaks something in week three.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Changing a norm means saying out loud that the old way was worse, then owning it when the new way breaks something in week three.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;At &lt;a href="https://webflow.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Webflow&lt;/a&gt;, the one that stuck for us was treating prompts as shared, versioned artifacts instead of personal property. People used to keep them in scratch files, tune them privately over weeks, and lose them the next time they switched machines. Now the good ones live in the repo with an owner, a note on when to use them, and review on changes, same as any other code. It cost nothing in tooling. What it took was deciding this category of thing was worth maintaining.&lt;/p&gt;
+
+
+
+&lt;p&gt;It&amp;#8217;s held because it doesn&amp;#8217;t run on anyone&amp;#8217;s enthusiasm. New engineers inherit the good version instead of &lt;a href="https://thenewstack.io/serpapi-google-search-api/" data-wpil-monitor-id="4019" class="local-link"&gt;spending a month&lt;/a&gt; rediscovering it. When someone finds an improvement, everybody gets it rather than one person quietly getting better at their job.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Agents start work well and own it badly&lt;/h2&gt;
+
+
+
+&lt;p&gt;Here&amp;#8217;s the pattern that kills adoption before a team ever reaches that third tier.&lt;/p&gt;
+
+
+
+&lt;p&gt;The leverage is concentrated at the start of a task. Blank page to plausible draft is dramatically faster than it used to be. Plausible draft to correct and shippable is not faster at all, and that half is still yours.&lt;/p&gt;
+
+
+
+&lt;p&gt;So an engineer works out that they can start five things at once, fires them all off, and feels productive doing it. Then five things come back needing review, and review runs single-threaded inside one head, on work they didn&amp;#8217;t write and have to reconstruct from scratch. They didn&amp;#8217;t parallelize. They serialized on their own attention, at a queue depth nobody would have picked deliberately.&lt;/p&gt;
+
+
+
+&lt;p&gt;They end that week busier and less certain than the week before, which is a genuinely worse experience. Plenty of people try agentic workflows once, feel exactly that, and quietly stop. Weeks later it shows up as a usage dip and gets diagnosed as a training gap.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Delegating to an agent has the same ceiling as delegating to a person: the review capacity of whoever stays accountable.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;It isn&amp;#8217;t. It&amp;#8217;s a work-shape problem. &lt;a href="https://thenewstack.io/microsoft-build-scout/" data-type="link" data-id="https://thenewstack.io/microsoft-build-scout/" class="local-link"&gt;Delegating to an agent&lt;/a&gt; has the same ceiling as delegating to a person: the review capacity of whoever stays accountable. The teams getting real value out of this got specific about which work is safe to hand off with a light check and which isn&amp;#8217;t, instead of treating all of it as equally delegable.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;You can&amp;#8217;t manage adoption; you can&amp;#8217;t score&lt;/h2&gt;
+
+
+
+&lt;p&gt;If you can&amp;#8217;t score the output, every argument about &lt;a href="https://thenewstack.io/anthropic-claude-design-overhaul/" data-wpil-monitor-id="4020" class="local-link"&gt;whether a workflow is working&lt;/a&gt; is a vibes argument. And vibes arguments are won by whoever is most confident in the room, which is a terrible way to run engineering.&lt;/p&gt;
+
+
+
+&lt;p&gt;Scoring doesn&amp;#8217;t mean benchmarks. Benchmarks tell you a model is good in general. You need to know whether this workflow is good at the specific thing your team does, which no benchmark covers. A few dozen real cases out of your own domain, graded against a rubric you wrote down, rerun every time someone changes a prompt or swaps a model. Small is fine. The point isn&amp;#8217;t precision, it&amp;#8217;s having a number that moves for reasons you understand.&lt;/p&gt;
+
+
+
+&lt;p&gt;Without it, you can&amp;#8217;t tell a workflow that improved from one whose failures got more fluent. In a demo, those look identical.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What I&amp;#8217;d actually do&lt;/h2&gt;
+
+
+
+&lt;p&gt;Kill one recurring manual job per person, permanently. Not &amp;#8220;try AI on it.&amp;#8221; Take it off their week and make the workflow the owner of record. One job that stays dead beats ten experiments.&lt;/p&gt;
+
+
+
+&lt;p&gt;Make exactly one team norm official, in writing, this quarter. One. Small enough that you&amp;#8217;ll actually enforce it, specific enough that somebody could break it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Stop reporting usage upward. Report the outcome the usage was supposed to produce, including the quarters where that number looks worse than usage would have.&lt;/p&gt;
+
+
+
+&lt;p&gt;None of this requires a new tool, which is most of the point. Tools are the cheapest part of this, and they absorb the most attention. The expensive part is being willing to change how a team works on purpose, in public, with your name on the call.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;This article was originally published on August 5, 2026, on &lt;a href="https://webflow.com/blog/ai-adoption-vs-usage-engineering-teams" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;webflow.com&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-adoption-versus-usage/"&gt;AI adoption isn’t the same as AI usage&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>High token spend isn&amp;#039;t real AI adoption. Discover how engineering teams can move past vanity metrics to create lasting workflow shifts.</content:encoded>
+    </item>
+    <item>
+      <title>Why your KubeVirt VMs can’t move between clusters — and how EVPN fixes it</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/kubevirt-evpn-vm-migration/</link>
+      <dc:creator>Miguel Duarte Barroso</dc:creator>
+      <pubDate>Sat, 08 Aug 2026 14:00:00 +0000</pubDate>
+      <category>Kubernetes</category>
+      <category>Networking</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832995</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D geometric blocks with moody neon light gradients representing multi-cluster KubeVirt infrastructure and EVPN network overlays." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash.jpg" /&gt;&lt;p&gt;Your team has moved VMs to Kubernetes with KubeVirt. The workloads are running. The team is gaining confidence. Then someone&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubevirt-evpn-vm-migration/"&gt;Why your KubeVirt VMs can’t move between clusters — and how EVPN fixes it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D geometric blocks with moody neon light gradients representing multi-cluster KubeVirt infrastructure and EVPN network overlays." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash.jpg" /&gt;&lt;p&gt;Your team has moved VMs to Kubernetes with &lt;a href="https://kubevirt.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeVirt&lt;/a&gt;. The workloads are running. The team is gaining confidence. Then someone asks: can we live-migrate a VM to the other cluster? &lt;/p&gt;
+
+
+
+&lt;p&gt;Disaster recovery, cluster upgrades, capacity rebalancing – the reasons pile up fast. And KubeVirt’s answer appears straightforward: decentralized live migration, which landed in v1.6, should handle this. &lt;/p&gt;
+
+
+
+&lt;p&gt;But your network team’s answer is more complicated. The VM likely needs to keep its IP and MAC address on the destination cluster. That means a stretched Layer 2 domain between sites. In traditional infrastructure, you’re looking at new VLANs, switch configurations, and possibly even new hardware. A change window. A ticket. Weeks.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“In traditional infrastructure, you’re looking at new VLANs, switch configurations, and possibly even new hardware. A change window. A ticket. Weeks.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The migration technology isn’t the problem. What gets in the way, more often than not, is the network.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/08/415e061e-image-1024x572.png" alt="Image showing four objectives: Stretched L2 networks, routing between networks, reduced BUM traffic, and seamless workload mobility." class="wp-image-22832997"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-the-network-is-the-hard-part"&gt;Why the network is the hard part&lt;/h2&gt;
+
+
+
+&lt;p&gt;Cross-cluster live migration has two network requirements that standard Kubernetes networking doesn’t address.&lt;/p&gt;
+
+
+
+&lt;p&gt;First, a &lt;strong&gt;stretched L2 domain&lt;/strong&gt;. The VM must land on the destination cluster with the same MAC and IP, on the same broadcast domain. Without this, every migration means IP reassignment, DNS updates, and broken connections. Stateful applications — think PostgreSQL clusters using synchronous replication, or message queues with persistent TCP sessions —  can’t tolerate IP changes without manual intervention.&lt;/p&gt;
+
+
+
+&lt;p&gt;Second, a &lt;strong&gt;dedicated migration path&lt;/strong&gt;. Migration transfers gigabytes of memory state in real time. Pushing that through the same network carrying application traffic creates congestion, unpredictable latency, and no way to independently monitor either traffic class.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/08/6fa0c32a-image-1024x572.png" alt="Diagram showing the VXLAN network overlay." class="wp-image-22833000"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;In traditional virtualization platforms, these are solved with dedicated &lt;a href="https://thenewstack.io/ebooks/kubernetes/running-virtual-machines-on-kubernetes-a-practical-guide-for-enterprise-migrations/" data-wpil-monitor-id="4023" class="local-link"&gt;migration VLANs and proprietary virtual&lt;/a&gt; switch constructs: hardware-coupled, vendor-specific, and often licensed per socket. The open source equivalent needs to work as an overlay, managed declaratively, without touching the physical network.&lt;/p&gt;
+
+
+
+&lt;p&gt;EVPN/VXLAN provides exactly this. &lt;a href="https://github.com/openperouter/openperouter" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenPERouter&lt;/a&gt; makes it a Kubernetes-native resource.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;EVPN as Kubernetes CRDs&lt;/h2&gt;
+
+
+
+&lt;p&gt;OpenPERouter manages EVPN configuration through three Custom Resource Definitions. An &lt;code&gt;Underlay&lt;/code&gt; CR establishes BGP peering between each Kubernetes cluster and its top-of-rack switch. An &lt;code&gt;L2VNI&lt;/code&gt; CR creates a Layer 2 overlay network, implemented by a VXLAN segment identified by a VNI number and scoped to a VRF. Finally, the &lt;code&gt;L3VNI&lt;/code&gt; CR enables IP routing between different subnets and connects your cluster to external networks.&lt;/p&gt;
+
+
+
+&lt;p&gt;The application network uses VNI 110 in VRF “red”:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+apiVersion: openpe.openperouter.github.io/v1alpha1
+kind: L2VNI
+metadata:
+  name: application-net
+  namespace: openperouter-system
+spec:
+  vni: 110
+  vrf: red
+  hostmaster:
+    type: linux-bridge
+    linuxBridge:
+      autoCreate: true
+  l2gatewayips: ["192.170.10.1/24"]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Both clusters get an identical &lt;code&gt;L2VNI&lt;/code&gt; resource, and VMs on either cluster share L2 adjacency on the 192.170.1.0/24 subnet. A VM on cluster A at 192.170.1.3 can reach a VM on cluster B at 192.170.1.30 as if they were on the same switch.&lt;/p&gt;
+
+
+
+&lt;p&gt;The migration network is a second &lt;code&gt;L2VNI&lt;/code&gt;. It uses the exact same pattern but a different VNI:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+apiVersion: openpe.openperouter.github.io/v1alpha1
+kind: L2VNI
+metadata:
+  name: migration-net
+  namespace: openperouter-system
+spec:
+  vni: 666
+  vrf: rouge
+  hostmaster:
+    type: linux-bridge
+    linuxBridge:
+      autoCreate: true
+  l2gatewayips: ["192.170.10.1/24"]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;All the migration network needs is a unique VNI and VRF in the L2VNI CR — in this example, &lt;code&gt;666&lt;/code&gt; and &lt;code&gt;rouge&lt;/code&gt; —  and the migration traffic is isolated from the application network. This overlay rides on the existing IP connectivity between sites. The VXLAN tunnel endpoints don’t even need to be on the same network segment. As long as there’s IP reachability between sites (which can traverse any number of routed hops), the overlay converges.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Two CRDs define what used to require a network team and a change window.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Two CRDs define what used to require a network team and a change window.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Operating the migration&lt;/h2&gt;
+
+
+
+&lt;p&gt;With the network fabric in place, here’s what an &lt;a href="https://thenewstack.io/kubernetes-1-35-features-that-change-day-2-operations/" data-wpil-monitor-id="4024" class="local-link"&gt;operator actually does on Day&lt;/a&gt; 2 when a VM needs to move.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;IP &lt;/strong&gt;&lt;a href="https://thenewstack.io/how-amazon-eks-auto-mode-simplifies-kubernetes-cluster-management-part-1/" data-wpil-monitor-id="4022" class="local-link"&gt;management across clusters&lt;/a&gt; needs an IPAM strategy that prevents conflicts without central coordination. The examples use &lt;a href="https://github.com/k8snetworkplumbingwg/whereabouts" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Whereabouts&lt;/a&gt; with complementary exclude ranges, which means that each cluster’s Network Attachment Definition covers the same 192.170.10.0/24 subnet but excludes the other cluster’s half. Cluster A allocates from the lower range, cluster B from the upper. But Whereabouts is a design choice, not a requirement; any IPAM provider that can partition ranges across clusters works here.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The migration itself&lt;/strong&gt; is three resources:&lt;/p&gt;
+
+
+
+&lt;p&gt;The target VM must be provisioned by the user on cluster B with &lt;code&gt;runStrategy: WaitAsReceiver&lt;/code&gt; – same MAC address, same IP configuration, sitting idle until it receives the incoming migration.&lt;/p&gt;
+
+
+
+&lt;p&gt;Afterward, a &lt;code&gt;VirtualMachineInstanceMigration&lt;/code&gt; receiver on cluster B declares readiness:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+apiVersion: kubevirt.io/v1
+kind: VirtualMachineInstanceMigration
+metadata:
+  name: vmim-target
+spec:
+  receive:
+    migrationID: cross-cluster-demo
+  vmiName: vm-1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A matching sender on cluster A points to the receiver’s migration IP (obtained from the receiver’s &lt;code&gt;.status.synchronizationAddresses&lt;/code&gt;) and initiates the transfer.&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+apiVersion: kubevirt.io/v1
+kind: VirtualMachineInstanceMigration
+metadata:
+  name: migration-source
+spec:
+  sendTo:
+    connectURL: "&amp;amp;lt;receiver VMI migration .status.synchronizationAddresses[0]&amp;gt;:9185"
+    migrationID: cross-cluster-demo
+  vmiName: vm-1
+EOF
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Under the hood, migration traffic flows over VNI 666, isolated from VNI 110. The VM is copied to cluster B with its identity intact. EVPN updates MAC/IP advertisements across the fabric – traffic to the VM starts arriving at the new cluster. No DNS changes, no IP reassignment, no connection resets.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Who owns what&lt;/h2&gt;
+
+
+
+&lt;p&gt;The real shift here is operational, not just technical. The configuration for the BGP EVPN — that is, the overlay networks, VRFs, and VNIs  —  moves from the network team’s domain into the Kubernetes admin’s hands.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The operational model shifts from ‘request physical network changes and wait’ to ‘apply a CR and the overlay converges.'”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The network team still owns the underlay: IP addressing for router endpoints and links, physical connectivity, and routing between sites. That doesn’t change. But once the underlay is in place, everything above it  —  stretched L2 domains, dedicated migration networks, VRF isolation  —  is declared through Kubernetes CRDs by the same platform team managing the clusters. No tickets to the network team to add a VLAN. No change windows to stretch a broadcast domain to a new site.&lt;/p&gt;
+
+
+
+&lt;p&gt;The following table highlights the shift in operational responsibilities compared to traditional virtualization stacks:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th&gt;&lt;strong&gt;Network Admin Role&lt;/strong&gt;&lt;/th&gt;&lt;th&gt;&lt;strong&gt;Kubernetes Admin Role&lt;/strong&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Traditional Virtualization&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Manages physical switches, VLANs, and hardware configurations for every VM movement.&lt;/td&gt;&lt;td&gt;Dependent on the network team for tickets and manual change windows.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;KubeVirt + OpenPERouter&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Sets up foundational IP connectivity, router endpoints, and links.&lt;/td&gt;&lt;td&gt;Manages the overlay network, BGP/EVPN configurations, and VM mobility declaratively via K8s CRDs.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The operational model shifts from “request physical network changes and wait” to “apply a CR and the overlay converges.” Platform teams manage VM mobility the same way they manage everything else in Kubernetes: declaratively, version-controlled, reviewable.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Getting started&lt;/h2&gt;
+
+
+
+&lt;p&gt;The network shouldn’t be the reason VMs can’t move between clusters. EVPN overlays — managed through Kubernetes CRDs — give multi-cluster KubeVirt deployments the same VM mobility that traditional platforms offered, without the physical network dependency or the licensing model.&lt;/p&gt;
+
+
+
+&lt;p&gt;For step-by-step walkthroughs, see &lt;a href="https://kubevirt.io/2025/Stretched-layer2-network-between-clusters.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Stretched Layer 2 Network between Clusters&lt;/a&gt; and &lt;a href="https://kubevirt.io/2025/Dedicated-migration-network-for-cross-cluster-live-migration.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dedicated Migration Network for Cross-Cluster Live Migration&lt;/a&gt;. Ready-to-use configuration files are in the &lt;a href="https://github.com/openperouter/openperouter/tree/main/examples/evpn/multi-cluster/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenPERouter examples&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; KubeVirt is a CNCF Incubating project, accepted in September 2019 and moved to Incubating maturity in April 2022. The decentralized live migration feature referenced here has been available since v1.6 (July 2025) and remains stable in v1.8 (March 2026).&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubevirt-evpn-vm-migration/"&gt;Why your KubeVirt VMs can’t move between clusters — and how EVPN fixes it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Migrate KubeVirt VMs between clusters seamlessly with EVPN/VXLAN overlays and OpenPERouter CRDs. No network tickets required.</content:encoded>
+    </item>
+    <item>
+      <title>Five AI rivals just backed a shared plugin standard. Here’s why it matters for developers.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/agent-plugins-open-standard/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Sat, 08 Aug 2026 13:50:59 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Model Context Protocol (MCP)</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833149</guid>
+      <description>&lt;img width="1024" height="820" src="https://cdn.thenewstack.io/media/2026/08/357f1ef4-andrei-castanha-1024x820.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/357f1ef4-andrei-castanha-scaled.jpg" /&gt;&lt;p&gt;OpenAI, AWS, Cursor, GitHub and Microsoft have backed Agent Plugins 1.0.0, a portable package format for reusable components that extends&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-plugins-open-standard/"&gt;Five AI rivals just backed a shared plugin standard. Here&amp;#8217;s why it matters for developers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="820" src="https://cdn.thenewstack.io/media/2026/08/357f1ef4-andrei-castanha-1024x820.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/357f1ef4-andrei-castanha-scaled.jpg" /&gt;
+&lt;p&gt;&lt;a href="https://thenewstack.io/openai-aims-to-make-chatgpt-the-operating-system-of-the-future/" class="local-link"&gt;OpenAI&lt;/a&gt;, &lt;a href="https://aws.amazon.com/blogs/opensource/aws-supports-agent-plugins-an-open-standard-for-portable-agent-extensions/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AWS&lt;/a&gt;, &lt;a href="https://thenewstack.io/cursor-3-demotes-ide/" class="local-link"&gt;Cursor&lt;/a&gt;, &lt;a href="https://thenewstack.io/github-agent-hq/" class="local-link"&gt;GitHub&lt;/a&gt; and &lt;a href="https://thenewstack.io/microsoft-scout-openclaw-runtime/" class="local-link"&gt;Microsoft&lt;/a&gt; have backed&lt;a href="https://agent-plugins.org/#" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Agent Plugins&lt;/a&gt; 1.0.0, a portable package format for reusable components that extends AI agents. &lt;/p&gt;
+
+
+
+&lt;p&gt;Agentic infrastructure company &lt;a href="https://vercel.com/home?utm_source=google&amp;amp;utm_medium=cpc&amp;amp;utm_campaign=24015397389&amp;amp;utm_campaign_id=24015397389&amp;amp;utm_term=vercel&amp;amp;utm_content=198458702299_816334546963&amp;amp;utm_source=google&amp;amp;utm_medium=cpc&amp;amp;utm_campaign=gg_s_vercel_acq_emea_brand-exact&amp;amp;utm_campaign_id=24015397389&amp;amp;utm_content=brand_exact&amp;amp;utm_term=vercel&amp;amp;gad_source=1&amp;amp;gad_campaignid=24015397389&amp;amp;gbraid=0AAAAACXzHouXxZSdS4kiM34b0S4nqGVRm&amp;amp;gclid=CjwKCAjwhNbTBhB4EiwAsFSg-iJmUmPtFH3JSrcMQCP-qSjDKmY6K86gRJGGVwAtJlU0QWKyxeRqmBoCTrIQAvD_BwE" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vercel&lt;/a&gt; initiated the Agent Plugins proposal along with the&lt;a href="https://vercel.com/blog/introducing-agent-plugins" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; project&amp;rsquo;s core specifications&lt;/a&gt;, and detailed its release on Thursday.&lt;/p&gt;
+
+
+
+&lt;p&gt;Agent Plugins is an open, vendor-neutral standard for plugins that packages AI Agent Skills (the open standard directory format built to make agent capabilities portable, modular and &amp;lsquo;&lt;a href="https://www.mindstudio.ai/blog/progressive-disclosure-ai-agent-skill-design" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;progressively loaded&lt;/a&gt;&amp;rsquo; across different agent clients and execution environments) and MCP servers into distributable plugins in order to extend them to other AI agent clients and runtimes, or other custom AI frameworks.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Although both Agent Skills and MCP servers can be reused across different clients (clients in this sense being any application, code editor, software tool or code runtime that a software platform hosts, executes, or connects to an AI agent), the clients themselves often package and discover agent skills and MCP servers in different ways and formats.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/jonathanhefner/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jonathan Hefner&lt;/a&gt;, member of technical staff at Vercel has &lt;a href="https://vercel.com/blog" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blogged&lt;/a&gt; to explain why this matters.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Agent Plugins gives compatible clients a common format: a directory with a &lt;a href="https://docs.castopod.org/develop/en/plugins/reference/plugins-json/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;plugin.json&lt;/a&gt; manifest and fixed locations for its components. The format is intentionally small and easy to implement, and it leaves installation, distribution, policy, user experience, and client-specific capabilities to each client,&amp;rdquo; wrote Hefner.&lt;/p&gt;
+
+
+
+&lt;p&gt;He noted that Agent Plugins is a contract between the developers who act as authors building extensions for agents and the clients that load them, so that now the contract is &amp;ldquo;defined and open&amp;rdquo; for both sides to shape.&lt;/p&gt;
+
+
+
+&lt;p&gt;Hefner, along with colleagues &lt;a href="https://www.linkedin.com/in/ericdodds/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eric Dodds&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/andrew-qu/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Andrew Qu&lt;/a&gt;, state that Agent Skills provides reusable instructions and resources for AI agents and &lt;a href="https://modelcontextprotocol.io/docs/getting-started/intro" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP servers&lt;/a&gt;, to connect agents to tools and services. So why do developers need plugins anyway?&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-do-developers-need-agents-to-plug-into-plugins"&gt;Why do developers need agents to plug into plugins?&lt;/h2&gt;
+
+
+
+&lt;p&gt;In practical real world use cases, software developers will need agents and skills to connect to live databases and a variety of data feeds to run queries, cross-reference schema metadata, and feed on real-time analytics. Plugin actions might be implemented to allow agents to forge essential connections to GitHub, Jira, Slack, Figma, or cloud hyperscalers at large.&lt;/p&gt;
+
+
+
+&lt;p&gt;Agents also make use of plugins to connect to USB or hardware interfaces (perhaps across distributed edge environments, but also desktops), to interact with local developer environments and microservices, or to (for example) draw down juice from a map or weather API, or a payment gateway or payment processing service such as &lt;a href="https://stripe.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Stripe&lt;/a&gt;, &lt;a href="https://www.adyen.com/en_GB" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adyen&lt;/a&gt;, or PayPal&amp;rsquo;s enterprise service &lt;a href="https://www.paypal.com/us/braintree" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Braintree&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Hefner underlined the project&amp;rsquo;s status, confirming that it is openly licensed, and its maintainers, contribution process, and technical decisions are all public, so that no single company&amp;#8217;s product roadmap sets the format&amp;#8217;s direction. &lt;/p&gt;
+
+
+
+&lt;p&gt;He said that for plugin authors, Agent Plugins 1.0.0 means fewer client-specific conventions for the same component. Equally, for client implementers, the specification defines a small, deterministic contract for discovery, validation, and loading.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-have-we-just-won-the-battle-but-lost-the-war"&gt;Have we just won the battle, but lost the war?&lt;/h2&gt;
+
+
+
+&lt;p&gt;Senior cloud platform engineer at industrial supplies company Grainger, &lt;a href="https://www.linkedin.com/in/pavanmadduri/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Pavan Madduri&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that Agent Plugins &amp;ldquo;solves the easy problem, not the difficult problem&amp;rdquo; as he sees it.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Standardizing the packaging and discovery of Agent Skills and MCP servers in ChatGPT, Cursor, Copilot, and VS Code would actually be helpful plumbing &amp;#8211; but at the same time, a plugin that is now running in six different client applications represents an additional point of failure for permissions management,&amp;rdquo; Madduri says.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The minute something becomes &amp;lsquo;write once, run anywhere&amp;rsquo; for agents, it automatically becomes &amp;lsquo;compromise once, run everywhere&amp;rsquo;, and this specification specifically defers governance, installation policy, and permissions management to the client application.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;In his view, the minute something becomes &amp;lsquo;write once, run anywhere&amp;rsquo; for agents, it automatically becomes &amp;lsquo;compromise once, run everywhere&amp;rsquo;, and this specification specifically defers governance, installation policy, and permissions management to the client application.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Interoperability without trust and permissions management is not a security architecture; it&amp;rsquo;s just another distribution method for bugs and excessive permissions,&amp;rdquo; cautions Madduri.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-an-important-step-toward-making-ai-agents-more-interoperable"&gt;An important step toward making AI agents more interoperable&lt;/h2&gt;
+
+
+
+&lt;p&gt;President and CTO of context-aware code creation and understanding toolset specialist &lt;a href="https://www.adronite.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adronite&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/ephraimrothschild/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Edward Rothschild&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that he acknowledges the governance and security responsibility, but overall sees value here, saying that Agent Plugins 1.0.0 is an &amp;ldquo;important step toward making AI agents more interoperable&amp;rdquo; in modern stacks.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The real value is in the ability to reduce the friction that has slowed enterprise AI adoption,&amp;rdquo; Rothschild says. &amp;ldquo;Rather than requiring plugin developers to package and maintain their integrations differently for every AI client or agent framework, a common standard makes those capabilities more portable across environments while still allowing organizations to maintain governance and security.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;As open standards mature, Rothschild calls for a groundswell of effort that sees standards bodies and commercial organizations alike both continuing to combine interoperability with strong identity, access controls, and operational visibility, giving developers the flexibility to code without introducing new management blind spots.&lt;/p&gt;
+
+
+
+&lt;p&gt;Founder of AI model hosting company &lt;a href="https://empiriolabs.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;EmpirioLabs&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/adam-dalloul/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adam Dalloul&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that his experience of working practice leads him to think that &amp;ldquo;agent infrastructure is nowhere near cloud and MLOps yet&amp;rdquo; today.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We have personally had open source agent updates break production workflows after running smoothly for weeks, so versioning, testing and rollback cannot be an afterthought,&amp;rdquo; Dalloul says. &amp;ldquo;Being able to package a Skill and MCP server once and have it carry across Codex, ChatGPT, Cursor, GitHub Copilot, Kiro and VS Code is a real win, and honestly this common format should have existed already.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Being able to package a Skill and MCP server once and have it carry across Codex, ChatGPT, Cursor, GitHub Copilot, Kiro and VS Code is a real win, and honestly this common format should have existed already.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;He harbors one misgiving here: the client-specific extensions.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I voice that concern because if all of the useful behavior ends up inside vendor namespaces, the standard will look open on paper while the lock-in and fragmentation just move somewhere else,&amp;rdquo; adds Dalloul.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-looking-beyond-towards-commands-hooks-and-agents-themselves"&gt;Looking beyond, towards commands, hooks, and agents themselves&lt;/h2&gt;
+
+
+
+&lt;p&gt;As stated, Agent Plugins 1.0.0 focuses on two component types: Agent Skills and MCP servers.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Herner confirms that other components, such as commands, hooks, and agents, remain with clients. The Technical Steering Committee may consider additional component types in future versions, as and when semantics converge and a demonstrated portability need emerges.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-plugins-open-standard/"&gt;Five AI rivals just backed a shared plugin standard. Here&amp;#8217;s why it matters for developers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>OpenAI, AWS, Cursor, GitHub and Microsoft back Vercel&amp;#039;s new Agent Plugins standard for packaging AI skills and MCP servers. Here&amp;#039;s what it means for developers.</content:encoded>
+    </item>
+    <item>
+      <title>AI skills start on laptops. Enterprises inherit the mess.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/speakeasy-enterprise-agent-skills/</link>
+      <dc:creator>David Eastman</dc:creator>
+      <pubDate>Sat, 08 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Observability</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832968</guid>
+      <description>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/08/2cc0a559-and-machines-8fvk5tfkase-unsplash-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful geometric tiles swirl around glowing blue lines against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/2cc0a559-and-machines-8fvk5tfkase-unsplash-scaled.jpg" /&gt;&lt;p&gt;&amp;#8220;It&amp;#8217;s unrealistic to expect an admin to have context over how every skill in a company should be optimally performing,&amp;#8221;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/speakeasy-enterprise-agent-skills/"&gt;AI skills start on laptops. Enterprises inherit the mess.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/08/2cc0a559-and-machines-8fvk5tfkase-unsplash-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful geometric tiles swirl around glowing blue lines against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/2cc0a559-and-machines-8fvk5tfkase-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;It&amp;rsquo;s unrealistic to expect an admin &lt;/strong&gt;to have context over how every skill in a company should be optimally performing,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/sagarbatchu/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sagar Batchu&lt;/a&gt;, founder and CEO of &lt;a href="https://www.speakeasy.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Speakeasy&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;That problem becomes harder as enterprises adopt AI agents and developers assemble sprawling libraries of skills that contain deployment runbooks, code review checklists, style guides, incident procedures, and internal workflows. &lt;/p&gt;
+
+
+
+&lt;p&gt;These myriad skills often begin as personal experiments before spreading across repositories, local machines, Slack threads and plugins. To make matters more confusing, they frequently are without clear ownership or a reliable way to know if the skill you&amp;#8217;re using is the current version.&lt;/p&gt;
+
+
+
+&lt;p&gt;Speakeasy on Friday released &lt;a href="https://www.speakeasy.com/blog/release-skills-management" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Skills Management&lt;/a&gt;, a system designed to treat skills as centrally registered enterprise artifacts, with immutable versions, scoped access and observability into how they are used.&lt;/p&gt;
+
+
+
+&lt;p&gt;Earlier this year, we started seeing developers create collections of prompts combined with configuration for agents to use. Over a short time, the Agent Skill &lt;a href="https://agentskills.io/specification" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;specification&lt;/a&gt; for a skill file was forged; written in &lt;a href="https://thenewstack.io/obsidian-and-the-case-for-using-more-markdown/" class="local-link"&gt;Markdown&lt;/a&gt; with some YAML frontmatter. And a skill remains the best way to impart specific enterprise knowledge to any agent.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-agent-skill-libraries-multiply"&gt;&lt;strong&gt;Agent skill libraries multiply&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Speakeasy has a simple message about skills in the enterprise. As organizations adopt AI agents, they&amp;rsquo;re rapidly building libraries of skills &amp;mdash; as deployment runbooks, code review checklists, style guides, incident procedures, internal workflows, and other company-specific knowledge.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The problem is that these skills libraries are growing faster than companies can manage. Skills end up scattered across repositories, local machines, Slack threads, and plugins, leaving teams without a clear view of what exists, which version is current, and who owns a given skill.&lt;/p&gt;
+
+
+
+&lt;p&gt;Speakeasy claims &amp;ldquo;one mid-sized fintech customer recently discovered more than 500 unique AI skills in use across the company.&amp;rdquo; This is because AI experimentation has always been a personal endeavor first and foremost. Using a chatbot feels private; even Claude Code still talks to you like a chatbot. So sharing your prompts with the team may not happen immediately. And this fuels a lot of reinventing the wheel as employees create similar skills without knowing what the other is doing.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-centralizing-skill-management"&gt;&lt;strong&gt;Centralizing skill management&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;To solve for this, Speakeasy starts by treating a skill as a new enterprise artifact that needs some kind of centralized registration &amp;mdash; what the company has branded Skills Management.&lt;/p&gt;
+
+
+
+&lt;p&gt;Skills Management treats skills similarly to how git treats code &amp;mdash; a registry of immutable versions, and a shared view of what exists. So if you edit an existing skill, you get a new version. But Speakeasy also adds a degree of observability, so the enterprise knows which skills get used most, and how many times different departments are writing similar things. Better still, if a skill underperforms (that is, the agent that uses it notes problems while executing), an LLM judge can analyze it and suggest improvements.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Skills Management forces the user to abide by the aforementioned Agent Skills specification when creating a skill file so that it can use the frontmatter name as canonical. Attempting to enter the same content under a different name is ignored.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-immutable-versions-and-access"&gt;&lt;strong&gt;Immutable versions and access&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Scoped access allows roles to be formed around who can create and curate skills, and who can consume them.&lt;/p&gt;
+
+
+
+&lt;p&gt;This combination of skills being monitored by Speakeasy&amp;rsquo;s control plane as agents use them is clearly better than just herding skill files into a git repository.&lt;/p&gt;
+
+
+
+&lt;p&gt;Validating skills against the Agent Skills specification is a very good idea. Markdown is, after all, basically English with some symbols. But some optional entries in the frontmatter like &amp;ldquo;license&amp;rdquo; could use an enterprise template to keep the process simple.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Sagar tells &lt;em&gt;The New Stack&lt;/em&gt; that he hasn&amp;rsquo;t seen this come up with customers yet.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We don&amp;rsquo;t currently have a first-party concept of a company-specific template,&amp;rdquo; he says. &amp;ldquo;However, companies could create a skill for validating skills that could be introduced into our LLM-as-judge process.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;We track metadata for each skill so admins can quickly see which skills are maintained (last updated) as well as frequency of use (and spread amongst team members).&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;So, would it be easy for a human (or process) to stop the latest bad change spreading?&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Yes,&amp;rdquo; says Sagar. &amp;ldquo;We track metadata for each skill so admins can quickly see which skills are maintained (last updated) as well as frequency of use (and spread amongst team members). And we&amp;rsquo;re actively developing some auto-categorization features.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;That term &amp;ldquo;admin&amp;rdquo; leads to another issue for larger enterprises. A lot of different roles may need to come together to work across company skills. You may want a security expert to suggest a new version of a skill but, more crucially, &lt;em&gt;invalidate existing skill&lt;/em&gt; versions. However, you wouldn&amp;rsquo;t want them to be able to edit the content of an existing skill. Can that be represented?&lt;/p&gt;
+
+
+
+&lt;p&gt;Sagar explains that skill versions are immutable: &amp;ldquo;It isn&amp;#8217;t possible to update a skill version.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;However, &amp;ldquo;When you publish a new skill version, existing versions are &amp;lsquo;unpublished&amp;rsquo; by an automation. This addresses both points in this scenario: A security expert would draft a new version of the skill, publishing it would yank the old versions from employees&amp;#8217; machines, and our observability stack surfaces any discrepancies &amp;mdash; for example, lagging plugin versions or deliberate local copies. Old versions can be rolled back where appropriate.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;However, for security reasons, there is no concept of version pinning a skill at the moment.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;What seems genuinely smart about this Speakeasy system is that it understands how a skill starts on a dev&amp;rsquo;s laptop, and needs promotion through the enterprise to become fully adopted, which exposes more issues about roles.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;There will be a lot of UI needed for the manager who needs to identify how quickly the promotion is working &amp;mdash; but who has no interest in any other aspect of the skills themselves.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Because skills follow the Agent skills open format, there is nothing proprietary in terms of how we store skills.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-enterprise-skill-portability"&gt;&lt;strong&gt;Enterprise skill portability&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;With any system that builds knowledge, the user has to know how to leave it. Sagar says Speakeasy has this covered: &amp;ldquo;Because skills follow the Agent skills open format, there is nothing proprietary in terms of how we store skills. Users are free to export their skills corpus and move them to another platform. We also offer a path that allows users to clone all their MCP servers and skills to a GitHub repo, so they&amp;rsquo;re free to leave when they want.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Enterprises are in the middle of containing the explosion of internal AI agents, as well as asking whether the increased token costs are truly worth it. This type of management and observability platform will play an increasing part in judging the true value in the Agent Era.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/speakeasy-enterprise-agent-skills/"&gt;AI skills start on laptops. Enterprises inherit the mess.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Speakeasy&amp;#039;s Skills Management now brings versioning, access controls and observability to the fast-growing libraries of AI agent skills inside enterprises.</content:encoded>
+    </item>
     <item>
       <title>Auto Mode will soon be the default in Claude Code — because humans can’t be trusted</title>
       <link>https://web.archive.org/web/https://thenewstack.io/claude-code-auto-mode/</link>
@@ -55,7 +754,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img fetchpriority="high" decoding="async" width="1024" height="631" src="https://cdn.thenewstack.io/media/2026/08/54ffa374-hpi2quja8aaun3e-1024x631.jpeg" alt="" class="wp-image-22833104"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Anthropic&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="631" src="https://cdn.thenewstack.io/media/2026/08/54ffa374-hpi2quja8aaun3e-1024x631.jpeg" alt="" class="wp-image-22833104"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Anthropic&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -139,7 +838,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="666" src="https://cdn.thenewstack.io/media/2026/08/4674a74b-6a75fafde538ce42b19d5742_image3-2-1024x666.png" alt="" class="wp-image-22833105"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Anthropic.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="666" src="https://cdn.thenewstack.io/media/2026/08/4674a74b-6a75fafde538ce42b19d5742_image3-2-1024x666.png" alt="" class="wp-image-22833105"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Anthropic.&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -175,7 +874,7 @@
       <category>AI Strategy</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22833053</guid>
-      <description>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/07/a2d3970a-and-machines-wjdr7cya8ts-unsplash-1-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful grid of translucent blocks surrounded by glowing blue fiber-optic strands against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a2d3970a-and-machines-wjdr7cya8ts-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;OpenAI is reducing&amp;#160;work on Astra after internal testing indicated the upcoming model may have reached a cybersecurity limit that no&lt;/p&gt;
+      <description>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/07/a2d3970a-and-machines-wjdr7cya8ts-unsplash-1-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful grid of translucent blocks surrounded by glowing blue fiber-optic strands against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a2d3970a-and-machines-wjdr7cya8ts-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;OpenAI is reducing&amp;#160;work on Astra after internal testing indicated the upcoming model may have reached a cybersecurity limit that no&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-astra-cybersecurity-delay/"&gt;The AI model OpenAI won&amp;#8217;t release yet — and what it found in testing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/07/a2d3970a-and-machines-wjdr7cya8ts-unsplash-1-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful grid of translucent blocks surrounded by glowing blue fiber-optic strands against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/a2d3970a-and-machines-wjdr7cya8ts-unsplash-1-scaled.jpg" /&gt;
@@ -1727,223 +2426,6 @@
       <content:encoded>Todoist&amp;#039;s maker is betting that generative models should translate intent into predictable code rather than remain in the execution loop.</content:encoded>
     </item>
     <item>
-      <title>“Just rewrite it”: What platform teams really think about modernization</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/nutanix-dual-native-architecture/</link>
-      <dc:creator>Aarthi Mahesh</dc:creator>
-      <pubDate>Thu, 06 Aug 2026 16:00:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Kubernetes</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-nutanix</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832865</guid>
-      <description>&lt;img width="1024" height="833" src="https://cdn.thenewstack.io/media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-1024x833.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful illustration of a diverse crowd of people with varied hairstyles, clothing and expressions gathered closely together." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-scaled.jpg" /&gt;&lt;p&gt;Mergers, acquisitions, and the steady churn of business and technology initiatives are creating something nobody asked for: Duplicate infrastructure and&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nutanix-dual-native-architecture/"&gt;&amp;#8220;Just rewrite it&amp;#8221;: What platform teams really think about modernization&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="833" src="https://cdn.thenewstack.io/media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-1024x833.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful illustration of a diverse crowd of people with varied hairstyles, clothing and expressions gathered closely together." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Mergers, acquisitions, and the steady churn&lt;/strong&gt; of business and technology initiatives are creating something nobody asked for: Duplicate infrastructure and expertise.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Here&amp;#8217;s the typical split: A platform engineering team that owns cloud-native and Kubernetes workloads. Meanwhile, traditional IT holds the keys to virtual machine (VM) workloads. Two teams. Two domains. One budget. And the costs keep going up.&lt;/p&gt;
-
-
-
-&lt;p&gt;Even organizations that talk about standardizing on Kubernetes still have a substantial VM footprint. For many teams, this coexistence isn&amp;#8217;t a temporary transition state. It&amp;#8217;s the operating model.&lt;/p&gt;
-
-
-
-&lt;p&gt;On-premises, this split forces two separate environments. Each environment includes networking, servers, and storage. Such duplication can be structurally less cost-efficient than consolidation. VM-based mission-critical workloads aren&amp;#8217;t going away anytime soon.&lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s not like teams don&amp;#8217;t want to modernize. They absolutely do. But it&amp;#8217;s not as simple as just picking between old-school VMs or diving into Kubernetes. What&amp;#8217;s really happened is these two worlds have grown up on their own.&lt;/p&gt;
-
-
-
-&lt;p&gt;That kind of split often leads to extra infrastructure, more people doing the same jobs, slower projects, mixed-up governance, and budgets that keep ballooning. And when you&amp;#8217;re on-prem or working at the edge, running two separate setups for networking, compute, storage, and playbooks just doesn&amp;#8217;t make sense anymore.&lt;/p&gt;
-
-
-
-&lt;p&gt;To make matters worse, &amp;ldquo;just rewrite&amp;rdquo; bares its fangs on the modernization initiative. Finance and executive leadership see two teams running two tech stacks. It&amp;rsquo;s only natural that they reach for the obvious fix: Pick one team&amp;#8217;s platform, with no technology consideration, migrate everything to it, and watch the added cost disappear from the executive briefing slide and move to the CFO&amp;rsquo;s budget spreadsheet.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-rewrites-are-rarely-the-shortest-path-to-business-value"&gt;Rewrites are rarely the shortest path to business value&lt;/h2&gt;
-
-
-
-&lt;p&gt;Over time, we learned from our customers that &amp;#8220;rewrite it&amp;#8221; isn&amp;#8217;t a modernization strategy. Rather, it&amp;#8217;s a budget, risk, and timeline strategy all at once. In many cases, rewrite it doesn&amp;#8217;t make sense financially. The tech industry loves the idea of re-platforming and re-architecting legacy applications. Even then, such a move only returns your enterprise to square one and functional parity. The more realistic path is to keep mission-critical applications as-is when scaling out cloud-native platforms to deliver new value.&lt;/p&gt;
-
-
-
-&lt;p&gt;Moving everything to Kubernetes/cloud initiatives won&amp;#8217;t prevent two platforms either. Such initiatives often stall because some workloads don&amp;#8217;t fit or take far longer than planned.&lt;/p&gt;
-
-
-
-&lt;p&gt;The economics of rewrites don&amp;#8217;t disappear just because AI accelerates software delivery. AI can compress the time it takes to write code. However, writing code was never the expensive part of a rewrite. The costs that dominate many rewrite budgets are judgment costs, and those remain stubbornly human.&lt;/p&gt;
-
-
-
-&lt;p&gt;Start with architecture. Organizations still need software engineering expertise to design the target system. That design problem has gotten harder, not easier. Cloud-native applications built on microservices for horizontal scaling bear little structural resemblance to the traditional enterprise applications they replace. Someone has to make those translation decisions and then spend the time directing the AI on what to build. That direction time is a real line item.&lt;/p&gt;
-
-
-
-&lt;p&gt;Validation is the next cost that survives. When customers or employees depend on a piece of software, even small behavioral changes are disruptive, making it non-negotiable to prove feature parity. Testing and validating that parity remains heavily human work. AI can generate test cases. It can&amp;#8217;t tell you which broken workflow will cost you a customer.&lt;/p&gt;
-
-
-
-&lt;p&gt;Then comes the data. Teams must migrate and adapt data to the new system, and that work almost always surfaces complexities nobody scoped, including undocumented dependencies and format assumptions baked into decades of records. No amount of generation speed on the code side makes the data side move faster.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The rewrite math changes shape with AI. It doesn&amp;#8217;t shrink to zero. The spend shifts from writing software to decision-making, verification, and migration.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The rewrite math changes shape with AI. It doesn&amp;#8217;t shrink to zero. The spend shifts from writing software to decision-making, verification, and migration.&lt;/p&gt;
-
-
-
-&lt;p&gt;We see the same pattern repeat with rewrites among our customers. They keep mission-critical systems running as they are. Then they build new value with cloud-native applications in parallel. Modernizing selectively only when it&amp;#8217;s truly worth it.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-real-gap-is-operational-nbsp"&gt;The real gap is operational&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The gap we see isn&amp;#8217;t philosophical &amp;mdash; VMs versus containers &amp;mdash; it&amp;#8217;s operational. The tooling, workflows, and skills that define VM and cloud-native operations differ. If platform teams can&amp;#8217;t deliver these services at the expected velocity, developers will blame the platform. When developers are accustomed to provisioning core services in minutes, any friction in on-prem or edge environments is perceived as the platform adding friction or slowing delivery.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The gap we see isn&amp;#8217;t philosophical &amp;mdash; VMs versus containers &amp;mdash; it&amp;#8217;s operational.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Historically, day-to-day operations in VM environments are UI-driven. Cloud-native environments are much more command-line interface (CLI) driven, where APIs, config files, and the terminal are the center of gravity. That gap becomes both an organizational and technical constraint. Moving from UI-driven operations to deep command-line interface (CLI)/config workflows isn&amp;#8217;t a natural step without a significant shift in the team&amp;#8217;s capabilities.&lt;/p&gt;
-
-
-
-&lt;p&gt;The operational gap shows up quickly in data services. Cloud-native workloads don&amp;#8217;t just need compute. They need databases, object storage, file, and block services delivered at cloud-like speed. And despite the myth that containers are stateless, the reality is that most meaningful workloads have state somewhere as data, logs, metrics, or dependencies that must be handled consistently.&lt;/p&gt;
-
-
-
-&lt;p&gt;Another notable gap is that storage consumption differs:&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Cloud-native apps often need multiple storage types simultaneously&lt;/li&gt;
-
-
-
-&lt;li&gt;VM workloads historically rely on straightforward block storage&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;The public cloud, by shaping cloud-native expectations, further contributes to the gap. Developers can click to get a database, such as Amazon Relational Database Service (RDS), and object storage, such as Amazon Simple Storage Service (S3), is just there. Developers expect this level of self-service simplicity when these platforms are extended beyond the public cloud, which isn&amp;#8217;t always something platform teams are prepared for.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-edge-ai-is-turning-fragmentation-into-a-business-risk"&gt;Edge + AI is turning fragmentation into a business risk&lt;/h2&gt;
-
-
-
-&lt;p&gt;Today, edge and disconnected environments, such as air-gapped computing, have moved from niche use cases to mainstream constraints. When connectivity is intermittent or when latency matters, platform assumptions change. In these environments, reliability isn&amp;#8217;t an IT metric. It&amp;#8217;s a business outcome. Even minutes of downtime can cause major financial loss. It&amp;#8217;s also a sign that data gravity is driving more pragmatic architectural conversations about the growing need to locate compute and data services closer to where data is generated.&lt;/p&gt;
-
-
-
-&lt;p&gt;AI raises the stakes further. If you&amp;#8217;re collecting data at the edge, shipping it away for processing and pulling results back can be too slow and too expensive.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-our-platform-demands-before-betting-on-it"&gt;Our platform demands before betting on it&lt;/h2&gt;
-
-
-
-&lt;p&gt;Before we&amp;#8217;d bet on any platform, we&amp;#8217;d ask a basic question: Can a single team operate both VM and Kubernetes environments without duplicating the entire organization? We&amp;#8217;d insist on consistent governance: security controls and role-based access control (RBAC) should not fracture just because workloads are deployed differently.&lt;/p&gt;
-
-
-
-&lt;p&gt;We&amp;#8217;d also look for cloud-like data services &amp;mdash; object, file, block, and database capabilities &amp;mdash; delivered quickly enough to keep developers moving toward their delivery targets, and designed to scale easily as application usage expands.&lt;/p&gt;
-
-
-
-&lt;p&gt;Then we would evaluate whether the platform helps reduce on-prem duplication. If it forces parallel networking, storage, and operational runbooks, the cost structure won&amp;#8217;t improve.&lt;/p&gt;
-
-
-
-&lt;p&gt;Finally, we&amp;#8217;d scrutinize lifecycle operations, including patching, upgrades, and maintenance, because &amp;#8220;heroic&amp;#8221; weekend work isn&amp;#8217;t a sustainable strategy.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-dual-native-architecture-is-the-pragmatic-model"&gt;Dual native architecture is the pragmatic model&lt;/h2&gt;
-
-
-
-&lt;p id="h-we-use-dual-native-to-reject-the-binary-choice-enterprises-need-platforms-that-are-both-vm-native-and-container-native-some-workloads-benefit-from-the-operational-efficiency-of-virtualization-others-are-sensitive-to-latency-or-specialized-hardware-and-are-better-served-on-bare-metal-a-one-size-fits-all-mandate-creates-friction-on-both-sides"&gt;We use &amp;#8220;dual native&amp;#8221; to reject the binary choice. Enterprises need platforms that are both VM-native and container-native. Some workloads benefit from the operational efficiency of virtualization. Others are sensitive to latency or specialized hardware and are better served on bare metal. A one-size-fits-all mandate creates friction on both sides.&lt;/p&gt;
-
-
-
-&lt;p&gt;Dual native platform architecture isn&amp;#8217;t just integration. It&amp;#8217;s the one operational model that treats VMs and containers as first-class citizens. Teams no longer have to pick one architecture or stitch together separate stacks. In this model, organizations can keep mission-critical VM workloads running while building and scaling new cloud-native applications. Teams can maintain consistent management, governance, lifecycle operations, and cloud-like data services across VMs and bare metal servers across globally distributed infrastructure.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-nkp-and-nkp-metal-as-a-dual-native-architecture"&gt;NKP and NKP Metal as a dual native architecture&lt;/h2&gt;
-
-
-
-&lt;p&gt;Nutanix Kubernetes Platform (NKP) solution with NKP Metal, which extends the Nutanix operating model and the NKP solution, supports Kubernetes deployments directly on bare-metal infrastructure. This solution provides unified Kubernetes operations, shared data services, centralized visibility, and automated bare-metal lifecycle management to support a dual native platform architecture.&lt;/p&gt;
-
-
-
-&lt;p&gt;Our approach with NKP starts with the premise that VM and bare-metal Kubernetes should operate under a consistent model rather than be split into separate toolchains and teams. To that end, a major focus has been on unified data services across deployment targets so the storage layer doesn&amp;#8217;t become the breaking point when workloads span VMs and bare metal. We also purposefully centralize day-to-day operations and visibility across VMs and Containers in NKP so teams aren&amp;#8217;t forced to manage two worlds with two separate management planes.&lt;/p&gt;
-
-
-
-&lt;p&gt;NKP Metal addresses lifecycle management, one of the biggest challenges of running bare metal at scale, including host OS setup, patching, and upgrades without resorting to late-night or holiday/weekend manual maintenance windows.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-s-next"&gt;What&amp;rsquo;s next&lt;/h2&gt;
-
-
-
-&lt;p&gt;Some things we know with confidence. VM workloads aren&amp;#8217;t disappearing &amp;mdash; the coexistence of VMs and containers will remain the operating model for many enterprises well into the next decade. Edge and AI workloads will likely continue to pull compute toward where data is generated, and budget pressure on duplicated infrastructure will likely only intensify.&lt;/p&gt;
-
-
-
-&lt;p&gt;What we don&amp;#8217;t know is the pace. How quickly enterprises consolidate two platform teams into one depends on skills, internal politics, and licensing decisions, which vary widely from one enterprise to the next. Nobody can credibly predict a timeline there.&lt;/p&gt;
-
-
-
-&lt;p&gt;What we think is coming: AI inference at the edge will make bare metal a first-class deployment target rather than a special case, and platform teams will be judged less on which architecture they picked and more on whether developers can self-serve their own infrastructure, including data services, without opening a ticket.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The path forward is about building an operational foundation that accepts reality where VMs, containers, and bare metal coexist under a unified model.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The path forward is about building an operational foundation that accepts reality where VMs, containers, and bare metal coexist under a unified model. Enterprises that will thrive in this future are those adopting dual-native approaches that are ready for whatever comes next. &amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nutanix-dual-native-architecture/"&gt;&amp;#8220;Just rewrite it&amp;#8221;: What platform teams really think about modernization&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Nutanix unifies VMs, Kubernetes and bare metal under one operational model, reducing duplicate infrastructure and supporting edge AI and cloud-native data.</content:encoded>
-    </item>
-    <item>
       <title>Say goodbye to K8s GPU pain: How DRA changes everything</title>
       <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-dra-gpu-scheduling/</link>
       <dc:creator>Dawood Abbas</dc:creator>
@@ -2197,6 +2679,223 @@ spec:
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-dra-gpu-scheduling/"&gt;Say goodbye to K8s GPU pain: How DRA changes everything&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Discover how Dynamic Resource Allocation in Kubernetes fixes GPU scheduling pain, eliminates MIG waste, and stops cluster OOM errors.</content:encoded>
+    </item>
+    <item>
+      <title>“Just rewrite it”: What platform teams really think about modernization</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/nutanix-dual-native-architecture/</link>
+      <dc:creator>Aarthi Mahesh</dc:creator>
+      <pubDate>Thu, 06 Aug 2026 16:00:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>Kubernetes</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-nutanix</category>
+      <category>Sponsored</category>
+      <category>sponsored-post</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832865</guid>
+      <description>&lt;img width="1024" height="833" src="https://cdn.thenewstack.io/media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-1024x833.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful illustration of a diverse crowd of people with varied hairstyles, clothing and expressions gathered closely together." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-scaled.jpg" /&gt;&lt;p&gt;Mergers, acquisitions, and the steady churn of business and technology initiatives are creating something nobody asked for: Duplicate infrastructure and&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nutanix-dual-native-architecture/"&gt;&amp;#8220;Just rewrite it&amp;#8221;: What platform teams really think about modernization&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="833" src="https://cdn.thenewstack.io/media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-1024x833.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Colorful illustration of a diverse crowd of people with varied hairstyles, clothing and expressions gathered closely together." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/57b121f2-summertime-flag-bb5uc0lhlfe-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Mergers, acquisitions, and the steady churn&lt;/strong&gt; of business and technology initiatives are creating something nobody asked for: Duplicate infrastructure and expertise.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Here&amp;#8217;s the typical split: A platform engineering team that owns cloud-native and Kubernetes workloads. Meanwhile, traditional IT holds the keys to virtual machine (VM) workloads. Two teams. Two domains. One budget. And the costs keep going up.&lt;/p&gt;
+
+
+
+&lt;p&gt;Even organizations that talk about standardizing on Kubernetes still have a substantial VM footprint. For many teams, this coexistence isn&amp;#8217;t a temporary transition state. It&amp;#8217;s the operating model.&lt;/p&gt;
+
+
+
+&lt;p&gt;On-premises, this split forces two separate environments. Each environment includes networking, servers, and storage. Such duplication can be structurally less cost-efficient than consolidation. VM-based mission-critical workloads aren&amp;#8217;t going away anytime soon.&lt;/p&gt;
+
+
+
+&lt;p&gt;It&amp;#8217;s not like teams don&amp;#8217;t want to modernize. They absolutely do. But it&amp;#8217;s not as simple as just picking between old-school VMs or diving into Kubernetes. What&amp;#8217;s really happened is these two worlds have grown up on their own.&lt;/p&gt;
+
+
+
+&lt;p&gt;That kind of split often leads to extra infrastructure, more people doing the same jobs, slower projects, mixed-up governance, and budgets that keep ballooning. And when you&amp;#8217;re on-prem or working at the edge, running two separate setups for networking, compute, storage, and playbooks just doesn&amp;#8217;t make sense anymore.&lt;/p&gt;
+
+
+
+&lt;p&gt;To make matters worse, &amp;ldquo;just rewrite&amp;rdquo; bares its fangs on the modernization initiative. Finance and executive leadership see two teams running two tech stacks. It&amp;rsquo;s only natural that they reach for the obvious fix: Pick one team&amp;#8217;s platform, with no technology consideration, migrate everything to it, and watch the added cost disappear from the executive briefing slide and move to the CFO&amp;rsquo;s budget spreadsheet.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-rewrites-are-rarely-the-shortest-path-to-business-value"&gt;Rewrites are rarely the shortest path to business value&lt;/h2&gt;
+
+
+
+&lt;p&gt;Over time, we learned from our customers that &amp;#8220;rewrite it&amp;#8221; isn&amp;#8217;t a modernization strategy. Rather, it&amp;#8217;s a budget, risk, and timeline strategy all at once. In many cases, rewrite it doesn&amp;#8217;t make sense financially. The tech industry loves the idea of re-platforming and re-architecting legacy applications. Even then, such a move only returns your enterprise to square one and functional parity. The more realistic path is to keep mission-critical applications as-is when scaling out cloud-native platforms to deliver new value.&lt;/p&gt;
+
+
+
+&lt;p&gt;Moving everything to Kubernetes/cloud initiatives won&amp;#8217;t prevent two platforms either. Such initiatives often stall because some workloads don&amp;#8217;t fit or take far longer than planned.&lt;/p&gt;
+
+
+
+&lt;p&gt;The economics of rewrites don&amp;#8217;t disappear just because AI accelerates software delivery. AI can compress the time it takes to write code. However, writing code was never the expensive part of a rewrite. The costs that dominate many rewrite budgets are judgment costs, and those remain stubbornly human.&lt;/p&gt;
+
+
+
+&lt;p&gt;Start with architecture. Organizations still need software engineering expertise to design the target system. That design problem has gotten harder, not easier. Cloud-native applications built on microservices for horizontal scaling bear little structural resemblance to the traditional enterprise applications they replace. Someone has to make those translation decisions and then spend the time directing the AI on what to build. That direction time is a real line item.&lt;/p&gt;
+
+
+
+&lt;p&gt;Validation is the next cost that survives. When customers or employees depend on a piece of software, even small behavioral changes are disruptive, making it non-negotiable to prove feature parity. Testing and validating that parity remains heavily human work. AI can generate test cases. It can&amp;#8217;t tell you which broken workflow will cost you a customer.&lt;/p&gt;
+
+
+
+&lt;p&gt;Then comes the data. Teams must migrate and adapt data to the new system, and that work almost always surfaces complexities nobody scoped, including undocumented dependencies and format assumptions baked into decades of records. No amount of generation speed on the code side makes the data side move faster.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The rewrite math changes shape with AI. It doesn&amp;#8217;t shrink to zero. The spend shifts from writing software to decision-making, verification, and migration.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The rewrite math changes shape with AI. It doesn&amp;#8217;t shrink to zero. The spend shifts from writing software to decision-making, verification, and migration.&lt;/p&gt;
+
+
+
+&lt;p&gt;We see the same pattern repeat with rewrites among our customers. They keep mission-critical systems running as they are. Then they build new value with cloud-native applications in parallel. Modernizing selectively only when it&amp;#8217;s truly worth it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-real-gap-is-operational-nbsp"&gt;The real gap is operational&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The gap we see isn&amp;#8217;t philosophical &amp;mdash; VMs versus containers &amp;mdash; it&amp;#8217;s operational. The tooling, workflows, and skills that define VM and cloud-native operations differ. If platform teams can&amp;#8217;t deliver these services at the expected velocity, developers will blame the platform. When developers are accustomed to provisioning core services in minutes, any friction in on-prem or edge environments is perceived as the platform adding friction or slowing delivery.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The gap we see isn&amp;#8217;t philosophical &amp;mdash; VMs versus containers &amp;mdash; it&amp;#8217;s operational.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Historically, day-to-day operations in VM environments are UI-driven. Cloud-native environments are much more command-line interface (CLI) driven, where APIs, config files, and the terminal are the center of gravity. That gap becomes both an organizational and technical constraint. Moving from UI-driven operations to deep command-line interface (CLI)/config workflows isn&amp;#8217;t a natural step without a significant shift in the team&amp;#8217;s capabilities.&lt;/p&gt;
+
+
+
+&lt;p&gt;The operational gap shows up quickly in data services. Cloud-native workloads don&amp;#8217;t just need compute. They need databases, object storage, file, and block services delivered at cloud-like speed. And despite the myth that containers are stateless, the reality is that most meaningful workloads have state somewhere as data, logs, metrics, or dependencies that must be handled consistently.&lt;/p&gt;
+
+
+
+&lt;p&gt;Another notable gap is that storage consumption differs:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Cloud-native apps often need multiple storage types simultaneously&lt;/li&gt;
+
+
+
+&lt;li&gt;VM workloads historically rely on straightforward block storage&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;The public cloud, by shaping cloud-native expectations, further contributes to the gap. Developers can click to get a database, such as Amazon Relational Database Service (RDS), and object storage, such as Amazon Simple Storage Service (S3), is just there. Developers expect this level of self-service simplicity when these platforms are extended beyond the public cloud, which isn&amp;#8217;t always something platform teams are prepared for.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-edge-ai-is-turning-fragmentation-into-a-business-risk"&gt;Edge + AI is turning fragmentation into a business risk&lt;/h2&gt;
+
+
+
+&lt;p&gt;Today, edge and disconnected environments, such as air-gapped computing, have moved from niche use cases to mainstream constraints. When connectivity is intermittent or when latency matters, platform assumptions change. In these environments, reliability isn&amp;#8217;t an IT metric. It&amp;#8217;s a business outcome. Even minutes of downtime can cause major financial loss. It&amp;#8217;s also a sign that data gravity is driving more pragmatic architectural conversations about the growing need to locate compute and data services closer to where data is generated.&lt;/p&gt;
+
+
+
+&lt;p&gt;AI raises the stakes further. If you&amp;#8217;re collecting data at the edge, shipping it away for processing and pulling results back can be too slow and too expensive.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-our-platform-demands-before-betting-on-it"&gt;Our platform demands before betting on it&lt;/h2&gt;
+
+
+
+&lt;p&gt;Before we&amp;#8217;d bet on any platform, we&amp;#8217;d ask a basic question: Can a single team operate both VM and Kubernetes environments without duplicating the entire organization? We&amp;#8217;d insist on consistent governance: security controls and role-based access control (RBAC) should not fracture just because workloads are deployed differently.&lt;/p&gt;
+
+
+
+&lt;p&gt;We&amp;#8217;d also look for cloud-like data services &amp;mdash; object, file, block, and database capabilities &amp;mdash; delivered quickly enough to keep developers moving toward their delivery targets, and designed to scale easily as application usage expands.&lt;/p&gt;
+
+
+
+&lt;p&gt;Then we would evaluate whether the platform helps reduce on-prem duplication. If it forces parallel networking, storage, and operational runbooks, the cost structure won&amp;#8217;t improve.&lt;/p&gt;
+
+
+
+&lt;p&gt;Finally, we&amp;#8217;d scrutinize lifecycle operations, including patching, upgrades, and maintenance, because &amp;#8220;heroic&amp;#8221; weekend work isn&amp;#8217;t a sustainable strategy.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-dual-native-architecture-is-the-pragmatic-model"&gt;Dual native architecture is the pragmatic model&lt;/h2&gt;
+
+
+
+&lt;p id="h-we-use-dual-native-to-reject-the-binary-choice-enterprises-need-platforms-that-are-both-vm-native-and-container-native-some-workloads-benefit-from-the-operational-efficiency-of-virtualization-others-are-sensitive-to-latency-or-specialized-hardware-and-are-better-served-on-bare-metal-a-one-size-fits-all-mandate-creates-friction-on-both-sides"&gt;We use &amp;#8220;dual native&amp;#8221; to reject the binary choice. Enterprises need platforms that are both VM-native and container-native. Some workloads benefit from the operational efficiency of virtualization. Others are sensitive to latency or specialized hardware and are better served on bare metal. A one-size-fits-all mandate creates friction on both sides.&lt;/p&gt;
+
+
+
+&lt;p&gt;Dual native platform architecture isn&amp;#8217;t just integration. It&amp;#8217;s the one operational model that treats VMs and containers as first-class citizens. Teams no longer have to pick one architecture or stitch together separate stacks. In this model, organizations can keep mission-critical VM workloads running while building and scaling new cloud-native applications. Teams can maintain consistent management, governance, lifecycle operations, and cloud-like data services across VMs and bare metal servers across globally distributed infrastructure.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-nkp-and-nkp-metal-as-a-dual-native-architecture"&gt;NKP and NKP Metal as a dual native architecture&lt;/h2&gt;
+
+
+
+&lt;p&gt;Nutanix Kubernetes Platform (NKP) solution with NKP Metal, which extends the Nutanix operating model and the NKP solution, supports Kubernetes deployments directly on bare-metal infrastructure. This solution provides unified Kubernetes operations, shared data services, centralized visibility, and automated bare-metal lifecycle management to support a dual native platform architecture.&lt;/p&gt;
+
+
+
+&lt;p&gt;Our approach with NKP starts with the premise that VM and bare-metal Kubernetes should operate under a consistent model rather than be split into separate toolchains and teams. To that end, a major focus has been on unified data services across deployment targets so the storage layer doesn&amp;#8217;t become the breaking point when workloads span VMs and bare metal. We also purposefully centralize day-to-day operations and visibility across VMs and Containers in NKP so teams aren&amp;#8217;t forced to manage two worlds with two separate management planes.&lt;/p&gt;
+
+
+
+&lt;p&gt;NKP Metal addresses lifecycle management, one of the biggest challenges of running bare metal at scale, including host OS setup, patching, and upgrades without resorting to late-night or holiday/weekend manual maintenance windows.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-s-next"&gt;What&amp;rsquo;s next&lt;/h2&gt;
+
+
+
+&lt;p&gt;Some things we know with confidence. VM workloads aren&amp;#8217;t disappearing &amp;mdash; the coexistence of VMs and containers will remain the operating model for many enterprises well into the next decade. Edge and AI workloads will likely continue to pull compute toward where data is generated, and budget pressure on duplicated infrastructure will likely only intensify.&lt;/p&gt;
+
+
+
+&lt;p&gt;What we don&amp;#8217;t know is the pace. How quickly enterprises consolidate two platform teams into one depends on skills, internal politics, and licensing decisions, which vary widely from one enterprise to the next. Nobody can credibly predict a timeline there.&lt;/p&gt;
+
+
+
+&lt;p&gt;What we think is coming: AI inference at the edge will make bare metal a first-class deployment target rather than a special case, and platform teams will be judged less on which architecture they picked and more on whether developers can self-serve their own infrastructure, including data services, without opening a ticket.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The path forward is about building an operational foundation that accepts reality where VMs, containers, and bare metal coexist under a unified model.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The path forward is about building an operational foundation that accepts reality where VMs, containers, and bare metal coexist under a unified model. Enterprises that will thrive in this future are those adopting dual-native approaches that are ready for whatever comes next. &amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nutanix-dual-native-architecture/"&gt;&amp;#8220;Just rewrite it&amp;#8221;: What platform teams really think about modernization&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Nutanix unifies VMs, Kubernetes and bare metal under one operational model, reducing duplicate infrastructure and supporting edge AI and cloud-native data.</content:encoded>
     </item>
     <item>
       <title>Anthropic recommends a git worktree per agent. Your runtime infra makes that a problem.</title>
@@ -3375,638 +4074,6 @@ spec:
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-software-delivery-architecture/"&gt;Claude, Gemini, and GPT-5 can handle every SDLC task. Almost none of them should.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Discover why AI-native software delivery requires specialized models, AI control planes, and architecture—not just one frontier LLM.</content:encoded>
-    </item>
-    <item>
-      <title>Alibaba Qwen3.8-Max reactions: “An API business model wearing an open source jacket”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/alibaba-qwen3-8-max-reactions/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 14:47:35 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Models</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832632</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/de5fb286-ian-mikraz-gabr_fncz4u-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Black-and-white illustration of a diverse crowd with varied hairstyles, clothing and facial expressions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/de5fb286-ian-mikraz-gabr_fncz4u-unsplash-scaled.jpg" /&gt;&lt;p&gt;Alibaba this week announced the launch of Qwen3.8-Max. The most powerful model in the Qwen series to date, this multimodal&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/alibaba-qwen3-8-max-reactions/"&gt;Alibaba Qwen3.8-Max reactions: &amp;#8220;An API business model wearing an open source jacket&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/de5fb286-ian-mikraz-gabr_fncz4u-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Black-and-white illustration of a diverse crowd with varied hairstyles, clothing and facial expressions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/de5fb286-ian-mikraz-gabr_fncz4u-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Alibaba this week &lt;a href="https://thenewstack.io/qwen-autonomous-coding-audit/?utm_campaign=21092976-TNS%20Daily&amp;amp;utm_medium=email&amp;amp;_hsenc=p2ANqtz-_mfadiM9cLIhabaezv4EKkgAJf0zaOJ4NYFTlRKTSQ8jI8uBLBa4c5Hf9oc0kq3TovUc6RGqdM2144uVtF029ORH3B8KhHgug5Kxpqomqh2jyP5gM&amp;amp;_hsmi=431429654&amp;amp;utm_content=431429654&amp;amp;utm_source=hs_email" class="local-link"&gt;announced the launch&lt;/a&gt; of &lt;a href="https://qwen.ai/blog?id=qwen3.8" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Qwen3.8-Max&lt;/a&gt;. The most powerful model in the Qwen series to date, this multimodal model ships with 2.4 trillion parameters, internal variables that the model adjusts to determine reasoning as it trains.&lt;/p&gt;
-
-
-
-&lt;p&gt;Built upon the architectural foundation of Qwen 3.5, Qwen3.8-Max supports a context window of up to 1 million tokens, allowing it to process massive codebases or hundreds of pages of documentation to perform so-called &lt;a href="https://www.ai21.com/glossary/ai-agent/what-are-long-horizon-tasks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;long-horizon tasks&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;The model employs a sparse &lt;a href="https://huggingface.co/blog/moe#what-is-a-mixture-of-experts-moe" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;mixture-of-experts&lt;/a&gt; design for more efficient operations and &lt;a href="https://huggingface.co/blog/jlopez-dl/hybrid-attention-game-changer" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;hybrid attention&lt;/a&gt; for memory efficiency and more efficient modeling and scaling across long contexts.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We are officially releasing Qwen 3.8-Max, the most capable model in the Qwen family to date. This also marks the first time we will open-source the weights of a Qwen-Max-class model &amp;#8211; the open weights will be released next week,&amp;rdquo; stated Alibaba.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-s-400-billion-parameters-between-friends"&gt;What&amp;rsquo;s 400 billion parameters between friends?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Reactions to this announcement center on number of parameters, although this is &lt;a href="https://medium.com/@anwarkhan-ai/your-million-token-context-window-is-making-your-agent-worse-9e29c998306e" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;not necessarily a guarantee of model competency&lt;/a&gt;. There&amp;#8217;s also the question of how close Alibaba&amp;rsquo;s Qwen is to other Chinese AI frontier model competitors, including &lt;a href="https://thenewstack.io/deepseek-v4-flash-open-weights/" class="local-link"&gt;DeepSeek&lt;/a&gt; and Moonshot AI. Moonshot AI&amp;#8217;s &lt;a href="https://thenewstack.io/kimi-k3-open-weight-coding/" class="local-link"&gt;Kimi K3 arrived last month&lt;/a&gt; with 2.8 trillion parameters &amp;mdash; but what&amp;rsquo;s 0.4 trillion or 400 billion parameters between friends?&lt;/p&gt;
-
-
-
-&lt;p&gt;Other points of interest include how it performs across core text and visual intelligence jobs, and where any new model sits on the &lt;a href="https://arena.ai/leaderboard" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Arena ranking leaderboard&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;All of which are worthy mechanisms for kicking the tires on any new model launch, but what arguably cuts the mustard in this discussion is what developers think.&lt;/p&gt;
-
-
-
-&lt;p&gt;Independent software engineering and AI consultant and self-styled chief AI officer at his &lt;a href="https://jeffbrokaw.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;eponymously named own operation&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/thejeffbrokaw/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jeff Brokaw&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that he&amp;rsquo;s been building this stuff since 2016 and he has an old habit: He reads the release notes before he reads the leaderboard.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The detail that actually interests me is buried&amp;#8230;. Alibaba is calling the weights open, but it has not shipped them,&amp;rdquo; Brokaw says. &amp;ldquo;The release notes say open weights are &amp;lsquo;promised to follow&amp;rsquo;, and Moonshot ran the identical play with Kimi K3 a few months back. That is not a technical footnote; that is the API business model wearing an open source jacket for the launch photo.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Alibaba&amp;#8217;s [rankings] are based on its own evaluation&amp;hellip; same-day benchmarks are a lab grading its own homework. Worth reading as ambition, not a settled ranking, until an outside party runs the same test.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Qwen3.8-Max ranks fifth in the text arena and ranks second in the vision arena, but both numbers came from Alibaba&amp;#8217;s own evaluation, published the same day as the launch, against a comparison set Alibaba itself picked,&amp;rdquo; Brokaw cautions. &amp;ldquo;Same-day benchmarks are a lab grading its own homework. Worth reading as ambition, not a settled ranking, until an outside party runs the same test.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-model-usage-share-is-not-the-number-worth-celebrating-yet"&gt;Model usage share is not the number worth celebrating, yet&lt;/h2&gt;
-
-
-
-&lt;p&gt;Brokaw explains that his software engineering approach is to ship AI in production, not slideware (as in grandiose claims made on PowerPoint, etc.), meaning &amp;ldquo;usage share is not the number worth celebrating yet&amp;rdquo; and that we should focus on adoption numbers. In his view, nothing in this launch explains what the gross margin looks like at 2.4 trillion parameters and a million tokens of context. That, he says, is the number that decides whether this is a business or an extremely expensive show of muscle.&lt;/p&gt;
-
-
-
-&lt;p&gt;Staff engineer at open source CMS company &lt;a href="https://umbraco.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Umbraco&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/phil-whittaker-82481716/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Phil Whittaker&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that he broadly agrees with the sentiment on rankings.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Benchmarks of the sort showcased here with Qwen3.8-Max will become less important as models become commoditized,&amp;rdquo; Whittaker says. &amp;ldquo;Speed and token efficiency will become a more important metric, but ultimately everything relies on the quality of the harness.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;In terms of how much developer oversight is genuinely required when Qwen3.8-Max is left to iterate through code generation, testing, and log analysis alone, Whittaker is similarly balanced.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;If the validation loop, instructions and harness employed with Qwen3.8-Max are good enough, then very little developer oversight is required. But I would also use antagonistic review agents from different model providers as further verification,&amp;rdquo; Whittaker adds. &amp;ldquo;These model rankings make interesting reading, but wouldn&amp;rsquo;t persuade me to switch to Qwen3.8-Max. The quality of the harness, integration with the model and competing products like CoWork from Claude and OpenAI still make these platforms market leaders.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Of the many comments already surfacing on the topic of Qwen3.8-Max on &lt;a href="https://news.ycombinator.com/item?id=49150470" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hacker News&lt;/a&gt;, there&amp;rsquo;s huge consensus around benchmark skepticism, some &lt;a href="https://news.ycombinator.com/threads?id=jamesrr39" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Chinese mistrust rhetoric&lt;/a&gt;&amp;hellip;&amp;nbsp; and, above all, the paramount need for a robust harness to be in place before this kind of open-weight model is used in production.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-yeah-you-built-a-castle-did-you-forget-about-a-moat"&gt;Yeah, you built a castle, did you forget about a moat?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Ajit Dhiwal (aka &lt;a href="https://news.ycombinator.com/user?id=me551ah" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;me551ah&lt;/a&gt;) reflects several comments made in relation to whether AI companies such as Alibaba have a &amp;ldquo;&lt;a href="https://www.informationdifference.com/moat-for-llms/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;moat&lt;/a&gt;&amp;rdquo; in place i.e. an enduring competitive advantage that is hard to replicate copy such as a patented algorithm, Facebook&amp;rsquo;s social graph, AWS&amp;rsquo;s scale and breath, or a prohibitive cost to switch platforms once deployed, such as SAP, Oracle, Salesforce, Snowflake and so on.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;LLMs do not learn or remember anything, which makes it super easy for users to switch LLMs on the fly,&amp;rdquo; writes Dhiwal. Most popular AI frameworks make this a one-liner change these days. This makes me wonder if the next iteration of LLMs would be based on fine-tuning, where LLMs actually learn from your past behavior so that it would grant some amount of stickiness to the product. OpenAI used to offer fine-tuning runs for GPT-3.5, but it doesn&amp;rsquo;t seem to do that anymore.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Senior staff software engineer for enterprise architecture &amp;amp; AI at &lt;a href="https://www.deere.com/en-us/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;John Deere&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/anwar-khan-ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anwar Khan&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that nobody has this Qwen3.8-Max&amp;nbsp; in production yet, including him, but he thinks the launch post rewards close reading, and the most useful things in it are in the footnotes.&lt;/p&gt;
-
-
-
-&lt;p&gt;Alibaba has noted that Qwen3.8-Max demonstrated &amp;ldquo;exceptional proficiency in autonomous coding and long-horizon execution&amp;rdquo;, operating independently over extended periods without human intervention. In internal testing, the model autonomously executed a real-world software engineering project over a 16-day period.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-oh-my-goodness-it-s-alibaba-oh-my-cli"&gt;Oh my goodness, it&amp;rsquo;s Alibaba oh-my-cli&lt;/h2&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The best analysis of how much human oversight is genuinely required here is in Alibaba&amp;#8217;s own writeup, and I mean that as a compliment,&amp;rdquo; Khan says. &amp;ldquo;Read the company&amp;rsquo;s description of the &lt;a href="https://github.com/qwen-code-dev-bot/oh-my-cli" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;oh-my-cli&lt;/a&gt; run (a self-evolving agent framework that has been fully open-sourced on GitHub): an issue state machine, a dispatcher, a monitor, a watchdog, and end-to-end tests plus continuous integration checks gating every merge.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;He reminds us that this test case saw 265 commits and 127 pull requests in sixteen days, every one admitted by passing tests, none by vibes.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The vendor did not trust the model for sixteen days either. They trusted the cage they built around it. That is the correct instinct, and the cage is the part worth copying,&amp;rdquo; Khan underlines.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;In terms of the million-token context window in Qwen3.8-Max, retrieval quality does not improve with window size,&amp;rdquo; clarifies Khan. &amp;ldquo;Stuff a million tokens in front of a model, and the passage you need competes with a mass of similar-looking material, and the failure mode is not a refusal you can catch. It is a confident answer assembled from the wrong section. Smaller, better-selected context beats bigger context in every production system I have worked on.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;He does concede that what the window genuinely buys is prototype speed, i.e., developers skip building retrieval on day one and still get a working demo, and this is real value.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It stops being an architecture at roughly the moment your corpus outgrows the demo, and the degradation is quiet, which is the worst kind,&amp;rdquo; he added.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Qwen3.8-Max is more than a benchmark story. It is an attempt to give enterprises a full alternative stack for building and operating agents. Qwen&amp;rsquo;s long-horizon coding demonstration is impressive, but a 16-day agent run changes the unit of risk.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-qwen3-8-max-matters-but-capacity-is-not-the-same-as-judgment"&gt;Qwen3.8-Max matters, but capacity is not the same as judgment&lt;/h2&gt;
-
-
-
-&lt;p&gt;Taking stock of Qwen3.8-Max, it feels like there is perhaps an inevitable mix of fans, cautious advocates, and doubters. Founder and chief AI officer at AI-native systems and product-building company &lt;a href="https://evkii.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Evkii&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/heathsquier/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Heath Squier&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that &amp;ldquo;Qwen3.8-Max matters&amp;rdquo;, because Alibaba is pairing a frontier-scale 2.4-trillion-parameter model with a promised open-weight release and its own Qoder deployment tools.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;That makes Qwen more than a benchmark story. It is an attempt to give enterprises a full alternative stack for building and operating agents,&amp;rdquo; Heath says. &amp;ldquo;Qwen&amp;rsquo;s long-horizon coding demonstration is impressive, but a 16-day agent run changes the unit of risk. A small mistake can compound across thousands of actions. The enterprise value of Qwen will depend on whether teams can inspect its checkpoints, trace its decisions, cap its permissions and roll work back before an error reaches production.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Heath suggests that if Alibaba releases Qwen3.8-Max as open weight as promised, companies will &amp;ldquo;gain more control&amp;rdquo; over deployment, data boundaries and model evaluation. But, he warns, the tradeoff is that security, monitoring, patching and regression testing move toward the operator &amp;#8211; so Qwen gives businesses more control, but it also gives them more responsibility.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;A very large context window can help Qwen work across a substantial codebase without constantly rebuilding context, but capacity is not the same as judgment. The real test is whether Qwen can preserve the original business objective through a long run instead of quietly optimizing the wrong proxy,&amp;rdquo; adds Heath.&lt;/p&gt;
-
-
-
-&lt;p&gt;For some final balance on the question of whether the arrival of Qwen3.8-Max should prompt developers to drop a Claude or GPT subscription, John Deere&amp;rsquo;s Khan points out that &lt;a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alibaba&amp;#8217;s own launch page&lt;/a&gt; answers this better point best. Its quickstart tells users to keep Claude Code or Codex and just point the base URL at QwenCloud.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Even this challenger assumes your tooling stays put,&amp;rdquo; concluded Khan.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-qwen3-8-max-availability"&gt;Qwen3.8-Max availability&lt;/h2&gt;
-
-
-
-&lt;p&gt;Qwen3.8-Max is available via APIs on &lt;a href="https://modelstudio.alibabacloud.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alibaba Cloud Model Studio&lt;/a&gt;. It can also be used via QwenWork, Alibaba&amp;rsquo;s workplace AI agent platform. Alibaba&amp;rsquo;s central communication function in Hangzhou was invited to comment further on this story; we received an invitation to &lt;a href="https://qwen.ai/blog?id=qwen3.8" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;read the company blog&lt;/a&gt; in response.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/alibaba-qwen3-8-max-reactions/"&gt;Alibaba Qwen3.8-Max reactions: &amp;#8220;An API business model wearing an open source jacket&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Alibaba&amp;#039;s Qwen3.8-Max claims frontier scale and open weights, but developers say the benchmarks, context window and 16-day agent run deserve scrutiny.</content:encoded>
-    </item>
-    <item>
-      <title>Nvidia’s NOOA makes an agent one Python class</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/nvidia-nooa-agent-framework/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 14:02:35 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Python</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832633</guid>
-      <description>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/08/68d7ebad-and-machines-yv7g1hol9kg-unsplash-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/68d7ebad-and-machines-yv7g1hol9kg-unsplash-scaled.jpg" /&gt;&lt;p&gt;When Nvidia announced NOOA (Object-Oriented Agents) last week, it signaled a broader shift in agent development: The harness around a&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-nooa-agent-framework/"&gt;Nvidia&amp;#8217;s NOOA makes an agent one Python class&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/08/68d7ebad-and-machines-yv7g1hol9kg-unsplash-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/68d7ebad-and-machines-yv7g1hol9kg-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;When Nvidia announced &lt;a href="https://developer.nvidia.com/blog/six-agent-harness-capabilities-for-higher-model-performance/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;NOOA (Object-Oriented Agents)&lt;/a&gt; last week&lt;/strong&gt;, it signaled a broader shift in agent development: The harness around a model may matter as much as the model itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;Nvidia is contributing NOOA to the &lt;a href="https://thenewstack.io/open-secure-ai-alliance/" class="local-link"&gt;Open Secure AI Alliance&lt;/a&gt;, the &lt;a href="https://www.google.com/search?q=%22open+secure+ai+alliance%22&amp;amp;sca_esv=fc15e49dbd266fb4&amp;amp;tbm=nws&amp;amp;sxsrf=APpeQnsnb-qNSpvEszrXHberS6Qb9HFlVA:1785851699526&amp;amp;tbas=0&amp;amp;source=lnt&amp;amp;sa=X&amp;amp;ved=2ahUKEwjiwq-BkIeWAxUEODQIHTWWMusQpwV6BAgFEBE&amp;amp;biw=1178&amp;amp;bih=860&amp;amp;dpr=2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;much-written-about industry group&lt;/a&gt; Nvidia formed last week to build and share open-source and open-weight tools for AI development. &lt;/p&gt;
-
-
-
-&lt;p&gt;NOOA is founded on one idea: An agent is a single Python class. Here is how Nvidia describes it in its announcement blog post:&amp;nbsp;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&amp;#8220;Its methods are its capabilities. Its fields are its state. Its docstrings are its prompts. Its type annotations are enforced contracts. A standard Python method whose body is an ellipsis (&amp;hellip;) is completed at runtime by an LLM-driven loop. Method with a normal body run as ordinary, deterministic Python.&amp;rdquo;&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;By bringing an agent&amp;rsquo;s capabilities, state, and prompts together in one Python class, Nvidia is working to solve the thorny problem that is fragmentation in agent development. &lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s an issue that &lt;a href="https://www.linkedin.com/in/adnano/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adnan Masood&lt;/a&gt;, Ph.D., chief AI architect, &lt;a href="https://www.ust.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;UST&lt;/a&gt;, sees regularly. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The harness is everything wrapped around the model,&amp;rdquo; Masood tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;Today it is scattered by design. A team building on LangGraph or AutoGen typically has prompts in Jinja templates, tool definitions in JSON schemas, callbacks in Python, and the workflow drawn as a graph in yet another abstraction.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-can-one-python-class-make-agents-easier-to-test"&gt;Can one Python class make agents easier to test?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Nvidia&amp;rsquo;s idea is to make agent development more like traditional software development so both humans and AI coding agents can inspect and manage an agent with familiar coding tools, thereby making it simpler to test and trace agent behavior.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Masood believes that Nvidia is taking a meaningful step by wrapping capabilities, state, and prompts into a single Python class with NOOA. But other experts are more skeptical.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/karthikkarunanithi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Karthik Karunanithi&lt;/a&gt;, solution architect, &lt;a href="https://www.ibm.com/us-en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IBM&lt;/a&gt;, agrees that corralling workflow graphs, prompt templates, schemas, and callbacks into one Python class is a real improvement, but he also tells &lt;em&gt;The New Stack&lt;/em&gt; that he wonders if doing so will introduce a new review problem because &amp;ldquo;inside that class, one method with &lt;code&gt;...&lt;/code&gt; is completed by a model at runtime, while the next method is just ordinary Python.&amp;rdquo; &lt;/p&gt;
-
-
-
-&lt;p&gt;Since both have the same signature, indentation, and docstring, Karunanithi questions whether it may be harder to distinguish between deterministic code and probabilistic behavior.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;When asked how NOOA could help with testing and tracing agent behavior, &lt;a href="https://www.linkedin.com/in/siddsax/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Siddhartha Saxena&lt;/a&gt;, co-founder of &lt;a href="https://www.thine.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thine&lt;/a&gt; and &lt;a href="https://www.getmerlin.in/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Merlin AI&lt;/a&gt;, gives Nvidia points for using typed input/output within the single Python class to bring structure to agent calls. &lt;/p&gt;
-
-
-
-&lt;p&gt;Saxena tells &lt;em&gt;The New Stack&lt;/em&gt; the challenge comes when activity scales to millions of tool calls. For this reason, he considers testing agent traces largely an observability problem and not something a framework like NOOA can solve on its own.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-more-inspectable-agents-but-new-execution-risks"&gt;More inspectable agents, but new execution risks&lt;/h2&gt;
-
-
-
-&lt;p&gt;Bringing an agent&amp;rsquo;s capabilities, state, and prompts into one Python class may make it easier to inspect its behavior. But centralizing logic in one place also raises new questions about security.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;An agent whose state is readable and whose runs leave one inspectable trace is far easier to audit than logic smeared across prompt files and scattered scripts.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Big picture, Saxena sees centralization as a net benefit, saying it makes agent code more readable and maintainable. Still, he points out that that readability may come with a tradeoff: &amp;ldquo;Obviously, if something is readable for humans, it means it&amp;rsquo;s readable for aliens, as well.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;When asked whether centralizing agent logic improves security or creates new risks, Masood seems to agree with Saxena&amp;rsquo;s take, telling &lt;em&gt;The New Stack&lt;/em&gt; both things can be true:&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;An agent whose state is readable and whose runs leave one inspectable trace is far easier to audit than logic smeared across prompt files and scattered scripts.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;But a separate risk that may come with NOOA, Masood adds, is the framework&amp;rsquo;s use of code as action, which allows the model to act by writing and running Python. &amp;ldquo;That is powerful,&amp;rdquo; he explains, &amp;ldquo;and it widens the blast radius of a prompt injection, where malicious text in a document or webpage steers the model.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Karunanithi echoes that tradeoff, acknowledging that centralization makes agent logic easier to understand but also concentrates risk. Like Masood, he highlights the need for sandboxing, along with scoped credentials and separate identities for each agent.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s worth noting that for production deployment, Nvidia pairs NOOA with the &lt;a href="https://developer.nvidia.com/blog/run-autonomous-self-evolving-agents-more-safely-with-nvidia-openshell/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nvidia OpenShell&lt;/a&gt; secure runtime.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-nvidia-claims-double-digit-benchmark-swings"&gt;Nvidia claims &amp;ldquo;double-digit&amp;rdquo; benchmark swings&lt;/h2&gt;
-
-
-
-&lt;p&gt;Nvidia explains its NOOA release by arguing that harness design has a major role in agent performance, stating: &amp;ldquo;Harness design alone can account for double-digit swings in benchmark results and significant differences in token cost, with the same underlying model.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;It backs up that claim with results from three benchmarks. On SWE-bench Verified, NOOA reaches 82.2% with GPT-5.5 using 29 LLM calls and roughly 1.1M tokens per task. The comparison harnesses, Nvidia says, need 66 calls and 2.2M tokens to reach 78.2% and 29 calls at 1.3M tokens to reach 78.6%. The technology company describes this result as &amp;ldquo;parity or better, at roughly half the cost.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Harness design alone can account for double-digit swings in benchmark results and significant differences in token cost, with the same underlying model.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;On the vulnerability-rediscovery benchmark, CyberGym L1, NOOA solves 86.8% of tasks with GPT-5.5. It reaches 50.2% mean RHAE on ARC-AGI-3, a benchmark for general reasoning.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;When asked what the framework&amp;rsquo;s benchmark results might mean for developers, Karunanithi cautions against overgeneralizing. He says SWE-bench Verified, CyberGym L1, and ARC-AGI-3 all serve as useful benchmarks because they have a programmatic oracle but notes that they differ greatly from most regulated production systems, &amp;ldquo;where nobody can tell you at runtime whether an insurance claim, access decision, or compliance judgment was actually correct.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;But it seems Nvidia is after more than better benchmark scores. As &lt;a href="https://www.linkedin.com/in/paulfurgale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Paul Furgale&lt;/a&gt;, distinguished research scientist, Nvidia, posted to &lt;a href="https://www.linkedin.com/posts/paulfurgale_ai-llms-agents-activity-7487524360161755136-7kvZ/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LinkedIn&lt;/a&gt;:&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We did this because we believe the future of open AI depends on more than open models. It also depends on open research into how those models interact with computers.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;While Furgale says the technology company doesn&amp;rsquo;t expect everyone to adopt NOOA, it encourages the developer community to adopt, challenge, and improve its techniques.&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-nooa-agent-framework/"&gt;Nvidia&amp;#8217;s NOOA makes an agent one Python class&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Experts say NOOA, the open-source Python framework, could make agents easier to test and inspect but raises new questions about review and security.</content:encoded>
-    </item>
-    <item>
-      <title>AI agents can create database sprawl issues. YugabyteDB’s solution is more agents!</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/yugabytedb-agentic-postgres-scaling/</link>
-      <dc:creator>Carly Page</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 13:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Cloud Services</category>
-      <category>Databases</category>
-      <category>sponsor-yugabyte</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832531</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/36dbd77e-getty-images-5d-fyojmeea-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Rows of green-lit server racks flank a data-center aisle carpeted with grass and wildflowers." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/36dbd77e-getty-images-5d-fyojmeea-unsplash-scaled.jpg" /&gt;&lt;p&gt;The next database scaling problem may not be how big a database gets, but how many databases an enterprise suddenly&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/yugabytedb-agentic-postgres-scaling/"&gt;AI agents can create database sprawl issues. YugabyteDB’s solution is more agents!&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/36dbd77e-getty-images-5d-fyojmeea-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Rows of green-lit server racks flank a data-center aisle carpeted with grass and wildflowers." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/36dbd77e-getty-images-5d-fyojmeea-unsplash-scaled.jpg" /&gt;
-&lt;p id="h-the-next-database-scaling-problem-may-not-be-how-big-a-database-gets-but-how-many-databases-an-enterprise-suddenly-has-to-run"&gt;&lt;strong&gt;The next database scaling problem&lt;/strong&gt; may not be how big a database gets, but how many databases an enterprise suddenly has to run.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s the inspiration behind YugabyteDB AMP, or Agentic Multitenant Postgres, a new serverless PostgreSQL tier designed for a world in which companies could be running hundreds or thousands of AI agents, each generating its own data layer demands. For &lt;a href="https://www.yugabyte.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yugabyte&lt;/a&gt;, that means rethinking what scale looks like.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/kranganathan" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Karthik Ranganathan&lt;/a&gt;, co-founder and co-CEO of &lt;a href="https://www.yugabyte.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yugabyte&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;ldquo;The dimension of scale is shifting. It&amp;rsquo;s not just large databases; it&amp;rsquo;s also a proliferation of databases.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;The dimension of scale is shifting. It&amp;rsquo;s not just large databases; it&amp;rsquo;s also a proliferation of databases.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.yugabyte.com/amp/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;YugabyteDB AMP&lt;/a&gt; extends Yugabyte&amp;#8217;s reach to the smaller end of that spectrum, while maintaining the distributed architecture the company has traditionally built for large, mission-critical workloads. It uses serverless multitenancy and what Yugabyte calls Enhanced Colocation to pack hundreds of workloads onto shared infrastructure, while giving each agent an isolated PostgreSQL database.&lt;/p&gt;
-
-
-
-&lt;p&gt;The economics make sense for fleets of databases, including those that underpin AI agents. An experimental agent might hammer its database for a few minutes, and then the database might sit untouched for days or even be destroyed after the task was completed. YugabyteDB AMP scales to zero when that workload is idle and charges by CPU minute when it is running.&lt;/p&gt;
-
-
-
-&lt;p&gt;Yugabyte is also seeing another problem will appear alongside all those databases: the need for someone (or something) to manage them.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-four-agents-walk-into-a-database"&gt;&lt;strong&gt;Four agents walk into a database&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;YugabyteDB AMP ships with four custom built-in agents: Architect, Voyager, Perf Advisor, and Nexus.&lt;/p&gt;
-
-
-
-&lt;p&gt;Yes, Yugabyte&amp;rsquo;s answer to the infrastructure needed by AI agents is, in part, more AI agents.&lt;/p&gt;
-
-
-
-&lt;p&gt;YugabyteDB Architect handles database creation and provisioning. A company might have rules about where development and staging databases live, how much compute they receive, or whether a particular workload needs to span multiple regions. Architect retains that organizational context and applies it when an agent asks for infrastructure.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;There&amp;rsquo;s a lot of context that we build up as humans that needs to get harnessed by this agent.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It needs to have context about your organization, about your specific group, about the details of your application,&amp;rdquo; Ranganathan says. &amp;ldquo;There&amp;rsquo;s a lot of context that we build up as humans that needs to get harnessed by this agent.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;YugabyteDB Voyager handles migration and modernization. It&amp;rsquo;s designed to bring existing databases into the fold. Voyager works out sizing and scaling requirements, as well as any changes needed to move workloads from other databases onto PostgreSQL.&lt;/p&gt;
-
-
-
-&lt;p&gt;Then there&amp;rsquo;s YugabyteDB Perf Advisor, which looks after databases once they are running. It can investigate an outage or performance problem, search information about the database and its environment, and attempt to determine the root cause. Yugabyte also wants it to catch problems earlier, including warning developers when a query is likely to cause trouble before it reaches production.&lt;/p&gt;
-
-
-
-&lt;p&gt;Finally, YugabyteDB Nexus handles the ecosystem around the database: connecting it to warehouses, data streams, key management systems, and other external infrastructure.&lt;/p&gt;
-
-
-
-&lt;p&gt;Ranganathan says those four agents are just the starting point: &amp;ldquo;These were the four that it ships with today, with the substrate to be able to do more.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;The more interesting part is what sits between them. The agents share context about the organization and maintain a record of why they made particular decisions. If somebody later asks, as Ranganathan puts it, &amp;ldquo;What the hell was that?&amp;rdquo; Yugabyte wants you to be able to reconstruct what happened.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;This is what the person said. This is what your context said. This is what I inferred. This is what I ended up doing.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;This is what the person said. This is what your context said. This is what I inferred. This is what I ended up doing,&amp;rdquo; he says, describing the decision traces &lt;a href="https://mekodata.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Meko&lt;/a&gt; maintains around agent actions for YugabyteDB AMP.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-giving-agents-the-keys-with-conditions"&gt;&lt;strong&gt;Giving agents the keys, with conditions&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;There is an obvious catch to letting AI agents provision, tune, and otherwise fiddle with databases: sometimes they do stupid things.&lt;/p&gt;
-
-
-
-&lt;p&gt;Ranganathan describes the autonomy YugabyteDB AMP gives its agents as a &amp;ldquo;guarded amount of freedom,&amp;rdquo; with the level of control depending on the environment.&lt;/p&gt;
-
-
-
-&lt;p&gt;A disposable development database might be configured so the agent can get on with the job without repeatedly asking permission. A production system holding financial information would be treated very differently.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;There would be a dry run mode. It&amp;rsquo;ll tell you what it wants to do,&amp;rdquo; he says. &amp;ldquo;So you can always say, &amp;lsquo;Ask me permission before you do something, and ask me permission, especially if the operations fall in this category.&amp;rsquo;&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;He doesn&amp;rsquo;t pretend those controls make mistakes impossible. &amp;ldquo;It&amp;rsquo;s how you configure and use the thing that matters.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-happens-if-the-prototype-actually-works"&gt;&lt;strong&gt;What happens if the prototype actually works?&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;There is another problem YugabyteDB is trying to support: successful experiments.&lt;/p&gt;
-
-
-
-&lt;p&gt;Teams can start an AI project on a small serverless database because it&amp;rsquo;s cheap and convenient. Auto-scaling down to fractional vCPUs keeps those early-stage deployments inexpensive, while database branching lets developers spin up isolated copies to test new ideas, agents, or features without affecting production.&lt;/p&gt;
-
-
-
-&lt;p&gt;If the application becomes heavily used or business-critical, however, the infrastructure it started with may no longer be enough. YugabyteDB AMP is designed so that developers don&amp;#8217;t have to switch databases at that point.&lt;/p&gt;
-
-
-
-&lt;p&gt;As the workload grows, YugabyteDB can move to YSQL, its distributed PostgreSQL layer, adding horizontal write scaling, multi-master replication and geo-distribution. Yugabyte says this doesn&amp;#8217;t require an application rewrite or a conventional database migration, and that the agent continues to connect in the same way.&lt;/p&gt;
-
-
-
-&lt;p&gt;It will also give companies some choice about where all this runs. YugabyteDB AMP can operate inside a customer&amp;#8217;s own cloud, connected back to YugabyteDB&amp;#8217;s control plane. Yugabyte calls the latter BYOC, or bring your own cloud. Future deployment options will include an unsharded PostgreSQL managed service.&lt;/p&gt;
-
-
-
-&lt;p&gt;The idea is that metering, management, and learnings can still flow through the control plane while the customer&amp;#8217;s data remains in its own environment. &amp;ldquo;We still want it to be secure enough and for customers to feel secure enough to run it wherever their data is,&amp;rdquo; Ranganathan says.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-yugabyte-manages-its-own-database-sprawl-nbsp"&gt;&lt;strong&gt;How Yugabyte manages its own database sprawl&amp;nbsp;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;YugabyteDB AMP is still in its early stages and isn&amp;#8217;t broadly available yet. Yugabyte is using it internally and has opened it up to a small number of selected partners, with wider availability expected soon.&lt;/p&gt;
-
-
-
-&lt;p&gt;The company is already running agents internally for coding, support, and go-to-market work. Its support agent is called Hagen, while Growth Vector handles go-to-market tasks. YugabyteDB AMP is also being used for development, and Ranganathan says Yugabyte is starting to move other internal databases onto it.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We&amp;rsquo;re trying to consolidate all our databases as well,&amp;rdquo; he says. &amp;ldquo;Same problem, right?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Whether most enterprises end up with &lt;a href="https://www.yugabyte.com/blog/data-backbone-for-thousands-of-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;enormous fleets of agents with enormous fleets of databases&lt;/a&gt; remains an open question. The agent market is still moving quickly enough that today&amp;#8217;s indispensable architecture can become tomorrow&amp;#8217;s abandoned experiment.&lt;/p&gt;
-
-
-
-&lt;p&gt;Yugabyte doesn&amp;#8217;t need every agent to survive for YugabyteDB AMP&amp;#8217;s premise to make sense, though. Quite the opposite. Its bet is that companies will create lots of them; most will spend time doing nothing; some will disappear; and a small number will unexpectedly become important.&lt;/p&gt;
-
-
-
-&lt;p&gt;If that happens, the database problem becomes less about finding somewhere to put one enormous workload and more about keeping track of many little ones.&lt;/p&gt;
-
-
-
-&lt;p&gt;And if humans can&amp;#8217;t reasonably manage them all, Yugabyte already has four agents volunteering for the job.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/yugabytedb-agentic-postgres-scaling/"&gt;AI agents can create database sprawl issues. YugabyteDB’s solution is more agents!&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>YugabyteDB AMP uses serverless PostgreSQL and four AI agents to manage database fleets, scale idle workloads to zero and support scaling without migration.</content:encoded>
-    </item>
-    <item>
-      <title>Astro’s GitHub issue backlog is heading to zero for the first time in 5 years. Now Cloudflare is open-sourcing the tool that did it.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cloudflare-astro-triage-bot/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 13:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Frontend Development</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832513</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/01e625fa-masantocreative-vpkonyoogkw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of an old CRT monitor with a red X face next to a modern flat-screen monitor with a green smiling face, depicting an outdated system being replaced by one that&amp;#039;s working properly." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/01e625fa-masantocreative-vpkonyoogkw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Most open source maintainers will know the feeling of opening GitHub to a growing pile of issues that can&amp;#8217;t feasibly&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudflare-astro-triage-bot/"&gt;Astro&amp;#8217;s GitHub issue backlog is heading to zero for the first time in 5 years. Now Cloudflare is open-sourcing the tool that did it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/01e625fa-masantocreative-vpkonyoogkw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of an old CRT monitor with a red X face next to a modern flat-screen monitor with a green smiling face, depicting an outdated system being replaced by one that&amp;#039;s working properly." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/01e625fa-masantocreative-vpkonyoogkw-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Most open source maintainers will know the feeling of opening GitHub to a growing pile of issues that can&amp;rsquo;t feasibly be maintained by a small team. AI coding tools &lt;a href="https://thenewstack.io/ai-generated-code-crisis/" class="local-link"&gt;have made things worse&lt;/a&gt;: a low-effort bug report, an unreviewed patch, or a speculative vulnerability write-up can all be generated in seconds now, but working out whether any of it holds up still takes a person just as long as it always did.&lt;/p&gt;
-
-
-
-&lt;p&gt;However, the team behind one popular open source project has reported that it&amp;#8217;s on track to clear its issue backlog entirely, by handing the grunt work to a team of agents.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://github.com/withastro/astro" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Astro&lt;/a&gt;, the JavaScript framework used to build fast, content-heavy websites, is down to &lt;a href="https://github.com/withastro/astro/issues" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;around 20 open GitHub issues&lt;/a&gt; at the time of writing, from more than 200 at the start of this year &amp;#8212; and the team expects to hit zero within the next month, which would be a first in the project&amp;#8217;s five-year history. It&amp;rsquo;s getting there using a team of AI subagents built by its own team, and Cloudflare, which &lt;a href="https://thenewstack.io/cloudflare-acquires-team-behind-open-source-framework-astro/" class="local-link"&gt;acquired that team in January&lt;/a&gt;, &lt;a href="https://blog.cloudflare.com/astro-issue-triage" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; on Tuesday that it&amp;rsquo;s open-sourcing the systems for other maintainers to use.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-astro-finds-its-fix"&gt;Astro finds its fix&lt;/h2&gt;
-
-
-
-&lt;p&gt;The tool, called &lt;a href="https://github.com/withastro/triagebot-action" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;triagebot-action&lt;/a&gt;, runs as a GitHub Action. When someone opens an issue, it kicks off a four-stage pipeline: reproduce the bug in a sandbox, diagnose the root cause, verify it&amp;#8217;s an actual bug, and attempt a fix. Each stage is handled by a separate AI agent, and the whole process is driven by a state machine encoded in GitHub labels, so anyone can see exactly where a given issue sits and why.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;&amp;#8216;Fix&amp;#8217; is always the hardest because the bar is so high.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/fredkschott/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fred Schott&lt;/a&gt;, Astro&amp;#8217;s co-founder and now a senior engineering manager at Cloudflare, says the &amp;#8220;fix&amp;#8221; step is the least essential part of the system &amp;#8212; triaging an issue and handing the report to a human maintainer is, in his words, &amp;#8220;still a pretty great outcome&amp;#8221; even without it. But the fix is the hardest part to get right.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Fix is always the hardest because the bar is so high,&amp;#8221; Schott tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;Where all of the other tasks are just &amp;#8216;&lt;em&gt;can you complete your phase&lt;/em&gt; &amp;#8212;&lt;em&gt; reproduce the bug, diagnose the cause, etc&lt;/em&gt;&amp;#8216;. &amp;#8216;Fix&amp;#8217; is the one where it has to write code that is of high enough quality that it can be merged.&amp;#8221;&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/08/549bdcca-image3-1024x819.png" alt="Flagging a bug fix" class="wp-image-22832626"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Flagging a bug fix&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;That gap is exactly why triage, not fixing, came first. Schott traces it back to watching where agents kept proving reliable and where they didn&amp;#8217;t.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;I think [it was] just the gradual realization that issue triage is something agents got very good at, without falling into some of the traps of what they were bad at re: code quality,&amp;#8221; he says. &amp;#8220;And issue triage is also very time-consuming for us as maintainers, so the realization that automating it, without requiring a maintainer to manually trigger it, would save us a ton of time.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Issue triage is also very time-consuming for us as maintainers.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-astro-s-home-turf"&gt;Astro&amp;#8217;s home turf&lt;/h2&gt;
-
-
-
-&lt;p&gt;By way of a brief recap, Astro launched as an open source project back in 2021, and Schott &lt;a href="https://astro.build/blog/the-astro-technology-company/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;spun up The Astro Technology Company&lt;/a&gt; the following year with $7 million in seed funding from a roster of backers that included Lightspeed Venture Partners and Google&amp;#8217;s Gradient Ventures.&lt;/p&gt;
-
-
-
-&lt;p&gt;Cloudflare announced it had acquired that company in January, absorbing the team behind a framework that had come to be used by companies like IKEA, Unilever, and Visa. Astro ships pages as plain HTML by default and only loads JavaScript for the parts of a page that actually need it, unlike React-based frameworks, which tend to send a much larger JavaScript bundle for the whole page. This approach, ultimately, aligns with Cloudflare&amp;#8217;s own business of making the web faster.&lt;/p&gt;
-
-
-
-&lt;p&gt;At the time, &lt;em&gt;The New Stack &lt;/em&gt;&lt;a href="https://thenewstack.io/why-platform-companies-keep-buying-frontend-framework-teams/" class="local-link"&gt;pondered what the deal meant&lt;/a&gt; for Astro&amp;#8217;s future, pointing to a pattern of platform companies buying up frontend framework teams &amp;#8212; some of which, like &lt;a href="https://thenewstack.io/netlify-acquires-gatsby-its-struggling-jamstack-competitor/" class="local-link"&gt;Netlify&amp;#8217;s 2023 purchase of Gatsby&lt;/a&gt;, ended with the acquired framework slowly starved of support once its creators moved on. The question was whether Cloudflare would keep investing in Astro or let it drift into the same kind of neglect.&lt;/p&gt;
-
-
-
-&lt;p&gt;Six months on, Schott says little has changed. Astro still has four full-time engineers, including Schott himself, and everyone who joined through the acquisition remains on the project full time, though volunteer and Open Collective-funded contributors continue to come and go as they always have. Schott says that Astro &amp;#8220;still operates distinctly as its own team,&amp;#8221; replete with an open roadmap, release cadence, and so on. The team, it&amp;#8217;s worth noting, &lt;a href="https://thenewstack.io/astro-redesigns-its-development-server/" class="local-link"&gt;shipped a redesigned development server&lt;/a&gt; as part of an Astro 6 beta in January, but triagebot-action is perhaps the clearest sign yet that it has room to build new things.&lt;/p&gt;
-
-
-
-&lt;p&gt;Adoption of the tool beyond Astro itself is still early. Schott says Cloudflare&amp;#8217;s &lt;a href="https://github.com/cloudflare/workers-sdk" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;workers-sdk&lt;/a&gt; team is prototyping it internally, but &amp;#8220;only Astro currently&amp;#8221; runs it in production. The underlying agent framework behind it, &lt;a href="https://flueframework.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;called Flue&lt;/a&gt;, sits under the Astro organization rather than Cloudflare&amp;#8217;s, and both projects are built to run on any infrastructure, with no dependency on Cloudflare-specific tooling.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-built-for-agents"&gt;Built for agents&lt;/h2&gt;
-
-
-
-&lt;p&gt;Zooming out, triagebot-action is the second tool in a week that Cloudflare has open-sourced with AI agents as the primary user. At the tail end of July, &lt;a href="https://thenewstack.io/cloudflare-pvcli-privacy-debugger-agents/" class="local-link"&gt;Cloudflare released pvcli&lt;/a&gt;, a command-line debugger for privacy protocols used in products from the likes of Apple and Microsoft. Cloudflare systems engineer Fisher Darling said at the time that pvcli was &amp;#8220;explicitly designed for agent-based debugging.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Triagebot-action tackles a different problem, but the underlying idea is similar: taking work that traditionally required a person at a keyboard and packaging it into software that an AI agent can execute autonomously.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s great when it works, but it&amp;#8217;s also always at the discretion of a maintainer for if it is correct and worth accepting, or better to go and write the fix yourself.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Looking to the future, the next obvious progression for a tool like triagebot-action is the &amp;#8220;fix&amp;#8221; element itself. Schott says he doesn&amp;#8217;t know when the system will get to the point where its fixes can be trusted close to 100% of the time, but that it&amp;#8217;s built to evolve toward that gradually &amp;#8212; it launched internally with no fix capability at all, then added a suggested fix left on a branch for a reviewer to look at, and only later gained the ability to open a pull request directly from that suggestion. He can picture it going further still: the agent judging its own confidence or the size of a fix, and eventually opening, or even merging, pull requests on its own.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We are really taking this part seriously, which is why we really focus on the issue triage part first, and then &amp;#8216;&lt;em&gt;write the code for me to fix this issue&lt;/em&gt;&amp;#8216; part is secondary and nice to have at the end,&amp;#8221; Schott says. &amp;#8220;It&amp;#8217;s great when it works, but it&amp;#8217;s also always at the discretion of a maintainer for if it is correct and worth accepting, or better to go and write the fix yourself.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudflare-astro-triage-bot/"&gt;Astro&amp;#8217;s GitHub issue backlog is heading to zero for the first time in 5 years. Now Cloudflare is open-sourcing the tool that did it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>6 months after Cloudflare acquired the team behind Astro, co-founder Fred Schott explains how an AI agent is emptying the project&amp;#039;s issue tracker -- and why the hardest part is still left to a human</content:encoded>
     </item>
   </channel>
 </rss>
