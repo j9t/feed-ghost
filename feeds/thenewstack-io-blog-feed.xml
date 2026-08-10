@@ -20,6 +20,687 @@
       <height>32</height>
     </image>
     <item>
+      <title>Platform Engineering ROI: What it costs to build your own platform</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/real-cost-diy-platform/</link>
+      <dc:creator>Michael Coté</dc:creator>
+      <pubDate>Sun, 09 Aug 2026 16:00:00 +0000</pubDate>
+      <category>DevOps</category>
+      <category>Platform Engineering</category>
+      <category>Software Development</category>
+      <category>sponsor-vmware-tanzu</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833061</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital illustration with a sweeping glitch light wave, symbolizing internal developer platform costs and software complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash.jpg" /&gt;&lt;p&gt;What it actually costs to build your own internal developer platform over five years, and why most “we’ll just build&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/real-cost-diy-platform/"&gt;Platform Engineering ROI: What it costs to build your own platform&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital illustration with a sweeping glitch light wave, symbolizing internal developer platform costs and software complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash.jpg" /&gt;&lt;p&gt;What it actually costs to build your own internal developer platform over five years, and why most “we’ll just build it” pitches are pricing the cheap version.&lt;/p&gt;
+
+
+
+&lt;p&gt;Sixty people and $7.5 million a year, every year, is what it costs to build and operate your own internal developer platform if you do it the way most enterprises end up doing it, and most of the executives signing off don’t see the number, because it’s spread across multiple cost centers under “engineering.”&lt;/p&gt;
+
+
+
+&lt;p&gt;The cheap version of the pitch they hear — one team, weekend work, a control plane with a bit of YAML on top — ships v1 and turns into the maintenance burden nobody wants to own. The version that actually works is a sixty-person product engineering organization, indefinitely. The numbers below come from a recent &lt;a href="https://images.sw.broadcom.com/Web/CAInc2/%7B68c6ad82-a684-4e39-8feb-12803e4b1f0e%7D_The_Upside_Down_Economics_of_DIY_PaaS.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;VMware Tanzu Platform paper&lt;/a&gt; I helped update, so flavor it with a vendor-salt up front if you feel like you need to. But the staffing structure is good enough to think through.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="7 ways to fail at building a platform - Michael Coté | PlatformCon 2026" width="500" height="281" src="https://www.youtube.com/embed/c5VNfAPrFVY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-weekend-project-that-turned-into-a-60-person-infinite-financial-commitment"&gt;The weekend project that turned into a 60-person infinite financial commitment&lt;/h2&gt;
+
+
+
+&lt;p&gt;From what I’ve seen, if you align your platform team with something that feels like the &lt;a href="https://tag-app-delivery.cncf.io/whitepapers/platforms/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNCF platform reference architecture&lt;/a&gt;, you end up with about seven product teams: infrastructure, operations, deployment, runtime and middleware, database, security, and coaching/developer enablement. Each team is a mythic two-pizza team, 7–9 engineers. There’s no personal pan pizzas when it comes to &lt;a href="https://thenewstack.io/internal-platforms-are-products/" data-type="link" data-id="https://thenewstack.io/internal-platforms-are-products/" class="local-link"&gt;building your own platform&lt;/a&gt;. Shake a couple of scrum masters and product owners on top to coordinate and manage, and you’ve got about 60 people total. At a conservative salary of $125,000/year per engineer, you’re at $7.5 million in payroll, every year, indefinitely.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“There’s no personal pan pizzas when it comes to building your own platform.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Year 1&lt;/td&gt;&lt;td&gt;Year 2&lt;/td&gt;&lt;td&gt;Year 3&lt;/td&gt;&lt;td&gt;Year 4&lt;/td&gt;&lt;td&gt;Year 5&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Annual&lt;/td&gt;&lt;td&gt;$7.5M&lt;/td&gt;&lt;td&gt;$7.5M&lt;/td&gt;&lt;td&gt;$7.5M&lt;/td&gt;&lt;td&gt;$7.5M&lt;/td&gt;&lt;td&gt;$7.5M&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Cumulative&lt;/td&gt;&lt;td&gt;$7.5M&lt;/td&gt;&lt;td&gt;$15M&lt;/td&gt;&lt;td&gt;$22.5M&lt;/td&gt;&lt;td&gt;$30M&lt;/td&gt;&lt;td&gt;$37.5M&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Five years in, you’ve spent $37.5 million on payroll alone for the team that builds your platform, not even your apps.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What “buy” actually staffs to&lt;/h2&gt;
+
+
+
+&lt;p&gt;Instead of spending money building and maintaining a platform, enterprises that buy a commercial platform pay staff to operate the platform. And the number of staff needed for that is much lower, as shown by ratios of platform team sizes I’ve collected over the years:&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;By developer:&lt;/h3&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;6,500 devs / 16 ops&lt;/li&gt;
+
+
+
+&lt;li&gt;2,500 devs / 5 ops&lt;/li&gt;
+
+
+
+&lt;li&gt;1,200 devs / 6 ops&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;By developer teams:&lt;/h3&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;45 app teams / 5 ops&lt;/li&gt;
+
+
+
+&lt;li&gt;300 app teams / 4 ops&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;By apps:&lt;/h3&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;350 apps / 7 ops&lt;/li&gt;
+
+
+
+&lt;li&gt;300 apps / 8 ops&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;These numbers are lower because the above teams do not need to build and continue building the platform. They avoid the constant need for platform maintenance, working on: APIs, integrations, developer frameworks, security pipelines, dashboards, upgrade tooling, the next AI capability your developers want, the next compliance regime your auditors want.&lt;/p&gt;
+
+
+
+&lt;p&gt;In conversations I’ve had with organizations that built their own platform over the years, there’s a shadow platform engineering “group.” Each development group tends to have at least one person, if not more, who does the glue work between the platform and what the applications teams do. This is often around build and pipeline integration, security, or just figuring out how to deploy apps and hook up to services. This staffing cost is completely unaccounted for in the business case spreadsheets.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Why this gets ignored&lt;/h2&gt;
+
+
+
+&lt;p&gt;When you expand the cost to build a platform rather than buying it, you see the value in &lt;a href="https://thenewstack.io/build-vs-buy-the-platform-engineers-guide/" data-wpil-monitor-id="4027" class="local-link"&gt;build vs. buy&lt;/a&gt; much more clearly. In contrast, if you don’t model the comparison out, the visible cost line for a commercial platform is one license number on one purchase order. The build-your-own headcount is spread across multiple cost centers, often done in the shadows, and looks like normal hiring. The license number is right there on the page; the build-your-own total has to be calculated, and nobody runs =SUM on all those people.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Works as designed&lt;/h2&gt;
+
+
+
+&lt;p&gt;Engineers also have a story they tell themselves about building their own platform. People get promoted for shipping platforms, and “we shipped a platform built on Kubernetes” is a better promotion-packet line than “we onboarded everyone to a thing we paid for.” This isn’t some moral failing; it’s how many engineering organizations and the HR policies that pay them work, I hope unintentionally. The pattern is called &lt;a href="https://arxiv.org/abs/2101.12569" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;résumé-driven development&lt;/a&gt;, and there’s even a study about it.&lt;/p&gt;
+
+
+
+&lt;p&gt;When employees are rewarded in pay and prestige based on their ability to deliver new technologies, they start to seek out skills and track records in new technologies. This gets them more compensation in their present job, and sets them up to job-hop to a better-paying job elsewhere. But, as one study found, this pattern doesn’t result in operational perfection:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Extensive RDD-based technology selection may therefore lead to complex or even unmaintainable software consisting of technologies which are not suitable for the requirements, which are unfamiliar to current or future employees, or which did not deliver on their promise and were discontinued.&lt;br&gt;&lt;br&gt;&lt;em&gt;–“&lt;/em&gt;&lt;a href="https://arxiv.org/abs/2101.12569" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Résumé-Driven Development: A Definition and Empirical Characterization&lt;/em&gt;&lt;/a&gt;&lt;em&gt;,” Jonas Fritzsch, Marvin Wyrich, Justus  Bogner, Stefan Wagner, January 2021.&lt;/em&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;In this dysfunctional system, the more heroics, the more reward. And building your own platform takes a lot of heroics, so it’s attractive.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Left behind&lt;/h2&gt;
+
+
+
+&lt;p&gt;When it comes to ROI, the most damaging factor is the velocity gap. When you build your own, the vendors keep shipping; you’re shipping too, but against a moving target. Our &lt;a href="https://images.sw.broadcom.com/Web/CAInc2/%7B68c6ad82-a684-4e39-8feb-12803e4b1f0e%7D_The_Upside_Down_Economics_of_DIY_PaaS.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;paper&lt;/a&gt; puts it at 12–18 months before the commercial innovation curve outstrips most build-your-own efforts, and the gap widens rather than closes, because the vendor’s team is bigger than yours and their roadmap is funded by every customer they have, not just your one company. The year-three meeting where someone says “we need to add the AI services that Vendor X shipped last quarter” is the meeting where the ROI quietly evaporates.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;For the strategy-nerds: comparative advantage, with a 200-year-old assist&lt;/h2&gt;
+
+
+
+&lt;p&gt;The notion of outsourcing non-core infrastructure is older than computers. In 1817, David Ricardo argued that even if you can do something well, you should focus on what you do best and trade for the rest. Portugal could grow grapes and weave cloth, but it specialized in wine and traded for British cloth because that’s where the marginal return was.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The year-three meeting where someone says ‘we need to add the AI services that Vendor X shipped last quarter’ is the meeting where the ROI quietly evaporates.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;If you’re not into early 19th-century economics thought leadership, &lt;a href="https://blog.gardeviance.org/2013/01/a-first-map.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Simon Wardley updated the thought leadership with his much-beloved Wardley maps&lt;/a&gt;: anything that’s already become a commodity should be bought rather than built, so that your scarce engineering capacity is spent on the parts of the business that actually differentiate you from the competition.&lt;/p&gt;
+
+
+
+&lt;p&gt;Abby Bangser put this in plain English at &lt;a href="https://www.youtube.com/watch?v=gmAfYEPBYr0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeCon NA 2025&lt;/a&gt;:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;“It’s not about rebuilding what we can purchase that is available on the market. It’s about making sure we spend our time building the things that are bespoke and important for our organization.”&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For most organizations, the platform itself isn’t where you differentiate. Your apps are! The platform is plumbing — necessary, valuable plumbing, but plumbing. A useful test: would your customers pick you over a competitor because of your platform? In Dutch grocery, the answer at Albert Heijn and Jumbo is “no” — shoppers care about prices, the app, the checkout, not the orchestrator behind it. At Picnic, the answer is “yes,” but only for one piece — &lt;a href="https://www.ey.com/en_nl/insights/ai/how-technology-made-picnic-the-undisputed-market-leader" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the custom narrow delivery trucks that make their last-mile economics work&lt;/a&gt;. Everything else, including the platform, they buy. Knowing which kind of business you are answers the build-vs-buy question for you.&lt;/p&gt;
+
+
+
+&lt;p&gt;Letting your best engineers spend their careers &lt;a href="https://thenewstack.io/kubernetes-is-getting-a-better-yaml/" data-type="link" data-id="https://thenewstack.io/kubernetes-is-getting-a-better-yaml/" class="local-link"&gt;writing YAML&lt;/a&gt;, wiring continuous integration into your registry, and tracking CVEs in container base images is trading down. You’re spending one of the most expensive resources you have, engineering capacity, on something a vendor will take care of for you. The opportunity cost is what you didn’t build with that capacity: the apps that would actually move the business.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What to do about it&lt;/h2&gt;
+
+
+
+&lt;p&gt;Here are three practical moves for anyone staring at this decision now:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Calculate the all-in headcount before the meeting. Sixty is the high end; thirty is the low end if you cut corners. Either way, multiply by your fully loaded engineering cost and put the number on the slide. The license-vs-engineers comparison ends most of these debates by itself. Don’t forget to multiply this out in one, three, five, and more years. History shows that the platform will be with you for a long time.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Be honest about year three. You want to cost out the full platform and everything that you need to keep it going. This is things like maintenance, integration, and a steady new-feature cost as your developers ask for things commercial vendors shipped two quarters ago. Look at how frequently AI has been changing and improving over the past two years. Can your platform team adapt that fast to make sure you’re getting &lt;a href="https://www.youtube.com/watch?v=lp1vGxDurOc" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;those tasty, new AI capabilities&lt;/a&gt;?&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Build the developer-facing layer, buy the rest. Portals, golden paths, integrations into your specific business systems are differentiated, so build them. Infrastructure, observability backplane, secrets, certificate management, container registry are commodities, so buy them.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;Every enterprise that builds its own internal platform is, whether the executives say so or not, choosing to spin up a small platform vendor inside the company. The economics of running a platform vendor are well known and largely punishing. The companies that pick this path should at least know that’s the choice they’re making. Most don’t, because the choice was never made out loud. It was made by inertia, in the meeting where someone said: “We’ll just build it ourselves this weekend.”&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Stop building platforms. Start building apps.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;You should avoid the mess and instead &lt;a href="https://www.vmware.com/products/app-platform/tanzu" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;buy a platform&lt;/a&gt;. Or, more bluntly: stop building platforms. Start building apps.&lt;/p&gt;
+
+
+
+&lt;p&gt;Read more in our paper, “&lt;a href="https://images.sw.broadcom.com/Web/CAInc2/%7B68c6ad82-a684-4e39-8feb-12803e4b1f0e%7D_The_Upside_Down_Economics_of_DIY_PaaS.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Upside-Down Economics of DIY PaaS&lt;/a&gt;.” You can also see a 15-minute presentation on all of this in &lt;a href="https://talks.cote.io/platformcon2026/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;my recent talk at PlatformCon 2026&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/real-cost-diy-platform/"&gt;Platform Engineering ROI: What it costs to build your own platform&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Building a custom developer platform costs $7.5M a year. Discover the hidden ROI of buying versus building internal platforms.</content:encoded>
+    </item>
+    <item>
+      <title>Coding agents can be evaluated. We just have to evaluate the work.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/evaluating-coding-agents-framework/</link>
+      <dc:creator>Pete Hampton</dc:creator>
+      <pubDate>Sun, 09 Aug 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Software Testing</category>
+      <category>sponsor-clickhouse</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833031</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/112ffd19-mohamed-nohassi-tazdizdb5f4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract graphic of warped digital grid lines and intense light refraction, representing AI coding agent complexity and system evaluation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/112ffd19-mohamed-nohassi-tazdizdb5f4-unsplash.jpg" /&gt;&lt;p&gt;I recently argued with a software factory provider, whose position was that coding agents cannot be evaluated. Their reasoning was&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/evaluating-coding-agents-framework/"&gt;Coding agents can be evaluated. We just have to evaluate the work.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/112ffd19-mohamed-nohassi-tazdizdb5f4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract graphic of warped digital grid lines and intense light refraction, representing AI coding agent complexity and system evaluation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/112ffd19-mohamed-nohassi-tazdizdb5f4-unsplash.jpg" /&gt;
+&lt;p&gt;I recently argued with a software factory provider, whose position was that coding agents cannot be evaluated.&lt;/p&gt;
+
+
+
+&lt;p&gt;Their reasoning was understandable. Software engineering is open-ended. Requirements are incomplete. Repositories contain years of undocumented decisions. Two engineers can solve the same problem in completely different ways, and both can be right. An agent may fail one run and succeed on the next. A benchmark can never reproduce all the context, negotiation, and judgment involved in shipping production-grade software.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Coding agents are non-deterministic, operate over long horizons, and can produce many valid solutions. None of that makes them unevaluable. It means we need to stop grading them like chatbots.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;All true. But &amp;ldquo;difficult to evaluate&amp;rdquo; and &amp;ldquo;cannot be evaluated&amp;rdquo; are very different claims.&lt;/p&gt;
+
+
+
+&lt;p&gt;We already evaluate traditional software systems with many possible implementations. I argue coding agents should be held to the same standard.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-agent-model"&gt;Agent !== Model&lt;/h2&gt;
+
+
+
+&lt;p&gt;A coding agent is &lt;em&gt;not&lt;/em&gt; just a model.&lt;/p&gt;
+
+
+
+&lt;p&gt;It is made up of a model, a harness, tools, repository context, instructions, permissions, an execution environment, and a feedback loop. Change any one of those and the outcome can change materially. A stronger model with poor repository context may perform worse than a smaller model with the right tools and a fast test suite.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;This is one reason public benchmarks are easy to misuse. A score is often described as if it measures the underlying model, when it actually measures a particular model-agent-environment combination under a particular token and time budget.&lt;/p&gt;
+
+
+
+&lt;p&gt;When evaluating a coding agent, we are evaluating the whole system.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;&amp;ldquo;There are many valid solutions&amp;rdquo;&lt;/h2&gt;
+
+
+
+&lt;p&gt;One objection to coding-agent evals is that exact-match grading does not work. An agent can produce a valid patch that looks nothing like the human-authored reference patch.&lt;/p&gt;
+
+
+
+&lt;p&gt;I agree. But that just means we need to grade behavior, not compare to a reference diff.&lt;/p&gt;
+
+
+
+&lt;p&gt;Start the agent from a known repository state. Give it a task and the context available then. Then evaluate the resulting repository against executable contracts:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Does it build?&lt;/li&gt;
+
+
+
+&lt;li&gt;Do the existing tests still pass?&lt;/li&gt;
+
+
+
+&lt;li&gt;Do hidden tests for the requested behavior pass?&lt;/li&gt;
+
+
+
+&lt;li&gt;Are public APIs and data formats still compatible?&lt;/li&gt;
+
+
+
+&lt;li&gt;Do migrations work in both directions?&lt;/li&gt;
+
+
+
+&lt;li&gt;Are performance and resource-use limits respected?&lt;/li&gt;
+
+
+
+&lt;li&gt;Did the agent modify anything outside the allowed scope?&lt;/li&gt;
+
+
+
+&lt;li&gt;Did static analysis or security checks find new problems?&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;These checks allow multiple implementations while preserving a clear definition of acceptable behavior. They are also much harder to bluff than a prose explanation of what the agent believes it accomplished.&lt;/p&gt;
+
+
+
+&lt;p&gt;Some qualities are not fully captured by executable tests, e.g., maintainability, architectural fit, naming, or whether a change makes the next change unnecessarily difficult. These require judgment.&lt;/p&gt;
+
+
+
+&lt;p&gt;But human-written software has never stopped being testable because code review contains judgment.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A coding agent eval needs more than a pass rate&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Did the tests pass?&amp;rdquo; is necessary. I argue it&amp;#8217;s not enough in this context.&lt;/p&gt;
+
+
+
+&lt;p&gt;An agent can make the new test pass by weakening an existing assertion. It can hard-code an expected value. It can replace a focused implementation with an enormous rewrite that happens to be correct today. It can solve the task after twenty failed attempts, consume an unreasonable budget, and leave behind changes no engineer would approve.&lt;/p&gt;
+
+
+
+&lt;p&gt;A useful evaluation therefore has several layers:&lt;/p&gt;
+
+
+
+&lt;p&gt;1. &lt;strong&gt;Outcome&lt;/strong&gt;: Did the final repository satisfy the task?&lt;/p&gt;
+
+
+
+&lt;p&gt;2. &lt;strong&gt;Change&lt;/strong&gt; quality: Would we accept the implementation?&lt;/p&gt;
+
+
+
+&lt;p&gt;3. &lt;strong&gt;Trajectory&lt;/strong&gt;: How did the agent get there?&lt;/p&gt;
+
+
+
+&lt;p&gt;4. &lt;strong&gt;Human intervention&lt;/strong&gt;: How much help did the agent need?&lt;/p&gt;
+
+
+
+&lt;p&gt;5. &lt;strong&gt;Economics&lt;/strong&gt;: Was the result worth the financial cost?&lt;/p&gt;
+
+
+
+&lt;p&gt;6. &lt;strong&gt;Production impact&lt;/strong&gt;: What happened after the merge?&lt;/p&gt;
+
+
+
+&lt;p&gt;No single number captures all six layers, and that is fine. Engineering teams already use a scorecard rather than one magic metric to assess delivery.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Non-determinism is a statistical problem&lt;/h2&gt;
+
+
+
+&lt;p&gt;A coding agent may solve the same task on one run and fail it on another. That is often presented as evidence that evaluation is impossible.&lt;/p&gt;
+
+
+
+&lt;p&gt;Really, it&amp;rsquo;s evidence that a single run is insufficient. Run the same task multiple times with controlled starting conditions. Report the success distribution, not the best demo. Measure pass rate at a fixed budget, variance in cost and completion time, and the frequency of serious failure modes. Include confidence intervals when comparing systems.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;We must ask: &amp;#8216;How often can it solve this class of task, within our budget, without introducing an unacceptable failure?'&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For a &lt;a href="https://thenewstack.io/agent-runtime-application-server/"  data-wpil-monitor-id="4026" class="local-link"&gt;production coding agent&lt;/a&gt;, we should not ask: &amp;ldquo;Can it solve this task?&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;We must ask: &amp;ldquo;How often can it solve this class of task, within our budget, without introducing an unacceptable failure?&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Open-ended work still has boundaries&lt;/h2&gt;
+
+
+
+&lt;p&gt;The hardest tasks begin with incomplete intent: &amp;ldquo;make onboarding better,&amp;rdquo; &amp;ldquo;modernize this service,&amp;rdquo; or &amp;ldquo;build the new billing workflow.&amp;rdquo; There may be no complete test suite because deciding what to build is part of the work.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is where an eval should include interaction, not pretend ambiguity does not exist.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/googles-data-commons-gives-ai-agents-access-to-a-vast-trove-of-stats/"  data-wpil-monitor-id="4025" class="local-link"&gt;Give the agent access&lt;/a&gt; to a controlled user or product-owner simulator backed by a private set of requirements. Score whether it identifies ambiguity, asks useful questions, incorporates the answers, and avoids inventing requirements. Then evaluate the finished system against the hidden behavioral contract.&lt;/p&gt;
+
+
+
+&lt;p&gt;The agent should not be penalized for asking a necessary question. It should be penalized for confidently implementing the wrong assumption.&lt;/p&gt;
+
+
+
+&lt;p&gt;Newer research benchmarks are already moving in this direction. &lt;a href="https://arxiv.org/abs/2607.21217" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ICAE-Bench&lt;/a&gt; evaluates agents as interactive project builders, while &lt;a href="https://arxiv.org/abs/2606.13995" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dialogue SWE-Bench&lt;/a&gt; isolates dialogue as a capability distinct from raw coding performance. The methods will evolve, but the premise is clear: ambiguity changes the shape of the evaluation; it does not make evaluation impossible.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The standard is useful, not perfect&lt;/h2&gt;
+
+
+
+&lt;p&gt;No evaluation will capture the full future cost of a design decision. No private suite will represent every task an engineering organization will encounter. Human rubrics will contain disagreement. Hidden tests will miss cases. Production will surprise us.&lt;/p&gt;
+
+
+
+&lt;p&gt;Perfection is not the bar &amp;#8211; at the end of the day, humans do not produce perfect software either. The bar is whether the evaluation helps us make a better decision than demos, anecdotes, or provider claims alone.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Claiming that coding agents cannot be evaluated gives providers the benefits of an engineering product without the burden of engineering evidence.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;If an evaluation can answer those questions with reproducible evidence, it is doing its job.&lt;/p&gt;
+
+
+
+&lt;p&gt;Coding agents are harder to evaluate than code-completion models because they do more. They explore, plan, edit, execute, recover, and sometimes negotiate intent. Our evaluation systems &lt;a href="https://thenewstack.io/debugging-observable-ai-systems/" class="local-link"&gt;need to observe&lt;/a&gt; that entire loop.&lt;/p&gt;
+
+
+
+&lt;p&gt;But claiming that coding agents cannot be evaluated gives providers the benefits of an engineering product without the burden of engineering evidence.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/evaluating-coding-agents-framework/"&gt;Coding agents can be evaluated. We just have to evaluate the work.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Stop grading coding agents like chatbots. Here is how to evaluate non-deterministic AI agents using executable contracts and scorecards.</content:encoded>
+    </item>
+    <item>
+      <title>AI coding got faster. Why didn’t engineering?</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-productivity-measurement-gap/</link>
+      <dc:creator>Jennifer Riggins</dc:creator>
+      <pubDate>Sun, 09 Aug 2026 14:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Strategy</category>
+      <category>Software Development</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22832960</guid>
+      <description>&lt;img width="1024" height="665" src="https://cdn.thenewstack.io/media/2026/08/17ac4c63-screenshot-2026-08-07-at-16.34.31-1024x665.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred shoppers move through a brightly lit electronics store rendered in blue and white." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/17ac4c63-screenshot-2026-08-07-at-16.34.31-scaled.png" /&gt;&lt;p&gt;AI is great at making individuals faster, but the surrounding systems are then slowing everything right back down. This result&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-productivity-measurement-gap/"&gt;AI coding got faster. Why didn’t engineering?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="665" src="https://cdn.thenewstack.io/media/2026/08/17ac4c63-screenshot-2026-08-07-at-16.34.31-1024x665.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred shoppers move through a brightly lit electronics store rendered in blue and white." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/17ac4c63-screenshot-2026-08-07-at-16.34.31-scaled.png" /&gt;
+&lt;p&gt;AI is great at making individuals faster, but the surrounding systems are then slowing everything right back down. This result &amp;mdash; or, rather, lack thereof &amp;mdash; is amplified by company size and pull request size. To the point that, while AI investment has increased 28 times for most companies, and especially those with more than 99 engineers, velocity measures are stagnant and even down.&lt;/p&gt;
+
+
+
+&lt;p&gt;Such is the finding of the recently released State of AI Impact in Engineering from DX, which measures engineering organizations &lt;a href="https://thenewstack.io/4-north-star-metrics-for-platform-engineering-teams/" class="local-link"&gt;across speed, effectiveness, quality, and impact&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/justinreock/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Justin Reock&lt;/a&gt;, deputy CTO of DX, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;#8220;It is concerning because, when the cost has gone up 28x &amp;mdash; which, literally, the only exponential metric is cost &amp;mdash; and velocity is not exponential, we&amp;rsquo;re not shipping exponentially more.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;While AI spend continues to skyrocket, the &lt;a href="https://getdx.com/research/benchmarks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;innovation ratio&lt;/a&gt; &amp;mdash; the allocation of engineering effort spent on new feature work versus maintenance, toil, and operational overhead &amp;mdash; remains flat. This means AI is not freeing up engineers&amp;rsquo; time to spend on interesting business solutions, according to the report.&lt;/p&gt;
+
+
+
+&lt;p&gt;How is the industry spending so much more money on agentic and AI developer tools, while also doing layoffs, to no avail? Read on as we dive into these disturbing metrics.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-is-developer-experience-trending-down"&gt;&lt;strong&gt;Is developer experience trending down?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;It is possible that we&amp;#8217;re still in this inflection point where a lot of this saved time is still just being spent on tech debt, backlog stuff that may not necessarily be tagged as a new feature,&amp;rdquo; Reock says, still hopeful that the gap between the AI cost and benefit is just growing pains.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;But then, on the developer experience side of things, the specific tension in the report between code maintainability and change confidence is also concerning to me.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;These two drivers make up the Developer Experience Index (DXI) benchmark:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Code maintainability &lt;/strong&gt;&amp;#8211; I feel comfortable making changes to the code. I can understand the code in front of me.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Change confidence&lt;/strong&gt; &amp;#8211; I feel confident that when I release code into production, I will not break things.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;Traditionally, code maintainability and change confidence have positively correlated, Reock explains, because the first makes engineers more comfortable releasing the second to production.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;AI is making it easier to understand what&amp;#8217;s in front of you, and even to make changes to it. But change confidence is now in the negatives,&amp;rdquo; he says. &amp;ldquo;We&amp;#8217;re more afraid to release the code. So we can understand the code, maintain the code, look at the code, and make changes to it more easily. But we trust less what we&amp;#8217;re releasing.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Which is costing even more. For every point of improvement in DXI, he explains, you return ten hours a year to each engineer. This is the first time that DX has witnessed a drop in this measurement, by two points industrywide.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;&lt;strong&gt;Is AI the square peg to enterprises&amp;rsquo; round hole?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Smaller organizations spend more on AI and get more out of it, DX finds, while legacy software organizations are struggling to see any return on investment.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/0x4d44/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Martin Davidson&lt;/a&gt;, CTO of micro-consultancy a2bic.ai, takes this to the extreme: He and his co-founder, with a combined experience of about 80 years, can wrangle teams of AI agents to do the work of 100 junior to mid-level engineers.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Small orgs don&amp;#8217;t have to pay the non-linear coordination and communication taxes that get worse with the size of the org. Remember &lt;a href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;the Mythical Man-Month&lt;/em&gt;&lt;/a&gt;: communication channels grow as &lt;em&gt;n(n&amp;minus;1)/2&lt;/em&gt;, so a team of 10 has 45 channels of overhead,&amp;rdquo; Davidson explains to &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;Three of those people are effectively there just for alignment. But once you only have one or two people, the comms cost evaporates. As middle management is slashed, there&amp;rsquo;s no need for monthly all-hands at all levels of the org.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Across people, processes, and technology, medium-to-large organizations are trying to fit &amp;mdash; or shove &amp;mdash; AI into existing systems. AI is a fundamental technological and operational paradigm shift. This is what he calls &lt;a href="https://0x4d44.substack.com/p/the-renovation-problem" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the renovation problem&lt;/a&gt;, where some of these structures aren&amp;rsquo;t fit for purpose anymore.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;You can&amp;#8217;t retrofit this. We&amp;#8217;ve got processes and structures which were designed when writing code was the expensive thing. That&amp;#8217;s no longer true &amp;mdash; code-writing is now essentially free, but we still cling to the old structures. And they aren&amp;#8217;t cheap,&amp;rdquo; Davidson continues. &amp;ldquo;Company structures are like buildings &amp;mdash; at some point you realize they are no longer fit for purpose and they need to be demolished and rebuilt from the ground up.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Of course this isn&amp;rsquo;t a new problem. It&amp;rsquo;s the same reasoning that has held back the vast majority of enterprises from fully moving to the cloud.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As Davison writes: &amp;ldquo;Maybe the companies that win won&amp;rsquo;t be the ones that successfully transform. Maybe the winners will be the ones that start fresh, unencumbered. That&amp;rsquo;s uncomfortable if you&amp;rsquo;re inside a legacy org. And probably even more so if you&amp;rsquo;re running one.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Thankfully, AI is very good at pattern recognition, making it very useful at &lt;a href="https://thenewstack.io/finally-platform-engineering-for-enterprise-cloud-migration/" class="local-link"&gt;unraveling the mystery of legacy systems, migrating them to the cloud&lt;/a&gt;, and rewriting them with AI in mind.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;&lt;strong&gt;AI exacerbates code bloat&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Of course, many teams &amp;mdash; and their prompts &amp;mdash; are ignoring universally accepted success patterns at the speed of AI, including how smaller batch sizes contribute to more stable releases.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The DX report finds that in July 2025, the median PR size was 42 lines of code, while a year later it&amp;rsquo;s at 72 lines of code.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;To add to this, of all the DXI indicators measured over the last quarter, incremental delivery &amp;mdash; engineers reporting that they get to work on small, incremental changes &amp;mdash; took the biggest hit.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Which carries all kinds of forward benefit &amp;mdash; revert, less review, more understandable documentation, better unit test cases, like all this stuff,&amp;rdquo; Reock says. &amp;#8220;That, in correlation with PR size, I think, is also concerning around quality.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;And it&amp;rsquo;s not just DX uncovering these worrying trends. &lt;a href="https://linearb.io/resources/ai-engineering-productivity-gap" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LinearB&amp;rsquo;s AI engineering productivity gap report&lt;/a&gt; ranks 253 organizations on their AI usage into four buckets. This research released this week finds that smaller pull request size directly ties to more successful AI adoption. &amp;ldquo;Elite organizations&amp;rdquo; sitting in the top 10% had average pull requests of less than 100 lines of code, while those at the bottom of the pack &amp;mdash; labeled as &amp;ldquo;Needs focus&amp;rdquo; &amp;mdash; have pull requests of more than 228 lines of code.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;&lt;strong&gt;Can you improve what you don&amp;rsquo;t measure?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Both DX&amp;rsquo;s and LinearB&amp;rsquo;s research draws on their own data, which comes from organizations using their products to measure the quantitative and qualitative developer experience, so neither result is the whole picture. It could actually be much worse for the rest of the industry.&lt;/p&gt;
+
+
+
+&lt;p&gt;According to research from LeadDev&amp;rsquo;s &lt;a href="https://leaddev.com/the-ai-impact-report-2026-pre-register" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AI Impact Report 2026&lt;/a&gt;, due to publish later this August, only 31% of teams interviewed are measuring AI&amp;rsquo;s impact at all. LeadDev defined these measurements as:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Real productivity gains&lt;/li&gt;
+
+
+
+&lt;li&gt;Security risk&lt;/li&gt;
+
+
+
+&lt;li&gt;Retention of core engineering skills&lt;/li&gt;
+
+
+
+&lt;li&gt;Agentic AI governance&lt;/li&gt;
+
+
+
+&lt;li&gt;Team restructuring&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;Junior hiring and training&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;Among organizations that have actually started adopting AI-powered developer tools, the LeadDev report finds 70% now describe themselves as having adopted &amp;ldquo;widely or completely,&amp;rdquo; with only 26% reporting that AI has boosted engineering productivity by more than 25%. That 26%, &lt;a href="https://www.linkedin.com/in/michael-hill-1a17b08b/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Michael Hill&lt;/a&gt;, managing editor at LeadDev and report author, clarifies, includes respondents going on instinct, not just confirmed data.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The productivity optimism &amp;mdash; 26% seeing big gains &amp;mdash; and the measurement gap &amp;mdash; only 31% actually tracking it &amp;mdash; are two separate findings from two different questions,&amp;rdquo; Hill tells &lt;em&gt;The New Stack&lt;/em&gt;, which means that &amp;ldquo;most of the people reporting gains aren&amp;#8217;t the same people who can prove it.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;As we know, engineering is a science, so you can&amp;rsquo;t improve what you don&amp;rsquo;t measure. But even for those measuring it, the results are worrying.&lt;/p&gt;
+
+
+
+&lt;p&gt;Reock points to the DXI score going down for the first time last quarter:&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We should really be paying attention to that because our customer base trends up, right? The data is heavily biased because they [DX customers] are investing in developer experience, like actively. They bought a product, and so that number tends to trend upward for our cohort of customers. So to see this actually go down is very concerning.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-productivity-measurement-gap/"&gt;AI coding got faster. Why didn’t engineering?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI coding tools speed up individuals, but bigger pull requests, weak measurement and legacy processes keep engineering productivity and confidence stalled.</content:encoded>
+    </item>
+    <item>
       <title>AI adoption isn’t the same as AI usage</title>
       <link>https://web.archive.org/web/https://thenewstack.io/ai-adoption-versus-usage/</link>
       <dc:creator>Harshal Shah</dc:creator>
@@ -30,10 +711,10 @@
       <category>sponsor-webflow</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22832983</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark cyan LED pixel mesh texture representing digital metrics and software engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash.jpg" /&gt;&lt;p&gt;Every engineering org I&amp;#8217;ve talked to this year has some version of the same chart. Seat activations climbing. Token spend&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark cyan LED pixel mesh texture representing digital metrics and software engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash.jpg" /&gt;&lt;p&gt;Every engineering org I&amp;#8217;ve talked to this year has some version of the same chart. Seat activations climbing. Token spend&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-adoption-versus-usage/"&gt;AI adoption isn’t the same as AI usage&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark cyan LED pixel mesh texture representing digital metrics and software engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark cyan LED pixel mesh texture representing digital metrics and software engineering workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/710a5abf-nicolas-arnold-s3-2wpcp72s-unsplash.jpg" /&gt;
 &lt;p&gt;Every engineering org I&amp;#8217;ve talked to this year has some version of the same chart. Seat activations climbing. Token spend climbing. Somebody&amp;#8217;s slide says 80% weekly active. Then you sit in that team&amp;#8217;s planning meeting, and nothing about how they build software has changed.&lt;/p&gt;
 
 
@@ -192,7 +873,7 @@
       <category>sponsor-cncf</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22832995</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D geometric blocks with moody neon light gradients representing multi-cluster KubeVirt infrastructure and EVPN network overlays." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash.jpg" /&gt;&lt;p&gt;Your team has moved VMs to Kubernetes with KubeVirt. The workloads are running. The team is gaining confidence. Then someone&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D geometric blocks with moody neon light gradients representing multi-cluster KubeVirt infrastructure and EVPN network overlays." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash.jpg" /&gt;&lt;p&gt;Your team has moved VMs to Kubernetes with KubeVirt. The workloads are running. The team is gaining confidence. Then someone&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubevirt-evpn-vm-migration/"&gt;Why your KubeVirt VMs can’t move between clusters — and how EVPN fixes it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D geometric blocks with moody neon light gradients representing multi-cluster KubeVirt infrastructure and EVPN network overlays." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/30a96b1f-rodion-kutsaiev-w377uljfrdk-unsplash.jpg" /&gt;&lt;p&gt;Your team has moved VMs to Kubernetes with &lt;a href="https://kubevirt.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeVirt&lt;/a&gt;. The workloads are running. The team is gaining confidence. Then someone asks: can we live-migrate a VM to the other cluster? &lt;/p&gt;
@@ -3567,513 +4248,6 @@ spec:
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/cloud-security-triage-cadence/"&gt;CSPM adoption jumped 60%. Tickets stayed open.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Cloud security tools generate findings, but a recurring triage cadence, clear ownership and business context help teams turn alerts into remediation today.</content:encoded>
-    </item>
-    <item>
-      <title>Today’s Codex will feel “primitive” by fall — and its own team’s roadmap backs it up</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-codex-cloud-evolution/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 18:30:37 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Cloud Services</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832693</guid>
-      <description>&lt;img width="650" height="349" src="https://cdn.thenewstack.io/media/2018/03/8fa2e419-laptop.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2018/03/8fa2e419-laptop.jpg" /&gt;&lt;p&gt;Thibault Sottiaux, who leads core products at OpenAI, believes that today&amp;#8217;s version of Codex will seem outdated before the year&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-codex-cloud-evolution/"&gt;Today&amp;#8217;s Codex will feel &amp;#8220;primitive&amp;#8221; by fall — and its own team&amp;#8217;s roadmap backs it up&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="650" height="349" src="https://cdn.thenewstack.io/media/2018/03/8fa2e419-laptop.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2018/03/8fa2e419-laptop.jpg" /&gt;
-&lt;p&gt;Thibault Sottiaux, who leads core products at OpenAI, believes that today&amp;#8217;s version of Codex will seem outdated before the year ends.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sottiaux&lt;/a&gt; &lt;span style="box-sizing: border-box; margin: 0px; padding: 0px;"&gt;posted &lt;/span&gt;on X late Monday, &amp;#8220;Given some of the results I&amp;#8217;m seeing recently, it&amp;#8217;s pretty clear Codex is a good harness.&amp;#8221; He continued, &amp;#8220;But it will seem primitive in 2-3 months and we&amp;#8217;re about to go through another major evolution in how we use AI at the frontier.&amp;#8221; He also said, &amp;#8220;The next generation of models need more than your laptop.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;It will seem primitive in 2-3 months and we&amp;#8217;re about to go through another major evolution in how we use AI at the frontier.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Given some of the results I&amp;#39;m seeing recently, it&amp;#39;s pretty clear Codex is a good harness.&lt;br&gt;&lt;br&gt;But it will seem primitive in 2-3 months and we&amp;#39;re about to go through another major evolution in how we use AI at the frontier. The next generation of models need more than your laptop.&lt;/p&gt;&amp;mdash; Tibo (@thsottiaux) &lt;a href="https://x.com/thsottiaux/status/2084483765158719542?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 4, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Sottiaux did not share details about OpenAI&amp;#8217;s plans for the coming months. However, his comments are timely since the company is already working to move Codex beyond tasks limited to a developer&amp;#8217;s computer. Since &lt;a href="https://thenewstack.io/openai-launches-a-new-gpt-5-model-for-its-codex-coding-agent/" class="local-link"&gt;launching a new GPT-5 model for Codex&lt;/a&gt; in early July and &lt;a href="https://thenewstack.io/gpt-5-6-codex-user-surge/" class="local-link"&gt;surpassing 8 million users&lt;/a&gt; shortly after, the product has been evolving quickly.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-ona-fills-the-infrastructure-gap"&gt;Ona fills the infrastructure gap&lt;/h2&gt;
-
-
-
-&lt;p&gt;In June, OpenAI &lt;a href="https://openai.com/index/openai-to-acquire-ona/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said it plans to buy Ona&lt;/a&gt;, a company that creates secure cloud development environments. OpenAI called this deal part of the &amp;#8220;next phase of Codex,&amp;#8221; where agents can keep working in a customer&amp;#8217;s cloud even after the laptop that started the job is closed.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The next generation of models need more than your laptop.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Codex currently uses cloud infrastructure, but it might still need the developer&amp;#8217;s laptop to access projects and run tools. If the laptop goes offline, the agent may lose what it needs to keep working.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI has already tested this approach. In &lt;a href="https://developers.openai.com/blog/run-long-horizon-tasks-with-codex" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;an experiment published in February&lt;/a&gt;, Codex worked for about 25 hours straight, used around 13 million tokens, and generated about 30,000 lines of code while building a design tool from scratch. Alibaba has pushed even further &amp;mdash; its Qwen3.8-Max agent recently &lt;a href="https://thenewstack.io/qwen-autonomous-coding-audit/" class="local-link"&gt;coded autonomously for 16 days&lt;/a&gt;, producing 265 commits with zero human help. Ona could help solve this problem.&lt;/p&gt;
-
-
-
-&lt;p id="h-the-company-which-used-to-be-called-gitpod-creates-cloud-environments-that-can-be-set-up-with-the-tools-and-dependencies-needed-for-each-project-openai-said-ona-has-helped-2-million-developers-use-these-environments"&gt;The company, which used to be called Gitpod, creates cloud environments that can be set up with the tools and dependencies needed for each project. OpenAI said Ona has helped 2 million developers use these environments.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agents-need-persistent-workspaces"&gt;Agents need persistent workspaces&lt;/h2&gt;
-
-
-
-&lt;p&gt;If the acquisition goes through, Ona&amp;#8217;s technology would let Codex have a permanent workspace in a customer&amp;#8217;s cloud. Agents could get the context and tools they need for a task without relying on an active session on a local machine.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI says companies will still decide how Codex works in their cloud environments, including what sensitive systems it can access. The deal is not final yet, so OpenAI and Ona are still separate companies.&lt;/p&gt;
-
-
-
-&lt;p&gt;It is not clear if Sottiaux&amp;#8217;s prediction is truly related to Ona. Although the acquisition shows OpenAI is looking beyond just the model, because for Codex to work on its own, it needs an environment that stays online even when the developer&amp;#8217;s laptop is off.&lt;/p&gt;
-
-
-
-&lt;p&gt;Unfortunately, moving the execution environment to the cloud solves one problem but creates many new ones.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-security-risks-grow-with-access"&gt;Security risks grow with access&lt;/h2&gt;
-
-
-
-&lt;p&gt;Letting a coding agent have full access to a company&amp;#8217;s network or a developer&amp;#8217;s credentials is undoubtedly risky. OpenAI said Ona&amp;#8217;s customer-controlled model will let agents work inside an organization&amp;#8217;s own cloud, while OpenAI provides the model and orchestration. Even if the model gets stronger and can handle more complex tasks, it still needs a secure place to run commands, save its progress, and interact with other systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;Developers can assign tasks like refactoring, upgrading dependencies, or investigating bugs to the agent and let it work remotely. They can track its progress, check terminal output, and step in if a human decision is needed. When the agent finishes, users can review the pull request and see which tests were run.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI is already heading this way. Codex &lt;a href="https://thenewstack.io/openai-codex-work-atlas/" class="local-link"&gt;has been folded into the ChatGPT desktop app&lt;/a&gt; and can handle parallel tasks. Its &lt;a href="https://thenewstack.io/openais-codex-desktop-app-is-all-about-managing-agents/" class="local-link"&gt;desktop app is increasingly built around managing agents&lt;/a&gt;, and its mobile features let developers monitor and guide tasks running on laptops, devboxes, or remote environments. It has also expanded with &lt;a href="https://thenewstack.io/openais-codex-gets-plugins/" class="local-link"&gt;new plugins&lt;/a&gt; and &lt;a href="https://thenewstack.io/openai-codex-knowledge-workers/" class="local-link"&gt;tools aimed at knowledge workers&lt;/a&gt; beyond just developers.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Agent environments will use computing resources along with CI/CD systems.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-managing-a-new-agent-layer"&gt;Managing a new agent layer&lt;/h2&gt;
-
-
-
-&lt;p&gt;This change means there is a new type of infrastructure to manage. Anthropic is already moving on this front &amp;mdash; its &lt;a href="https://thenewstack.io/anthropic-mendral-cicd-acquihire/" class="local-link"&gt;acqui-hire of Mendral&lt;/a&gt; is aimed at automating CI/CD tasks like flaky tests and dependency reviews directly inside its platform. Agents will need their own identities and access rules, and their actions will need to be logged, reviewed, and linked back to them, just like with human developers and current automation.&lt;/p&gt;
-
-
-
-&lt;p&gt;Sottiaux&amp;#8217;s prediction certainly has provoked curiosity. Two or three months is a very short time for a product to become &amp;#8220;primitive.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8203;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-codex-cloud-evolution/"&gt;Today&amp;#8217;s Codex will feel &amp;#8220;primitive&amp;#8221; by fall — and its own team&amp;#8217;s roadmap backs it up&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s Astra just proved 10 long-standing math and science theorems. The tokens cost $2,000.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-astra-math-cost/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 17:57:06 +0000</pubDate>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832673</guid>
-      <description>&lt;img width="1024" height="492" src="https://cdn.thenewstack.io/media/2026/08/c5c56ad0-brecht-corbeel-c2xmflquwiy-unsplash-1024x492.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Quantum physics equations float among neon wireframe spheres and curved geometric forms on a dark purple background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c5c56ad0-brecht-corbeel-c2xmflquwiy-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI shared a big research update this week, announcing that an internal version of Astra, its next frontier model, created&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-astra-math-cost/"&gt;OpenAI&amp;#8217;s Astra just proved 10 long-standing math and science theorems. The tokens cost $2,000.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="492" src="https://cdn.thenewstack.io/media/2026/08/c5c56ad0-brecht-corbeel-c2xmflquwiy-unsplash-1024x492.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Quantum physics equations float among neon wireframe spheres and curved geometric forms on a dark purple background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c5c56ad0-brecht-corbeel-c2xmflquwiy-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;OpenAI shared a big research update this week&lt;/strong&gt;, announcing that an internal version of Astra, its next frontier model, created machine-verified proofs for 10 long-standing problems in mathematics and theoretical computer science &amp;mdash; all for roughly $2,000 in &lt;a href="https://thenewstack.io/openai-gpt-56-live/" class="local-link"&gt;GPT-5.6&lt;/a&gt; Sol API tokens.&lt;/p&gt;
-
-
-
-&lt;p&gt;That pricing is probably the most significant aspect of Monday&amp;#8217;s announcement because it shows that the company is asking users to consider what a new discovery might cost once that model already exists.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;For the first time, OpenAI gave us a rough idea of what that amount of AI reasoning might cost.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s important to note that the work isn&amp;#8217;t finished, since the results require further review by human mathematicians. For developers, though, the biggest takeaway is that OpenAI says the research process produced 10 new results, and, for the first time, gave us a rough idea of what that amount of AI reasoning might cost.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI has not released the internal model or announced what it will cost to use. The $2,000 estimate is based on what the same number of tokens would cost at &lt;a href="https://thenewstack.io/gpt-5-6-developer-reactions/" class="local-link"&gt;GPT-5.6 Sol&amp;#8217;s&lt;/a&gt; API rates.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;An internal version of our next major model produced 10 new results on long-standing open problems in mathematics and theoretical computer science, using roughly $2,000 worth of tokens at GPT-5.6 Sol API rates. &lt;a href="https://t.co/4cgowmPOpY" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/4cgowmPOpY&lt;/a&gt;&lt;/p&gt;&amp;mdash; OpenAI (@OpenAI) &lt;a href="https://x.com/OpenAI/status/2084352161404920316?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 3, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;That rough comparison doesn&amp;#8217;t account for the cost of training the model, running the surrounding research process, or having experts choose the problems and assess the answers. Yet, even with those limitations, the comparison is useful for developers.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Research labs cannot easily plan around claims that a model is &amp;#8216;good at mathematics.&amp;#8217; But they can plan around an inference budget.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-inference-over-training-costs"&gt;Inference over training costs&lt;/h2&gt;
-
-
-
-&lt;p&gt;Research labs cannot easily plan around claims that a model is &amp;#8220;good at mathematics.&amp;#8221; But they can plan around an &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;inference budget&lt;/a&gt;. If a model capable of frontier reasoning eventually becomes available through an API, teams could decide how much they are prepared to spend investigating a conjecture, testing a possible proof, or searching for a better bound.&lt;/p&gt;
-
-
-
-&lt;p id="h-the-costs-that-make-the-biggest-difference-to-the-companies-developing-the-systems-typically-come-from-training-from-gpu-clusters-and-power-requirements-to-the-billions-of-dollars-needed-to-build-the-next-generation-of-models-and-yet-they-aren-t-as-important-to-a-research-lab-that-may-eventually-access-the-finished-model-through-an-api-for-that-lab-the-relevant-question-revolves-around-how-much-one-serious-attempt-at-a-problem-will-cost-to-run"&gt;The costs that make the biggest difference to the companies developing the systems typically come from power requirements to the &lt;a href="https://thenewstack.io/future-proof-ai-infrastructure/" class="local-link"&gt;billions of dollars needed to build the next generation of models&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p id="h-the-costs-that-make-the-biggest-difference-to-the-companies-developing-the-systems-typically-come-from-training-from-gpu-clusters-and-power-requirements-to-the-billions-of-dollars-needed-to-build-the-next-generation-of-models-and-yet-they-aren-t-as-important-to-a-research-lab-that-may-eventually-access-the-finished-model-through-an-api-for-that-lab-the-relevant-question-revolves-around-how-much-one-serious-attempt-at-a-problem-will-cost-to-run"&gt;And yet, they aren&amp;rsquo;t as important to a research lab that may eventually access the finished model through an API. For that lab, the relevant question revolves around how much one serious attempt at a problem will cost to run.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s the tone captured by OpenAI&amp;#8217;s estimate. A startup would not need its own frontier model or a warehouse filled with GPUs because it could buy access to a trained model&amp;#8217;s reasoning, just as companies now rent computing power instead of building their own data centers.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-no-guarantees-just-opportunity"&gt;No guarantees, just opportunity&lt;/h2&gt;
-
-
-
-&lt;p&gt;Of course, spending more money doesn&amp;#8217;t guarantee a breakthrough. A model could burn through thousands of dollars in tokens and still come up empty.&lt;/p&gt;
-
-
-
-&lt;p&gt;But that uncertainty is already part of research and using an API wouldn&amp;rsquo;t change that. It would, though, give researchers another valid opportunity to pursue an answer.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-reasoning-budgets-for-research"&gt;Reasoning budgets for research&lt;/h2&gt;
-
-
-
-&lt;p&gt;OpenAI researcher &lt;a href="https://www.linkedin.com/in/noam-brown-8b785b62/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Noam Brown&lt;/a&gt; says the model used a relatively modest amount of test-time compute and that larger reasoning budgets remain available. &lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;And yes we did try other major problems without success. Sadly no Millennium Prize problems (yet).&lt;br&gt;&lt;br&gt;But also, we didn&amp;rsquo;t spend a lot on each problem. It&amp;rsquo;s possible to push test-time compute much further.&lt;/p&gt;&amp;mdash; Noam Brown (@polynoamial) &lt;a href="https://x.com/polynoamial/status/2083478171975082334?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 1, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;The model did &lt;em&gt;not&lt;/em&gt; solve any of the Millennium Prize Problems, but OpenAI appears to believe it has not reached the limit of what more inference could produce.&lt;/p&gt;
-
-
-
-&lt;p&gt;Still, developers and research teams may soon need to decide how much a difficult problem is worth. A university might spend several thousand dollars exploring a mathematical question, while a pharmaceutical company could justify spending far more if a model helps narrow the search for a new drug.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;What OpenAI has shown is that frontier reasoning can be discussed like any other computational workload.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Still, developers and research teams may soon need to decide how much a difficult problem is worth. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-democratizing-frontier-ai-access"&gt;Democratizing frontier AI access&lt;/h2&gt;
-
-
-
-&lt;p&gt;Developers already estimate what it costs to have a model&amp;nbsp;generate code, analyze a database, or process a collection of documents, and research labs may eventually make similar calculations, which would change who can experiment with frontier systems. Building them may remain the domain of a few wealthy companies, but using them could become an &lt;a href="https://thenewstack.io/cloudflare-ai-web-economics/" class="local-link"&gt;API expense&lt;/a&gt; available to smaller research teams.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-astra-math-cost/"&gt;OpenAI&amp;#8217;s Astra just proved 10 long-standing math and science theorems. The tokens cost $2,000.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI says an internal model produced 10 new math proofs for about $2,000 in API tokens, reframing frontier AI reasoning as a budgetable expense.</content:encoded>
-    </item>
-    <item>
-      <title>Claude, Gemini, and GPT-5 can handle every SDLC task. Almost none of them should.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-software-delivery-architecture/</link>
-      <dc:creator>Jeff Michael</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 16:00:00 +0000</pubDate>
-      <category>AI Operations</category>
-      <category>AI Strategy</category>
-      <category>Software Development</category>
-      <category>sponsor-perforce</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832615</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/37e9e068-ubaid-e-alyafizi-f-vqrjbwdei-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital art of a dark, distorted geometric pipeline representing complex AI delivery architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/37e9e068-ubaid-e-alyafizi-f-vqrjbwdei-unsplash.jpg" /&gt;&lt;p&gt;For the past two years, most of the conversations about AI and software development have centered on security: How do&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-software-delivery-architecture/"&gt;Claude, Gemini, and GPT-5 can handle every SDLC task. Almost none of them should.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/37e9e068-ubaid-e-alyafizi-f-vqrjbwdei-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital art of a dark, distorted geometric pipeline representing complex AI delivery architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/37e9e068-ubaid-e-alyafizi-f-vqrjbwdei-unsplash.jpg" /&gt;
-&lt;p&gt;For the past two years, most of the conversations about AI and software development have centered on security: How do you ensure AI-generated code is secure? How do you prevent intellectual property from leaving the boundaries of your organization? How do you govern prompts, models, and data access?&lt;/p&gt;
-
-
-
-&lt;p&gt;These are important questions, but they are &lt;em&gt;not&lt;/em&gt; the questions that will determine whether AI initiatives succeed or fail.&lt;/p&gt;
-
-
-
-&lt;p&gt;Organizations are discovering that AI is not just another developer productivity tool. It is an entirely new architectural layer within software delivery. When AI moves to production, the biggest risks are shifting from model outputs to system design.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;When AI moves to production, the biggest risks are shifting from model outputs to system design.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;In other words, AI won&amp;#8217;t break your SDLC, but poor AI architecture very well could.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-we-are-repeating-the-early-cloud-adoption-cycle"&gt;We are repeating the early cloud adoption cycle&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anyone who worked through the first decade of cloud adoption has seen this movie before.&lt;/p&gt;
-
-
-
-&lt;p&gt;Everyone felt the pressure to move to the cloud as quickly as possible&amp;#8230;and then the bills came. Costs ballooned, governance became increasingly complex, and workload portability became difficult. Some organizations responded by repatriating workloads or adopting hybrid cloud strategies to regain flexibility and control.&lt;/p&gt;
-
-
-
-&lt;p&gt;We&amp;rsquo;re seeing something similar play out with AI as some organizations are finding out the hard way what happens when AI usage expands from a handful of developers experimenting with agents to an enterprise-wide software delivery strategy. Every prompt for code generation, test creation, documentation updates, and validation activities consumes LLM inference and compute resources. As adoption scales, so do the associated costs, governance requirements, and operational complexity.&lt;/p&gt;
-
-
-
-&lt;p&gt;As more organizations move AI to production environments, there is growing consensus that AI must not simply be consumed as a service, but governed as a system with greater visibility and oversight.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The future isn&amp;rsquo;t one model; it&amp;rsquo;s an AI supply chain&lt;/h2&gt;
-
-
-
-&lt;p&gt;Software delivery is not a single activity. It is a collection of specialized activities that span planning, coding, testing, validation, deployment, governance, compliance, and operations. Expecting one model to perform all of those functions efficiently is similar to expecting one service or one platform to manage an entire software stack.&lt;/p&gt;
-
-
-
-&lt;p&gt;Instead, &lt;a href="https://thenewstack.io/building-ai-native-systems/" data-type="link" data-id="https://thenewstack.io/building-ai-native-systems/" class="local-link"&gt;AI-native software delivery&lt;/a&gt; will look like a supply chain.&lt;/p&gt;
-
-
-
-&lt;p&gt;Imagine a future development workflow where different AI systems are responsible for distinct stages of delivery:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;A planning model helps define requirements and generate user stories.&lt;/li&gt;
-
-
-
-&lt;li&gt;A coding model generates implementation logic.&lt;/li&gt;
-
-
-
-&lt;li&gt;A testing model creates unit and integration tests.&lt;/li&gt;
-
-
-
-&lt;li&gt;A validation agent reviews outputs against requirements.&lt;/li&gt;
-
-
-
-&lt;li&gt;Compliance agents ensure policies and regulatory controls are met.&lt;/li&gt;
-
-
-
-&lt;li&gt;Governance systems monitor activity, costs, and model performance across the pipeline.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;In this world, software delivery becomes an orchestrated network of AI capabilities rather than a dependency on a single model.&lt;/p&gt;
-
-
-
-&lt;p&gt;This shift is already visible in the broader conversation around agentic systems. However, discussions about agents often focus on what they can do rather than where they fit within software delivery and how organizations should govern them.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Why small models may do more work than frontier models&lt;/h2&gt;
-
-
-
-&lt;p&gt;Large frontier models like Claude, Gemini, and GPT-5 can reason across domains, synthesize complex information, generate detailed plans, and tackle a wide range of tasks. But that doesn&amp;#8217;t necessarily mean they are the best tool for every job in the software development lifecycle. In fact, most of the SDLC doesn&amp;rsquo;t require frontier intelligence.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;Star Wars&lt;/em&gt; actually offers a useful analogy here &amp;mdash; C-3PO and R2-D2 are both intelligent machines, but they serve very different purposes.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://thenewstack.io/open-weight-models-frontier-costs/" class="local-link"&gt;Frontier models&lt;/a&gt; are the C-3POs of AI &amp;mdash; highly capable generalists that can support a wide variety of tasks, but also resource-intensive and expensive to operate at scale. Most software delivery tasks, however, need an R2-D2: a specialized system optimized for a specific job. Software delivery doesn&amp;#8217;t need one brilliant assistant. It needs a team of specialists.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Software delivery doesn&amp;#8217;t need one brilliant assistant. It needs a team of specialists.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Organizations that rely on a single frontier model for every SDLC task will spend more, scale less efficiently, and have less control than those using specialized AI systems. Alternatively, a collection of specialized &amp;#8220;R2-D2&amp;#8221; models and agents could be optimized for tasks:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;A model focused solely on generating unit tests.&lt;/li&gt;
-
-
-
-&lt;li&gt;A model optimized for code review.&lt;/li&gt;
-
-
-
-&lt;li&gt;A model responsible for build validation.&lt;/li&gt;
-
-
-
-&lt;li&gt;A model dedicated to compliance checks.&lt;/li&gt;
-
-
-
-&lt;li&gt;A model trained to evaluate whether requirements have been met.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;Many of these tasks don&amp;#8217;t require the broad reasoning capabilities of a frontier model. They require consistency, speed, and specialization.&lt;/p&gt;
-
-
-
-&lt;p&gt;This doesn&amp;#8217;t mean frontier models disappear. A large model might be used at the beginning of a workflow to help define requirements, map business objectives, or create an implementation plan. It might also be used at the end of the pipeline as an &amp;#8220;AI judge&amp;#8221; to assess outputs, validate quality, or verify compliance against organizational policies.&lt;/p&gt;
-
-
-
-&lt;p&gt;But much of the work in-between may increasingly be handled by smaller, specialized models that are cheaper to run, easier to fine-tune, and more predictable in their outputs.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;AI control plans and orchestration bring governance into the pipeline&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Historically, software teams have often treated &lt;a href="https://thenewstack.io/okta-ai-agents-fedramp/" data-wpil-monitor-id="4012" class="local-link"&gt;governance and compliance&lt;/a&gt; as downstream activities. Developers write code. Security teams review it. Auditors validate it. Compliance teams verify requirements after the fact.&lt;/p&gt;
-
-
-
-&lt;p&gt;However, when software is being generated, modified, tested, and validated by multiple AI systems, governance can no longer be a separate workflow. It must become an integrated capability embedded within the delivery lifecycle itself so organizations can easily track:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Where AI is being used&lt;/li&gt;
-
-
-
-&lt;li&gt;Which models are making decisions&lt;/li&gt;
-
-
-
-&lt;li&gt;How outputs are validated&lt;/li&gt;
-
-
-
-&lt;li&gt;Whether organizational policies are being followed&lt;/li&gt;
-
-
-
-&lt;li&gt;How costs are being tracked and optimized&lt;/li&gt;
-
-
-
-&lt;li&gt;How compliance requirements are being enforced&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;Essentially, as AI becomes part of software delivery infrastructure, governance can no longer be bolted on afterward. It must be designed into the system from the beginning.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;As AI becomes part of software delivery infrastructure, governance can no longer be bolted on afterward. It must be designed into the system from the beginning.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;As AI becomes embedded into every stage of software delivery, development teams will need a way to coordinate models, agents, policies, compliance requirements, testing workflows, and cost controls across an increasingly complex ecosystem. That&amp;#8217;s why we&amp;#8217;re beginning to see the emergence of AI control planes and orchestration layers that help organizations govern AI interactions, manage token consumption, and maintain trust across the AI-driven development lifecycle.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;What&amp;rsquo;s next&lt;/h2&gt;
-
-
-
-&lt;p&gt;Across the industry, we are seeing growing demand for:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Reference implementations that show how frontier models, open source models, agents, data platforms, and governance frameworks fit together.&lt;/li&gt;
-
-
-
-&lt;li&gt;Training to help DevOps teams understand how software delivery changes in an AI-native world and how to manage new workflows.&amp;nbsp;&lt;/li&gt;
-
-
-
-&lt;li&gt;FinOps tooling to give visibility into AI usage and operational costs so leaders can make informed decisions.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;Together, these capabilities provide something many organizations still lack: a practical blueprint for adopting AI in a way that is scalable, governable, and economically sustainable.&lt;/p&gt;
-
-
-
-&lt;p&gt;This is why the role of experienced technology partners is becoming more important, not less. What organizations really need right now is a strategy for integrating AI into software delivery without creating new forms of technical debt, governance gaps, or runaway costs.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Ultimately, the competitive advantage will come not from any one AI model, but from having the right-sized architecture&amp;mdash;and the right partners&amp;mdash;to put all the pieces together.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-software-delivery-architecture/"&gt;Claude, Gemini, and GPT-5 can handle every SDLC task. Almost none of them should.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Discover why AI-native software delivery requires specialized models, AI control planes, and architecture—not just one frontier LLM.</content:encoded>
     </item>
   </channel>
 </rss>
