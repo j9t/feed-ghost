@@ -5,13 +5,13 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 08 Aug 2026 13:50:59 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 21:15:17 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
     <sy:updateFrequency>
 	1	</sy:updateFrequency>
-    <generator>https://wordpress.org/?v=6.9.5</generator>
+    <generator>https://wordpress.org/?v=6.9.6</generator>
     <image>
       <url>https://cdn.thenewstack.io/media/2026/03/b2fc1b22-cropped-89b6d319-download-32x32.png</url>
       <title>The New Stack | DevOps, Open Source, and Cloud Native News</title>
@@ -19,6 +19,1115 @@
       <width>32</width>
       <height>32</height>
     </image>
+    <item>
+      <title>OpenAI built a model it doesn’t want most people to use</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-gpt56-cyber-daybreak/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 10 Aug 2026 21:15:15 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Large Language Models</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833290</guid>
+      <description>&lt;img width="1000" height="615" src="https://cdn.thenewstack.io/media/2022/08/9b958370-shutterstock_1194728515.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="quantum" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2022/08/9b958370-shutterstock_1194728515.jpg" /&gt;&lt;p&gt;OpenAI on Monday released GPT-5.6 Cyber, a model trained for security work that general-purpose models routinely block. It&amp;#8217;s now available&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-gpt56-cyber-daybreak/"&gt;OpenAI built a model it doesn&amp;#8217;t want most people to use&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1000" height="615" src="https://cdn.thenewstack.io/media/2022/08/9b958370-shutterstock_1194728515.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="quantum" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2022/08/9b958370-shutterstock_1194728515.jpg" /&gt;
+&lt;p&gt;OpenAI on Monday released GPT-5.6 Cyber, a model trained for security work that general-purpose models routinely block. It&amp;#8217;s now available through Daybreak Red, a new tier in OpenAI&amp;#8217;s gated cybersecurity program. &lt;/p&gt;
+
+
+
+&lt;p&gt;In an internal test covering exploit chains, authentication bypass and privilege escalation, GPT-5.6 Cyber answered 95% of requests. &lt;a href="https://thenewstack.io/gpt-sol-chatgpt-split/" class="local-link"&gt;GPT-5.6 Sol&lt;/a&gt; answered 1.5% under its standard safeguards and 2% through the lower-restriction Daybreak Blue tier.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-two-tiers-two-missions"&gt;Two tiers, two missions&lt;/h2&gt;
+
+
+
+&lt;p&gt;In the two-tier structure, Blue gives approved defenders access to GPT-5.6 Sol with system-level restrictions on defensive security work removed. OpenAI recommends it for secure code review, malware analysis, incident response, patch validation, and vulnerability discovery.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://developers.openai.com/api/docs/models/daybreak-blue-latest" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI&amp;#8217;s API documentation&lt;/a&gt; describes daybreak-blue-latest as an alias that works with the Responses API and supports function calling but requires approval and separate provisioning. Even with Blue access, Sol can still refuse requests it considers highly dual use.&lt;/p&gt;
+
+
+
+&lt;p&gt;Red provides access to GPT-5.6 Cyber, which OpenAI trained to find zero-days, build exploit chains, and handle other advanced security tasks that Sol continues to reject even after its system-level filters are gone.&lt;/p&gt;
+
+
+
+&lt;p&gt;In the test, the models were asked to produce code that could bypass macOS Keychain prompts and decrypt Chrome cookies. Sol refused under its standard safeguards and through Daybreak Blue, while GPT&amp;#8209;5.6 Cyber answered the request through Red.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Sol refused under both its standard safeguards and Daybreak Blue. GPT-5.6 Cyber answered through Red.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-where-cyber-falls-short"&gt;Where Cyber falls short&lt;/h2&gt;
+
+
+
+&lt;p&gt;Notably, GPT&amp;#8209;5.6 Cyber did not outperform Sol across the board. While it scored higher on ExploitGym, which tests whether an agent can turn known flaws into working exploits in a sandbox, it fell behind Sol when asked to find flaws and write up its findings. OpenAI cited that Cyber&amp;#8217;s reports tended to be shorter and less detailed.&lt;/p&gt;
+
+
+
+&lt;p&gt;Sol was also more token-efficient on ExploitBench and outperformed Cyber when agents were capped at 300 turns; the gap narrowed at 600 turns. Cyber tends to use a &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/" class="local-link"&gt;larger reasoning budget&lt;/a&gt;, so longer research sessions will likely cost more.&lt;/p&gt;
+
+
+
+&lt;p&gt;For DevSecOps teams, the two tiers split along workflow lines. Blue handles pull request reviews, malware analysis and patch validation. Red reaches into exploit development and will probably need its own CI/CD environment, credentials and approval chain.&lt;/p&gt;
+
+
+
+&lt;p&gt;SpecterOps, SentinelOne and Palo Alto Networks all received early access. Palo Alto Networks is delivering the models through its Frontier AI Defense offering, and SentinelOne through Wayfinder Frontier AI Services. OpenAI said Accenture, IBM, CrowdStrike and Cisco can also incorporate the models into their security products and managed services.&lt;/p&gt;
+
+
+
+&lt;p&gt;SpecterOps CTO &lt;a href="https://www.linkedin.com/in/jaredcatkinson/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jared Atkinson&lt;/a&gt; said GPT-5.6 Cyber finished work in less than a day that earlier models had not resolved after weeks. He pointed to its ability to reason through real exploit constraints free of repeatedly refusing legitimate requests.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;GPT-5.6 Cyber finished work in less than a day that earlier models had not resolved after weeks.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-real-zero-days-real-patches"&gt;Real zero-days, real patches&lt;/h2&gt;
+
+
+
+&lt;p&gt;OpenAI used the model to examine V8, Chrome&amp;rsquo;s JavaScript engine, where it found two previously undisclosed flaws that could be chained to corrupt memory and escape the V8 heap sandbox, which Google fixed under CVE&amp;#8209;2026&amp;#8209;15903.&lt;/p&gt;
+
+
+
+&lt;p&gt;The model also found three critical vulnerabilities in a popular database, including a remote path to code execution, at least five in a popular mobile operating system, and more than 400 possible privilege-escalation flaws in a popular operating-system kernel. OpenAI has not named the affected software because &lt;a href="https://thenewstack.io/apple-ai-bug-report-caps/" class="local-link"&gt;disclosure is still underway&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Under &lt;a href="https://openai.com/index/updating-our-preparedness-framework" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI&amp;#8217;s Preparedness Framework&lt;/a&gt;, GPT-5.6 Cyber reached &amp;#8220;High&amp;#8221; for cybersecurity capability but stayed below the &amp;#8220;Critical&amp;#8221; threshold. A system card with more detailed evaluations is planned.&lt;/p&gt;
+
+
+
+&lt;p&gt;The release comes three days after OpenAI acknowledged that &lt;a href="https://thenewstack.io/openai-astra-cybersecurity-delay/" class="local-link"&gt;Astra, its upcoming model, could reach that Critical threshold&lt;/a&gt;. The company has paused some internal work involving Astra while it studies the model under tighter controls. OpenAI has separately demonstrated &lt;a href="https://thenewstack.io/openai-astra-math-cost/" class="local-link"&gt;Astra&amp;#8217;s reasoning capabilities&lt;/a&gt; on long-standing math and science problems.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The release comes three days after OpenAI acknowledged that Astra &amp;hellip; could reach that Critical threshold.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-guardrails-for-daybreak-users"&gt;Guardrails for Daybreak users&lt;/h2&gt;
+
+
+
+&lt;p id="h-openai-recommends-keeping-security-agents-away-from-production-systems-and-the-open-internet-with-controls-that-limit-what-they-can-reach-and-require-further-review-before-they-move-beyond-those-boundaries"&gt;OpenAI recommends keeping security agents away from production systems and the open internet, with controls that limit what they can reach and require further review before they move beyond those boundaries.&lt;/p&gt;
+
+
+
+&lt;p id="h-the-company-is-also-urging-daybreak-customers-who-use-codex-to-replace-full-access-mode-with-auto-review-which-checks-commands-that-need-elevated-permissions-and-can-stop-destructive-actions-before-they-run"&gt;The company is also urging Daybreak customers who use &lt;a href="https://thenewstack.io/openai-codex-cloud-evolution/" class="local-link"&gt;Codex&lt;/a&gt; to replace full-access mode with auto-review, which checks commands that need elevated permissions and can stop destructive actions before they run.&lt;/p&gt;
+
+
+
+&lt;p id="h-daybreak-users-will-have-to-verify-their-identities-accept-monitoring-and-sign-legal-attestations-while-individual-accounts-will-also-be-required-to-use-hardware-security-keys-beginning-sept-1"&gt;Daybreak users will have to verify their identities, accept monitoring, and sign legal attestations, while individual accounts will also be required to use hardware security keys, beginning September 1, 2026.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-gpt56-cyber-daybreak/"&gt;OpenAI built a model it doesn&amp;#8217;t want most people to use&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>OpenAI&amp;#039;s new GPT-5.6 Cyber model handles exploit chains and zero-day hunting that its general-purpose models block, available through the gated Daybreak Red tier.</content:encoded>
+    </item>
+    <item>
+      <title>Meta’s Muse Glimmer fits on a laptop</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/meta-glimmer-distillation-agents/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 10 Aug 2026 17:16:20 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833224</guid>
+      <description>&lt;img width="1024" height="575" src="https://cdn.thenewstack.io/media/2024/03/43744ba7-code123-1024x575.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/03/43744ba7-code123.jpg" /&gt;&lt;p&gt;Meta released Muse Glimmer on Monday, a 30-billion-parameter open-weight model designed to run agentic workflows on local hardware. It&amp;#8217;s available&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-glimmer-distillation-agents/"&gt;Meta&amp;#8217;s Muse Glimmer fits on a laptop&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="575" src="https://cdn.thenewstack.io/media/2024/03/43744ba7-code123-1024x575.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/03/43744ba7-code123.jpg" /&gt;
+&lt;p id="h-meta-released-muse-glimmer-on-monday-a-30-billion-parameter-open-weight-model-designed-to-run-agentic-workflows-on-local-hardware-developers-can-download-glimmer-and-run-it-without-relying-on-meta-s-cloud-but-perhaps-more-interesting-is-how-meta-turned-its-larger-muse-spark-model-into-something-small-enough-to-work-as-a-local-agent"&gt;Meta released &lt;a href="https://developer.meta.com/ai/models/muse-glimmer/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Muse Glimmer&lt;/a&gt; on Monday, a 30-billion-parameter open-weight model designed to run agentic workflows on local hardware. It&amp;#8217;s available for download on &lt;a href="https://huggingface.co/meta-models" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hugging Face&lt;/a&gt;, but even more notable is how Meta turned its larger Muse Spark model into something small enough to work as a local agent.&lt;/p&gt;
+
+
+
+&lt;p&gt;The model was trained using Spark, allowing it to learn how the larger model handles complex tasks. Then Glimmer was compressed, and a lightweight secondary model was added to accelerate longer tasks. This approach demonstrates how companies can convert effective cloud models into smaller agents for local deployment &amp;mdash; a process that &lt;a href="https://thenewstack.io/altman-security-distillation-scale/" class="local-link"&gt;Sam Altman recently dismissed as a competitive concern&lt;/a&gt; but that Meta is now building into an end-to-end pipeline.&lt;/p&gt;
+
+
+
+&lt;p&gt;A local agent can manage routine tasks on the device, while a larger cloud model provides training and handles more complex jobs. However, this introduces an additional deployment chain for developers to manage.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-distillation-as-deployment-pipeline"&gt;Distillation as deployment pipeline&lt;/h2&gt;
+
+
+
+&lt;p&gt;According to Meta&amp;#8217;s technical announcement, Glimmer was pretrained on Muse Spark&amp;#8217;s outputs using &lt;a href="https://medium.com/@bravekjh/logit-distillation-teaching-ai-to-learn-like-a-pro-with-python-code-e38423a30b45" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;logit distillation&lt;/a&gt;. Meta followed that stage with longer-context training that placed more emphasis on agents and richer reasoning traces. Post-training combined supervised fine-tuning, reinforcement learning, and on-policy distillation across coding, reasoning, and agentic tasks.&lt;/p&gt;
+
+
+
+&lt;p&gt;Distillation is often used to reduce inference costs or fit models onto smaller devices, but Muse Glimmer shows how it can also connect centrally trained models with local agents that run closer to users and their data. &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/deepseek-v4-flash-open-weights/" class="local-link"&gt;DeepSeek recently demonstrated a related dynamic&lt;/a&gt; when its smaller model outperformed its own flagship, suggesting that a well-distilled student can sometimes match or exceed a larger model on targeted tasks.&lt;/p&gt;
+
+
+
+&lt;p&gt;For example, a company could use a larger model to train a local coding agent, allowing it to inspect repositories and use development tools without sending source code to the cloud. Meta is already investing heavily in this direction &amp;mdash; &lt;a href="https://thenewstack.io/meta-metacode-engineer-training/" class="local-link"&gt;its internal training program exposed engineers to roughly 800 real coding failures&lt;/a&gt; to shape how its models handle agentic development work. &lt;/p&gt;
+
+
+
+&lt;p&gt;Meta describes Glimmer as an &amp;#8220;always-on&amp;#8221; local agent that supports a context window exceeding 131,000 tokens, accepts text and image input, enables function calling, supports failure recovery, and offers multiple reasoning settings.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-hardware-costs-of-local-inference"&gt;Hardware costs of local inference&lt;/h2&gt;
+
+
+
+&lt;p&gt;Meta states that Glimmer can run on a Mac or PC with a single consumer GPU. While accurate, this does not guarantee optimal performance on a typical laptop. At full precision, the model requires over 55GB of memory. Meta developed 4-bit versions that reduce the model size to under 20GB, allowing space for the context cache, vision encoder, and speculative-decoding model.&lt;/p&gt;
+
+
+
+&lt;p&gt;The smallest official configuration, K-Quant-17GB, is designed for systems with 24GB of memory. Meta tested this on Apple&amp;#8217;s M4 Max and M5 Max chips and Nvidia&amp;#8217;s RTX 5090. The 17GB quantization reduced average accuracy across 15 benchmarks by 1%. The larger dynamic quantization, targeting 32GB, resulted in a reported 0.2% decline.&lt;/p&gt;
+
+
+
+&lt;p&gt;Glimmer includes a small &amp;#8220;drafter&amp;#8221; based on &lt;a href="https://github.com/z-lab/dflash" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DFlash&amp;#8217;s&lt;/a&gt; speculative-decoding capabilities. The drafter predicts blocks of 16 tokens, which the main model verifies in parallel. In Meta&amp;#8217;s tests, this increased generation speed on an RTX 5090 from 74.9 to 233.4 tokens per second, from 23.7 to 37.8 on an M4 Max, and from 26.6 to 50.2 on an M5 Max.&lt;/p&gt;
+
+
+
+&lt;p&gt;AMD separately reported speeds of up to 24 tokens per second on a Ryzen AI Max+ 395 and 53 tokens per second on a Radeon AI Pro R9700. &lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-versioning-the-full-agent-stack"&gt;Versioning the full agent stack&lt;/h2&gt;
+
+
+
+&lt;p&gt;Once a model has been distilled, compressed, and connected to an agent scaffold, its name no longer tells developers exactly how the finished system will behave. An agent built from Muse Spark 1.1 will not automatically pick up improvements made in Spark 1.2, so developers will have to rebuild and test it before rolling out the updated version.&lt;/p&gt;
+
+
+
+&lt;p&gt;Model compression introduces additional variability. While Meta&amp;#8217;s tests showed minimal overall performance decline, Glimmer may not behave consistently across different tools and data, particularly if developers modify its reasoning level, system prompt, or agent scaffold.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Testing only the full-precision version is insufficient if production uses the 17GB quantized model via llama.cpp on employee hardware.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Engineering teams using this approach will need to track more than the model weights and test the same setup they plan to use in production. Results from the full-precision model may not reflect how the 17GB quantized version performs through llama.cpp on employee hardware.&lt;/p&gt;
+
+
+
+&lt;p&gt;Meta&amp;rsquo;s benchmarks reflect those differences. Glimmer scored 75.5 on MCP Atlas, compared with 54.2 for Gemma4-31B and 62.5 for Qwen3.6-27B. It also narrowly beat Qwen on SWE-Bench Pro, scoring 51.2 against 50.2, although Qwen performed better on OSWorld-Verified, TerminalBench 2.1 and SWE-Bench Verified.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="550" height="1024" src="https://cdn.thenewstack.io/media/2026/08/de12fdf4-media-550x1024.webp" alt="" class="wp-image-22833239"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Meta.&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-security-falls-on-the-developer"&gt;Security falls on the developer&lt;/h2&gt;
+
+
+
+&lt;p&gt;Keeping inference on the device can prevent source code from leaving the machine but doesn&amp;#8217;t prevent the agent from mishandling that information. &lt;/p&gt;
+
+
+
+&lt;p&gt;In &lt;a href="https://huggingface.co/meta-models/Muse-Glimmer-30B" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Meta&amp;#8217;s model card&lt;/a&gt;, Glimmer recorded a 28.4% attack success rate on Siren AgentDojo. Gemma4-31B scored 25.6%, while Qwen3.6-27B scored 40.3%.&lt;/p&gt;
+
+
+
+&lt;p&gt;Glimmer also recorded a 26.4% violation rate on Meta&amp;#8217;s contextual-integrity evaluation, CI Memories. Meta recommends deploying the model within a larger system that includes additional safeguards, rather than treating it as a secure standalone endpoint.&lt;/p&gt;
+
+
+
+&lt;p&gt;When the model runs locally, responsibility for security falls primarily on the developer. Without a cloud provider to enforce tool permissions, record requests, or block suspicious actions, applications must implement their own sandboxing, confirmation steps, credential boundaries, and audit records. &lt;/p&gt;
+
+
+
+&lt;p&gt;As &lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/" class="local-link"&gt;recent real-world containment failures have shown&lt;/a&gt;, even heavily tested models can behave unpredictably when given access to real systems &amp;mdash; and &lt;a href="https://thenewstack.io/apple-ai-bug-report-caps/" class="local-link"&gt;the security community is still working out how to scope that problem&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;An agent capable of reading malicious documents and accessing local files should not inherit the full permissions of the user who launched it.&lt;/p&gt;
+
+
+
+&lt;p id="h-meta-plans-to-release-an-open-weight-version-of-muse-spark-1-2-in-the-coming-weeks-giving-developers-the-option-to-use-the-larger-model-for-challenging-tasks-while-glimmer-handles-more-routine-work-locally-glimmer-will-not-replace-cloud-models-and-its-hardware-requirements-mean-it-will-not-run-everywhere-but-it-shows-how-a-larger-more-powerful-model-can-be-used-to-create-a-smaller-agent-that-runs-closer-to-the-user"&gt;Meta plans to release an open-weight version of Muse Spark 1.2 in the coming weeks, giving developers the option to use the larger model for challenging tasks while Glimmer handles more routine work locally. Glimmer will not replace cloud models, and its hardware requirements mean it will not run everywhere, but it shows how a larger, more powerful model can be used to create a smaller agent that runs closer to the user.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-glimmer-distillation-agents/"&gt;Meta&amp;#8217;s Muse Glimmer fits on a laptop&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Meta&amp;#039;s Muse Glimmer shows how distillation can turn a cloud AI model into a local agent — and why that pipeline needs its own versioning and security.</content:encoded>
+    </item>
+    <item>
+      <title>Pulling multi-gigabyte container images in seconds on Amazon EKS</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/accelerating-eks-image-pulls/</link>
+      <dc:creator>Sri Saran Balaji Vellore Rajakumar</dc:creator>
+      <pubDate>Mon, 10 Aug 2026 16:00:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>Containers</category>
+      <category>Kubernetes</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833138</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/20b94e3d-susan-wilkinson-0ngdt7za2ho-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract fluid art with vibrant flowing streams of color, representing parallel data pipelines and container image optimization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/20b94e3d-susan-wilkinson-0ngdt7za2ho-unsplash.jpg" /&gt;&lt;p&gt;When the image is the bottleneck: Machine learning changed what a container image looks like. A typical application ships in&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/accelerating-eks-image-pulls/"&gt;Pulling multi-gigabyte container images in seconds on Amazon EKS&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/20b94e3d-susan-wilkinson-0ngdt7za2ho-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract fluid art with vibrant flowing streams of color, representing parallel data pipelines and container image optimization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/20b94e3d-susan-wilkinson-0ngdt7za2ho-unsplash.jpg" /&gt;&lt;p&gt;&lt;strong&gt;When the image is the bottleneck: &lt;/strong&gt;Machine learning changed what a container image looks like. A typical application ships in a few hundred MB and starts in seconds. A modern ML inference image carries a deep-learning framework, the CUDA stack, and sometimes the model weights. These images roughly reach 20 to 30 GB, with some even higher. On the GPU and accelerated instances these run on, pulling one of those images takes several minutes before the application can serve its first request: minutes during which provisioned accelerators are ready to process real work but waiting for images to be pulled.&lt;/p&gt;
+
+
+
+&lt;p&gt;We hit this bottleneck on a production ML platform &lt;a href="https://thenewstack.io/eks-kubernetes-etcd-scale/" data-type="link" data-id="https://thenewstack.io/eks-kubernetes-etcd-scale/" class="local-link"&gt;running on Amazon EKS&lt;/a&gt;. The team needed pods ready within two minutes, but image pull alone consumed several minutes. Each pod pulled a roughly 30 GB container image on top of loading model data from a shared filesystem. The images were rebuilt on a regular cadence, so worker nodes faced cold pulls with no usable local cache. While the image was pulled, accelerators sat idle, autoscaling lagged demand, and request queues built up.&lt;/p&gt;
+
+
+
+&lt;p&gt;The natural first suspect for these large image pull times was the network or the registry. After all, 30 GB is a lot of data. However, profiling the image pull path showed neither was the bottleneck on accelerated instances with 100 to 400 Gbps of network bandwidth available. The real constraint was how the software used the hardware already available.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The real constraint was how the software used the hardware already available.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;By rethinking the pull pipeline to leverage the network bandwidth, storage throughput, and compute these instances already had, we got those multi-minute pulls down to seconds. The improvements are available by default on EKS Auto Mode today, and we contributed the core changes upstream to containerd and the SOCI snapshotter. This is the story of how we dove into the internals of the image pull path, identified where time was being lost, and rebuilt those stages. It starts where we started: understanding what a large container image looks like and how it gets onto a node.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-a-container-image-looks-like-at-scale"&gt;What a container image looks like at scale&lt;/h2&gt;
+
+
+
+&lt;p&gt;A container image is not one file. It is a stack of layers plus a small JSON manifest listing them. Each layer is a tar archive of part of the filesystem (the base OS in one, CUDA libraries in another, your code in a third), gzip-compressed. For each layer, the manifest records a digest, a SHA-256 hash of the compressed bytes, so the node can prove it received exactly what was published. When the container runs, these layers are stacked and mounted together into a single unified filesystem.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here is what real ML images look like when measured directly from their registry manifests:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Image&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Compressed Size&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Layers&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Largest Layer&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;AWS DJL LMI 21.0 Inference (cu129)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;16.5 GB&lt;/td&gt;&lt;td&gt;29&lt;/td&gt;&lt;td&gt;9.5 GB&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;AWS PyTorch Training NeuronX 2.7.0&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;12.8 GB&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;3.9 GB&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;AWS SageMaker Distribution 4.2.1 GPU&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;10.5 GB&lt;/td&gt;&lt;td&gt;28&lt;/td&gt;&lt;td&gt;9.4 GB&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Notice that layers within an image are not roughly equal in size. A single layer can account for more than half the total image, with individual layers often reaching 9 GB or larger, while the remaining layers are comparatively small. This size disparity has direct consequences for how long a pull takes, as the next sections explain.&lt;/p&gt;
+
+
+
+&lt;p&gt;Getting each of these layers onto a node involves six stages, and traditionally containerd, the industry-standard container runtime, performed most of these operations sequentially.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-stages-of-a-pull"&gt;The stages of a pull&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="378" src="https://cdn.thenewstack.io/media/2026/08/4f07e41c-image-1024x378.png" alt="Diagram showing the six stages of a container image pull" class="wp-image-22833139"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For each layer, containerd performs six operations in sequence. The first three are the download phase: fetch the compressed bytes from the registry over a single HTTP connection, verify the bytes by computing their SHA-256 and comparing it against the manifest digest, and write the compressed blob to local disk. &lt;/p&gt;
+
+
+
+&lt;p&gt;The next three are the unpack phase: decompress the gzip archive, verify the decompressed content by computing a second SHA-256, and extract the files into the local snapshot directory managed by a containerd snapshotter, the component that stores and serves the on-disk representation of each layer. By default, containerd downloads up to three layers in parallel, but each layer uses a single connection, and unpacking remains strictly sequential across layers.&lt;/p&gt;
+
+
+
+&lt;p&gt;Two details are worth noting. Both SHA-256 checks mentioned above are mandated by the Open Container Initiative (OCI) specification, and on a multi-gigabyte layer, each of these hashes requires real work. The first is computed over the compressed bytes and proves the download was not corrupted or tampered with. &lt;/p&gt;
+
+
+
+&lt;p&gt;The second is computed over the decompressed content. It gives the runtime a stable fingerprint of the layer’s actual filesystem data, which is what allows it to recognize shared layers across images and avoid redundant unpacking. Decompression is another deceptively expensive operation on large layers: gzip often triples a layer’s size on expansion, and because each block depends on the previous one, it runs on a single core. At the same time, the rest of the instance sits idle. &lt;/p&gt;
+
+
+
+&lt;p&gt;Downloading layers can be parallelized, but the unpack sequence runs layer by layer. Layer two cannot begin until layer one finishes all six stages. The result is that at any given moment during a pull, the node is bottlenecked on only one resource: network bandwidth during download, CPU during decompression and hash verification, or disk throughput during extraction. The other resources sit idle, waiting their turn in the pipeline.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Because layers are not equally sized, the single largest layer becomes the long pole in the pipeline.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Because layers are not equally sized, the single largest layer becomes the long pole in the pipeline. A 10 GB layer that takes a minute to decompress on one core holds up the entire image, even if the other layers finish in seconds. Total pull time is effectively bounded by that one dominant layer moving through all six stages.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-existing-approaches-working-around-the-pull"&gt;Existing approaches: working around the pull&lt;/h2&gt;
+
+
+
+&lt;p&gt;There are well-known approaches to reducing image pull times. Each works around the bottleneck differently, whether by altering images, caching them, or relying on assistance from other parts of the stack.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Image size reduction:&lt;/strong&gt; The most direct approach is to make images smaller through multi-stage builds, distroless base images, and stripping unused packages. For ML workloads, this hits hard limits. The GPU software stack alone (PyTorch, cuDNN, CUDA) imposes a compressed floor of roughly 3 to 4 GB that no build optimization can remove. Beyond that, ML images are assembled across organizational boundaries: a platform team provides the OS and drivers, a frameworks team adds deep-learning libraries, and researchers contribute application code and model weights. No single team controls the final artifact; model weights frequently end up baked in because serving frameworks expect local paths, and multi-stage builds yield only single-digit percentage savings on images whose bulk is irreducible.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Image caching (pre-pulling):&lt;/strong&gt; Cache images on nodes by snapshotting image content into a volume and mounting it at provisioning time, so subsequent launches skip the pull entirely. This works for stable images but adds a dedicated pipeline stage for each image version. For ML workloads, the challenge goes beyond frequent rebuilds: a common pattern is a single pod consuming an entire node, so nodes scale in and out with each scheduling decision and every new node faces the full cold pull. This limits pre-caching to workloads with long-lived, static node pools.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The GPU software stack alone (PyTorch, cuDNN, CUDA) imposes a compressed floor of roughly 3 to 4 GB that no build optimization can remove.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Registry-side optimization:&lt;/strong&gt; Some approaches serve image content remotely rather than pulling it to the node. Alibaba’s DADI, for example, presents container images as remote block devices that the node mounts on demand without a discrete pull step. This eliminates startup latency for workloads that access only a fraction of their image. Still, the container depends on the network throughout its lifetime and requires purpose-built serving infrastructure that may not be portable across providers.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Lazy loading:&lt;/strong&gt; Instead of pulling the whole image up front, start the container immediately and fetch file content on demand. Projects in this space include eStargz and Nydus (which require converting the image to a new format) and AWS’s SOCI (Seekable OCI), which adds a seekable index alongside the unmodified image. These techniques work well when containers touch only a fraction of their data at startup. Still, ML images densely access the framework, CUDA libraries, and model weights before serving the first request, so nearly all the data ends up being fetched anyway. For these workloads, the pull pipeline itself needs to be faster.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Peer-to-peer distribution within the cluster:&lt;/strong&gt; Tools like Dragonfly (a CNCF graduated project) and Spegel turn nodes that already have an image into seeders for nodes that need it, reducing registry egress and accelerating rolling deployments. For ML workloads, though, the first node still faces the full cold pull, and when images are rebuilt frequently, no node has the new version cached yet. P2P distribution complements rather than replaces improvements to the pull pipeline itself.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Fixing the image pull pipeline&lt;/h2&gt;
+
+
+
+&lt;p&gt;Out of the six stages in &lt;a href="https://thenewstack.io/solving-the-validation-problem/" data-type="link" data-id="https://thenewstack.io/solving-the-validation-problem/" class="local-link"&gt;the pull pipeline&lt;/a&gt;, we focused on two: downloading the layer blob from the registry, and unpacking the layers on the node. These are where the most time is spent and where the serialization cost is highest.&lt;/p&gt;
+
+
+
+&lt;p&gt;Since SOCI was already an open-source containerd snapshotter plugin with the plumbing to intercept and customize the pull path, it served as a staging ground where we could develop and validate these changes before contributing them upstream to containerd. &lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-download-sharding-a-single-layer-into-multiple-requests"&gt;Download: sharding a single layer into multiple requests&lt;/h3&gt;
+
+
+
+&lt;p&gt;containerd traditionally uses a single HTTP connection to download each layer. We identified that splitting a layer into fixed-size chunks and fetching them concurrently over separate connections using HTTP range requests was significantly faster. At the same time, the containerd community also independently added parallel chunked download support in containerd 2.1, and we built on the same principle in the SOCI snapshotter.&lt;/p&gt;
+
+
+
+&lt;p&gt;However, there is one significant difference that allows us to keep the runtime’s memory footprint constant regardless of image size. The difference is where chunks live between arrival and final assembly. Our implementation writes each chunk directly to the local disk the moment it arrives, while containerd holds it in memory as the layer is assembled. This means the runtime’s memory stays flat whether you are pulling a 1 GB layer or a 15 GB layer, which matters on GPU nodes where system memory is shared with model weights and CUDA contexts.&lt;/p&gt;
+
+
+
+&lt;p&gt;Once download completes in seconds rather than minutes, the compressed layer hash that previously hid behind it becomes visible. Because the layer is now a complete file on disk rather than a stream consumed once, integrity verification and unpacking can proceed at the same time.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Unpack: All layers concurrently&lt;/h3&gt;
+
+
+
+&lt;p&gt;After downloading, containerd decompresses and extracts each layer one at a time. This sequencing exists because in some filesystem backends, a later layer can overwrite files from an earlier one, so the order matters. The overlay snapshotter, which is the default on EKS and most Kubernetes clusters, sidesteps this constraint by keeping each layer in its own separate directory. The kernel mounts them together into one unified view only when the container starts. Because each layer extracts to an independent directory, unpacking one layer does not need to depend on another to finish.&lt;/p&gt;
+
+
+
+&lt;p&gt;With that established, we built an unpack path that decompresses and extracts all layers concurrently. The snapshotter detects whether the backend actually requires ordering and falls back to sequential if it does. For images with multiple large layers, total unpack time goes from the sum of all layers to roughly the time of the single largest one. We contributed this parallel unpack capability upstream to containerd v2.2, so the improvement is available to the broader community.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;What this looks like in practice&lt;/h3&gt;
+
+
+
+&lt;p&gt;With chunked parallel download, a large layer that previously took over a minute on a single connection finishes in single-digit seconds. When you then unpack all layers concurrently rather than sequentially, the full pipeline for a large ML image compresses from several minutes to well under a minute on instances with fast local NVMe storage. The machine spends its available compute and bandwidth actively pulling rather than waiting on serial stages. On larger images and instances with faster storage, the gains are more pronounced because the gap between available hardware capacity and what a single connection can use is wider.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;What’s next&lt;/h3&gt;
+
+
+
+&lt;p&gt;The two changes above address download and layer sequencing, but decompression of a single large layer remains serial. On a 64 vCPU machine, decompressing a layer that expands to 18 GB means a lot of compute sitting idle. Two opportunities stand out:&lt;/p&gt;
+
+
+
+&lt;p&gt;Parallel decompression within a single layer. Libraries like rapidgzip can locate block boundaries and inflate blocks across cores in parallel.&lt;/p&gt;
+
+
+
+&lt;p&gt;Parallelizable integrity verification. Today, the layer hash requires a single sequential read over the entire compressed blob after all bytes have landed. A tree-structured hash like BLAKE3 would allow computing the layer digest from independently hashed chunks so that verification could run in parallel with download rather than as a separate pass afterward.&lt;/p&gt;
+
+
+
+&lt;p&gt;Addressing these opportunities will squeeze out the last remaining serial stages in the pull path, bringing total pull time closer to what the raw hardware is capable of delivering.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Using parallel download and unpack with Amazon EKS&lt;/h2&gt;
+
+
+
+&lt;p&gt;This image pull optimization is enabled by default on G/P/Trn instances with EKS Auto Mode. You can also benefit from this on other node types through one of two mechanisms:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Native containerd 2.2: parallel download and unpack built into the runtime. Use when your node already runs containerd 2.2.&lt;/li&gt;
+
+
+
+&lt;li&gt;SOCI snapshotter: parallel download and unpack with a memory-bounded download path. Use on older nodes without containerd 2.2 or memory-constrained instances.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;EKS AL2023 and Bottlerocket AMIs that ship with containerd 2.2 do not enable this feature by default, but you can set the containerd config explicitly as shown below:&lt;/p&gt;
+
+
+
+&lt;p&gt;AL2023: add the containerd config through the nodeadm NodeConfig in user data:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+apiVersion: node.eks.aws/v1alpha1
+  kind: NodeConfig
+  spec:
+    containerd:
+      config: |
+        [plugins.'io.containerd.transfer.v1.local']
+          max_concurrent_downloads = 20
+          concurrent_layer_fetch_buffer = 16777216
+          max_concurrent_unpacks = 5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bottlerocket (K8s 1.36): Bottlerocket generates the same containerd config from its settings API, so set the equivalent keys in user data:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+[settings.container-runtime]
+  max-concurrent-downloads = 20
+  concurrent-download-chunk-size = 16777216
+  max-concurrent-unpacks = 5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;SOCI snapshotter is bundled in the optimized EKS AMIs (AL2023 and Bottlerocket).&lt;/p&gt;
+
+
+
+&lt;p&gt;Bottlerocket: enable SOCI through EC2 user data:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+[settings.container-runtime]
+  snapshotter = "soci"
+ [settings.container-runtime-plugins.soci-snapshotter.parallel-pull-unpack]
+  max-concurrent-downloads = 20
+ concurrent-download-chunk-size = "16mb"
+ max-concurrent-unpacks-per-image = 5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Tune chunk size and concurrency under [settings.container-runtime-plugins.soci-snapshotter.parallel-pull-unpack]; the right values depend on your instance type and images.&lt;/p&gt;
+
+
+
+&lt;p&gt;AL2023: enable SOCI through the nodeadm FastImagePull feature gate, which switches image pulls to SOCI’s parallel-pull-unpack mode, and you can override the SOCI tuning parameters through user-data:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+apiVersion: node.eks.aws/v1alpha1
+  kind: NodeConfig
+  spec:
+    featureGates:
+      FastImagePull: true
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The image pull problem was never really about the registry, and it was never about needing faster hardware. The network, the storage, and the CPU were always there. When containerd’s pull pipeline took shape, images were measured in hundreds of megabytes, and the sequential approach served that world well. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The image pull problem was never really about the registry, and it was never about needing faster hardware.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;As AI and ML workloads pushed images past 20 GB, the gap between available hardware throughput and what the pull path was utilizing became impossible to ignore. For workloads running on the overlay snapshotter with high-bandwidth instances and fast local storage, parallelizing download and unpack closes most of that gap today. Other snapshotters and storage backends may have different constraints, and opportunities like parallel decompression and parallelizable integrity verification remain open.&lt;/p&gt;
+
+
+
+&lt;p&gt;We have been contributing these changes upstream because this is where they belong: in the runtime itself, available to everyone by default rather than locked behind additional software. Some of that work has already landed in containerd 2.2, and more is in progress. &lt;/p&gt;
+
+
+
+&lt;p&gt;If you are working on container runtimes, image formats, or compression tooling and any of the open problems described here interest you, we would welcome collaboration. The faster we can collectively close the remaining serial stages, the sooner multi-gigabyte images stop being a &lt;a href="https://thenewstack.io/the-deployment-bottleneck-no-one-talks-about/" data-type="link" data-id="https://thenewstack.io/the-deployment-bottleneck-no-one-talks-about/" class="local-link"&gt;deployment bottleneck&lt;/a&gt; for the entire ecosystem.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/accelerating-eks-image-pulls/"&gt;Pulling multi-gigabyte container images in seconds on Amazon EKS&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Speed up large ML container image pulls on Amazon EKS from minutes to seconds using parallel download and unpack in containerd.</content:encoded>
+    </item>
+    <item>
+      <title>Meta Muse Code vs. Fable 5: Meta Muse is cheaper, but at what cost?</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/meta-muse-claude-code/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Mon, 10 Aug 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Software Development</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833182</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Meta released Muse Code on August 5, its first AI coding agent, built on the new Muse Spark 1.2 model.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-muse-claude-code/"&gt;Meta Muse Code vs. Fable 5: Meta Muse is cheaper, but at what cost?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;Meta &lt;a href="https://thenewstack.io/meta-muse-code/" class="local-link"&gt;released Muse Code&lt;/a&gt; on August 5&lt;/strong&gt;, its first AI coding agent, built on the new Muse Spark 1.2 model. Mark Zuckerberg &lt;a href="https://siliconangle.com/2026/08/05/meta-takes-anthropic-openai-first-ai-coding-agent-muse-code/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;says&lt;/a&gt; it handles “complete software engineering tasks across large repos,” and that big jobs “fan out to separate sub-agents working in parallel.” &lt;/p&gt;
+
+
+
+&lt;p&gt;Meta’s AI chief Alexandr Wang was blunt about the strategy. The differentiator, he told &lt;a href="https://www.cnbc.com/2026/08/05/meta-debuts-muse-code-to-take-on-anthropic-and-openai-.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNBC&lt;/a&gt;, is being “more affordable than either Claude or Codex.”&lt;/p&gt;
+
+
+
+&lt;p&gt;Standard muse-spark-1.2 &lt;a href="https://dev.meta.ai/docs/muse-code/?team_id=2306091636825706&amp;amp;project_id=1082575054202150" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;runs&lt;/a&gt; $1.25 per million input tokens and $4.25 per million output. For comparison, Fable 5, the Anthropic model my Claude Code ran, lists at $10 and $50. Then there’s the “contributor” tier at $0.10 and $0.20, which Wang says is “more than 10x cheaper.” &lt;/p&gt;
+
+
+
+&lt;p&gt;He’s right, and here’s the fine print. Contributor means “your content may be used for product improvement.” Your code, your prompts, your sessions, all of it becomes Meta training data. And that tier isn’t buried in a settings menu somewhere. It’s the default.&lt;/p&gt;
+
+
+
+&lt;p&gt;So the question I tested is half of the claim Wang didn’t finish. More affordable, sure. But affordable at what quality? I gave Muse Code and Claude Code the same three coding jobs and tracked every token.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-setting-up-muse"&gt;Setting up Muse&lt;/h2&gt;
+
+
+
+&lt;p&gt;Setup was quick. One curl command installs Muse, you log in through your regular Meta account, and it refuses to run until you attach a payment card. (&lt;a href="https://thenewstack.io/kimi-k3-fable-coding-benchmark/" class="local-link"&gt;Kimi pulled the same move on me last month&lt;/a&gt;. These companies will trust an AI with your codebase but not you with an invoice.) The pricing table sits on the same page where you add the card, which is where I spotted the default tier. &lt;/p&gt;
+
+
+
+&lt;p&gt;I ran my tests on contributor because none of my data was worth protecting. The test repo is public open source code. If your code is proprietary and you switch to the standard tier, expect bills closer to the $2 range for what cost me 6 cents.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tests"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p&gt;I used &lt;a href="https://day.js.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;dayjs&lt;/a&gt;, the 2KB JavaScript date library that’s a standard replacement for Moment.js. It’s real production code with a 773-test suite, and date math breaks in ways you don’t notice until someone’s invoice is wrong.&lt;/p&gt;
+
+
+
+&lt;p&gt;Muse Code (version 0.1.0) ran the Muse Spark 1.2 contributor model. Claude Code (version 2.1.2) ran Fable 5 on a Claude Max plan. Identical prompts, a fresh folder and fresh session for every test, so the agent was the only variable. Here are the three tests I ran:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;a debugging test with three planted bugs&lt;/li&gt;
+
+
+
+&lt;li&gt;a multi-file refactor&lt;/li&gt;
+
+
+
+&lt;li&gt;an open-ended reasoning test&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For every test I recorded time, tokens, and cost.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-1-the-bug-hunt"&gt;Test 1: The bug hunt&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The prompt:&lt;/strong&gt; &lt;em&gt;This JavaScript library’s test suite is failing. Run npx jest to see the failures. Find the bugs causing the failures, fix them, and get the full suite passing. Do not modify or delete any test files, do not skip tests, and do not change any public behavior beyond fixing the bugs. Explain each bug you found and your fix.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Before this test, I planted three subtle bugs in the library, the kind a careless refactor leaves behind, and wiped the git history so neither agent could diff its way to the answers. The bugs broke 17 of the 773 tests.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both agents found all three and fixed them with the exact code the library originally had. A rounding error in date differences, an inverted boundary check in one plugin, and an off-by-one in the start-of-week math. Both explained each bug correctly. Muse even called them “injected bugs” in its summary. It knew it was being tested.&lt;/p&gt;
+
+
+
+&lt;p&gt;Fixing my three bugs wasn’t the complete test, though. On my Mac, two unrelated tests also failed, old ones with timezone assumptions baked in, and each agent had to decide what to do about failures it didn’t cause. Muse identified them, explained they weren’t real bugs, and left them alone. Reasonable. Claude found a way to make them pass without touching the test files, through a settings change. When Claude finished, the whole suite ran clean. Both agents fixed my bugs. Only Claude left behind a test suite that fully passed.&lt;/p&gt;
+
+
+
+&lt;p&gt;Muse finished in 2 minutes 58 seconds on 2.25 million tokens for 2 cents. Claude took 5 minutes 31 seconds on about 1.46 million tokens for $3.02.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-2-the-refactor"&gt;Test 2: The refactor&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The prompt:&lt;/strong&gt; &lt;em&gt;The file src/index.js contains this library’s entire core: date parsing, the Dayjs class, and all of its methods inline in one 467-line file. Refactor it to improve readability and structure: move the parsing logic and any helper logic it needs into dedicated new modules, and break the large methods into smaller focused functions. Do not change any behavior or the public API. Every existing test must still pass (run TZ=UTC npx jest to check), and ./node_modules/.bin/eslint src/* must report no errors.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Both agents hit both required gates, all 773 tests passing and zero lint errors. What they built under those gates wasn’t the same thing at all.&lt;/p&gt;
+
+
+
+&lt;p&gt;Muse extracted one new module, a 25-line parsing file, and broke the big methods into smaller helpers inside the original file. The “monolith” went from 467 lines to 465. Claude extracted three modules, for date parsing, locale handling, and format tokens, and the core file dropped from 467 lines to 353. Claude also checked which internal files the test suite imports before moving anything, so nothing it moved could break a test by accident.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both refactors pass. One reads like the codebase got reorganized (Claude). The other reads like it got tidied (Muse).&lt;/p&gt;
+
+
+
+&lt;p&gt;Muse finished in 1 minute 44 seconds on 1.18 million tokens for a penny. Claude took 6 minutes 9 seconds on about 448,000 tokens for $2.40.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-3-the-reasoning-test"&gt;Test 3: The reasoning test&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The prompt:&lt;/strong&gt; &lt;em&gt;This library’s test suite passes when run with TZ=UTC npx jest, but fails when run in other time zones, for example TZ=America/New_York npx jest and TZ=Australia/Sydney npx jest. Investigate why, decide what the right fix is, and make the full suite pass in any timezone without weakening test coverage and without changing the library’s public behavior. Explain your reasoning and the tradeoffs of the approach you chose.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;This test has no single right answer, which is why I like reasoning tests. The library’s tests pass in some timezones and fail in others, 2 failures in New York, 3 in Sydney, none in London. Each agent had to figure out why before deciding what deserved fixing. Both got it right.&lt;/p&gt;
+
+
+
+&lt;p&gt;The failing tests were written badly, so both rewrote them to work anywhere. And while doing that, both agents found a real bug in the library on their own, a daylight-saving mistake that shows the wrong clock time in certain timezones. Both found it, and both fixed it.&lt;/p&gt;
+
+
+
+&lt;p&gt;They disagreed, though, about how to repair the badly written tests. Each one explicitly rejected the approach the other chose, without knowing the other existed. Muse rewrote the tests to check dayjs against Moment.js. Claude kept the original expected values and made the tests internally consistent, arguing that fixed values catch the case where both libraries are wrong. Both positions are acceptable.&lt;/p&gt;
+
+
+
+&lt;p&gt;You can also see the quality differences in how the models finished the jobs. Muse deleted one assertion it considered redundant and left a few of its own edits as dead code. Claude’s changes were exact, and it ran the suite’s full coverage check on top of the required ones. I verified both agents’ work myself in seven timezones, including ones neither tested. Both held up, 773 tests passing everywhere.&lt;/p&gt;
+
+
+
+&lt;p&gt;Muse used 5.52 million tokens for 3 cents (I didn’t catch the timer on this run). Claude took 9 minutes 8 seconds on about 1.29 million tokens for $3.99.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-results"&gt;The results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;The metric&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Muse Code&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Code&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug hunt&lt;/td&gt;&lt;td&gt;3/3 bugs, suite green&lt;/td&gt;&lt;td&gt;3/3 bugs, suite green in any timezone&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug hunt numbers&lt;/td&gt;&lt;td&gt;2m 58s, 2.25M tokens, $0.02&lt;/td&gt;&lt;td&gt;5m 31s, 1.46M tokens, $3.02&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Refactor&lt;/td&gt;&lt;td&gt;gates pass, 1 new module&lt;/td&gt;&lt;td&gt;gates pass, 3 new modules&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Refactor numbers&lt;/td&gt;&lt;td&gt;1m 44s, 1.18M tokens, $0.01&lt;/td&gt;&lt;td&gt;6m 9s, 448K tokens, $2.40&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Reasoning&lt;/td&gt;&lt;td&gt;Found the hidden bug, left dead code&lt;/td&gt;&lt;td&gt;found the hidden bug, exact&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Reasoning numbers&lt;/td&gt;&lt;td&gt;time unrecorded, 5.52M tokens, $0.03&lt;/td&gt;&lt;td&gt;9m 8s, 1.29M tokens, $3.99&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens&lt;/td&gt;&lt;td&gt;~8.9M&lt;/td&gt;&lt;td&gt;~3.2M&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost (as billed)&lt;/td&gt;&lt;td&gt;$0.06&lt;/td&gt;&lt;td&gt;$9.41&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;br&gt;A few notes on that chart. Muse’s costs are contributor-tier prices. At Meta’s standard rates the same three runs work out to roughly $2, call it 5x cheaper instead of 150x. Claude’s cost is the API-equivalent price inside a Max subscription&lt;/p&gt;
+
+
+
+&lt;p&gt;A few notes on that chart. Muse’s costs are contributor-tier prices. At Meta’s standard rates the same three runs work out to roughly $2, call it 5x cheaper instead of 150x. Claude’s cost is the API-equivalent price inside a Max subscription. And this is three data points, not a benchmark.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-what-do-i-really-think"&gt;What do I really think?&lt;/h3&gt;
+
+
+
+&lt;p&gt;On correctness, the two agents tied. Same bugs found, same gates passed. On the hardest test, both independently discovered a real library bug nobody told them about. But nobody judges an engineer’s work on surface correctness alone, so I can’t call these two equal.&lt;/p&gt;
+
+
+
+&lt;p&gt;Depth and polish matter too, and that’s where they split. Claude’s refactor restructured the codebase where Muse’s tidied it. Claude finished the bug hunt completely where Muse finished it adequately. Claude’s changes on the reasoning test were exact where Muse’s left dead code behind. None of that shows up in a pass/fail column. All of it shows up when someone who knows the codebase reads the diff.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Whatever you save in tokens, you pay back in review time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;And that’s the problem with the discount. Yes, Muse is dramatically cheaper. But every Muse run in this experiment produced work that looked correct on the surface and needed an expert to know whether it was finished underneath. If you can’t run it and then trust the results, even when the tests are green, what’s the point? Whatever you save in tokens, you pay back in review time.&lt;/p&gt;
+
+
+
+&lt;p&gt;Wang’s affordability claim holds, and then some. The part Meta didn’t say out loud is what the affordability buys you, work that’s correct but not thorough.&lt;/p&gt;
+
+
+
+&lt;p&gt;Muse Code is brand new. The gap I found is the closeable kind, and Meta has closed gaps before. I’ll rerun these tests when the next model shows up.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-muse-claude-code/"&gt;Meta Muse Code vs. Fable 5: Meta Muse is cheaper, but at what cost?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Meta admits its first coding agent doesn&amp;#039;t perform as well as Claude Code. I ran both on three real coding jobs and tracked every token. Muse’s refactor barely restructured anything, and it left dead code behind.</content:encoded>
+    </item>
+    <item>
+      <title>“It blows my mind”-“It has a tendency to overengineer things a little”: Developers react to road-testing OpenAI GPT‑5.6 Sol</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/developers-review-gpt-56-sol/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Mon, 10 Aug 2026 14:28:08 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833195</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/913450e5-dimitar-donovski-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/913450e5-dimitar-donovski-scaled.jpg" /&gt;&lt;p&gt;OpenAI made its family of GPT-5.6 models available to its app and API users globally at the start of July.&amp;#160;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/developers-review-gpt-56-sol/"&gt;&amp;#8220;It blows my mind”-“It has a tendency to overengineer things a little”: Developers react to road-testing OpenAI GPT‑5.6 Sol&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/913450e5-dimitar-donovski-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/913450e5-dimitar-donovski-scaled.jpg" /&gt;
+&lt;p&gt;OpenAI made its family of &lt;a href="https://openai.com/index/previewing-gpt-5-6-sol/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GPT-5.6&lt;/a&gt; models available to its app and API users globally at the start of July.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Since launch, users have had the choice of &lt;a href="https://thenewstack.io/openai-gpt-56-live/" class="local-link"&gt;three model versions&lt;/a&gt;: Sol as the most powerful; Terra for mainstream use; and Luna as the fast, efficient option for everyday tasks.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-sol-is-the-star"&gt;Sol is the star&lt;/h2&gt;
+
+
+
+&lt;p&gt;Named after the Latin word for sun, OpenAI initially positioned GPT&amp;#8209;5.6 Sol as inherently more cost-efficient and capable of getting &amp;ldquo;more useful work from every token&amp;rdquo;, with the company&amp;rsquo;s most robust safety stack ever released. The company announced stronger protection for higher-risk activities and &lt;a href="https://thenewstack.io/what-the-eus-cyber-resilience-act-cra-means-for-open-source/" class="local-link"&gt;sensitive cyber requests&lt;/a&gt;, and spent &amp;ldquo;multiple weeks finding weaknesses&amp;rdquo; to pressure-test the system against real-world attacks.&lt;/p&gt;
+
+
+
+&lt;p&gt;Yet for all that galvanization, developers appear to be most interested in GPT&amp;#8209;5.6 Sol&amp;rsquo;s core functionalities and problem-solving capabilities.&lt;/p&gt;
+
+
+
+&lt;p&gt;Dallas Fort Worth-based AI research &amp;amp; development leader at content automation platform company &lt;a href="https://www.blogbuster.so/?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;BlogBuster&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/russell-twilligear/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Russell Twilligear&lt;/a&gt; tells &lt;em&gt;The New Stack &lt;/em&gt;that he&amp;rsquo;s been using GPT&amp;#8209;5.6 Sol and drawing direct performance comparisons to results from Anthropic&amp;rsquo;s &lt;a href="https://www.anthropic.com/news/claude-opus-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Opus 5&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Sol is doing a better job creating things for me and finding mistakes made by Anthropic&amp;rsquo;s models; it&amp;#8217;s blowing my mind,&amp;rdquo; Twilligear says.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I&amp;#8217;m creating a massive nationwide &lt;a href="https://thenewstack.io/databases/" class="local-link"&gt;database&lt;/a&gt; (USA) with over three million entries, and Sol keeps finding mistakes made by Opus and correcting them. So, I did a reversal of roles: I asked Sol to create the database and then asked Claude Opus 5 to check it, and it didn&amp;#8217;t really find anything wrong (only super minor things that wouldn&amp;#8217;t affect it)&amp;#8230; so it&amp;rsquo;s currently something of a challenge to work out where all the lines are drawn in this market,&amp;rdquo; Twilligear adds.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Sol is doing a better job creating things for me and finding mistakes made by Anthropic&amp;rsquo;s models; it&amp;#8217;s blowing my mind.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Twilligear&amp;#8217;s comparison is interesting, although it is not exactly a conventional apples-to-apples model test. Using one model as a generator and another as a reviewer doesn&amp;rsquo;t necessarily categorize one model as &amp;ldquo;better&amp;rdquo; than the other; it does show that they behave differently when tasked with these specific generation or auditing workflows.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;While this might not be a conclusive measure of model evaluation, it does provide us with a tangible real world developer experience, and there&amp;rsquo;s surely value in that.&lt;/p&gt;
+
+
+
+&lt;p&gt;Founder of AI-driven strategy and skills company &lt;a href="https://www.conceptsinsuccess.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Concepts in Success&lt;/a&gt; and independent researcher in AI governance and model evaluation, &lt;a href="https://www.linkedin.com/in/joshua-estrin-phd-37861217a/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Joshua Estrin&lt;/a&gt; PhD, tells &lt;em&gt;The New Stack &lt;/em&gt;that, for his money, this kind of database comparison scenario is a compelling insight into developer experience, but he thinks it&amp;#8217;s &amp;#8220;not enough on its own&amp;#8221; to establish that one model is more accurate than another &amp;#8220;without checking both outputs against ground zero in terms of truth&amp;#8221; as well.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Using one model to generate work and another to review it measures something narrower than overall model quality,&amp;#8221; Estrin says. &amp;#8220;If one model does not flag errors in another model&amp;rsquo;s database, that may say more about what it was prompted or equipped to look for than whether the original model made fewer mistakes. Before calling a winner, I would want both outputs checked against ground truth &amp;#8211; not simply against each other.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;I used GPT-5.6 Sol with ultra reasoning effort&amp;hellip; it was effective across a much wider range of problems and much better at sustaining long, rigorous mathematical searches.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-six-open-erdos-problems-nbsp"&gt;Six open Erd&amp;#337;s problems&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;New York-based PhD candidate at Columbia Business School, &lt;a href="https://x.com/Qiaoqiao2001" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Shouqiao Wang&lt;/a&gt;, posts &lt;a href="https://x.com/Qiaoqiao2001/status/2080003441821163958" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on X&lt;/a&gt; to explain that he &amp;ldquo;solved six open Erd&amp;#337;s problems in five days&amp;rdquo;, all using OpenAI GPT-5.6 Sol. As all fans of central European approximation theory and discrete mathematics will know, Erd&amp;#337;s problems are unsolved mathematical postulates and questions proposed by Hungarian mathematician &lt;a href="https://en.wikipedia.org/wiki/Paul_Erd%C5%91s#Erd%C5%91s's_problems" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Paul Erd&amp;#337;s&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I have a math background, but the Codex workflow I used does not require deep mathematical knowledge,&amp;rdquo; posted Wang. &amp;ldquo;[But] the secret is model selection. I used GPT-5.6 Sol with ultra reasoning effort. Compared with earlier models, it was effective across a much wider range of problems and much better at sustaining long, rigorous mathematical searches.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-gpt-5-6-sol-ultra-reasoning-level-is-one-louder"&gt;GPT-5.6 Sol ultra reasoning level is one louder&lt;/h2&gt;
+
+
+
+&lt;p&gt;Let&amp;rsquo;s just pause to note that OpenAI defines &amp;lsquo;ultra&amp;rsquo; as its highest-capability setting, coordinating multiple agents across parallel workstreams to finish complex tasks faster, meaning that multiple subagents are able to work on different parts of a bigger problem in parallel.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;After low, medium, high, extra high and max, ultra is &lt;a href="https://www.youtube.com/watch?v=XuzpsO4ErOQ" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;one louder&lt;/a&gt; because it trades higher token use for stronger results and faster time-to-result on demanding tasks. While &lt;a href="https://openai.com/index/gpt-5-6/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI lists these six levels&lt;/a&gt; on its most recent product announcement, &lt;a href="https://developers.openai.com/api/docs/guides/reasoning" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;other pages from the company&lt;/a&gt; specify six levels, but start with &amp;#8216;none&amp;#8217; and end at max. Cosmetic labelling taxonomy conventions notwithstanding, we can infer that Sol has a six-speed gearbox.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I then pasted the prompt into Codex, set it as the goal, and let it run,&amp;rdquo; detailed Wang. &amp;ldquo;The reason is that Codex can work for long periods, retain the full research context, and use local files with no further interaction needed. You need to be patient and give it enough time to explore,&amp;rdquo; he added.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Perhaps the main issue I&amp;rsquo;ve found regarding Sol 5.6 is that it has a tendency to overengineer things a little. And for some frontend tasks, I&amp;rsquo;ll still occasionally jump to Claude or Gemini to solve smaller issues.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-walking-the-walk-a-booking-system-developer-s-experience"&gt;Walking the walk, a booking system developer&amp;rsquo;s experience&lt;/h2&gt;
+
+
+
+&lt;p&gt;Edinburgh, Scotland-based founder of tourism booking system automation software company &lt;a href="https://viamki.com/en/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Viamki&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/jean-bustinza/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jean Bustinza&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that GPT-5.6 Sol is his &amp;ldquo;go-to model now&amp;rdquo; and for good reason.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Sometimes, before asking it to output any code, I find myself having long conversations about higher-level tasks that used to feel out of scope for these models, like broader architectural questions,&amp;rdquo; Bustinza says.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Likening it to being &amp;ldquo;a bit like talking to a senior software developer&amp;rdquo; in real life (with the caveat that every so often it will say something that doesn&amp;rsquo;t make any sense), Bustinza enthuses that generally, the information and reasoning he gets from GPT-5.6 Sol are extremely valuable.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Perhaps the main issue I&amp;rsquo;ve found regarding Sol 5.6 is that it has a tendency to overengineer things a little. And for some frontend tasks, I&amp;rsquo;ll still occasionally jump to Claude or Gemini to solve smaller issues,&amp;rdquo; Bustinza qualifies.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-who-actually-wins-the-model-race"&gt;Who actually wins the model race?&lt;/h2&gt;
+
+
+
+&lt;p&gt;If we&amp;rsquo;re looking for a winner in the model performance stakes, then the general consensus leans towards an &amp;ldquo;it depends&amp;rdquo; answer based upon what any individual developer is working to apply the model functionality to.&lt;/p&gt;
+
+
+
+&lt;p&gt;We need to remember that one person&amp;rsquo;s frontier model long-horizon multi-day autonomous task analysis is not necessarily equal to another person&amp;rsquo;s multi-turn task completion and complex scientific cyber research workload &amp;#8211; and that&amp;rsquo;s before we start worrying about cost per token and price performance. &lt;/p&gt;
+
+
+
+&lt;p&gt;Let&amp;rsquo;s keep listening to what the developers say.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/developers-review-gpt-56-sol/"&gt;&amp;#8220;It blows my mind”-“It has a tendency to overengineer things a little”: Developers react to road-testing OpenAI GPT‑5.6 Sol&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Developers weigh in on OpenAI&amp;#039;s GPT-5.6 Sol, from database audits to Erdős problem solving, as it takes on Anthropic&amp;#039;s Claude Opus 5.</content:encoded>
+    </item>
+    <item>
+      <title>V4-Flash vs. V4-Pro: DeepSeek promised better and cheaper. It’s true,  but not how I expected.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/deepseek-flash-pro-benchmark/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Mon, 10 Aug 2026 12:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833164</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/aefe6175-armand-khoury-4cbvro7shls-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract black lines form warped grids and sweeping curves across a white background, creating an optical illusion of three-dimensional space." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/aefe6175-armand-khoury-4cbvro7shls-unsplash-scaled.jpg" /&gt;&lt;p&gt;DeepSeek, the Chinese AI lab that’s been undercutting OpenAI and Anthropic on price since it arrived, recently refreshed V4-Flash, moving&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/deepseek-flash-pro-benchmark/"&gt;V4-Flash vs. V4-Pro: DeepSeek promised better and cheaper. It&amp;#8217;s true,  but not how I expected.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/aefe6175-armand-khoury-4cbvro7shls-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract black lines form warped grids and sweeping curves across a white background, creating an optical illusion of three-dimensional space." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/aefe6175-armand-khoury-4cbvro7shls-unsplash-scaled.jpg" /&gt;&lt;p id="h-deepseek-says-its-refreshed-v4-flash-beats-the-v4-pro-preview-on-coding-at-a-third-of-the-price-i-ran-both-on-three-real-coding-jobs-and-tracked-every-token-flash-really-was-better-but-used-more-tokens-making-the-bills-almost-equal"&gt;&lt;strong&gt;DeepSeek, the Chinese AI lab that’s been undercutting OpenAI and Anthropic&lt;/strong&gt; on price since it arrived, recently refreshed V4-Flash, moving it out of preview. DeepSeek &lt;a href="https://api-docs.deepseek.com/updates/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt; promised that this refreshed Flash model topped the V4-Pro preview on coding and agentic benchmarks.&lt;/p&gt;
+
+
+
+&lt;p&gt;The prices make that claim strange, though. V4-Flash runs $0.14 per million input tokens and $0.28 per million output. V4-Pro runs $0.435 and $0.87. That is almost exactly one-third the price on both input and output.&lt;/p&gt;
+
+
+
+&lt;p&gt;If &lt;a href="https://thenewstack.io/deepseek-v4-flash-open-weights/" class="local-link"&gt;the budget model beats the flagship&lt;/a&gt; at a third of the price, why does the flagship exist? I had to get to the bottom of this, so I gave both models the same three professional coding jobs and tracked every token.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tests"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p&gt;I used rich, the Python terminal-formatting library from Textualize. I chose it because it’s real production Python with a &lt;a href="https://pypistats.org/packages/rich" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;massive install base&lt;/a&gt; and enough internal complexity (style spans, render pipelines, cell-width math) to make a model work for it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both models ran inside &lt;a href="https://thenewstack.io/anthropic-claudecode-opencode-split/" class="local-link"&gt;OpenCode&lt;/a&gt;, the open source terminal coding agent — like Claude Code except you can plug in any model. One setup note: OpenCode’s built-in DeepSeek list only ships with Flash, and there’s a &lt;a href="https://github.com/anomalyco/opencode/issues/30177" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;closed-as-not-planned GitHub issue&lt;/a&gt; about it. To get Pro into the model picker, I had to add a small config file to the project folder (&lt;a href="https://haimaker.ai/blog/deepseek-opencode-setup/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;this guide &lt;/a&gt;has the JSON). It only took about two minutes, mentioning just in case you try to test pro on OpenCode and can’t find the model.&lt;/p&gt;
+
+
+
+&lt;p&gt;I built a separate clone of the repo for each model, started a fresh session for every test, and used identical prompts, so the model was the only variable. Here are the three tests I ran (in this order).&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;a bug fix&lt;/li&gt;
+
+
+
+&lt;li&gt;a feature build&lt;/li&gt;
+
+
+
+&lt;li&gt;a performance optimization (to test reasoning skills)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For every test, I recorded time from OpenCode’s session timer and tokens, API requests, and cost from DeepSeek’s usage dashboard.  &lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-1-the-bug-fix"&gt;Test 1: The bug fix&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The prompt:&lt;/strong&gt; &lt;em&gt;A user reports that importing Rich crashes on macOS. Their environment: Rich 15.0.0, Python 3.14, macOS on Apple Silicon, VS Code integrated terminal with the working directory inside a Dropbox File Provider folder. [traceback] Commands using only absolute paths otherwise work in that terminal. The import itself is what fails, so python -m rich.diagnose cannot run. Find the root cause in this codebase, fix it, add a regression test, and run the test suite. Explain the cause and your fix.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The bug is real and nasty in a quiet way. Rich calls &lt;code&gt;os.getcwd()&lt;/code&gt; at import time and only guards against &lt;code&gt;FileNotFoundError&lt;/code&gt;, but macOS File Provider folders (Dropbox, iCloud) make &lt;code&gt;getcwd()&lt;/code&gt; raise &lt;code&gt;PermissionError&lt;/code&gt; instead, so the entire library dies before a single line of user code runs.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both models found the same root cause and wrote the same one-line fix, broadening the exception handler to &lt;code&gt;OSError&lt;/code&gt;. Both wrote a regression test that mocks the failure, and both finished with all 957 tests passing. I confirmed the fix myself by simulating the blocked &lt;code&gt;getcwd()&lt;/code&gt; against each patched copy.&lt;/p&gt;
+
+
+
+&lt;p&gt;The fixes were identical. The only difference was where each model put its test. Pro read the repo’s existing test files first and added its regression test to the existing suite, matching the project’s conventions. Flash created a brand-new test file. Both work but Pro’s is what a maintainer would ask for in review. Flash’s is what a contributor in a hurry would ship.&lt;/p&gt;
+
+
+
+&lt;p&gt;Flash finished in 59 seconds on 6 API requests and 119.9K tokens, for less than a cent. Pro took 1 minute 1 second, 13 requests, and 159.2K tokens, for about a cent. Same fix, but Pro made twice the API calls to get there. I call this one a tie.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-2-the-feature-build"&gt;Test 2: The feature build&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The prompt: &lt;/strong&gt;&lt;em&gt;Rich’s Text class has an rstrip() method that removes trailing whitespace while preserving styles. Add a matching lstrip() method that removes leading whitespace while preserving styles, and a strip() method that does both. Requirements: 1. Match the existing code style of the Text class 2. Styles on remaining characters must be preserved correctly 3. Add tests covering plain text, styled text, and text that is all whitespace 4. Run the test suite and confirm everything passes 5. Explain your implementation decisions&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;In rich, text can carry formatting, so characters 4 through 9 might be bold. The task was to add a method that trims blank space off the front of text. Trimming the end is easy because nothing moves. Trimming the front is harder because every character slides over, and the formatting is pinned to positions, not characters. If the positions don’t slide too, the bold lands on the wrong letters.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both models got it right. I ran both implementations through the same battery of eight edge cases (partial spans, all-whitespace text, no-op inputs) and both passed all eight.&lt;/p&gt;
+
+
+
+&lt;p&gt;The interesting part was watching how. Pro delegated its initial codebase exploration to a subagent that made 13 tool calls on its own, then wrote an implementation whose first draft had a real bug. It dropped style spans that started inside the stripped whitespace. Its own tests caught it, and it fixed it in one iteration. That’s the system working as intended, but it’s also more machinery. Flash just read the files and wrote the code.&lt;/p&gt;
+
+
+
+&lt;p&gt;Flash finished in 1 minute 29 seconds on 6 requests and 191.2K tokens, again for less than a cent. Pro took 1 minute 43 seconds, 23 requests, and 333.6K tokens, for about two cents. That’s nearly four times the API calls and 75% more tokens for the same feature.&lt;/p&gt;
+
+
+
+&lt;p&gt;Flash came out the winner of this one but based only on efficiency. Same code quality (both passed all eight edge cases), but Flash got there faster, with a quarter of the API calls, half the tokens, and at half the cost. Tie on the code, Flash on efficiency.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-test-3-the-performance-job"&gt;Test 3: The performance job&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;The prompt:&lt;/strong&gt; &lt;em&gt;The maintainers want faster rendering for large tables. Write a small benchmark script that measures rendering a Table with 5,000 rows and 6 columns to a string Console. Record the baseline time, profile it to find the dominant hot path, and optimize that hot path without changing any public behavior or output. Show before/after timings from your benchmark, explain what you changed and why it’s faster, and run the full test suite to prove nothing broke.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The first two tests had the right answer. This one is open-ended. This open-ended test is where the two models stopped being interchangeable.&lt;/p&gt;
+
+
+
+&lt;p&gt;Flash went big. It worked for 27 minutes, made 128 API requests, and burned 15.4 million tokens, all for about eight cents. It didn’t just speed up the code. It built its own testing rig to compare the old and new output across 37 kinds of tables, caught and fixed one of its own bugs along the way, noticed twice that its benchmark was accidentally measuring the wrong copy of the library, and cleaned up 13 type-checker errors. Flash said its version was 1.84x faster. I measured it myself and got 1.83x, so I flag as accurate.&lt;/p&gt;
+
+
+
+&lt;p&gt;Flash also said its new output was identical to the old output down to the byte, and I found one case where it isn’t. In one specific table setup on a color terminal, the invisible color codes get written in a slightly different order. On screen the two outputs look exactly the same, and no user would ever notice. But identical was the claim, and identical is false. This is interesting because Flash did the best engineering of the experiment here, then described its work as more airtight than it was when it really didn’t need to.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Flash did the best engineering of the experiment here, then described its work as more airtight than it was when it really didn’t need to.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Pro treated the same prompt like a code review. It worked for 15 minutes 21 seconds across 57 requests and 4.7 million tokens, costing about seven cents. It found one step in the table-drawing code that was doing work that had already been done, deleted it, tightened one busy stretch of code, and reported a 3.3% improvement. I measured 1.06x, and its output really is identical to the original, down to the byte. &lt;/p&gt;
+
+
+
+&lt;p&gt;It even got right the one case Flash got wrong. Everything Pro said about its work was true. There just wasn’t much work. The big speedup Flash found was sitting in the same measurements Pro was looking at, and Pro missed it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The cheaper model got creative with this one, and the expensive model kept the work more on the surface.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Tldr; the cheaper model got creative with this one and the expensive model kept the work more on the surface.&lt;/p&gt;
+
+
+
+&lt;p&gt;This test is where the numbers get fun. Flash’s 27-minute run burned 15.4 million tokens and cost about eight cents, because 98.6% of those tokens were cache reads billed at a quarter-penny per million. Pro’s run used less than a third of the tokens and cost about seven cents anyway, because Pro’s rates are three times higher. Flash’s fifteen million tokens sound expensive but it only translated to 8 cents.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-results"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;The metric&lt;/td&gt;&lt;td&gt;V4-Flash&lt;/td&gt;&lt;td&gt;V4-Pro&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug fix&lt;/td&gt;&lt;td&gt;identical one-line fix, 957/957 tests&lt;/td&gt;&lt;td&gt;identical one-line fix, 957/957 tests&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug fix numbers&lt;/td&gt;&lt;td&gt;59 s, 119.9K tokens, &amp;lt;$0.01&lt;/td&gt;&lt;td&gt;1 min 1 s, 159.2K tokens, ~$0.01&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Feature&lt;/td&gt;&lt;td&gt;correct, 8/8 edge cases&lt;/td&gt;&lt;td&gt;correct, 8/8 edge cases&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Feature numbers&lt;/td&gt;&lt;td&gt;1 min 29 s, 191.2K tokens, &amp;lt;$0.01&lt;/td&gt;&lt;td&gt;1 min 43 s, 333.6K tokens, ~$0.02&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Optimization&lt;/td&gt;&lt;td&gt;1.83x faster (my measurement)&lt;/td&gt;&lt;td&gt;1.06x faster (my measurement)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Optimization numbers&lt;/td&gt;&lt;td&gt;27 min, 15.4M tokens, ~$0.08&lt;/td&gt;&lt;td&gt;15 min 21 s, 4.7M tokens, ~$0.07&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;~29 min 28 s&lt;/td&gt;&lt;td&gt;~18 min 5 s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total API requests&lt;/td&gt;&lt;td&gt;140&lt;/td&gt;&lt;td&gt;93&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens&lt;/td&gt;&lt;td&gt;~15.7M&lt;/td&gt;&lt;td&gt;~5.2M&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost (as billed)&lt;/td&gt;&lt;td&gt;$0.09&lt;/td&gt;&lt;td&gt;$0.10&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The chart shows how each model did on the three tests, what each test cost in time, tokens, and money, and the totals at the bottom.&lt;/p&gt;
+
+
+
+&lt;p&gt;Read down the columns and the story jumps out. The first two tests are ties. The third is where Flash pulls ahead, 1.83x faster against 1.06x. Then look at the bottom rows. Flash used three times the tokens, yet the final bills are nine cents and ten cents. The cheaper rates and the heavier token use cancel each other out almost exactly. &lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-what-do-i-really-think"&gt;What do I really think?&lt;/h3&gt;
+
+
+
+&lt;p&gt;Both models were identical on the simple tasks. They only split on the reasoning-heavy one, and reasoning is objectively the hardest thing for AI models. Flash reasoned better and used three times the tokens doing it (closing the cost gap completely). &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;If better reasoning means more tokens, we’re all about to send a whole lot of cash money to AI companies, especially now that we’re hooked.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;If better reasoning means more tokens, we’re all about to send a whole lot of cash money to AI companies, especially now that we’re hooked.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="2560" height="521" src="https://cdn.thenewstack.io/media/2026/08/f309e29e-screenshot-2026-08-09-at-21.30.36-scaled.png" alt="" class="wp-image-22833171"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;This reminds me of my &lt;a href="https://thenewstack.io/opus-5-vs-fable-5/" class="local-link"&gt;Opus 5 vs. Fable 5&lt;/a&gt; test. The parent company sets the pricing, so the price tells you about strategy, not cost. And there’s a banner on DeepSeek’s usage page right now warning that prices are about to go up by a lot (screenshot above). I wonder if Flash is priced low so we get used to its better reasoning before the bill arrives.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/deepseek-flash-pro-benchmark/"&gt;V4-Flash vs. V4-Pro: DeepSeek promised better and cheaper. It&amp;#8217;s true,  but not how I expected.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>DeepSeek says its refreshed V4-Flash beats its V4-Pro preview on coding at a third of the price. I ran both on three real coding jobs and tracked every token. Flash really was better but used more tokens, making the bills almost equal.</content:encoded>
+    </item>
     <item>
       <title>Platform Engineering ROI: What it costs to build your own platform</title>
       <link>https://web.archive.org/web/https://thenewstack.io/real-cost-diy-platform/</link>
@@ -30,10 +1139,10 @@
       <category>sponsor-vmware-tanzu</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22833061</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital illustration with a sweeping glitch light wave, symbolizing internal developer platform costs and software complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash.jpg" /&gt;&lt;p&gt;What it actually costs to build your own internal developer platform over five years, and why most “we’ll just build&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital illustration with a sweeping glitch light wave, symbolizing internal developer platform costs and software complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash.jpg" /&gt;&lt;p&gt;What it actually costs to build your own internal developer platform over five years, and why most “we’ll just build&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/real-cost-diy-platform/"&gt;Platform Engineering ROI: What it costs to build your own platform&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital illustration with a sweeping glitch light wave, symbolizing internal developer platform costs and software complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash.jpg" /&gt;&lt;p&gt;What it actually costs to build your own internal developer platform over five years, and why most “we’ll just build it” pitches are pricing the cheap version.&lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital illustration with a sweeping glitch light wave, symbolizing internal developer platform costs and software complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e120e745-ubaid-e-alyafizi-fvdn7zj3m5y-unsplash.jpg" /&gt;&lt;p&gt;What it actually costs to build your own internal developer platform over five years, and why most “we’ll just build it” pitches are pricing the cheap version.&lt;/p&gt;
 
 
 
@@ -46,7 +1155,7 @@
 
 
 &lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="7 ways to fail at building a platform - Michael Coté | PlatformCon 2026" width="500" height="281" src="https://www.youtube.com/embed/c5VNfAPrFVY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="7 ways to fail at building a platform - Michael Coté | PlatformCon 2026" width="500" height="281" src="https://www.youtube.com/embed/c5VNfAPrFVY?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/figure&gt;
 
 
@@ -519,7 +1628,7 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-productivity-measurement-gap/"&gt;AI coding got faster. Why didn’t engineering?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="665" src="https://cdn.thenewstack.io/media/2026/08/17ac4c63-screenshot-2026-08-07-at-16.34.31-1024x665.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred shoppers move through a brightly lit electronics store rendered in blue and white." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/17ac4c63-screenshot-2026-08-07-at-16.34.31-scaled.png" /&gt;
-&lt;p&gt;AI is great at making individuals faster, but the surrounding systems are then slowing everything right back down. This result &amp;mdash; or, rather, lack thereof &amp;mdash; is amplified by company size and pull request size. To the point that, while AI investment has increased 28 times for most companies, and especially those with more than 99 engineers, velocity measures are stagnant and even down.&lt;/p&gt;
+&lt;p&gt;AI is great at making individuals faster, but the surrounding systems are then slowing everything right back down. This result &amp;mdash; or, rather, lack thereof &amp;mdash; is amplified by company size and pull request size. To the point that, while AI investment has increased 28 times for most companies, velocity measures are stagnant and even down.&lt;/p&gt;
 
 
 
@@ -3107,261 +4216,6 @@ EOF
       <content:encoded>Todoist&amp;#039;s maker is betting that generative models should translate intent into predictable code rather than remain in the execution loop.</content:encoded>
     </item>
     <item>
-      <title>Say goodbye to K8s GPU pain: How DRA changes everything</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-dra-gpu-scheduling/</link>
-      <dc:creator>Dawood Abbas</dc:creator>
-      <pubDate>Thu, 06 Aug 2026 16:00:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Kubernetes</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-andela</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832812</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/16e8cc20-logan-voss-erv_j4lcag8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital art featuring a warped metallic pattern pulling into a central void, symbolizing complex Kubernetes GPU scheduling and dynamic resource allocation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/16e8cc20-logan-voss-erv_j4lcag8-unsplash.jpg" /&gt;&lt;p&gt;Consider a platform team managing a shared GPU cluster with a mix of B200s, H100s, and recently added B300s. Every&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-dra-gpu-scheduling/"&gt;Say goodbye to K8s GPU pain: How DRA changes everything&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/16e8cc20-logan-voss-erv_j4lcag8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital art featuring a warped metallic pattern pulling into a central void, symbolizing complex Kubernetes GPU scheduling and dynamic resource allocation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/16e8cc20-logan-voss-erv_j4lcag8-unsplash.jpg" /&gt;
-&lt;p&gt;Consider a platform team managing a shared GPU cluster with a mix of B200s, H100s, and recently added B300s. Every Monday morning, the on-call engineer finds a queue of pending jobs from the weekend. Training workloads are stuck because they landed on H100s and triggered Out-Of-Memory (OOM) errors. Inference jobs sit idle because the small MIG (Multi-Instance GPU) slices are exhausted, even though larger slices sit empty right next to them.&lt;/p&gt;
-
-
-
-&lt;p&gt;Their fix? A 200-line Bash script running every 30 minutes to reconfigure MIG profiles, reschedule stuck jobs, and send a Slack alert when it succeeds, or a PagerDuty alert when it fails.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-root-of-the-problem"&gt;The root of the problem&lt;/h2&gt;
-
-
-
-&lt;p&gt;Here is what was actually broken: Kubernetes treated every GPU as an identical unit. The resource limit nvidia.com/gpu: 1 was the extent of its awareness. The scheduler had no idea if it was handing a pod a 192GB B200 or an 80GB H100. A training job requiring 150GB of VRAM would land on an H100 and immediately OOM, while B200 nodes sat completely idle nearby.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Kubernetes treated every GPU as an identical unit.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The industry&amp;#8217;s accepted &amp;#8220;fix&amp;#8221; relied heavily on node labels, taints, tolerations, and separate &lt;a href="https://thenewstack.io/self-healing-gpu-nodes/" data-wpil-monitor-id="4017" class="local-link"&gt;node pools per GPU&lt;/a&gt; type. Every workload manifest hardcoded hardware assumptions. Adding a single new GPU generation meant updating 40 different Helm charts.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-mig-illusion"&gt;The MIG illusion&lt;/h2&gt;
-
-
-
-&lt;p&gt;MIG made this worse. MIG slices a single GPU into smaller, isolated partitions, each with dedicated memory and compute. Instead of one inference job monopolizing a B200, you can run seven smaller jobs on the same card.&lt;/p&gt;
-
-
-
-&lt;p&gt;In theory, this sounds great. But when you enable &lt;a href="https://thenewstack.io/managed-k8s-with-gpu-worker-nodes-for-faster-ai-ml-inference/" data-type="link" data-id="https://thenewstack.io/managed-k8s-with-gpu-worker-nodes-for-faster-ai-ml-inference/" class="local-link"&gt;MIG in Kubernetes&lt;/a&gt;, each profile becomes a separate, rigid resource type (e.g., nvidia.com/mig-1g.10gb, nvidia.com/mig-3g.40gb). There is no fallback logic. You cannot instruct a job to &amp;#8220;try a small slice first, and use a large one if nothing else is free.&amp;#8221; When small slices run out, jobs sit pending, while large slices go to waste.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;When small slices run out, jobs sit pending, while large slices go to waste.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This inefficiency was accepted as the cost of running GPU workloads on Kubernetes. Then, Kubernetes 1.34 shipped.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Dynamic Resource Allocation (DRA)&lt;/h2&gt;
-
-
-
-&lt;p&gt;Kubernetes 1.34 introduced &lt;a href="https://thenewstack.io/kubernetes-get-the-most-from-dynamic-resource-allocation/" data-type="link" data-id="https://thenewstack.io/kubernetes-get-the-most-from-dynamic-resource-allocation/" class="local-link"&gt;Dynamic Resource Allocation (DRA)&lt;/a&gt;, fundamentally changing the scheduling model. GPU drivers now publish structured data. Instead of requesting a generic nvidia.com/gpu: 1, workloads can express explicit intent using Common Expression Language (CEL):&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&amp;#8220;Give me an H100 or better with at least 40GB of memory.&amp;#8221;&lt;/li&gt;
-
-
-
-&lt;li&gt;&amp;#8220;Give me a MIG slice: small if available, medium if not, or a full GPU if necessary.&amp;#8221;&lt;/li&gt;
-
-
-
-&lt;li&gt;&amp;#8220;Give me four GPUs connected via NVLink.&amp;#8221;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;Example 1: Hardware and memory requirements&lt;/h3&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&amp;#8220;Give me an H100 or better with at least 40GB memory.&amp;#8221;&lt;/em&gt;&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-apiVersion: resource.k8s.io/v1
-kind: ResourceClaimTemplate
-metadata:
-  name: h100-or-better-40gb
-spec:
-  spec:
-    devices:
-      requests:
-        - name: gpu
-          deviceClassName: gpu.nvidia.com
-          count: 1
-          selectors:
-            - cel:
-                # Attribute names are illustrative.
-                # Your NVIDIA DRA driver must expose these fields.
-                expression: &amp;gt;
-                  device.attributes&amp;#x5B;&amp;quot;gpu.nvidia.com&amp;quot;].memory &amp;gt;= quantity(&amp;quot;40Gi&amp;quot;) &amp;amp;amp;&amp;amp;amp;
-                  device.attributes&amp;#x5B;&amp;quot;gpu.nvidia.com&amp;quot;].generation in &amp;#x5B;&amp;quot;H100&amp;quot;, &amp;quot;B200&amp;quot;, &amp;quot;B300&amp;quot;]
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: training-job-h100-or-better
-spec:
-  template:
-    spec:
-      restartPolicy: Never
-      resourceClaims:
-        - name: gpu
-          source:
-            resourceClaimTemplateName: h100-or-better-40gb
-      containers:
-        - name: trainer
-          image: nvcr.io/nvidia/pytorch:24.12-py3
-          command: &amp;#x5B;&amp;quot;python&amp;quot;, &amp;quot;train.py&amp;quot;]
-          resources:
-            claims:
-              - name: gpu
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Example 2: Flexible MIG fallback&lt;/h3&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&amp;#8220;Give me a MIG slice: small if available, medium if not, or full GPU if needed.&amp;#8221;&lt;/em&gt;&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-apiVersion: resource.k8s.io/v1
-kind: ResourceClaimTemplate
-metadata:
-  name: mig-prefer-small-then-medium-then-full
-spec:
-  spec:
-    devices:
-      requests:
-        - name: gpu
-          deviceClassName: gpu.nvidia.com
-          count: 1
-          selectors:
-            - cel:
-                # Prefer any acceptable MIG profile or full GPU
-                expression: &amp;gt;
-                  device.attributes&amp;#x5B;&amp;quot;gpu.nvidia.com&amp;quot;].profile in &amp;#x5B;
-                    &amp;quot;mig-1g.10gb&amp;quot;,
-                    &amp;quot;mig-2g.20gb&amp;quot;,
-                    &amp;quot;mig-3g.40gb&amp;quot;,
-                    &amp;quot;full-gpu&amp;quot;
-                  ]
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: inference-service-flexible-gpu
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: inference-service
-  template:
-    metadata:
-      labels:
-        app: inference-service
-    spec:
-      resourceClaims:
-        - name: gpu
-          source:
-            resourceClaimTemplateName: mig-prefer-small-then-medium-then-full
-      containers:
-        - name: inference
-          image: nvcr.io/nvidia/tritonserver:24.12-py3
-          args: &amp;#x5B;&amp;quot;tritonserver&amp;quot;, &amp;quot;--model-repository=/models&amp;quot;]
-          resources:
-            claims:
-              - name: gpu
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Example 3: Topology constraints&lt;/h3&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&amp;#8220;Give me 4 GPUs that are NVLink-connected.&amp;#8221;&lt;/em&gt;&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-apiVersion: resource.k8s.io/v1
-kind: ResourceClaimTemplate
-metadata:
-  name: four-nvlink-connected-gpus
-spec:
-  spec:
-    devices:
-      requests:
-        - name: gpus
-          deviceClassName: gpu.nvidia.com
-          count: 4
-          selectors:
-            - cel:
-                # Attribute names are illustrative.
-                # Some NVIDIA DRA setups may model this through ComputeDomains.
-                expression: &amp;gt;
-                  device.attributes&amp;#x5B;&amp;quot;gpu.nvidia.com&amp;quot;].fabric == &amp;quot;nvlink&amp;quot;
-      constraints:
-        - requests: &amp;#x5B;&amp;quot;gpus&amp;quot;]
-          matchAttribute: &amp;quot;gpu.nvidia.com/nvlinkDomain&amp;quot;
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: distributed-training-nvlink
-spec:
-  template:
-    spec:
-      restartPolicy: Never
-      resourceClaims:
-        - name: gpus
-          source:
-            resourceClaimTemplateName: four-nvlink-connected-gpus
-      containers:
-        - name: trainer
-          image: nvcr.io/nvidia/pytorch:24.12-py3
-          command:
-            - torchrun
-            - --nproc_per_node=4
-            - train.py
-          resources:
-            claims:
-              - name: gpus
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 class="wp-block-heading"&gt;The engineering takeaway&lt;/h2&gt;
-
-
-
-&lt;p&gt;This architecture requires one manifest. It eliminates fragile node selectors and the need to duplicate job definitions for every new hardware generation. As GPU clusters become increasingly heterogeneous, mixing H100s, B200s, B300s, and whatever silicon drops next, the old integer-based scheduling model breaks down. DRA represents Kubernetes finally maturing to support the nuanced realities of production AI workloads.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-dra-gpu-scheduling/"&gt;Say goodbye to K8s GPU pain: How DRA changes everything&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Discover how Dynamic Resource Allocation in Kubernetes fixes GPU scheduling pain, eliminates MIG waste, and stops cluster OOM errors.</content:encoded>
-    </item>
-    <item>
       <title>“Just rewrite it”: What platform teams really think about modernization</title>
       <link>https://web.archive.org/web/https://thenewstack.io/nutanix-dual-native-architecture/</link>
       <dc:creator>Aarthi Mahesh</dc:creator>
@@ -3577,677 +4431,6 @@ spec:
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nutanix-dual-native-architecture/"&gt;&amp;#8220;Just rewrite it&amp;#8221;: What platform teams really think about modernization&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Nutanix unifies VMs, Kubernetes and bare metal under one operational model, reducing duplicate infrastructure and supporting edge AI and cloud-native data.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic recommends a git worktree per agent. Your runtime infra makes that a problem.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agent-native-runtime-branching/</link>
-      <dc:creator>Arjun Iyer</dc:creator>
-      <pubDate>Thu, 06 Aug 2026 15:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Developer tools</category>
-      <category>sponsor-signadot</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832738</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/b078a832-pham-nhat-o8idw1g7kui-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital visualization of tall magenta data spires on a dark grid, illustrating runtime infrastructure complexity for AI coding agents." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b078a832-pham-nhat-o8idw1g7kui-unsplash.jpg" /&gt;&lt;p&gt;A developer supervising four coding agents has four changes in flight at once, each in its own git worktree. That&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-native-runtime-branching/"&gt;Anthropic recommends a git worktree per agent. Your runtime infra makes that a problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/b078a832-pham-nhat-o8idw1g7kui-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital visualization of tall magenta data spires on a dark grid, illustrating runtime infrastructure complexity for AI coding agents." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b078a832-pham-nhat-o8idw1g7kui-unsplash.jpg" /&gt;
-&lt;p&gt;A developer supervising four coding agents has four changes in flight at once, each in its own git worktree. That isn&amp;#8217;t an exotic setup anymore: Anthropic&amp;#8217;s documentation now treats &lt;a href="https://code.claude.com/docs/en/worktrees" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a worktree per session as the default way to run agents in parallel&lt;/a&gt;, and what was an expert workflow two years ago is the recommended starting point today.&lt;/p&gt;
-
-
-
-&lt;p&gt;The branches themselves aren&amp;#8217;t new. Git made them cheap 20 years ago so developers could isolate changes and work on several things at once, but in practice a developer switched between branches and shipped one change at a time. That kept everything below the code layer singular: one continuous integration (CI) queue, one staging environment, one database everyone tested against. The number of changes contending for those shared resources was capped by headcount, and before agents, only larger teams ever hit the cap.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Coding agents removed the cap. The branch can no longer stop at the code layer.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Coding agents removed the cap. Those four branches are no longer something one developer rotates through. They are four active changes moving toward merge in parallel. The gap becomes unworkable: branching is free at the code layer and missing everywhere below it. Each change needs to exist all the way down the stack, not as a diff in a directory but as a running, testable version of the system. The branch can no longer stop at the code layer.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-parallel-until-the-first-shared-resource"&gt;Parallel until the first shared resource&lt;/h2&gt;
-
-
-
-&lt;p&gt;Code branches in milliseconds. A worktree gives each agent a private copy of the repository for the cost of a checkout, and 10 agents can work side by side without seeing each other&amp;#8217;s edits.&lt;/p&gt;
-
-
-
-&lt;p&gt;The output shows up downstream. Telemetry from Faros AI across more than 10,000 developers found that teams with high AI adoption &lt;a href="https://www.faros.ai/blog/ai-software-engineering" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;merge 98% more pull requests while review time grows 91%&lt;/a&gt;. Nothing downstream of code generation was sized for that arrival rate.&lt;/p&gt;
-
-
-
-&lt;p&gt;Then each change needs to run. There is one staging cluster, one seeded database, one message queue, one set of dependent services, and every branch that reaches this floor stops being parallel. Four agents produce four candidate changes in an afternoon, and all four line up behind the same shared environment to find out whether they work.&lt;/p&gt;
-
-
-
-&lt;p&gt;The queue is more expensive than it looks, because agents don&amp;#8217;t wait well. An agent blocked on an environment either sits idle holding a stale view of the system or plows ahead validating against mocks, and the developer supervising it context-switches away. By the time the shared environment frees up, the cheap part of the work has to be partially redone.&lt;/p&gt;
-
-
-
-&lt;p&gt;The bottleneck isn&amp;#8217;t code generation, &lt;a href="https://thenewstack.io/ai-code-bottleneck-myth/" data-type="link" data-id="https://thenewstack.io/ai-code-bottleneck-myth/" class="local-link"&gt;and it isn&amp;#8217;t review capacity alone&lt;/a&gt;. It&amp;#8217;s the first shared resource a change touches, because a branch that can&amp;#8217;t run is a branch that can&amp;#8217;t be trusted.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The bottleneck isn&amp;#8217;t code generation, and it isn&amp;#8217;t review capacity alone. It&amp;#8217;s the first shared resource a change touches.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="523" src="https://cdn.thenewstack.io/media/2026/08/ec37c152-image-1024x523.png" alt="Workflow diagram showing agent worktree branches running in parallel" class="wp-image-22832740"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;A branch is a delta, not a copy&lt;/h2&gt;
-
-
-
-&lt;p&gt;The way out is to stop treating branching as something git does and start treating it as something every layer does. Branch-based development names the pattern: each layer of the stack offers a cheap, instant, disposable branch primitive, so a change can exist end to end without duplicating anything it didn&amp;#8217;t touch.&lt;/p&gt;
-
-
-
-&lt;p&gt;The mechanic is the one git established, and everyone has been living on for two decades: branches are cheap because they share everything unchanged and carry only the delta. The rest of the stack has been relearning that idea layer by layer ever since &amp;mdash; share by default, isolate what changed.&lt;/p&gt;
-
-
-
-&lt;p&gt;Naming the pattern matters because each layer discovered it separately and called it something different. Worktrees, pipeline caching, preview deploys, database branching, and environment sandboxing sound like five unrelated features. They&amp;#8217;re the same idea applied at five layers, and seeing that changes what you ask of the layers that lack it.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The upper layers learned this years ago&lt;/h2&gt;
-
-
-
-&lt;p&gt;CI absorbed the lesson a decade ago. Every branch gets its own pipeline run on a shared runner pool, with build caches doing the copy-on-write work of reusing unchanged artifacts. Nobody provisions a build system per branch, and nobody queues behind a single global build anymore.&lt;/p&gt;
-
-
-
-&lt;p&gt;The front end followed. On Vercel, &lt;a href="https://vercel.com/docs/deployments/environments" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;every push to a non-production branch gets its own preview deployment by default&lt;/a&gt;; Netlify works the same way, and the branch itself is one immutable build plus routing on shared hosting infrastructure. Reviewers stopped asking whether a change works on someone&amp;#8217;s laptop, because the change is already running somewhere.&lt;/p&gt;
-
-
-
-&lt;p&gt;Both cases have the same shape: the expensive machinery is shared, the branch is thin, and creating one is cheap enough that nobody thinks about it. That&amp;#8217;s what a layer feels like once it has a branch primitive.&lt;/p&gt;
-
-
-
-&lt;p&gt;Each of these primitives also changed behavior once it arrived. Per-branch CI made it normal to run the full test suite on every push instead of nightly. Preview deploys made it normal for a product manager to click through a change before merge. Cheap branches don&amp;#8217;t just remove a queue; they raise the bar for what gets checked before merge.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The data layer was supposed to be the hard case&lt;/h2&gt;
-
-
-
-&lt;p&gt;Databases carry state, so conventional wisdom said branching would never work there. Then Neon, PlanetScale and Xata shipped it anyway, and Neon&amp;#8217;s documentation now makes the parallel explicit: &lt;a href="https://neon.com/docs/introduction/branching" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;branch your data the same way you branch your code&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;A database branch is a copy-on-write view over shared storage pages, created in seconds regardless of how large the database is. &lt;a href="https://thenewstack.io/lessons-learned-from-real-world-nosql-database-migrations/" class="local-link"&gt;Schema migrations&lt;/a&gt; and risky data changes get validated against production-shaped data instead of a stale seed script, and the branch disappears when the work merges.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;If the layer with the most state can hand out branches in seconds, statelessness was never the real requirement.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The data layer matters to this story because it removed the best excuse. If the layer with the most state can hand out branches in seconds, statelessness was never the real requirement. Whatever is still unbranched is unbranched by choice.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The runtime is the last layer to learn the trick&lt;/h2&gt;
-
-
-
-&lt;p&gt;The microservices runtime resisted longest because it looks nothing like a file tree. It has live traffic, a service graph and dozens of moving dependencies, and the naive branch, a full copy of the environment, is so expensive that most teams concluded branching did not apply here.&lt;/p&gt;
-
-
-
-&lt;p&gt;The copy-on-write move works anyway. Run one shared, stable version of the system that is continuously deployed from main. For each change, deploy only the services the change touches as a lightweight ephemeral environment, and route each test request through the changed services while everything else falls through to the shared stable versions. The environment branch costs roughly what the changed services cost, which is why one can exist for every change an agent produces.&lt;/p&gt;
-
-
-
-&lt;p&gt;Routing is the part that sounds exotic and isn&amp;#8217;t. A request tagged with a label gets steered to the changed service versions at each hop, propagated through the call chain the same way trace context already flows through most instrumented systems. The &lt;a href="https://thenewstack.io/smart-ephemeral-environments-share-more-copy-less/" data-wpil-monitor-id="4015" class="local-link"&gt;shared stable environment&lt;/a&gt; plays the role of main, the changed services are the delta, and the label is the pointer that assembles a coherent view of the system per request.&lt;/p&gt;
-
-
-
-&lt;p&gt;This isn&amp;#8217;t a hypothetical architecture. Uber built &lt;a href="https://www.uber.com/blog/simplifying-developer-testing-through-slate/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SLATE to give each developer an ephemeral environment routed against shared production-grade dependencies&lt;/a&gt; because contention over staging could not keep up with its developer count.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="633" src="https://cdn.thenewstack.io/media/2026/08/f25ad364-image-1024x633.png" alt="Table showing each layer's shared stable resource and its corresponding delta" class="wp-image-22832742"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;What an agent-native stack means&lt;/h2&gt;
-
-
-
-&lt;p&gt;Put the layers together and a different development model appears. An agent picks up a task, and the change gets a worktree, a pipeline run, a preview, a data branch, and a running environment from the start. Validation stops being the scarce resource that serializes everything upstream of it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Teams are already composing the lower layers. Bitso, a crypto exchange with 250-plus engineers, &lt;a href="https://www.signadot.com/blog/how-bitso-is-scaling-branch-based-development-with-signadot-and-neon/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pairs an environment branch with a database branch for each change&lt;/a&gt;, so the runtime delta and the data delta travel together and shared staging stays out of the critical path.&lt;/p&gt;
-
-
-
-&lt;p&gt;That end-to-end branch is what the phrase agent-native software development lifecycle should mean. Not agents wired into yesterday&amp;#8217;s pipeline, but a stack where any change, human or machine, can exist at every layer for as long as validation takes and disappear afterward.&lt;/p&gt;
-
-
-
-&lt;p&gt;The payoff compounds with agent count. When the branch primitive at every layer is a delta over something shared, validation concurrency scales with cluster capacity instead of with budget, and the number of changes a team can prove correct per day rises with the number it can generate. That is the ratio that decides whether agent adoption shows up as shipped software or as a longer queue.&lt;/p&gt;
-
-
-
-&lt;p&gt;The audit is cheap to run. Follow one change from worktree to validated and note the first layer where it waits on something shared. That&amp;#8217;s where your stack stops branching.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;For most teams, the answer is the runtime, and if it&amp;#8217;s yours, &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Signadot&lt;/strong&gt;&lt;/a&gt; is a practical place to start.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-native-runtime-branching/"&gt;Anthropic recommends a git worktree per agent. Your runtime infra makes that a problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AI coding agents break shared staging environments. Here is how full-stack branching solves the runtime bottleneck.</content:encoded>
-    </item>
-    <item>
-      <title>Google’s four AI departures: “We wanted to build something differently”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/deepmind-discovery-loop-departures/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 05 Aug 2026 18:44:10 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832761</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/2591a096-karollyne-videira-hubert-baqsbdu8oso-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Google logo above the glass entrance to a modern office building, with pedestrians and trees outside." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/2591a096-karollyne-videira-hubert-baqsbdu8oso-unsplash-scaled.jpg" /&gt;&lt;p&gt;At the start of 2025, investors wondered whether Google could keep pace with OpenAI. By December, Alphabet was completing its&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/deepmind-discovery-loop-departures/"&gt;Google’s four AI departures: &amp;#8220;We wanted to build something differently&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/2591a096-karollyne-videira-hubert-baqsbdu8oso-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Google logo above the glass entrance to a modern office building, with pedestrians and trees outside." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/2591a096-karollyne-videira-hubert-baqsbdu8oso-unsplash-scaled.jpg" /&gt;
-&lt;p id="h-"&gt;&lt;strong&gt;At the start of 2025, investors wondered&lt;/strong&gt; whether Google could keep pace with OpenAI. By December, Alphabet was completing its best year on the stock market since 2009, helped by growing confidence in Gemini and Google&amp;rsquo;s broader AI strategy.&lt;/p&gt;
-
-
-
-&lt;p&gt;Much of that work came out of DeepMind, the British AI lab Google acquired in 2014 for about &amp;pound;400 million ($659 million in 2014). Now, Google is changing its leadership, while four of its best-known engineers are leaving to start an automated research lab.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-deepmind-s-leadership-reshuffles"&gt;DeepMind&amp;#8217;s leadership reshuffles&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google announced&lt;/a&gt; Wednesday that DeepMind founder &lt;a href="https://www.linkedin.com/in/demishassabis/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Demis Hassabis&lt;/a&gt; will step away from the lab&amp;rsquo;s day-to-day operations to become chair of Google DeepMind and chief scientist of Alphabet. &lt;a href="https://www.linkedin.com/in/koray-kavukcuoglu-0439a720/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Koray Kavukcuoglu&lt;/a&gt;, DeepMind&amp;rsquo;s chief technology officer and Google&amp;rsquo;s chief AI architect, will take control of Gemini model development, frontier AI research, the Gemini app and its developer teams.&lt;/p&gt;
-
-
-
-&lt;p&gt;At the same time, &lt;a href="https://www.linkedin.com/in/jeff-dean-8b212555/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jeff Dean,&lt;/a&gt; &lt;a href="https://research.google/people/sanjayghemawat/?&amp;amp;type=google" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sanjay Ghemawat&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/oriol-vinyals-00b3366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oriol Vinyals&lt;/a&gt; and &lt;a href="https://www.linkedin.com/in/quoc-v-le-319b5a8/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Quoc Le&lt;/a&gt; are also leaving Google to start Discovery Loop. As a public-benefit corporation, the company wants to use AI to automate scientific and engineering research. Google will remain involved as a founding investor and cloud provider. Just one person will now oversee everything from research to products. &lt;/p&gt;
-
-
-
-&lt;p&gt;In a January interview for CNBC&amp;rsquo;s podcast &lt;a href="https://www.cnbc.com/2026/01/16/deepmind-ceo-demis-hassabis-google-sundar-pichai-openai-ai.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The Tech Download&lt;/em&gt;&lt;/a&gt;, Hassabis described DeepMind as the &amp;ldquo;engine room&amp;rdquo; of Google&amp;rsquo;s AI efforts. Hassabis said DeepMind develops Google&amp;rsquo;s core AI technology before it is distributed across the company&amp;rsquo;s products.&lt;/p&gt;
-
-
-
-&lt;p&gt;To get new AI into products faster, Google had to do more than update its models. DeepMind spent years reworking Google&amp;#8217;s infrastructure so its AI work could move out the door quicker. That infrastructure push has extended to silicon, too &amp;mdash; Google recently &lt;a href="https://thenewstack.io/google-frozen-gemini-chip/" class="local-link"&gt;bet its inference future on a chip built for one model&lt;/a&gt;, a sign of how tightly the company is coupling hardware to its Gemini roadmap.&lt;/p&gt;
-
-
-
-&lt;p&gt;Hassabis said Google never struggled to invent new technology. After all, its researchers came up with the transformer architecture, which became the backbone of large language models. The problem was turning that research into products fast enough.&lt;/p&gt;
-
-
-
-&lt;p&gt;And moving faster is exactly what Google did. Hassabis pointed to Gemini 2.5, which landed in March 2025, as a turning point. Gemini 3 came out in November and put Google back in the mix with OpenAI and Anthropic &amp;mdash; both of which have been &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/" class="local-link"&gt;making aggressive moves of their own&lt;/a&gt; to capture developer share.&lt;/p&gt;
-
-
-
-&lt;p&gt;By January, Hassabis said he and Google CEO Sundar Pichai were speaking almost every day, sometimes adjusting product plans and research roadmaps daily.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-kavukcuoglu-inherits-the-gemini-roadmap"&gt;Kavukcuoglu inherits the Gemini roadmap&lt;/h2&gt;
-
-
-
-&lt;p&gt;Kavukcuoglu has been at DeepMind for 13 years, started the deep learning team, and worked on projects like WaveNet and DQN. Now, model research, the Gemini app, and developer products are all on his plate. The flagship version of Gemini 4 remains unreleased after a planned June launch, according to &lt;a href="https://www.reuters.com/business/google-shakes-up-ai-leadership-deepmind-chief-shifts-role-2026-08-05/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Reuters&lt;/a&gt;. Hassabis confirmed the model&amp;rsquo;s name in his note to employees, saying Google was making progress on Gemini 4.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-discovery-loop-s-founding-engineers"&gt;Discovery Loop&amp;#8217;s founding engineers&lt;/h2&gt;
-
-
-
-&lt;p&gt;Dean joined Google in 1999 and helped create Google Brain before becoming a technical co-lead for Gemini. Working with Ghemawat, he developed systems including MapReduce, Bigtable, and Spanner. Dean was one of the primary designers of TensorFlow, while Ghemawat worked on the infrastructure behind Google Search and several generations of its distributed computing systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;Vinyals and Le made foundational contributions to deep learning and Gemini. Along with former OpenAI chief scientist Ilya Sutskever, they co-authored the influential 2014 paper that introduced sequence-to-sequence learning with neural networks. Their new company plans to use that experience to work on machine learning itself, at least to start.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We are building AI solutions that can automatically solve important problems in machine learning, science, and engineering,&amp;rdquo; Discovery Loop says on its website.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We are building AI solutions that can automatically solve important problems in machine learning, science, and engineering.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The idea that AI can automate scientific discovery is no longer speculative. OpenAI&amp;#8217;s Astra recently &lt;a href="https://thenewstack.io/openai-astra-math-cost/" class="local-link"&gt;proved 10 long-standing math and science theorems&lt;/a&gt; for about $2,000 in token costs &amp;mdash; a data point that suggests Discovery Loop is entering a space where early results are already landing.&lt;/p&gt;
-
-
-
-&lt;p&gt;Discovery Loop is built around the idea that AI can automate the entire experimental cycle. At &lt;a href="https://www.ycombinator.com/library/Vy-jeff-dean-the-1-rule-for-building-in-ai?" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Y Combinator&lt;/a&gt;&amp;lsquo;s Startup School in July, Dean said the system could run the entire process, from proposing and carrying out an experiment to evaluating the results and deciding what to test next. &lt;/p&gt;
-
-
-
-&lt;p&gt;Ghemawat told &lt;a href="https://www.wired.com/story/jeff-dean-google-discovery-loop-startup/?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Wired&lt;/em&gt;&lt;/a&gt; that Google&amp;rsquo;s systems were designed to support products such as Search, advertising and large consumer applications. Discovery Loop wants to build specialized infrastructure around research instead.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We wanted to build something differently than how things are built at Google right now,&amp;rdquo; he said.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We wanted to build something differently than how things are built at Google right now.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-google-keeps-a-stake"&gt;Google keeps a stake&lt;/h2&gt;
-
-
-
-&lt;p&gt;Rather than cut ties with the departing engineers, Google is investing in Discovery Loop and has signed a cloud partnership to provide the startup with computing capacity. That arrangement gives Discovery Loop access to the infrastructure needed to run large numbers of experiments without first building its own data centers. It gives Google a stake in anything the new company discovers and another major AI workload for Google Cloud.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Rather than cut ties with the departing engineers, Google is investing in Discovery Loop and has signed a cloud partnership to provide the startup with computing capacity. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Google has already lost Gemini co-leader and transformer co-author &lt;a href="https://www.linkedin.com/in/noam-shazeer-3b27288/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Noam Shazeer&lt;/a&gt; to OpenAI and AlphaFold researcher &lt;a href="https://www.linkedin.com/in/john-jumper-2ab9429b/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;John Jumper&lt;/a&gt; to Anthropic. Worth noting, Alphabet shares fell more than 5% following Wednesday&amp;rsquo;s announcement.&lt;/p&gt;
-
-
-
-&lt;p&gt;Hassabis, meanwhile, will focus more of his attention on long-term AGI strategy and Isomorphic Labs, the drug-discovery company spun out of DeepMind. &lt;/p&gt;
-
-
-
-&lt;p&gt;In his message to employees, he said AGI now feels &amp;#8220;close at hand&amp;#8221; and that he wants more time to influence what happens next &amp;mdash; a sentiment that carries extra weight as &lt;a href="https://thenewstack.io/ai-pause-framework-letter/" class="local-link"&gt;some of the most powerful AI labs face growing pressure to slow down&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8203;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/deepmind-discovery-loop-departures/"&gt;Google’s four AI departures: &amp;#8220;We wanted to build something differently&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google DeepMind loses Jeff Dean and three top engineers to Discovery Loop, a startup automating scientific research, as Demis Hassabis moves to a strategy role.</content:encoded>
-    </item>
-    <item>
-      <title>The 800 mistakes that could reshape Meta’s AI coding strategy</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/meta-metacode-engineer-training/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 05 Aug 2026 18:06:05 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832756</guid>
-      <description>&lt;img width="1024" height="766" src="https://cdn.thenewstack.io/media/2026/05/612c2996-ubaid-e-alyafizi-rirrvhm-7ea-unsplash-1024x766.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of multiple computer monitors displaying code and system dashboards, depicting telemetry data" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/612c2996-ubaid-e-alyafizi-rirrvhm-7ea-unsplash-scaled.jpg" /&gt;&lt;p&gt;Meta is asking thousands of its software engineers to help train its internal AI coding tools by simply fixing code,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-metacode-engineer-training/"&gt;The 800 mistakes that could reshape Meta&amp;#8217;s AI coding strategy&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="766" src="https://cdn.thenewstack.io/media/2026/05/612c2996-ubaid-e-alyafizi-rirrvhm-7ea-unsplash-1024x766.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of multiple computer monitors displaying code and system dashboards, depicting telemetry data" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/612c2996-ubaid-e-alyafizi-rirrvhm-7ea-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Meta is asking thousands of its software engineers&lt;/strong&gt; to help train its internal AI coding tools by simply fixing code, something the team does all day.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Last month, &lt;a href="https://www.linkedin.com/in/maher-saba-5363705/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Maher Saba&lt;/a&gt;, vice president of Meta&amp;#8217;s Applied AI Engineering organization, asked engineers across the company to submit at least one code &amp;#8220;diff&amp;#8221; each week using MetaCode, the company&amp;#8217;s internal AI coding agent, according to an internal memo obtained by &lt;a href="https://www.theinformation.com/newsletters/ai-agenda/meta-plans-close-gap-anthropic-openai-coding" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The Information.&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;Saba said the corrections that come from engineers fixing a bad batch from MetaCode have already helped improve Muse Spark 1.1 and will be used to post-train an upcoming model known internally as Watermelon. According to the memo, 7,000 weekly active users have already submitted more than 800 fixes so far. Meta has even added colored badges to employees&amp;rsquo; internal profiles based on the number of changes they contribute to encourage them to find more.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;MetaCode gives Meta access to that entire process, which gives the company the ability to see the original task and MetaCode&amp;#8217;s response, followed by the engineer&amp;#8217;s correction and whatever tests or reviews were needed to approve it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-engineers-fix-what-ai-breaks"&gt;Engineers fix what AI breaks&lt;/h2&gt;
-
-
-
-&lt;p&gt;Public repositories contain enormous amounts of working software, but they rarely capture things such as the model&amp;rsquo;s first attempt, where it went wrong, and what an experienced engineer changed before the code was ready to merge. But MetaCode gives Meta access to that entire process, allowing the company to see the original task and MetaCode&amp;rsquo;s response, followed by the engineer&amp;rsquo;s correction and whatever tests or reviews were needed to approve it.&lt;/p&gt;
-
-
-
-&lt;p&gt;After enough submissions, Meta may be able to spot recurring problems. Those mistakes are what the company can collect during ordinary development, without creating artificial coding exercises for the model.&lt;/p&gt;
-
-
-
-&lt;p&gt;Worth noting, Meta has not explained how it prepares or weighs these corrections during post-training. Nor has it said that every patch and code review automatically becomes training data. The memo describes a deliberate process in which engineers submit corrections after MetaCode gets something wrong.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-chasing-a-moving-leaderboard"&gt;Chasing a moving leaderboard&lt;/h2&gt;
-
-
-
-&lt;p&gt;Meta introduced Muse Spark 1.1 on July 9, 2026. The company said developers and researchers inside Meta already use it daily and that the new version was much better at coding than the original Muse Spark. Yet, it still trails the strongest models on public tests. Muse Spark 1.1 scored 53% on the DeepSWE 1.1 leaderboard, which tests coding agents on 113 long-running software engineering tasks.&lt;/p&gt;
-
-
-
-&lt;p&gt;At launch, Meta compared that result with GPT-5.5 at 67% and Claude Opus 4.8 at 59%. OpenAI and Anthropic have since moved ahead again. GPT-5.6 Sol, released in mid-July, scored 73%, while Claude Opus 5 reached 74% after its July 24 release.&lt;/p&gt;
-
-
-
-&lt;p id="h-those-numbers-require-context-deepswe-tests-models-using-the-same-mini-swe-agent-harness-but-it-does-not-test-metacode-which-is-meta-s-internal-coding-product-improvements-to-metacode-should-not-be-presented-as-improvements-to-muse-spark-s-public-deepswe-score-unless-meta-reports-that-connection-directly-that-said-the-leaderboard-makes-meta-s-problem-clearer-highlighting-that-its-model-is-chasing-competitors-that-continue-to-improve"&gt;Those numbers require context. DeepSWE tests models using the same mini-swe-agent harness, but it does not test MetaCode, which is Meta&amp;rsquo;s internal coding product. Improvements to MetaCode should not be presented as improvements to Muse Spark&amp;rsquo;s public DeepSWE score unless Meta reports that connection directly. That said, the leaderboard makes Meta&amp;rsquo;s problem clearer, highlighting that its model is chasing competitors that continue to improve.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-token-costs-compound-at-scale"&gt;Token costs compound at scale&lt;/h2&gt;
-
-
-
-&lt;p id="h-cost-gives-meta-another-reason-to-make-this-work-coding-agents-can-burn-through-tokens-as-they-search-repositories-test-solutions-and-revise-their-code-multiply-that-by-thousands-of-engineers-some-running-agents-on-lengthy-jobs-and-the-bill-becomes-significant"&gt;Cost gives Meta another reason to make this work. Coding agents can burn through tokens as they search repositories, test solutions and revise their code. Multiply that by thousands of engineers, some running agents on lengthy jobs, and the bill becomes significant.&lt;/p&gt;
-
-
-
-&lt;p&gt;Muse Spark 1.1 costs $1.25 per million input tokens and $4.25 per million output tokens through Meta&amp;rsquo;s API. That is considerably less than Anthropic and OpenAI charge for their frontier models. If Meta can narrow the performance gap, it could run coding agents across the company without paying a competitor each time one of its engineers assigns a task.&lt;/p&gt;
-
-
-
-&lt;p&gt;That pricing looks even more favorable after OpenAI &lt;a href="https://thenewstack.io/gpt-5-6-api-price-cuts/" class="local-link"&gt;slashed GPT-5.6 Luna costs by 80%&lt;/a&gt; in late July, dropping input tokens to $0.20 per million &amp;mdash; a move driven in part by pressure from efficient Chinese open-weight models. The price war makes Meta&amp;#8217;s position more complex: its model is cheaper than the frontier options, but the frontier options are getting cheaper fast.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The price war makes Meta&amp;#8217;s position more complex: its model is cheaper than the frontier options, but the frontier options are getting cheaper fast.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-competitors-aren-t-standing-still"&gt;Competitors aren&amp;#8217;t standing still&lt;/h2&gt;
-
-
-
-&lt;p&gt;Meta is not the only company trying to close the loop between AI-generated code and real-world engineering. Alibaba recently ran its Qwen model on a &lt;a href="https://thenewstack.io/qwen-autonomous-coding-audit/" class="local-link"&gt;16-day autonomous coding stretch&lt;/a&gt; with every commit published to GitHub, a different approach to the same underlying bet that production coding is a better training signal than synthetic benchmarks.&lt;/p&gt;
-
-
-
-&lt;p&gt;During the company&amp;rsquo;s second-quarter earnings call, CEO Mark Zuckerberg said Meta has more coding and productivity tools on its roadmap.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;MetaCode could eventually become one of them, or it could remain an internal tool. For now, its value to Meta comes from what happens every time it makes a mistake. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;For now, its value to Meta comes from what happens every time it makes a mistake.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-metacode-engineer-training/"&gt;The 800 mistakes that could reshape Meta&amp;#8217;s AI coding strategy&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Meta is turning its engineers&amp;#039; code fixes into training data for its AI coding agent, MetaCode, as it races to close the gap with OpenAI and Anthropic.</content:encoded>
-    </item>
-    <item>
-      <title>Every software company will become a dev tools company</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/platform-engineering-ai-harness/</link>
-      <dc:creator>Ankit Jain</dc:creator>
-      <pubDate>Wed, 05 Aug 2026 14:00:00 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Strategy</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-aviator</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22832729</guid>
-      <description>&lt;img width="1024" height="655" src="https://cdn.thenewstack.io/media/2026/08/d93cda3b-a-c-hcagvymwqsg-unsplash-1024x655.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render featuring sharp glowing golden geometric shards, representing platform engineering and AI code generation complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/d93cda3b-a-c-hcagvymwqsg-unsplash.jpg" /&gt;&lt;p&gt;If most software will soon be built by machines, the job of software engineers will change: from writing software to&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/platform-engineering-ai-harness/"&gt;Every software company will become a dev tools company&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="655" src="https://cdn.thenewstack.io/media/2026/08/d93cda3b-a-c-hcagvymwqsg-unsplash-1024x655.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render featuring sharp glowing golden geometric shards, representing platform engineering and AI code generation complexity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/d93cda3b-a-c-hcagvymwqsg-unsplash.jpg" /&gt;
-&lt;p&gt;If most software will soon be built by machines, the job of software engineers will change: from writing software to building the machines that write it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Soon, engineers won&amp;#8217;t be classified as frontend or backend, but as product engineers, who build the customer-facing product, and platform engineers, who build the tools those product engineers use. And since more and more code will be written by machines, we&amp;#8217;ll need more platform engineers to build and fine-tune those machines.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Call it harness engineering, call it loop engineering. It&amp;#8217;s still platform engineering, and it&amp;#8217;s building the tools every engineer depends on to write code at all.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;I&amp;#8217;ve been thinking about it ever since the tokenmaxxing fiasco, and every time I read one of those reports showing that faster code generation, more often than not, just creates more friction downstream. Every team is wiring up its own prompts, its own guardrails, its own dashboard for tracking what the agent got wrong, none of it shared, all of it repeated across the org. Fragmentation, not speed, is what a hundred engineers each solving the same platform problem alone gets you.&lt;/p&gt;
-
-
-
-&lt;p&gt;Platform engineering, per its definition, means building the shared toolchains and workflows that let engineering orgs serve themselves, usually packaged into one &lt;a class="wpil_keyword_link local-link" href="https://thenewstack.io/7-core-elements-of-an-internal-developer-platform/" title="internal developer platform" data-wpil-keyword-link="linked" data-wpil-monitor-id="4016"&gt;internal developer platform&lt;/a&gt; covering everything an application needs across its life cycle. In plain terms, it&amp;#8217;s developers building tools for other developers so the rest of engineering can &lt;a href="https://www.aviator.co/?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q2-2025-tns-article-2-aviator-home&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ship with less friction&lt;/a&gt;. If you&amp;rsquo;re helping developers ship software with less friction, congratulations! You&amp;rsquo;re already doing some form of platform engineering.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-two-teams-converging-into-one"&gt;Two teams converging into one&lt;/h2&gt;
-
-
-
-&lt;p&gt;I recently &lt;a href="https://www.aviator.co/podcast/ai-code-review-vanitha-kumar" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;spoke to Vanitha Kumar,&lt;/a&gt; a technology consultant at ThoughtWorks, who&amp;#8217;d arrived at a similar realization from a different angle. She and a colleague were mapping a team topology diagram for a client and found themselves drawing two separate boxes labeled &amp;#8220;platform&amp;#8221;: the familiar one for CI/CD and delivery infrastructure, and a newer one named &amp;#8220;agentic developer platform,&amp;#8221; which frameworks and models developers are allowed to use, where AI cost controls live, and where the guardrails for agentic development sit. Partway through, they realized it wasn&amp;#8217;t going to stay two boxes.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;It converges into one platform that owns delivery infrastructure and agentic guardrails together, and that platform&amp;#8217;s reach keeps moving earlier into the lifecycle. Platform engineering used to start at the first commit. Now it starts before any code exists.&lt;/p&gt;
-
-
-
-&lt;p&gt;For the last two years, AI coding tools have drastically changed the job of classic software engineers, the people writing application code by hand. Most platform engineering work was already automated: &lt;a href="https://thenewstack.io/amid-licensing-uncertainty-how-should-iac-management-adapt/" data-wpil-monitor-id="4013" class="local-link"&gt;infrastructure as code&lt;/a&gt;, scripted pipelines, and not much manual coding for an agent to accelerate.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Every company that ships software is, in effect, becoming a dev tools company.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Now that AI is generating application code at scale, the team that has to build the machinery to control, &lt;a href="https://www.aviator.co/verify" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;verify&lt;/strong&gt;&lt;/a&gt;, and scale that code generation is platform engineering. Every company that ships software is, in effect, becoming a dev tools company: building the tooling its own engineers &lt;a href="https://thenewstack.io/securing-ai-agent-systems/" class="local-link"&gt;need to work with agents safely&lt;/a&gt;, with the same seriousness it builds anything it sells externally.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Harness engineering is platform engineering for AI&lt;/h2&gt;
-
-
-
-&lt;p&gt;Harness engineering, or building and maintaining the harness, the feedback loops, the guardrails, and the &lt;a href="https://thenewstack.io/context-lake-ai-agents/" data-wpil-monitor-id="4014" class="local-link"&gt;context an agent needs&lt;/a&gt; to work safely in a codebase, is just platform engineering with an AI-specific layer on top of what platform teams already know how to do.&lt;/p&gt;
-
-
-
-&lt;p&gt;We can invent new terms like harness engineering, loop engineering, or software factories &amp;#8211; that&amp;rsquo;s all just platform engineering, the discipline of making the process of building software easier.&lt;/p&gt;
-
-
-
-&lt;p&gt;Platform engineering for AI engineering could, for example, mean working on building your engineering org&amp;#8217;s &lt;a href="https://www.aviator.co/blog/how-an-anti-slop-registry-stops-ai-generated-code-from-violating-your-engineering-standards/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;anti-AI slop register&lt;/a&gt;: a list of &lt;a href="https://docs.aviator.co/verify/concepts/invariants?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Invariants&lt;/a&gt;, a list of rules specific to your codebase that automatically apply to every matching change. That list usually captures something your team learned the hard way, usually as a recurring review comment, so reviewers don&amp;#8217;t have to flag it again. Developers don&amp;#8217;t need to include them in the specs because the system automatically loads the matching set.&lt;/p&gt;
-
-
-
-&lt;p&gt;A good harness does two things: it raises the odds the agent gets the task right on the first pass, and it gives the agent a way to catch and fix its own mistakes before a human ever sees them. Done well, that &lt;a href="https://www.aviator.co/verify" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;cuts review toil&lt;/a&gt;, raises the quality of what ships, and saves tokens.&lt;/p&gt;
-
-
-
-&lt;p&gt;If you skip that work, agents will keep making the same mistake forever, and you will only ever catch problems after they happen, not before. Frontier models give engineers the tools to generate code faster, but they still require platform teams to assemble, guardrail, and harness them, and to prevent them from becoming a faster way of shipping slop.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;What platform engineering now owns&lt;/h2&gt;
-
-
-
-&lt;p&gt;The scope is bigger than keeping the agent tooling running. It includes which models and frameworks get approved because that decision carries security and cost implications. It includes usage and scaling because rolling agentic coding out to hundreds of engineers looks nothing like rolling it out to ten.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;It includes cost because unmanaged usage gets expensive fast. It includes authorization because an agent acting on an engineer&amp;#8217;s behalf isn&amp;#8217;t the same as the engineer, and handing it identical access is a mistake a lot of orgs are already making.&lt;/p&gt;
-
-
-
-&lt;p&gt;And it includes the harness itself: the feedback loops that take what a security scanner or a linter finds and route it back into the agent instead of just failing a build.&lt;/p&gt;
-
-
-
-&lt;p&gt;None of that is product engineering&amp;#8217;s job. It&amp;#8217;s platform engineering becoming what a growing part of the industry has started calling the control plane: the layer that decides what every agent in the org is allowed to touch and how.&lt;/p&gt;
-
-
-
-&lt;p&gt;This is where the org charts will start to change. Building and maintaining the harness, the feedback loops, the guardrails, and the context an agent needs to work safely in a codebase is ongoing work, not a project with an end date.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Platform engineering was long seen as a supporting function, useful but never the center of gravity. That will change once the platform owns everything above. In plenty of orgs, more engineers will end up on the platform side, building and maintaining the harness, than on the product side, because the harness is now the harder part of the job.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Anthropic or OpenAI give you the raw agent, the &amp;#8216;engine.&amp;#8217; But that engine has no idea what your codebase looks like.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Anthropic or OpenAI give you the raw agent, the &amp;#8220;engine.&amp;#8221; But that engine has no idea what your codebase looks like, what conventions your team follows, how much risk you&amp;#8217;re willing to take, or what your budget is. Turning it into something that respects those specifics is work only the platform team can do.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;If nobody does that work deliberately, it still happens, just badly: each team builds its own patchwork version of the same governance layer, with nobody clearly responsible when it breaks.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Building the factory that builds software&lt;/h2&gt;
-
-
-
-&lt;p&gt;When machines write most of the code, the productivity gains come from how strong the machinery is, and broken tooling means you can&amp;#8217;t ship quality software no matter how good the people running it are.&lt;/p&gt;
-
-
-
-&lt;p&gt;How productive an engineering org becomes with AI has nothing to do with which model it&amp;#8217;s paying for, how strict the adoption mandate is, or how fast it chases whatever&amp;#8217;s trending &amp;mdash; loop engineering this month, graph engineering the next.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;It comes down to one thing: whether the people building the tools, the platform engineers, are treated as a supporting function.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/platform-engineering-ai-harness/"&gt;Every software company will become a dev tools company&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AI code generation shifts focus to platform engineering. Discover why software companies must build internal tools to harness AI safely.</content:encoded>
-    </item>
-    <item>
-      <title>CSPM adoption jumped 60%. Tickets stayed open.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cloud-security-triage-cadence/</link>
-      <dc:creator>Megan Carnegie</dc:creator>
-      <pubDate>Tue, 04 Aug 2026 19:48:52 +0000</pubDate>
-      <category>Cloud Services</category>
-      <category>DevOps</category>
-      <category>Security</category>
-      <category>sponsor-i-o-mergent</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22831908</guid>
-      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/851e8d95-egor-komarov-9kndef3kkbm-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch pattern with fragmented red, pink and cyan blocks, scattered letters and numbers against a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/851e8d95-egor-komarov-9kndef3kkbm-unsplash-scaled.jpg" /&gt;&lt;p&gt;A cloud security finding becomes useful only when someone decides what matters, assigns an owner, and follows it through. For&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloud-security-triage-cadence/"&gt;CSPM adoption jumped 60%. Tickets stayed open.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/07/851e8d95-egor-komarov-9kndef3kkbm-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch pattern with fragmented red, pink and cyan blocks, scattered letters and numbers against a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/851e8d95-egor-komarov-9kndef3kkbm-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;A cloud security finding becomes useful &lt;/strong&gt;only when someone decides what matters, assigns an owner, and follows it through. For IOmergent, the missing layer is a regular operating cadence that filters out noise, adds business context, and keeps &lt;a href="https://iomergent.com/cloud-remediation-services/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;remediation&lt;/a&gt; moving.&lt;/p&gt;
-
-
-
-&lt;p&gt;Without that, the cloud security scanner will continue to do its job and generate countless findings, yet the same tickets will stay open week after week. For busy CTOs, VPs, and heads of security already buried in product pressure, customer demands, and a fire hose of alerts, this can look like negligence.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;There&amp;rsquo;s no doubt about it: people care about security and want to fix things.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="alignright size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="400" height="400" src="https://cdn.thenewstack.io/media/2026/07/27da82c1-1533566244674.jpg" alt="" class="wp-image-22831928" style="width:274px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;Jon Rose, CISO at IOmergent&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;But as &lt;a href="https://www.linkedin.com/in/jrose400/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jon Rose&lt;/a&gt;, seasoned CISO and founder of the information security and risk management advisory firm &lt;a href="https://iomergent.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IOmergent&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;ldquo;There&amp;rsquo;s no doubt about it: people care about security and want to fix things.&amp;rdquo; They&amp;rsquo;re just constrained on time, he says, and constantly pulled in a hundred different directions.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;A dedicated security team could have full visibility and a good sense of what matters in general. Still, with no one owning the trend line and distilling for engineers, the fight will be lost to, well, pretty much everything else.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-detection-is-easy-execution-is-the-hard-part"&gt;Detection is easy. Execution is the hard part.&lt;/h2&gt;
-
-
-
-&lt;p id="h-recent-industry-reports-show-that-cspm-adoption-has-surged-by-more-than-60-in-the-past-year-alone-driven-by-major-data-breaches-stricter-compliance-expectations-and-the-recognition-that-traditional-cloud-environments-need-continuous-visibility-more-than-65-of-organizations-now-use-some-form-of-cspm-this-market-is-expected-to-reach-11-75-billion-by-2030-so-it-s-clear-that-teams-aren-t-short-on-tools-or-findings-they-re-short-on-time-and-operational-capacity-to-act-on-what-those-tools-surface-nbsp"&gt;Recent industry reports show that adoption of cloud security posture management, or CSPM, has surged by &lt;a href="https://www.linkedin.com/pulse/why-cspm-adoption-soared-60-your-business-cant-afford-ignore-f541f/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;more than 60%&lt;/a&gt; in the past year alone. Driven by major data breaches, stricter compliance expectations, and the recognition that traditional cloud environments need continuous visibility, &lt;a href="https://www.linkedin.com/pulse/why-cspm-adoption-soared-60-your-business-cant-afford-ignore-f541f/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;more than 65% of organizations&lt;/a&gt; now use some form of CSPM. This market is expected to reach &lt;a href="https://www.nextmsc.com/report/cloud-security-posture-management-cspm-market" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;$11.75 billion by 2030&lt;/a&gt;. So it&amp;rsquo;s clear that teams aren&amp;rsquo;t short on tools or findings. They&amp;rsquo;re short on time and operational capacity to act on what those tools surface.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The real work is triage: sifting the signal from the noise, deciding what moves now, and ensuring the same findings don&amp;rsquo;t keep resurfacing week after week.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p id="h-the-gap-lies-in-the-sustained-execution-after-the-alert-comes-in-the-cspm-flags-a-finding-but-the-person-reading-it-still-has-to-decide-what-it-means-in-context-is-it-actually-exploitable-how-severe-is-the-exposure-and-does-it-affect-something-the-business-truly-depends-on-that-judgment-takes-time-and-while-sense-checking-one-issue-dozens-more-alerts-can-flood-in-behind-it-so-the-real-work-is-triage-sifting-the-signal-from-the-noise-deciding-what-moves-now-and-ensuring-the-same-findings-don-t-keep-resurfacing-week-after-week-nbsp"&gt;The gap lies in the sustained execution &lt;em&gt;after&lt;/em&gt; the alert comes in. &lt;a href="https://iomergent.com/managed-cspm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The CSPM&lt;/a&gt; flags a finding, but the person reading it still has to decide what it means in context: Is it actually exploitable, how severe is the exposure, and does it affect something the business truly depends on? That judgment takes time, and while sense-checking one issue, &lt;a href="https://iomergent.com/cspm-alert-fatigue/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;dozens more alerts&lt;/a&gt; can flood in behind it. So the real work is triage: sifting the signal from the noise, deciding what moves now, and ensuring the same findings don&amp;rsquo;t keep resurfacing week after week.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p id="h-even-the-best-detection-degrades-when-no-one-owns-the-trend-line-what-helps-is-rhythm-instead-of-a-stern-automated-email-your-team-will-likely-ignore-against-a-backdrop-of-continuous-monitoring-rose-believes-the-most-effective-cadence-is-a-short-recurring-check-in-that-clears-out-the-noise-adds-the-business-context-and-asks-a-few-simple-questions-what-s-new-does-it-matter-what-s-still-open-what-s-blocking-it-and-who-owns-the-next-step-once-we-do-that-initial-review-filter-out-some-of-the-sheer-volume-and-adjust-it-to-what-matters-to-the-company-the-work-does-become-much-more-manageable-says-rose-some-items-are-quick-wins-that-can-be-fixed-today-while-others-become-part-of-a-longer-roadmap-to-be-tackled-steadily-alongside-everything-else-nbsp"&gt;Even the best detection degrades when no one owns the trend line. What helps is rhythm, instead of a stern automated email your team will likely ignore. Against a backdrop of continuous monitoring, Rose believes the most effective cadence is a short recurring check-in that clears out the noise, adds the business context, and asks a few simple questions: What&amp;rsquo;s new, does it matter, what&amp;rsquo;s still open, what&amp;rsquo;s blocking it, and who owns the next step?&amp;ldquo; Once we do that initial review, filter out some of the sheer volume, and adjust it to what matters to the company, the work does become much more manageable,&amp;rdquo; says Rose. Some items are quick wins that can be fixed today, while others become part of a longer roadmap, to be tackled steadily alongside everything else.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p id="h-and-that-only-works-when-it-becomes-part-of-the-operating-rhythm-rose-points-out-that-security-issues-are-being-found-and-exploited-much-faster-because-of-ai-and-increasingly-skilled-attackers-which-makes-sporadic-reviewing-a-bad-bet-you-have-to-stay-on-it-every-day-and-make-cloud-security-accountability-a-normal-part-of-operations-he-explains-nbsp"&gt;And that only works when it becomes part of the operating rhythm. Rose points out that security issues are being found and exploited much faster because of AI and increasingly skilled attackers, which makes sporadic reviewing a bad bet. &amp;ldquo;You have to stay on it every day and make cloud security accountability a normal part of operations,&amp;rdquo; he explains.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-cadence-matters"&gt;Why cadence matters&lt;/h2&gt;
-
-
-
-&lt;p id="h-a-managed-cloud-security-provider-like-iomergent-won-t-be-buried-under-your-sprint-or-negotiating-priorities-with-the-person-being-nudged-it-can-drive-cloud-security-accountability-without-the-overhead-of-a-full-time-hire-and-can-do-so-in-a-way-that-feels-like-help-instead-of-judgment-or-top-down-criticism-we-re-threading-the-needle-on-what-really-matters-says-brett-wilson-iomergent-s-co-founder-and-managing-partner-by-compressing-the-funnel-and-building-a-layer-in-between-we-offer-a-distillation-process-a-huge-part-of-the-unlock-is-the-human-side-the-people-iomergent-sends-into-teams-are-engineers-themselves-often-ex-ctos-or-devops-leads-so-they-understand-what-it-means-to-keep-systems-running-scale-them-and-have-to-make-trade-offs-under-pressure-they-understand-the-work-intimately-and-often-have-more-experience-than-some-of-the-team-members-we-work-with-on-our-clients-says-rose-there-s-definitely-a-coaching-and-mentoring-aspect-that-happens-too-those-conversations-give-teams-face-time-with-someone-who-can-guide-them-through-the-triage-and-decision-making-instead-of-handing-them-another-list-of-issues-to-close-attention-is-a-scarce-resource-in-any-fast-moving-cloud-heavy-saas-fintech-or-healthtech-firm-left-alone-the-backlog-grows-the-managed-cloud-security-team-can-create-and-keep-a-steady-rhythm-continuous-monitoring-with-a-weekly-or-monthly-check-in-a-clear-owner-a-judgment-call-on-what-matters-now-and-what-can-wait-and-enough-context-to-keep-the-work-moving-the-point-isn-t-perfection-it-s-momentum"&gt;&lt;a href="https://iomergent.com/managed-cspm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;A Managed Cloud Security provider&lt;/a&gt; like IOmergent won&amp;rsquo;t be buried under your sprint or negotiating priorities with the person being nudged. It can drive cloud security accountability without the overhead of a full-time hire, and can do so in a way that feels like help, instead of judgment or top-down criticism. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;We&amp;rsquo;re threading the needle on what really matters.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="alignright size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="400" height="400" src="https://cdn.thenewstack.io/media/2026/07/b71f0115-1710983577389.jpg" alt="" class="wp-image-22831931" style="width:257px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;Brett Wilson, co-founder and managing partner at IOmergent&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p id="h-a-managed-cloud-security-provider-like-iomergent-won-t-be-buried-under-your-sprint-or-negotiating-priorities-with-the-person-being-nudged-it-can-drive-cloud-security-accountability-without-the-overhead-of-a-full-time-hire-and-can-do-so-in-a-way-that-feels-like-help-instead-of-judgment-or-top-down-criticism-we-re-threading-the-needle-on-what-really-matters-says-brett-wilson-iomergent-s-co-founder-and-managing-partner-by-compressing-the-funnel-and-building-a-layer-in-between-we-offer-a-distillation-process-a-huge-part-of-the-unlock-is-the-human-side-the-people-iomergent-sends-into-teams-are-engineers-themselves-often-ex-ctos-or-devops-leads-so-they-understand-what-it-means-to-keep-systems-running-scale-them-and-have-to-make-trade-offs-under-pressure-they-understand-the-work-intimately-and-often-have-more-experience-than-some-of-the-team-members-we-work-with-on-our-clients-says-rose-there-s-definitely-a-coaching-and-mentoring-aspect-that-happens-too-those-conversations-give-teams-face-time-with-someone-who-can-guide-them-through-the-triage-and-decision-making-instead-of-handing-them-another-list-of-issues-to-close-attention-is-a-scarce-resource-in-any-fast-moving-cloud-heavy-saas-fintech-or-healthtech-firm-left-alone-the-backlog-grows-the-managed-cloud-security-team-can-create-and-keep-a-steady-rhythm-continuous-monitoring-with-a-weekly-or-monthly-check-in-a-clear-owner-a-judgment-call-on-what-matters-now-and-what-can-wait-and-enough-context-to-keep-the-work-moving-the-point-isn-t-perfection-it-s-momentum"&gt;&lt;a href="https://www.linkedin.com/in/brett-wilson-iomergent/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Brett Wilson&lt;/a&gt;, IOmergent&amp;rsquo;s co-founder and managing partner, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;#8220;We&amp;rsquo;re threading the needle on what really matters,&amp;rdquo;  &amp;ldquo;By compressing the funnel and building a layer in between, we offer a distillation process.&amp;rdquo;&lt;br&gt;&lt;br&gt;A huge part of the unlock is the human side. The people IOmergent sends into teams are engineers themselves, often ex-CTOs or DevOps leads, so they understand what it means to keep systems running, scale them, and have to make trade-offs under pressure.&lt;br&gt;&lt;br&gt;&amp;ldquo;They understand the work intimately, and often have more experience than some of the team members we work with on our clients,&amp;rdquo; says Rose. &amp;ldquo;There&amp;rsquo;s definitely a coaching and mentoring aspect that happens too.&amp;rdquo; Those conversations give teams face time with someone who can guide them through the triage and decision-making, instead of handing them another list of issues to close.&lt;br&gt;&lt;br&gt;Attention is a scarce resource in any fast-moving, cloud-heavy SaaS, fintech, or healthtech firm. Left alone, the backlog grows. The managed cloud security team can create and keep a steady rhythm: continuous monitoring with a weekly or monthly check-in, a clear owner, a judgment call on what matters now and what can wait, and enough context to keep the work moving. The point isn&amp;rsquo;t perfection; it&amp;rsquo;s momentum.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;If you think you&amp;rsquo;d benefit from managed cloud security, &lt;/em&gt;&lt;a href="https://iomergent.com/managed-cspm/?utm_source=thenewstack&amp;amp;utm_medium=referral&amp;amp;utm_campaign=tns_sponsored_article_1&amp;amp;utm_content=underwater" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;book a 30-minute cloud security scoping call with IOmergent&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;br&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloud-security-triage-cadence/"&gt;CSPM adoption jumped 60%. Tickets stayed open.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Cloud security tools generate findings, but a recurring triage cadence, clear ownership and business context help teams turn alerts into remediation today.</content:encoded>
     </item>
   </channel>
 </rss>
