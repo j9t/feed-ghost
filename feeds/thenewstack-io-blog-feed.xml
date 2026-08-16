@@ -20,6 +20,190 @@
       <height>32</height>
     </image>
     <item>
+      <title>Per-developer environments were the goal. Agents moved the goalposts.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/new-tenant-is-change/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 15 Aug 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833551</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of swirling metallic strands with glowing orange sparks, representing concurrent AI workstreams and software changes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash.jpg" /&gt;&lt;p&gt;Multi-tenancy has moved in one direction for 60 years: the tenant keeps getting smaller. Mainframe time-sharing carved a single machine&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/new-tenant-is-change/"&gt;Per-developer environments were the goal. Agents moved the goalposts.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of swirling metallic strands with glowing orange sparks, representing concurrent AI workstreams and software changes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash.jpg" /&gt;
+&lt;p&gt;Multi-tenancy has moved in one direction for 60 years: the tenant keeps getting smaller. Mainframe time-sharing carved a single machine into slices so an organization&amp;#8217;s departments could share it, and the tenant was the org. Virtualization gave each team its own fleet of virtual machines, and the tenant became the team. Containers and Kubernetes namespaces shrank it again, until a platform team could hand every developer an isolated environment on a shared cluster.&lt;/p&gt;
+
+
+
+&lt;p&gt;That last step, an environment per developer, became the target state of platform engineering in the 2020s. A namespace per developer, capacity planned by seat, golden paths sized to headcount. Underneath all of it sits one assumption: a person produces one stream of work at a time, so isolating people isolates work.&lt;/p&gt;
+
+
+
+&lt;p&gt;Coding agents broke that assumption. A developer running five agent sessions has five changes in flight at once, each needing its own working version of the system. Anthropic&amp;#8217;s engineers, building a C compiler with a fleet of parallel agents, &lt;a href="https://www.anthropic.com/engineering/building-c-compiler" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ran nearly 2,000 Claude Code sessions across two weeks&lt;/a&gt;. Cursor&amp;#8217;s documentation tells developers to &lt;a href="https://cursor.com/docs/background-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;run as many agents as you want in parallel&lt;/a&gt;. None of those concurrent workstreams is a person.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The tenant has shrunk one more time. It is no longer the developer. It is the change.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The tenant has shrunk one more time. It is no longer the developer (or even the agent). It is the change.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-tenancy-demand-scales-with-changes-in-flight-not-headcount"&gt;Tenancy demand scales with changes in flight, not headcount&lt;/h2&gt;
+
+
+
+&lt;p&gt;Capacity planning by seat worked because changes arrived at human pace, roughly one per developer at a time. That denominator is gone. A Microsoft study of command-line coding agent adoption found that developers &lt;a href="https://arxiv.org/abs/2607.01418" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;merged roughly 24% more pull requests&lt;/a&gt; over four months, and merged pull requests understate the pressure. Every change that reaches merge is preceded by iterations and abandoned attempts, and each of those also needed somewhere to run.&lt;/p&gt;
+
+
+
+&lt;p&gt;Run the seat math against the change math. A 50-developer organization where each engineer supervises a few agent sessions has hundreds of changes in some stage of validation on a busy day. Each one wants data it can migrate and write to without asking permission, its own view of shared message topics, and a running version of the services it touched. That is the demand of a 300-person (or more) engineering org on a 50-tenant platform.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Every layer built on the person-tenant assumption misprices this. A per-developer namespace hands one tenant slot to what is now five concurrent workstreams. Shared staging serializes all of them into a single queue. Seat-based capacity plans budget for the number of employees while the bill tracks the number of changes in flight.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The new tenant is the change, not the agent&lt;/h2&gt;
+
+
+
+&lt;p&gt;The tempting candidate for the new tenant is the agent, and it is the wrong one. Agents are interchangeable workers. Two agents can collaborate on one change, one agent can rotate through five changes, and a crashed agent gets replaced mid-task without anything downstream noticing. Give each agent its own environment, and you have repeated the old mistake at a new scale: isolating workers when the thing that must not leak is work.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Give each agent its own environment, and you have repeated the old mistake at a new scale: isolating workers when the thing that must not leak is work.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The durable unit is the change. It comes into existence when work on it starts. It accumulates state that no other tenant should see: a schema migration, test writes, new versions of one or two services, the messages it produced during validation. It needs to &lt;a href="https://thenewstack.io/debugging-observable-ai-systems/"  data-wpil-monitor-id="4030" class="local-link"&gt;observe a version of the system&lt;/a&gt; that includes its own edits and nobody else&amp;#8217;s. And it is torn down when it merges or is abandoned, taking all of that state with it.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="476" src="https://cdn.thenewstack.io/media/2026/08/99d0b0f7-image-1024x476.png" alt="Diagram showing a company's growing tenant count" class="wp-image-22833552"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Naming the change as the tenant turns a vague scaling problem into a design target, because change-level tenancy has three requirements that person-level tenancy never had to meet:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Creating a tenant must be near free.&lt;/li&gt;
+
+
+
+&lt;li&gt;Isolation must cover only what changed.&lt;/li&gt;
+
+
+
+&lt;li&gt;The tenant&amp;#8217;s lifecycle must be bound to the change itself, not to a ticket or a timer.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Platform teams already run this playbook in production&lt;/h2&gt;
+
+
+
+&lt;p&gt;The discipline these requirements call for is not new. Anyone operating a multi-tenant production service already knows the rules: tenants share the substrate, each tenant privately owns only what makes it distinct, creating a tenant is self-service and cheap, and a tenant&amp;#8217;s resources are reclaimed the moment it leaves. Nobody stands up a private copy of the product per customer, and nobody files a ticket to onboard one.&lt;/p&gt;
+
+
+
+&lt;p&gt;Those same organizations run pre-production on the opposite rules. Environments are provisioned by ticket or by seat, capacity is planned per person, and isolation is achieved by duplicating the stack when it is achieved at all. The multi-tenancy playbook that runs the product has never been applied to the platform that builds the product.&lt;/p&gt;
+
+
+
+&lt;p&gt;Change-level tenancy is that playbook, applied. Treat every change as a &lt;a href="https://thenewstack.io/tenants-the-missing-backbone-of-modern-developer-platforms/"  data-wpil-monitor-id="4033" class="local-link"&gt;tenant of the development platform&lt;/a&gt;, and the three requirements stop being novel. They are the standard properties of any competently run multi-tenant system.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The tenant owns what changed and shares everything else&lt;/h2&gt;
+
+
+
+&lt;p&gt;A SaaS tenant owns its data and configuration, never a copy of the application. A change tenant is sized the same way. It owns the one or two services it modified and an isolated database branch it can migrate and write against, and nothing else. Everything the change did not touch resolves against one shared stable environment, continuously deployed from main, so every tenant validates against real, current dependencies without owning a copy of them.&lt;/p&gt;
+
+
+
+&lt;p&gt;A footprint that small makes tenant creation nearly free, and creation cost is what decides whether the model scales to agent demand. Isolated data no longer requires copying a database: Neon and Xata create copy-on-write branches in seconds regardless of dataset size, consuming storage only for the data that diverges. The runtime side costs one deployment, because starting the modified services is all that is left to do. A tenant that costs one deployment can be created hundreds of times a day.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/08/dc541baa-image-1024x563.png" alt="Diagram showing how each tenant only contains what changed, while stable environments are shared between tenants" class="wp-image-22833553"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Tenants onboard and offboard themselves&lt;/h2&gt;
+
+
+
+&lt;p&gt;Multi-tenant platforms scale because nobody provisions tenants by hand. Signup creates the tenant, cancellation removes it, and no operator sits in the loop. Change tenants need the same contract. The tenant comes into existence when work on the change starts and disappears when the change merges or is abandoned, with no ticket at the front and no cleanup script at the back.&lt;/p&gt;
+
+
+
+&lt;p&gt;Offboarding is the half that platform teams underestimate. At person scale, an orphaned environment was a minor waste found in a quarterly cleanup. At change scale, orphans accumulate as fast as agents abandon experiments, and the leak outgrows the cleanup.&lt;/p&gt;
+
+
+
+&lt;p&gt;Automatic offboarding also keeps the accounting accurate. When tenants are created and destroyed by the change&amp;#8217;s own lifecycle events, the number of live tenants equals the number of changes in flight, and platform capacity becomes a quantity you can measure and plan against instead of a pile of environments nobody is sure anyone still uses.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Re-measure the platform in changes, not seats&lt;/h2&gt;
+
+
+
+&lt;p&gt;The practical shift for platform teams starts with measurement. Count changes in flight at peak, not seats: &lt;a href="https://thenewstack.io/ai-generated-code-crisis/"  data-wpil-monitor-id="4032" class="local-link"&gt;open pull requests&lt;/a&gt; with activity in the last day is a fine proxy, and for most teams the number is already several times headcount. Then price the marginal tenant: What does one more concurrent change cost in dollars and in minutes of setup? If the answer is a full environment and tens of minutes, the platform is still doing person-level tenancy.&lt;/p&gt;
+
+
+
+&lt;p&gt;Those two numbers expose where the old assumptions live. Namespace quotas sized per developer, staging booked by team calendar, database seeds refreshed nightly for everybody at once: each is a seat-denominated policy waiting to fail under change-denominated load. The fix in every case is the same three requirements: near-free creation, isolation sized to the change, lifecycle bound to the change, applied to whichever part of the platform still assumes the tenant is a person.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Change-level tenancy is the prerequisite for an agent-native SDLC&lt;/h2&gt;
+
+
+
+&lt;p&gt;Every previous definition of the tenant named a person or a group of people, and that held because only people produced changes. A platform could equate one seat with one workstream, plan capacity from the hiring plan, and keep a human in the provisioning loop. &lt;a href="https://thenewstack.io/coding-agents-cicd-fix/"  data-wpil-monitor-id="4031" class="local-link"&gt;Coding agents break&lt;/a&gt; all three of those properties at once: one person now operates several concurrent workstreams, those workstreams are created and abandoned at machine pace, and no human is positioned to provision or clean up each one.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The change is the only unit of isolation that stays stable when the workers become software.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That is why the software development lifecycle (SDLC) needs its tenant redefined around the change rather than around whoever, or whatever, wrote the code: the change is the only unit of isolation that stays stable when the workers become software.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Organizations that keep person-sized tenancy will watch agent-generated changes queue behind infrastructure built for a fraction of the load. The ones that re-platform around the change will convert agent throughput into merged work. If you&amp;rsquo;re exploring the second path, that is exactly what &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;we built Signadot to support.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/new-tenant-is-change/"&gt;Per-developer environments were the goal. Agents moved the goalposts.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI coding agents break seat-based dev environments. Here is why the fundamental unit of multi-tenancy must shift from developers to changes.</content:encoded>
+    </item>
+    <item>
       <title>Grok 4.6 matched Fable 5 Max at an 85% discount. Downloadable models set that price.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/grok-4-6-matched-fable-5-max/</link>
       <dc:creator>Matthew Burns</dc:creator>
@@ -28,10 +212,10 @@
       <category>AI Models</category>
       <category>AI Strategy</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22833566</guid>
-      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-1024x745.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-scaled.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
+      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-1024x745.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-scaled.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-4-6-matched-fable-5-max/"&gt;Grok 4.6 matched Fable 5 Max at an 85% discount. Downloadable models set that price.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-1024x745.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-scaled.png" /&gt;&lt;p&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-1024x745.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/dd9c407a-daniel-lee-kpnqbic7htc-unsplash-scaled.png" /&gt;&lt;p&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
 
 
 
@@ -238,7 +422,7 @@
       <category>AI Strategy</category>
       <category>Large Language Models</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22833639</guid>
-      <description>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/04/7ce34570-adriandra-karuniawan-1kvwsbza_ba-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract illustration of a person standing at diverging paths surrounded by distorted clocks and chaotic arrows, symbolizing AI agent sprawl and complex developer workflows in platform engineering." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/7ce34570-adriandra-karuniawan-1kvwsbza_ba-unsplash-scaled.jpg" /&gt;&lt;p&gt;Apple is splitting up its AI stack. Instead of rolling out the same system worldwide, the company reportedly built a&lt;/p&gt;
+      <description>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/04/7ce34570-adriandra-karuniawan-1kvwsbza_ba-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract illustration of a person standing at diverging paths surrounded by distorted clocks and chaotic arrows, symbolizing AI agent sprawl and complex developer workflows in platform engineering." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/7ce34570-adriandra-karuniawan-1kvwsbza_ba-unsplash-scaled.jpg" /&gt;&lt;p&gt;Apple is splitting up its AI stack. Instead of rolling out the same system worldwide, the company reportedly built a&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/apple-china-ai-model/"&gt;Apple&amp;#8217;s new AI split means your iOS app could behave differently in China&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/04/7ce34570-adriandra-karuniawan-1kvwsbza_ba-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract illustration of a person standing at diverging paths surrounded by distorted clocks and chaotic arrows, symbolizing AI agent sprawl and complex developer workflows in platform engineering." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/7ce34570-adriandra-karuniawan-1kvwsbza_ba-unsplash-scaled.jpg" /&gt;
@@ -3572,102 +3756,6 @@ r"\bas previously mentioned\b"
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/why-cpus-still-matter-in-the-age-of-ai-agents/"&gt;Why CPUs still matter in the age of AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Bhumik Patel of Arm and Mo Farhat of Google to talk the CPU, and why it&amp;#039;s getting more important, not less, as AI shifts from chatbots to agents.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s ChatGPT/Codex desktop app is now on Linux</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openais-chatgpt-desktop-linux/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 11 Aug 2026 17:53:59 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Linux</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833335</guid>
-      <description>&lt;img width="1024" height="695" src="https://cdn.thenewstack.io/media/2026/08/9e7a394a-screenshot-2026-08-11-at-10.42.00-am-1024x695.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9e7a394a-screenshot-2026-08-11-at-10.42.00-am-scaled.png" /&gt;&lt;p&gt;On Tuesday, OpenAI launched its ChatGPT desktop for Linux. Now in preview, the app, which combines ChatGPT, ChatGPT Work, and&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openais-chatgpt-desktop-linux/"&gt;OpenAI&amp;#8217;s ChatGPT/Codex desktop app is now on Linux&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="695" src="https://cdn.thenewstack.io/media/2026/08/9e7a394a-screenshot-2026-08-11-at-10.42.00-am-1024x695.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9e7a394a-screenshot-2026-08-11-at-10.42.00-am-scaled.png" /&gt;
-&lt;p&gt;On Tuesday, OpenAI launched its ChatGPT desktop for Linux. &lt;/p&gt;
-
-
-
-&lt;p&gt;Now in preview, the app, which combines ChatGPT, ChatGPT Work, and Codex, will run on Ubuntu 24.04 and 26.04 LTS, Debian 13, and Fedora 43 and 44, with native .deb and .rpm packages for both the &lt;a href="https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;x64&lt;/a&gt; and ARM64 architectures.&lt;/p&gt;
-
-
-
-&lt;p&gt;The &lt;a href="https://thenewstack.io/openai-codex-work-atlas/" class="local-link"&gt;ChatGPT desktop for Mac and Windows&lt;/a&gt; launched in July when OpenAI introduced ChatGPT Work.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Linux has been one of the most-requested platforms for the desktop app, and this launch extends ChatGPT and Codex across every major desktop operating system,&amp;#8221; an OpenAI spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Linux has been one of the most-requested platforms for the desktop app.&amp;#8221; &amp;#8212; OpenAI.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Like the ChatGPT desktop app on MacOS and Windows, the Linux version will feature OpenAI&amp;#8217;s in-app browser and support for Chrome extensions.&lt;/p&gt;
-
-
-
-&lt;p&gt;One feature that won&amp;#8217;t be available on Linux, though, is computer use outside of the in-app browser, as an OpenAI spokesperson confirmed to us.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;The Linux app supports the core ChatGPT and Codex experience, including Voice,&amp;#8221; the spokesperson tells us. &amp;#8220;The main difference is that native Computer Use &amp;mdash; the ability for ChatGPT to interact with desktop applications like OpenOffice or GIMP &amp;mdash; isn&amp;rsquo;t available at launch. This also affects related features, including Appshots, Record &amp;amp; Replay, and voice requests involving desktop apps and browser. Other browser-based workflows, including the Chrome extension, are supported.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;The app will be available globally at launch. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-from-codex-to-chatgpt-app"&gt;From Codex to ChatGPT app&lt;/h2&gt;
-
-
-
-&lt;p&gt;Since the new ChatGPT app launched, the company refined the app a bit, given that the earliest version clearly felt like a rebranded Codex app with ChatGPT Work and the regular ChatGPT chat tagged on. In its current iteration, it&amp;#8217;s easier to switch between ChatGPT and Codex, but for casual users, it&amp;#8217;s likely still a bit of a confusing experience. &lt;/p&gt;
-
-
-
-&lt;p&gt;To be fair, Anthropic&amp;#8217;s Claude app suffers from many of the same problems and finding the best user experience for working with agentic systems is clearly still a work in progress.  &lt;/p&gt;
-
-
-
-&lt;p&gt;Chat interfaces have proven to work well when users want to ask a question and receive an answer. They become less natural when an agent is running for an hour, all while coordinating several subtasks, waiting for an approval, editing files, and/or producing multiple artifacts. At that point, the product needs to behave as much like a project dashboard as a messaging app. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-more-nbsp-than-nbsp-a-nbsp-gui-nbsp-for-nbsp-codex"&gt;More&amp;nbsp;than&amp;nbsp;a&amp;nbsp;GUI&amp;nbsp;for&amp;nbsp;Codex&lt;/h2&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s worth noting that Linux&amp;nbsp;users&amp;nbsp;haven&amp;rsquo;t&amp;nbsp;exactly&amp;nbsp;lacked&amp;nbsp;access&amp;nbsp;to&amp;nbsp;OpenAI&amp;rsquo;s&amp;nbsp;coding&amp;nbsp;agent.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;The&lt;a href="https://learn.chatgpt.com/docs/codex/cli" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;nbsp;Codex&amp;nbsp;CLI&lt;/a&gt;&amp;nbsp;already&amp;nbsp;runs&amp;nbsp;on&amp;nbsp;Linux,&amp;nbsp;as&amp;nbsp;does&amp;nbsp;the&amp;nbsp;company&amp;rsquo;s&amp;nbsp;IDE&amp;nbsp;extension,&amp;nbsp;while&amp;nbsp;Codex&amp;nbsp;cloud&amp;nbsp;offers&amp;nbsp;another&amp;nbsp;way&amp;nbsp;to&amp;nbsp;delegate&amp;nbsp;coding&amp;nbsp;work&amp;nbsp;without&amp;nbsp;installing&amp;nbsp;a&amp;nbsp;desktop&amp;nbsp;client.&lt;/p&gt;
-
-
-
-&lt;p&gt;What&amp;nbsp;the&amp;nbsp;desktop&amp;nbsp;app&amp;nbsp;adds&amp;nbsp;is&amp;nbsp;a&amp;nbsp;visual&amp;nbsp;workspace&amp;nbsp;for&amp;nbsp;coordinating&amp;nbsp;that&amp;nbsp;work.&amp;nbsp;Users&amp;nbsp;can&amp;nbsp;keep&amp;nbsp;multiple&amp;nbsp;projects&amp;nbsp;and&amp;nbsp;long-running&amp;nbsp;tasks&amp;nbsp;in&amp;nbsp;view,&amp;nbsp;inspect&amp;nbsp;files&amp;nbsp;and&amp;nbsp;generated&amp;nbsp;artifacts,&amp;nbsp;review&amp;nbsp;code&amp;nbsp;changes,&amp;nbsp;and&amp;nbsp;move&amp;nbsp;between&amp;nbsp;local&amp;nbsp;and&amp;nbsp;cloud-based&amp;nbsp;work.&amp;nbsp;The&amp;nbsp;app&amp;nbsp;also&amp;nbsp;brings&amp;nbsp;OpenAI&amp;rsquo;s&amp;nbsp;browser,&amp;nbsp;plugins,&amp;nbsp;and&amp;nbsp;broader&amp;nbsp;ChatGPT&amp;nbsp;features&amp;nbsp;into&amp;nbsp;the&amp;nbsp;same&amp;nbsp;interface.&lt;/p&gt;
-
-
-
-&lt;p&gt;For&amp;nbsp;developers&amp;nbsp;who&amp;nbsp;live&amp;nbsp;in&amp;nbsp;a&amp;nbsp;terminal,&amp;nbsp;the new app&amp;nbsp;won&amp;rsquo;t&amp;nbsp;necessarily&amp;nbsp;replace&amp;nbsp;the&amp;nbsp;CLI.&amp;nbsp;The&amp;nbsp;CLI&amp;nbsp;remains&amp;nbsp;the&amp;nbsp;more&amp;nbsp;direct&amp;nbsp;option&amp;nbsp;for&amp;nbsp;inspecting&amp;nbsp;a&amp;nbsp;repository,&amp;nbsp;running&amp;nbsp;commands,&amp;nbsp;scripting&amp;nbsp;repeatable&amp;nbsp;tasks,&amp;nbsp;and&amp;nbsp;integrating&amp;nbsp;Codex&amp;nbsp;into&amp;nbsp;CI.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;The&amp;nbsp;desktop&amp;nbsp;app&amp;nbsp;is&amp;nbsp;aimed&amp;nbsp;at&amp;nbsp;the&amp;nbsp;coordination&amp;nbsp;layer&amp;nbsp;around&amp;nbsp;those&amp;nbsp;tasks,&amp;nbsp;particularly&amp;nbsp;when&amp;nbsp;several&amp;nbsp;agents,&amp;nbsp;repositories,&amp;nbsp;or&amp;nbsp;different&amp;nbsp;kinds&amp;nbsp;of&amp;nbsp;work&amp;nbsp;are&amp;nbsp;involved.&lt;/p&gt;
-
-
-
-&lt;p&gt;The fact that it also includes support for ChatGPT Work for knowledge work and the ChatGPT chat is a nice bonus, though.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openais-chatgpt-desktop-linux/"&gt;OpenAI&amp;#8217;s ChatGPT/Codex desktop app is now on Linux&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI’s ChatGPT desktop app arrives on Linux with ChatGPT Work, Codex, native packages, an in-app browser, and one notable feature gap for developers.</content:encoded>
     </item>
   </channel>
 </rss>
