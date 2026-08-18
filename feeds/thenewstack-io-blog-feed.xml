@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 15 Aug 2026 03:56:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 19:51:08 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,722 @@
       <height>32</height>
     </image>
     <item>
+      <title>Claude can now delete your production voice agent from a chat window</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/elevenlabs-mcp-voice-agents/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 17 Aug 2026 19:51:01 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Operations</category>
+      <category>Model Context Protocol</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833729</guid>
+      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/02/18275966-ubaid-e-alyafizi-qcc8h2npx1c-unsplash-scaled-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract horizontal wave of glowing neon blue and white lines against a solid black background. The lines create a 3D ribbon-like structure with varying thicknesses and curvatures, suggesting digital data flow, energy, or a sound wave." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/18275966-ubaid-e-alyafizi-qcc8h2npx1c-unsplash-scaled.jpg" /&gt;&lt;p&gt;Developers can now ask Claude to inspect a production voice agent, revise its system prompt, change the voice entirely, or&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/elevenlabs-mcp-voice-agents/"&gt;Claude can now delete your production voice agent from a chat window&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/02/18275966-ubaid-e-alyafizi-qcc8h2npx1c-unsplash-scaled-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract horizontal wave of glowing neon blue and white lines against a solid black background. The lines create a 3D ribbon-like structure with varying thicknesses and curvatures, suggesting digital data flow, energy, or a sound wave." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/18275966-ubaid-e-alyafizi-qcc8h2npx1c-unsplash-scaled.jpg" /&gt;
+&lt;p id="h-developers-can-now-ask-claude-to-inspect-a-production-voice-agent-revise-its-system-prompt-change-the-voice-entirely-or-estimate-the-cost-of-using-a-different-language-model-all-without-ever-opening-the-elevenlabs-dashboard"&gt;Developers can now ask Claude to inspect a production voice agent, revise its system prompt, change the voice entirely, or estimate the cost of using a different language model without ever opening the ElevenLabs dashboard.&lt;/p&gt;
+
+
+
+&lt;p&gt;Monday, ElevenLabs introduced the hosted MCP connector, allowing Claude read and write access to chat agents built with ElevenAgents. In addition to creating agents and comparing configurations, the connector can calculate expected LLM usage and cost before a change is applied. For example, a developer could ask Claude: &amp;#8220;What would my checkout agent cost per conversation with Gemini 2.5 Flash instead of GPT-4o?&amp;#8221; This type of question is even more important now that &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;cheaper models alone don&amp;#8217;t guarantee lower bills&lt;/a&gt; once agentic orchestration is involved.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;What would my checkout agent cost per conversation with Gemini 2.5 Flash instead of GPT-4o?&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-oauth-replaces-local-api-keys"&gt;OAuth replaces local API keys&lt;/h2&gt;
+
+
+
+&lt;p&gt;ElevenLabs released its original open-source server in April 2025 for Claude Desktop, Cursor, and other MCP clients. Developers ran it locally, added an ElevenLabs API key and used it to generate speech, clone voices or transcribe audio. The new server focuses on managing agents that already exist in an ElevenLabs workspace.&lt;/p&gt;
+
+
+
+&lt;p&gt;Developers install the connector from Claude&amp;#8217;s directory and sign in via OAuth, eliminating the need to run a server or paste an API key into Claude, while limiting access to the ElevenLabs workspace and to permissions approved during login.&lt;/p&gt;
+
+
+
+&lt;p&gt;According to ElevenLabs, Claude can update an agent&amp;#8217;s system prompt, language, voice, and opening message; retrieve transcripts; explore conversation topics; check the size of a knowledge base; generate sample speech and even delete an agent.&lt;/p&gt;
+
+
+
+&lt;p&gt;Because some of those tools can alter or remove a production agent, teams are offered two layers of access control. Administrators can disable tools across an organization, and users can set stricter limits for their own sessions. ElevenLabs specifically warns that deleting an agent is destructive and recommends reviewing tool calls before approving them.&lt;/p&gt;
+
+
+
+&lt;p&gt;The access-control pattern mirrors what other platforms have landed on when opening production systems to AI agents. When &lt;a href="https://thenewstack.io/godaddy-developer-platform-domains/" class="local-link"&gt;GoDaddy launched its developer platform&lt;/a&gt; and made domain registration programmable for AI coding assistants, it adopted a quote-then-execute model with idempotency keys and a consent object tying every purchase to human approval, safeguards designed specifically for when an automated agent initiates an irreversible action. AWS took a different angle with &lt;a href="https://thenewstack.io/aws-dogwood-agent-policies/" class="local-link"&gt;Dogwood, its policy engine for agent tool calls&lt;/a&gt;, which evaluates whether a tool call is valid in context. ElevenLabs&amp;#8217; two-layer model sits somewhere between. &lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-approval-without-validation"&gt;Approval without validation&lt;/h2&gt;
+
+
+
+&lt;p&gt;With the new MCP connector, a developer could ask Claude to trim a support agent&amp;#8217;s system prompt to save tokens. If the revision accidentally removed a line telling the agent to escalate billing disputes to a person, the shorter prompt might still look fine during review. &lt;/p&gt;
+
+
+
+&lt;p&gt;The confirmation screen tells the team the change was approved, but it cannot show whether the prompt still works as expected or a model switch has changed the agent&amp;rsquo;s tool calls. A successful tool call only shows that the action ran, not that it produced the intended result, echoing &lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/" class="local-link"&gt;recent Claude containment incidents&lt;/a&gt; in which models completed tasks in ways that crossed the boundaries set by their operators.&lt;/p&gt;
+
+
+
+&lt;p&gt;ElevenLabs addresses those risks with an agent testing framework that lets teams simulate a conversation before deployment and see whether the agent responds as expected, including when it invokes a tool. The same tests can run through the CLI or API instead of being handled manually in the dashboard.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The confirmation screen tells the team the change was approved, but it cannot show whether the prompt still works as expected or a model switch has changed the agent&amp;rsquo;s tool calls.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-versioning-and-agent-as-code-workflows"&gt;Versioning and agent-as-code workflows&lt;/h2&gt;
+
+
+
+&lt;p&gt;The platform also offers opt-in agent versioning, which lets developers save configuration changes on separate branches and route a portion of production traffic to them for gradual rollouts or A/B testing, although ElevenLabs says versioning cannot be disabled once enabled.&lt;/p&gt;
+
+
+
+&lt;p&gt;For teams that want agent configurations in a repository, the ElevenLabs CLI can pull and push agents as code, with a documented CI/CD workflow that includes a dry run before deployment and a status check afterward. Keeping agent configurations in code may become more valuable as vendors place tighter controls on how agents operate. &lt;a href="https://thenewstack.io/microsoft-copilot-token-budgets/" class="local-link"&gt;Microsoft&amp;rsquo;s introduction of token budgets for Copilot&lt;/a&gt; showed that even one of the largest vendors is putting limits on how many tokens its agents can use.&lt;/p&gt;
+
+
+
+&lt;p&gt;The hosted MCP documentation explains how Claude can change an agent, but not whether that update enters ElevenLabs&amp;rsquo; testing and versioning workflow or goes straight to the current configuration. It also isn&amp;#8217;t clear whether a team could reverse the change from Claude.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-two-workflows-one-production-agent"&gt;Two workflows, one production agent&lt;/h2&gt;
+
+
+
+&lt;p&gt;For now, teams need to choose from the conversational speed of Claude for inspecting and modifying configs and the safety of CLI and API pipelines for automated testing and versioned rollouts. And even then, that split might last. &lt;a href="https://thenewstack.io/anthropic-mendral-cicd-acquihire/" class="local-link"&gt;Anthropic&amp;rsquo;s recent acqui-hire of CI/CD startup Mendral &lt;/a&gt;highlighted how quickly raw model capabilities are outrunning established developer workflows and leaving teams to reconcile enterprise governance with tools that are shifting beneath them. The barrier between asking an AI to analyze infrastructure and asking it to alter it is disappearing. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The barrier between asking an AI to analyze infrastructure and asking it to alter it is disappearing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/elevenlabs-mcp-voice-agents/"&gt;Claude can now delete your production voice agent from a chat window&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>ElevenLabs&amp;#039; hosted MCP connector lets Claude inspect and modify production voice agents, but a chat confirmation isn&amp;#039;t the same as a tested deployment.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic defined the standards inside Agent Plugins. So why isn’t it helping govern the format?</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/agent-plugins-portability-gaps/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Mon, 17 Aug 2026 19:27:20 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Model Context Protocol (MCP)</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833612</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/86eac800-steve-a-johnson-jngehrasq-o-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract low-poly landscape with glowing magenta grid lines beneath a blue-to-purple gradient sky." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86eac800-steve-a-johnson-jngehrasq-o-unsplash-scaled.jpg" /&gt;&lt;p&gt;Earlier this month, Vercel released Agent Plugins 1.0.0 with core maintainers from AWS, Cursor, Microsoft, and OpenAI. Google announced the&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-plugins-portability-gaps/"&gt;Anthropic defined the standards inside Agent Plugins. So why isn’t it helping govern the format?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/86eac800-steve-a-johnson-jngehrasq-o-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract low-poly landscape with glowing magenta grid lines beneath a blue-to-purple gradient sky." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86eac800-steve-a-johnson-jngehrasq-o-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;Earlier this month&lt;/strong&gt;, Vercel released &lt;a href="https://agent-plugins.org/specification" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Plugins 1.0.0&lt;/a&gt; with core maintainers from AWS, Cursor, Microsoft, and OpenAI. &lt;a href="https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google announced&lt;/a&gt; the same day that it was joining them. The format fixes something that genuinely annoys developers: A skill and an MCP server that work fine on their own still have to be forked and maintained twice the moment you ship them to a second client.&lt;/p&gt;
+
+
+
+&lt;p&gt;Though the six companies agreed on where components live, they don’t standardize on what they do. Section 7.1 of the spec hands the skill format to the &lt;a href="https://agentskills.io/specification" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Skills specification&lt;/a&gt;. Section 7.2 hands wire behavior and lifecycle to &lt;a href="https://modelcontextprotocol.io/specification" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP&lt;/a&gt;. Both came out of Anthropic, which released them openly but does not sit on the steering committee.&lt;/p&gt;
+
+
+
+&lt;p&gt;The project is candid about this. Its own documentation calls the result a small interoperability floor, and Google’s post describes v1 as a package format and nothing more. The obvious discrepancy is not between promotional rhetoric and technical truth. Rather, the issue is that terms like “compatible,” “portable,” and “plugin” suggest much more in everyday use than this narrow agreement actually provides.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-anthropic-released-and-to-whom"&gt;What Anthropic released, and to whom&lt;/h2&gt;
+
+
+
+&lt;p&gt;Anthropic donated MCP to the Agentic AI Foundation, a Linux Foundation-directed fund, on 9 December 2025. Agent Skills followed nine days later, published as an open standard and now developed in the open at &lt;a href="https://agentskills.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;agentskills.io&lt;/a&gt;. The governance stories differ. MCP belongs to an independent foundation, while Agent Skills is an openly developed specification without a comparable legal steward.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Agent Plugins project lacks authority over both standards. This is the detail that defines every subsequent development in the ecosystem.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Agent Plugins Technical Steering Committee is Clare Liguori of Amazon, Roshan Sadanani of Cursor, Harald Kirschner of Microsoft, Gav Verma of OpenAI, and Jonathan Hefner of Vercel, who serves as Lead Core Maintainer. The &lt;a href="https://github.com/agentplugins/agent-plugins-spec/blob/main/GOVERNANCE.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Technical Charter&lt;/a&gt; is carefully worded, stating that governance roles are held by individuals rather than organizations, that no seats are reserved for specific companies, and that no single vendor may control a majority of Core Maintainer seats.&lt;/p&gt;
+
+
+
+&lt;p&gt;Google’s post says it “is joining that group as a Core Maintainer, represented by Kevin Hou.” As of this writing, the &lt;a href="https://github.com/agentplugins/agent-plugins-spec/blob/main/MAINTAINERS.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MAINTAINERS file&lt;/a&gt;, which the charter names as the roster of record, still lists five people and no Google. Joining is in progress rather than complete, and if you are tracking who holds a vote, that file is the one to watch.&lt;/p&gt;
+
+
+
+&lt;p&gt;No primary source explains Anthropic’s absence, so I am not going to invent one.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-specification-governs-locations-not-behavior"&gt;The specification governs locations, not behavior&lt;/h2&gt;
+
+
+
+&lt;p&gt;A plugin is a directory containing a plugin.json file at its root. Skills go in skills/, with one subdirectory per skill. MCP servers go in mcp.json. Those locations are fixed, and the manifest cannot move them or declare components inline, which kills the discovery indirection and precedence rules every client would otherwise have invented separately.&lt;/p&gt;
+
+
+
+&lt;pre class="wp-block-preformatted"&gt;reports-plugin/
+├── plugin.json          # Agent Plugins governs this
+├── skills/
+│   └── summarize/
+│       └── SKILL.md     # Agent Skills governs this
+├── mcp.json             # Agent Plugins governs the config shape
+└── com.vendor.client/   # nobody governs this
+&lt;/pre&gt;
+
+
+
+&lt;p&gt;The manifest requires two fields: &lt;code&gt;$schema&lt;/code&gt; and &lt;code&gt;name&lt;/code&gt;. Everything else is optional metadata.&lt;/p&gt;
+
+
+
+&lt;pre class="wp-block-preformatted"&gt;{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "reports-plugin"
+}
+&lt;/pre&gt;
+
+
+
+&lt;p&gt;On the components themselves, the spec says somebody else defines them. Section 7.1 is explicit that the Agent Skills specification “is the source of truth for the SKILL.md format, frontmatter fields, and directory layout,” and that Agent Plugins govern only how skills are discovered inside a plugin. Section 7.2 does the same for MCP.&lt;/p&gt;
+
+
+
+&lt;p&gt;Nothing forced that choice. A specification can constrain implementations of another specification by defining a profile, mandating a subset, or prohibiting optional features. Agent Plugins declines to. Because it treats Agent Skills and MCP as separately governed contracts, it mostly avoids layering behavioral requirements on top of them and instead standardizes addresses.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-which-is-why-compatible-is-a-range-not-a-state"&gt;Which is why compatible is a range, not a state&lt;/h2&gt;
+
+
+
+&lt;p&gt;Section 11.1 lists the minimum for a conformant client, and the last item needs emphasis. A client must support at least one component type: skills or MCP servers. Section 11.2 spells out the consequence that a skills-only client can conform without supporting MCP at all.&lt;/p&gt;
+
+
+
+&lt;p&gt;Transport support takes a similar approach. An MCP-capable client must implement at least one of stdio or Streamable HTTP and should support both, while legacy HTTP+SSE stays optional. Section 7.2.2 requires clients to skip server entries for which they do not implement transport and continue loading everything else.&lt;/p&gt;
+
+
+
+&lt;p&gt;Stack those together, and the range of things a conformance claim can mean gets wider.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Client&lt;/th&gt;&lt;th&gt;Skills&lt;/th&gt;&lt;th&gt;MCP&lt;/th&gt;&lt;th&gt;stdio&lt;/th&gt;&lt;th&gt;Streamable HTTP&lt;/th&gt;&lt;th&gt;Conformant&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;A&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;n/a&lt;/td&gt;&lt;td&gt;n/a&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;B&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;No&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Client A and Client B share nothing. Both pass. A plugin containing a skill and a bundled stdio server runs in full on neither one, because A loads only the skill and B loads only the server, and in each case the client behaves exactly as the specification requires.&lt;/p&gt;
+
+
+
+&lt;p&gt;To be fair to the project, no such client exists today. The &lt;a href="https://agent-plugins.org/compatible-clients" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;compatible clients page&lt;/a&gt; lists VS Code, Cursor, GitHub Copilot, ChatGPT, Codex, Kiro, Hermes Agent, OpenClaw, and Grok Bot, and each of them supports Agent Skills plus MCP, with its transports itemized. The list has also grown well past the launch-week six, which is a real adoption signal.&lt;/p&gt;
+
+
+
+&lt;p&gt;While the fragility is more specific than the matrix implies, it remains a detail worth noting. The bare claim of Agent Plugins conformance does not predict interoperability. What predicts it is the per-client capability matrix, and that matrix is documentation, not part of the conformance claim itself. Nothing stops a future client from shipping the skills-only profile the spec permits and describing itself the same way the eight current ones do.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-manifest-rule-that-contradicts-its-own-schema"&gt;The manifest rule that contradicts its own schema&lt;/h2&gt;
+
+
+
+&lt;p&gt;Most explainer coverage says the same thing about plugin.json: the schema is closed, and a stray top-level field invalidates the manifest. Copy a field across from a package.json, and the plugin dies.&lt;/p&gt;
+
+
+
+&lt;p&gt;The specification says otherwise. Section 5.2 lists the ten permitted top-level fields, then continues that if the manifest contains any other top-level field, “Clients MUST report and ignore each unknown field and MUST continue loading the plugin if the manifest otherwise satisfies this section.” Unknown top-level fields are non-fatal by design. Any other schema violation is fatal.&lt;/p&gt;
+
+
+
+&lt;p&gt;Then look at the &lt;a href="https://github.com/agentplugins/agent-plugins-spec/blob/main/schemas/1.0.0/plugin.schema.json" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;published schema&lt;/a&gt;, which sets “additionalProperties”: false at the top level. Run a stray-field manifest through a standard JSON Schema validator, and it fails. Hand the same manifest to a conforming client, and it must load.&lt;/p&gt;
+
+
+
+&lt;p&gt;Section 5.2 anticipates this, saying the specification text is authoritative where it conflicts with the schema. Fine as a tiebreaker, though it means the machine-readable artifact and the normative text disagree about a case that will come up constantly, and the artifact is the one your CI will reach for. If you are writing a plugin linter, do not generate it from the schema alone.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-two-files-named-plugin-json"&gt;Two files named plugin.json&lt;/h2&gt;
+
+
+
+&lt;p&gt;Claude Code has used .claude-plugin/plugin.json for its own plugin system. Agent Plugins uses plugin.json at the package root. Same filename, different location, different schema, no relationship between them.&lt;/p&gt;
+
+
+
+&lt;p&gt;This genuinely creates confusion. Search results in an editor show two identical filenames. The documentation refers to “the plugin manifest” without specifying which one. A migration guide that tells you to edit plugin.json is ambiguous unless it gives the full path every time.&lt;/p&gt;
+
+
+
+&lt;p&gt;It’s important to clarify what Anthropic’s absence means and what it doesn’t. Claude Code is not a launch client for the format, but the npx plugins add CLI lists it as a supported install target and translates the portable package into Claude’s native plugin system. The accurate phrasing is that plugins are installed into Claude Code via the CLI, not that Claude Code implements Agent Plugins. That translation step is where behavior can drift, and nothing in the specification governs it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-where-the-client-namespace-takes-portability-back"&gt;Where the client namespace takes portability back&lt;/h2&gt;
+
+
+
+&lt;p&gt;Section 8 defines client extensions, which are reverse-domain namespaces for anything outside the portable core. A client can claim manifest data under extensions[“com.vendor.client”], a top-level com.vendor.client/ directory, or both.&lt;/p&gt;
+
+
+
+&lt;p&gt;Read what the spec assigns to that namespace. “Agent Plugins assigns no portable discovery, validation, loading, or failure semantics to client extension data or files. Each client defines the contents and behavior of its own namespace.”&lt;/p&gt;
+
+
+
+&lt;p&gt;Commands, hooks, agents, rules, and LSP servers all live outside v1, on the stated grounds that their formats have not converged. Every one of them is something developers actually build plugins for. When &lt;a href="https://thenewstack.io/agent-plugins-open-standard/" class="local-link"&gt;Adam Dalloul of EmpirioLabs warned&lt;/a&gt; that useful behavior ending up inside vendor namespaces would leave the standard open on paper while fragmentation moved elsewhere, he was describing the escape-hatch section 8 documents.&lt;/p&gt;
+
+
+
+&lt;p&gt;Whether that matters depends on how much of your plugin’s value lives in hooks. If it is most of it, the portable part is the wrapper, and the fork you were trying to avoid is still there under a different directory name.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-your-plugin-is-portable-until-it-needs-a-password-or-a-binary"&gt;Your plugin is portable until it needs a password or a binary&lt;/h2&gt;
+
+
+
+&lt;p&gt;Two smaller findings that will cost the developer’s time.&lt;/p&gt;
+
+
+
+&lt;p&gt;Section 7.2.1 says header values are “visible package data, not a portable secret mechanism,” that plugins must not embed credentials in headers or env, and that v1 defines no OAuth configuration and no portable credential-reference fields. Authorization discovery, user interaction, and credential storage are client-managed. Any plugin that talks to an authenticated service is therefore portable in packaging and client-specific in setup, and setup is the part where users get stuck.&lt;/p&gt;
+
+
+
+&lt;p&gt;The second is more subtle. For stdio servers, the command must be a bare executable name or a plugin-relative path. Whether a configured PATH value participates in resolving a bare name is, in the spec’s words, client-defined, and plugins claiming conformance must not depend on that behavior. Clients may also inherit, omit, or sanitize ambient environment variables as they see fit. Two conformant clients can launch the same server with different environments and different resolution results. If your plugin ships an executable, use a plugin-relative command and stop relying on the ambient environment.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-a-v1-1-would-need-to-fix"&gt;What a v1.1 would need to fix&lt;/h2&gt;
+
+
+
+&lt;p&gt;The project is candid about the gaps. Its &lt;a href="https://github.com/agentplugins/agent-plugins-spec/blob/main/FUTURE_CONSIDERATIONS.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;future considerations document&lt;/a&gt; lists permission declarations, cryptographic signature verification, attestation chains, a secrets mechanism, organization allowlists, audit event schemas, dependency resolution, and a conformance test suite.&lt;/p&gt;
+
+
+
+&lt;p&gt;Two of those do different jobs and are worth calling out. A conformance suite would make implementation claims testable, establishing that a client correctly does what it claims to do. A machine-readable capability profile would make the remaining optional surface predictable, turning today’s compatible-clients page into something a build can check. You want both, and the second is the cheaper win.&lt;/p&gt;
+
+
+
+&lt;p&gt;Signatures and permissions matter more than either. A permission model forces every client to agree on what a plugin may touch, and an IDE, a CLI, and a managed enterprise platform each answer that differently today. The charter gives no vendor enough votes to break the tie. I should flag that as my inference, since the project has not mentioned it explicitly.&lt;/p&gt;
+
+
+
+&lt;p&gt;Agent Plugins does the narrow thing its authors set out to do, and the restraint is deliberate rather than an oversight. Just read the compatibility page as a capability list rather than a promise, because the specifications defining the semantics of its two portable component types are governed somewhere else.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agent-plugins-portability-gaps/"&gt;Anthropic defined the standards inside Agent Plugins. So why isn’t it helping govern the format?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Agent Plugins 1.0.0 standardizes packaging for skills and MCP servers, but client capabilities, extensions, secrets and schema gaps limit true portability.</content:encoded>
+    </item>
+    <item>
+      <title>“Open weights are nowhere near a sufficient solution”: Dario Amodei fires back on AI power</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/amodei-open-weights-compute-regulation/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 17 Aug 2026 16:58:51 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Models</category>
+      <category>AI Strategy</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833707</guid>
+      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/03/13f1af2a-imhaf-maulana-ffuad9izkse-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A minimalist, monochromatic pink illustration of a lone hiker standing on a jagged cliff edge, looking across a deep canyon at a massive, cracked rock monolith under a pale sun. The scene uses a flat vector style with layered mountain silhouettes, evoking a sense of scale, solitude, and a journey across a vast architectural gap." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/13f1af2a-imhaf-maulana-ffuad9izkse-unsplash-scaled.jpg" /&gt;&lt;p&gt;The independence developers gain from open weights comes with a hard infrastructure ceiling, according to Anthropic CEO Dario Amodei. &amp;#8220;AI&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/amodei-open-weights-compute-regulation/"&gt;&amp;#8220;Open weights are nowhere near a sufficient solution&amp;#8221;: Dario Amodei fires back on AI power&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/03/13f1af2a-imhaf-maulana-ffuad9izkse-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A minimalist, monochromatic pink illustration of a lone hiker standing on a jagged cliff edge, looking across a deep canyon at a massive, cracked rock monolith under a pale sun. The scene uses a flat vector style with layered mountain silhouettes, evoking a sense of scale, solitude, and a journey across a vast architectural gap." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/13f1af2a-imhaf-maulana-ffuad9izkse-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;The independence developers gain from open weights comes with a hard infrastructure ceiling, according to Anthropic CEO Dario Amodei.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;AI is structurally a technology that tends to concentrate power, for reasons that have nothing to do with regulation,&amp;rdquo; Amodei wrote during a public &lt;a href="https://x.com/DarioAmodei/status/2088758816376807762" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;exchange on X&lt;/a&gt; with investor &lt;a href="https://www.linkedin.com/in/gavinbaker-portfoliomanager/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gavin Baker&lt;/a&gt;. He attributed that concentration to scaling laws rather than government policy.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Open-weights do help some with this but are nowhere near a sufficient solution because they simply shift the concentration somewhat to those with the most compute and chips,&amp;rdquo; he added.&lt;/p&gt;
+
+
+
+&lt;p&gt;What began as an argument over whether regulation makes AI safer or gives too much power to a handful of companies left developers with a practical question once again: Does owning the weights provide real independence when someone else still controls the compute?&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Open-weights do help some with this but are nowhere near a sufficient solution because they simply shift the concentration somewhat to those with the most compute and chips.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-regulation-without-regulatory-capture"&gt;Regulation without regulatory capture&lt;/h2&gt;
+
+
+
+&lt;p&gt;Gavin Baker, managing partner at Atreides Management, framed the debate as a choice between concentrating powerful models among a few regulated companies or distributing them widely without the same guardrails, citing Meta CEO Mark Zuckerberg&amp;rsquo;s argument that placing AI in the hands of a small number of supposedly responsible organizations creates its own danger.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The notion that AI is so dangerous that the only safe path is an extreme concentration of power seems inherently problematic,&amp;rdquo; Zuckerberg wrote in the statement quoted by Baker.&lt;/p&gt;
+
+
+
+&lt;p&gt;Baker argued that putting more models into circulation would spread power and improve the odds that people could use systems reflecting their values. He also said Amodei&amp;rsquo;s repeated warnings about AI risk could strengthen opposition to new data centers, limiting the infrastructure needed to deliver the technology&amp;rsquo;s potential benefits.&lt;/p&gt;
+
+
+
+&lt;p&gt;Amodei rejected the choice between regulation and distribution.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;I know that there&amp;#8217;s a sort of Silicon Valley shorthand where regulation = regulatory capture = concentration of power, but I&amp;#8217;ve always found this to be an overly simplified picture of the world.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I know that there&amp;rsquo;s a sort of Silicon Valley shorthand where regulation = regulatory capture = concentration of power, but I&amp;rsquo;ve always found this to be an overly simplified picture of the world,&amp;rdquo; he wrote.&lt;/p&gt;
+
+
+
+&lt;p&gt;He argued that regulation can constrain powerful companies when the requirements are based on objective standards. At their best, Amodei said, institutions &amp;ldquo;vest power in ideas rather than people, and thereby decentralize that power.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-compute-limits-open-weight-independence"&gt;Compute limits open-weight independence&lt;/h2&gt;
+
+
+
+&lt;p&gt;Open weights allow developers to adapt a model and keep sensitive data inside their own environment, but that becomes harder as models grow. And while smaller teams can rent the hardware, they remain exposed to its cost and availability. That problem is already visible as &lt;a href="https://thenewstack.io/mistral-third-party-open-models/" class="local-link"&gt;five European companies recently agreed to purchase AI compute that doesn&amp;#8217;t exist yet&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;As you may recall, Anthropic was one of the few major AI labs that did not sign the &lt;a href="https://images.nvidia.com/pdf/Open-Weights-and-American-AI-Leadership.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;July 24 letter organized by Nvidia &lt;/a&gt;with its signatories arguing that open weights encourage competition by giving customers an alternative to proprietary APIs. &lt;/p&gt;
+
+
+
+&lt;p&gt;Amodei later said Anthropic does not support a blanket ban. He called open models without dangerous capabilities &amp;ldquo;a public good,&amp;rdquo; but his position changes once a model can help someone carry out a serious attack. &lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/" class="local-link"&gt;Real-world containment failures have already shown&lt;/a&gt; how difficult it can be to control a capable model, even before its weights are released.&lt;/p&gt;
+
+
+
+&lt;p&gt;Once the weights are public, the original developer can&amp;rsquo;t retrieve every copy or prevent users from removing its safeguards. Amodei wants models that reach that level to undergo mandatory safety testing, regardless of how they are released. Anthropic has carried that position beyond its own products and recently &lt;a href="https://thenewstack.io/ai-pause-framework-letter/" class="local-link"&gt;backed an urgent call for the most powerful AI labs to hit the brakes&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;We try very hard to make proposals that disadvantage (slow down) frontier AI companies while advantaging smaller competitors.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-tiered-rules-protect-smaller-labs"&gt;Tiered rules protect smaller labs&lt;/h2&gt;
+
+
+
+&lt;p&gt;Amodei disputes the argument that AI regulation will inevitably protect Anthropic and other incumbents from competition. He says the company has supported frameworks that place stricter requirements on frontier labs while exempting smaller developers.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We try very hard to make proposals that disadvantage (slow down) frontier AI companies while advantaging smaller competitors,&amp;rdquo; he wrote.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic supported California&amp;rsquo;s SB 53, which defines a frontier model as one trained using more than (10^{26}) floating-point operations, or FLOPs. Developers earning more than $500 million a year face additional requirements, including publishing a framework explaining how they test for and respond to catastrophic risks.&lt;/p&gt;
+
+
+
+&lt;p&gt;Amodei has called for a similar distinction in federal policy.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;The testing process we&amp;rsquo;ve advocated for at CAISI and the White House involves more rigorous tests for frontier models than off-frontier models,&amp;rdquo; he wrote. He said that approach would give challengers room to catch up while slowing the companies already building the most capable systems.&lt;/p&gt;
+
+
+
+&lt;p&gt;He also supports DeepMind CEO Demis Hassabis&amp;rsquo; proposal for a FINRA-like AI standards body. Under that framework, models would be classified as frontier systems after crossing regularly updated benchmark thresholds. The same rules would apply to open and closed models.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-capability-defies-simple-thresholds"&gt;Capability defies simple thresholds&lt;/h2&gt;
+
+
+
+&lt;p&gt;Training compute gives developers a threshold they can anticipate, but it may not capture capabilities added through fine-tuning or external tools. Benchmarks can measure those abilities more directly, although their results rarely provide a clean dividing line.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/openai-gpt56-cyber-daybreak/" class="local-link"&gt;OpenAI has already built a model it doesn&amp;#8217;t want most people to use&lt;/a&gt; and another &lt;a href="https://thenewstack.io/openai-astra-cybersecurity-delay/" class="local-link"&gt;it won&amp;#8217;t release until its safety testing catches up&lt;/a&gt;. Both offer an early look at how difficult capability classification may become.&lt;/p&gt;
+
+
+
+&lt;p&gt;The U.S. Center for AI Standards and Innovation found that Moonshot AI&amp;rsquo;s Kimi K3 remained behind the strongest closed models in preliminary cyber evaluations. During a simulated attack against a small corporate network, however, it completed the full 32-step attack path in one of 10 attempts.&lt;/p&gt;
+
+
+
+&lt;p&gt;Kimi K3 failed to achieve arbitrary code execution on any of the 41 ExploitBench samples. The most capable models achieved it on average of 20. The version tested before release may also behave differently after a developer fine-tunes it or connects it to external tools. &lt;a href="https://thenewstack.io/deepseek-v4-flash-open-weights/" class="local-link"&gt;DeepSeek underscored that problem when its smaller model outperformed its own flagship&lt;/a&gt;, showing that model size alone doesn&amp;rsquo;t provide a reliable measure of capability.&lt;/p&gt;
+
+
+
+&lt;p&gt;Amodei&amp;rsquo;s proposal would spare most smaller developers from the toughest rules. Regulators would still have to decide when one of those challengers has crossed into frontier territory, ideally before its weights are released and modified beyond the creator&amp;rsquo;s control.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/amodei-open-weights-compute-regulation/"&gt;&amp;#8220;Open weights are nowhere near a sufficient solution&amp;#8221;: Dario Amodei fires back on AI power&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Dario Amodei says open weights just shift AI&amp;#039;s power concentration to whoever controls the most compute, and argues for tiered safety rules instead.</content:encoded>
+    </item>
+    <item>
+      <title>TNS journalist Darryl K. Taft leaves a legacy of respected work and quiet integrity </title>
+      <link>https://web.archive.org/web/https://thenewstack.io/darryl-taft-technology-journalist/</link>
+      <dc:creator>Chris J. Preimesberger</dc:creator>
+      <pubDate>Mon, 17 Aug 2026 15:43:18 +0000</pubDate>
+      <category>Tech Careers</category>
+      <category>Tech Culture</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833675</guid>
+      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/c0755968-darryl-taft-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Darryl Taft, technology journalist" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c0755968-darryl-taft.png" /&gt;&lt;p&gt;Technology journalist Darryl K. Taft led a long and successful career at several first-rank tech publications and was a highly&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/darryl-taft-technology-journalist/"&gt;TNS journalist Darryl K. Taft leaves a legacy of respected work and quiet integrity &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/c0755968-darryl-taft-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Darryl Taft, technology journalist" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c0755968-darryl-taft.png" /&gt;
+&lt;p&gt;&lt;strong&gt;Technology journalist &lt;a href="https://thenewstack.io/author/darryl-taft/" class="local-link"&gt;Darryl K. Taft&lt;/a&gt; &lt;/strong&gt;led a long and successful career at several first-rank tech publications and was a highly respected professional with a legacy of thousands of articles. After a short illness, Taft died August 3, 2026. He was 67.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;For more than 40 years, Taft covered foundational software concepts as they were still developing, including development, cloud computing, AI, DevOps, and open source. He was a gentle giant in a field and is remembered by fellow journalists, communications leaders, and technologists as much for his interviewing talent and writing ability as for his care, curiosity, generosity, and kindness.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/jamesgosling/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dr. James Gosling&lt;/a&gt;, an IT legend known in the business as the father of &lt;a href="https://en.wikipedia.org/wiki/Java_(programming_language)" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Java&lt;/a&gt; &amp;ndash; the &lt;a href="https://en.wikipedia.org/wiki/Sun_Microsystems" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sun Microsystems&lt;/a&gt; protocol that connects most electronic devices on the planet &amp;ndash; once said he determined whether a person was good to work with by whether he enjoyed having dinner with them. Turns out that Taft was a favorite tablemate of his.&lt;/p&gt;
+
+
+
+&lt;p&gt;Before he was a journalist, Taft was a programmer and worked in banking IT and technical documentation. That background gave him a rare ability to make complex tech concepts easy for anyone to understand. He held significant roles at major publications such as &lt;a href="https://eweek.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;eWEEK&lt;/em&gt;&lt;/a&gt;, &lt;a href="https://techtarget.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;TechTarget&lt;/em&gt;&lt;/a&gt;, and, most recently, &lt;a href="https://thenewstack.io" class="local-link"&gt;&lt;em&gt;The New Stack&lt;/em&gt;&lt;/a&gt;, where he served as news editor starting in 2021. He wrote and edited thousands of articles and covered many big players, including Microsoft, AWS, Google, Oracle, IBM, Nvidia, and Red Hat.&lt;/p&gt;
+
+
+
+&lt;p&gt;Industry professionals, from peers to executives, admired his grit, curiosity, and calm, humble demeanor. He was known for being a mentor and a master at building relationships with sources. Colleagues remembered him for his classic, old-school reporting style. He always prioritized deep, well-sourced stories that focused on the people (developers and architects) behind the technology.&lt;/p&gt;
+
+
+
+&lt;p&gt;A native of Baltimore, he interviewed industry leaders from hundreds of companies. He was a regular presence at major developer conferences, such as Microsoft Build, KubeCon, Google Cloud Next, Red Hat Summit, and many other enterprise IT events. His work has also been published in &lt;em&gt;Government Computer News,&lt;/em&gt; &lt;em&gt;SearchSoftwareQuality, SearchAppArchitecture, TheServerSide, Computer Weekly &lt;/em&gt;(syndicated)&lt;em&gt;, and The Code Project &lt;/em&gt;(syndicated).&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Below are remembrances of Darryl collected by staff at &lt;/em&gt;The New Stack&lt;em&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Alex Williams&lt;/strong&gt; co-founded &lt;em&gt;The New Stack&lt;/em&gt; in 2014. &amp;#8220;I looked up to Darryl. I first met him when I started covering enterprise tech, circa 2008. He had a calmness to him and a deep understanding of the developer ecosystem he covered, dating back to the 1990s,&amp;#8221; Williams writes.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Darryl had a gentle soul and a reporter&amp;rsquo;s instincts. The combination served us all well. People loved him. He cultivated those relationships, developing excellent sources. He&amp;rsquo;d get fresh stories all the time. Those stories were well-sourced, thoroughly reported, and clearly written. He made it look simple.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;He was one of the great tech journalists of the past 30 years. I feel lucky I knew him and worked with him so closely.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;#8220;He was one of the great tech journalists of the past 30 years. I feel lucky I knew him and worked with him so closely.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Heather Joslyn &lt;/strong&gt;was features editor at &lt;em&gt;The New Stack&lt;/em&gt; from 2021 to 2023 and editor-in-chief from 2023 to 2026, and worked with Taft daily.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Darryl and I joined the staff of &lt;em&gt;The New Stack&lt;/em&gt; at about the same time, and we began working more closely together once I moved into the editor-in-chief role in November 2023. I quickly became aware, especially as Covid-era travel restrictions lifted and I began attending tech conferences, how revered and respected Darryl was in the tech journalism field. He was commonly referred to as a &amp;#8216;giant&amp;#8217; in our field, one who was covering the modern tech industry when it was still in its infancy.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;He loved his work and brought the grit and curiosity of an old-school reporter to covering a field that demands both. He was not only great at finding stories, but had a tremendous style and care with words.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;What I will remember most fondly of Darryl is a road trip we took down to Raleigh, North Carolina, last year for All Things Open. TNS is an all-remote company, but he and I happen to live in the same city, his hometown of Baltimore. Darryl could be a man of few words, so I was worried about long silences filling my Honda during the roughly 10-hour round trip.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Not to worry. He was downright chatty during the trip, and the radio proved a potent icebreaker. When Johnnie Taylor&amp;rsquo;s 1968 hit &lt;a href="https://www.youtube.com/watch?v=AaDTObaghsE" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;ldquo;Who&amp;rsquo;s Making Love&amp;rdquo;&lt;/a&gt; (&amp;ldquo;&amp;#8230;to your old lady/while you were out makin&amp;rsquo; love?&amp;rdquo;) played, Darryl told me how Baltimore kids sang the song to taunt the National Guard troops who patrolled the city after Martin Luther King Jr.&amp;rsquo;s assassination. And I&amp;rsquo;ll always remember our enthusiastic but off-key harmonizing to Aretha Franklin&amp;rsquo;s &amp;ldquo;Respect.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Darryl earned a lot of R-E-S-P-E-C-T from us at TNS and around the tech world. He&amp;rsquo;ll be very missed.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="655" src="https://cdn.thenewstack.io/media/2026/08/de423ed5-screenshot-2026-08-17-at-09.46.01-1024x655.png" alt="" class="wp-image-22833683"/&gt;&lt;figcaption class="wp-element-caption"&gt;Taft (front, right) with colleagues from &lt;em&gt;The New Stack&lt;/em&gt;. (Photo: Colleen Coll) &lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Richard MacManus&lt;/strong&gt;, currently head of editorial at &lt;a href="https://www.latent.space/about" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Latent Space&lt;/a&gt;, and Taft were senior editors at &lt;em&gt;The New Stack&lt;/em&gt; for several years in this decade.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;I&amp;rsquo;d seen his name quite a lot in the best-known IT publications from the &amp;#8217;90s on. As I got to know Darryl as a colleague, I began to appreciate his humble wisdom and old-school tech journalism chops. I was always secretly thrilled when he said he liked one of my stories &amp;mdash; it felt like an older brother nodding his head in approval.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;The story that best sums up his quality was an &lt;a href="https://thenewstack.io/java-at-30-the-genius-behind-the-code-that-changed-tech/" class="local-link"&gt;interview&lt;/a&gt; he conducted in May 2025 with Dr. Gosling. The post was a 30-year retrospective of Java and, as you&amp;rsquo;d expect from Darryl, it had plenty of technical depth and nuance to it. &lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;But what I enjoyed the most,&amp;#8221; MacManus writes, &amp;#8220;was how he brought a very human dimension to the story by telling us about his personal encounters with Gosling at a San Francisco crab restaurant. &amp;lsquo;Gosling once told me that he liked to work with people he would enjoy having dinner with,&amp;#8217; Taft writes in that article. Well, reading that made me wish I could sit down with Darryl and talk tech over a large plate of roasted Dungeness crab.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Robin Bender Ginn&lt;/strong&gt;, Executive Director at &lt;a href="https://openjsf.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenJS Foundation&lt;/a&gt; and a former director at Microsoft, writes, &amp;ldquo;Darryl was one of my favorite reporters, and I feel lucky to have known him for nearly 20 years &amp;hellip; Darryl chronicled the people and changes that shaped open source with insight and a deep understanding of the community. He was always thoughtful, kind, and genuinely a pleasure to be around.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Chris J. Preimesberger&lt;/strong&gt;, former editor-in-chief of &lt;em&gt;eWEEK &lt;/em&gt;and a &lt;em&gt;TNS &lt;/em&gt;colleague of Taft who worked with him for more than 20 years, said, &amp;#8220;DKT had high credibility in writing about IT hardware and software development because he was a former programmer who studied trends incessantly. He could write and edit tech language as well as anybody I knew, and he used that ability to explain technology clearly to his readers. He was one of the best editor/reporter/analysts in the business and will be missed.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Andrew Tillery, &lt;/strong&gt;Senior Marketing Manager for &lt;em&gt;The New Stack, &lt;/em&gt;began working with Taft in 2020.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Darryl made you feel like you could share anything with him, which is one reason he was such a great news editor.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Darryl had a magnetism about him. Sometimes it was a reluctant magnetism on his part, but people were always drawn to him,&amp;#8221; Tillery writes. &amp;#8220;Darryl made you feel like you could share anything with him, which is one reason he was such a great news editor. But even those who didn&amp;#8217;t know his role felt like they could approach him, and they were always met with kind words (and the best smile if you could get a laugh out of him).&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="995" height="1024" src="https://cdn.thenewstack.io/media/2026/08/f342366c-screenshot-2026-08-17-at-09.49.01-995x1024.png" alt="" class="wp-image-22833685"/&gt;&lt;figcaption class="wp-element-caption"&gt;Taft (second from left) in 2025 with colleagues from &lt;em&gt;The New Stack. &lt;/em&gt;(Photo: Andrew Tillery)&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Susan Hall&lt;/strong&gt;, a former editor at &lt;em&gt;The New Stack, &lt;/em&gt;writes, &amp;#8220;Darryl consistently produced our highest-performing content. He was incredibly knowledgeable and could make complex topics easy for everyone. He had his finger on the pulse of the tech world, especially programming languages and changes in coding practices. On the occasions that I was editing his copy, he good-naturedly answered all my questions, no matter how stupid they were. He was just a good sort and will be sorely missed.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Larry Carvalho&lt;/strong&gt;, research director at &lt;a href="https://www.idc.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IDC&lt;/a&gt; and industry analyst at &lt;a href="https://www.robustcloud.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RobustCloud&lt;/a&gt;, began working with Taft in the mid-2010s. &amp;#8220;Darryl always stood out for his easygoing demeanor and his ability to connect with people at conferences. I knew he would make a strong impression wherever he went and never hesitated to recommend him for opportunities,&amp;#8221; Carvalo writes.&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Adrian Bridgwater,&lt;/strong&gt; a TNS contributor, worked alongside Taft at tech shows for years. &amp;#8220;He had a quiet classiness that he didn&amp;rsquo;t use to climb the social ladder. Darryl&amp;rsquo;s smile took a long time to form on his lips, but when it did, it was well worth that wait.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;He had a quiet classiness that he didn&amp;rsquo;t use to climb the social ladder. Darryl&amp;rsquo;s smile took a long time to form on his lips, but when it did, it was well worth that wait.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Alicia V. Nieva-Woodgate&lt;/strong&gt;, a longtime PR and marketing executive, remembers Taft as &amp;#8220;an incredibly talented journalist, and he was always kind and polite, and insightful. You could always count on him to tell you why a story didn&amp;rsquo;t interest him, or if it did, the depth of the story he would dive into. Clients always walked away impressed by how prepped he was for an interview, the depth of his questions, and his knowledge of tech. He left an impact on all who worked with him.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Steven J. Vaughan-Nichols, &lt;/strong&gt;journalist and TNS contributor:&lt;strong&gt; &amp;#8220;&lt;/strong&gt;When I first met Darryl in 1987, I was a freelance writer, and he was already an editor at &lt;em&gt;Government Computer News&lt;/em&gt;. As the years went by, we often worked together at one publication after another, including ones from Ziff Davis, IDG, and, most recently, &lt;em&gt;The New Stack&lt;/em&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;He was a grand guy and a wonderful journalist. I&amp;#8217;ll miss him. I think everyone who ever had the pleasure of working with him will miss him.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Nick Lucchesi&lt;/strong&gt;, editor-in-chief at &lt;em&gt;The New Stack&lt;/em&gt;: &amp;ldquo;While I only worked with Darryl in 2026, a few things became apparent quickly. The first is the care he brought to his work, welcome in an era where speed is often prioritized over quality. His focus on conducting interviews that yielded illustrative anecdotes that brought highly technical concepts to life was also a valuable service to our readers.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;During one of our several weekly chats, he told me how he was identified as &amp;#8216;King of the Pregnant Pause&amp;#8217; in a reporter dossier assembled by the comms department at a major technology company headquartered in the Pacific Northwest. &lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;As you&amp;rsquo;d expect, word got back to Darryl that his disarming style &amp;mdash; a brilliant quality for someone in our line of work &amp;mdash; had made it into this dossier, as had his royal-sounding title. And as someone with fresh memories of a job panel interview with him, it was a deserved nickname. When Darryl was interviewing an engineer or an executive for a story, his tendency to pause a beat after a response had considerable effect: It would often spur the interviewee to share more information &amp;mdash; probably more than the comms department intended. &lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;&amp;#8217;I wasn&amp;rsquo;t trying to mess with anyone; I was thinking of my next question,&amp;#8217; Darryl told me as he was sharing this story one weekday morning this spring. I believed him. That was just Darryl&amp;rsquo;s style; not a tactic. For me, that story captures some of the best of Darryl: Comfortable in his own skin. Knowledgeable. Curious. Careful. And always trying to get the best story possible.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;I will also add that he was extremely proud of his son and the life he saw his son build for himself. He took extra care to look after the writers who reported to him. And he was a reliable, generous colleague. He is missed greatly.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;Taft leaves behind a reputation for kindness, sharp intellect, and being a wonderful person to share dinner with. He is survived by his son, Elliott, and his partner, Valarie Smith.&lt;/p&gt;
+
+
+
+&lt;p&gt;A public viewing ahead of Taft&amp;#8217;s funeral service will be held between 2 and 6 p.m. on Sunday, August 23, 2026, at Vaughn C. Greene Funeral Home, 8728 Liberty Road, in Randallstown, Maryland. &lt;/p&gt;
+
+
+
+&lt;p&gt;You can &lt;a href="https://mivobroadcast.com/player.html?location=libertyrd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;view the livestream of Taft&amp;#8217;s funeral service&lt;/a&gt; at 10:30 a.m. Eastern on Monday, August 24, 2026.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;If you have a remembrance of Darryl you&amp;rsquo;d like to share for consideration to be included here, please email &lt;/em&gt;&lt;a href="mailto:nick@thenewstack.io"&gt;&lt;em&gt;nick@thenewstack.io&lt;/em&gt;&lt;/a&gt;&lt;em&gt; and include your name, your relationship to Darryl, a phone number where you can be reached, and any remembrances of 300 words or fewer. They may be published here at a future date.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/darryl-taft-technology-journalist/"&gt;TNS journalist Darryl K. Taft leaves a legacy of respected work and quiet integrity &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Darryl K. Taft, a respected technology journalist and New Stack news editor, is remembered as much for his interviewing talent and writing ability as for his care, curiosity, generosity, and kindness.</content:encoded>
+    </item>
+    <item>
       <title>Per-developer environments were the goal. Agents moved the goalposts.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/new-tenant-is-change/</link>
       <dc:creator>Arjun Iyer</dc:creator>
@@ -30,7 +746,7 @@
       <category>sponsor-signadot</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22833551</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of swirling metallic strands with glowing orange sparks, representing concurrent AI workstreams and software changes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash.jpg" /&gt;&lt;p&gt;Multi-tenancy has moved in one direction for 60 years: the tenant keeps getting smaller. Mainframe time-sharing carved a single machine&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of swirling metallic strands with glowing orange sparks, representing concurrent AI workstreams and software changes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash.jpg" /&gt;&lt;p&gt;Multi-tenancy has moved in one direction for 60 years: the tenant keeps getting smaller. Mainframe time-sharing carved a single machine&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/new-tenant-is-change/"&gt;Per-developer environments were the goal. Agents moved the goalposts.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of swirling metallic strands with glowing orange sparks, representing concurrent AI workstreams and software changes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4893eb68-getty-images-jr5naqmosqo-unsplash.jpg" /&gt;
@@ -90,7 +806,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="476" src="https://cdn.thenewstack.io/media/2026/08/99d0b0f7-image-1024x476.png" alt="Diagram showing a company's growing tenant count" class="wp-image-22833552"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="476" src="https://cdn.thenewstack.io/media/2026/08/99d0b0f7-image-1024x476.png" alt="Diagram showing a company's growing tenant count" class="wp-image-22833552"/&gt;&lt;/figure&gt;
 
 
 
@@ -144,7 +860,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/08/dc541baa-image-1024x563.png" alt="Diagram showing how each tenant only contains what changed, while stable environments are shared between tenants" class="wp-image-22833553"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" src="https://cdn.thenewstack.io/media/2026/08/dc541baa-image-1024x563.png" alt="Diagram showing how each tenant only contains what changed, while stable environments are shared between tenants" class="wp-image-22833553"/&gt;&lt;/figure&gt;
 
 
 
@@ -3294,468 +4010,6 @@ r"\bas previously mentioned\b"
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/manus-meta-data-deletion/"&gt;Your AI agent remembers everything. Here&amp;#8217;s what happens when its owner changes.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Manus will delete some user data as it separates from Meta after China blocked the $2B deal. Here&amp;#039;s what developers need to save — and when.</content:encoded>
-    </item>
-    <item>
-      <title>Why CPUs still matter in the age of AI agents</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cpus-matter-ai-agents/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 11 Aug 2026 20:44:26 +0000</pubDate>
-      <category>AI</category>
-      <category>Cloud Services</category>
-      <category>Hardware</category>
-      <category>Podcast</category>
-      <category>sponsor-google</category>
-      <category>sponsored-video</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833377</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/7252ae1f-thumbnail-15-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/7252ae1f-thumbnail-15.png" /&gt;&lt;p&gt;When the conversation turns to AI infrastructure, it almost always lands on GPUs and TPUs. The New Stack sat down&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cpus-matter-ai-agents/"&gt;Why CPUs still matter in the age of AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/7252ae1f-thumbnail-15-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/7252ae1f-thumbnail-15.png" /&gt;
-&lt;p&gt;When the conversation turns to AI infrastructure, it almost always lands on GPUs and TPUs. &lt;em&gt;The New Stack&lt;/em&gt; sat down with &lt;a href="http://linkedin.com/in/bhumikpatel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bhumik Patel&lt;/a&gt; of Arm and &lt;a href="https://www.linkedin.com/in/mofarhat0/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mo Farhat&lt;/a&gt; of Google to talk about the chip that rarely makes the headlines anymore: the CPU, and why it&amp;#8217;s getting more important, not less, as AI shifts from chatbots to agents.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/mfarhat/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Farhat,&lt;/a&gt; who leads product management for Axion and Arm-based virtual machines at Google Compute Engine, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;#8220;The role, more or less, is of a CPU as an air traffic controller.&amp;#8221;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/osKe1KG7c-U?si=tEkG7dsamUOhPv8C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p&gt;In this episode, we discuss how the shift from conversational chatbots to autonomous agents is quietly turning into a CPU story.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Today&amp;rsquo;s six- to eight-billion-parameter models are performing much better than they have in the past,&amp;rdquo; Farhat says. For some specialized workloads, he says, CPUs can deliver roughly 25 tokens per second, which can be enough for agentic workloads.&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/ef97b686-f396-41ea-bfad-4e9c78bf7f5b?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-workload-shifted-from-answering-to-acting"&gt;The workload shifted from answering to acting&lt;/h2&gt;
-
-
-
-&lt;p&gt;Early chatbots returned a response, but agents can act on them. They perform tasks by calling tools and, when needed, create environments to execute the code they write.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The orchestration harnesses themselves for agentic workloads are these always-on branching kind of control-flow logic that CPUs are great at,&amp;rdquo; Farhat says.&lt;/p&gt;
-
-
-
-&lt;p&gt;While large language models typically run on accelerators, CPUs also handle orchestration, data preparation, semantic search, and vector databases, Farhat says.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/bhumikpatel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Patel&lt;/a&gt;, who drives Arm&amp;rsquo;s software ecosystem efforts for cloud and AI, says the company is focused on the software and infrastructure layers needed to run these workloads at scale. Different types of agents, he notes, are doing &amp;ldquo;different type[s] of code execution and API calling and the typical CPU work.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;There&amp;rsquo;s a role for actually running models here, too, but we&amp;rsquo;re talking about very small ones, including summarizers, recommenders, and evaluators. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Today&amp;rsquo;s six- to eight-billion-parameter models are performing much better than they have in the past,&amp;rdquo; Farhat says. For some specialized workloads, he says, CPUs can deliver roughly 25 tokens per second, which can be enough for agentic workloads.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-agents-need-sandboxes-and-lots-of-them"&gt;Why agents need sandboxes, and lots of them&lt;/h2&gt;
-
-
-
-&lt;p&gt;For those agents to run code, though, they need an environment that lets them do so securely without endangering production systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The agents are doing code execution, so you want to make sure that the LLM-generated code is trusted,&amp;rdquo; Patel says. &amp;ldquo;Or if it&amp;rsquo;s not trusted, then you kind of sandbox the environment.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Google&amp;rsquo;s pitch for this is gVisor, an open-source project that acts as an isolation layer between the application and the host operating system. As Farhat puts it, &amp;ldquo;We operate in a zero-trust environment. This is exactly why you need the isolation technologies that agents run in.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;As Farhat puts it: &amp;ldquo;We operate in a zero-trust environment. This is exactly why you need the isolation technologies that agents run in.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;GKE Agent Sandbox, Google argues, can also handle the scale necessary in this agentic era. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;GKE Agent Sandbox will allow customers to spin up 300 sandboxes per second per cluster,&amp;rdquo; Farhat says. Patel says the platform uses pod snapshots and warm pools of suspended environments to help customers scale more quickly without keeping all of those environments fully provisioned.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-efficiency-pitch"&gt;The efficiency pitch&lt;/h2&gt;
-
-
-
-&lt;p&gt;Google says Axion can offer advantages in both cost and energy use. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Axion today will give you up to 2x the price performance of comparable current-generation virtual machines,&amp;rdquo; Farhat says, &amp;ldquo;and we&amp;rsquo;ll do that at over 60% better energy efficiency as well.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Google offers Axion C4A machines for consistently high performance and N4A machines for a balance of performance and cost-optimized workloads. For a compute-bound, long-running engineering job where completion time is critical, Farhat says C4A offers the needed performance. For smaller code-execution tasks where density and cost matter more, he points to N4A.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The good thing about the options in Google Cloud is, like Mo offered earlier, you have the C4A for high-performance workloads, and then the N4A,&amp;rdquo; Patel says. &amp;ldquo;You want to scale a large number of agents, and different types of agents are doing different types of code executions and API calling and the typical CPU work. The N4A is a great fit.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Farhat&amp;rsquo;s broader point is also that CPU, GPU, and TPU resources will continue to work together as agents scale. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We&amp;rsquo;re in a fluid compute world,&amp;rdquo; he says. &amp;ldquo;We do recommend that customers look at all the options, CPU-based, TPU, GPU-based, and ensure that their application is built to scale going forward.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cpus-matter-ai-agents/"&gt;Why CPUs still matter in the age of AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Bhumik Patel of Arm and Mo Farhat of Google discuss the CPU, and why it&amp;#039;s getting more important, not less, as AI shifts from chatbots to agents.</content:encoded>
-    </item>
-    <item>
-      <title>How I learned to stop worrying and love hyperscaler capex</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/stop-worrying-hyperscaler-capex/</link>
-      <dc:creator>Alex Wilhelm</dc:creator>
-      <pubDate>Tue, 11 Aug 2026 20:30:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Infrastructure</category>
-      <category>Cloud Services</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833357</guid>
-      <description>&lt;img width="1024" height="568" src="https://cdn.thenewstack.io/media/2026/08/f066288e-amazon-data-center-1024x568.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Amazon data center" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/f066288e-amazon-data-center.png" /&gt;&lt;p&gt;The AI boom is an oddly miserable bubble. Despite interesting tech, huge new companies, and products with global reach, AI&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/stop-worrying-hyperscaler-capex/"&gt;How I learned to stop worrying and love hyperscaler capex&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="568" src="https://cdn.thenewstack.io/media/2026/08/f066288e-amazon-data-center-1024x568.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Amazon data center" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/f066288e-amazon-data-center.png" /&gt;
-&lt;p&gt;The AI boom is an oddly miserable bubble. Despite interesting tech, huge new companies, and products with global reach, AI has attracted legions of detractors. &lt;/p&gt;
-
-
-
-&lt;p&gt;Some have valid complaints, like seeing their roles automated, or the value of human art being pressured by machine generation. Other complaints have had less staying power.&lt;/p&gt;
-
-
-
-&lt;p&gt;It was once in vogue to argue that AI companies would run out of data, and thus their models would stop improving. False. Some of the same voices argued that AI lacked a use case and was thus little more than a fancy toy high on its own hype. Incorrect. &lt;/p&gt;
-
-
-
-&lt;p&gt;Later, the argument shifted to AI being too&amp;nbsp;&lt;em&gt;expensive&lt;/em&gt;&amp;nbsp;to use, an incredible flip from the&amp;nbsp;&lt;em&gt;AI has no real use&lt;/em&gt;&amp;nbsp;argument. This is being proved false, as low-cost models from China now face both low-cost, closed-source AI models from OpenAI and&amp;nbsp;&lt;a href="https://thenewstack.io/meta-glimmer-distillation-agents/" class="local-link"&gt;new, open models from Meta&lt;/a&gt;. Agents were too brittle to start;&amp;nbsp;&lt;a href="https://www.cnbc.com/2026/08/08/hugging-face-ai-hack-cybersecurity-black-hat.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;now they are hacking the world&lt;/a&gt;. You get the idea.&lt;/p&gt;
-
-
-
-&lt;p&gt;Lately, I&amp;rsquo;ve read criticism about the AI boom from a financial perspective. Namely, that the major cloud players (AWS, Google Cloud, Azure) are spending too much money on AI infra. Surely we can&amp;rsquo;t use all that compute, the argument goes, and thus hyperscalers are torching their nest egg and investor goodwill at the same time.&lt;/p&gt;
-
-
-
-&lt;p&gt;I wanted to put the contention to the test, so I pulled together data from Amazon, Alphabet, and Microsoft&amp;rsquo;s cloud groups (&lt;a href="https://docs.google.com/spreadsheets/d/1Lypa-e64ZVQBoeorYHExk-6acdLL1AWmI3Rn-yqA5s8/edit?usp=sharing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;here&lt;/a&gt;) to peel back the onion a little. Here&amp;rsquo;s what I found: Growth is accelerating, hyperscaler profitability scales with scale, and hyperscaler capex efficiency is improving.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading has-text-align-center" id="h-continue-reading-on-cautious-optimism"&gt;&lt;strong&gt;&lt;a href="https://www.cautiousoptimism.news/how-i-learned-to-stop-worrying-and-love-hyperscaler-capex/?utm_source=The+New+Stack&amp;amp;utm_medium=referral&amp;amp;utm_campaign=Article+Excerpt" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Continue reading on &lt;em&gt;Cautious Optimism&lt;/em&gt;&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="has-text-align-center"&gt;&lt;strong&gt;&lt;em&gt;This is an excerpt from&amp;nbsp;&lt;/em&gt;Cautious Optimism&lt;em&gt;, a&amp;nbsp;&lt;strong&gt;&lt;em&gt;modestly upbeat&lt;/em&gt;&lt;/strong&gt;&amp;nbsp;publication focused on technology, business, and power.&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;Read more about the concern of hyperscaler cost on &lt;a href="https://www.cautiousoptimism.news/how-i-learned-to-stop-worrying-and-love-hyperscaler-capex/?utm_source=The+New+Stack&amp;amp;utm_medium=referral&amp;amp;utm_campaign=Article+Excerpt" target="_blank" rel="noreferrer noopener external nofollow" class="ext-link" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cautious Optimism&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/stop-worrying-hyperscaler-capex/"&gt;How I learned to stop worrying and love hyperscaler capex&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Critics say AWS, Google Cloud and Azure are overspending on AI infrastructure. The cloud earnings data tells a different story about growth and margins.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic’s watermark survives copy-paste, but not the real dev workflow</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-text-watermark/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 11 Aug 2026 19:29:48 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>AI Models</category>
-      <category>Compliance</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833336</guid>
-      <description>&lt;img width="1024" height="676" src="https://cdn.thenewstack.io/media/2026/04/e4b92407-by-yuniaz-hyzvm6_lp-e-unsplash-1024x676.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A minimalist blue illustration of a hand reaching down to touch a water surface, creating concentric ripples. Beneath the water, a pixelated and distorted reflection of a hand reaches up to meet the finger, symbolizing the connection between a user&amp;#039;s experience and the underlying digital infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/e4b92407-by-yuniaz-hyzvm6_lp-e-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic announced it will embed invisible watermarks into text generated by new Claude models, including output produced through its API,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-text-watermark/"&gt;Anthropic&amp;#8217;s watermark survives copy-paste, but not the real dev workflow&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="676" src="https://cdn.thenewstack.io/media/2026/04/e4b92407-by-yuniaz-hyzvm6_lp-e-unsplash-1024x676.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A minimalist blue illustration of a hand reaching down to touch a water surface, creating concentric ripples. Beneath the water, a pixelated and distorted reflection of a hand reaches up to meet the finger, symbolizing the connection between a user&amp;#039;s experience and the underlying digital infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/e4b92407-by-yuniaz-hyzvm6_lp-e-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Anthropic announced it will embed invisible watermarks into text generated by new Claude models, including output produced through its API, coding tools and cloud partners. For developers, the mark offers another way to trace where AI-generated text or code might have come from, but it is not strong enough to prove its origin.&lt;/p&gt;
-
-
-
-&lt;p&gt;Laying out the plan in a &lt;a href="https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;support document&lt;/a&gt;, Anthropic said Claude models launched in the EU on or after Aug. 2, 2026, will include machine-readable marking from release. The company is working to add support to older models as well.&lt;/p&gt;
-
-
-
-&lt;p&gt;The marks will apply worldwide across supported Claude products, including the Claude API, Claude Code, Claude Cowork and Claude Tag. Text generated through AWS, Google Cloud or Microsoft Foundry will also carry the watermark when those platforms use a supported model. Because the mark is added at the model level, it follows the output into applications built on top of Claude &amp;mdash; the same applications that are already &lt;a href="https://thenewstack.io/anthropic-mendral-cicd-acquihire/" class="local-link"&gt;reshaping how enterprises deploy AI infrastructure&lt;/a&gt; &amp;mdash; although Anthropic cautions that some platforms and features may not support every type of mark.&lt;/p&gt;
-
-
-
-&lt;p&gt;The change follows the Aug. 2 start of &lt;a href="https://artificialintelligenceact.eu/article/50/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Article 50&amp;#8217;s transparency requirements under the EU AI Act&lt;/a&gt;, which require providers of generative AI systems to make synthetic output detectable in a machine-readable format. Anthropic signed the accompanying Code of Practice as a provider of both generative AI models and systems. OpenAI, Google, Meta, Microsoft and Mistral are among the other model providers that have committed to the code.&lt;/p&gt;
-
-
-
-&lt;p&gt;Yet, Anthropic is handling text and files differently. Text gets a watermark hidden in the words themselves, while supported files such as SVGs, PNGs and JPGs receive a digital signature using the C2PA standard. The file metadata can show that Claude processed an asset and whether the metadata has been altered. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Because the watermark is part of the text, it will travel with the text when it&amp;#8217;s copied and pasted elsewhere, and may persist through some editing,&amp;#8221; Anthropic said.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Because the watermark is part of the text, it will travel with the text when it&amp;#8217;s copied and pasted elsewhere, and may persist through some editing.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-token-level-watermarking-works"&gt;How token-level watermarking works&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anthropic has not explained how its text watermark works or said whether Claude uses KGW, a semantic version or another method. The company has also not shared any figures showing whether watermarking affects latency or adds to inference costs &amp;mdash; a gap that matters for teams already &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;wrestling with the hidden costs of agentic AI workflows&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/alex-cui-caltech/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alex Cui&lt;/a&gt;, CTO and co-founder of AI detection company GPTZero, wrote in a &lt;a href="https://x.com/alexcdot/status/2087078010524406137" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;technical explainer on X&lt;/a&gt; that watermarking systems fast enough to run on a streaming frontier model often follow the same general approach. One such technique, known as the KGW method, changes the probabilities the model uses when selecting its next token.&lt;/p&gt;
-
-
-
-&lt;p&gt;A language model normally calculates a probability for every token that could appear next. In a simplified watermarking system, a secret key and the preceding tokens are used to generate a hash, which divides the candidate tokens into two groups, often described as green and red. The model then slightly increases the probability of selecting one of the green tokens.&lt;/p&gt;
-
-
-
-&lt;p&gt;A detector with the same key can use the preceding text to reconstruct which tokens would have been favored at each position. A passage containing an unusually high number of those choices may carry the watermark. &lt;/p&gt;
-
-
-
-&lt;p&gt;Cui wrote that more advanced approaches can derive the watermark from the meaning of nearby text rather than an exact sequence of tokens, which may help the signal survive some paraphrasing because replacing a word does not always change the surrounding context.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Their watermark needs to work token-by-token because they are streaming their text to users,&amp;#8221; Cui wrote. &amp;#8220;Many watermark methods plan sentences or paragraphs at a time, or change the text after it&amp;#8217;s entirely written, in order to make their watermark robust to paraphrasers.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic has not confirmed that Claude uses any of these methods, but streaming limits the techniques available because the model must add the signal while generating its response rather than rewriting a completed passage afterward.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-code-resists-invisible-marking"&gt;Code resists invisible marking&lt;/h2&gt;
-
-
-
-&lt;p&gt;Code presents a different problem because the model has fewer valid choices. Words can often be swapped or sentences rewritten without changing their meaning, but seemingly minor changes can break working code. That challenge intensifies as &lt;a href="https://thenewstack.io/microsoft-copilot-token-budgets/" class="local-link"&gt;the AI coding era matures&lt;/a&gt; and more production code flows through model-assisted pipelines.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;There are some texts, like code, that cannot be arbitrarily changed; otherwise the code will break,&amp;#8221; Cui wrote. &amp;#8220;In those cases, the watermark needs to selectively change words in parts of the text that can tolerate synonyms,&amp;#8221; such as variable names.&lt;/p&gt;
-
-
-
-&lt;p&gt;Code may also be difficult to track through a normal development workflow. Anthropic has not published tests showing how well its watermark survives those changes, so teams do not yet know whether a Claude-generated patch will remain detectable after passing through a pull request.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;In my testing, the watermarks don&amp;#8217;t survive intense paraphrasing, especially if you combine word choice and syntax attacks.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-pipelines-silently-erase-watermarks"&gt;Pipelines silently erase watermarks&lt;/h2&gt;
-
-
-
-&lt;p&gt;The same issue comes up when applications change Claude&amp;rsquo;s output before showing it to a user or committing it to a repository. Summarizing it with another model, translating it, splitting it into smaller sections, turning it into structured data or mixing it with database content could all make the watermark harder to detect.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic acknowledges this limitation. Editing, paraphrasing, translating or combining the response with other text may weaken or remove the watermark, while short excerpts may not contain enough of the signal to detect.&lt;/p&gt;
-
-
-
-&lt;p&gt;Cui wrote that determined users can attack a watermark by changing both the vocabulary and the structure of a passage.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;In my testing, the watermarks don&amp;#8217;t survive intense paraphrasing, especially if you combine word choice and syntax attacks,&amp;#8221; he wrote. Cui added that free paraphrasing tools he tested were able to bypass Google DeepMind&amp;#8217;s SynthID text watermark.&lt;/p&gt;
-
-
-
-&lt;p&gt;Research supports those concerns. The &lt;a href="https://github.com/hlzhang109/impossibility-watermark" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;#8220;Watermarks in the Sand&amp;#8221;&lt;/a&gt; paper found that, under defined assumptions, attackers can remove watermarks without severely damaging the quality of the content. The absence of a watermark does not show that Claude had no role in creating the content. The response may have come from an older model, may be too short to carry a detectable signal or may have been changed somewhere in an application pipeline. It may also have passed through a platform or feature that does not support that type of mark.&lt;/p&gt;
-
-
-
-&lt;p&gt;Finding a watermark does not prove authorship either. Claude may have proofread, translated or reformatted material written by a person. Anthropic says a detected mark means only that the content &amp;#8220;may have been processed by Claude,&amp;#8221; not that Claude created the underlying work.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;If Anthropic releases the watermark detector publicly, I think they defeat their own watermark. People find reliable watermark-removal strategies by testing against Anthropic.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-detection-creates-new-risks"&gt;Detection creates new risks&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anthropic plans to give users and third parties a way to detect its marks, but it has not said whether that will take the form of a local tool, a detection API or access limited to selected organizations. A public detector would be easier for developers to add to their applications, but it would also allow someone trying to remove a watermark to keep editing and checking the text until the signal disappears.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;If Anthropic releases the watermark detector publicly, I think they defeat their own watermark,&amp;#8221; Cui wrote. &amp;#8220;People find reliable watermark-removal strategies by testing against Anthropic.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;The secret keys behind the watermark create another challenge. A leaked key could make it easier to remove the mark or imitate it in text that Claude did not produce. The scenario echoes &lt;a href="https://thenewstack.io/npm-supply-chain-worm-attack/" class="local-link"&gt;what happened when provenance attestations were turned into camouflage&lt;/a&gt; &amp;mdash; a trust signal that was supposed to increase confidence instead became an attack surface.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;To avoid a large blast damage from this, you need to have a couple secret keys in rotation,&amp;#8221; Cui wrote.&lt;/p&gt;
-
-
-
-&lt;p&gt;Key rotation would require detectors to recognize marks created with both current and retired keys, including those embedded in content generated months or years earlier. Anthropic has not explained how it plans to handle that history.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-watermarks-aren-t-a-substitute-for-real-provenance"&gt;Watermarks aren&amp;#8217;t a substitute for real provenance&lt;/h2&gt;
-
-
-
-&lt;p&gt;For developers, Claude&amp;rsquo;s watermark is best treated as another clue, not a replacement for audit logs or provenance tracking. Applications that need to show where an artifact came from can record the model ID, prompt version, response time and a hash of the original output, then log any changes made before it reaches a user or is committed to a repository.&lt;/p&gt;
-
-
-
-&lt;p&gt;The watermarking announcement arrives as Anthropic navigates deeper questions about what its models do in the wild. Recent incidents have &lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/" class="local-link"&gt;exposed gaps between lab safety evaluations and real-world containment&lt;/a&gt;, and the company has &lt;a href="https://thenewstack.io/ai-pause-framework-letter/" class="local-link"&gt;publicly backed calls for the most powerful AI labs to slow down&lt;/a&gt;. Watermarking fits into that posture &amp;mdash; a transparency mechanism rather than a safety guarantee &amp;mdash; but its practical value depends on technical details Anthropic has not yet shared.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic tells customers to determine how Article 50 applies to their own products and says more technical documentation is coming. But until Anthropic shares those details, teams do not know how they will detect the marks, how key rotation will work or how well the watermark will survive common changes to code and application output. &lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-text-watermark/"&gt;Anthropic&amp;#8217;s watermark survives copy-paste, but not the real dev workflow&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic will embed invisible watermarks in Claude&amp;#039;s text output, but experts warn the marks won&amp;#039;t survive paraphrasing, code formatting, or application pipelines.</content:encoded>
-    </item>
-    <item>
-      <title>Why CPUs still matter in the age of AI agents</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/why-cpus-still-matter-in-the-age-of-ai-agents/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 11 Aug 2026 18:54:02 +0000</pubDate>
-      <category>AI</category>
-      <category>Cloud Services</category>
-      <category>Hardware</category>
-      <category>Podcast</category>
-      <category>sponsor-google-amd</category>
-      <category>sponsored-video</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22825197</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/7252ae1f-thumbnail-15-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/7252ae1f-thumbnail-15.png" /&gt;&lt;p&gt;When the conversation turns to AI infrastructure, it almost always lands on GPUs and TPUs. The New Stack sat down&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/why-cpus-still-matter-in-the-age-of-ai-agents/"&gt;Why CPUs still matter in the age of AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/7252ae1f-thumbnail-15-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/7252ae1f-thumbnail-15.png" /&gt;
-&lt;p&gt;When the conversation turns to AI infrastructure, it almost always lands on GPUs and TPUs. &lt;em&gt;The New Stack&lt;/em&gt; sat down with &lt;a href="http://linkedin.com/in/bhumikpatel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bhumik Patel&lt;/a&gt; of Arm and &lt;a href="https://www.linkedin.com/in/mofarhat0/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mo Farhat&lt;/a&gt; of Google to talk about the chip that rarely makes the headlines anymore: the CPU, and why it&amp;#8217;s getting more important, not less, as AI shifts from chatbots to agents.&lt;/p&gt;
-
-
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/osKe1KG7c-U?si=GA9eeF0mTHIjIs0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/mfarhat/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Farhat,&lt;/a&gt; who leads product management for Axion and Arm-based virtual machines at Google Compute Engine, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;#8220;The role, more or less, is of a CPU as an air traffic controller.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;In this episode, we discuss how the shift from conversational chatbots to autonomous agents is quietly turning into a CPU story.&lt;/p&gt;
-
-
-&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/ef97b686-f396-41ea-bfad-4e9c78bf7f5b?dark=true"&gt;&lt;/iframe&gt;
-
-
-&lt;h2 class="wp-block-heading" id="h-the-workload-shifted-from-answering-to-acting"&gt;The workload shifted from answering to acting&lt;/h2&gt;
-
-
-
-&lt;p&gt;Early chatbots returned a response, but agents can act on them. They perform tasks by calling tools and, when needed, create environments to execute the code they write.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The orchestration harnesses themselves for agentic workloads are these always-on branching kind of control-flow logic that CPUs are great at,&amp;rdquo; Farhat says.&lt;/p&gt;
-
-
-
-&lt;p&gt;While large language models typically run on accelerators, CPUs also handle orchestration, data preparation, semantic search, and vector databases, Farhat says.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/bhumikpatel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Patel&lt;/a&gt;, who drives Arm&amp;rsquo;s software ecosystem efforts for cloud and AI, says the company is focused on the software and infrastructure layers needed to run these workloads at scale. Different types of agents, he notes, are doing &amp;ldquo;different type[s] of code execution and API calling and the typical CPU work.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;There&amp;rsquo;s a role for actually running models here, too, but we&amp;rsquo;re talking about very small ones, including summarizers, recommenders, and evaluators. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Today&amp;rsquo;s six- to eight-billion-parameter models are performing much better than they have in the past,&amp;rdquo; Farhat says. For some specialized workloads, he says, CPUs can deliver roughly 25 tokens per second, which can be enough for agentic workloads.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-agents-need-sandboxes-and-lots-of-them"&gt;Why agents need sandboxes, and lots of them&lt;/h2&gt;
-
-
-
-&lt;p&gt;For those agents to run code, though, they need an environment that lets them do so securely without endangering production systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The agents are doing code execution, so you want to make sure that the LLM-generated code is trusted,&amp;rdquo; Patel says. &amp;ldquo;Or if it&amp;rsquo;s not trusted, then you kind of sandbox the environment.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Google&amp;rsquo;s pitch for this is gVisor, an open-source project that acts as an isolation layer between the application and the host operating system. As Farhat puts it, &amp;ldquo;We operate in a zero-trust environment. This is exactly why you need the isolation technologies that agents run in.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;As Farhat puts it: &amp;ldquo;We operate in a zero-trust environment. This is exactly why you need the isolation technologies that agents run in.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;GKE Agent Sandbox, Google argues, can also handle the scale necessary in this agentic era. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;GKE Agent Sandbox will allow customers to spin up 300 sandboxes per second per cluster,&amp;rdquo; Farhat says. Patel says the platform uses pod snapshots and warm pools of suspended environments to help customers scale more quickly without keeping all of those environments fully provisioned.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-efficiency-pitch"&gt;The efficiency pitch&lt;/h2&gt;
-
-
-
-&lt;p&gt;Google says Axion can offer advantages in both cost and energy use. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Axion today will give you up to 2x the price performance of comparable current-generation virtual machines,&amp;rdquo; Farhat says, &amp;ldquo;and we&amp;rsquo;ll do that at over 60% better energy efficiency as well.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Google offers Axion C4A machines for consistently high performance and N4A machines for a balance of performance and cost-optimized workloads. For a compute-bound, long-running engineering job where completion time is critical, Farhat says C4A offers the needed performance. For smaller code-execution tasks where density and cost matter more, he points to N4A.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The good thing about the options in Google Cloud is, like Mo offered earlier, you have the C4A for high-performance workloads, and then the N4A,&amp;rdquo; Patel says. &amp;ldquo;You want to scale a large number of agents, and different types of agents are doing different types of code executions and API calling and the typical CPU work. The N4A is a great fit.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Farhat&amp;rsquo;s broader point is also that CPU, GPU, and TPU resources will continue to work together as agents scale. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We&amp;rsquo;re in a fluid compute world,&amp;rdquo; he says. &amp;ldquo;We do recommend that customers look at all the options, CPU-based, TPU, GPU-based, and ensure that their application is built to scale going forward.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/why-cpus-still-matter-in-the-age-of-ai-agents/"&gt;Why CPUs still matter in the age of AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Bhumik Patel of Arm and Mo Farhat of Google to talk the CPU, and why it&amp;#039;s getting more important, not less, as AI shifts from chatbots to agents.</content:encoded>
     </item>
   </channel>
 </rss>
