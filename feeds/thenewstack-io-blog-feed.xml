@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Thu, 20 Aug 2026 21:50:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 19:58:41 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,826 @@
       <height>32</height>
     </image>
     <item>
+      <title>Spline rebuilt its entire 3D editor. Then it handed the keys to Claude Code.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/spline-v2-mcp-agents/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 19:58:33 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <category>Model Context Protocol (MCP)</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834149</guid>
+      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/05/30be87ed-daniel-lee-zhpam5xxvwk-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="An illustrated eye with a keyhole at its center, surrounded by concentric digital rings — evoking surveillance, identity security, and the human element in cybersecurity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/30be87ed-daniel-lee-zhpam5xxvwk-unsplash-scaled.jpg" /&gt;&lt;p&gt;Spline released V2 on Thursday, a complete rebuild of its 3D editor that enables external coding agents to work directly&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/spline-v2-mcp-agents/"&gt;Spline rebuilt its entire 3D editor. Then it handed the keys to Claude Code.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/05/30be87ed-daniel-lee-zhpam5xxvwk-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="An illustrated eye with a keyhole at its center, surrounded by concentric digital rings — evoking surveillance, identity security, and the human element in cybersecurity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/05/30be87ed-daniel-lee-zhpam5xxvwk-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;Spline released V2 on Thursday, a complete rebuild of its 3D editor that enables external coding agents to work directly on live, editable scenes.&lt;/p&gt;
+
+
+
+&lt;p&gt;The key new addition, Spline MCP Server, opens the editor to Claude Code, Cursor, Codex, Google Antigravity and VS Code. Through a local server bundled with the desktop app, those tools can work directly within a live Spline project, changing the scene and its behavior while keeping the result fully editable.&lt;/p&gt;
+
+
+
+&lt;p&gt;Spline V2 also includes its own AI agent, which can build and edit a scene from a prompt. MCP lets developers access the same design environment from a coding agent that already understands the codebase and the work in progress, without having to rebuild that context in a separate Spline conversation.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Through a local server bundled with the desktop app, those tools can work directly within a live Spline project, changing the scene and its behavior while keeping the result fully editable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-mcp-calls-hit-live-scenes"&gt;MCP calls hit live scenes&lt;/h2&gt;
+
+
+
+&lt;p&gt;The MCP server is bundled directly into Spline&amp;#8217;s rebuilt desktop application for macOS and Windows; it does not work in the browser, and there is no standalone server package to install.&lt;/p&gt;
+
+
+
+&lt;p&gt;When the desktop app opens, it looks for supported clients and registers the server in their configuration files. The developer then restarts the AI client and prompts it normally. If someone asks Claude Code to create a floating island, for example, Claude turns that request into structured MCP tool calls. Spline then routes those calls to an open 3D editor tab, where they run against the live document. If no suitable file is open, the application can create one.&lt;/p&gt;
+
+
+
+&lt;p&gt;The model can see what is already happening in the scene before it starts making changes, which lets it move between the visual design and the code running over the canvas, use Spline&amp;#8217;s AI tools when it needs a new model or image, and keep working on the interface or game logic around it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Everything it changes stays inside the Spline project, so the designer gets the live scene back instead of a flattened image or static mesh and can continue editing as soon as the agent is done.&lt;/p&gt;
+
+
+
+&lt;p&gt;Spline says its internal AI agent follows the same approach, with each change treated as a normal editor operation that appears in the undo history and syncs to everyone else working in the file. Spline isn&amp;#8217;t the only creative platform handing MCP keys to external agents. ElevenLabs recently &lt;a href="https://thenewstack.io/elevenlabs-mcp-voice-agents/" class="local-link"&gt;opened its voice-agent infrastructure to Claude through an MCP server&lt;/a&gt; &amp;mdash; letting a chat window manage production voice agents the same way Spline now lets a coding agent manage a 3D scene.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Everything it changes stays inside the Spline project, so the designer gets the live scene back instead of a flattened image or static mesh and can continue editing as soon as the agent is done.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-agents-cross-the-canvas-gap"&gt;Agents cross the canvas gap&lt;/h2&gt;
+
+
+
+&lt;p&gt;The setup becomes more useful when an agent needs to move between the application and its interface, since Spline V2 puts the 3D editor and Hana behind the same MCP connection and handles the handoff automatically, directing scene work to the 3D editor and interface changes to Hana.&lt;/p&gt;
+
+
+
+&lt;p&gt;In Hana, the agent can turn an existing component into an editable frame and then carry any visual changes back into the application code, using stable references on exported elements to find the right place in the source.&lt;/p&gt;
+
+
+
+&lt;p&gt;That round trip has limits because Hana supports only a subset of HTML and CSS built around flexbox, so complex markup and framework-specific components may need to be reconciled with the existing code rather than replaced directly.&lt;/p&gt;
+
+
+
+&lt;p&gt;For 3D work, a developer can build or change a scene through Claude Code, refine it visually in Spline and export it for the web in formats ranging from Vanilla JavaScript and Three.js to React, Next.js and React Three Fiber. Those exports use WebGPU by default and fall back to WebGL when necessary.&lt;/p&gt;
+
+
+
+&lt;p&gt;Spline&amp;#8217;s runtime API can control a published scene, but the company does not document a way for changes made to the exported code to flow back into the original 3D file. If the agent needs to revise that source, it has to return through MCP and work in the live editor.&lt;/p&gt;
+
+
+
+&lt;p&gt;Google Antigravity, only recently &lt;a href="https://thenewstack.io/google-antigravity-ide-extensions/" class="local-link"&gt;expanded beyond its own IDE&lt;/a&gt; with extensions for VS Code and JetBrains &amp;mdash; Spline now gives it yet another surface to work on. OpenAI&amp;#8217;s Codex, another supported client, recently gained the ability to &lt;a href="https://thenewstack.io/codex-async-developer-messaging/" class="local-link"&gt;keep coding while it waits for a developer&amp;#8217;s answer&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-editing-before-export-matters"&gt;Editing before export matters&lt;/h2&gt;
+
+
+
+&lt;p&gt;Spline already offers a Code API that lets a web application use JavaScript to control the state and behavior of a published scene while it is running.&lt;/p&gt;
+
+
+
+&lt;p&gt;The MCP server comes into play while the scene is still being built, giving the agent direct access to the editable document so it can understand its structure and make changes before export. Here, MCP serves as a control interface for the editor, while Spline continues to manage the visual project and render the changes as they happen.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-local-server-scoped-access"&gt;Local server, scoped access&lt;/h2&gt;
+
+
+
+&lt;p&gt;The connection stays on the developer&amp;rsquo;s machine, with the server bound to &lt;code&gt;127.0.0.1&lt;/code&gt; and protected by an origin allowlist that blocks arbitrary web pages. Developers can choose which clients have access through Spline&amp;rsquo;s MCP settings.&lt;/p&gt;
+
+
+
+&lt;p&gt;According to Spline, the prompts and scene data exchanged with its MCP server stay between the desktop app and the connected client. If the agent uses one of Spline&amp;rsquo;s AI generation features, however, that work still runs in the cloud just as it would if started manually from the editor.&lt;/p&gt;
+
+
+
+&lt;p&gt;Several agent sessions can connect to the same editor, but Spline&amp;rsquo;s documentation does not explain how teams can attribute or review individual MCP changes before publishing a shared file.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Several agent sessions can connect to the same editor, but Spline&amp;rsquo;s documentation does not explain how teams can attribute or review individual MCP changes before publishing a shared file.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/spline-v2-mcp-agents/"&gt;Spline rebuilt its entire 3D editor. Then it handed the keys to Claude Code.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Spline V2 lets Claude Code, Cursor and Codex edit live 3D scenes through MCP, turning coding agents into real-time collaborators inside the design editor.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic brings Mythos 5 to its Claude Security vulnerability scanner</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-mythos-claude-security/</link>
+      <dc:creator>Frederic Lardinois</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 19:11:38 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Models</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834138</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/569605aa-b7055119423427c40a0e4d84054aed17682b50a2-2880x1620-3-1024x576.webp" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/569605aa-b7055119423427c40a0e4d84054aed17682b50a2-2880x1620-3-scaled.webp" /&gt;&lt;p&gt;Earlier this year, Anthropic launched Claude Security, an enterprise tool that helps development teams scan their codebase for security vulnerabilities&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-mythos-claude-security/"&gt;Anthropic brings Mythos 5 to its Claude Security vulnerability scanner&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/569605aa-b7055119423427c40a0e4d84054aed17682b50a2-2880x1620-3-1024x576.webp" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/569605aa-b7055119423427c40a0e4d84054aed17682b50a2-2880x1620-3-scaled.webp" /&gt;
+&lt;p&gt;Earlier this year, &lt;a href="https://thenewstack.io/anthropics-claude-security-beta/" class="local-link"&gt;Anthropic launched Claude Security&lt;/a&gt;, an enterprise tool that helps development teams scan their codebase for security vulnerabilities and patch them. On Friday, the company gave Claude Security a major upgrade by bringing its &lt;a href="https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Mythos 5 model to the service&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;p&gt;In addition, Anthropic is also working with other cybersecurity companies to help them integrate Mythos 5 into their products, and it is launching a new Defender Advantage Fund (0xDAF) that will provide $35 million in credits to find and patch vulnerabilities in open source software.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic previously also launched its &lt;a href="https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cyber Verification Program&lt;/a&gt;, which lets vetted defenders run dual-use cybersecurity work on Opus and Sonnet with fewer blocks. Those organizations will also get safeguarded access to Claude Mythos soon, Anthropic says.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-mythos-5-story-too-good-to-launch"&gt;The Mythos 5 story: too good to launch&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mythos 5&lt;/a&gt;, of course, is the model that was so good in performing tasks in high-risk domains that Anthropic didn&amp;#8217;t give it a public release. Instead, in June, it launched Fable 5, which is essentially Mythos 5 but with very strict guardrails. &lt;/p&gt;
+
+
+
+&lt;p&gt;Mythos 5, at the time, was only available to about 150 partners in Anthropic&amp;#8217;s Project Glasswing program (and there&amp;#8217;s the whole sidestory of Fable 5 getting &lt;a href="https://thenewstack.io/us-gov-orders-anthropic-to-pull-fable-5-and-mythos-5-three-days-after-launch/" class="local-link"&gt;banned&lt;/a&gt; and &lt;a href="https://thenewstack.io/how-anthropic-is-bringing-fable-5-back/" class="local-link"&gt;unbanned&lt;/a&gt; by the U.S. government).&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-mythos-5-in-claude-security"&gt;Mythos 5 in Claude Security&lt;/h2&gt;
+
+
+
+&lt;p&gt;So why does the company feel comfortable adding Mythos 5 to Claude Security now? &lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;The riskiest behavior occurs when a user has direct access to a model, where a malicious actor can try to steer it toward harmful uses,&amp;#8221; Anthropic writes in the announcement. &amp;#8220;But if users can only receive specific outputs, such as a patch for a vulnerability or a security alert, that risk is much lower. The changes we&amp;rsquo;re announcing give users greater access to the defensive results, while maintaining appropriate guardrails around direct access to the model.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-safeguards"&gt;Safeguards&lt;/h2&gt;
+
+
+
+&lt;p&gt;Essentially, since Anthropic is in charge here and all of this runs inside of its tools and harnesses, the company argues it can safely give Mythos 5 to all enterprises now. Users get findings and patches instead of direct model access, and Anthropic says Claude Security &amp;#8220;uses Mythos 5 to scan code you own.&amp;#8221; &lt;/p&gt;
+
+
+
+&lt;p&gt;It also adds that it and its partners &amp;#8220;have abuse prevention measures in place to verify the model stays within its intended scope.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;Since many codebases include open source libraries, ownership becomes a bit of a slippery category. Also, a developer who clones a widely deployed library into a company repo and then points Mythos 5 at it would get the same findings an attacker would be looking for. That vulnerability, after all, would exist everywhere that library ships.&amp;nbsp;We&amp;#8217;ll have to see how this plays out.&lt;/p&gt;
+
+
+
+&lt;p&gt;In practice, this means Mythos 5 is now in public beta for all Claude Enterprise users who want to use Claude Security. Admins can enable it for their users and then developers and security teams can use it to scan their repositories with Mythos 5 at the helm and suggesting fixes when it finds an issue.&lt;/p&gt;
+
+
+
+&lt;p&gt;Mythos 5 tokens aren&amp;#8217;t cheap, though. Anthropic charges $10 per million input and $50 per million output tokens. &lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-mythos-claude-security/"&gt;Anthropic brings Mythos 5 to its Claude Security vulnerability scanner&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>The model Anthropic held back from public release will now scan enterprise codebases. The company is also pledging $35 million in credits to open source.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic’s new browser tool doesn’t actually run a browser</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-browser-use-tool/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 16:52:36 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834123</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/4b51db6d-iryna-trigubova-rqtq3jrjwjw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital art of glowing cyan and magenta data particles flowing along curved paths on a dark background, representing network traffic and cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/4b51db6d-iryna-trigubova-rqtq3jrjwjw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic launched a new Browser Use tool that gives Claude a structured view of a web page in addition to&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-browser-use-tool/"&gt;Anthropic&amp;#8217;s new browser tool doesn&amp;#8217;t actually run a browser&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/4b51db6d-iryna-trigubova-rqtq3jrjwjw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital art of glowing cyan and magenta data particles flowing along curved paths on a dark background, representing network traffic and cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/4b51db6d-iryna-trigubova-rqtq3jrjwjw-unsplash-scaled.jpg" /&gt;
+&lt;p id="h-anthropic-launched-a-new-browser-use-tool-that-gives-claude-access-to-page-structure-alongside-screenshots-announced-thursday-the-tool-can-read-a-page-s-accessibility-tree-identify-interactive-elements-manage-tabs-and-act-on-references-attached-directly-to-fields-or-buttons"&gt;Anthropic launched a new Browser Use tool that gives Claude a structured view of a web page in addition to what is visually rendered. Announced Thursday, the tool uses the page&amp;rsquo;s accessibility tree to help Claude find and interact with specific elements directly rather than having to work out where they are on the screen.&lt;/p&gt;
+
+
+
+&lt;p&gt;Browser Use is part of a broader Anthropic release that also brings Computer Use, the Skills API and Files API into general availability. Developers can access the browser tool through the Claude API using browser_toolset_20260801.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Browser Use is part of a broader Anthropic release that also brings Computer Use, the Skills API and Files API into general availability.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The change gives Claude a more direct way to interact with a web page. Instead of working out a button&amp;rsquo;s position from a viewport image and targeting coordinates such as &lt;code&gt;x: 640, y: 320&lt;/code&gt;, Claude can receive a reference such as &lt;code&gt;ref_3&lt;/code&gt; tied to that element and use it when it wants to act.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-page-references-replace-coordinates"&gt;Page references replace coordinates&lt;/h2&gt;
+
+
+
+&lt;p&gt;Computer Use can operate across an entire desktop by looking at screenshots and sending mouse coordinates and keyboard commands. Browser Use works within the browser itself, where it can use page structure that would be difficult to recover reliably from pixels alone.&lt;/p&gt;
+
+
+
+&lt;p&gt;When Claude calls &lt;code&gt;read_page&lt;/code&gt;, the developer&amp;rsquo;s executor returns a text representation of the accessibility tree, in which elements such as links, buttons, and text boxes can be tagged with references. If Claude later wants to click a button represented by &lt;code&gt;ref_3&lt;/code&gt;, it can send that reference along with the requested operation rather than trying to calculate where the button is on the screen.&lt;/p&gt;
+
+
+
+&lt;p&gt;That said, if the tab navigates to a new page or the page changes enough, a reference that pointed to a button a moment ago may no longer work. The API will not catch that on its own, so the executor has to recognize when the reference no longer matches the underlying element, reject the action and have Claude read the page again before continuing.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-batching-cuts-model-calls"&gt;Batching cuts model calls&lt;/h2&gt;
+
+
+
+&lt;p&gt;Playwright, for example, can represent a page as an ARIA snapshot and locate elements by role rather than coordinates. At the same time, Microsoft&amp;rsquo;s Playwright MCP server already exposes structured accessibility snapshots with references a model can use to identify elements. The concepts line up closely with Browser Use, but the protocols do not: Playwright MCP speaks MCP, while Anthropic&amp;rsquo;s tool uses its own client-toolset protocol, so developers would still need an adapter that translates Claude&amp;rsquo;s requests into Playwright actions and returns the results in the format Claude expects.&lt;/p&gt;
+
+
+
+&lt;p&gt;Puppeteer offers many of the same building blocks, exposing the browser&amp;rsquo;s accessibility tree via Accessibility.snapshot() and providing APIs for controlling Chrome and Firefox. A developer could use those APIs for navigation or page reads, then maintain Anthropic&amp;rsquo;s reference mappings on top.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;A developer could use those APIs for navigation or page reads, then maintain Anthropic&amp;rsquo;s reference mappings on top.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Slightly confusing, an unrelated open-source project also called &lt;a href="https://github.com/browser-use/browser-use" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Browser Use&lt;/a&gt; runs AI browser agents against Chromium through the Chrome DevTools Protocol. Despite the shared name, it has no connection to Anthropic&amp;rsquo;s tool and comes with its own agent loop and browser abstractions, so connecting the two would still require integration work.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-several-browser-actions-can-happen-in-one-turn"&gt;Several browser actions can happen in one turn&lt;/h2&gt;
+
+
+
+&lt;p&gt;Anthropic is also reducing the back-and-forth between Claude and the browser by allowing multiple actions to be requested in a single model turn. Now actions can arrive together as several tool_use blocks. The application executes them in order and sends the results back together, avoiding another model call between every click and keystroke. Anthropic says that can lower latency and costs, particularly as workflows scale from a handful of interactions to dozens or hundreds.&lt;/p&gt;
+
+
+
+&lt;p&gt;That matters more as browser tasks get longer. &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;Cheaper models alone will not solve the token cost problem in agentic workflows&lt;/a&gt;, so cutting unnecessary model calls is another way to reduce costs.&lt;/p&gt;
+
+
+
+&lt;p&gt;If Claude has to return to the model after every click or keystroke, a long browser task can quickly rack up model calls. Batching cuts out some of that back-and-forth by letting Claude request several actions at once, but the browser still has to carry them out in order because each one depends on what happened before it. If Claude asks to click a button, fill in a field, and submit a form, for example, the executor cannot simply move on to the next step if that first click fails, because everything that follows is now based on a page state Claude never reached.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Batching cuts out some of that back-and-forth by letting Claude request several actions at once, but the browser still has to carry them out in order because each one depends on what happened before it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-developers-host-the-browser"&gt;Developers host the browser&lt;/h2&gt;
+
+
+
+&lt;p&gt;Browser Use is currently limited to the Claude API and is not available inside &lt;a href="https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/" class="local-link"&gt;Claude Managed Agents&lt;/a&gt;. Adding it to a Messages API request exposes 27 browser operations by default. Claude can decide which of those operations it wants to use, but Anthropic does not execute them. The application has to translate each request into an action inside its own browser environment, preserve the session between turns and return enough information for Claude to understand what happened.&lt;/p&gt;
+
+
+
+&lt;p&gt;Loading all of those operations has a token cost. Anthropic&amp;rsquo;s &lt;a href="https://platform.claude.com/docs/en/about-claude/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pricing documentation&lt;/a&gt; says the default Browser Use toolset adds roughly 6,600 input tokens to a request, before counting screenshots, accessibility trees and other results sent back to Claude. Developers can turn off operations they do not need to reduce that overhead.&lt;/p&gt;
+
+
+
+&lt;p&gt;It also creates a different hosting split from some of the other tools Anthropic announced Thursday. Skills uploaded through the Skills API can run inside Anthropic&amp;rsquo;s code execution sandbox, while the Files API stores documents that can be reused by ID. Browser sessions, along with their downloads and uploaded files, stay in the developer&amp;rsquo;s environment.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-approval-gates-need-rethinking"&gt;Approval gates need rethinking&lt;/h2&gt;
+
+
+
+&lt;p&gt;Claude can still encounter a prompt injection in web content or be redirected to an unexpected location, which is why Anthropic recommends running the browser in an isolated container or virtual machine with minimal access. JavaScript and file uploads should remain disabled unless needed, since code generated by Claude runs with the page&amp;rsquo;s privileges and can reach data or make requests available to that page.&lt;/p&gt;
+
+
+
+&lt;p&gt;Batching makes approval a little trickier because several actions can arrive at once, and a routine click at the beginning of a sequence could eventually lead to something that requires the user&amp;rsquo;s permission. That means the executor has to check actions as they happen and stop for approval when needed.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-browser-use-tool/"&gt;Anthropic&amp;#8217;s new browser tool doesn&amp;#8217;t actually run a browser&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic&amp;#039;s new Browser Use tool lets Claude read page structure and target elements by reference instead of guessing coordinates from screenshots alone.</content:encoded>
+    </item>
+    <item>
+      <title>Forget the model wars, Stripe and Ramp just started the router wars</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/stripe-ramp-openrouter-router/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 14:28:28 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>AI Models</category>
+      <category>AI Strategy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834116</guid>
+      <description>&lt;img width="1024" height="603" src="https://cdn.thenewstack.io/media/2026/08/0f52103c-greg-daines-pkrxdlpd7am-unsplash-1024x603.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/0f52103c-greg-daines-pkrxdlpd7am-unsplash-scaled.jpg" /&gt;&lt;p&gt;I&amp;#8217;m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/stripe-ramp-openrouter-router/"&gt;Forget the model wars, Stripe and Ramp just started the router wars&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="603" src="https://cdn.thenewstack.io/media/2026/08/0f52103c-greg-daines-pkrxdlpd7am-unsplash-1024x603.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/0f52103c-greg-daines-pkrxdlpd7am-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;em&gt;I&amp;rsquo;m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p&gt;Model triage is becoming one of the most important skills for the AI-native developer. I&amp;rsquo;ve argued all summer that the people getting the most out of frontier models are the ones disciplined enough not to run the best model by default. On Wednesday, Stripe and Ramp validated that idea 70 minutes apart: &lt;a href="https://thenewstack.io/stripe-acquires-openrouter-tokens/" class="local-link"&gt;Stripe bought OpenRouter&lt;/a&gt;, and &lt;a href="https://x.com/vral/status/2090144932711575631" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ramp released its internal router&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Bloomberg&lt;/em&gt;&lt;/a&gt; puts the OpenRouter price tag above $7 billion, and &lt;a href="https://www.axios.com/2026/08/17/stripe-openrouter-paypal" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Axios&lt;/em&gt;&lt;/a&gt; says it&amp;rsquo;s more than $8 billion in cash and stock. Stripe has not released the terms, so the details remain fuzzy.&lt;/p&gt;
+
+
+
+&lt;p&gt;While the acquisition made headlines, the architecture is the story. For the last couple of years, picking a model was something written into an application, a string in a config file, and swapping models took some work. A router changes that workflow. Stripe bought the layer, and Ramp built it. Both are betting their existing relationships give them a unique wedge to own this critical layer in the new AI stack.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-picking-a-model-is-becoming-a-runtime-decision"&gt;Picking a model is becoming a runtime decision&lt;/h2&gt;
+
+
+
+&lt;p&gt;OpenRouter is an endpoint serving more than 400 models from over 80 providers, &lt;a href="https://x.com/OpenRouter/status/2090127246430216403" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;processing more than 10 trillion tokens a day&lt;/a&gt;. Andrej Karpathy calls it &lt;a href="https://x.com/deedydas/status/2090129029777224033" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the transfer switch for AI&lt;/a&gt;. Ramp&amp;rsquo;s Router does the same job on a smaller catalog and &lt;a href="https://x.com/vral/status/2090144932711575631" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;claims roughly 40% lower cost&lt;/a&gt; for the same output.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both are betting the model name in a codebase is a liability. They&amp;rsquo;re mostly right. Back in June, &lt;a href="https://thenewstack.io/claude-fable-cost-model-triage/" class="local-link"&gt;I pointed to Mitchell Hashimoto&lt;/a&gt;, who found a standard coding task that cost about $1.50 on GPT-5.5 and roughly $9 on Claude Fable, with both producing equally acceptable results. A router automates that triage, making decisions on every request rather than only on those a developer explicitly configures.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is becoming a large problem and a large opportunity. Our own Amanda Caswell &lt;a href="https://thenewstack.io/claude-code-token-reduction/" class="local-link"&gt;reported this week&lt;/a&gt; that Anthropic&amp;rsquo;s &lt;code&gt;/claude-api&lt;/code&gt; skill was burning about 200,000 tokens before answering a single question, and that loading its reference docs on demand instead of up front cut that to roughly 25,000. &lt;a href="https://thenewstack.io/ai-pipeline-token-optimization/" class="local-link"&gt;Hafiz Hassan wrote for us last week&lt;/a&gt; about why AI pipelines cost 10x more than the demo, and every culprit on his list is an engineering decision: system prompts resent every turn, whole conversation histories appended, oversized RAG chunks, raw JSON dumped into context. It&amp;rsquo;s a great practical guide, and none of the items Hassan identifies are procurement problems.&lt;/p&gt;
+
+
+
+&lt;p&gt;The token bill is generated by your code, which is why the tools to control it are arriving there as well.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-stripe-and-ramp-want-the-same-layer-for-opposite-reasons"&gt;Stripe and Ramp want the same layer for opposite reasons&lt;/h2&gt;
+
+
+
+&lt;p&gt;Stripe is attacking the problem from the bottom up, through developers. The company&amp;rsquo;s investor letter, &lt;a href="https://x.com/EricNewcomer/status/2090133049291788434" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;leaked Wednesday by Eric Newcomer&lt;/a&gt;, makes the argument directly: &amp;ldquo;Up until now, every developer has needed a straightforward and reliable way to manage their revenue pipeline, and serving this need gave rise to Stripe. Going forward, however, every developer will also need a straightforward and reliable way to manage their intelligence pipeline.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Stripe wants to control AI spending through the long tail of developers. Ramp wants to control it through its existing relationship with finance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Stripe has built this product before. Its payments business hides dozens of local payment methods behind a single API, routing each transaction to the payment method most likely to convert. The AI version is the same idea applied to models instead of payment networks.&lt;/p&gt;
+
+
+
+&lt;p&gt;Ramp is attacking it from the top down, through finance. The company bought the router.com domain and says its customers already buy quadrillions of tokens a month through Ramp. Founder Veeral Patel&amp;rsquo;s launch post &lt;a href="https://x.com/vral/status/2090144932711575631" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pitches&lt;/a&gt; the service simply: &amp;ldquo;Monitor and control your AI bill across every provider.&amp;rdquo; &lt;a href="https://x.com/theCTO" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adam Wazzan&lt;/a&gt; sums up Ramp&amp;rsquo;s strategy better than I can: &amp;ldquo;when a CFO ships a product for CTOs.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Stripe wants to control AI spending through the long tail of developers. Ramp wants to control it through its existing relationship with finance. Both are chasing what is rapidly becoming one of the largest line items in corporate technology budgets: tokens.&lt;/p&gt;
+
+
+
+&lt;p&gt;On X, Kabir Goel &lt;a href="https://x.com/KabirGoel/status/2090200868016767465" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pushes back&lt;/a&gt; on Stripe&amp;rsquo;s framing. Routing tokens is a way to spend less, while Stripe&amp;rsquo;s other products are designed to help businesses make more.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Stripe is just not where teams go to understand how much they&amp;rsquo;re spending,&amp;rdquo; he writes. &amp;ldquo;That&amp;rsquo;s pretty squarely Ramp territory.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;He has a point about where teams look today. Whether that&amp;rsquo;s still true three years from now is exactly what Stripe just spent billions betting against.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-router-worth-pointing-at-is-the-one-with-no-model-to-sell"&gt;The router worth pointing at is the one with no model to sell&lt;/h2&gt;
+
+
+
+&lt;p&gt;Whichever router you point at decides which model writes your code, and not every router is disinterested. Our own Paul Sawers &lt;a href="https://thenewstack.io/cursor-ramp-meta-model-router/" class="local-link"&gt;flagged the problem&lt;/a&gt; in July when he covered the first wave of Cursor&amp;rsquo;s, Ramp&amp;rsquo;s, and Meta&amp;rsquo;s routers. Cursor backs Grok and Composer. Meta is building Muse Spark. Both have reasons to send work to their own models, and Paul quoted developer Elvis Saravia asking whether routing logic ought to be open source rather than a vendor&amp;rsquo;s private judgment call.&lt;/p&gt;
+
+
+
+&lt;p&gt;Stripe and Ramp do not sell models. OpenRouter CEO Alex Atallah says as much in Stripe&amp;rsquo;s own announcement: Developers &amp;ldquo;need a neutral layer to orchestrate and manage them all.&amp;rdquo; Investor Gavin Baker frames the opportunity the same way, arguing that Stripe can become the neutral infrastructure layer for AI, just as it became the neutral infrastructure layer for payments.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Neutrality isn&amp;rsquo;t free, though. Stripe takes a percentage of token spend, and Ramp wants your spending relationship, so &amp;ldquo;free through 2026&amp;rdquo; is a customer acquisition strategy with an expiration date.&lt;/p&gt;
+
+
+
+&lt;p&gt;The obvious objection is that vendor motives are the wrong thing to worry about, and routing quality is what really matters. That&amp;rsquo;s fair, and &lt;em&gt;Towards Data Science&lt;/em&gt; published one of the best practical examples I&amp;rsquo;ve read. Pratik Rupareliya &lt;a href="https://towardsdatascience.com/we-built-a-routing-layer-to-cut-our-ai-costs-it-broke-the-product/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;describes a routing layer&lt;/a&gt; that cut a support agent&amp;rsquo;s inference bill by 40% but also broke the product. A classifier sent &amp;ldquo;simple&amp;rdquo; queries to a cheaper model, but some of those &amp;ldquo;simple&amp;rdquo; queries were actually fraud investigations.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The cheaper model answered them confidently and incorrectly. Customers stopped using the agent, churn rose above baseline in month four, and retention costs were four to five times higher than the savings. It took three months to surface and another month to identify the cause. His fix was per-tier quality monitoring combined with an uncertainty-routed cascade, which ultimately settled at 35% savings without sacrificing quality. It&amp;rsquo;s &lt;a href="https://x.com/vral/status/2090144932711575631" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;an excellent article to read&lt;/a&gt; before diving into model routing.&lt;/p&gt;
+
+
+
+&lt;p&gt;So instrument the routing. Log what the router picks on every request and break out your quality metrics by the model that served them. Ramp Router reportedly records the model, provider, tier, tokens, latency, cost, and fallback attempts for every call. Stripe OpenRouter rankings have been a public version of that telemetry for years. You can get similar visibility with either approach.&lt;/p&gt;
+
+
+
+&lt;p&gt;Right now, the model is becoming an implementation detail. The competition is shifting to the layer that decides which model gets the job. Stripe and Ramp are betting that developers won&amp;rsquo;t care what sits behind the endpoint, so long as the bill is lower and the results are good enough.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/stripe-ramp-openrouter-router/"&gt;Forget the model wars, Stripe and Ramp just started the router wars&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Model triage is becoming a core engineering skill. Stripe’s OpenRouter acquisition and Ramp’s router.com launch show why the runtime, not the model, is becoming AI’s new control plane.</content:encoded>
+    </item>
+    <item>
+      <title>Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia’s AVO, it hit 100%.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/nvidia-avo-arcagi3-benchmark/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834100</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/c0ba356b-vector-1786236125324-922d0224c117-1024x576.avif" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c0ba356b-vector-1786236125324-922d0224c117.avif" /&gt;&lt;p&gt;Nvidia first introduced its Agentic Variation Operators (AVO) general-purpose coding agent system in late March 2026. The company has now&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-avo-arcagi3-benchmark/"&gt;Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia&amp;#8217;s AVO, it hit 100%.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/c0ba356b-vector-1786236125324-922d0224c117-1024x576.avif" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c0ba356b-vector-1786236125324-922d0224c117.avif" /&gt;
+&lt;p&gt;&lt;a href="https://thenewstack.io/nvidia-local-frontier-models/" class="local-link"&gt;Nvidia&lt;/a&gt; first introduced its &lt;a href="https://arxiv.org/pdf/2603.24517" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agentic Variation Operators (AVO)&lt;/a&gt; general-purpose coding agent system in late March 2026. The company has now unravelled the architecture and the system-level mechanisms that enable AVO to sustain long-running autonomous work and applied it to the open platform advanced AI reasoning benchmark &lt;a href="https://arcprize.org/arc-agi/3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ARC-AGI-3&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;In a &lt;a href="https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;team blog&lt;/a&gt; released on Friday, a five-person team of Nvidia software engineers, machine learning specialists and AI research interns describe how AVO elevated &lt;a href="https://thenewstack.io/anthropics-opus-5-almost-fable-5/" class="local-link"&gt;Claude Opus 5&lt;/a&gt; from a reported 30.2% model baseline score on ARC-AGI-3, to 100% when run as part of the complete AVO agent system.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;[This result] shows that system design &amp;#8211; not model capability alone &amp;#8211; can unlock frontier-level long-horizon performance,&amp;rdquo; wrote the team.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-tasks-does-nvidia-s-avo-handle"&gt;What tasks does Nvidia&amp;#8217;s AVO handle?&lt;/h2&gt;
+
+
+
+&lt;p&gt;Evolving from the core DNA of what constitutes an &lt;a href="https://thenewstack.io/agent-harness-distributed-feedback-problem/" class="local-link"&gt;agent harness&lt;/a&gt;, AVO handles the agentic architecture tasks associated with inspecting and editing code, running commands, consulting documentation, and validating its work through execution. AVO&amp;rsquo;s distinguishing focus is said to be &amp;ldquo;sustained in-context autonomous operation&amp;rdquo; across extended, multistep tasks on long horizons.&lt;/p&gt;
+
+
+
+&lt;p&gt;Non-profit AI research and benchmarking body &lt;a href="https://arcprize.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ARC Prize&lt;/a&gt; used an &lt;a href="https://arcprize.org/results/anthropic-claude-opus-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;analysis post this July&lt;/a&gt; to report the 30.2% score for Claude Opus 5 at high reasoning effort on the public set of environments and tasks on the ARC-AGI-3 system. According to ARC Prize, this &amp;#8220;demonstrates strong logical reasoning&amp;#8221; and, when Claude Opus 5 was run at Max reasoning effort, it scores 97.5% on ARC-AGI-1 and 90.4% on ARC-AGI-2 semi-private.&lt;/p&gt;
+
+
+
+&lt;p&gt;The ARC-AGI-3 benchmark uses &lt;a href="https://docs.arcprize.org/methodology" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Relative Human Action Efficiency&lt;/a&gt; (RHAE), a metric that combines task completion with per-level action efficiency relative to first-time human baselines, where performance is aggregated across different levels and environments.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;AVO achieved a 100.00 RHAE score across all 25 environments in the ARC-AGI-3 public set, completing all 183 levels. The result illustrates a broader point: evaluating a model is not the same as evaluating an agent. Model capability matters enormously, but the surrounding system determines how effectively that capability can be converted into sustained autonomous progress,&amp;rdquo; stated the Nvidia blog team, headed by principal engineer &lt;a href="https://www.linkedin.com/in/terry-chen-11a85310a/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Terry Chen&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Model capability matters enormously, but the surrounding system determines how effectively that capability can be converted into sustained autonomous progress.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-how-an-agent-decides-on-its-next-candidate-nbsp"&gt;How an agent decides on its next candidate&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;AVO was first demonstrated on difficult software engineering and GPU-kernel optimization tasks. In this work, AVO replaces what Chen and team describe as the &amp;ldquo;predefined variation step of conventional evolutionary-search systems&amp;rdquo; with an autonomous agent that decides how to generate the next candidate i.e. what to inspect, what to change, what to test, and what to commit.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The team used that work as a foundational research cornerstone to then progress to the ARC-AGI-3 benchmark.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;GPU-kernel optimization and the ARC-AGI-3 benchmark appear very different on the surface,&amp;rdquo; noted the Nvidia team. &amp;ldquo;One involves source code, compilers, profilers, and throughput. The other involves unfamiliar interactive environments in which an agent must infer the effects of available actions, discover objectives, and act efficiently enough to make progress. But the underlying computational pattern is similar. &amp;ldquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;In both settings, the agent must:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Build hypotheses from incomplete evidence&lt;/li&gt;
+
+
+
+&lt;li&gt;Take actions through an external interface&lt;/li&gt;
+
+
+
+&lt;li&gt;Observe the consequences&lt;/li&gt;
+
+
+
+&lt;li&gt;Preserve useful state&lt;/li&gt;
+
+
+
+&lt;li&gt;Revise its model of the problem&lt;/li&gt;
+
+
+
+&lt;li&gt;Recover from incorrect assumptions&lt;/li&gt;
+
+
+
+&lt;li&gt;Continue making progress over a long horizon&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;Preserving state and progress, reworking backwards past incorrect assumptions and working on long-horizon tasks beyond a single model&amp;rsquo;s context window with an incomplete picture of what&amp;rsquo;s in front of the system requires two specific mechanisms to be present in AVO: &lt;a href="https://thenewstack.io/how-to-add-persistence-and-long-term-memory-to-ai-agents/" class="local-link"&gt;persistent memory&lt;/a&gt; and supervision.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Preserving state and progress [and] working on long-horizon tasks beyond a single model&amp;rsquo;s context window with an incomplete picture of what&amp;rsquo;s in front of the system requires two specific mechanisms to be present: persistent memory and supervision.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Persistent memory is used here to carry forward prior implementations, evaluation results, &lt;a href="https://thenewstack.io/meta-releases-open-source-react-compiler/" class="local-link"&gt;compiler&lt;/a&gt; and profiler outputs, and accumulated reasoning. It allows the agent to resume from the current state, instead of having to repeatedly reconstruct the search &amp;#8211; exactly the sort of &amp;ldquo;sustained autonomous progress&amp;rdquo; that Chen and team have made their holy grail.&lt;/p&gt;
+
+
+
+&lt;p&gt;Supervision is also key; a supervisor (a programmatic software module within the AVO system, not a human in this case) monitors the broader search trajectory and can intervene when progress stalls.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-nvidia-avo-paired-with-gpt-5-6-sol-nbsp"&gt;Nvidia AVO paired with GPT-5.6 Sol&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;AVO is also designed to operate across frontier models. While the team&amp;rsquo;s full public-set result used Claude Opus 5, it additionally paired AVO with &lt;a href="https://thenewstack.io/gpt-sol-chatgpt-split/" class="local-link"&gt;GPT-5.6 Sol&lt;/a&gt; on what it has classified as a &amp;ldquo;challenging subset of games&amp;rdquo; for further experimentation. In these tests, Sol reached matched levels faster in wall-clock time in several cases, while Opus used fewer environment actions in matched-level comparisons.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;A quirky-sounding term perhaps, wall-clock time (obviously) refers to real world time as experienced by humans. It differs from CPU/GPU time, which may be divided by multiple cores (let&amp;#8217;s say 8-cores) so that 80 seconds of compute time becomes 10 seconds of wall-clock time.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;These preliminary results suggest complementary operating profiles across models, and we leave a broader systematic comparison to future work,&amp;rdquo; noted Chen and team. &amp;ldquo;These results cover the 25-environment ARC-AGI-3 public set using the official scorecard and RHAE metric. They are not results on the semi-private or fully private competition sets.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-the-team-learned-from-benchmarking-avo-on-arc-agi-3"&gt;What the team learned from benchmarking AVO on ARC-AGI-3&lt;/h2&gt;
+
+
+
+&lt;p&gt;The assembled engineers have said that the most important result was not simply the 100.00 score, but the fact that the same agent architecture transferred from highly specialized GPU-kernel optimization to a very different interactive reasoning task.&lt;/p&gt;
+
+
+
+&lt;p&gt;The team reminds us that in GPU optimization, feedback comes from compilers, tests, profilers, and performance benchmarks. In ARC-AGI-3, feedback comes from environment transitions and action outcomes. This means that, essentially, the interfaces differ, but the loop is the same i.e. the loop works to form a hypothesis, act, observe evidence, update state, and continue.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;This suggests that generality can come not only from domain knowledge, but from the machinery that allows reasoning and feedback to compound over time. More broadly, long-horizon capability is a property of the full system. Memory determines what survives, tools determine what actions are possible, feedback grounds progress, and recovery allows work to continue beyond a single model invocation,&amp;rdquo; concluded the Nvidia AI ensemble.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Nvidia blog team in full included the above-noted Terry Chen, Nvidia director and distinguished engineer in competitive machine learning &lt;a href="https://www.linkedin.com/in/jfpuget/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jean-Francois Puget&lt;/a&gt;, VP of high-performance AI &lt;a href="https://www.linkedin.com/in/humphreyshi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Humphrey Shi&lt;/a&gt;, and AI research interns &lt;a href="https://www.linkedin.com/in/yeyin-zhu-571b072a4/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yeyin (Eva) Zhu&lt;/a&gt; and &lt;a href="https://www.linkedin.com/in/zhifan-ye/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Zhifan Ye&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The team&amp;rsquo;s final words restate the crux of the investigation here: the model matters, but the model is not the entire agent.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-avo-arcagi3-benchmark/"&gt;Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia&amp;#8217;s AVO, it hit 100%.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Nvidia&amp;#039;s AVO agent system lifted Claude Opus 5 from a 30% baseline to 100% on the ARC-AGI-3 reasoning benchmark, across all 183 levels.</content:encoded>
+    </item>
+    <item>
+      <title>Grok, Claude, and Hermes agents get job titles — and persistent permissions</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/persistent-ai-agent-identities/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833874</guid>
+      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;&lt;p&gt;Your next AI coworker may look like a chatbot, but underneath their name, face, and job title will be something&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;
+&lt;p&gt;&lt;strong&gt;Your next AI coworker may look like a chatbot&lt;/strong&gt;, but underneath their name, face, and job title will be something more consequential: A persistent identity that uses memory, keeps permissions, and has responsibilities across all the conversations you have with it.&lt;/p&gt;
+
+
+
+&lt;p&gt;We can already see that model taking shape in Hermes. This month, &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt; folded &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bot Mode&lt;/a&gt; into the &lt;a href="https://hermes-agent.nousresearch.com/docs/user-guide/desktop" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes desktop app&lt;/a&gt;. The standalone plugin repository is archived; the roster now ships bundled and enabled by default; and v0.20.4 added a tabbed Sessions and Bots sidebar. Each profile shows up as a named bot with its own chat, avatar, personality, schedule, and pinned model.&lt;/p&gt;
+
+
+
+&lt;p&gt;Hermes tabbing Sessions beside Bots reflects a broader shift. Sessions did not disappear from any of these products; they sit under a durable agent identity that carries memory and permissions across them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-hermes-and-grok-build-rosters-claude-joins-one"&gt;Hermes and Grok build rosters, Claude joins one&lt;/h2&gt;
+
+
+
+&lt;p&gt;xAI &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; Grok Bot on August 11, featuring a sidebar of named Bots, each with a title, a description, and up to 50 routines per account. Hermes now does the same thing on the desktop under an MIT license. &lt;a href="https://claude.com/product/tag" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Tag&lt;/a&gt; from Anthropic, announced on June 23, takes the other route. One organization-provisioned Claude joins the human roster in Slack, where anyone in a channel can tag it, and each thread still spins up its own working session.&lt;/p&gt;
+
+
+
+&lt;p&gt;Three different products and deployment models took the same direction. The reusable object shifted from being the conversation to serving as the worker identity above it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-a-bot-is-a-profile-not-a-new-runtime"&gt;A bot is a profile, not a new runtime&lt;/h2&gt;
+
+
+
+&lt;p&gt;Hermes is the easiest to read because its code is open. A bot is a &lt;a href="https://github.com/NousResearch/hermes-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes Agent&lt;/a&gt; profile, a separate home directory holding config, keys, a SOUL file, memory, sessions, skills, and cron state. Routines are ordinary cron jobs namespaced per bot. Bot-to-bot handoffs are real command-line interface (CLI) invocations into a canonical bot chat, delivered whenever the receiving bot next runs. The standalone plugin described itself as a user interface over those primitives, with no core patches and no background daemons.&lt;/p&gt;
+
+
+
+&lt;p&gt;Profiles existed long before Bot Mode, which gave them faces and a sidebar. What has changed now is the unit of reuse, which moved from the prompt to the profile.&lt;/p&gt;
+
+
+
+&lt;p&gt;Descriptions are carrying real weight in these products. xAI tells operators to encode a bot&amp;#8217;s durable responsibilities, sources, and boundaries in its description, and bots can hand off work to one another. The job description is starting to look a lot like a routing table.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-three-products-three-identity-architectures"&gt;Three products, three identity architectures&lt;/h2&gt;
+
+
+
+&lt;p&gt;Hermes keeps the credentials profile scoped to whichever host runs Hermes, whether that is a laptop or a remote server. Its own documentation makes it clear that profiles are not sandboxes, so the separation concerns state and configuration rather than security. Grok Bot takes the opposite approach, with every Bot sharing one account-scoped computer. That includes files, browser sessions, and app logins, and xAI says those survive the deletion of the Bot that created them. Claude Tag provisions an organization service identity with channel-scoped access to tools.&lt;/p&gt;
+
+
+
+&lt;p&gt;The diligence belongs here rather than on the feature list. A named bot with a job title reads like a colleague. What actually signs into a production system is a profile directory, a shared machine, or a service account, depending on the vendor.&lt;/p&gt;
+
+
+
+&lt;p&gt;The counterintuitive part is that persistence here is mostly a configuration issue. Nothing in a profile directory, a shared computer, or a service account keeps an agent coherent across weeks of accumulated work, and none of the three vendors has published evidence that any of them do.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams evaluating any of the three should start with the identity architecture because the roster is trivial to copy, but the underlying identity model is not.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Grok Bot, Claude Tag, and Hermes Bot Mode are making AI agents persistent. Before you call one a coworker, check what it remembers -- and what it can access.</content:encoded>
+    </item>
+    <item>
+      <title>Most coding agent benchmarks skip large-scale refactoring. Not this one.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-refactoring-benchmarks/</link>
+      <dc:creator>Meredith Shubel</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 11:54:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Software Development</category>
+      <category>Software Testing</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833833</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/2bd0685f-paris-bilal-9w7tpcva0xk-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/2bd0685f-paris-bilal-9w7tpcva0xk-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI coding agents still struggle with large-scale refactoring, with the best model achieving only a 41.2% resolve rate on a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-refactoring-benchmarks/"&gt;Most coding agent benchmarks skip large-scale refactoring. Not this one.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/2bd0685f-paris-bilal-9w7tpcva0xk-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/2bd0685f-paris-bilal-9w7tpcva0xk-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;AI coding agents still struggle with large-scale refactoring, with the best model achieving only a 41.2% resolve rate on a new refactoring-focused benchmark &lt;/strong&gt;developed by&lt;a href="https://arxiv.org/abs/2608.09802" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;researchers&lt;/a&gt; at Shanghai Jiao Tong University, Peking University, Douyin Group, and other institutions.&lt;/p&gt;
+
+
+
+&lt;p&gt;It&amp;rsquo;s no secret that &lt;a href="https://thenewstack.io/enterprise-ai-benchmarks-are-broken" class="local-link"&gt;AI benchmarks aren&amp;rsquo;t perfect&lt;/a&gt;. A recent &lt;a href="https://arxiv.org/abs/2608.09802" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;audit&lt;/a&gt; cited by the researchers shows how misleading AI coding agent benchmarks can be, with nearly 60% of unsolved SWE-bench Verified instances containing flawed tests.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;We don&amp;rsquo;t have LLMs that would be able to read a large codebase and see it in its entirety and &amp;lsquo;understand&amp;rsquo; it all at once,&amp;rdquo; he says. &amp;ldquo;That level of capability is still far out of reach.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For AI coding agents, specifically, evaluation quality is considered to be on the decline, as frontier models can end up sailing through benchmarks if solutions have leaked into training sets. But when models can manage impressive-looking scores without really doing all the work, it raises the question of whether those benchmarks are truly a good indication of real-world agent capabilities.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As &lt;a href="https://www.linkedin.com/in/vojtechpavlik/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vojt&amp;#283;ch Pavl&amp;iacute;k&lt;/a&gt;, senior director of technical strategy, core infrastructure, &lt;a href="https://www.suse.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SUSE&lt;/a&gt;, tells The New Stack, many sought-after capabilities are still a ways away:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We don&amp;rsquo;t have LLMs that would be able to read a large codebase and see it in its entirety and &amp;lsquo;understand&amp;rsquo; it all at once,&amp;rdquo; he says. &amp;ldquo;That level of capability is still far out of reach.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;A new benchmark attempts to clear things up. &lt;a href="https://arxiv.org/abs/2608.09802" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SWE-Bench ProMax&lt;/a&gt; is a multilingual code refactoring benchmark of 170 instances from real commits across seven programming languages (Python, Java, TypeScript, Go, C, C++, and Rust). Per its creators, every instance underwent multi-stage curation to address the quality problems found in other benchmarks: They wrote issue descriptions to make them more precise; manually reviewed test suites to remove overly narrow or broad tests; and filtered out tasks with insufficient complexity or limited cross-file scope.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The result is a benchmark that frontier models struggle to solve.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-large-scale-refactoring-stumps-coding-agents"&gt;Why large-scale refactoring stumps coding agents&lt;/h2&gt;
+
+
+
+&lt;p&gt;By focusing SWE-Bench ProMax on large-scale refactoring, researchers say the new benchmark &amp;ldquo;presents a meaningful and unsaturated challenge for current AI coding agents.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;That&amp;rsquo;s because refactoring is hard. &amp;ldquo;Strict refactoring demands zero tolerance for error, zero tolerance for behavior changes, and complete reversibility,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/shane-w-0aa569116/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Shane Warden&lt;/a&gt;, principal architect, &lt;a href="https://www.activestate.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ActiveState&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt;. For him, the question of whether or not current AI tools can successfully handle large-scale refactoring depends on whether source code is considered plain prose or a deterministic, structured graph of information:&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;I don&amp;rsquo;t believe that premise. I believe that token proximity does not guarantee structural understanding.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Engineers who view LLMs primarily as text-processing engines treat refactoring as a text-generation task,&amp;rdquo; he says, explaining that developers who take this approach feed an entire codebase into a large context window, prompt the model, and then wait for a series of multi-file diffs.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;But he&amp;rsquo;s not buying that take. &amp;ldquo;This approach relies on the premise that current LLMs express a deep understanding of large systems,&amp;rdquo; continues Warden. &amp;ldquo;I don&amp;rsquo;t believe that premise. I believe that token proximity does not guarantee structural understanding.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Pavl&amp;iacute;k adds another problem, saying that attention &amp;mdash; or a lack thereof &amp;mdash; also complicates large-scale refactoring:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;For very large LLMs, a highly optimized attention algorithm, like DSA [Deepseek Sparse Attention] and similar others are basically a requirement to get any usable performance,&amp;rdquo; he says. &amp;ldquo;For changes in a large, complex, or convoluted codebase that maxes out the context window, this can easily result in missing important observations and generally getting confused.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Beyond context and attention woes, Pavl&amp;iacute;k calls out time as a fundamental factor in software that further trips up LLMs, pointing to race condition errors, loss of idempotency, loss of atomicity, and incorrect retry handling as problems that emerge when parallel tasks execute in different orders, i.e., what he says happens &amp;ldquo;where code meets time.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;People live in a world based on time,&amp;rdquo; he says. &amp;ldquo;LLMs, not so much. You get code that&amp;nbsp;passes all tests and works on a sunny day if the user does the tasks exactly as described in the contract/manifest/spec, but fails miserably when a user clicks a button twice in a quick succession, when a connection times out on a network, or when two tasks finish at nearly the same time, overwriting each others results.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;With all these factors at play, it&amp;rsquo;s easy to see why many benchmarks overlook large-scale refactoring &amp;mdash;&amp;nbsp;but that&amp;rsquo;s precisely why they need it. Without tests on complex, cross-file work, how can developers judge what agents can really do?&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-swe-bench-promax-tests-that-most-benchmarks-miss"&gt;What SWE-Bench ProMax tests that most benchmarks miss&lt;/h2&gt;
+
+
+
+&lt;p&gt;Most coding agent benchmarks are designed to run quickly and produce reasonably deterministic, verifiable solutions. &amp;ldquo;This rules out large-scale refactoring tasks,&amp;rdquo; Pavl&amp;iacute;k tells &lt;em&gt;The New Stack&lt;/em&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;He also says it&amp;rsquo;s why most LLM benchmarks today are compromised, as they often exercise models on only small contexts where they&amp;rsquo;re at their best. Plus, &amp;ldquo;many current frontier LLMs know the answers to most common benchmarks by heart by now,&amp;rdquo; Pavl&amp;iacute;k adds. &amp;ldquo;The more ubiquitous a benchmark becomes, the less reliable the results are.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;With this new refactoring-focused benchmark, Pavl&amp;iacute;k sees it as a sign that tests are becoming more complex and less learnable upfront so they can better expose where agents struggle:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;SWE-Bench ProMax is an example of how benchmarks are moving, from the &amp;lsquo;we need to measure how good the LLM is&amp;rsquo; approach to &amp;lsquo;we need LLMs to improve on a particular task&amp;rsquo; approach.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-will-it-take-to-make-agents-better-at-refactoring"&gt;What will it take to make agents better at refactoring?&lt;/h2&gt;
+
+
+
+&lt;p&gt;Building a benchmark that can identify holes in agent performance is one thing. But what will it take to plug them up?&lt;/p&gt;
+
+
+
+&lt;p&gt;For his part, Pavl&amp;iacute;k calls for a multi-layered approach, where developers first analyze and map the codebase to create detailed specifications, use retrieval-augmented generation to recall relevant parts of the code, rather than leaning purely on attention, and bring humans in for validation. He also advises implementing a fully detailed test suite for the original codebase to make sure it&amp;rsquo;s correct before starting refactoring.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Warden puts forth a similar idea: &amp;ldquo;To me, the most promising research focuses on LLMs driving deterministic, structurally aware developer tooling instead of LLMs writing out raw multi-file diffs.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;He describes an architecture where the LLM recognizes code smells, evaluates design trade-offs, and queries Language Server Protocols (LSPs) and code graph tooling to analyze explicit code structures, dependencies, and data flows, issuing small, zero-entropy commands to execute changes and rolling back those changes if tests fail.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Benchmarks are never going to provide a perfect measure of real-world performance, but leaving out difficult tasks like refactoring paints an overly rosy picture of agent capabilities. SWE-Bench ProMax may just bring in some realism.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-refactoring-benchmarks/"&gt;Most coding agent benchmarks skip large-scale refactoring. Not this one.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>New SWE-Bench ProMax reveals where coding agents can’t measure up. Experts weigh in on why.</content:encoded>
+    </item>
+    <item>
       <title>GitHub now sees 2.9 billion commits a month — and it can’t keep up</title>
       <link>https://web.archive.org/web/https://thenewstack.io/github-2-9b-monthly-commits/</link>
       <dc:creator>Frederic Lardinois</dc:creator>
@@ -28,7 +848,7 @@
       <category>AI Agents</category>
       <category>Operations</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22834068</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/997a0dc5-img_2680-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/997a0dc5-img_2680-scaled.jpg" /&gt;&lt;p&gt;Per month, GitHub now sees 2.9 billion commits, 130 million merged pull requests, and 24 million new repos. Back in&lt;/p&gt;
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/997a0dc5-img_2680-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/997a0dc5-img_2680-scaled.jpg" /&gt;&lt;p&gt;Per month, GitHub now sees 2.9 billion commits, 130 million merged pull requests, and 24 million new repos. Back in&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/github-2-9b-monthly-commits/"&gt;GitHub now sees 2.9 billion commits a month &amp;#8212; and it can&amp;#8217;t keep up&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/997a0dc5-img_2680-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/997a0dc5-img_2680-scaled.jpg" /&gt;
@@ -58,7 +878,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/8cf84602-blog-post-aug-17-outage-1.png-1024x576.webp" alt="" class="wp-image-22834080"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: GitHub.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/8cf84602-blog-post-aug-17-outage-1.png-1024x576.webp" alt="" class="wp-image-22834080"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: GitHub.&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -70,7 +890,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/c43f4ad8-blog-post-aug-17-outage-gitfetch.png-1024x576.webp" alt="" class="wp-image-22834081"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: GitHub.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/c43f4ad8-blog-post-aug-17-outage-gitfetch.png-1024x576.webp" alt="" class="wp-image-22834081"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: GitHub.&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -3078,979 +3898,6 @@ def run_pipeline(question: str):
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/truefoundry-trueforge-claude-managed-agents/"&gt;An open source rival to Claude Managed Agents just launched&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>TrueFoundry&amp;#039;s open source TrueForge challenges Claude Managed Agents with vendor-neutral model choice, claiming 50% lower agent costs and no lock-in.</content:encoded>
-    </item>
-    <item>
-      <title>IBM builds a better fridge for its quantum computers</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ibm-modular-quantum-refrigerator/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 19 Aug 2026 10:00:00 +0000</pubDate>
-      <category>Hardware</category>
-      <category>Science</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833865</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/98c70b33-ibm-modular-cryogenics-1-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/98c70b33-ibm-modular-cryogenics-1-scaled.jpg" /&gt;&lt;p&gt;IBM on Wednesday announced that it has built and cooled the first two modules of a new cryogenic dillution refrigerator&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ibm-modular-quantum-refrigerator/"&gt;IBM builds a better fridge for its quantum computers&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/98c70b33-ibm-modular-cryogenics-1-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/98c70b33-ibm-modular-cryogenics-1-scaled.jpg" /&gt;
-&lt;p&gt;IBM on Wednesday announced that it has built and cooled the first two modules of a new cryogenic dillution refrigerator designed to house the processors in its future &lt;a href="https://www.ibm.com/quantum/blog/large-scale-ftqc" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;fault-tolerant quantum computers&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;One major caveat: those refrigerator modules don&amp;#8217;t actually house any quantum processors yet, but IBM says plans to install one &lt;a href="https://www.ibm.com/quantum/blog/whats-new-q1-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nighthawk processor&lt;/a&gt; in each unit later this year.&lt;/p&gt;
-
-
-
-&lt;p&gt;This will be the first test of whether processors will work inside the new refrigerator and can communicate across the connection between its modules. That&amp;rsquo;s a crucial next step for IBM&amp;rsquo;s quantum ambitions, given that its plans for future quantum computing systems hinge on its ability to efficiently connect multiple individual processors and cryogenic modules into a single system.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/bb9d1a7f-ibm-modular-cryogenics-5-1024x768.jpg" alt="" class="wp-image-22833867"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: IBM.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-build-a-better-fridge"&gt;Why build a better fridge?&lt;/h2&gt;
-
-
-
-&lt;p&gt;To work, superconducting quantum processors need to operate at a fraction of a degree above absolute zero to reduce noise, which is, after all, one of the main enemies of stable, long-running quantum computers.&lt;br&gt;At this point in the development of quantum computers, it&amp;rsquo;s all about building larger, more fault-tolerant machines, but building larger systems isn&amp;rsquo;t just about adding more qubits. Each processor needs control and readout wiring, shielding, cooling, and electronics. All of that has to fit inside or around the refrigerator without producing too much heat to disrupt the qubits.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;It&amp;#8217;s really about all the infrastructure and the supporting pieces around it as well in the system,&amp;#8221; Jerry Chow, IBM fellow and chief technology officer for quantum-centric supercomputing, pointed out in a press briefing ahead of the announcement.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/08/fae3cbd8-ibm-modular-cryogenics-2-1024x768.jpg" alt="" class="wp-image-22833868"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: IBM.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;IBM&amp;#8217;s new design splits that refrigeration infrastructure into rectangular cells that can be connected to create a shared ultra-cold environment for the quantum processors. The first two modules together measure about 8 feet tall and 8 feet wide and can reach temperatures below 15 millikelvin.&lt;/p&gt;
-
-
-
-&lt;p&gt;During its tests, IBM also added a 30-microwatt heat load to simulate the processors, wiring, and electronics that will eventually sit inside. With that load added, the units operate at 23 millikelvin.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-more-room-for-wiring"&gt;More room for wiring&lt;/h2&gt;
-
-
-
-&lt;p&gt;Currently, IBM&amp;#8217;s quantum systems house processors with more than 100 physical qubits, but its planned fault-tolerant computers will need thousands &amp;mdash; and later hundreds of thousands &amp;mdash; of physical qubits to create a smaller number of error-corrected logical qubits.&lt;/p&gt;
-
-
-
-&lt;p&gt;Each added qubit means more wires. Indeed, IBM says each new module has about 12 times more wiring space than Quantum System One, the company&amp;rsquo;s first commercial quantum computer it introduced in 2019.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="Unveiling IBM&amp;#039;s cryogenic modules to scale fault-tolerant quantum computing" width="500" height="281" src="https://www.youtube.com/embed/wwMI6IhvwE0?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;Because of their modular nature, the new fridge modules will let IBM place the individual quantum processors closer together, but there&amp;rsquo;s still the actual connection between the processors to deal with.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;For now, this provides more physical room for a lot of that,&amp;#8221; Chow says.&lt;/p&gt;
-
-
-
-&lt;p&gt;IBM says it is researching more efficient control systems, but the current design will give its engineers more space for the wiring they already know they will need. Since the entire system is modular, if IBM changes the wiring for a new processor generation, it can replace that assembly without rebuilding the rest of the refrigerator.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We can redesign and replace this piece very quickly while keeping the rest of the system the same,&amp;#8221; Oliver Dial, IBM fellow and vice president of quantum systems, says.&lt;/p&gt;
-
-
-
-&lt;p&gt;Thanks to this, IBM can also build and test each cell before shipping it to a client site, where the modules can then be connected into a larger system. Dial acknowledges that a single enormous vacuum chamber could be cheaper for one machine, but it would be harder to manufacture, ship, and repeat.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-connecting-processors-across-modules"&gt;Connecting processors across modules&lt;/h2&gt;
-
-
-
-&lt;p&gt;Connecting individual quantum processors to each other is still a work in progress and a lot of R&amp;amp;D is spent on it. IBM plans to connect processors inside the refrigerator with its L-coupler, a superconducting cable that can carry microwave photons between chips separated by as much as a meter. The coupler can transfer a quantum state or perform a two-qubit operation between chips, according to the company.&lt;/p&gt;
-
-
-
-&lt;p&gt;IBM previously demonstrated L-couplers with &lt;a href="https://www.ibm.com/quantum/blog/qdc-2024" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Flamingo&lt;/a&gt;, a prototype that connected two Heron processors. Dial says IBM&amp;#8217;s best two-qubit operation across an L-coupler has now reached 99.3% fidelity. The idea is to get this to 99.9% for IBM&amp;rsquo;s fault-tolerant systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://arxiv.org/abs/2008.01642" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Researchers have previously connected individual qubits&lt;/a&gt; housed in separate dilution refrigerators.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-scaling-up"&gt;Scaling up&lt;/h2&gt;
-
-
-
-&lt;p&gt;IBM says it expects to be able to start deploying these modular refrigerators next year. Its first systems will use two or three cells and support about 1,000 programmable physical qubits.&lt;/p&gt;
-
-
-
-&lt;p&gt;For the upcoming &lt;a href="https://www.ibm.com/roadmaps/quantum/2030/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Starling&lt;/a&gt; systems, the fault-tolerant computer it intends to deliver in 2029, IBM expects to need about 12 modules.&lt;/p&gt;
-
-
-
-&lt;p&gt;Dial identifies reliability as the largest problem on the way to a fault-tolerant machine.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We&amp;#8217;re talking about systems going from thousands of qubits to hundreds of thousands of qubits,&amp;#8221; he says. &amp;#8220;We need everything about our systems to become 1,000 times more reliable.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ibm-modular-quantum-refrigerator/"&gt;IBM builds a better fridge for its quantum computers&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>IBM cooled two modules of its quantum refrigerator designed for future fault-tolerant systems, but it has yet to run quantum processors inside the machine.</content:encoded>
-    </item>
-    <item>
-      <title>An industrial-scale distillation of models, or subtle benchmaxxing: What developers really think of GLM-5.3</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/glm-5-3-anthropic-distillation/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Wed, 19 Aug 2026 08:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833661</guid>
-      <description>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/08/a87cea84-ardian-pranomo-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a87cea84-ardian-pranomo-scaled.jpg" /&gt;&lt;p&gt;Chinese frontier model outfit Z.ai released GLM-5.3 on Friday, a model hewn from the same codebase as its predecessor GLM-5.2,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/glm-5-3-anthropic-distillation/"&gt;An industrial-scale distillation of models, or subtle benchmaxxing: What developers really think of GLM-5.3&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/08/a87cea84-ardian-pranomo-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a87cea84-ardian-pranomo-scaled.jpg" /&gt;
-&lt;p&gt;Chinese frontier model outfit &lt;a href="http://z.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Z.ai&lt;/a&gt; released &lt;a href="https://z.ai/blog/glm-5.3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GLM-5.3 &lt;/a&gt;on Friday, a model hewn from the same codebase as its predecessor GLM-5.2, with every gain &lt;a href="https://thenewstack.io/glm-5-3-post-training-coding/" class="local-link"&gt;engineered as a result of post-training&lt;/a&gt;. The latest release is claimed to be much better at complex coding and long-horizon tasks.&lt;/p&gt;
-
-
-
-&lt;p&gt;Rarely considered to be a defined process that follows a single immutable script (as in song sheet, not as in code script), post-training model optimization processes are especially significant here and will have included reasoning alignment, supervised fine-tuning, and Reinforcement Learning from Human Feedback (RLHF).&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Over the past month we kept scaling on this [GLM-5.2] stack: more environments, more diverse tasks, and more compute spent training on them,&amp;rdquo; stated Z.ai, in an anonymously authored blog.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-model-trained-on-a-much-broader-range-of-production-workflows"&gt;A model trained on a much broader range of production workflows&lt;/h2&gt;
-
-
-
-&lt;p&gt;The company clarified further, saying that the widened and more complex model training environments now cover &amp;ldquo;a much broader range of production workflows&amp;rdquo;, with &amp;ldquo;diverse task categories&amp;rdquo; designed around how engineering and research work is actually carried out in practice.&amp;nbsp;Some tasks constituted what would represent several days of work for an experienced engineer.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;In an ML infrastructure task, for example, the model may be given the same working environment as an engineer, with access to compute clusters, storage systems, internal documentation, codebases, and experiment results. It must diagnose bottlenecks across the training stack, implement optimizations, run experiments, and deliver a measurable end-to-end speedup while preserving correctness,&amp;rdquo; stated Z.ai.&lt;/p&gt;
-
-
-
-&lt;p&gt;If in-house benchmarks are of any worth, the organization&amp;rsquo;s newly introduced Z.ai Code Bench measures GLM-5.3&amp;rsquo;s coding abilities at a 50% improvement over GLM-5.2. Pledging to be scrupulously virtuous, the company thinks that private benchmark &amp;ldquo;reduces the risk of contamination from public test sets&amp;rdquo; to provide a more faithful measure of real-world user experience.&lt;/p&gt;
-
-
-
-&lt;p&gt;Other public benchmark positions are also openly showcased by the company, here spanning TerminalBench 3.0, DeepSWE, Agents&amp;#8217; Last Exam, AutomationBench, HLE w/ Tools: Humanity&amp;#8217;s Last Exam (HLE), an independent academic benchmark, as well as OpenAI&amp;rsquo;s GDPVal-AA v2.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-do-ai-developers-make-of-these-moves"&gt;What do AI developers make of these moves?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Outside these yardsticks and benchmarks, what do real world developer practitioners think of what&amp;rsquo;s happening in the open-weight model universe?&lt;/p&gt;
-
-
-
-&lt;p&gt;Co-founder of long-horizon autonomous software engineering company &lt;a href="http://nonbios.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;NonBioS.ai&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/nishantsoni/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nishant Soni&lt;/a&gt;, tells &lt;em&gt;The New Stack &lt;/em&gt;that when he considers what Z.ai has done in relation to scaling for real-world long-horizon tasks, he &amp;ldquo;would take it with a pinch of salt&amp;rdquo; based upon his own real-world experiences.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;To my knowledge, no benchmarks objectively demonstrate the claimed superior long-horizon capability of GLM-5.3 in real world tasks,&amp;rdquo; Soni says. &amp;ldquo;The specific orchestration that Z.ai describes seems unlikely to provide the differentiated and comprehensive datasets required to engender such capability in frontier models.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;I suspect this is largely an effort to deflect from the model&amp;rsquo;s true source of frontier capability &amp;#8211; which shows a pattern consistent with industrial-scale distillation of Anthropic models,&amp;rdquo; he adds.&lt;/p&gt;
-
-
-
-&lt;p&gt;In internal testing at NonBioS, Soni explains that his team has seen &amp;ldquo;striking similarity&amp;rdquo; between Kimi/GLM outputs and Claude&amp;#8217;s outputs. In contrast, other frontier models &amp;#8211; notably Gemini and Grok &amp;#8211; show greater diversity compared to Claude&amp;#8217;s outputs.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;I suspect this is largely an effort to deflect from the model&amp;rsquo;s true source of frontier capability &amp;#8211; which shows a pattern consistent with industrial-scale distillation of Anthropic models,&amp;rdquo; he adds.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-meet-the-model-halfway-to-real-results"&gt;Meet the model halfway to real results&lt;/h2&gt;
-
-
-
-&lt;p&gt;Founder at AI benchmarking specialist &lt;a href="https://megaton.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Megaton&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/sherif-higazy-159a638b/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sherif Higazy&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that he can see sense in any frontier model company (or user, or team) laying down an internal evaluation system that measures tokens and spend against tasks (cybersecurity or otherwise).&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;When a model is trained for benchmarks, versus delivering promised capability, that&amp;rsquo;s generally a good thing,&amp;rdquo; Higazy says. &amp;ldquo;But ultimately, getting consistently useful work from an agent requires meeting the model halfway so that teams adapt their working environments around how agents work (for example, forcing repeated test runs or making inputs &amp;amp; outputs machine-readable and verifiable) to get the best results.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Getting consistently useful work from an agent requires meeting the model halfway so that teams adapt their working environments around how agents work (for example, forcing repeated test runs or making inputs &amp;amp; outputs machine-readable and verifiable) to get the best results.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Z.ai is claiming that developers can shift this burden upstream into model training to get better task performance. If you can train the agent to work within a more diverse and realistic environment, it will perform better on longer and more complex tasks without as much supervision. Perhaps not everybody has drunk the Kool-Aid in terms of this approach yet, but it&amp;rsquo;s worth bringing it into the mix,&amp;rdquo; he adds.&lt;/p&gt;
-
-
-
-&lt;p&gt;Co-founder and CEO at AI tool data accuracy enforcement company Sphinx, &lt;a href="https://www.linkedin.com/in/rohan-kodialam-31b5a9234/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Rohan Kodialam&lt;/a&gt; tells &lt;em&gt;The New Stack &lt;/em&gt;that the pace of improvement in models is exactly why he wouldn&amp;rsquo;t build enterprise infrastructure around whichever model happens to lead today.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;OpenAI, Anthropic, Google and increasingly Chinese open-weight models are leapfrogging each other constantly,&amp;rdquo; Kodialam says. &amp;ldquo;We think business context should live independently of the underlying model, so companies can move between models without having to reteach the new system how their organization works. Model agnosticism is becoming less of a technical preference and more of a hedge against an AI market where nobody knows who will have the best model six months from now.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;He reminds us that once several models reach roughly comparable capability, choosing between them becomes much more about the workload than the leaderboard. Cost, latency, privacy, deployment model, tool use, and performance on your specific tasks can matter more than a few points on a benchmark.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Enterprises should avoid making their own model choices irreversible and build for portability as capabilities, economics, and infrastructure evolve.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;But there&amp;rsquo;s also a global model choice happening beyond any individual enterprise: availability of compute shapes which models can actually operate at massive scale, and today far more infrastructure is dedicated to providers like OpenAI and Anthropic than newer alternatives like Z.ai&amp;rsquo;sn GLM,&amp;#8221; adds Kodialam.&lt;/p&gt;
-
-
-
-&lt;p&gt;Even if every company wanted to switch tomorrow, the market as a whole couldn&amp;rsquo;t necessarily move with them, which is why Kodialam&amp;nbsp;says developer teams should avoid making their own model choices irreversible and build for portability as capabilities, economics, and infrastructure evolve.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;To put it simply &amp;ndash; the Chinese labs use all the time that American labs do pre-release testing to keep hillclimbing on benchmarks.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-is-z-ai-benchmaxxing-the-bencmarks"&gt;Is Z.ai benchmaxxing the bencmarks?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Of the comparatively limited &lt;a href="https://hn.algolia.com/?q=GLM-5.3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posts on Hacker News&lt;/a&gt; discussing GLM 5.3, ML researcher &lt;a href="https://www.linkedin.com/in/natolambert/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nathan Lambert&lt;/a&gt; is perhaps the most insightful. He cross-references &lt;a href="https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a post on his own Interconnects&lt;/a&gt; site which questions just exactly how the Chinese labs keep up with Silicon Valley&amp;rsquo;s frontier glitterati.&lt;/p&gt;
-
-
-
-&lt;p&gt;First questioning whether or not the Far East frontier players are &amp;ldquo;&lt;a href="https://ctaio.dev/en/labs/benchmaxxing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;benchmaxxing&lt;/a&gt;&amp;rdquo; i.e. pointing models at test sets to achieve good benchmark scores that fail to replicate in real world deployment scenarios (despite Z.ai telling us that it has built the latest model based on complex real world developer workflows), Lambert thinks that if there is any going on, it&amp;rsquo;s only to a subtle level.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;It is very, very likely that OpenAI and Anthropic have far better internal models than Z.ai and Moonshot AI. Still, these American companies &lt;a href="https://www.theguardian.com/technology/2026/aug/08/openai-astra-security-concerns" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;tend to take months to release their models to the public&lt;/a&gt;, which massively flatters the Chinese labs in adoption decisions at the frontier. To put it simply &amp;ndash; the Chinese labs use all the time that American labs do pre-release testing to keep hillclimbing on benchmarks,&amp;rdquo; wrote Lambert.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-autoregressively-engineered-to-cloze-the-gap"&gt;Autoregressively engineered to cloze the gap&lt;/h2&gt;
-
-
-
-&lt;p&gt;The modestly titled GLM derives its name from the General Language Model training algorithm upon which the current model is now built. It relies on autoregressive blank infilling techniques, a model training technique that deletes or occludes sections of model data using &lt;a href="https://en.wikipedia.org/wiki/Cloze_test" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;cloze tests&lt;/a&gt; to develop model vocabulary, comprehension and reasoning.&lt;/p&gt;
-
-
-
-&lt;p&gt;Fully open source, Z.ai confirmed it will release the GLM-5.2 weights two weeks after launch (approximately the last day of Aug 2026), once safety evaluation and hardening are complete.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/glm-5-3-anthropic-distillation/"&gt;An industrial-scale distillation of models, or subtle benchmaxxing: What developers really think of GLM-5.3&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Z.ai&amp;#039;s GLM-5.3 claims big coding gains, but AI professionals say the real story may be distillation from Anthropic&amp;#039;s Claude models, or a case of subtle bencmaxxing, not novel training.</content:encoded>
-    </item>
-    <item>
-      <title>What happens to your indexed data when Mistral flips the switch?</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/mistral-mcp-connector-migration/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 18 Aug 2026 20:07:55 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Cloud Services</category>
-      <category>Model Context Protocol (MCP)</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833841</guid>
-      <description>&lt;img width="1024" height="679" src="https://cdn.thenewstack.io/media/2026/08/e1663c08-randy-laybourne-odhxvqqu9ru-unsplash-1024x679.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shredded abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e1663c08-randy-laybourne-odhxvqqu9ru-unsplash-scaled.jpg" /&gt;&lt;p&gt;Mistral is giving enterprise customers until August 31 to replace the Google Drive and Microsoft SharePoint Knowledge Connectors they use&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mistral-mcp-connector-migration/"&gt;What happens to your indexed data when Mistral flips the switch?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="679" src="https://cdn.thenewstack.io/media/2026/08/e1663c08-randy-laybourne-odhxvqqu9ru-unsplash-1024x679.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shredded abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e1663c08-randy-laybourne-odhxvqqu9ru-unsplash-scaled.jpg" /&gt;
-&lt;p id="h-mistral-is-giving-enterprise-customers-until-august-31-to-replace-the-google-drive-and-microsoft-sharepoint-knowledge-connectors-they-use-in-vibe-work-with-mcp-based-alternatives-the-company-says-in-its-knowledge-connectors-documentation-that-both-existing-connectors-will-be-shut-down-and-deleted-on-that-date"&gt;Mistral is giving enterprise customers until August 31 to replace the Google Drive and Microsoft SharePoint Knowledge Connectors they use in Vibe Work with MCP-based alternatives. The company says in its &lt;a href="https://docs.mistral.ai/vibe/work/connectors/knowledge-connectors" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Knowledge Connectors documentation&lt;/a&gt; that both existing connectors will be shut down and deleted on that date.&lt;/p&gt;
-
-
-
-&lt;p&gt;There is no automatic migration, so administrators will need to install the MCP replacements before every user reconnects their Google or Microsoft account. The move changes how Vibe Work reaches company documents, but Mistral has said little about the retrieval architecture behind the new connectors.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-mistral-stores-a-searchable-index"&gt;Mistral stores a searchable index&lt;/h2&gt;
-
-
-
-&lt;p&gt;With the current system, an administrator chooses which Google Drive folders or SharePoint sites the organization wants to make available, then Mistral processes those files and stores the resulting index in its European data centers.&lt;/p&gt;
-
-
-
-&lt;p&gt;Once the index is ready, users connect their personal accounts, and when they search in Vibe Work, the connector checks permissions copied from Google Drive or SharePoint so the results include only files they can access, while scheduled synchronizations pick up later changes and deletions.&lt;/p&gt;
-
-
-
-&lt;p&gt;This setup lets Mistral handle retrieval by searching a prebuilt index whenever a user submits a query. The company says indexing can take anywhere from a few minutes to several hours, depending on how much data the organization includes, although that work is completed before users begin searching.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The company says indexing can take anywhere from a few minutes to several hours, depending on how much data the organization includes, although that work is completed before users begin searching.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-mcp-shifts-retrieval-off-platform"&gt;MCP shifts retrieval off-platform&lt;/h2&gt;
-
-
-
-&lt;p&gt;The company defines MCP as a common interface that lets models call tools and retrieve data from external services &amp;mdash; the same protocol layer that &lt;a href="https://thenewstack.io/api-mcp-agent-integration/" class="local-link"&gt;is reshaping how AI products connect to external APIs&lt;/a&gt; across the industry. &lt;/p&gt;
-
-
-
-&lt;p&gt;In June, Mistral added Google Drive and SharePoint to a directory containing more than 60 integrations, but it did not explain how those two connectors retrieve documents or say who operates the underlying MCP servers. The setup can range from live calls to the source API to a server-managed search index, with any combination of the two in between. That flexibility is part of what makes &lt;a href="https://thenewstack.io/when-is-mcp-actually-worth-it/" class="local-link"&gt;MCP appealing in some environments and unnecessary in others&lt;/a&gt;, but it also means that the behavior of a given connector depends entirely on its operator.&lt;/p&gt;
-
-
-
-&lt;p id="h-permissions-rules-remain-unclearthe-company-doesn-t-run-the-third-party-servers-behind-these-connectors-so-it-can-t-promise-how-they-will-behave-or-what-they-will-do-with-customer-data-that-gap-between-the-governance-mistral-once-provided-and-what-it-s-now-handing-off-to-third-parties-reflects-a-trend-in-how-enterprises-are-adopting-mcp-connectors-without-fully-resolving-the-governance-layer-as-other-platforms-have-learned-opening-the-door-to-external-servers-means-trusting-the-protocol-and-the-operator-and-building-the-guardrails-to-go-with-it"&gt;Permissions rules remain unclearThe company doesn&amp;#8217;t run the third-party servers behind these connectors, so it can&amp;#8217;t promise how they will behave or what they will do with customer data. That gap between the governance Mistral once provided and what it&amp;#8217;s now handing off to third parties reflects a trend in how enterprises are adopting MCP connectors &lt;a href="https://thenewstack.io/mcp-enterprise-agent-governance/" class="local-link"&gt;without fully resolving the governance layer&lt;/a&gt;. As other platforms have learned, opening the door to external servers means trusting the protocol and the operator and &lt;a href="https://thenewstack.io/godaddy-developer-platform-domains/" class="local-link"&gt;building the guardrails to go with it&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;The migration notice offers even less detail. It doesn&amp;#8217;t say whether the Google Drive and SharePoint MCP servers retrieve files directly from Google and Microsoft. Any caching remains unexplained, leaving customers unsure where retained data would live. Mistral makes no promise that searches will be as fast or return results of the same quality.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Mistral makes no promise that searches will be as fast or return results of the same quality.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The outgoing Google Drive connector follows the sharing rules already attached to each file, including group and domain access. A file set to &amp;ldquo;anyone with the link&amp;rdquo; still isn&amp;rsquo;t automatically visible to everyone in the organization. SharePoint uses Microsoft Entra ID groups, so older groups created only within SharePoint aren&amp;rsquo;t picked up.&lt;/p&gt;
-
-
-
-&lt;p&gt;Mistral hasn&amp;rsquo;t said whether the MCP replacements will follow the same rules. OAuth can limit a server&amp;#8217;s access to the connected user, but that doesn&amp;rsquo;t mean search results will be filtered exactly as they were in the outgoing index. The &lt;a href="https://thenewstack.io/openai-elastic-enterprise-context/" class="local-link"&gt;protocol wasn&amp;rsquo;t designed to enforce that kind of enterprise permission model&lt;/a&gt;; the connector&amp;rsquo;s retrieval layer has to do it.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;OAuth can limit a server&amp;#8217;s access to the connected user, but that doesn&amp;rsquo;t mean search results will be filtered exactly as they were in the outgoing index. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-deletion-timeline-still-unresolved"&gt;Deletion timeline still unresolved&lt;/h2&gt;
-
-
-
-&lt;p&gt;The company says disabling a Knowledge Connector results in permanent deletion of the indexed data, but the deprecation notice does not say whether the August shutdown will trigger that process automatically or how long the deletion will take. It also leaves administrators unsure whether they should disconnect the old connectors themselves before the deadline. &lt;/p&gt;
-
-
-
-&lt;p&gt;Because the same connectors work in Vibe Code and Mistral&amp;#8217;s workflow system, teams can use the same approach to expose external data across chat, coding and automated jobs &amp;mdash; a pattern that is &lt;a href="https://thenewstack.io/elevenlabs-mcp-voice-agents/" class="local-link"&gt;becoming more common as MCP connectors spread from chatbots into production infrastructure&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;Mistral also recommends checking server output for signs of prompt injection &amp;mdash; advice that underscores the &lt;a href="https://thenewstack.io/red-teaming-enterprise-ai-agents/" class="local-link"&gt;still-emerging challenge of securing the space between AI agents and the external services they access&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mistral-mcp-connector-migration/"&gt;What happens to your indexed data when Mistral flips the switch?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Mistral is replacing its Google Drive and SharePoint connectors with MCP alternatives by August 31, leaving key questions about data handling and permissions unanswered.</content:encoded>
-    </item>
-    <item>
-      <title>“If GitHub was stable, these alternatives would not be as interesting”: Cursor launches Origin as GitHub goes dark</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cursor-origin-github-alternative/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 18 Aug 2026 19:47:17 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Infrastructure</category>
-      <category>Developer tools</category>
-      <category>DevOps</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833795</guid>
-      <description>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/08/6af2f836-puji-ningsih-iqe3s5nigxc-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A building with most of the lights out, depicting the concept of &amp;quot;going dark&amp;quot;" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6af2f836-puji-ningsih-iqe3s5nigxc-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cursor has officially thrown its hat into the code-hosting ring with Origin, a Git-compatible platform built for a world where&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cursor-origin-github-alternative/"&gt;&amp;#8220;If GitHub was stable, these alternatives would not be as interesting&amp;#8221;: Cursor launches Origin as GitHub goes dark&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/08/6af2f836-puji-ningsih-iqe3s5nigxc-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A building with most of the lights out, depicting the concept of &amp;quot;going dark&amp;quot;" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6af2f836-puji-ningsih-iqe3s5nigxc-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Cursor has officially thrown its hat into the code-hosting ring with &lt;a href="https://cursor.com/docs/origin" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Origin&lt;/a&gt;, a Git-compatible platform built for a world where AI agents generate the commits.&lt;/p&gt;
-
-
-
-&lt;p&gt;The &lt;a href="https://cursor.com/changelog/origin-code-hosting" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;beta launch&lt;/a&gt; announced late on Monday comes two months after &lt;a href="https://www.linkedin.com/in/tomasreimers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tomas Reimers&lt;/a&gt; took to the stage &lt;a href="https://thenewstack.io/cursor-origin-github-disruption/" class="local-link"&gt;at Cursor&amp;#8217;s developer conference in San Francisco&lt;/a&gt; to tease its agent-focused GitHub alternative. That happened to be on the very same day that Elon Musk&amp;#8217;s SpaceX confirmed it had &lt;a href="https://thenewstack.io/spacex-cursor-ai-coding/" class="local-link"&gt;tabled a $60 billion bid&lt;/a&gt; to acquire Cursor outright, and with that deal formally &lt;a href="https://cursor.com/blog/joining-spacex" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;closing on August 14&lt;/a&gt;, Origin becomes the first product Cursor has shipped as a fully owned SpaceX subsidiary.&lt;/p&gt;
-
-
-
-&lt;p&gt;Notably, however, Origin landed on the same day that &lt;a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-confirms-github-is-down-worldwide/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub itself went down worldwide&lt;/a&gt;, turning what might have been a routine beta rollout into a &amp;#8220;case in point&amp;#8221; on why Cursor was building Origin to begin with. But while the &lt;a href="https://www.infoworld.com/article/4210864/github-restores-services-after-nearly-8-hour-outage-disrupts-actions-apis-prs-and-copilot.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;8-hour outage&lt;/a&gt; may have seemed like fortuitous timing on the surface, GitHub going offline when it did wasn&amp;#8217;t great for Cursor, given that Cursor needs a fully operational GitHub for new users to get the ball rolling. As SpaceXAI&amp;#8217;s &lt;a href="https://www.linkedin.com/in/matt-palmer/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Matt Palmer&lt;/a&gt; acknowledged &lt;a href="https://x.com/mattyp/status/2089413216011165706" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on X&lt;/a&gt;: &amp;#8220;We were going to ship this earlier, but GitHub was down. Importing your GitHub repos as a first onboarding step is non-optimal if GitHub is down.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Still, GitHub&amp;#8217;s troubles predate this particular blackout. As &lt;em&gt;The New Stack&lt;/em&gt; &lt;a href="https://thenewstack.io/github-wants-developers-back/" class="local-link"&gt;reported in June&lt;/a&gt;, the platform has logged hundreds of incidents over the previous 12 months as commit volume jumped from 1 billion a year to 1.4 billion a month, with AI agents alone generating more than 17 million pull requests monthly &amp;#8212; growth GitHub traced to infrastructure bottlenecks like MySQL contention and webhook overload.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Cursor has joined a slew of technology companies looking to rebuild version control for a world where agents work around the clock.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;In an interview with &lt;em&gt;The New Stack&lt;/em&gt; at the time, GitHub COO Kyle Daigle discussed the scaling problem: &amp;#8220;It&amp;#8217;s not just about normal scaling,&amp;#8221; he said. &amp;#8220;It&amp;#8217;s now making sure we can scale at 30 or 40 times&amp;#8221; annual growth, as opposed to doubling each year, which GitHub had historically planned around.&lt;/p&gt;
-
-
-
-&lt;p&gt;Fast-forward to today, and Cursor has joined a slew of technology companies looking to rebuild version control for a world where agents work around the clock, querying and pushing to repositories faster than any human team ever could.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-origin-story"&gt;Origin story&lt;/h2&gt;
-
-
-
-&lt;p&gt;Origin marks a fairly significant expansion of Cursor&amp;#8217;s ambitions. Until now, its agents have largely operated on code hosted elsewhere; with Origin, Cursor is pushing to own more of the underlying development infrastructure itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;At launch, that starts with the basics. Users can create and host Git repositories directly inside Cursor, with the new Codebase tab acting as the home for Origin repos.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="527" src="https://cdn.thenewstack.io/media/2026/08/8784192e-gifa.gif" alt="Cursor Origin lets users create and host Git repositories directly inside Cursor." class="wp-image-22833809"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Cursor Origin lets users create and host Git repositories directly inside Cursor.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Those repositories still behave like Git repos outside Cursor. Developers can clone them locally, add an Origin remote, and push code from the command line &amp;#8212; essentially putting Cursor in the role normally occupied by a service such as GitHub.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="787" height="478" src="https://cdn.thenewstack.io/media/2026/08/fd832952-gifb.gif" alt="Pushing a local repo to Origin" class="wp-image-22833811"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Pushing a local repo to Origin&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Cursor isn&amp;#8217;t demanding an all-or-nothing migration, either. Existing GitHub repositories can be synced into Origin and displayed alongside Cursor-hosted repos, while GitHub remains the source of truth for projects that started there.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/08/6a652fdb-gif1.gif" alt="Syncing GitHub" class="wp-image-22833807"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Syncing GitHub&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Pull requests are built in too, including diffs, comments, checks and merging. Cursor&amp;#8217;s agents sit directly alongside that code: from the browser, users can ask questions about what they&amp;#8217;re viewing, have an agent make changes, update a PR or push a branch.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/08/d532747d-gif2.gif" alt="Reviewing code / ask Cursor / merging" class="wp-image-22833808"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Reviewing code / ask Cursor / merging&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;That combination is arguably the more consequential part of Origin: the repository, pull request and coding agent now all live inside the same product &amp;#8212; giving Cursor more control over the environment in which code is stored, reviewed and changed.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/rwhiteley/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Rob Whiteley&lt;/a&gt;, CEO of &lt;a href="https://coder.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Coder&lt;/a&gt;, a cloud development platform built for enterprises, sees Origin as a &amp;#8220;smart play&amp;#8221; &amp;#8212; most of the industry&amp;#8217;s energy has gone into the tools that write code, he argues, while comparatively little has gone into what happens to that code after it&amp;#8217;s produced.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;GitHub is starting to crack under the weight of agentic code development, and an agent-native source code forge is needed,&amp;#8221; Whiteley tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;Everyone is integrating the &amp;#8216;writing code&amp;#8217; stack, from editor and chat to agents, tools and LLMs. No one else is really integrating the &amp;#8216;managing code&amp;#8217; stack, where code gets stored, versioned, reviewed and merged.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;For now, Origin&amp;#8217;s restricted to Cursor&amp;#8217;s Pro, Teams and Enterprise plans &amp;#8212; nothing on the free tier, it seems &amp;#8212; and the rollout itself is staged, so not everyone will have access to it quite yet. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-is-origin-different-to-github"&gt;How is Origin different to GitHub?&lt;/h2&gt;
-
-
-
-&lt;p&gt;For now, there&amp;#8217;s no escaping the fact that there isn&amp;#8217;t a great deal that&amp;#8217;s different from trusty ol&amp;#8217; GitHub, a fact that &lt;a href="https://news.ycombinator.com/item?id=49334209" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;wasn&amp;#8217;t entirely lost on the online community&lt;/a&gt;. And Origin&amp;#8217;s own team isn&amp;#8217;t shying away from that, either. &lt;/p&gt;
-
-
-
-&lt;p&gt;Tomas Reimers, the Origin engineer who co-founded Graphite, a code-review startup Cursor &lt;a href="https://cursor.com/blog/graphite" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;acquired in early 2026,&lt;/a&gt; fielded questions directly from developers on Hacker News after the launch.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We&amp;#8217;re intentionally releasing this as a GitHub alternative where we meet them toe-to-toe on functionality.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://news.ycombinator.com/item?id=49338041" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Asked&lt;/a&gt; what set Origin apart from GitHub beyond uptime, Reimers concedes that it&amp;#8217;s very &amp;#8220;very little,&amp;#8221; in all honesty. &amp;#8220;We&amp;#8217;re intentionally releasing this as a GitHub alternative where we meet them toe-to-toe on functionality,&amp;#8221; he &lt;a href="https://news.ycombinator.com/item?id=49338196" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;He does note that more is on the way: in the coming weeks, Reimers explains, Origin should start shipping deeper agent integrations, tooling that can make sense of agent-written code, and automation that pushes pull requests toward a mergeable state on their own.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Expect a lot more from us,&amp;#8221; he continues. &amp;#8220;We wanted to release a beta so people could start experimenting with our scalability and extensibility themselves. Over the next few weeks, you can expect a handful of features starting to change source control to better understand and work with agents.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Several in the online community also highlighted the timing of Origin&amp;#8217;s launch. &lt;a href="https://www.linkedin.com/in/gergelyorosz/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gergely Orosz&lt;/a&gt;, author of &lt;em&gt;The Pragmatic Engineer&lt;/em&gt; newsletter and an investor in Graphite, initially &lt;a href="https://x.com/GergelyOrosz/status/2089397495939891698?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;took to X&lt;/a&gt; to complain about GitHub&amp;#8217;s ongoing performance issues, despite the number of engineers it has at its disposal. &lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Incredible how GitHub&amp;rsquo;s eng team knows reliability (having zero nines) is their #1 problem for ~6 months now and seemingly not being able to get a handle on it. Despite so many solid engineers working on it&lt;br&gt;&lt;br&gt;My bet: arch decisions years ago bite back v hard now &lt;a href="https://t.co/wHbCpugD6X" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;https://t.co/wHbCpugD6X&lt;/a&gt;&lt;/p&gt;&amp;mdash; Gergely Orosz (@GergelyOrosz) &lt;a href="https://x.com/GergelyOrosz/status/2089397495939891698?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 17, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;Within an hour, however, Orosz was &lt;a href="https://x.com/GergelyOrosz/status/2089414076900233647?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;back&lt;/a&gt; to comment on Origin. &amp;#8220;Cursor could not have timed their launch announcement of their hosted code service better either,&amp;#8221; he writes. &amp;#8220;If GitHub was stable, these alternatives would not be as interesting / popular!&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;These alternatives,&amp;#8221; as Orosz puts it, are already &lt;a href="https://thenewstack.io/cursor-origin-github-disruption/" class="local-link"&gt;forming an orderly queue in GitHub&amp;#8217;s shadow&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-github-alternative-surge"&gt;The &amp;#8216;GitHub alternative&amp;#8217; surge&lt;/h2&gt;
-
-
-
-&lt;p&gt;The most direct comparison to Origin is perhaps &lt;a href="https://entire.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Entire&lt;/a&gt;, a distributed Git network &lt;a href="https://thenewstack.io/thomas-dohmke-interview-entire/" class="local-link"&gt;founded by Thomas Dohmke&lt;/a&gt;, who stepped down as GitHub&amp;#8217;s CEO &lt;a href="https://thenewstack.io/github-loses-its-ceo-and-independence/" class="local-link"&gt;last August&lt;/a&gt;. Entire, essentially, &lt;a href="https://thenewstack.io/entire-git-for-agents/" class="local-link"&gt;mirrors repositories across regional nodes&lt;/a&gt;, with GitHub remaining the source of truth for now &amp;#8212; though that could change once teams start creating repos natively on the platform. The company &lt;a href="https://thenewstack.io/thomas-dohmke-interview-entire/" class="local-link"&gt;raised a $60 million seed round in February&lt;/a&gt;, with investors including Microsoft&amp;#8217;s venture arm, and it &lt;a href="https://thenewstack.io/entire-git-for-agents/" class="local-link"&gt;formally went to market in July&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Cursor could not have timed their launch announcement of their hosted code service better either. If GitHub was stable, these alternatives would not be as interesting / popular!&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;GitLab, meanwhile, is also rethinking source control for an agent-heavy world, &lt;a href="https://about.gitlab.com/press/releases/2026-06-10-gitlab-announces-new-capabilities-to-give-enterprises-speed-control-at-agentic-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announcing a private beta&lt;/a&gt; of &amp;#8220;Next Generation Source Code Management&amp;#8221; &amp;#8212; internally called Project Switch &amp;#8212; back in June. Instead of agents cloning an entire repository to read or change a handful of files, the system lets them query the server for exactly what a task needs, with each agent&amp;#8217;s visibility capped at the minimum required.&lt;/p&gt;
-
-
-
-&lt;p&gt;Elsewhere, code editor startup &lt;a href="https://zed.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Zed&lt;/a&gt; has &lt;a href="https://zed.dev/blog/introducing-deltadb" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;also been teasing&lt;/a&gt; a new approach to version control &lt;a href="https://zed.dev/blog/sequoia-backs-zed" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;since last year&lt;/a&gt;, and in early August the company finally &lt;a href="https://zed.dev/blog/introducing-delta" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;debuted Delta&lt;/a&gt;, a &amp;#8220;multiplayer environment for coding with agents and reviewing what they build,&amp;#8221; as the company puts it.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Delta keeps code and conversations connected, so developers and agents can work together with the full context of how the code came to be,&amp;#8221; Zed co-founder and CEO Nathan Sobo wrote at the beta launch. &lt;/p&gt;
-
-
-
-&lt;p&gt;Underneath, Delta runs on &lt;a href="https://zed.dev/deltadb" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DeltaDB&lt;/a&gt;, which keeps a live copy of conversations and in-progress work synced across a team. It sits alongside a project&amp;#8217;s existing Git repository, and works with agent tools including Claude Code. What that changes in real terms: comments stay attached to the code they refer to as an agent keeps editing it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Despite GitHub&amp;#8217;s persistent reliability problems, Whiteley doesn&amp;#8217;t see Cursor&amp;#8217;s version becoming a major enterprise play any time soon, mostly due to the pain of switching. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Most [enterprises] have already spent a lot of pain and money standardizing on GitHub, and moving again would mean a lot of pain for limited ROI today,&amp;#8221; he says. &amp;#8220;That could change as &amp;#8216;vibe coding&amp;#8217; generates an order of magnitude more code. If Cursor commits to keeping Origin open enough for enterprises to trust and integrate with, it could become much more appealing over time.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;So while there is a clear flurry of activity in the &amp;#8220;GitHub alternative&amp;#8221; realm, it&amp;#8217;s still too early to say whether any of them will cut it in the long term. GitHub has an 18-year head start: it launched in 2008, popularized the pull-request review model most of these newcomers are trying to disrupt, and was snapped up by Microsoft in 2018. It also set off the current wave of AI coding tools itself with the launch of Copilot in 2021 &amp;#8212; the same wave now generating the volume its own infrastructure is struggling to absorb.&lt;/p&gt;
-
-
-
-&lt;p&gt;For now, GitHub remains the only one of these platforms actually handling this kind of developer activity at scale. However, at a lofty $2 trillion valuation, SpaceX is one of the world&amp;#8217;s most valuable companies, which puts Cursor in a strong position when it comes to investment &amp;#8212; not just &lt;a href="https://thenewstack.io/cursors-composer-2-beats-opus/" class="local-link"&gt;in its own AI models&lt;/a&gt;, but in the infrastructure underneath them.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cursor-origin-github-alternative/"&gt;&amp;#8220;If GitHub was stable, these alternatives would not be as interesting&amp;#8221;: Cursor launches Origin as GitHub goes dark&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>SpaceX-owned Cursor launched its GitHub rival Origin the day GitHub itself went down, as several companies race to rebuild source control for AI agents.</content:encoded>
-    </item>
-    <item>
-      <title>A Claude Code skill was eating 200,000 tokens before answering a single question</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/claude-code-token-reduction/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 18 Aug 2026 17:42:50 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833801</guid>
-      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/08/c3134c2c-egor-komarov-jrlhwxzoboc-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital artwork resembling a glitching computer interface, with fragmented windows and overlapping shapes in red, pink, yellow and blue." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c3134c2c-egor-komarov-jrlhwxzoboc-unsplash-scaled.jpg" /&gt;&lt;p&gt;A Claude Code skill designed to help developers work with Anthropic&amp;#8217;s API was consuming more than 200,000 tokens to load.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-token-reduction/"&gt;A Claude Code skill was eating 200,000 tokens before answering a single question&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/08/c3134c2c-egor-komarov-jrlhwxzoboc-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital artwork resembling a glitching computer interface, with fragmented windows and overlapping shapes in red, pink, yellow and blue." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/c3134c2c-egor-komarov-jrlhwxzoboc-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;A Claude Code skill designed to help developers work with Anthropic&amp;#8217;s API was consuming more than 200,000 tokens to load. With Claude Code v2.1.234, Anthropic says it has brought that down to roughly 25,000 tokens.&lt;/p&gt;
-
-
-
-&lt;p&gt;The change appeared in the &lt;a href="https://code.claude.com/docs/en/changelog" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Code changelog&lt;/a&gt; on Monday. Anthropic attributed the reduction, which cuts the initial context cost by at least 85.7%, to loading the skill&amp;#8217;s reference documentation on demand. In this case, a single bundled skill could consume more tokens than many coding sessions do from beginning to end.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-skill-loaded-everything-upfront"&gt;Skill loaded everything upfront&lt;/h2&gt;
-
-
-
-&lt;p&gt;The built-in /claude-api skill which loads reference material for developers working with the Claude API and Managed Agents, can be invoked directly, but Claude Code can also activate it when a project imports Anthropic&amp;#8217;s Python or TypeScript SDK. Interestingly, developers had already traced the problem before Anthropic documented the fix.&lt;/p&gt;
-
-
-
-&lt;p&gt;In a &lt;a href="https://github.com/anthropics/claude-code/issues/75197" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub issue opened July 7&lt;/a&gt;, a developer examining Claude Code 2.1.201 found that /claude-api embedded its shared reference files and the detected language documentation directly into the skill body. The report measured roughly 120,000 tokens of reference material in a single invocation. One migration document accounted for an estimated 36,000 tokens on its own.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;One migration document accounted for an estimated 36,000 tokens on its own.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Once the rest of the skill loaded, even a one-line question could consume roughly 200,000 tokens before Claude started answering &amp;mdash; the hidden overhead that, &lt;a href="https://thenewstack.io/ai-pipeline-token-optimization/" class="local-link"&gt;as with production AI pipelines more broadly&lt;/a&gt;, only surfaces once someone actually measures it. The issue was closed as a duplicate and marked &amp;#8220;not planned,&amp;#8221; despite similar reports still coming in.&lt;/p&gt;
-
-
-
-&lt;p&gt;A second &lt;a href="https://github.com/anthropics/claude-code/issues/83818" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;bug report filed August 4&lt;/a&gt;, found a particularly expensive fallback. When the skill could not detect a project language during a prompt audit, it loaded documentation for C#, cURL, Go, Java, PHP, Python, Ruby and TypeScript, along with 26 shared Markdown files. The bundled directory was 812,650 bytes. Only one 32,954-byte file was needed up front for the task used in the reproduction.&lt;/p&gt;
-
-
-
-&lt;p&gt;A large local reference library provides an agent with useful material to draw on, but inlining it forced the agent to read all 812 KB for every request, even when most of it was irrelevant.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;A large local reference library provides an agent with useful material to draw on, but inlining it forced the agent to read all 812 KB for every request, even when most of it was irrelevant.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-context-window-fills-silently"&gt;Context window fills silently&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anthropic&amp;#8217;s own &lt;a href="https://code.claude.com/docs/en/best-practices" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Code best-practices guide&lt;/a&gt; warns that performance degrades as the window fills, with the model more likely to lose earlier instructions or make mistakes. It&amp;#8217;s a pattern that extends beyond Claude Code: &lt;a href="https://thenewstack.io/microsoft-copilot-token-budgets/" class="local-link"&gt;the blank-check era of AI coding is ending&lt;/a&gt; precisely because unchecked token consumption degrades both quality and cost.&lt;/p&gt;
-
-
-
-&lt;p&gt;Once a skill loads, its content becomes fixed overhead that developers may never see, &lt;a href="https://thenewstack.io/speakeasy-enterprise-agent-skills/" class="local-link"&gt;creating an inherited problem at enterprise scale&lt;/a&gt;. Claude Code&amp;rsquo;s documentation says the skill body stays in context across turns, even though the developer may see only the much smaller request and response.&lt;/p&gt;
-
-
-
-&lt;p&gt;Cutting the skill to roughly 25,000 tokens leaves a lot more room for the repository and the actual work. Anthropic doesn&amp;rsquo;t explain how Claude chooses which documents to load, only that the references are now pulled in on demand.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-on-demand-approach-trades-reads-for-room"&gt;On-demand approach trades reads for room&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anthropic&amp;#8217;s &lt;a href="https://code.claude.com/docs/en/skills" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;skill documentation&lt;/a&gt; says SKILL.md should contain the core instructions and links, while API specifications, examples, and other detailed material should live in supporting files that Claude opens only when needed.&lt;/p&gt;
-
-
-
-&lt;p&gt;That guidance divides loading into three stages: a small amount of metadata that is always present, the SKILL.md body when the skill triggers, and bundled resources pulled in during the task. The old /claude-api behavior blurred the last two by loading all of its reference material as soon as the skill ran.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;With on-demand loading, Claude may need an extra file read after it identifies the relevant language or API feature. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;With on-demand loading, Claude may need an extra file read after it identifies the relevant language or API feature. But it pays that cost only for material tied to the task, which becomes more important as &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;agentic workflows make token costs the fastest-growing line item in AI budgets&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-token-reduction/"&gt;A Claude Code skill was eating 200,000 tokens before answering a single question&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic&amp;#039;s /claude-api skill was silently consuming 200K tokens per request. A new Claude Code update cuts that to 25K by loading docs on demand.</content:encoded>
-    </item>
-    <item>
-      <title>Agentic AI has a latency problem that more compute won’t solve</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agentic-ai-latency-infrastructure/</link>
-      <dc:creator>Jon Alexander</dc:creator>
-      <pubDate>Tue, 18 Aug 2026 16:58:18 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Edge Computing</category>
-      <category>sponsor-akamai</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833812</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/cd593e78-logan-voss-vaemz6ov__i-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract neon pattern of distorted purple columns and lime-green rings rippling across a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/cd593e78-logan-voss-vaemz6ov__i-unsplash-scaled.jpg" /&gt;&lt;p&gt;Half of enterprise AI deployments are missing their own latency targets at peak load. This is the headline finding of&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-latency-infrastructure/"&gt;Agentic AI has a latency problem that more compute won&amp;#8217;t solve&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/cd593e78-logan-voss-vaemz6ov__i-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract neon pattern of distorted purple columns and lime-green rings rippling across a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/cd593e78-logan-voss-vaemz6ov__i-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Half of enterprise AI deployments are missing &lt;/strong&gt;their own latency targets at peak load. This is the headline finding of &lt;a href="https://www.akamai.com/lp/the-state-of-ai-inference" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Akamai&amp;#8217;s State of AI Inference 2026 report&lt;/a&gt;, which surveyed 200 AI practitioners and found that 82% of organizations say their most critical use cases require end-to-end response times of 500 milliseconds or less.&amp;nbsp;A total of 64% of organizations now require end-to-end response times of less than 250 milliseconds for their most important use cases, yet 50% of deployments are failing to meet these latency demands at peak load.&lt;/p&gt;
-
-
-
-&lt;p&gt;My colleague Ari Weil, who leads product marketing for our cloud computing business and ran point on that research, &lt;a href="https://www.akamai.com/blog/cloud/ai-study-organizations-struggle-maintain-latency-scale" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;summarizes the findings&lt;/a&gt; well: &amp;ldquo;The enterprise AI honeymoon phase is over&amp;#8230; they are hitting the latency wall.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agentic-workflows-aren-t-a-single-round-trip"&gt;&lt;strong&gt;Agentic workflows aren&amp;rsquo;t a &amp;ldquo;single round trip&amp;rdquo;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The latency issue stems from the way agents work. It&amp;rsquo;s an iterative process, somewhat like a king sending out knights, emissaries, and messengers to conduct the business of the kingdom. There are many comings and goings, not just one person sent on a single round trip.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;For instance, when an agent built on a framework like LangChain, CrewAI, or Pydantic AI received a user request, it can fan out into dozens of sequential operations such as a reasoning call, a tool invocation, an API lookup, or a context retrieval. Then an agent may execute another reasoning call to decide what to do with what just came back. Every one of these operations or &amp;ldquo;hops&amp;rdquo; that must cross a wide-area network to reach a centralized data center adds latency, and a chain of 50 hops can multiply that transport time into seconds on its own, regardless of how fast the model generates tokens.&lt;/p&gt;
-
-
-
-&lt;p&gt;In fact, in a &lt;a href="https://arxiv.org/abs/2511.00739" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;paper posted to arXiv in November 2025&lt;/a&gt;, researchers found that CPU-side processing can account for up to 90.6% of total latency in agentic workloads. In other words, your GPU might finish a reasoning step in a few hundred milliseconds, but then it might have to wait on additional tool call runs to CPUs in distant data centers. This is what causes spikes in GPU idle time.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;More GPU capacity does nothing for this. You can&amp;#8217;t brute-force your way out of a wait state.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;More GPU capacity does nothing for this. You can&amp;#8217;t brute-force your way out of a wait state. This is the part of the conversation the industry keeps skipping, mostly because &amp;#8220;buy more GPUs&amp;#8221; is a much quicker fix to suggest than &amp;#8220;figure out where your CPU-bound work is actually executing and why it&amp;#8217;s so far from the data it needs.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-we-need-new-benchmarks-to-fix-the-latency-issue"&gt;&lt;strong&gt;We need new benchmarks to fix the latency issue&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;One reason the looming latency wall sneaks up on teams is that they are not looking at the right benchmarks for agentic workloads. Most LLM-serving benchmarks measure tokens per second and GPU utilization on a single box. That&amp;rsquo;s great if the workload is indeed on a single box (i.e., one model answering one prompt), but that&amp;rsquo;s not the case with agentic workloads. Those benchmarks don&amp;rsquo;t address an agentic response that, say, makes a 50-hop chain cross a WAN 4 times to reach 4 separate services.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Staging may pass the benchmarks because it tests the model, but production tests the whole chain, including every hop your serving engine was never designed to see.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s where the gap lies: Staging may pass the benchmarks because it tests the model, but production tests the whole chain, including every hop your serving engine was never designed to see.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-500ms-wall-is-not-a-soft-target"&gt;&lt;strong&gt;The 500ms wall is not a soft target&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;This is showing up at scale because agents are moving into production faster than most teams&amp;#8217; architecture is evolving to support them. &lt;a href="https://www.langchain.com/state-of-agent-engineering" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LangChain&amp;#8217;s State of Agent Engineering 2026 survey&lt;/a&gt; of more than 1,300 professionals found that 57.3% of organizations now have agents running in production, up from 51% a year earlier. &lt;em&gt;Among those builders, latency has become the second-most-cited barrier to production, behind only output quality.&lt;/em&gt;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;This is a serious issue for application teams. The 500ms threshold in Akamai&amp;#8217;s survey isn&amp;#8217;t a performance goal teams can afford to miss. For a live customer interaction or a real-time compliance check, that 500ms determines whether the application works or it doesn&amp;#8217;t.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-we-ve-solved-this-problem-before"&gt;&lt;strong&gt;We&amp;#8217;ve solved this problem before&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;There&amp;#8217;s a reason this feels familiar to anyone who was building for the web in 1999. Akamai exists because of a nearly identical problem. MIT researchers Tom Leighton and Danny Lewin founded the company to answer a challenge posed by Tim Berners-Lee: fix what the press had started calling the &amp;#8220;World Wide Wait,&amp;#8221; the crushing latency of pulling every request back to a small number of centralized servers. When the trailer for &lt;em&gt;The Phantom Menace&lt;/em&gt; crashed sites across the internet in 1999, the culprit was distance: millions of browsers all reaching for the same far-away origin server at the same moment. The fix moved content to thousands of points closer to the people requesting it, instead of trying to build a faster origin.&lt;/p&gt;
-
-
-
-&lt;p&gt;Agentic AI is running into the same wall, just in a different vehicle. AI works just fine on centralized inference if you&amp;rsquo;re talking about running batch jobs overnight. But today&amp;rsquo;s applications built on agentic AI are real-time loops sitting inside live transactions, and the fix for agentic lag is distribution. Instead of expanding racks of CPUs and GPUs at the center, we need to move agentic execution to where the model&amp;#8217;s tools, context data, and users actually live.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agentic-ai-needs-a-tiered-architecture-not-a-bigger-data-center"&gt;&lt;strong&gt;Agentic AI needs a tiered architecture, not a bigger data center&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;In practice, agentic AI requires a tiered architecture, one that includes a centralized core, regional GPU clusters, and CPUs at the Edge.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Centralized core&amp;mdash;perfect for heavy reasoning over large context windows, where the round trip to a large model matters less than the model&amp;#8217;s raw capability.&lt;/li&gt;
-
-
-
-&lt;li&gt;Regional GPU clusters, increasingly built on hardware like NVIDIA&amp;#8217;s Blackwell platform&amp;mdash;ideal for localized inference, so the heaviest compute sits closer to where demand actually concentrates.&lt;/li&gt;
-
-
-
-&lt;li&gt;Edge CPUs&amp;mdash;the essential component for speed. This is the nexus for tool execution, orchestration, and context retrieval, since these are the steps that happen most often in a chain and benefit most from sitting next to the data and APIs they call.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;We&amp;#8217;ve built Akamai Inference Cloud around this tiered framework. It&amp;rsquo;s the same distribution logic behind our AI Grid Orchestrator. We route CPU-bound orchestration and tool calling to the edge, and keep GPU-bound reasoning where it makes sense, regionally or centrally.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-to-demand-before-you-commit"&gt;&lt;strong&gt;What to demand before you commit&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The good news is you don&amp;rsquo;t need to distribute every workload to the edge on day one. But before you commit to a production architecture, you should know which of your agent&amp;#8217;s dozens of hops are latency-sensitive and which aren&amp;#8217;t. Then build a defined performance budget for each one.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;The teams that treat it as a GPU-shopping decision will be back here in six months, staring at the same four-second response time, wondering why more compute didn&amp;#8217;t help.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;My advice is this: Before signing off on a large-scale inference deployment, ask your infrastructure for four things:&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;Portability across regions and providers&lt;/li&gt;
-
-
-
-&lt;li&gt;Elasticity to absorb peak load without falling over&lt;/li&gt;
-
-
-
-&lt;li&gt;Data locality so tool calls aren&amp;#8217;t crossing oceans to reach the context they need&lt;/li&gt;
-
-
-
-&lt;li&gt;A performance budget you&amp;#8217;ve actually tested against production traffic, not staging traffic.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;The teams that address this infrastructure decision now will be the ones whose agents still work when the benchmark environment transitions to real users. The teams that treat it as a GPU-shopping decision will be back here in six months, staring at the same four-second response time, wondering why more compute didn&amp;#8217;t help.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-latency-infrastructure/"&gt;Agentic AI has a latency problem that more compute won&amp;#8217;t solve&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Enterprise AI agents are hitting a latency wall as network hops, CPU work and centralized infrastructure push production response times beyond 500ms today.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s Greg Brockman: Z.ai’s GLM-5.3 likely to “significantly accelerate the threat landscape”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-open-weight-glm-5-3/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 18 Aug 2026 13:10:15 +0000</pubDate>
-      <category>AI</category>
-      <category>Large Language Models</category>
-      <category>Open Source</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833682</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/3f320915-allison-saeng-nrrwulr6nfq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Developer sitting at a computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/3f320915-allison-saeng-nrrwulr6nfq-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI has adopted a less-than-straightforward stance with regards to open-weight AI models, both raising alarms over powerful Chinese releases while&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-open-weight-glm-5-3/"&gt;OpenAI&amp;#8217;s Greg Brockman: Z.ai&amp;#8217;s GLM-5.3 likely to &amp;#8220;significantly accelerate the threat landscape&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/3f320915-allison-saeng-nrrwulr6nfq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Developer sitting at a computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/3f320915-allison-saeng-nrrwulr6nfq-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;OpenAI has adopted a less-than-straightforward stance with regards to open-weight AI models, both &lt;a href="https://www.axios.com/2026/07/22/openai-anthropic-open-models-trump-china" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;raising alarms over powerful Chinese releases&lt;/a&gt; while simultaneously &lt;a href="https://www.techradar.com/ai-platforms-assistants/openai-quietly-signs-letter-from-nvidia-microsoft-and-meta-warning-about-dangers-of-premature-restrictions-on-open-weight-ai-models-as-the-white-house-accuses-china-of-stealing-from-anthropic" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;opposing&lt;/a&gt; premature regulatory restrictions. But the company&amp;#8217;s co-founder and president &lt;a href="https://www.linkedin.com/in/thegdb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Greg Brockman&lt;/a&gt; has made it clear that he thinks open-weight models from the likes of &lt;a href="https://en.wikipedia.org/wiki/Z.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Chinese AI company Z.ai&lt;/a&gt; pose a fast-growing cybersecurity risk.&lt;/p&gt;
-
-
-
-&lt;p&gt;In a &lt;a href="https://openai.com/index/the-defenders-window/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Monday, Brockman outlined the security measures OpenAI is taking to defend itself, the steps he believes other organizations should be taking, and his case for why now is the moment to act. The genesis for all this was the security incident &lt;a href="https://huggingface.co/blog/security-incident-july-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a month previous&lt;/a&gt;, in which OpenAI&amp;#8217;s own models &lt;a href="https://thenewstack.io/openai-huggingface-sandbox-breach/" class="local-link"&gt;breached Hugging Face&amp;#8217;s infrastructure&lt;/a&gt; after escaping an internal test environment.&lt;/p&gt;
-
-
-
-&lt;p&gt;In the post, Brockman highlights his company&amp;#8217;s efforts to tip the security balance toward defenders, doing so by &lt;a href="https://thenewstack.io/openai-gpt56-cyber-daybreak/" class="local-link"&gt;restricting its most advanced&lt;/a&gt; models to a vetted group of security professionals since the launch of its &lt;a href="https://openai.com/index/trusted-access-for-cyber/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Trusted Access for Cyber program in February&lt;/a&gt;. But at the same time, he took the opportunity to re-surface the contentious issue of open-weight models.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Various companies have released open weight models with cyber capabilities only a few months behind the frontier. The most recent of these models appears slated to be released at the end of August, and seems likely to significantly accelerate the threat landscape.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Since then, various companies have released open weight models with cyber capabilities only a few months behind the frontier,&amp;#8221; Brockman writes. &amp;#8220;The most recent of these models appears slated &lt;a href="https://z.ai/blog/glm-5.3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;to be released&lt;/a&gt; at the end of August, and seems likely to significantly accelerate the threat landscape.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Brockman didn&amp;#8217;t mention Z.ai by name, but he did link to the company&amp;#8217;s &lt;a href="https://thenewstack.io/glm-5-3-post-training-coding/" class="local-link"&gt;recent GLM-5.3 launch&lt;/a&gt;, which by the Chinese lab&amp;#8217;s own benchmark figures marks a notable leap in coding and agentic performance, with strong vulnerability-finding scores that beat &lt;a href="https://thenewstack.io/anthropic-claude-mythos-fable-5/" class="local-link"&gt;Anthropic&amp;#8217;s Fable 5&lt;/a&gt; and &lt;a href="https://thenewstack.io/developers-review-gpt-56-sol/" class="local-link"&gt;OpenAI&amp;#8217;s GPT-5.6 Sol&lt;/a&gt; &amp;#8212; though on actual exploit development, it placed third, behind those same two models.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-two-sides-collide"&gt;Two sides collide&lt;/h2&gt;
-
-
-
-&lt;p&gt;While Z.ai intends to open its model weights in late August, OpenAI took a different approach when it &lt;a href="https://thenewstack.io/openai-gpt56-cyber-daybreak/" class="local-link"&gt;introduced GPT-5.6-Cyber&lt;/a&gt;, its latest cybersecurity model, as part of an August 10 expansion of its existing Daybreak program. Access to the model remains restricted to that program, which now requires identity verification, legal attestations, and, from September 1, mandatory hardware security keys for individual accounts.&lt;/p&gt;
-
-
-
-&lt;p&gt;This contrast helps demonstrate how the two &amp;#8220;sides&amp;#8221; are handling increasingly capable cyber models: OpenAI and rivals are keeping tighter control over access, while Z.ai and its ilk are moving toward public weight releases, albeit with some caution. &lt;/p&gt;
-
-
-
-&lt;p&gt;As &lt;em&gt;The New Stack&lt;/em&gt; &lt;a href="https://thenewstack.io/amodei-open-weights-compute-regulation/" class="local-link"&gt;reported on Monday&lt;/a&gt;, Anthropic has been similarly wary of open-weight models, if for slightly different reasons. CEO Dario Amodei &lt;a href="https://x.com/DarioAmodei/status/2088758816376807762" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;took to X&lt;/a&gt; over the weekend to argue that AI is structurally prone to concentrating power around whoever controls the most compute and chips, a dynamic he attributes to scaling laws rather than regulation.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Open-weights do help some with this but are nowhere near a sufficient solution because they simply shift the concentration somewhat to those with the most compute and chips &amp;#8212; which are roughly the frontier labs plus maybe hardware providers,&amp;#8221; Amodei wrote. He had previously called open models without dangerous capabilities &amp;#8220;&lt;a href="https://www.anthropic.com/news/position-open-weights-models" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a public good&lt;/a&gt;,&amp;#8221; reserving his call for mandatory safety testing &amp;#8212; regardless of whether a model is released open or closed &amp;#8212; for anything capable of helping someone carry out a serious attack.&lt;/p&gt;
-
-
-
-&lt;p&gt;Whether GLM-5.3 really will, as Brockman suggests, &amp;#8220;significantly accelerate the threat landscape&amp;#8221; is very much up for debate. &lt;a href="https://www.linkedin.com/in/jake-williams-77938a16/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jake Williams&lt;/a&gt;, a former Department of Defense (DoD) vulnerability analyst who&amp;#8217;s now a faculty analyst at &lt;a href="https://www.iansresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IANS Research&lt;/a&gt;, doesn&amp;#8217;t think so. He doesn&amp;#8217;t dispute that threat actors will use GLM-5.3 &amp;#8212; he just doesn&amp;#8217;t see one more capable tool as a meaningful escalation in what they already have access to.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Do I think threat actors will use this? Of course they will &amp;#8212; just like any other software they have access to. Do I think it will be a significant change in the threat landscape? Absolutely not.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Open weight models don&amp;#8217;t have to keep pace on benchmarks with frontier models to change the landscape,&amp;#8221; he tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;As long as they&amp;#8217;re in the ballpark in performance, they may actually be more valuable than closed weight models. I can use &lt;a href="https://en.wikipedia.org/wiki/Ablation_(artificial_intelligence)" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ablation&lt;/a&gt; with open-weight models to remove refusals for any given task [&amp;#8230;] Do I think threat actors will use this? Of course they will &amp;#8212; just like any other software they have access to. Do I think it will be a significant change in the threat landscape? Absolutely not.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Kimi K3, perhaps, is a good example of that gap. In July, &lt;a href="https://thenewstack.io/kimi-k3-inference-bottleneck/" class="local-link"&gt;Moonshot AI&amp;#8217;s model&lt;/a&gt;, another Chinese open-weight release, was &lt;a href="https://www.aisi.gov.uk/blog/preliminary-assessment-of-kimi-k3s-cyber-capabilities" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;jointly evaluated&lt;/a&gt; by the UK&amp;#8217;s AI Security Institute (AISI) and the US Center for AI Standards and Innovation (CAISI), and it trailed frontier systems by a wide margin &amp;#8212; failing to achieve arbitrary code execution on any of 41 ExploitBench samples, against an average of 20 for the most capable closed models tested with their system-level safeguards disabled. Yet its safeguards &amp;#8220;did not prevent it from attempting cyber exploit development or offensive cyber operations&amp;#8221; during testing, researchers said. &lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s a point worth dwelling on: Kimi&amp;#8217;s safeguards were still in place, and they didn&amp;#8217;t stop the model from attempting offensive cyber operations; its capability was the bigger constraint. Even then, it saw some success &amp;#8212; AISI/CAISI found that Kimi K3 could complete an autonomous attack against &amp;#8220;small, weakly defended and vulnerable enterprise systems&amp;#8221; in one of 10 runs. In that context, GLM-5.3&amp;#8217;s exact capability and benchmark position only tell part of the story. The bigger question is what happens once the model weights are public and whatever restrictions remain can be modified or removed.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-double-edged-sword"&gt;A double-edged sword&lt;/h2&gt;
-
-
-
-&lt;p&gt;Zooming out, one obvious question remains. The entire foundation of Brockman&amp;#8217;s post was centered around OpenAI&amp;#8217;s &lt;em&gt;own&lt;/em&gt; models breaking out of its test environment and gaining unauthorized access to a real company&amp;#8217;s internal infrastructure. Yet in writing about it, he chooses to mention an open-weight model launching out of China.&lt;/p&gt;
-
-
-
-&lt;p&gt;So why? &lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI&amp;#8217;s own recent record on open-weight models offers something of an answer. In mid-July, newly appointed &amp;#8220;head of strategic futures&amp;#8221; &lt;a href="https://x.com/deanwball/status/2078133895766114412" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dean Ball suggested&lt;/a&gt; that open-weight models are &amp;#8220;inherently decelerationist&amp;#8221; and warned they risk pushing the world toward what he called a &amp;#8220;dystopian hellscape&amp;#8221; of state-controlled AI, predicting that the Trump administration would eventually seek to create regulatory risk around the use of Chinese open-weight models.&lt;/p&gt;
-
-
-
-&lt;p&gt;Shortly after, OpenAI &lt;a href="https://x.com/firstadopter/status/2080818109141631210" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;eventually&lt;/a&gt; put its name to a &lt;a href="https://thenewstack.io/nvidia-open-weight-letter/" class="local-link"&gt;Nvidia-led letter&lt;/a&gt; defending open-weight models broadly against &amp;#8220;premature restrictions.&amp;#8221; Anthropic, for what it&amp;#8217;s worth, did not sign. &lt;/p&gt;
-
-
-
-&lt;p&gt;What OpenAI actually appears to be seeking, per &lt;a href="https://www.axios.com/2026/07/22/openai-anthropic-open-models-trump-china" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;comments made to Axios&lt;/a&gt; in July, is something more structured: a company spokesperson said the goal is &amp;#8220;a coherent national framework that enables the US to evaluate new models quickly, manage risks, and get the most powerful AI tools into the hands of cyber defenders&amp;#8221; &amp;#8212; not a rejection of open weights so much as a system where they&amp;#8217;re subject to some form of national evaluation and risk management.&lt;/p&gt;
-
-
-
-&lt;p&gt;Brockman&amp;#8217;s nod to GLM-5.3 carries that same tension in miniature: an open-weight model closing in on the frontier and headed for public release, singled out as a growing cyber risk in a post prompted by OpenAI&amp;#8217;s own models gaining unauthorized access to another company&amp;#8217;s systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;That brings the issue back to control itself. While model-control may well hold some cybersecurity advantages, there are risks on the flip-side. Anthropic&amp;#8217;s &lt;a href="https://thenewstack.io/anthropic-fable-mess-explained/" class="local-link"&gt;Fable 5 episode&lt;/a&gt; showed that those controls can effectively be puppeteered by government: when Washington &lt;a href="https://thenewstack.io/us-gov-orders-anthropic-to-pull-fable-5-and-mythos-5-three-days-after-launch/" class="local-link"&gt;ordered the company&lt;/a&gt; to suspend access for foreign nationals, Anthropic temporarily took the models offline entirely. More routinely, those same provider-side safeguards can also catch legitimate use: Anthropic &lt;a href="https://www.anthropic.com/news/redeploying-fable-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;acknowledged&lt;/a&gt; that Fable 5&amp;#8217;s unusually wide safety margins blocked many benign requests as false positives, and later &lt;a href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;loosened some biology restrictions&lt;/a&gt; after users were repeatedly routed to a less capable model.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;OpenAI and Anthropic will continue to determine what you can and can&amp;#8217;t do with their models.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;So open-weight models may be harder to police once released, but they&amp;#8217;re also far harder for either the developer or government to take away.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;OpenAI and Anthropic will continue to determine what you can and can&amp;#8217;t do with their models,&amp;#8221; Williams says. &amp;#8220;As we&amp;#8217;ve experienced repeatedly, that can take an existing use case and neuter it if the big model providers decide they&amp;#8217;re no longer comfortable with your given workflow. Open weight models also put all the change control in your hands &amp;#8212; another pain point with frontier models.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-open-weight-glm-5-3/"&gt;OpenAI&amp;#8217;s Greg Brockman: Z.ai&amp;#8217;s GLM-5.3 likely to &amp;#8220;significantly accelerate the threat landscape&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>The claim comes after Anthropic CEO Dario Amodei claims that open-weight models aren&amp;#039;t a sufficient fix for AI&amp;#039;s power concentration</content:encoded>
     </item>
   </channel>
 </rss>
