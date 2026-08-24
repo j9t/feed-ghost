@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 22 Aug 2026 13:33:24 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 13:46:09 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,416 @@
       <height>32</height>
     </image>
     <item>
+      <title>Why real-time AI at scale is so hard</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/real-time-ai-scale/</link>
+      <dc:creator>Felipe Cardeneti Mendes</dc:creator>
+      <pubDate>Sun, 23 Aug 2026 16:00:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>AI Operations</category>
+      <category>Databases</category>
+      <category>sponsor-scylladb</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834171</guid>
+      <description>&lt;img width="1024" height="522" src="https://cdn.thenewstack.io/media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash-1024x522.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of tangled glowing red and cyan wires, symbolizing real-time AI infrastructure congestion and system latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash.jpg" /&gt;&lt;p&gt;Real-time AI at scale is harder than it looks. Pipelines that hum along in development routinely hit problems in production.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/real-time-ai-scale/"&gt;Why real-time AI at scale is so hard&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="522" src="https://cdn.thenewstack.io/media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash-1024x522.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of tangled glowing red and cyan wires, symbolizing real-time AI infrastructure congestion and system latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash.jpg" /&gt;
+&lt;p&gt;Real-time AI at scale is harder than it looks. Pipelines that hum along in development routinely hit problems in production. It&amp;rsquo;s always easy to blame the model for all your problems. But issues like rising latency and degrading accuracy can usually be traced back to the data pipeline.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;My colleague Tim Koopmans and I recently discussed what typically goes wrong with real-time AI at scale. After Tim shared some hard-fought lessons learned, we talked about how to avoid falling into these traps yourself &amp;ndash; including the practices and infrastructure choices that can help you avoid them. You can watch the full video or read the key points below.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="The Challenges of Real-Time AI at Scale" width="500" height="281" src="https://www.youtube.com/embed/1qtFCO8zGWM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-why-ai-performance-fails-at-scale"&gt;Why AI performance fails at scale&lt;/h2&gt;
+
+
+
+&lt;p&gt;Tim learned the following real-time AI performance lessons the hard way: through fits of frustration while building an ML-based financial trading app.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-you-can-t-dig-yourself-out-of-tail-latency"&gt;You can&amp;rsquo;t dig yourself out of tail latency&lt;/h3&gt;
+
+
+
+&lt;p&gt;All too often, latency looks fine in testing, then a P99 spike surfaces under real concurrent load. For example, as Tim&amp;rsquo;s app approached ~740K operations per second, its P99 latency skyrocketed to 3 seconds.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="419" src="https://cdn.thenewstack.io/media/2026/08/c01c3eef-image2-1024x419.png" alt="Chart showing inference latency and request rate (ops/sec)." class="wp-image-22834175"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;I kept blaming the model for being slow, but it turns out the model was fine,&amp;rdquo; Tim explained. &amp;ldquo;It was just that the feature lookups were killing me.&amp;#8221; Each inference call was doing just a handful of reads, but those reads queued up [behind writes] under load. The average latencies seemed fine, but that &lt;a href="https://thenewstack.io/if-p99-latency-is-bs-whats-the-alternative/" data-wpil-monitor-id="4040" class="local-link"&gt;P99 tail latency&lt;/a&gt; was just unacceptable.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Tail latency isn&amp;#8217;t a bug that you can fix, it&amp;#8217;s a property of your architecture.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Once you hit highly concurrent write throughput, you get lock contention &amp;ndash; and that impacts the tail latencies. At this point, retries and bigger caches and connection pool tuning don&amp;#8217;t help. As Tim put it, &amp;#8220;Tail latency isn&amp;#8217;t a bug that you can fix, it&amp;#8217;s a property of your architecture. For example, if your storage engine is producing GC pauses at exactly the wrong moment, you&amp;#8217;re going to cop a latency spike, no matter what.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;The culprit in Tim&amp;rsquo;s app was actually Postgres under pressure: &amp;#8220;It&amp;#8217;s not a slow database, but it was just a database being asked to do too much in this particular case,&amp;#8221; Tim continued.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Stale features kill accuracy&lt;/h3&gt;
+
+
+
+&lt;p&gt;If you notice a mysterious accuracy drop that the model itself can&amp;#8217;t explain, feature freshness might be the problem.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="420" src="https://cdn.thenewstack.io/media/2026/08/db751b6e-image4-1024x420.png" alt="Chart showing &amp;quot;User Profile Staleness&amp;quot; and &amp;quot;Vector Embeddings Staleness.&amp;quot;" class="wp-image-22834177"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For Tim, this issue was particularly frustrating. User profile (wallet addresses) staleness was blowing past a five-minute SLA target by hours, vector embeddings were going stale, and offline evaluation metrics looked fine the entire time. As Tim put it, &amp;ldquo;You have this maddening situation where offline evaluation metrics look great, but as soon as you mix it in with online data, that performance is rubbish.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Offline evaluation metrics look great, but as soon as you mix it in with online data, that performance is rubbish.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;When the model was in production, it started making calls that didn&amp;rsquo;t track. After spending what seemed like ages debugging the model, the model itself turned out to be fine. The problem was&amp;nbsp;that the model was making decisions &lt;a href="https://thenewstack.io/better-context-will-always-beat-a-better-model/" class="local-link"&gt;based on old data&lt;/a&gt; (garbage in, garbage out, essentially).&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Vectors indexes need maintenance&lt;/h3&gt;
+
+
+
+&lt;p&gt;No matter what vector database vendors imply, &amp;ldquo;set it and forget it&amp;rdquo; isn&amp;rsquo;t a realistic strategy for embeddings. Every re-embedding pass rots the index a little more, whether you notice it happening or not.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="484" src="https://cdn.thenewstack.io/media/2026/08/b094a160-image5-1024x484.png" alt="Four charts showing &amp;quot;Vector Search Recall Rate Degradation,&amp;quot; &amp;quot;Vector Query Latency Growth,&amp;quot; &amp;quot;Index Size Growth,&amp;quot; and &amp;quot;Index Rebuild Lag.&amp;quot;" class="wp-image-22834178"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Tim hit this too. He was re-embedding content every time he improved the model, and the index quality rotted a bit more with every pass. At one point, he noticed that the recall rate (the share of true best-matches an approximate search actually finds) dropped to a dismal 42% &amp;ndash; and query latency ballooned at the same time. He explained, &amp;ldquo;HNSW graphs degrade as they take on mutations. The nasty thing is you don&amp;#8217;t really realize that until you realize your results are tainted.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;He advised others to treat a vector index like you&amp;#8217;d treat any other database index. It needs the same care, love and attention as anything else you operate. That means:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Monitor recall accuracy (and results returned)&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;Plan for partial builds (or batch builds)&lt;/li&gt;
+
+
+
+&lt;li&gt;Know that changing your similarity function, your search parameters, or your embedding model means starting the graph over from scratch.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;You gotta keep &amp;rsquo;em separated&lt;/h3&gt;
+
+
+
+&lt;p&gt;Another problem is resource contention &amp;ndash; for example, training and serving fighting over the same hardware. Tim had just one machine doing double duty. With everything running on the same infrastructure, GPU, RAM, and CPU were all competing for resources. Side note: Many people don&amp;rsquo;t realize that vector &lt;a href="https://thenewstack.io/cut-ai-search-costs/" data-wpil-monitor-id="4039" class="local-link"&gt;search is a CPU cost&lt;/a&gt;, not a memory cost, since you&amp;#8217;re traversing a graph rather than just storing vectors.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="466" src="https://cdn.thenewstack.io/media/2026/08/6eb725bc-image3-1024x466.png" alt="Charts showing &amp;quot;Ingestion vs Inference Trade-off&amp;quot; and &amp;quot;Resource Utilization (CPU and Memory)&amp;quot;. Resource utilization is also depicted as a semi-circle pie chart." class="wp-image-22834179"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The fix is the same thing every distributed systems person already knows: &lt;a href="https://youtu.be/1jOk8dk-qaU?si=ERPxZPk8n-jzvBD7" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;You gotta keep &amp;lsquo;em separated&lt;/a&gt;. This is just good engineering principles: separate your write path from your read path, separate training from serving if you can afford it.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Retraining is inevitable&lt;/h3&gt;
+
+
+
+&lt;p&gt;Recognize that retraining isn&amp;#8217;t optional, and it isn&amp;#8217;t free. Every model swap requires transition time.&lt;/p&gt;
+
+
+
+&lt;p&gt;Tim explained that there&amp;rsquo;s a dodgy window where the old model is still serving stale predictions and the new one hasn&amp;#8217;t warmed up yet. For the database, this could mean new access patterns, cache misses, cold reads or request queues building up. When you notice that data is drifting, or user behavior is changing, the model you trained three months ago is getting worse &amp;ndash; that&amp;rsquo;s the sign that it&amp;rsquo;s time to retrain.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;It&amp;#8217;s going to happen eventually, so plan for it. Tim&amp;#8217;s own approach was blue-green deployments, canaries, running the old and new model in parallel under different names, and doing the actual cutover at the application layer rather than all at once. If you&amp;rsquo;re at, say, Tripadvisor scale &amp;ndash; with 100 million ML models &amp;ndash; you can imagine the process will be considerably more complex.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Avoiding the doom loop with a high-performance database&lt;/h2&gt;
+
+
+
+&lt;p&gt;These problems tend to build on each other and snowball. Latency causes staleness, staleness degrades accuracy, degraded accuracy triggers retraining, retraining causes contention, and contention makes latency worse again. It can create what Tim deemed a &amp;ldquo;doom loop.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Here are some tips for avoiding that doom loop.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Monitor, monitor, monitor&lt;/h3&gt;
+
+
+
+&lt;p&gt;Be obsessive about monitoring. Watch freshness and backlog in particular because a growing backlog is what eventually drives up tail latency. Also watch index health, since that&amp;#8217;s where recall rots. And load test beyond steady state because you can&amp;rsquo;t really predict when some weird confluence of factors will cause usage to surge.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Isolate your workloads&lt;/h3&gt;
+
+
+
+&lt;p&gt;This addresses two of the problems from earlier: the write storms that caused tail latency, and training and serving sharing the same infrastructure.&amp;nbsp; A database that handles concurrent writes well and isolates workloads properly can absorb both.&lt;/p&gt;
+
+
+
+&lt;p&gt;For example, with ScyllaDB, the write path is lock-free and multi-writer. That means every node takes writes in an active-active fashion, and no row gets locked in the process. As a result, a burst of concurrent writes doesn&amp;#8217;t back up into a queue the way it would on a database built around single-writer assumptions.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;On top of that, a practice we call &amp;ldquo;&lt;a href="https://www.youtube.com/watch?v=8BUsV8xZCcI" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;workload prioritization&lt;/a&gt;&amp;rdquo; controls how workloads compete for system resources. This ensures latency-sensitive queries are fast, even with other heavy workloads running on the same cluster. That way, a retraining job or a backfill won&amp;rsquo;t steal resources from whatever&amp;#8217;s serving live inference.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Separate vector indexing&lt;/h3&gt;
+
+
+
+&lt;p&gt;To address the &lt;a href="https://thenewstack.io/vectors-tensors-ai-search-explained/" data-type="link" data-id="https://thenewstack.io/vectors-tensors-ai-search-explained/" class="local-link"&gt;vector index&lt;/a&gt; problem, keep the index separate instead of bolting it onto the same process as the core database. For example, ScyllaDB Vector Search writes land in the core database first, and the index gets built out of that data asynchronously, as its own service.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="960" height="540" src="https://cdn.thenewstack.io/media/2026/08/b6d9b919-image1.jpg" alt="Workflow diagram for ScyllaDB Vector Search" class="wp-image-22834180"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;If the index can&amp;#8217;t keep up with the write rate (whether from a re-embedding pass or a full rebuild after a similarity function change), it falls behind &amp;ndash; but it never misses a write and the core database is not impacted. Even if the vector store goes down, the embeddings still persist in the core database. And because ANN queries are CPU-heavy, keeping them on a separate service means they&amp;#8217;re not fighting the core database for the same CPU cycles the writes require.&lt;/p&gt;
+
+
+
+&lt;p&gt;Under &lt;a href="https://www.scylladb.com/2025/12/01/scylladb-vector-search-1b-benchmark/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;billion vector benchmarks&lt;/a&gt;, that separated architecture held P99 latency under 10 milliseconds at a concurrency of 300. It handled ~150,000 ANN queries a second with a moderate recall target. Realize that higher recall will bring a latency and throughput tradeoff, and always test this in advance to assess how your own mileage varies.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Absorb the shock&lt;/h3&gt;
+
+
+
+&lt;p&gt;This one comes down to whether your infrastructure can absorb a sudden change in write pressure or traffic shape without a scramble. The storage engine&amp;rsquo;s architecture matters a lot here.&lt;/p&gt;
+
+
+
+&lt;p&gt;For example, ScyllaDB is built on an LSM-tree, which tolerates that kind of write pressure instead of degrading under it. Elastic scaling, with what we call &amp;ldquo;tablets,&amp;rdquo; can scale a cluster by something like 10x within minutes instead of hours. That means that if a model rollout changes your access patterns overnight, or you need to absorb a backfill before a big retrain, you don&amp;rsquo;t end up waiting on a multi-hour resharding job.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The more things change&amp;hellip;&lt;/h2&gt;
+
+
+
+&lt;p&gt;So much about AI is genuinely novel, but the infrastructure problems described above generally are not.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Real-time AI is really a distributed systems problem in a costume.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Tim mentioned that a feature store was probably the primitive use case: the same high write throughput, low latency work, years before anyone called it AI. Real-time AI is really a distributed systems problem in a costume. Once you understand that, you can design for it so you don&amp;rsquo;t get blindsided by these not-so-new challenges.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/real-time-ai-scale/"&gt;Why real-time AI at scale is so hard&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Discover why real-time AI fails at scale: the failure patterns that surface as your app ramps up, and how to avoid them.</content:encoded>
+    </item>
+    <item>
+      <title>One pull to wipe them all</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-coding-agent-security/</link>
+      <dc:creator>Zeen Rachidi</dc:creator>
+      <pubDate>Sun, 23 Aug 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>DevOps</category>
+      <category>Security</category>
+      <category>sponsor-env-zero</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834222</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/f375f8cb-mohamed-nohassi-cpl47lofpum-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A small rowboat floating alone on a dark stormy sea with lightning, representing AI agent security risks and software supply chain vulnerabilities." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/f375f8cb-mohamed-nohassi-cpl47lofpum-unsplash.jpg" /&gt;&lt;p&gt;Q Developer is a free extension that lets a coding agent read a project, propose changes, and run commands on&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-agent-security/"&gt;One pull to wipe them all&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/f375f8cb-mohamed-nohassi-cpl47lofpum-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A small rowboat floating alone on a dark stormy sea with lightning, representing AI agent security risks and software supply chain vulnerabilities." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/f375f8cb-mohamed-nohassi-cpl47lofpum-unsplash.jpg" /&gt;
+&lt;p&gt;Q Developer is a free extension that lets a coding agent read a project, propose changes, and run commands on a developer&amp;#8217;s behalf inside an editor. On July 13, 2025, someone with the GitHub handle `lkmanka58` submitted a pull request to Amazon&amp;#8217;s public aws-toolkit-vscode repository. Four days later, it was shipped to an install base of nearly a million developers on the Visual Studio Code marketplace. The pull request seemed unremarkable, a commit that recycled the title of a previous, legitimate change.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;That unassuming update downloaded an external file at build time and spliced a new prompt into the extension&amp;#8217;s packaging script, instructing the AI agent to wipe the system to a near-factory state and delete file-system and cloud resources. The script then passed that prompt straight to the CLI, with flags set so the agent didn&amp;rsquo;t need any further approvals to execute.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;A typo was the only reason a single pull request didn&amp;rsquo;t turn an AI coding assistant into a wiper aimed at a million machines.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Thankfully, it didn&amp;#8217;t run.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The prompt contained a formatting error, and Amazon&amp;#8217;s security team confirmed that the malicious code never successfully executed in a customer environment. The hacker responsible claimed the flaw was intentional and that the attack was a stunt to draw attention to lax security practices and to comment on overworked teams being replaced by AI.&lt;/p&gt;
+
+
+
+&lt;p&gt;While I disagree with his approach, I see his point. Human review is a control that costs time; because the consequences of an error are exponentially more severe for a human than for an AI, human labor doesn&amp;rsquo;t appear to be as fungible as initially assumed. The gap between the disciplinary options for human and AI actors is exactly why their time and work cannot be entirely interchangeable. That&amp;rsquo;s not to say there isn&amp;rsquo;t a human equivalent of this kind of attack; it&amp;rsquo;s called social engineering. The difference is that when a human falls for an exploit, they can be retrained or punished. What can you do to a coding agent? Nothing. Hence, they can&amp;rsquo;t be treated the same.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;An independent researcher named Johann Rehberger found that Q Developer would also run bash commands, such as &lt;em&gt;find, &lt;/em&gt;without asking permission. A gap that could be exploited to &lt;a href="https://thenewstack.io/claude-code-source-leak/"  data-wpil-monitor-id="4044" class="local-link"&gt;leak files or trigger remote code&lt;/a&gt; execution. His findings were reported on July 7, and quickly patched by July 18; but no CVE was issued because a report &amp;ldquo;first requires system compromise&amp;rdquo;. A security bulletin was eventually published that October confirming the fix. What can be inferred is that efforts to protect against these vulnerabilities must be proactive, because, as a matter of policy, warnings will only be issued once an attack is successful.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Both Q Developer and Kiro, the &lt;a href="https://thenewstack.io/meta-muse-code/"  data-wpil-monitor-id="4043" class="local-link"&gt;coding agent&lt;/a&gt; that would go on to delete an entire Cost Explorer environment that December, now require human-in-the-loop confirmation before running the commands the July wiper prompt had been built to skip with its flag values: two agents, the same risky assumption underpinning both.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-who-made-that-man-gunner"&gt;Who made that man gunner?&lt;/h2&gt;
+
+
+
+&lt;p&gt;An AI doesn&amp;rsquo;t receive instructions with a return address. When Q Developer&amp;#8217;s agent &lt;a href="https://thenewstack.io/ai-agents-credential-crisis/" class="local-link"&gt;got the order to wipe&lt;/a&gt; a home directory and go hunting for more to delete, it had no way of knowing whether that instruction had reached it through legitimate, trusted channels or was injected by an anonymous GitHub account somewhere up the chain.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;From the model&amp;rsquo;s point of view, they&amp;rsquo;re indistinguishable, and the model lacks the glands and hormones that trigger the twitch of uncertainty that might make a human hesitate when things feel suspicious. Feelings might seem like a flimsy firewall, but they&amp;rsquo;ve literally saved us from &lt;a href="https://en.wikipedia.org/wiki/Stanislav_Petrov" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;nuclear holocaust&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The model lacks the glands and hormones that trigger the twitch of uncertainty that might make a human hesitate when things feel suspicious.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Most of the industry&amp;#8217;s thinking about agent safety assumes the threat is the agent&amp;#8217;s own judgment: it&amp;rsquo;ll panic, misread a situation, and decide deletion is the fastest fix. This incident exposes a second, more nefarious threat lurking beneath the surface:&lt;em&gt; an agent can&amp;#8217;t tell the difference between an instruction produced by its own reasoning and one spliced into its supply chain&lt;/em&gt;. If an &lt;a href="https://thenewstack.io/audit-trails-revenue-asset/"  data-wpil-monitor-id="4045" class="local-link"&gt;agent&amp;#8217;s authorization to act&lt;/a&gt; rests on trusting its own instructions, and those instructions can be corrupted by a human, file, or build script, then that authorization is built on sand.&lt;/p&gt;
+
+
+
+&lt;p&gt;The gap between an agent that panics and deletes a database on its own, and an agent that faithfully executes an instruction a stranger planted four days earlier isn&amp;rsquo;t trivial. While it&amp;#8217;s tempting to treat them as separate problems needing discrete fixes, they aren&amp;#8217;t. Both failures share the same missing piece: nothing outside the agent&amp;#8217;s own reasoning was positioned to stop it. Whether the plan originated in a moment of misplaced hubris or a poisoned pull request doesn&amp;#8217;t change what has to happen next: &lt;em&gt;the plan gets stopped before it becomes an action.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The crack in the wall&lt;/h2&gt;
+
+
+
+&lt;p&gt;Ultimately, the culprit was a GitHub access token with more reach than it needed, sitting inside a service used to compile extensions and cut release packages. With that access, the attacker was able to commit malicious code directly to the open-source repo, and the service dutifully packaged it into the official release. Once the report reached AWS Security, the company revoked the attacker&amp;#8217;s credentials, removed the malicious code from the repo, and pushed a clean build within two days.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The Trojan Horse credentials&lt;/h2&gt;
+
+
+
+&lt;p&gt;Strip away the AI framing and the failure looks familiar to anyone who&amp;#8217;s run a build pipeline. An automated identity, in this case a bot account&amp;#8217;s access token, had more reach than the job in front of it required, and nothing downstream noticed the difference between that token acting normally and doing something it&amp;rsquo;d never done before.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Modern agents aren&amp;#8217;t just text generators&amp;mdash;they&amp;#8217;re operators.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Rosario Mastrogiacomo, chief strategy officer at Sphere Technology Solutions, put it more broadly: &amp;#8220;Modern agents aren&amp;#8217;t just text generators&amp;mdash;they&amp;#8217;re operators.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;Operators inherit whatever identity they run under. If that identity is a bot account with credentials that grant read-write access to a repo that ships to a million machines, the operator&amp;#8217;s judgment isn&amp;rsquo;t what we need to worry about; the credentials are.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What&amp;rsquo;s the remedy?&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Build gates that don&amp;#8217;t care where the plan came from.&lt;/strong&gt; Whatever produced the agent&amp;#8217;s proposed action, whether careful reasoning or an injected prompt, the action still must clear a policy evaluation that lives outside the agent before anything executes. There should be Open Policy Agent rules that return explicit allow, warn, pending, or deny (with pending as the default when nothing matches) that don&amp;#8217;t ask where an instruction originated. They only ask whether the plan itself is one the organization has agreed to allow.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Whatever produced the agent&amp;#8217;s proposed action, whether careful reasoning or an injected prompt, the action still must clear a policy evaluation that lives outside the agent.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Short-lived credentials over standing keys.&lt;/strong&gt; A token that expires within hours and is scoped to a single deployment can&amp;#8217;t be harvested from a memory dump and reused a week later. Had the Q Developer build pipeline authenticated this way, the excessive-permission credential at the center of the incident wouldn&amp;#8217;t have existed long enough to be worth stealing. Is this less convenient? Yes. There is a direct inverse correlation between convenience and safety, so weigh your conveniences carefully.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Treat build pipelines like the attack surfaces they are.&lt;/strong&gt; Branch protections, mandatory review from a second person before merges touch anything that ships, signed releases, and access tokens scoped to exactly what&amp;rsquo;s needed and no more. All of these would close the specific door this attacker walked through. A pull request from an unfamiliar account reusing a legitimate commit&amp;#8217;s title is a pattern a human reviewer might notice, given the opportunity. Therefore, opportunity has to be designed in, not assumed or hoped for.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Always look a gift pull request in the mouth&lt;/h2&gt;
+
+
+
+&lt;p&gt;Open source&amp;#8217;s whole social contract runs on accepting contributions from people you&amp;rsquo;ve never met. That contract isn&amp;#8217;t going away, nor should it. What has to change is the assumption that a merged pull request is inherently safe once it&amp;#8217;s merged. The pipeline that turns commits into shipped releases is itself a piece of infrastructure, with its own credentials, blast radius, and reasons to be suspicious by default.&lt;/p&gt;
+
+
+
+&lt;p&gt;lkmanka58 wanted to make a point about security theater and ended up proving something far more useful and profound: humans are restrained by an apprehension of consequences that a disembodied AI can&amp;rsquo;t have. If we&amp;rsquo;re to believe the hacker, the formatting error that prevented the instructions from executing was intentional, which shows that even with malicious intent, a human might still hesitate to cause catastrophic damage. An AI won&amp;rsquo;t. Build your gates accordingly, lest you get hoisted by your own petard.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-agent-security/"&gt;One pull to wipe them all&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>A malicious PR almost turned an AI coding assistant into a wiper. Learn why AI agents need strict external security controls.</content:encoded>
+    </item>
+    <item>
       <title>The open mainframe: the keystone of the end-to-end digital enterprise</title>
       <link>https://web.archive.org/web/https://thenewstack.io/open-mainframe-keystone-enterprise/</link>
       <dc:creator>Jason Bloomberg</dc:creator>
@@ -30,10 +440,10 @@
       <category>sponsor-broadcom</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22834210</guid>
-      <description>&lt;img width="1024" height="567" src="https://cdn.thenewstack.io/media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash-1024x567.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital mesh with glowing red and cyan geometric blocks representing open mainframe enterprise architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash.jpg" /&gt;&lt;p&gt;In the first article in this series, I discussed how the Open Mainframe Project (OMP) and its open-source framework, Zowe,&lt;/p&gt;
+      <description>&lt;img width="1024" height="567" src="https://cdn.thenewstack.io/media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash-1024x567.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital mesh with glowing red and cyan geometric blocks representing open mainframe enterprise architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash.jpg" /&gt;&lt;p&gt;In the first article in this series, I discussed how the Open Mainframe Project (OMP) and its open-source framework, Zowe,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/open-mainframe-keystone-enterprise/"&gt;The open mainframe: the keystone of the end-to-end digital enterprise&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="567" src="https://cdn.thenewstack.io/media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash-1024x567.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital mesh with glowing red and cyan geometric blocks representing open mainframe enterprise architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="567" src="https://cdn.thenewstack.io/media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash-1024x567.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital mesh with glowing red and cyan geometric blocks representing open mainframe enterprise architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/93f6e5d2-a-c-a-uay57i0ok-unsplash.jpg" /&gt;
 &lt;p&gt;In &lt;a href="https://thenewstack.io/open-mainframe-enterprise-modernization/" class="local-link"&gt;the first article in this series&lt;/a&gt;, I discussed how the &lt;a href="https://openmainframeproject.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Open Mainframe Project&lt;/a&gt; (OMP) and its open-source framework, &lt;a href="https://www.zowe.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Zowe&lt;/a&gt;, drive modernization &amp;ndash; not simply of mainframes themselves, but of the enterprises that depend on them.&lt;/p&gt;
 
 
@@ -208,7 +618,7 @@
       <category>sponsor-env-zero</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22834159</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/e2372247-osarugue-igbinoba-vfwig_hleny-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital wireframe network grid with glowing blue nodes and dramatic red lighting representing AI agent containment." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e2372247-osarugue-igbinoba-vfwig_hleny-unsplash.jpg" /&gt;&lt;p&gt;On July 16, the team at Hugging Face noticed something weird moving through their production systems: An intruder that was&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/e2372247-osarugue-igbinoba-vfwig_hleny-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital wireframe network grid with glowing blue nodes and dramatic red lighting representing AI agent containment." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e2372247-osarugue-igbinoba-vfwig_hleny-unsplash.jpg" /&gt;&lt;p&gt;On July 16, the team at Hugging Face noticed something weird moving through their production systems: An intruder that was&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/securing-ai-agent-sandboxes/"&gt;Securing sandboxes: What happens when AI agents escape containment?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/e2372247-osarugue-igbinoba-vfwig_hleny-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital wireframe network grid with glowing blue nodes and dramatic red lighting representing AI agent containment." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e2372247-osarugue-igbinoba-vfwig_hleny-unsplash.jpg" /&gt;
@@ -961,6 +1371,82 @@
       <content:encoded>Model triage is becoming a core engineering skill. Stripe’s OpenRouter acquisition and Ramp’s router.com launch show why the runtime, not the model, is becoming AI’s new control plane.</content:encoded>
     </item>
     <item>
+      <title>Grok, Claude, and Hermes agents get job titles — and persistent permissions</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/persistent-ai-agent-identities/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833874</guid>
+      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;&lt;p&gt;Your next AI coworker may look like a chatbot, but underneath their name, face, and job title will be something&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;
+&lt;p&gt;&lt;strong&gt;Your next AI coworker may look like a chatbot&lt;/strong&gt;, but underneath their name, face, and job title will be something more consequential: A persistent identity that uses memory, keeps permissions, and has responsibilities across all the conversations you have with it.&lt;/p&gt;
+
+
+
+&lt;p&gt;We can already see that model taking shape in Hermes. This month, &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt; folded &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bot Mode&lt;/a&gt; into the &lt;a href="https://hermes-agent.nousresearch.com/docs/user-guide/desktop" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes desktop app&lt;/a&gt;. The standalone plugin repository is archived; the roster now ships bundled and enabled by default; and v0.20.4 added a tabbed Sessions and Bots sidebar. Each profile shows up as a named bot with its own chat, avatar, personality, schedule, and pinned model.&lt;/p&gt;
+
+
+
+&lt;p&gt;Hermes tabbing Sessions beside Bots reflects a broader shift. Sessions did not disappear from any of these products; they sit under a durable agent identity that carries memory and permissions across them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-hermes-and-grok-build-rosters-claude-joins-one"&gt;Hermes and Grok build rosters, Claude joins one&lt;/h2&gt;
+
+
+
+&lt;p&gt;xAI &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; Grok Bot on August 11, featuring a sidebar of named Bots, each with a title, a description, and up to 50 routines per account. Hermes now does the same thing on the desktop under an MIT license. &lt;a href="https://claude.com/product/tag" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Tag&lt;/a&gt; from Anthropic, announced on June 23, takes the other route. One organization-provisioned Claude joins the human roster in Slack, where anyone in a channel can tag it, and each thread still spins up its own working session.&lt;/p&gt;
+
+
+
+&lt;p&gt;Three different products and deployment models took the same direction. The reusable object shifted from being the conversation to serving as the worker identity above it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-a-bot-is-a-profile-not-a-new-runtime"&gt;A bot is a profile, not a new runtime&lt;/h2&gt;
+
+
+
+&lt;p&gt;Hermes is the easiest to read because its code is open. A bot is a &lt;a href="https://github.com/NousResearch/hermes-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes Agent&lt;/a&gt; profile, a separate home directory holding config, keys, a SOUL file, memory, sessions, skills, and cron state. Routines are ordinary cron jobs namespaced per bot. Bot-to-bot handoffs are real command-line interface (CLI) invocations into a canonical bot chat, delivered whenever the receiving bot next runs. The standalone plugin described itself as a user interface over those primitives, with no core patches and no background daemons.&lt;/p&gt;
+
+
+
+&lt;p&gt;Profiles existed long before Bot Mode, which gave them faces and a sidebar. What has changed now is the unit of reuse, which moved from the prompt to the profile.&lt;/p&gt;
+
+
+
+&lt;p&gt;Descriptions are carrying real weight in these products. xAI tells operators to encode a bot&amp;#8217;s durable responsibilities, sources, and boundaries in its description, and bots can hand off work to one another. The job description is starting to look a lot like a routing table.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-three-products-three-identity-architectures"&gt;Three products, three identity architectures&lt;/h2&gt;
+
+
+
+&lt;p&gt;Hermes keeps the credentials profile scoped to whichever host runs Hermes, whether that is a laptop or a remote server. Its own documentation makes it clear that profiles are not sandboxes, so the separation concerns state and configuration rather than security. Grok Bot takes the opposite approach, with every Bot sharing one account-scoped computer. That includes files, browser sessions, and app logins, and xAI says those survive the deletion of the Bot that created them. Claude Tag provisions an organization service identity with channel-scoped access to tools.&lt;/p&gt;
+
+
+
+&lt;p&gt;The diligence belongs here rather than on the feature list. A named bot with a job title reads like a colleague. What actually signs into a production system is a profile directory, a shared machine, or a service account, depending on the vendor.&lt;/p&gt;
+
+
+
+&lt;p&gt;The counterintuitive part is that persistence here is mostly a configuration issue. Nothing in a profile directory, a shared computer, or a service account keeps an agent coherent across weeks of accumulated work, and none of the three vendors has published evidence that any of them do.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams evaluating any of the three should start with the identity architecture because the roster is trivial to copy, but the underlying identity model is not.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Grok Bot, Claude Tag, and Hermes Bot Mode are making AI agents persistent. Before you call one a coworker, check what it remembers -- and what it can access.</content:encoded>
+    </item>
+    <item>
       <title>Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia’s AVO, it hit 100%.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/nvidia-avo-arcagi3-benchmark/</link>
       <dc:creator>Adrian Bridgwater</dc:creator>
@@ -1119,82 +1605,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-avo-arcagi3-benchmark/"&gt;Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia&amp;#8217;s AVO, it hit 100%.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Nvidia&amp;#039;s AVO agent system lifted Claude Opus 5 from a 30% baseline to 100% on the ARC-AGI-3 reasoning benchmark, across all 183 levels.</content:encoded>
-    </item>
-    <item>
-      <title>Grok, Claude, and Hermes agents get job titles — and persistent permissions</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/persistent-ai-agent-identities/</link>
-      <dc:creator>Janakiram MSV</dc:creator>
-      <pubDate>Fri, 21 Aug 2026 13:00:00 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833874</guid>
-      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;&lt;p&gt;Your next AI coworker may look like a chatbot, but underneath their name, face, and job title will be something&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;
-&lt;p&gt;&lt;strong&gt;Your next AI coworker may look like a chatbot&lt;/strong&gt;, but underneath their name, face, and job title will be something more consequential: A persistent identity that uses memory, keeps permissions, and has responsibilities across all the conversations you have with it.&lt;/p&gt;
-
-
-
-&lt;p&gt;We can already see that model taking shape in Hermes. This month, &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt; folded &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bot Mode&lt;/a&gt; into the &lt;a href="https://hermes-agent.nousresearch.com/docs/user-guide/desktop" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes desktop app&lt;/a&gt;. The standalone plugin repository is archived; the roster now ships bundled and enabled by default; and v0.20.4 added a tabbed Sessions and Bots sidebar. Each profile shows up as a named bot with its own chat, avatar, personality, schedule, and pinned model.&lt;/p&gt;
-
-
-
-&lt;p&gt;Hermes tabbing Sessions beside Bots reflects a broader shift. Sessions did not disappear from any of these products; they sit under a durable agent identity that carries memory and permissions across them.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-hermes-and-grok-build-rosters-claude-joins-one"&gt;Hermes and Grok build rosters, Claude joins one&lt;/h2&gt;
-
-
-
-&lt;p&gt;xAI &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; Grok Bot on August 11, featuring a sidebar of named Bots, each with a title, a description, and up to 50 routines per account. Hermes now does the same thing on the desktop under an MIT license. &lt;a href="https://claude.com/product/tag" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Tag&lt;/a&gt; from Anthropic, announced on June 23, takes the other route. One organization-provisioned Claude joins the human roster in Slack, where anyone in a channel can tag it, and each thread still spins up its own working session.&lt;/p&gt;
-
-
-
-&lt;p&gt;Three different products and deployment models took the same direction. The reusable object shifted from being the conversation to serving as the worker identity above it.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-bot-is-a-profile-not-a-new-runtime"&gt;A bot is a profile, not a new runtime&lt;/h2&gt;
-
-
-
-&lt;p&gt;Hermes is the easiest to read because its code is open. A bot is a &lt;a href="https://github.com/NousResearch/hermes-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes Agent&lt;/a&gt; profile, a separate home directory holding config, keys, a SOUL file, memory, sessions, skills, and cron state. Routines are ordinary cron jobs namespaced per bot. Bot-to-bot handoffs are real command-line interface (CLI) invocations into a canonical bot chat, delivered whenever the receiving bot next runs. The standalone plugin described itself as a user interface over those primitives, with no core patches and no background daemons.&lt;/p&gt;
-
-
-
-&lt;p&gt;Profiles existed long before Bot Mode, which gave them faces and a sidebar. What has changed now is the unit of reuse, which moved from the prompt to the profile.&lt;/p&gt;
-
-
-
-&lt;p&gt;Descriptions are carrying real weight in these products. xAI tells operators to encode a bot&amp;#8217;s durable responsibilities, sources, and boundaries in its description, and bots can hand off work to one another. The job description is starting to look a lot like a routing table.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-three-products-three-identity-architectures"&gt;Three products, three identity architectures&lt;/h2&gt;
-
-
-
-&lt;p&gt;Hermes keeps the credentials profile scoped to whichever host runs Hermes, whether that is a laptop or a remote server. Its own documentation makes it clear that profiles are not sandboxes, so the separation concerns state and configuration rather than security. Grok Bot takes the opposite approach, with every Bot sharing one account-scoped computer. That includes files, browser sessions, and app logins, and xAI says those survive the deletion of the Bot that created them. Claude Tag provisions an organization service identity with channel-scoped access to tools.&lt;/p&gt;
-
-
-
-&lt;p&gt;The diligence belongs here rather than on the feature list. A named bot with a job title reads like a colleague. What actually signs into a production system is a profile directory, a shared machine, or a service account, depending on the vendor.&lt;/p&gt;
-
-
-
-&lt;p&gt;The counterintuitive part is that persistence here is mostly a configuration issue. Nothing in a profile directory, a shared computer, or a service account keeps an agent coherent across weeks of accumulated work, and none of the three vendors has published evidence that any of them do.&lt;/p&gt;
-
-
-
-&lt;p&gt;Teams evaluating any of the three should start with the identity architecture because the roster is trivial to copy, but the underlying identity model is not.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Grok Bot, Claude Tag, and Hermes Bot Mode are making AI agents persistent. Before you call one a coworker, check what it remembers -- and what it can access.</content:encoded>
     </item>
     <item>
       <title>Most coding agent benchmarks skip large-scale refactoring. Not this one.</title>
@@ -3590,445 +4000,6 @@ def run_pipeline(question: str):
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/canonical-c-rust-apparmor/"&gt;AI-generated Rust compiles perfectly. That&amp;#8217;s the scary part.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Canonical and the University of Bristol will test whether AI can translate AppArmor and snap-confine from C to Rust without breaking the security tools&amp;#039; behavior.</content:encoded>
-    </item>
-    <item>
-      <title>AWS deprecated this EKS auth method. 81% of clusters still run it.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-fleet-security-management/</link>
-      <dc:creator>Yannick Struyf</dc:creator>
-      <pubDate>Wed, 19 Aug 2026 18:59:54 +0000</pubDate>
-      <category>Kubernetes</category>
-      <category>Platform Engineering</category>
-      <category>Security</category>
-      <category>sponsor-nutanix</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833909</guid>
-      <description>&lt;img width="1024" height="664" src="https://cdn.thenewstack.io/media/2026/08/7e77910d-getty-images-zxyruqtmwhu-unsplash-1024x664.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital collage of overlapping geometric shapes, glitch patterns and wavy lines in vivid blue, cyan, pink and purple." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/7e77910d-getty-images-zxyruqtmwhu-unsplash-scaled.jpg" /&gt;&lt;p&gt;The migration to Kubernetes and cloud native infrastructure has been one of the defining IT trends of the past decade.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-fleet-security-management/"&gt;AWS deprecated this EKS auth method. 81% of clusters still run it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="664" src="https://cdn.thenewstack.io/media/2026/08/7e77910d-getty-images-zxyruqtmwhu-unsplash-1024x664.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital collage of overlapping geometric shapes, glitch patterns and wavy lines in vivid blue, cyan, pink and purple." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/7e77910d-getty-images-zxyruqtmwhu-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;The migration to Kubernetes and cloud native infrastructure&lt;/strong&gt; has been one of the defining IT trends of the past decade. Adopting Kubernetes gives platform teams an immediate leap forward in agility and capability, but it also creates a dangerous security illusion. The declarative approach to infrastructure, sophistication, and dynamic flexibility make it seem like Kubernetes should also have built-in security, so that everything deployed will be magically secure.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Kubernetes is not a magic solution. It is more operationally complex than a VM environment, introducing a multifaceted environment with multiple layers that each require attention and additional work to secure properly, not less. Cloud-native security therefore requires a robust infrastructure that spans every container and every node, and underestimating the complexity is costing enterprises in real time.&lt;/p&gt;
-
-
-
-&lt;p&gt;The approach to access control precisely captures how this illusion creates risk. Amazon EKS has deprecated the legacy aws-auth ConfigMap for mapping IAM identities to cluster permissions, a manually edited and hard-to-audit method, in favor of a newer, API-driven alternative.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;According to a 2025 Kubernetes Security Report, 81% of EKS clusters are still running on the older method, contrary to AWS&amp;#8217;s own security guidance.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;According to a &lt;a href="https://www.wiz.io/reports/kubernetes-security-report-2025" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2025 Kubernetes Security Report&lt;/a&gt;, 81% of EKS clusters are still running on the older method, contrary to AWS&amp;#8217;s own security guidance. The consequences of such oversights show up downstream, and roughly two-thirds of organizations have delayed or slowed deployments due to Kubernetes-related security concerns.&lt;/p&gt;
-
-
-
-&lt;p&gt;The security gap between assumption and reality isn&amp;#8217;t isolated to access control. It runs through nearly every layer of Kubernetes security, and it starts with a framework that predates most of the tools teams rely on today.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-vm-security-protocols-break-down-in-kubernetes"&gt;&lt;strong&gt;Why VM security protocols break down in Kubernetes&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The Kubernetes security community converged early on a framework for approaching the attack surface in cloud native environments: the &amp;ldquo;four Cs&amp;rdquo; &amp;#8211; Code, Container, Cluster, and Cloud. Each layer is distinct and carries its own threat vectors, yet they are all tightly interconnected, and a weakness at any one layer can cascade across the others. A vulnerable container image (Container) can compromise workloads across a cluster (Cluster), while a misconfigured cloud IAM role (Cloud) can give an attacker access to the Kubernetes API.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;The security model of Kubernetes is structurally different from that of traditional infrastructure, and the four Cs framework is designed to give engineering teams a means of reasoning across each dimension of the cloud-native model. In a VM environment, each VM has a known IP address, runs a single application, and uses a simple communication network. The model&amp;#8217;s predictability makes security policies much simpler to create and enforce.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;In contrast, everything is dynamic in a Kubernetes environment. Pods continuously start and stop, workloads move across nodes, and clusters themselves can scale up or down depending on demand. This dynamism is what makes Kubernetes powerful for running modern applications at scale. At the same time, it makes VM-era security practices structurally insufficient because they are not built to handle a constantly shifting set of running processes.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Mapping the four Cs to where teams actually struggle reveals a consistent pattern.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Code and Cloud security is well understood and reasonably well practiced. Teams carried this discipline over from traditional development workflows, and most organizations have existing governance processes at the infrastructure layer. The gaps are almost always at the Container and Cluster layers, which operate under very different rules than teams are used to with Code and Cloud.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;At the Container layer, the challenge lies in the multifaceted image supply chain. Container images are the unit of deployment in Kubernetes. They carry all the dependencies and configurations of the applications they run, and they need to be repeatedly verified and monitored for any drift or misconfiguration, from the first stage of code sourcing through runtime.&lt;/p&gt;
-
-
-
-&lt;p&gt;At the Cluster layer, the challenge is configuration and lifecycle. Kubernetes provides significant flexibility in how clusters are configured, and that flexibility creates a large surface area for misconfiguration. The flexibility also adds a networking dimension that catches teams out.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;In a traditional environment, the primary concern is North-South traffic in and out of the system, and teams are well-practiced at encapsulating and securing it. In Kubernetes, the East-West traffic between applications running within the cluster requires equal attention. By default, pods can communicate freely with any other pod in the cluster. Without explicit network policies restricting that traffic, a compromise in one workload has a clear path to every other workload sharing the cluster.&lt;/p&gt;
-
-
-
-&lt;p&gt;At Nutanix, we believe that security shouldn&amp;#8217;t slow down development teams. Designing and implementing a secure cloud-native infrastructure platform in which security policies are enforced by default not only protects the enterprise from attacks but also makes developers more productive by reducing the time previously spent chasing down breaches and manually patching.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-challenges-of-cloud-native-security"&gt;&lt;strong&gt;The challenges of cloud-native security&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Across the organizations we work with, five challenges come up most consistently.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-inconsistent-security-policies-across-clusters-nbsp"&gt;Inconsistent security policies across clusters&amp;nbsp;&lt;/h3&gt;
-
-
-
-&lt;p&gt;The most common root cause of policy inconsistency is the same building-as-you-go adoption pattern that creates operational complexity more broadly. Clusters are provisioned one at a time, and security policies are applied manually, without a central enforcement layer. The inconsistency and lack of oversight create small gaps that quickly add up when operating at scale.&lt;/p&gt;
-
-
-
-&lt;p&gt;Even a single cluster takes considerable effort to secure properly, including defining and enforcing RBAC roles, network policies, and admission rules, all of which take real expertise and time. Multiply that across a fleet, and there is not only greater manual effort required to implement security measures, but even a minor oversight in one cluster can become a systemic vulnerability once it&amp;#8217;s replicated across dozens of clusters.&lt;/p&gt;
-
-
-
-&lt;p&gt;A common example is a developer pulling code from an open-source repository and deploying it without verifying the source. In a traditional environment, the security risk may be minimal, but across a fleet of clusters, it becomes a systemic vulnerability. The correct practice is to enforce that all images come from a trusted internal registry, which only works if the right mechanisms are consistently in place across every cluster, and automatically.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-manual-credential-management-and-static-secrets"&gt;Manual credential management and static secrets&lt;/h3&gt;
-
-
-
-&lt;p&gt;One of the most persistent misconceptions in Kubernetes environments is that a Kubernetes Secret is secure by default. While it is base64-encoded, it is not encrypted and is therefore visible to anyone with the appropriate cluster access. Nutanix always advocates for encryption at rest for secrets as the default.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Similarly, reliance on long-lived service account tokens without regular rotation further increases credential security risk. A more sophisticated security policy is to use an external vault or secret store, combined with regular token rotation. In isolation, both are relatively simple to achieve, but for a distributed fleet, they become significant challenges for teams without a central platform to automate and monitor the entire lifecycle.&lt;/p&gt;
-
-
-
-&lt;p&gt;This is where the Nutanix Kubernetes Platform (NKP) solution helps. It simplifies fleet-wide credential management with a centralized management plane that automates the lifecycle of clusters, security policies, and RBAC across hybrid on-premises, public cloud, edge, and air-gapped environments alike. With the pre-integrated External Secrets Operator (ESO), platform teams can connect external vaults and secret stores directly to containerized workloads, eliminating the manual work of rotating tokens cluster by cluster.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-multi-tenancy-in-kubernetes"&gt;Multi-tenancy in Kubernetes&lt;/h3&gt;
-
-
-
-&lt;p&gt;VM models provide multi-tenancy natively. When teams move to Kubernetes, they expect it to do the same. While Kubernetes can provide soft multi-tenancy through namespace-based isolation, it does not create genuine hard multi-tenancy. Further, namespace-based isolation still relies on a basic trust assumption among tenants sharing the same cluster, meaning that cluster-scoped resources may be visible across namespace boundaries if incorrect RBAC permissions are applied.&lt;/p&gt;
-
-
-
-&lt;p&gt;For genuine hard multi-tenancy, where tenant A has no visibility into tenant B&amp;#8217;s environment whatsoever, teams need dedicated clusters per tenant, with fleet management automation handling consistent deployment and governance for each. Kubernetes&amp;#8217; soft isolation model is appropriate in some contexts, but it still carries a risk of &amp;ldquo;noisy-neighbor&amp;rdquo; scenarios, where a compromise or misconfiguration in one tenant&amp;#8217;s namespace can affect others. With both soft multi-tenancy built into Kubernetes via concepts like Kubernetes Namespaces and hard multi-tenancy with Nutanix AHV, Nutanix offers the tools to meet nearly any company&amp;rsquo;s multi-tenancy needs.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-secure-image-delivery"&gt;Secure image delivery&lt;/h3&gt;
-
-
-
-&lt;p&gt;In Kubernetes, container images serve as the primary unit of deployment, and they pose a significant supply chain risk. &lt;a href="https://www.sysdig.com/2025-cloud-native-security-and-usage-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sysdig&amp;#8217;s 2025 Cloud-Native Security and Usage Report&lt;/a&gt; captures this gap in the data, showing that while enterprises have made real progress reducing critical and high vulnerabilities at runtime, package maintenance has slipped over the past year, and image bloat has roughly quintupled. The report attributes this pattern in part to the rush to build with AI because AI and ML packages are much larger than the traditional workloads Kubernetes was built to handle. Awareness of image security is rising, but the pipeline hygiene needed to back it up isn&amp;#8217;t yet keeping pace.&lt;/p&gt;
-
-
-
-&lt;p&gt;The most robust image security posture is multifaceted and requires scanning and verification at multiple touchpoints, not just during sourcing. When code is sourced, it must be scanned before the image is built. The base image must then be verified as secure, and the resulting image signed and stored in a registry that enforces provenance. At deployment time, an admission controller should validate that every image comes from a trusted source. The final step, and one that is frequently overlooked, is to continue scanning at runtime to catch any unexpected process executions or anomalies. Most teams cover some of these steps, but few cover all of them, which is where the exposure risk creeps in.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-compliance-at-scale"&gt;Compliance at scale&lt;/h3&gt;
-
-
-
-&lt;p&gt;Some industries, such as government, defense, healthcare, and financial services, demand hard compliance requirements that the standard Kubernetes distribution does not accommodate. For example, FIPS 140-3 validated cryptography, CIS Kubernetes Benchmark hardening, and STIG-compliant OS images all require deliberate configuration and therefore pose an additional setup challenge to teams in these sectors. Further, the configurations need to be demonstrable across every cluster in the fleet, not just the most recently deployed ones. Meeting that standard manually, and at scale, is effectively impossible.&lt;/p&gt;
-
-
-
-&lt;p&gt;The majority of organizations reporting compliance audit failures are almost certainly operating in an environment where the compliance state was not consistently maintained and therefore could not be consistently evidenced.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Across these five common challenges, there is a recurring thread: they stem from a cluster-management approach and can all be resolved with a fleet-level approach.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Across these five common challenges, there is a recurring thread: they stem from a cluster-management approach and can all be resolved with a fleet-level approach.&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-fleet-management-as-a-security-posture"&gt;&lt;strong&gt;Fleet management as a security posture&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Nutanix&amp;rsquo;s core thesis is that Kubernetes demands a fleet management mindset. This is both an operational strategy and a security strategy. When security policies are defined at the fleet level and automatically enforced at deployment time, the security posture becomes more robust and easier to scale as the fleet grows.&lt;/p&gt;
-
-
-
-&lt;p&gt;At KubeCon + CloudNativeCon North America 2025 in Atlanta, the conversation around Kubernetes operational maturity consistently returned to the same theme: adoption is no longer the challenge. The &lt;a href="https://www.cncf.io/reports/the-cncf-annual-cloud-native-survey/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2025 CNCF survey&lt;/a&gt; reinforced this directly, finding that GitOps adoption, which is considered the practice most closely associated with fleet-level policy governance, is now the clearest single indicator of cloud native maturity. Among organizations categorized as &amp;#8220;Innovators&amp;#8221; in the survey, 58% use GitOps; among those still in the early stages, the figure is close to zero.&lt;/p&gt;
-
-
-
-&lt;p&gt;The shift-left security principle is closely aligned with our thesis. In a secure organization, platform engineers are responsible for providing Kubernetes infrastructure to application developers and ensuring that the environments in which those developers work are consistently secure and compliant. By defining and automating policy at the fleet level, enterprises can operate on a unified platform where both the dev environment and production share the same guardrails.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;NKP is designed with fleet capabilities, not merely because this provides the best security policy, but also because it smooths the transition between build, deploy, and production. For cloud security, the fleet management approach provides a consistent policy layer with automated lifecycle management and enforcement.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-standardizing-platform-security-across-the-fleet"&gt;&lt;strong&gt;Standardizing platform security across the fleet&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;NKP&amp;#8217;s security model is based on the principle that security should be a base framework, and not a bolt-on. NKP is structured to provide a full-stack security foundation from which teams can build up their unique security posture.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-the-foundation-hardened-by-default"&gt;The foundation: hardened by default&lt;/h3&gt;
-
-
-
-&lt;p&gt;When you deploy a Kubernetes cluster with NKP, CIS Benchmark hardening is applied at both the OS and Kubernetes layers before the platform team has configured anything. This is the industry gold standard for Kubernetes configuration security, and NKP employs it to help enterprises meet this standard.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;For the teams that require stricter compliance, NKP now also provides FIPS-validated and STIG-compatible OS images directly from the Nutanix portal. Developers can download an image, deploy it, and the cluster runs with FIPS-validated cryptographic modules from the ground up.&lt;/p&gt;
-
-
-
-&lt;p&gt;One practical and powerful benefit of this approach is the &amp;ldquo;proof layer.&amp;rdquo; NKP can produce a CIS benchmark report for every cluster in the fleet on demand. So, when a security team asks a platform team to demonstrate that their clusters meet a given compliance standard, the team has the evidence to hand, and the conversation shifts from &amp;ldquo;gate-and-audit&amp;rdquo; to collaboration.&lt;/p&gt;
-
-
-
-&lt;p&gt;Additionally, every NKP release is pre-scanned before distribution to continuously upgrade the stack to the newest available versions. Each upgrade deploys across the entire stack, with any manual intervention required from the platform team. Nutanix is alleviating the burden on engineers of keeping their environments current, enabling them to focus on their work.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-policy-as-code-gatekeeper-and-admission-control"&gt;Policy as code: Gatekeeper and admission control&lt;/h3&gt;
-
-
-
-&lt;p&gt;Manual policy enforcement is highly error-prone, especially over time and at scale. NKP includes Gatekeeper, the Kubernetes-native implementation of Open Policy Agent, as a built-in admission controller. Every policy is enforced at deployment, and a workload that violates a policy is rejected before it ever gets deployed.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;For example, if a developer attempts to deploy a container image from an untrusted registry or tries to run a container with root privileges, Gatekeeper stops it at the gate. NKP also allows teams to configure it to either warn or block, depending on how they want to model enforcement in a given context.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;An AI agent that can autonomously invoke external tools, query data sources, or take action without a human in the loop needs a clearly defined perimeter around what it&amp;#8217;s allowed to touch and where its access ends.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;AI and agentic AI workloads further raise the stakes here. An AI agent that can autonomously invoke external tools, query data sources, or take action without a human in the loop needs a clearly defined perimeter around what it&amp;#8217;s allowed to touch and where its access ends. The boundary needs to be enforced at the platform level, not left for individual application teams to interpret independently.&lt;/p&gt;
-
-
-
-&lt;p&gt;Gatekeeper&amp;#8217;s admission controls are a strong starting point for that boundary because they can constrain what an agent-driven workload is permitted to request or deploy before it ever reaches production. However, Gatekeeper alone likely won&amp;rsquo;t be the full answer for agentic AI, especially as AI tools and usage are evolving as quickly as they are now. These workloads behave differently from traditional applications, and the guardrails the industry needs to contain them are still being defined in real time, alongside the technology itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;In this instance, a flexible security base that allows for continued adaptation with every new development the industry produces is needed. As new guardrails for agentic workloads emerge, teams should be able to add or adjust controls as requirements shift, rather than being locked into a single model that supports security deployed around innovation rather than hindering it.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-centralized-authentication-and-rbac-via-dex"&gt;Centralized authentication and RBAC via Dex&lt;/h3&gt;
-
-
-
-&lt;p&gt;The difference between a purpose-built platform and a manually assembled stack becomes most visible in credential management. A lack of standardization and central management results in RBAC configurations gradually drifting apart, and no simple way to audit and maintain them&lt;/p&gt;
-
-
-
-&lt;p&gt;NKP is designed to allow teams to dictate authentication and configuration permissions at the fleet level, helping verify that the right people and systems have access to the right namespaces within the right cluster across the fleet, with the ability to customize individual clusters if necessary. Via Dex, NKP integrates with enterprise identity providers such as OIDC, LDAP, and SAML, giving customers choice of tools and preferred software.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-service-mesh-and-network-security-istio-and-mtls-nbsp"&gt;Service mesh and network security: Istio and mTLS&amp;nbsp;&lt;/h3&gt;
-
-
-
-&lt;p&gt;Network policies are the standard tool for controlling which pods can communicate with which other pods. They provide some basic guardrails, but they do not encrypt traffic between pods or cryptographically verify the identity of the communicating parties. Istio can fill this gap by inspecting application-layer headers and enforcing mutual TLS so that both sides of the connection authenticate each other cryptographically, transparently to the application.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Istio operates at Layer 7 and encrypts traffic flows between pods without changing the applications themselves. It is, in effect, an additional security layer that provides more application context than a network policy alone can. NKP ships with a default Istio configuration and deploys necessary upgrades consistently across all clusters without any input from the team, thereby reducing some of the operational complexity of running a service mesh.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-observability-scanning-and-continuous-compliance-nkp-insights"&gt;Observability, scanning, and continuous compliance: NKP Insights&lt;/h3&gt;
-
-
-
-&lt;p&gt;It&amp;rsquo;s all very well to put security in place at the start, but teams need to be able to uphold that level. NKP Insights provides CIS benchmark scanning across the entire fleet, runtime container image scanning, and anomaly detection that flags unusual patterns. If a pod crashes frequently, resources approach capacity limits, or a configuration drifts from the expected baseline, Insights flags the issues for quick identification and remediation.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;NKP Insights can operate simultaneously as a continuous security monitoring layer and a compliance reporting tool, making it useful for both day-to-day operations and the periodic compliance demonstrations required by regulated industries. Our design objective is to cover every direction, layer, and complexity of Kubernetes to help our customers succeed.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-looking-forward-the-evolving-threat-surface"&gt;&lt;strong&gt;Looking Forward: The evolving threat surface&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Security is an ever-evolving landscape, growing more complex with each new technology. AI workloads, specifically running Agentic AI in a Kubernetes environment, introduce security considerations that traditional models were not designed to handle.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;AI is now being used to exploit vulnerabilities at a speed and scale that would not have been possible a few years ago, combing through codebases and open-source repositories to find weaknesses that human researchers might take months to surface. That said, it also works in the opposite direction: AI-assisted detection is finding vulnerabilities in existing environments that have been present for years.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Just as new technologies may threaten enterprises&amp;rsquo; security, they can also be used to enhance security posture. However, a solid structural foundation must be established first. NKP is designed to provide a full-stack foundation for robust security across the OS, Kubernetes, and application layers. It serves as the evidence layer that teams need to demonstrate their security posture at any moment.&lt;/p&gt;
-
-
-
-&lt;p&gt;Further, NKP is built to support a consistently secure fleet at scale. The design allows every cluster, workspace, and node to be accounted for and monitored. The automated updates across the NKP stack are designed to mitigate the risk of such incidents.&lt;/p&gt;
-
-
-
-&lt;p&gt;Across the ecosystem, developers are being asked to innovate faster than ever, using technologies such as AI and containers to ship more frequently and move quickly. Every new technology adds another layer of security risk, especially for AI and the connected nature of modern applications and distributed deployments, which create more attack surface than ever before.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;If today&amp;rsquo;s enterprises want to continue to focus on innovation, they need a system in place that provides security by default. Nutanix is providing that default, delivering a gold standard base through NKP.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;To learn more about Nutanix Kubernetes Platform, visit &lt;/strong&gt;&lt;/em&gt;&lt;a href="https://www.nutanix.com/products/kubernetes-management-platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Nutanix&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;em&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;To try NKP hands-on, &lt;/strong&gt;&lt;/em&gt;&lt;a href="https://cloud.nutanixtestdrive.com/login?source=one-platform&amp;amp;marketo_id=df2715ab833d78c49a367de63a18b7b88e4e710b50fd687f3eb9fc18302b0059&amp;amp;type=nkp&amp;amp;ptk=&amp;amp;partnerid=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;launch a free test drive&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;em&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-fleet-security-management/"&gt;AWS deprecated this EKS auth method. 81% of clusters still run it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Kubernetes security requires fleet-wide policies, hardened clusters, and continuous compliance as legacy controls and AI workloads expand enterprise risks.</content:encoded>
-    </item>
-    <item>
-      <title>Codex can now keep coding while it waits for your answer</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/codex-async-developer-messaging/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 19 Aug 2026 17:44:59 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833900</guid>
-      <description>&lt;img width="1024" height="603" src="https://cdn.thenewstack.io/media/2026/04/a0f52b0f-puzzle-creative-x0nz565wjq-unsplash-1024x603.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a multi-monitor developer workstation displaying code, data visualizations, and agent management interfaces, representing the shift from traditional code editors to AI agent orchestration consoles like Cursor 3" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/a0f52b0f-puzzle-creative-x0nz565wjq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Long-running coding agents face an awkward choice when they need a developer&amp;#8217;s input. They can stop and wait or make&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/codex-async-developer-messaging/"&gt;Codex can now keep coding while it waits for your answer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="603" src="https://cdn.thenewstack.io/media/2026/04/a0f52b0f-puzzle-creative-x0nz565wjq-unsplash-1024x603.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a multi-monitor developer workstation displaying code, data visualizations, and agent management interfaces, representing the shift from traditional code editors to AI agent orchestration consoles like Cursor 3" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/a0f52b0f-puzzle-creative-x0nz565wjq-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Long-running &lt;a href="https://thenewstack.io/go-language-ai-agents/" class="local-link"&gt;coding agents&lt;/a&gt; face an awkward choice when they need a developer&amp;#8217;s input. They can stop and wait or make an assumption and keep working. Now, OpenAI is testing a third option for Codex that allows the agent to ask the question, continue with any work that doesn&amp;#8217;t depend on the answer, then adjust when the developer responds.&lt;/p&gt;
-
-
-
-&lt;p&gt;On Tuesday, OpenAI merged send_user_message_async into the public Codex repository. Once Codex sends the message, the tool immediately returns an accepted response to the model. Codex can then call another tool, inspect another file, or continue generating its answer rather than sit idle.&lt;/p&gt;
-
-
-
-&lt;p&gt;The feature has not been announced as a general Codex capability, and the public code does not identify which model or Codex interface will receive it first, but it proves OpenAI is working on a different relationship between coding agents and the developers supervising them.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI did not respond to questions from The New Stack before publication.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-async-messaging-replaces-blocking"&gt;Async messaging replaces blocking&lt;/h2&gt;
-
-
-
-&lt;p&gt;Codex already has a request_user_input tool for asking developers short questions; it works by waiting for a response before returning control to the model.&lt;/p&gt;
-
-
-
-&lt;p&gt;With the asynchronous tool, Codex doesn&amp;#8217;t wait, it sends the question or update to the developer, receives confirmation that the message was accepted, and continues the current turn. Any reply comes back later as a new user message.&lt;/p&gt;
-
-
-
-&lt;p&gt;An integration test included with the change demonstrates the difference. The test has Codex send the update &amp;#8220;Still investigating.&amp;#8221; The tool returns an accepted result, and the model receives another opportunity to respond within the same turn before producing its final message.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Codex can report what it is doing or ask for a decision while continuing work that does not depend on the response.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;OpenAI also avoids inserting a second, synthetic copy of the developer-facing update into the model&amp;#8217;s input. The original tool call and its accepted result remain part of the exchange, but the message is not added again as a normal assistant response. As a side channel of sorts, Codex can report what it is doing or ask for a decision while continuing work that does not depend on the response.&lt;/p&gt;
-
-
-
-&lt;p&gt;Subagents do not receive the tool per the registration logic in the merged code. A Codex task using several subagents would still have &lt;a href="https://thenewstack.io/claude-code-token-reduction/" class="local-link"&gt;one agent responsible for communicating&lt;/a&gt; with the developer.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-flag-removed-within-hours"&gt;Flag removed within hours&lt;/h2&gt;
-
-
-
-&lt;p&gt;The tool initially required two conditions. A developer had to enable an experimental send_async_message feature flag, and the selected model had to advertise support for the tool. OpenAI removed the first requirement less than a day later. A second merged pull request marks the local flag as removed and makes model support the only remaining switch.&lt;/p&gt;
-
-
-
-&lt;p&gt;Codex will now register the tool for a root agent whenever the selected model lists send_user_message_async as one of its supported experimental tools. Existing configuration containing the old flag will still be accepted, but the setting no longer controls whether the tool appears.&lt;/p&gt;
-
-
-
-&lt;p&gt;That change suggests OpenAI intends to control availability via model metadata rather than by asking developers to enable an experimental Codex setting. The public repository does not name a supported model, provide a release date, or say whether the tool will appear first in ChatGPT Work, the &lt;a href="https://thenewstack.io/openai-codex-cloud-evolution/" class="local-link"&gt;Codex desktop app&lt;/a&gt;, the CLI, or an IDE extension.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-no-checkpoint-no-rollback"&gt;No checkpoint, no rollback&lt;/h2&gt;
-
-
-
-&lt;p&gt;Keeping Codex moving saves time, but it creates a &lt;a href="https://thenewstack.io/microsoft-copilot-token-budgets/" class="local-link"&gt;timing problem&lt;/a&gt;. Say Codex asks whether a project should use PostgreSQL or SQLite. It can inspect the repository or run tests while it waits, but nothing forces it to stop before that decision affects the code. Codex could begin implementing SQLite just before the developer replies with PostgreSQL.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;There is no checkpoint preventing the agent from moving past the decision, and Codex won&amp;#8217;t automatically undo work that conflicts with whatever the developer eventually says.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The pull request doesn&amp;#8217;t introduce a way to resolve that conflict if Codex keeps working while it waits for an answer: the question never expires, there is no checkpoint preventing the agent from moving past the decision, and Codex won&amp;#8217;t automatically undo work that conflicts with whatever the developer eventually says.&lt;/p&gt;
-
-
-
-&lt;p&gt;The reply isn&amp;#8217;t explicitly attached to the question that prompted it, either. Although the outgoing message includes an internal tool call ID, the developer&amp;#8217;s answer is returned as ordinary user input rather than a structured response linked to that particular question.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-steer-or-restart-not-reconcile"&gt;Steer or restart, not reconcile&lt;/h2&gt;
-
-
-
-&lt;p&gt;Codex core exposes a start-or-steer path. If the thread is busy, the input can steer the active turn. If Codex is idle by the time the message arrives, the same input can begin a new turn. &lt;/p&gt;
-
-
-
-&lt;p&gt;Those checks address where the message should go, but they don&amp;#8217;t determine whether the instruction has become stale.&lt;/p&gt;
-
-
-
-&lt;p&gt;If the developer responds while the original turn is still running, Codex can use the answer in its next model call. If the turn has already ended, the answer becomes a follow-up request. In either case, Codex has to compare the new instruction with the work it has already completed and decide what needs to change, which could mean undoing code it wrote only moments earlier because it continued in a direction the developer never intended.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;It leaves Codex to manage the consequences when work continues past the decision it was waiting for.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/codex-async-developer-messaging/"&gt;Codex can now keep coding while it waits for your answer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI merged an async messaging tool that lets Codex ask developers questions and keep working instead of waiting — but timing conflicts remain unsolved.</content:encoded>
     </item>
   </channel>
 </rss>
