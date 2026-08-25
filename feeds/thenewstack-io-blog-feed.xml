@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 22 Aug 2026 13:46:09 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 23:23:29 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,1040 @@
       <height>32</height>
     </image>
     <item>
+      <title>JetBrains’ Junie now runs entirely offline. Can you spare a 64 GB M5 Mac?</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/jetbrains-junie-local-agent/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 24 Aug 2026 20:56:41 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834303</guid>
+      <description>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/08/fbe505a6-joshua-woroniecki-lzh3hptjz9c-unsplash-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Open Macbook glowing with vivid blue, pink, purple and orange light against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/fbe505a6-joshua-woroniecki-lzh3hptjz9c-unsplash-scaled.jpg" /&gt;&lt;p&gt;While most AI coding tools default to cloud-hosted models, local model runtimes have become a viable alternative for developers who&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/jetbrains-junie-local-agent/"&gt;JetBrains&amp;#8217; Junie now runs entirely offline. Can you spare a 64 GB M5 Mac?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/08/fbe505a6-joshua-woroniecki-lzh3hptjz9c-unsplash-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Open Macbook glowing with vivid blue, pink, purple and orange light against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/fbe505a6-joshua-woroniecki-lzh3hptjz9c-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;While most AI coding tools default to cloud-hosted models&lt;/strong&gt;, local model runtimes &lt;a href="https://thenewstack.io/how-to-run-a-local-llm-via-localai-an-open-source-project/" class="local-link"&gt;have become a viable alternative&lt;/a&gt; for developers who want to keep code on their own machines, avoid per-request API costs, or have to work without an internet connection. &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/open-source-coding-agents-like-opencode-cline-and-aider-are-solving-a-huge-headache-for-developers/" class="local-link"&gt;Tools such as Cline&lt;/a&gt;, &lt;a href="https://thenewstack.io/cursor-acquires-continue-coding/" class="local-link"&gt;Continue&lt;/a&gt;, and &lt;a href="https://thenewstack.io/developer-walk-through-of-aider-an-open-source-agentic-cli/" class="local-link"&gt;Aider&lt;/a&gt; can already be pointed at runtimes like &lt;a href="https://ollama.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ollama&lt;/a&gt; or &lt;a href="https://lmstudio.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LM Studio&lt;/a&gt;. At the same time, GitHub added local-model support to Copilot CLI &lt;a href="https://github.blog/changelog/2026-04-07-copilot-cli-now-supports-byok-and-local-models/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in April&lt;/a&gt;, including an offline mode for fully air-gapped setups.&lt;/p&gt;
+
+
+
+&lt;p&gt;The catch is that &amp;#8220;local&amp;#8221; generally still leaves much of the assembly to the developer. You have to choose a model and a suitable quantization for your hardware, configure the runtime and context settings, and work out which combination performs well with the agent. &lt;/p&gt;
+
+
+
+&lt;p&gt;And that last part really does matter: models small enough to run comfortably on a laptop can still struggle with the tool use, reasoning, and longer-running tasks that coding agents demand.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is why JetBrains has now built &lt;a href="https://junie.jetbrains.com/local" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Junie Local&lt;/a&gt;, a free version of its coding agent designed to run entirely on the developer&amp;rsquo;s own machine.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-local-market"&gt;Local market&lt;/h2&gt;
+
+
+
+&lt;p&gt;By way of a brief recap, &lt;a href="https://www.jetbrains.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;JetBrains&lt;/a&gt; &amp;mdash; the developer tools company behind &lt;a href="https://www.jetbrains.com/idea/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IntelliJ IDEA&lt;/a&gt;, &lt;a href="https://www.jetbrains.com/pycharm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;PyCharm&lt;/a&gt; and &lt;a href="https://www.jetbrains.com/webstorm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;WebStorm&lt;/a&gt; &amp;mdash; launched Junie &lt;a href="https://blog.jetbrains.com/junie/2025/01/meet-junie-your-coding-agent-by-jetbrains/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in January 2025&lt;/a&gt; as an AI coding agent embedded in its IDEs, capable of planning tasks, modifying code, running tests and inspections, and working with the context of a developer&amp;rsquo;s project. It has since &lt;a href="https://thenewstack.io/jetbrains-names-the-debt-ai-agents-leave-behind/" class="local-link"&gt;expanded into a standalone CLI&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Junie itself isn&amp;rsquo;t exactly new to local models. In a &lt;a href="https://blog.jetbrains.com/junie/2026/08/junie-local-launch/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Monday, JetBrains&amp;rsquo; head of marketing &lt;a href="https://www.linkedin.com/in/dsaveliev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dmitry Savelev&lt;/a&gt; notes that developers have been able to connect the agent to runtimes such as Ollama and LM Studio for some time, load whichever model they want, and have Junie run against it locally.&lt;/p&gt;
+
+
+
+&lt;p&gt;However, with Junie Local, JetBrains has picked the model, quantized it, and tuned its inference engine and agent harness around that specific combination. Setup is handled from inside Junie itself: running &lt;em&gt;/local &lt;/em&gt;downloads the model and inference engine, starts a local server, and switches the agent over automatically. There is no separate Ollama or LM Studio installation, endpoint to configure, or model profile to write.&lt;/p&gt;
+
+
+
+&lt;p&gt;The first step is simply choosing Junie Local from the model selector, where it appears alongside the usual array of cloud-hosted models.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img decoding="async" width="800" height="500" src="https://cdn.thenewstack.io/media/2026/08/d6db6ef4-gif1.gif" alt="Junie&amp;rsquo;s model selector offers Junie Local alongside its cloud-hosted models" class="wp-image-22834321"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Junie&amp;rsquo;s model selector offers Junie Local alongside its cloud-hosted models&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Once the download and setup are complete, Junie switches to the local Qwen model, which then appears in the CLI like any other model option.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img decoding="async" width="800" height="500" src="https://cdn.thenewstack.io/media/2026/08/684ace87-gif2.gif" alt="Junie running with Qwen3.6 locally" class="wp-image-22834319"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Junie running with Qwen3.6 locally&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;From that point on, inference happens entirely on the developer&amp;rsquo;s machine.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-under-the-hood-why-qwen3-6-and-why-an-m5-mac"&gt;Under the hood: Why Qwen3.6 &amp;mdash; and why an M5 Mac&lt;/h2&gt;
+
+
+
+&lt;p&gt;It&amp;rsquo;s worth noting that JetBrains has been very specific about its model choice and hasn&amp;#8217;t opted for the latest, shiniest open-weight version. Junie Local uses Qwen3.6-27B, a 27-billion-parameter open-weight model &lt;a href="https://qwen.ai/blog?id=qwen3.6-27b" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;released in April&lt;/a&gt;, even though the newer &lt;a href="https://thenewstack.io/alibaba-qwen3-8-max-reactions/" class="local-link"&gt;Qwen3.8-&lt;/a&gt;&lt;a href="https://thenewstack.io/qwen38-27b-local-inference/" class="local-link"&gt;2&lt;/a&gt;&lt;a href="https://thenewstack.io/alibaba-qwen3-8-max-reactions/" class="local-link"&gt;7B&lt;/a&gt; arrived earlier in August with improvements.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;On today&amp;rsquo;s Macs, [Qwen] 3.6 wins.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Savelev notes that the choice came down to &lt;em&gt;how &lt;/em&gt;the two models behaved inside Junie on current Macs, with Qwen3.8 requiring its reasoning mode to be enabled to work reliably with the agent; with reasoning switched on, tasks took roughly four times longer. For Junie Local right now, Qwen 3.6 offers the better balance of reliability and speed.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;On today&amp;rsquo;s Macs, 3.6 wins,&amp;#8221; Savelev writes. &lt;/p&gt;
+
+
+
+&lt;p&gt;JetBrains runs Qwen3.6-27B at 4-bit using an inference engine based on mlx-vlm, which in turn uses &lt;a href="https://opensource.apple.com/projects/mlx/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MLX&lt;/a&gt;, Apple&amp;rsquo;s machine-learning framework for Apple Silicon. It&amp;rsquo;s a similar underlying approach to the one &lt;a href="https://thenewstack.io/ollama-taps-apples-mlx/" class="local-link"&gt;Ollama adopted in March&lt;/a&gt;, when it moved its Apple Silicon engine onto MLX to take advantage of the chips&amp;rsquo; unified-memory architecture.&lt;/p&gt;
+
+
+
+&lt;p&gt;There is a fairly substantial hardware floor, though: JetBrains confirms that Junie Local involves about 20 GB of downloads, and requires macOS 26, at least 64 GB of unified memory, and an Apple M5 chip or newer. In real terms, that 64 GB requirement puts MacBook Pro users into M5 Pro or M5 Max territory &amp;mdash; in other words, this is firmly a high-end Mac proposition.&lt;/p&gt;
+
+
+
+&lt;p&gt;JetBrains acknowledges that those requirements will put Junie Local beyond the reach of plenty of developers who might otherwise be interested in running it.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;We know that an M5 Mac with 64 GB of RAM is a big ask,&amp;rdquo; Savelev writes. &amp;ldquo;We are not going to pretend otherwise. That is simply what it costs to run a 27B model well today, and it is the number we are working hardest to bring down.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;We know that an M5 Mac with 64 GB of RAM is a big ask. We are not going to pretend otherwise.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The intention is to reduce memory requirements, support a wider range of hardware, and continue optimizing the underlying stack.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;If the lofty requirements are the reason you cannot try Junie Local, rest assured that we are working to bring them down,&amp;#8221; Savelev adds.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-where-local-pays-off"&gt;Where local pays off&lt;/h2&gt;
+
+
+
+&lt;p&gt;Ultimately, the hardware requirement is closely tied to where JetBrains identifies the real performance bottleneck for a local coding agent. The tokens-per-second metric measures how quickly a model generates output, but an agent can spend much of its time first ingesting source files, prompts and other context &amp;mdash; the prefill stage &amp;mdash; before it starts producing an answer.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Everyone benchmarks generation speed,&amp;rdquo; Savelev writes. &amp;ldquo;For a coding agent, that turns out to be the wrong number to chase because most of the time is spent on prefill, while the model reads files to work out what is going on. Optimizing for prefill is where the real gains were.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Being free and unmetered also changes the kinds of jobs developers might be willing to hand over. JetBrains positions Junie Local as particularly well-suited to long, repetitive, and mechanical work &amp;mdash; multi-file refactors and renames, filling test-coverage gaps, dependency upgrades, and framework migrations &amp;mdash; where the agent can keep working and iterating without the developer having to think about how many tokens it&amp;#8217;s burning through.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Long, repetitive, mechanical work is exactly what an agent is for, and exactly what you stop asking for when you are keeping an eye on your balance,&amp;rdquo; Savelev writes.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Long, repetitive, mechanical work is exactly what an agent is for, and exactly what you stop asking for when you are keeping an eye on your balance.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For everyday development work, Savelev reckons users are unlikely to notice much of a gap compared with stronger cloud models. However, he does concede that more complex architectural reasoning remains better suited to those models.&lt;/p&gt;
+
+
+
+&lt;p&gt;And then, of course, there is arguably the biggest reason developers have been interested in local models in the first place: privacy. Running the entire agent locally means that no external model provider sits between the developer and their code, and that no source, prompts, or generated changes need to leave the machine. For developers working on proprietary code, under client NDAs, or in environments where sending source to a third party is simply off the table, that is a substantial part of the appeal.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Everything after the download happens on your hardware, so your prompts, source, and diffs stay put,&amp;rdquo; Savelev writes.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/jetbrains-junie-local-agent/"&gt;JetBrains&amp;#8217; Junie now runs entirely offline. Can you spare a 64 GB M5 Mac?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Junie Local skips the usual DIY setup, shipping with a model pre-picked and tuned. But you’ll need a high-end Mac with plenty of RAM to run it.</content:encoded>
+    </item>
+    <item>
+      <title>Ox Alpha’s real mystery isn’t who built it</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ox-alpha-privacy-terms/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Mon, 24 Aug 2026 19:55:47 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Compliance</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834283</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/e2ef4441-logan-voss-gnptmdjdmdw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Thousands of short horizontal lines flow in sweeping waves, shifting from turquoise and blue to purple and magenta." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e2ef4441-logan-voss-gnptmdjdmdw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Everybody wants to know who built Ox Alpha. But developers using the anonymous coding model with their own private code&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ox-alpha-privacy-terms/"&gt;Ox Alpha’s real mystery isn’t who built it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/e2ef4441-logan-voss-gnptmdjdmdw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Thousands of short horizontal lines flow in sweeping waves, shifting from turquoise and blue to purple and magenta." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/e2ef4441-logan-voss-gnptmdjdmdw-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Everybody wants to know who built Ox Alpha&lt;/strong&gt;. But developers using the anonymous coding model with their own private code will have a more pressing question: &lt;em&gt;What happens to that code after they hit send?&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Let&amp;#8217;s start with the model&amp;rsquo;s unusual arrival. An anonymous provider listed Ox Alpha on OpenRouter on August 20, and no company has claimed it yet. &lt;a href="https://opencode.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenCode&lt;/a&gt;, the open-source terminal agent, debuted it the same day and &lt;a href="https://x.com/opencode/status/2090544355824038300" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; a capacity of 100 trillion tokens a day.&lt;/p&gt;
+
+
+
+&lt;p&gt;OpenRouter describes a reasoning model built for long-horizon software engineering. The listing sets the context window to 1,048,576 tokens and prices both input and output at 0 for the preview.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Which checkpoint is behind the endpoint matters least for this launch. Which legal entity receives the request, and under which route&amp;#8217;s terms, has drawn almost no scrutiny at all.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The reaction has been a detective story of tokenizer probes, benchmark screenshots, and a rotating shortlist of suspects. &lt;/p&gt;
+
+
+
+&lt;p&gt;Which checkpoint is behind the endpoint matters least for this launch. Which legal entity receives the request, and under which route&amp;#8217;s terms, has drawn almost no scrutiny at all.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-identity-hunt-has-been-more-rigorous-than-the-benchmarking"&gt;The identity hunt has been more rigorous than the benchmarking&lt;/h2&gt;
+
+
+
+&lt;p&gt;A developer known as unclecode, who wrote the Crawl4AI crawler, built &lt;a href="https://github.com/unclecode/modelprint" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;modelprint&lt;/a&gt; to fingerprint anonymous API endpoints. The launch version sent nine infrastructure probes and matched the responses against known models. Ox Alpha lined up with GLM-5.3 on six of the nine.&lt;/p&gt;
+
+
+
+&lt;p&gt;He is careful about what that proves. Matching fingerprints establish shared infrastructure rather than model identity, he wrote in the project documentation. One lab can serve two different checkpoints from the same stack.&lt;/p&gt;
+
+
+
+&lt;p&gt;The circumstantial case around Z.ai is strong. The company reportedly previewed GLM-5 on OpenRouter as &lt;a href="https://x.com/OpenRouterAI/status/2021639702789730631" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Pony Alpha&lt;/a&gt;, and it announced GLM-5.3 six days before Ox Alpha turned up. Xiaomi&amp;#8217;s &lt;a href="https://x.com/haider1/status/2090725700739477692" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MiMo&lt;/a&gt; team keeps coming up as an alternative, and one reading of the tokenizer behavior points instead at &lt;a href="https://wccftech.com/a-mysterious-ai-lab-is-offering-100-trillion-free-tokens-day-for-its-ox-alpha-model-as-evidence-points-to-zhipus-unreleased-glm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;cl100k_base&lt;/a&gt;, an OpenAI encoding that sits oddly on a Chinese model.&lt;/p&gt;
+
+
+
+&lt;p&gt;The benchmark story has held up worse. &lt;a href="https://x.com/davis7/status/2090655207831298095" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ben Davis&lt;/a&gt; on X reported a score of 80% across 10 DeepSWE tasks, and he himself flagged the small sample size. A later &lt;a href="https://github.com/MatchaOnMuffins/oxalpha" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;113-task run&lt;/a&gt; published on GitHub resolved 66 of them (58.4%) over 20 hours of agentic work.&lt;/p&gt;
+
+
+
+&lt;p&gt;That run is reproducible, whereas the viral screenshot was not. It remains a community benchmark, and the official DeepSWE leaderboard does not list Ox Alpha at all.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-one-model-different-routes-different-privacy-expectations"&gt;One model, different routes, different privacy expectations&lt;/h2&gt;
+
+
+
+&lt;p&gt;The Ox Alpha model page says the provider retains prompts and completions and does not use them for training. OpenRouter&amp;#8217;s broader &lt;a href="https://openrouter.ai/terms/stealth" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Stealth Program terms&lt;/a&gt;, which govern all other use, grant a license described in the document as irrevocable and perpetual. OpenCode says its Zen providers follow zero-retention and no-training policies. Its published list of exceptions does not include Ox Alpha.&lt;/p&gt;
+
+
+
+&lt;p&gt;OpenRouter currently publishes conflicting disclosures: Ox Alpha&amp;rsquo;s page says retained data is not used for training, while the incorporated Stealth EULA licenses state that submitted content is used for training and improvement. They produce materially different privacy expectations depending on how a team reaches the model. A developer cannot infer any of it from the model name.&lt;/p&gt;
+
+
+
+&lt;p&gt;Scale makes that gap operational rather than academic, because coding agents have pushed billions of tokens through Ox Alpha since Thursday. That traffic can include repository contents, test logs, environment output, and screenshots from private production codebases.&lt;/p&gt;
+
+
+
+&lt;p&gt;If the Z.ai attribution holds, a second diligence question comes up. The Commerce Department &lt;a href="https://www.federalregister.gov/documents/2025/01/16/2025-00704/addition-of-entities-to-and-revision-of-entry-on-the-entity-list" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;added&lt;/a&gt; Zhipu AI, the company&amp;#8217;s former name, to its Entity List in January 2025. The rule said that the listed entities advance China&amp;#8217;s military modernization by developing and integrating advanced AI research. Export controls govern items subject to the EAR, not ordinary API traffic, so nothing here makes the call unlawful. It does put the vendor in a category most enterprise procurement teams screen for.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-reveals-that-settled-anything-came-through-first-party-channels"&gt;The reveals that settled anything came through first-party channels&lt;/h2&gt;
+
+
+
+&lt;p&gt;OpenRouter &lt;a href="https://openrouter.ai/announcements/quasar-alpha-and-optimus-alpha-reveal" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;named&lt;/a&gt; Quasar Alpha and Optimus Alpha as early GPT-4.1 tests on its own blog. Xiaomi &lt;a href="https://www.technology.org/2026/03/19/whos-that-ai-the-mystery-model-everyone-blamed-on-deepseek-turned-out-to-be-xiaomi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;confirmed&lt;/a&gt; Hunter Alpha as an early MiMo build itself. Community fingerprinting has pointed to the right lab before, but it has never been enough to close the question.&lt;/p&gt;
+
+
+
+&lt;p&gt;The fair counterargument is that anonymous previews gather unbiased evaluations ahead of a launch, which is a legitimate reason to run one. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;A name will appear on someone&amp;#8217;s blog within weeks, long after every team that shipped a private repository through the free preview made that decision without one.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Ox Alpha also carries more restrictive data terms than OpenRouter&amp;#8217;s generic Stealth Program terms, which contemplate training on submitted user content.&lt;/p&gt;
+
+
+
+&lt;p&gt;A name will appear on someone&amp;#8217;s blog within weeks, long after every team that shipped a private repository through the free preview made that decision without one.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ox-alpha-privacy-terms/"&gt;Ox Alpha’s real mystery isn’t who built it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Ox Alpha’s mystery identity grabbed attention. Its route-specific data terms may matter more to teams sending private code.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic’s Playground vs. OpenAI’s: The week-old tool beat the six-year incumbent</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-openai-playground-comparison/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Mon, 24 Aug 2026 19:30:57 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834323</guid>
+      <description>&lt;img width="1024" height="679" src="https://cdn.thenewstack.io/media/2026/08/1467d3c7-lei-hwang-df6pl3gehrg-unsplash-1024x679.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Empty playground at night with a slide and tall poles illuminated by a sweeping pink light trail." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/1467d3c7-lei-hwang-df6pl3gehrg-unsplash-scaled.jpg" /&gt;&lt;p&gt;On August 18, Anthropic replaced its Workbench, the prompt-testing tool in its developer Console, with Playground. Anthropic did more than&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-openai-playground-comparison/"&gt;Anthropic&amp;#8217;s Playground vs. OpenAI&amp;#8217;s: The week-old tool beat the six-year incumbent&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="679" src="https://cdn.thenewstack.io/media/2026/08/1467d3c7-lei-hwang-df6pl3gehrg-unsplash-1024x679.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Empty playground at night with a slide and tall poles illuminated by a sweeping pink light trail." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/1467d3c7-lei-hwang-df6pl3gehrg-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;On August 18, Anthropic replaced its Workbench, the prompt-testing tool in its developer Console, with Playground. Anthropic did more than just change the tool&amp;rsquo;s name, though.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic also removed features like saved prompts, version history, evals, and team sharing. The new tool is stateless, meaning it remembers nothing and stores nothing on Anthropic&amp;#8217;s servers. (If you have anything stored in Workbench, you have until September 1 to export your old Workbench data.)&lt;/p&gt;
+
+
+
+&lt;p&gt;Playground &lt;a href="https://support.claude.com/en/articles/8606378-how-do-i-use-the-playground" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;may be new&lt;/a&gt; to Anthropic, but we&amp;rsquo;ve seen it before at OpenAI. OpenAI&amp;rsquo;s Playground is one of the original AI tools. It&amp;rsquo;s been around since the days of GPT-3. It launched in June of 2020, a full two and a half years before ChatGPT existed.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Worth noting is that the same week Anthropic launched its leaner Workbench replacement, OpenAI announced it would shut down its saved Prompts and Evals platform on November 30. Both companies reached the same conclusion: Prompts belong in your code, not in a web console.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Both companies reached the same conclusion, prompts belong in your code, not in a web console.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;I wanted to see how the newer Playground holds up against OpenAI&amp;rsquo;s long-standing Playground. Did Anthropic launch a comparable tool, or were they just checking a box by adding a lower-quality product to keep up with their &amp;ldquo;always be launching&amp;rdquo; goals? I put both to the test to find out.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-test"&gt;The test&lt;/h2&gt;
+
+
+
+&lt;p&gt;A playground is where developers test and refine their instructions to a model before those instructions go into real code. You write the instructions, run them, watch them fail, fix them, and repeat.&lt;/p&gt;
+
+
+
+&lt;p&gt;In each tool, I built the same small thing: a PR review bot. It reads a chunk of code changes and reports back in a rigid, machine-readable format: how risky the changes are, which files they touch, a one-line summary, and whether the tests changed. Both tools received the same instructions and code changes.&lt;/p&gt;
+
+
+
+&lt;p&gt;Then two tests per side:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Build the bot, run it, then use the export feature to turn it into real code, and confirm that the code runs on my laptop.&lt;/li&gt;
+
+
+
+&lt;li&gt;Force a failure, the way requests break in the real world, and see whether the tool explains what went wrong.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I&amp;rsquo;ll add the prompt and diff to the bottom of this post just in case anyone wants to run these tests on their own.&lt;/p&gt;
+
+
+
+&lt;p&gt;Two quick notes about my testing:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Neither Anthropic nor OpenAI&amp;rsquo;s playground fall under the subscription plans. You need to add credits to use them. I already had a little over $18 in my Anthropic account, and I added $10 to OpenAI.&lt;/li&gt;
+
+
+
+&lt;li&gt;One thing I didn&amp;#8217;t test is the OpenAI features Anthropic cut, like saved prompts, version history, and evals, because OpenAI is retiring them in November.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-test-one-build-it-then-ship-it"&gt;Test one: build it, then ship it&lt;/h3&gt;
+
+
+
+&lt;p&gt;First, I tested Anthropic. I pasted my instructions and the code changes, hit Run, and got the correct answer on the first try. The bot read the diff and returned exactly what I asked for: a low risk rating, the three files that were touched, a one-line summary of the changes, and confirmation that tests were modified, all in valid JSON. The model was claude-sonnet-5. It was the default, and I didn&amp;rsquo;t change it. The response only took 1.9 seconds, used 102 tokens, and cost $0.0029.&lt;/p&gt;
+
+
+
+&lt;p&gt;The export worked better than I expected. One toggle turns the whole thing into Python code with my instructions already included. I copied it and ran it in my terminal, and it did the same job as the browser version: sent the diff to Claude and printed the JSON review back. I didn&amp;rsquo;t need to make any edits to the Playground&amp;rsquo;s output to make it work in my terminal; it worked as-is.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Then I turned my attention to the incumbent, OpenAI. OpenAI&amp;rsquo;s Playground is now called Chat, but it serves the same purpose of prompt testing. The page has far more controls than Anthropic&amp;#8217;s: settings for reasoning and verbosity, and a button that writes your prompt for you. Something else I noticed before testing was that I didn&amp;rsquo;t have enough credits to switch the model from GPT-5.4-mini. Anytime I tried to change the model, I was prompted to add more credits to switch (I added $10).&lt;/p&gt;
+
+
+
+&lt;p&gt;The result was also as expected: a correct answer on the first try in 6.2 seconds, with features Anthropic doesn&amp;#8217;t have, such as color-coded formatting and a view of the model&amp;#8217;s reasoning. The test took about 2.900k tokens, but no cost was listed. I imagine it was so inexpensive that it didn&amp;rsquo;t make a dent in my $10.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;OpenAI hadn&amp;#8217;t exported my bot. It exported the transcript of my session, my instructions, the model&amp;#8217;s earlier answer, even its private reasoning as an encrypted block of text.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The export is where OpenAI fell short. The generated Python ran without a single error and printed nothing. When I opened the file, I saw why. OpenAI hadn&amp;#8217;t exported my bot. It exported the transcript of my session, my instructions, the model&amp;#8217;s earlier answer, even its private reasoning as an encrypted block of text. The exported file contained the whole back-and-forth, including the model&amp;#8217;s answer. Running it sent all of that back to the model, question and answer both. From the model&amp;#8217;s view, the job was already done, so it returned nothing new.&lt;/p&gt;
+
+
+
+&lt;p&gt;To get a working bot, I had to delete the old response in the browser, export again, and add a print line myself.&lt;/p&gt;
+
+
+
+&lt;p&gt;Round one goes to Anthropic for the successful no edit copy/paste.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-test-two-force-a-failure"&gt;Test two: force a failure&lt;/h3&gt;
+
+
+
+&lt;p&gt;I tested both playgrounds with an error every developer eventually causes. You cap the length of the model&amp;#8217;s answer because caps control cost. The answer hits the cap, gets cut off mid-sentence, and whatever program expects a complete answer stops working. I did this by capping the token allowance.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic cut the answer exactly where expected, and directly under it was one plain sentence. &amp;#8220;Hit the max tokens limit &amp;mdash; raise &amp;#8216;Max tokens&amp;#8217; in Model settings for more.&amp;#8221; Nothing unclear about that.&lt;/p&gt;
+
+
+
+&lt;p&gt;I couldn&amp;#8217;t run this test on OpenAI because I could not find the cap. I went through every settings panel in the new Chat interface, the overflow menus, and even the older API mode, which sits behind a warning popup listing the features you lose by switching. The setting that controls this failure isn&amp;#8217;t exposed anywhere I could find. That doesn&amp;rsquo;t mean it doesn&amp;rsquo;t exist, but it does mean there&amp;rsquo;s a potential UX issue. That means a developer can&amp;#8217;t use the tool to learn about one of the most common failures they&amp;#8217;ll hit in production.&lt;/p&gt;
+
+
+
+&lt;p&gt;Round two, Anthropic again. A test I could run beats a setting I couldn&amp;#8217;t find every time.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The new Playground is stripped down, but the parts that remain work the way you&amp;#8217;d want them to.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-do-i-think"&gt;What do I think?&lt;/h2&gt;
+
+
+
+&lt;p&gt;I can only judge on what I tested today. Those tests tell me that Anthropic is a better tool for two reasons:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;I love a simple copy/ paste that works perfectly with no edits.&lt;/li&gt;
+
+
+
+&lt;li&gt;It offered more control over token spend, which I think is important, as something tells me these AI costs are going to get very steep very soon.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;So no, Anthropic wasn&amp;#8217;t just checking a box. The new Playground is stripped down, but the parts that remain work the way you&amp;#8217;d want them to.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;And here&amp;#8217;s the prompt I used:&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;You are a PR review bot. You receive a git diff. Respond with only valid JSON in this exact shape: {&amp;#8220;risk&amp;#8221;: &amp;#8220;low&amp;#8221; | &amp;#8220;medium&amp;#8221; | &amp;#8220;high&amp;#8221;, &amp;#8220;files_touched&amp;#8221;: [&amp;#8220;path1&amp;#8221;, &amp;#8220;path2&amp;#8221;], &amp;#8220;summary&amp;#8221;: &amp;#8220;one sentence&amp;#8221;, &amp;#8220;tests_modified&amp;#8221;: true | false} Output nothing except the JSON.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Diff:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;diff &amp;#8211;git a/rich/text.py b/rich/text.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;index 8a2f3c1..d94b7e2 100644&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8212; a/rich/text.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+++ b/rich/text.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;@@ -589,6 +589,28 @@ class Text(JupyterMixin):&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if whitespace_count:&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;self.right_crop(whitespace_count)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; def lstrip(self) -&amp;gt; None:&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;#8220;&amp;#8221;&amp;#8221;Strip whitespace from start of text.&amp;#8221;&amp;#8221;&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; text = self.plain&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; whitespace_count = len(text) &amp;#8211; len(text.lstrip())&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; if whitespace_count:&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; self.left_crop(whitespace_count)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; def strip(self) -&amp;gt; None:&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;#8220;&amp;#8221;&amp;#8221;Strip whitespace from both ends of text.&amp;#8221;&amp;#8221;&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; self.lstrip()&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; self.rstrip()&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;def set_length(self, new_length: int) -&amp;gt; None:&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;#8220;&amp;#8221;&amp;#8221;Set new length of the text, clipping or padding is required.&amp;#8221;&amp;#8221;&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;length = len(self)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;diff &amp;#8211;git a/rich/table.py b/rich/table.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;index 1c8e9a4..f2d1b83 100644&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8212; a/rich/table.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+++ b/rich/table.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;@@ -412,9 +412,7 @@ class Table(JupyterMixin):&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;def _measure_column(self, console, options, column):&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8211;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; # Iterate over all cells to find widths&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8211;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; widths = []&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8211;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; for cell in self._get_cells(console, column):&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8211;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; widths.append(console.measure(cell.renderable).maximum)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; widths = [&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; console.measure(cell.renderable).maximum&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; for cell in self._get_cells(console, column)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ]&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return max(widths) if widths else 0&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;diff &amp;#8211;git a/tests/test_text.py b/tests/test_text.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;index 3e4f2a1..9c8d7b5 100644&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;#8212; a/tests/test_text.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+++ b/tests/test_text.py&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;@@ -201,6 +201,24 @@ def test_rstrip():&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;test = Text(&amp;#8220;Hello, World!&amp;nbsp; &amp;nbsp; &amp;#8220;)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;test.rstrip()&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;assert str(test) == &amp;#8220;Hello, World!&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+def test_lstrip():&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; test = Text(&amp;#8221;&amp;nbsp; &amp;nbsp; Hello, World!&amp;#8221;)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; test.lstrip()&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; assert str(test) == &amp;#8220;Hello, World!&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+def test_strip():&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; test = Text(&amp;#8221;&amp;nbsp; &amp;nbsp; Hello, World!&amp;nbsp; &amp;nbsp; &amp;#8220;)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; test.strip()&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; assert str(test) == &amp;#8220;&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+def test_strip_all_whitespace():&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; test = Text(&amp;#8221; &amp;nbsp; &amp;nbsp; &amp;#8220;)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; test.strip()&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;+&amp;nbsp; &amp;nbsp; assert str(test) == &amp;#8220;&amp;#8221;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-openai-playground-comparison/"&gt;Anthropic&amp;#8217;s Playground vs. OpenAI&amp;#8217;s: The week-old tool beat the six-year incumbent&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic&amp;#039;s new Playground stores nothing, saves nothing, and shipped Tuesday. I tested it head-to-head against OpenAI&amp;#039;s version, and the new tool won on cost visibility, clean exports, and error handling.</content:encoded>
+    </item>
+    <item>
+      <title>Grok Bot vs. Hermes: Where each draws the security boundary</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-security-boundaries/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Mon, 24 Aug 2026 17:39:15 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834195</guid>
+      <description>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2026/08/6b756678-osarugue-igbinoba-cgwdqid3ytc-unsplash-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract white horizontal lines bend into flowing waves and sharp curves across a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6b756678-osarugue-igbinoba-cgwdqid3ytc-unsplash-scaled.jpg" /&gt;&lt;p&gt;Put several AI bots to work, and a mistake by one may not stay within its assigned task. For example,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-security-boundaries/"&gt;Grok Bot vs. Hermes: Where each draws the security boundary&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2026/08/6b756678-osarugue-igbinoba-cgwdqid3ytc-unsplash-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract white horizontal lines bend into flowing waves and sharp curves across a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6b756678-osarugue-igbinoba-cgwdqid3ytc-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;Put several AI bots to work&lt;/strong&gt;, and a mistake by one may not stay within its assigned task. For example, that error could reach another bot’s files and login credentials, or even the computer running them all. Two releases this month offered companies very different ways of containing that risk.&lt;/p&gt;
+
+
+
+&lt;p&gt;On August 17, &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt; announced that its &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bot Mode&lt;/a&gt; would ship bundled and enabled by default in &lt;a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16.2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes Agent v0.20.3&lt;/a&gt;, turning agent profiles into a roster of named bots that hand off work to one another. About a week earlier, SpaceXAI launched &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grok Bot&lt;/a&gt; with almost the same interface: a sidebar of named teammates who sign in to your tools and keep working long after you close your laptop.&lt;/p&gt;
+
+
+
+&lt;p&gt;The interface converged within a week, but the answer to the question every platform team has to ask did not: &lt;em&gt;When one bot goes wrong, what can it reach?&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Four projects have now come to their own answer, and no two of them agree. &lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;Grok Bot draws the line around the user account. &lt;/li&gt;
+
+
+
+&lt;li&gt;Hermes draws it around the profile. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href="https://docs.openclaw.ai/gateway/sandboxing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenClaw&lt;/a&gt; draws it around an optional runtime sandbox. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;a href="https://github.com/clawfleet/ClawFleet" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ClawFleet&lt;/a&gt; draws it around a container. &lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;Taken together, the documentation shows an industry converging on the persistent coworker interface far faster than it is converging on what constitutes an identity or a security boundary for it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-four-projects-four-written-answers"&gt;Four projects, four written answers&lt;/h2&gt;
+
+
+
+&lt;p&gt;Every one of these products now offers the same surface. You create several named agents, assign them different jobs, and have them pass work among themselves. The naming convention alone suggests separation, since a bot called Expense Manager and a bot called Talent Scout sound like they occupy different rooms in a shared office.&lt;/p&gt;
+
+
+
+&lt;p&gt;The documentation says otherwise, and it says something different in each case. The unit of isolation is the account in one product, the profile directory in another, an opt-in container in a third, and the deployment topology in the fourth. Those four units are not interchangeable, and an operator who assumes the roster itself is the boundary will be right in exactly one of the four cases.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-is-grok-bot-confused-about-what-it-wants-to-be"&gt;Is Grok Bot confused about what it wants to be?&lt;/h2&gt;
+
+
+
+&lt;p&gt;SpaceXAI’s &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launch post&lt;/a&gt; leads with the promise that bots have their own computer. The &lt;a href="https://docs.x.ai/grok-bot/computer-and-apps" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt;, last updated the same day, describes a single persistent cloud computer assigned to the user account rather than to any individual bot. Browser cookies and signed-in sessions are shared across the roster, files are visible to every bot, and command-line credentials are shared. One bot can pick up work that another bot saved.&lt;/p&gt;
+
+
+
+&lt;p&gt;Each bot gets its own screen on that machine, which allows several of them to run browser and desktop tools in parallel. SpaceXAI is direct about what those screens are not. The documentation calls them “separate work surfaces, not separate security boundaries.” It then instructs operators to keep a credential or file off the machine entirely if another bot on the account cannot use it.&lt;/p&gt;
+
+
+
+&lt;p&gt;The consequences run further than credentials. Signing in for one bot makes that session available to the others because the browser is shared. Installed &lt;a href="https://docs.x.ai/grok-bot/computer-and-apps" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;connectors&lt;/a&gt; are account-wide, and their availability is not isolated to a single bot. The shared workspace sits at &lt;code&gt;/workspace&lt;/code&gt; and is designed to survive computer updates and recovery, so the durable state is shared across the whole roster.&lt;/p&gt;
+
+
+
+&lt;p&gt;None of this is an implementation accident. It is what makes handoffs between bots cheap, and cheap handoffs are the product. But an operator reading only the launch page would build a mental model that the documentation contradicts, and that gap is where the risk sits.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-hermes-gives-each-bot-its-own-profile"&gt;Hermes gives each bot its own profile&lt;/h2&gt;
+
+
+
+&lt;p&gt;Nous took the opposite architectural position. In &lt;a href="https://github.com/NousResearch/hermes-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes&lt;/a&gt;, a bot is a profile, and each profile has its own configuration, memory, skills, credentials, and chat history stored in its own directory on disk. Handoffs between bots run as real invocations against the named profile, rather than as a shared context blob passed around within a single process.&lt;/p&gt;
+
+
+
+&lt;p&gt;Nous shipped the teammate protocol as part of &lt;a href="https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.16.2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;v0.20.3&lt;/a&gt;, alongside the &lt;a href="https://modelcontextprotocol.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP&lt;/a&gt; 2.x SDK migration and a set of runtime hardening changes. The company archived the &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;standalone plugin repository&lt;/a&gt; once the merge was completed. Bot Mode is on by default, so a Hermes user who updates gets the roster without opting in.&lt;/p&gt;
+
+
+
+&lt;p&gt;Two qualifications matter before anyone reads that as containment. A separate credential store does not guarantee different credentials, since what ends up in a new profile depends on how the operator created it and what they edited afterward. And every profile still shares the host machine, its operating system user, and its filesystem permissions. What Hermes documents is workstation-level separation of agent state, a meaningfully stronger default than a shared cloud account, but not the same as isolation.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-openclaw-s-sandbox-is-off-by-default"&gt;OpenClaw’s sandbox is off by default&lt;/h2&gt;
+
+
+
+&lt;p&gt;OpenClaw documents the most complete boundary of the four. When the &lt;a href="https://docs.openclaw.ai/gateway/sandboxing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;sandbox&lt;/a&gt; is enabled with the Docker backend, agent tool execution runs inside isolated containers. At the same time, the gateway remains on the host, and the scope can be selected per session, per agent, or shared across agents. Each scope gets its own &lt;a href="https://docs.openclaw.ai/concepts/agent-workspace" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;workspace&lt;/a&gt;. Auth material lives per agent under an &lt;a href="https://docs.openclaw.ai/concepts/multi-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;agent-scoped auth profiles file&lt;/a&gt;. Operators can configure network isolation, resource limits, and allow-or-deny tool policies on top of it.&lt;/p&gt;
+
+
+
+&lt;p&gt;The &lt;a href="https://docs.openclaw.ai/install/docker" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documented default&lt;/a&gt; for that sandbox mode is off. That is a defensible choice for a project most people run on a laptop, where the container overhead buys little against a single-user threat model. The underlying setup behavior deserves more attention. If sandbox prerequisites fail during setup, the script resets sandbox mode to off rather than refusing to start, so an operator who intended isolation and encountered a Docker socket issue ends up running without sandbox isolation. The documentation also warns against mounting the host Docker socket into agent sandbox containers and flags the CLI container’s shared network namespace with the gateway as a trust boundary in its own right.&lt;/p&gt;
+
+
+
+&lt;p&gt;ClawFleet answers the same question by moving it into the deployment topology. The project documents a &lt;a href="https://github.com/clawfleet/ClawFleet" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;wrapper&lt;/a&gt; that puts each OpenClaw or Hermes agent in its own Docker container with an isolated filesystem and network. It lists roughly 500 MB of memory per OpenClaw instance and 150 MB per Hermes instance. That cost is why the other three projects make the boundary optional or skip it, and naming the number makes the trade-off legible.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-how-to-choose-which-bot-is-right-for-you"&gt;How to choose which bot is right for you&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Scenario&lt;/th&gt;&lt;th&gt;Documented fit&lt;/th&gt;&lt;th&gt;Rationale&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Persistent work that must continue with the laptop closed&lt;/td&gt;&lt;td&gt;Grok Bot&lt;/td&gt;&lt;td&gt;The only one of the four with a vendor-run always-on cloud computer, at the cost of one shared credential surface for the whole roster&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Several agents with genuinely different credential sets on one workstation&lt;/td&gt;&lt;td&gt;Hermes&lt;/td&gt;&lt;td&gt;Per-profile stores are the documented default, and Bot Mode ships on&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Untrusted or multi-tenant agent sessions&lt;/td&gt;&lt;td&gt;OpenClaw with sandbox enabled&lt;/td&gt;&lt;td&gt;Per-agent or per-session container scope with configurable network and tool policy, provided the operator turns it on and verifies it&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Isolation as the deployment model rather than a runtime setting&lt;/td&gt;&lt;td&gt;ClawFleet&lt;/td&gt;&lt;td&gt;Container per agent with separate filesystem and networking, at a documented memory cost per instance&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-each-project-gives-operators-different-advice"&gt;Each project gives operators different advice&lt;/h2&gt;
+
+
+
+&lt;p&gt;The operational guidance diverges as sharply as the architecture. OpenClaw’s docs read like infrastructure documentation, naming specific hazards such as the Docker socket and the shared network namespace, and telling the operator what not to do. Hermes documents the profile layout and the protocol, then leaves policy to the operator. Grok Bot’s guidance is largely the warning itself, an instruction to treat the account as the boundary and to keep sensitive credentials off the shared machine entirely.&lt;/p&gt;
+
+
+
+&lt;p&gt;Grok Bot carries a second disclaimer worth reading alongside the first. Sensitive actions route through an &lt;a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;approval mechanism&lt;/a&gt;. SpaceXAI documents the categories that trigger it, including sending messages, publishing content, purchases and transfers, deleting data, and touching production. Enforcement runs through an LLM classifier. &lt;a href="https://cursor.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cursor&lt;/a&gt;‘s documentation for that same engine states plainly that the classifier is not a security boundary and can make mistakes. A buyer evaluating the product therefore finds the phrase twice, attached to the two mechanisms they would most reasonably assume protect them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-ai-agents-still-lack-identities-of-their-own"&gt;AI agents still lack identities of their own&lt;/h2&gt;
+
+
+
+&lt;p&gt;Enterprises can adopt any of these four products today and get real work done, and the honest reading is that all four are engineering their boundaries in good faith against different threat models. What none of them provides is an identity for the agent. In every case, the bot borrows the operator’s credentials, whether from a shared cloud browser, a profile directory, or a container volume, and the entire security conversation boils down to how far those borrowed credentials travel.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“There is no primitive to standardize on, so each project has invented a boundary at whatever layer it already controlled, the account, the profile, the runtime, or the container.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That is why the four answers differ so much. There is no primitive to standardize on, so each project has invented a boundary at whatever layer it already controlled: the account, the profile, the runtime, or the container. Expect to see that gap close on the identity side rather than the agent side, through scoped delegation and per-agent credentials issued by the identity provider, rather than being copied from the human. Until then, the useful move for platform teams is unglamorous and specific. Read the security page before the launch page, because for this class of product, they describe different things.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-security-boundaries/"&gt;Grok Bot vs. Hermes: Where each draws the security boundary&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI agent platforms now look like teams of persistent coworkers. But beneath the shared interface, each draws its security boundary somewhere different.</content:encoded>
+    </item>
+    <item>
+      <title>Thomson Reuters trained its own AI model. Then it kept using Anthropic’s anyway.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/thomson-reuters-ai-model/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 24 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <category>AI Strategy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834245</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/a8c68fea-pixeliota-p_noh-w6vo0-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Pixeliota from Unsplash" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a8c68fea-pixeliota-p_noh-w6vo0-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Thomson Reuters has developed its own AI model for legal, tax and compliance work, trained on the company&amp;#8217;s proprietary professional&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/thomson-reuters-ai-model/"&gt;Thomson Reuters trained its own AI model. Then it kept using Anthropic&amp;#8217;s anyway.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/a8c68fea-pixeliota-p_noh-w6vo0-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Pixeliota from Unsplash" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a8c68fea-pixeliota-p_noh-w6vo0-unsplash-1-scaled.jpg" /&gt;
+&lt;p id="h-thomson-reuters-has-developed-its-own-ai-model-for-legal-tax-and-compliance-work-trained-on-the-company-s-proprietary-professional-content-and-designed-to-power-features-inside-products-such-as-cocounsel-early-benchmarks-show-thomson-competing-with-models-from-openai-anthropic-and-google-across-several-professional-and-general-purpose-evaluations"&gt;Thomson Reuters has developed its own AI model for legal, tax and compliance work, trained on the company&amp;#8217;s proprietary professional content and designed to power features inside products such as CoCounsel. Early benchmarks show Thomson competing with models from OpenAI, Anthropic and Google across several professional and general-purpose evaluations.&lt;/p&gt;
+
+
+
+&lt;p&gt;But Thomson wasn&amp;#8217;t built from the ground up. The company started with an existing open-source foundation and spent approximately $40 million training the model, including compute and talent, the company tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Most of our investment went into further training on decades of proprietary content and expert-driven evaluation, not pre-training a foundation model from scratch,&amp;#8221; Thomson Reuters tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;For companies sitting on years of proprietary data, that approach opens another option other than relying entirely on models from OpenAI, Anthropic or Google and spending billions trying to build their own.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-proprietary-data-as-moat"&gt;Proprietary data as moat&lt;/h2&gt;
+
+
+
+&lt;p&gt;The model was trained using content from Thomson Reuters&amp;#8217; own collection, including Westlaw, Practical Law, Checkpoint, and Reuters. Hundreds of subject-matter experts were involved in evaluating outputs and finding places where the model failed. Thomson Reuters says it has used less than 10% of the content available to it for Thomson&amp;#8217;s training so far.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson Reuters still uses frontier models elsewhere in its products. Its new CoCounsel Legal, for example, is built on Anthropic&amp;#8217;s Claude Agent SDK. That same SDK is regularly showing up across industries &amp;mdash; &lt;a href="https://thenewstack.io/spline-v2-mcp-agents/" class="local-link"&gt;Spline recently rebuilt its entire 3D editor and opened it to Claude Code through MCP&lt;/a&gt;, letting coding agents work directly inside live design files. Thomson Reuters is using the same agentic plumbing for a very different purpose: legal research and document analysis at scale. But Thomson the AI model, gives the company its own model for jobs where specialized training makes sense.&lt;/p&gt;
+
+
+
+&lt;p&gt;The first is Tabular Analysis in CoCounsel Legal, which can work across as many as 10,000 documents and answer up to 100 questions about them. Thomson is becoming the default model for that feature.&lt;/p&gt;
+
+
+
+&lt;p&gt;For now, customers won&amp;#8217;t be buying access to Thomson directly.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Thomson is built for legal, tax, and compliance professionals; the people who use products like CoCounsel Legal every day,&amp;#8221; Thomson Reuters tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;It powers specific capabilities inside our own products, starting with Tabular Analysis in CoCounsel Legal, and a smaller, open-weight version is also available to researchers on Hugging Face.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;The company said it is looking at ways it could commercialize Thomson in the future.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-trained-to-flag-uncertainty"&gt;Trained to flag uncertainty&lt;/h2&gt;
+
+
+
+&lt;p&gt;Legal work is an obvious place to want more control over a model. A made-up citation or confidently wrong answer can become a much bigger problem once it makes its way into actual legal work.&lt;/p&gt;
+
+
+
+&lt;p&gt;Building Thomson didn&amp;#8217;t make that problem disappear.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;There&amp;#8217;s no guarantee any AI model, including Thomson, is error-free,&amp;#8221; Thomson Reuters tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Owning the training process gives Thomson Reuters more control over how the model handles uncertainty.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Because Thomson Reuters trains the model directly, it can shape tradeoffs that general-purpose models don&amp;#8217;t optimize for in the same way, including how the model weighs helpfulness against accuracy,&amp;#8221; the company said.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson is specifically trained to admit uncertainty rather than produce an answer simply because the user asked for one.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Thomson is trained to flag uncertainty rather than force a confident-sounding answer, even when that&amp;#8217;s less satisfying to the person asking,&amp;#8221; Thomson Reuters said. &amp;#8220;That&amp;#8217;s a deliberate choice: a model that always tries to please the user is a model more prone to hallucination, sycophancy, and other failure modes that matter far more in professional work than in casual use.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;Even with that training, the company hasn&amp;#8217;t done away with retrieval.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson can pull from sources such as Westlaw and Practical Law so its responses can be grounded in material a legal professional can check. The company is effectively using the two approaches together: train the model for the domain, then give it access to authoritative information when it needs to answer a question.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;It&amp;#8217;s not one approach instead of the other,&amp;#8221; Thomson Reuters said. &amp;#8220;It&amp;#8217;s a model trained to reason more carefully, combined with retrieval that keeps it anchored to source material a professional can check.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Thomson is trained to flag uncertainty rather than force a confident-sounding answer, even when that&amp;#8217;s less satisfying to the person asking.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-traceability-has-its-limits"&gt;Traceability has its limits&lt;/h2&gt;
+
+
+
+&lt;p&gt;That raises another problem for an AI system being used by lawyers: knowing where an answer came from.&lt;/p&gt;
+
+
+
+&lt;p&gt;If an attorney uses AI to help prepare a brief, knowing the model was trained on Westlaw isn&amp;#8217;t enough. The attorney needs to know whether the cases and statutes supporting the argument actually say what the AI claims they say.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson Reuters says many Thomson outputs can be connected to specific Westlaw or Practical Law sources. It doesn&amp;#8217;t promise that every piece of an answer can be traced back to a particular passage.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;We wouldn&amp;#8217;t claim every output can be traced line by line to an exact statute or ruling,&amp;#8221; Thomson Reuters tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Instead, the company says Thomson is designed to make its reasoning checkable where possible, while leaving the final verification to the professional using it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson is the model doing the work. CoCounsel is the product around it, where Thomson Reuters can add citations, verification and review before that work goes any further.&lt;/p&gt;
+
+
+
+&lt;p&gt;The latest version of CoCounsel Legal, released Aug. 20, moves further in that direction. The agentic system can move between research, analysis, drafting and verification, while Deep Research Verify checks whether Westlaw and Practical Law sources actually support the claims being made.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;We wouldn&amp;#8217;t claim every output can be traced line by line to an exact statute or ruling.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-benchmarks-need-some-context"&gt;The benchmarks need some context&lt;/h2&gt;
+
+
+
+&lt;p&gt;Thomson Reuters says Thomson is competitive with much larger frontier models, and its early results back that up in some areas.&lt;/p&gt;
+
+
+
+&lt;p&gt;In Thomson Reuters&amp;#8217; published comparison with Gemini 3.1 Pro, Claude Opus 4.8 and GPT-5.5, Thomson came out on top in three of seven reported categories, including PRBench Legal Hard, an instruction-following composite and long context.&lt;/p&gt;
+
+
+
+&lt;p&gt;Other models led elsewhere. Gemini 3.1 Pro scored higher on Stanford LegalBench and the reasoning composite, while Claude Opus 4.8 led the Harvey Legal Agent Benchmark and coding.&lt;/p&gt;
+
+
+
+&lt;p&gt;There are some important differences in how those results were produced. Thomson used test-time scaling, Gemini and Opus were run in reasoning modes, while GPT-5.5 was tested in non-reasoning mode. Some of the evaluations in Thomson Reuters&amp;#8217; composites are also internal benchmarks.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson Reuters gave the models 53 legal research questions written by its own subject-matter experts. Thomson could search Westlaw and Practical Law through an internal agentic system. The competing models searched the web using Brave. Thomson performed better.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;It&amp;#8217;s not one approach instead of the other &amp;hellip; It&amp;#8217;s a model trained to reason more carefully, combined with retrieval that keeps it anchored to source material a professional can check.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-owning-the-right-layer"&gt;Owning the right layer&lt;/h2&gt;
+
+
+
+&lt;p&gt;Thomson Reuters makes a compelling case for being selective about which layers of the AI stack are truly worth owning. For most companies, trying to match OpenAI, Anthropic or Google across every task would make little sense. But a company with proprietary data, deep domain expertise and millions of professional workflows has something the frontier labs don&amp;#8217;t.&lt;/p&gt;
+
+
+
+&lt;p&gt;That question &amp;mdash; which layers to own, and which to rent &amp;mdash; is playing out across the industry. &lt;a href="https://thenewstack.io/cloudflare-ai-web-economics/" class="local-link"&gt;Cloudflare is making a similar bet on the infrastructure side&lt;/a&gt;, positioning itself as the economic layer between publishers and AI companies rather than trying to build the models themselves. And on the compute side, &lt;a href="https://thenewstack.io/mistral-third-party-open-models/" class="local-link"&gt;five European companies recently committed to buying AI compute that doesn&amp;#8217;t even exist yet&lt;/a&gt;, wagering that securing capacity matters more than which model sits on top. Thomson Reuters is making the opposite play: it already has the data and the workflows, and it&amp;#8217;s building in-house only where that proprietary edge justifies the cost.&lt;/p&gt;
+
+
+
+&lt;p&gt;Thomson Reuters can leverage third-party models where they fit best while building in-house only where its proprietary data provides an edge. The question is whether that specialized slice of the business is large enough to make owning the model worth the investment.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/thomson-reuters-ai-model/"&gt;Thomson Reuters trained its own AI model. Then it kept using Anthropic&amp;#8217;s anyway.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Thomson Reuters spent $40M training its own AI model on proprietary legal content instead of building from scratch, competing with OpenAI and Anthropic on domain benchmarks.</content:encoded>
+    </item>
+    <item>
       <title>Why real-time AI at scale is so hard</title>
       <link>https://web.archive.org/web/https://thenewstack.io/real-time-ai-scale/</link>
       <dc:creator>Felipe Cardeneti Mendes</dc:creator>
@@ -30,7 +1064,7 @@
       <category>sponsor-scylladb</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22834171</guid>
-      <description>&lt;img width="1024" height="522" src="https://cdn.thenewstack.io/media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash-1024x522.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of tangled glowing red and cyan wires, symbolizing real-time AI infrastructure congestion and system latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash.jpg" /&gt;&lt;p&gt;Real-time AI at scale is harder than it looks. Pipelines that hum along in development routinely hit problems in production.&lt;/p&gt;
+      <description>&lt;img width="1024" height="522" src="https://cdn.thenewstack.io/media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash-1024x522.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of tangled glowing red and cyan wires, symbolizing real-time AI infrastructure congestion and system latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash.jpg" /&gt;&lt;p&gt;Real-time AI at scale is harder than it looks. Pipelines that hum along in development routinely hit problems in production.&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/real-time-ai-scale/"&gt;Why real-time AI at scale is so hard&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="522" src="https://cdn.thenewstack.io/media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash-1024x522.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital render of tangled glowing red and cyan wires, symbolizing real-time AI infrastructure congestion and system latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ab4acf9f-a-c-72sidbzubte-unsplash.jpg" /&gt;
@@ -43,7 +1077,7 @@
 
 
 &lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="The Challenges of Real-Time AI at Scale" width="500" height="281" src="https://www.youtube.com/embed/1qtFCO8zGWM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="The Challenges of Real-Time AI at Scale" width="500" height="281" src="https://www.youtube.com/embed/1qtFCO8zGWM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/figure&gt;
 
 
@@ -68,7 +1102,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="419" src="https://cdn.thenewstack.io/media/2026/08/c01c3eef-image2-1024x419.png" alt="Chart showing inference latency and request rate (ops/sec)." class="wp-image-22834175"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="419" src="https://cdn.thenewstack.io/media/2026/08/c01c3eef-image2-1024x419.png" alt="Chart showing inference latency and request rate (ops/sec)." class="wp-image-22834175"/&gt;&lt;/figure&gt;
 
 
 
@@ -1371,82 +2405,6 @@
       <content:encoded>Model triage is becoming a core engineering skill. Stripe’s OpenRouter acquisition and Ramp’s router.com launch show why the runtime, not the model, is becoming AI’s new control plane.</content:encoded>
     </item>
     <item>
-      <title>Grok, Claude, and Hermes agents get job titles — and persistent permissions</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/persistent-ai-agent-identities/</link>
-      <dc:creator>Janakiram MSV</dc:creator>
-      <pubDate>Fri, 21 Aug 2026 13:00:00 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833874</guid>
-      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;&lt;p&gt;Your next AI coworker may look like a chatbot, but underneath their name, face, and job title will be something&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;
-&lt;p&gt;&lt;strong&gt;Your next AI coworker may look like a chatbot&lt;/strong&gt;, but underneath their name, face, and job title will be something more consequential: A persistent identity that uses memory, keeps permissions, and has responsibilities across all the conversations you have with it.&lt;/p&gt;
-
-
-
-&lt;p&gt;We can already see that model taking shape in Hermes. This month, &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt; folded &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bot Mode&lt;/a&gt; into the &lt;a href="https://hermes-agent.nousresearch.com/docs/user-guide/desktop" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes desktop app&lt;/a&gt;. The standalone plugin repository is archived; the roster now ships bundled and enabled by default; and v0.20.4 added a tabbed Sessions and Bots sidebar. Each profile shows up as a named bot with its own chat, avatar, personality, schedule, and pinned model.&lt;/p&gt;
-
-
-
-&lt;p&gt;Hermes tabbing Sessions beside Bots reflects a broader shift. Sessions did not disappear from any of these products; they sit under a durable agent identity that carries memory and permissions across them.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-hermes-and-grok-build-rosters-claude-joins-one"&gt;Hermes and Grok build rosters, Claude joins one&lt;/h2&gt;
-
-
-
-&lt;p&gt;xAI &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; Grok Bot on August 11, featuring a sidebar of named Bots, each with a title, a description, and up to 50 routines per account. Hermes now does the same thing on the desktop under an MIT license. &lt;a href="https://claude.com/product/tag" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Tag&lt;/a&gt; from Anthropic, announced on June 23, takes the other route. One organization-provisioned Claude joins the human roster in Slack, where anyone in a channel can tag it, and each thread still spins up its own working session.&lt;/p&gt;
-
-
-
-&lt;p&gt;Three different products and deployment models took the same direction. The reusable object shifted from being the conversation to serving as the worker identity above it.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-bot-is-a-profile-not-a-new-runtime"&gt;A bot is a profile, not a new runtime&lt;/h2&gt;
-
-
-
-&lt;p&gt;Hermes is the easiest to read because its code is open. A bot is a &lt;a href="https://github.com/NousResearch/hermes-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes Agent&lt;/a&gt; profile, a separate home directory holding config, keys, a SOUL file, memory, sessions, skills, and cron state. Routines are ordinary cron jobs namespaced per bot. Bot-to-bot handoffs are real command-line interface (CLI) invocations into a canonical bot chat, delivered whenever the receiving bot next runs. The standalone plugin described itself as a user interface over those primitives, with no core patches and no background daemons.&lt;/p&gt;
-
-
-
-&lt;p&gt;Profiles existed long before Bot Mode, which gave them faces and a sidebar. What has changed now is the unit of reuse, which moved from the prompt to the profile.&lt;/p&gt;
-
-
-
-&lt;p&gt;Descriptions are carrying real weight in these products. xAI tells operators to encode a bot&amp;#8217;s durable responsibilities, sources, and boundaries in its description, and bots can hand off work to one another. The job description is starting to look a lot like a routing table.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-three-products-three-identity-architectures"&gt;Three products, three identity architectures&lt;/h2&gt;
-
-
-
-&lt;p&gt;Hermes keeps the credentials profile scoped to whichever host runs Hermes, whether that is a laptop or a remote server. Its own documentation makes it clear that profiles are not sandboxes, so the separation concerns state and configuration rather than security. Grok Bot takes the opposite approach, with every Bot sharing one account-scoped computer. That includes files, browser sessions, and app logins, and xAI says those survive the deletion of the Bot that created them. Claude Tag provisions an organization service identity with channel-scoped access to tools.&lt;/p&gt;
-
-
-
-&lt;p&gt;The diligence belongs here rather than on the feature list. A named bot with a job title reads like a colleague. What actually signs into a production system is a profile directory, a shared machine, or a service account, depending on the vendor.&lt;/p&gt;
-
-
-
-&lt;p&gt;The counterintuitive part is that persistence here is mostly a configuration issue. Nothing in a profile directory, a shared computer, or a service account keeps an agent coherent across weeks of accumulated work, and none of the three vendors has published evidence that any of them do.&lt;/p&gt;
-
-
-
-&lt;p&gt;Teams evaluating any of the three should start with the identity architecture because the roster is trivial to copy, but the underlying identity model is not.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Grok Bot, Claude Tag, and Hermes Bot Mode are making AI agents persistent. Before you call one a coworker, check what it remembers -- and what it can access.</content:encoded>
-    </item>
-    <item>
       <title>Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia’s AVO, it hit 100%.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/nvidia-avo-arcagi3-benchmark/</link>
       <dc:creator>Adrian Bridgwater</dc:creator>
@@ -1605,6 +2563,82 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-avo-arcagi3-benchmark/"&gt;Claude Opus 5 scored 30% on ARC-AGI-3. Wrapped in Nvidia&amp;#8217;s AVO, it hit 100%.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Nvidia&amp;#039;s AVO agent system lifted Claude Opus 5 from a 30% baseline to 100% on the ARC-AGI-3 reasoning benchmark, across all 183 levels.</content:encoded>
+    </item>
+    <item>
+      <title>Grok, Claude, and Hermes agents get job titles — and persistent permissions</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/persistent-ai-agent-identities/</link>
+      <dc:creator>Janakiram MSV</dc:creator>
+      <pubDate>Fri, 21 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22833874</guid>
+      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;&lt;p&gt;Your next AI coworker may look like a chatbot, but underneath their name, face, and job title will be something&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/08/356f6ee1-robots-at-desks-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of blue retro robots with orange eyes working at computers, repeated in a crowded pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/356f6ee1-robots-at-desks-scaled.png" /&gt;
+&lt;p&gt;&lt;strong&gt;Your next AI coworker may look like a chatbot&lt;/strong&gt;, but underneath their name, face, and job title will be something more consequential: A persistent identity that uses memory, keeps permissions, and has responsibilities across all the conversations you have with it.&lt;/p&gt;
+
+
+
+&lt;p&gt;We can already see that model taking shape in Hermes. This month, &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt; folded &lt;a href="https://github.com/NousResearch/Hermes-Bot-Mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bot Mode&lt;/a&gt; into the &lt;a href="https://hermes-agent.nousresearch.com/docs/user-guide/desktop" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes desktop app&lt;/a&gt;. The standalone plugin repository is archived; the roster now ships bundled and enabled by default; and v0.20.4 added a tabbed Sessions and Bots sidebar. Each profile shows up as a named bot with its own chat, avatar, personality, schedule, and pinned model.&lt;/p&gt;
+
+
+
+&lt;p&gt;Hermes tabbing Sessions beside Bots reflects a broader shift. Sessions did not disappear from any of these products; they sit under a durable agent identity that carries memory and permissions across them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-hermes-and-grok-build-rosters-claude-joins-one"&gt;Hermes and Grok build rosters, Claude joins one&lt;/h2&gt;
+
+
+
+&lt;p&gt;xAI &lt;a href="https://x.ai/news/introducing-grok-bot" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; Grok Bot on August 11, featuring a sidebar of named Bots, each with a title, a description, and up to 50 routines per account. Hermes now does the same thing on the desktop under an MIT license. &lt;a href="https://claude.com/product/tag" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Tag&lt;/a&gt; from Anthropic, announced on June 23, takes the other route. One organization-provisioned Claude joins the human roster in Slack, where anyone in a channel can tag it, and each thread still spins up its own working session.&lt;/p&gt;
+
+
+
+&lt;p&gt;Three different products and deployment models took the same direction. The reusable object shifted from being the conversation to serving as the worker identity above it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-a-bot-is-a-profile-not-a-new-runtime"&gt;A bot is a profile, not a new runtime&lt;/h2&gt;
+
+
+
+&lt;p&gt;Hermes is the easiest to read because its code is open. A bot is a &lt;a href="https://github.com/NousResearch/hermes-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hermes Agent&lt;/a&gt; profile, a separate home directory holding config, keys, a SOUL file, memory, sessions, skills, and cron state. Routines are ordinary cron jobs namespaced per bot. Bot-to-bot handoffs are real command-line interface (CLI) invocations into a canonical bot chat, delivered whenever the receiving bot next runs. The standalone plugin described itself as a user interface over those primitives, with no core patches and no background daemons.&lt;/p&gt;
+
+
+
+&lt;p&gt;Profiles existed long before Bot Mode, which gave them faces and a sidebar. What has changed now is the unit of reuse, which moved from the prompt to the profile.&lt;/p&gt;
+
+
+
+&lt;p&gt;Descriptions are carrying real weight in these products. xAI tells operators to encode a bot&amp;#8217;s durable responsibilities, sources, and boundaries in its description, and bots can hand off work to one another. The job description is starting to look a lot like a routing table.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-three-products-three-identity-architectures"&gt;Three products, three identity architectures&lt;/h2&gt;
+
+
+
+&lt;p&gt;Hermes keeps the credentials profile scoped to whichever host runs Hermes, whether that is a laptop or a remote server. Its own documentation makes it clear that profiles are not sandboxes, so the separation concerns state and configuration rather than security. Grok Bot takes the opposite approach, with every Bot sharing one account-scoped computer. That includes files, browser sessions, and app logins, and xAI says those survive the deletion of the Bot that created them. Claude Tag provisions an organization service identity with channel-scoped access to tools.&lt;/p&gt;
+
+
+
+&lt;p&gt;The diligence belongs here rather than on the feature list. A named bot with a job title reads like a colleague. What actually signs into a production system is a profile directory, a shared machine, or a service account, depending on the vendor.&lt;/p&gt;
+
+
+
+&lt;p&gt;The counterintuitive part is that persistence here is mostly a configuration issue. Nothing in a profile directory, a shared computer, or a service account keeps an agent coherent across weeks of accumulated work, and none of the three vendors has published evidence that any of them do.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams evaluating any of the three should start with the identity architecture because the roster is trivial to copy, but the underlying identity model is not.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/"&gt;Grok, Claude, and Hermes agents get job titles &amp;#8212; and persistent permissions&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Grok Bot, Claude Tag, and Hermes Bot Mode are making AI agents persistent. Before you call one a coworker, check what it remembers -- and what it can access.</content:encoded>
     </item>
     <item>
       <title>Most coding agent benchmarks skip large-scale refactoring. Not this one.</title>
@@ -2748,1258 +3782,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/slack-code-agent-channels/"&gt;Slack has a new channel type &amp;#8212; but only agents can create one&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Slack Code gives coding agents their own temporary channels for plans, diffs, and live previews. Only an agent can open one, and teams decide what ships.</content:encoded>
-    </item>
-    <item>
-      <title>Stop the token bleed: building token-efficient multi-agent systems</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/building-token-efficient-agents/</link>
-      <dc:creator>Oladimeji Sowole</dc:creator>
-      <pubDate>Thu, 20 Aug 2026 14:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Infrastructure</category>
-      <category>sponsor-andela</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833961</guid>
-      <description>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2026/08/0f8bbcaf-a-c-3ku2c_-fxqk-unsplash-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark 3D digital data grid with glowing orange lights representing multi-agent AI system architecture and token optimization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/0f8bbcaf-a-c-3ku2c_-fxqk-unsplash.jpg" /&gt;&lt;p&gt;Every engineering team deploying AI agents eventually discovers an uncomfortable truth: the model isn&amp;#8217;t the biggest expense. The hidden cost&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/building-token-efficient-agents/"&gt;Stop the token bleed: building token-efficient multi-agent systems&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2026/08/0f8bbcaf-a-c-3ku2c_-fxqk-unsplash-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark 3D digital data grid with glowing orange lights representing multi-agent AI system architecture and token optimization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/0f8bbcaf-a-c-3ku2c_-fxqk-unsplash.jpg" /&gt;
-&lt;p&gt;Every engineering team deploying AI agents eventually discovers an uncomfortable truth: the model isn&amp;rsquo;t the biggest expense. The hidden cost is everything around it: repeated retrievals, duplicate prompts, unnecessary tool calls, oversized context windows, multiple agents reasoning over the same information. Individually, these architectural decisions seem harmless. At production scale, they become a severe tax on latency, infrastructure, and cloud spend.&lt;/p&gt;
-
-
-
-&lt;p&gt;A proof-of-concept agent that answers 50 questions a day can tolerate inefficiencies. An enterprise platform coordinating thousands of requests per minute cannot.&lt;/p&gt;
-
-
-
-&lt;p&gt;This article explores practical techniques for engineering token-efficient AI systems without sacrificing output quality. Rather than focusing solely on prompt compression, we will optimize the entire workflow from routing and retrieval to caching and model selection.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-token-optimization-is-a-systems-problem"&gt;Why token optimization is a systems problem&lt;/h2&gt;
-
-
-
-&lt;p&gt;Most discussions around token optimization begin and end with prompt engineering. In practice, architecture drives token consumption.&lt;/p&gt;
-
-
-
-&lt;p&gt;Consider a typical multi-agent workflow:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-User 
-  &amp;darr;
-Intent Agent
-  &amp;darr;
-Retriever
-  &amp;darr;
-Research Agent
-  &amp;darr;
-Planning Agent
-  &amp;darr;
-Writer Agent
-  &amp;darr;
-Reviewer Agent
-  &amp;darr;
-Final Response
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;At each stage, the system might retrieve the same documents, repeat identical instructions, call the same model, and resend the entire conversation history. By the time a response reaches the user, the architecture has processed tens of thousands of unnecessary tokens.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Improving efficiency requires redesigning the workflow, not just shortening the prompts.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Improving efficiency requires redesigning the workflow, not just shortening the prompts.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Architecture overview&lt;/h2&gt;
-
-
-
-&lt;p&gt;A production-ready, token-efficient architecture introduces optimization before every expensive model invocation.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-User Request
-       &amp;#9474; 
-       &amp;#9660;
-Intent Router 
-       &amp;#9474; 
-       &amp;#9660;
-Semantic Cache &amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9472;&amp;#9658; Cached Response
-       &amp;#9474; 
-       &amp;#9660;
-Context Budget Manager
-       &amp;#9474; 
-       &amp;#9660;
-Adaptive Retriever
-       &amp;#9474; 
-       &amp;#9660;
-Model Router
-       &amp;#9474; 
-       &amp;#9660;
-LLM
-       &amp;#9474; 
-       &amp;#9660;
-Validated Response
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The large language model is no longer the first component. It is the final, most expensive operation.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Notice the critical shift: the large language model is no longer the first component. It is the final, most expensive operation.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 1: Install modern dependencies&lt;/h3&gt;
-
-
-
-&lt;p&gt;Use the latest package structure to avoid deprecated imports and align with the current LangChain ecosystem.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: bash; gutter: false; title: ; notranslate"&gt;
-Bash
-pip install \
-   langchain \
-   langchain-core \
-   langchain-openai \
-   langchain-community \
-   fastapi \
-   faiss-cpu \
-   tiktoken \
-   rank-bm25 \
-   pydantic \
-   python-dotenv
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 2: Configure the model&lt;/h3&gt;
-
-
-
-&lt;p&gt;Production systems must configure retries, timeouts, and credentials through the environment.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-import os
-from langchain_openai import ChatOpenAI 
-
-api_key = os.getenv(&amp;quot;OPENAI_API_KEY&amp;quot;) 
-if not api_key: 
-    raise ValueError(&amp;quot;OPENAI_API_KEY must be configured.&amp;quot;)
-
-llm = ChatOpenAI( 
-    model=&amp;quot;gpt-4o-mini&amp;quot;, 
-    temperature=0, 
-    api_key=api_key, 
-    timeout=30.0, 
-    max_retries=2, 
-)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Setting a low temperature improves consistency, while explicit timeouts and retry limits help the system recover gracefully from transient API failures.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 3: Route before you generate&lt;/h3&gt;
-
-
-
-&lt;p&gt;Not every request requires a large language model. Deterministic logic can often answer simple questions. Routing inexpensive requests away from the LLM yields the most significant &lt;a href="https://thenewstack.io/btrfs-petabyte-cost-reduction/"  data-wpil-monitor-id="4037" class="local-link"&gt;cost reduction in production&lt;/a&gt; systems.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-def classify_request(question: str) -&amp;gt; str:
-    q = question.lower()
-
-    if &amp;quot;status&amp;quot; in q:
-        return &amp;quot;metrics&amp;quot;
-
-    if &amp;quot;runbook&amp;quot; in q:
-        return &amp;quot;retrieval&amp;quot;
-   
-    return &amp;quot;generation&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 4: Add a semantic cache&lt;/h3&gt;
-
-
-
-&lt;p&gt;One of the simplest and most effective optimizations is an exact-match cache, which returns a previously generated response when the same question is asked against the same retrieved documents, avoiding unnecessary model calls.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-import hashlib
-
-# Using an exact-match (lexical) cache
-exact_match_cache = {}
-
-def cache_key(question: str, sources: list&amp;#x5B;str]) -&amp;gt; str:
-    &amp;quot;&amp;quot;&amp;quot;
-    Generate a deterministic cache key from the user question
-    and the retrieved document identifiers.
-    &amp;quot;&amp;quot;&amp;quot;
-    fingerprint = question + &amp;quot;|&amp;quot; + &amp;quot;|&amp;quot;.join(sorted(sources))
-    return hashlib.sha256(fingerprint.encode()).hexdigest()
-
-# Example usage in the pipeline:
-# key = cache_key(question, source_ids)
-# if key in semantic_cache:
-#     return semantic_cache&amp;#x5B;key]
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 5: Budget your context&lt;/h3&gt;
-
-
-
-&lt;p&gt;Most retrieval pipelines return far more text than the model actually needs. Instead of stuffing the context window with every retrieved document, establish a strict context budget.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-import tiktoken
-
-encoder = tiktoken.encoding_for_model(&amp;quot;gpt-4o-mini&amp;quot;)
-MAX_CONTEXT_TOKENS = 2500
-
-def build_context(chunks):
-    context = &amp;#x5B;]
-    used = 0
-
-    for chunk in chunks:
-        tokens = len(encoder.encode(chunk.page_content, disallowed_special=()))
-
-        if used + tokens &amp;gt; MAX_CONTEXT_TOKENS:
-            break 
-
-        context.append(chunk.page_content)
-        used += tokens
-
-    return &amp;quot;\n\n&amp;quot;.join(context)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 6: Retrieve once&lt;/h3&gt;
-
-
-
-&lt;p&gt;Repeated retrieval is a surprisingly common flaw in multi-agent systems. The rule is simple: retrieve once, reuse everywhere.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-from langchain_core.documents import Document
-from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
-
-documents = &amp;#x5B;
-    Document(
-        page_content=&amp;quot;Database latency often follows connection pool exhaustion.&amp;quot;,
-        metadata={&amp;quot;source&amp;quot;: &amp;quot;db_runbook&amp;quot;},
-    ),
-    Document(
-        page_content=&amp;quot;Node pressure can increase API response times.&amp;quot;,
-        metadata={&amp;quot;source&amp;quot;: &amp;quot;cluster_runbook&amp;quot;},
-    ),
-]
-
-embeddings = OpenAIEmbeddings(api_key=api_key)
-index = FAISS.from_documents(documents, embeddings)
-
-retrieved_docs = index.similarity_search(question, k=4)
-shared_context = build_context(retrieved_docs)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Now, every downstream agent consumes the same optimized context instead of launching its own redundant retrieval pipeline.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 7: Route models intelligently&lt;/h3&gt;
-
-
-
-&lt;p&gt;Large models should solve complex problems. Everything else belongs to a smaller, faster model.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-from langchain_openai import ChatOpenAI
-
-small_model = ChatOpenAI(model=&amp;quot;gpt-4o-mini&amp;quot;, temperature=0, api_key=api_key)
-large_model = ChatOpenAI(model=&amp;quot;gpt-4.1&amp;quot;, temperature=0, api_key=api_key)
-
-def choose_model(question: str):
-    &amp;quot;&amp;quot;&amp;quot;Route requests to the most appropriate model based on complexity.&amp;quot;&amp;quot;&amp;quot;
-    if len(question) &amp;lt; 200:
-        return small_model
-    return large_model
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;This strategy drastically reduces operational costs without noticeably affecting response quality.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 8: Estimate tokens before sending&lt;/h3&gt;
-
-
-
-&lt;p&gt;Without token telemetry, optimization is just guesswork. Monitoring usage makes efficiency measurable and helps engineers detect cost regressions.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-import tiktoken
-
-encoder = tiktoken.encoding_for_model(&amp;quot;gpt-4o-mini&amp;quot;)
-
-def estimate_tokens(messages):
-    &amp;quot;&amp;quot;&amp;quot;
-    Estimate input tokens for an OpenAI-style chat payload.
-    Note: This is an estimate, not an exact billing calculation.
-    &amp;quot;&amp;quot;&amp;quot;
-    tokens_per_message = 3
-    tokens_per_name = 1
-    total = 0
-
-    for message in messages:
-        total += tokens_per_message
-        for key, value in message.items():
-            if isinstance(value, str):
-                total += len(encoder.encode(value))
-            if key == &amp;quot;name&amp;quot;:
-                total += tokens_per_name
-
-    # Every reply is primed with additional assistant tokens.
-    total += 3
-    return total
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 9: Validate responses&lt;/h3&gt;
-
-
-
-&lt;p&gt;Production systems must return structured outputs to ensure downstream systems receive predictable, well-formed data.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-from pydantic import BaseModel
-
-class AgentResponse(BaseModel):
-    answer: str
-    sources: list&amp;#x5B;str]
-
-def validate_response(answer: str, sources: list&amp;#x5B;str]):
-    &amp;quot;&amp;quot;&amp;quot;Validate and serialize the agent response using a structured schema.&amp;quot;&amp;quot;&amp;quot;
-    response = AgentResponse(
-        answer=answer,
-        sources=sources,
-    )
-    return response.model_dump()
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 class="wp-block-heading"&gt;Step 10: Build the optimized pipeline&lt;/h3&gt;
-
-
-
-&lt;p&gt;Finally, assemble the architectural components into a single workflow. Notice how failures degrade gracefully instead of crashing the service.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: python; gutter: false; title: ; notranslate"&gt;
-Python
-import logging
-
-from langchain_core.prompts import ChatPromptTemplate
-
-logger = logging.getLogger(__name__)
-
-def run_pipeline(question: str):
-    &amp;quot;&amp;quot;&amp;quot;Execute the token-efficient AI workflow with graceful degradation.&amp;quot;&amp;quot;&amp;quot;
-    try:
-        route = classify_request(question)
-
-        # Route deterministic requests away from the LLM.
-        if route == &amp;quot;metrics&amp;quot;:
-            return {
-                &amp;quot;answer&amp;quot;: &amp;quot;Retrieve metrics directly from the monitoring system.&amp;quot;,
-                &amp;quot;sources&amp;quot;: &amp;#x5B;],
-            }
-
-        # Retrieve context once.
-        docs = index.similarity_search(question, k=4)
-
-        context = build_context(docs)
-
-        source_ids = &amp;#x5B;
-            doc.metadata.get(&amp;quot;source&amp;quot;)
-            for doc in docs
-            if doc.metadata.get(&amp;quot;source&amp;quot;)
-        ]
-
-        # Check exact-match cache.
-        key = cache_key(question, source_ids)
-
-        if key in exact_match_cache:
-            return exact_match_cache&amp;#x5B;key]
-
-        # Select the most appropriate model.
-        model = choose_model(question)
-
-        # Keep trusted instructions separate from untrusted user input.
-        prompt_template = ChatPromptTemplate.from_messages(
-            &amp;#x5B;
-                (
-                    &amp;quot;system&amp;quot;,
-                    (
-                        &amp;quot;Answer the user&amp;#039;s question using ONLY the provided context. &amp;quot;
-                        &amp;quot;If the answer cannot be determined from the context, say so.&amp;quot;
-                        &amp;quot;\n\nContext:\n{context}&amp;quot;
-                    ),
-                ),
-                (&amp;quot;user&amp;quot;, &amp;quot;{question}&amp;quot;),
-            ]
-        )
-
-        chain = prompt_template | model
-
-        result = chain.invoke(
-            {
-                &amp;quot;context&amp;quot;: context,
-                &amp;quot;question&amp;quot;: question,
-            }
-        )
-
-        payload = validate_response(
-            answer=result.content,
-            sources=source_ids,
-        )
-
-        # Cache validated response.
-        exact_match_cache&amp;#x5B;key] = payload
-
-        return payload
-
-    except Exception:
-        logger.exception(&amp;quot;Token-efficient pipeline failed.&amp;quot;)
-
-        # Gracefully degrade instead of crashing.
-        return {
-            &amp;quot;answer&amp;quot;: (
-                &amp;quot;The AI pipeline encountered an error. &amp;quot;
-                &amp;quot;Please continue using the standard operational workflow.&amp;quot;
-            ),
-            &amp;quot;sources&amp;quot;: &amp;#x5B;],
-        }
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 class="wp-block-heading"&gt;What actually reduced token usage?&lt;/h2&gt;
-
-
-
-&lt;p&gt;When teams instrument architectures like this, the largest savings rarely come from editing prompts. They come from eliminating unnecessary work.&lt;/p&gt;
-
-
-
-&lt;p&gt;The biggest improvements typically stem from:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Retrieving documents once instead of multiple times.&lt;/li&gt;
-
-
-
-&lt;li&gt;Caching semantically identical requests.&lt;/li&gt;
-
-
-
-&lt;li&gt;Routing simple requests away from the LLM.&lt;/li&gt;
-
-
-
-&lt;li&gt;Limiting context with explicit token budgets.&lt;/li&gt;
-
-
-
-&lt;li&gt;Selecting the smallest suitable model.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;These architectural shifts reduce cost and latency while making system behavior significantly easier to reason about.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Lessons learned&lt;/h2&gt;
-
-
-
-&lt;p&gt;Several core principles consistently emerge when optimizing AI systems for production:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Treat tokens like infrastructure:&lt;/strong&gt; Tokens are a finite resource, just like CPU cycles or memory. Monitor them, budget them, and optimize them.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Retrieval is usually the largest source of waste:&lt;/strong&gt; Repeated retrieval often contributes more unnecessary tokens than verbose prompts. Share context whenever possible.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Bigger models are not always better:&lt;/strong&gt; Smaller, faster models effectively handle many operational tasks. Reserve larger models for genuinely complex reasoning.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Caching is an engineering feature:&lt;/strong&gt; A &lt;a href="https://thenewstack.io/redis-launches-vector-sets-and-a-new-tool-for-semantic-caching-of-llm-responses/" class="local-link"&gt;semantic cache&lt;/a&gt; is more than a performance optimization&amp;mdash;it is a core architectural component that reduces cost, latency, and provider dependence.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Measure before you optimize:&lt;/strong&gt; Instrumentation must accompany every production deployment.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;As AI systems mature, success will increasingly depend on engineering efficiency rather than raw model size. The hidden tax of AI agents is rarely a single expensive prompt; it is the accumulation of redundant retrievals, oversized contexts, unnecessary model calls, and repeated reasoning across distributed workflows.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The most effective production AI systems are not the ones that generate the most tokens. They are the ones that generate only the tokens they truly need.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;By treating token consumption as a &lt;a href="https://thenewstack.io/ai-retrieval-at-scale/"  data-wpil-monitor-id="4038" class="local-link"&gt;systems engineering problem&lt;/a&gt;, organizations can build AI platforms that are faster, less expensive, and highly scalable. Routing requests intelligently, budgeting context, sharing retrieval results, validating structured outputs, and introducing semantic caching are practical techniques that guarantee efficiency without compromising quality.&lt;/p&gt;
-
-
-
-&lt;p&gt;The most effective production AI systems are not the ones that generate the most tokens. They are the ones that generate only the tokens they truly need.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/building-token-efficient-agents/"&gt;Stop the token bleed: building token-efficient multi-agent systems&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Discover practical architectural strategies to eliminate AI token waste, reduce latency, and optimize multi-agent system costs.</content:encoded>
-    </item>
-    <item>
-      <title>“Save frontier models for frontier problems”: Why Korea’s Solar Pro 4 is a workhorse agent reliability play </title>
-      <link>https://web.archive.org/web/https://thenewstack.io/upstage-solar-pro-4/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Thu, 20 Aug 2026 13:11:35 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Models</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833977</guid>
-      <description>&lt;img width="1024" height="594" src="https://cdn.thenewstack.io/media/2026/08/b2a45ad6-anna-kutukova-dpgjoisx1vw-unsplash-1024x594.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b2a45ad6-anna-kutukova-dpgjoisx1vw-unsplash-scaled.jpg" /&gt;&lt;p&gt;South Korean AI model company Upstage AI officially announced the launch of its Solar Pro 4 closed commercial LLM last&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/upstage-solar-pro-4/"&gt;&amp;#8220;Save frontier models for frontier problems&amp;#8221;: Why Korea&amp;#8217;s Solar Pro 4 is a workhorse agent reliability play &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="594" src="https://cdn.thenewstack.io/media/2026/08/b2a45ad6-anna-kutukova-dpgjoisx1vw-unsplash-1024x594.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b2a45ad6-anna-kutukova-dpgjoisx1vw-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;South Korean AI model company &lt;a href="https://www.upstage.ai/blog/en/solar-pro" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Upstage AI&lt;/a&gt; officially announced the launch of its &lt;a href="https://www.upstage.ai/blog/en/solar-pro-4" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Solar Pro 4&lt;/a&gt; closed commercial LLM &lt;a href="https://www.prnewswire.com/news-releases/upstage-ai-unveils-solar-pro-4-scoring-42-on-artificial-analysis-index-to-rank-among-global-frontier-models-302856434.html?tc=eml_cleartime" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;last week&lt;/a&gt;. Now also headquartered in San Jose as of 2025, the company is aiming to cut into the AI software engineering market with a strong &lt;a href="https://thenewstack.io/restack-gives-product-teams-the-reins-to-own-ai-agent-behavior/" class="local-link"&gt;agent behavioral reliability&lt;/a&gt; play.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-do-we-define-agent-reliability"&gt;How do we define agent reliability?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Bundled with a (perhaps predictable) promise of operations at a fraction of US frontier-model cost, Upstage&amp;rsquo;s notion of agent reliability is explained as a model optimized for stably performing workflows that can execute long-context reasoning consistently across multiple steps and stages.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Reliability in this context also encompasses document understanding and information extraction, a model&amp;rsquo;s ability to adhere to corporate policy, and an ability to call and invoke the correct software tools, sub-agents or &lt;a href="https://thenewstack.io/5-useful-datasets-for-training-multimodal-ai-models/" class="local-link"&gt;datasets&lt;/a&gt; needed for a given task, delivered in the correct format.&lt;/p&gt;
-
-
-
-&lt;p&gt;US CEO at Upstage AI, &lt;a href="https://www.linkedin.com/in/kaseyroh/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kasey Roh&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that Upstage has built the &amp;ldquo;plain cut business suit&amp;rdquo; of the model world; this is the AI worker bee that gets core business functions done without the wasted token burn associated with retries, malformed outputs, and instruction-following failures.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Save the frontier models for the frontier problems; we built the workhorse,&amp;rdquo; Roh says.&amp;nbsp;&amp;ldquo;If you&amp;#8217;re building with AI in production, most of what you&amp;#8217;re actually shipping is boring, repetitive work, like document extraction, triage, and simple decisions stacked on top. Pointing a frontier model at that is overkill and honestly a liability: you&amp;#8217;re eating flagship prices and flagship latency to run the same task, millions of times a day.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;She notes that&amp;nbsp; Solar Pro 4 is engineered to prevent token burn waste, with instruction-following capabilities that &amp;ldquo;hold across turns&amp;rdquo;, tool call structure that stays intact, and agents that act as instructed, within company policy, and within the boundaries of &lt;a href="https://thenewstack.io/json-schema-ai-reliability/" class="local-link"&gt;valid schema&lt;/a&gt; for the job in hand.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&lt;strong&gt;&amp;#8220;&lt;/strong&gt;Save the frontier models for the frontier problems; we built the workhorse. Talk to anyone actually running agents in production. Their ask is never &amp;#8216;make it more creative&amp;#8217;; it&amp;#8217;s &amp;#8216;make it reliable enough that I&amp;#8217;m not re-tuning prompts and burning tokens every turn&amp;#8217; all day.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Our workhorse wears a boring business suit precisely so humans don&amp;#8217;t have to. Talk to anyone actually running agents in production. Their ask is never &amp;#8216;make it more creative&amp;#8217;; it&amp;#8217;s &amp;#8216;make it reliable enough that I&amp;#8217;m not re-tuning prompts and burning tokens every turn&amp;#8217; all day,&amp;rdquo; Roh adds.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-do-ai-developers-think-of-solar-pro-4"&gt;What do AI developers think of Solar Pro 4?&lt;/h2&gt;
-
-
-
-&lt;p&gt;In terms of market perception and adoption, Roh and say that within a week of &lt;a href="https://openrouter.ai/upstage/solar-pro4#apps" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;being listed on OpenRouter&lt;/a&gt;, Solar Pro 4&amp;#8217;s token consumption exceeded 370 billion tokens.&lt;/p&gt;
-
-
-
-&lt;p&gt;Solar Pro 4 is also integrated into Hermes Agent, the AI agent developed by U.S.-based &lt;a href="https://nousresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nous Research&lt;/a&gt;, where it powers multi-step, self-improving AI agents. In effect, that means Upstage is registered as a model provider alongside &lt;a href="https://thenewstack.io/voice-ai-openai-anthropic/" class="local-link"&gt;OpenAI&lt;/a&gt;, &lt;a href="https://thenewstack.io/anthropics-claude-security-beta/" class="local-link"&gt;Anthropic&lt;/a&gt;, &lt;a href="https://thenewstack.io/google-gemini-agent-platform/" class="local-link"&gt;Google&lt;/a&gt;, and &lt;a href="https://thenewstack.io/palantir-nvidia-sovereign-ai/" class="local-link"&gt;Nvidia&lt;/a&gt; by some measure. The company also has partnerships with AWS and AMD.&lt;/p&gt;
-
-
-
-&lt;p&gt;Solar Pro 4&amp;#8217;s overall performance, based on the global &lt;a href="https://artificialanalysis.ai/models/solar-pro4?models=solar-pro4" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AI evaluation body Artificial Analysis&lt;/a&gt;, is 42 points, placing it on par with general-purpose frontier models.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;According to Roh and team (and by this yardstick at least), this is an improvement of more than three times compared to Solar Pro 3 and it has &amp;ldquo;surpassed big tech models&amp;rdquo; like Nvidia&amp;#8217;s Nemotron 3 Ultra (38 points) and Google&amp;#8217;s Gemini 3.5 Flash-Light (37 points). It also outperformed competing sovereign models such as &lt;a href="https://thenewstack.io/mistral-vibe-cloud-agents/" class="local-link"&gt;Mistral&lt;/a&gt; Medium 3.5 (30 points) and &lt;a href="https://thenewstack.io/cohere-sovereign-coding-model-north-mini-code/" class="local-link"&gt;Cohere&lt;/a&gt; Command A+ (23 points).&lt;/p&gt;
-
-
-
-&lt;p&gt;The ability to handle long and complex documents without failure means that Solar Pro 4 scored 71 points in the long-context comprehension benchmark (&lt;a href="https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AA-LCR&lt;/a&gt;), which assesses the ability to extract information from large volumes of long documents and infer answers based on that information, showing performance 2.3 times superior to the previous version.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-happens-when-long-complex-reasoning-fails"&gt;What happens when long complex reasoning fails?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Upstage has built its core business serving enterprises in regulated and complex industries, such as financial services, insurance, manufacturing, and supply chain, where models must behave predictably in production, but what happens when long complex reasoning fails?&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;The classic one is the long tabular document,&amp;rdquo; recounts Roh. &amp;ldquo;Let&amp;#8217;s say an invoice or a technical spec has hundreds of line items across hundreds of pages.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;She explains that every agentic workflow is built on top of accurate extraction from documents of this kind. In her example scenario, the model handles rows 1 through 200 just fine, then somewhere past that poit it starts skimming: dropping rows, or silently filling a cell by pattern-matching from earlier rows instead of reading the actual value.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;What&amp;#8217;s ugly is that the output is seemingly well-formed, so nothing catches it until someone reconciles it manually at the final stage. That failure mode is precisely what we trained against,&amp;rdquo; explains Roh.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;What&amp;#8217;s ugly [in a long complex reasoning failure] is that the output is seemingly well-formed, so nothing catches it until someone reconciles it manually at the final stage. That failure mode is precisely what we trained against.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-much-cost-saving-is-on-offer-here"&gt;How much cost saving is on offer here?&lt;/h2&gt;
-
-
-
-&lt;p&gt;On average, Roh is on the record here and says that Solar Pro 4 costs about &amp;ldquo;90% less per typical document workflow&amp;rdquo;, at list price.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;For instance, a document fact-checking agent, where multiple documents in, structured report out, running ~300K input / 15K output tokens per task: that&amp;#8217;s roughly $1 per task on premium frontier pricing versus $0.10 on Solar Pro 4. At 50,000 tasks a month, a $50K bill becomes a $5K one. And through September 10 there&amp;#8217;s a launch promo at 90% off list, so right now you can run the whole month&amp;#8217;s workload for what a frontier model charges you before your first coffee refill on day one,&amp;rdquo; she details..&lt;/p&gt;
-
-
-
-&lt;p&gt;The launch of Solar Pro 4 follows Upstage&amp;#8217;s release of &lt;a href="https://www.linkedin.com/posts/upstageai_solaropen2-upstageai-solarllm-activity-7485853995350011904-c2lF/?utm_source=share&amp;amp;utm_medium=member_desktop&amp;amp;rcm=ACoAAAWx2KsBuQ0EY3EdQfRmgxKmjE9qbcllbdU" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Solar Open 2&lt;/a&gt;, the company&amp;#8217;s open ecosystem for developers.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/upstage-solar-pro-4/"&gt;&amp;#8220;Save frontier models for frontier problems&amp;#8221;: Why Korea&amp;#8217;s Solar Pro 4 is a workhorse agent reliability play &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Upstage AI&amp;#039;s Solar Pro 4 targets reliable AI agents for enterprise workflows, promising 90% lower costs than frontier models for document tasks.</content:encoded>
-    </item>
-    <item>
-      <title>Kubernetes at the edge has hit a wall. Fleet management is the way through.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/edge-kubernetes-fleet-management/</link>
-      <dc:creator>Arvind Bhoj</dc:creator>
-      <pubDate>Thu, 20 Aug 2026 13:00:00 +0000</pubDate>
-      <category>Edge Computing</category>
-      <category>Kubernetes</category>
-      <category>Operations</category>
-      <category>sponsor-nutanix</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833921</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/6c862555-alina-grubnyak-ziqkhi7417a-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital collage of overlapping geometric shapes, glitch patterns and wavy lines in vivid blue, cyan, pink and purple." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6c862555-alina-grubnyak-ziqkhi7417a-unsplash-scaled.jpg" /&gt;&lt;p&gt;Not too long ago, edge computing was seen as a niche use case, limited to telcos, manufacturing plants, and large&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/edge-kubernetes-fleet-management/"&gt;Kubernetes at the edge has hit a wall. Fleet management is the way through.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/6c862555-alina-grubnyak-ziqkhi7417a-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital collage of overlapping geometric shapes, glitch patterns and wavy lines in vivid blue, cyan, pink and purple." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6c862555-alina-grubnyak-ziqkhi7417a-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Not too long ago, edge computing was seen as a niche use case&lt;/strong&gt;, limited to telcos, manufacturing plants, and large retail stores. This is no longer true. With the rapid adoption of AI across every industry, edge has become mainstream and continues to grow at pace. According to the &lt;a href="https://www.cncf.io/reports/the-cncf-annual-cloud-native-survey/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNCF&amp;#8217;s 2025 Annual Survey&lt;/a&gt;, 66% of organizations are now running generative AI workloads on Kubernetes. For most organizations, regardless of industry or scale, that makes edge worth a deliberate strategy now, rather than something addressed piecemeal as it comes up.&lt;/p&gt;
-
-
-
-&lt;p&gt;What do we mean by &amp;#8220;edge&amp;#8221; in this context? &lt;a href="https://www.cncf.io/blog/2023/03/09/introducing-the-edge-native-whitepaper/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNCF&amp;#8217;s IoT Edge Working Group&lt;/a&gt; defines it as a computing environment shaped by constraints that don&amp;#8217;t apply in the data center: compute, connectivity, storage, and power are all limited. Edge, then, is less a location than an operating condition. It is an infrastructure that has to keep running reliably without the assumptions of constant power, connectivity, and elastically available compute that the rest of cloud native takes for granted.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Edge is less a location than an operating condition.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Kubernetes, along with the cloud native ecosystem, provides the ideal platform to run compute for anything from a tiny microservice to an enterprise GenAI application. The lightweight, containerized model provides the portability and orchestration required by the edge. It includes the cloud-native primitives needed to orchestrate GPU nodes, host large language models (LLMs), and run scalable Generative AI pipelines. By bringing a complete suite of integrated building blocks from networking and security to continuous delivery, it equips teams with a production-ready edge platform&lt;strong&gt;. &lt;/strong&gt;However, there is a problem.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Every enterprise has followed its own path to the edge, and most are now running a dispersed web of clusters built up over years, each with its own configuration history, resulting in highly customized, homegrown automation or manually managed &amp;#8220;snowflake&amp;#8221; clusters. As organizations deploy more clusters and applications at the edge, piecemeal configuration is now creating a major operational bottleneck.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;When an update or security patch needs to be rolled out, each cluster requires an individual audit and remediation. Further, there is typically no local admin to enforce uniform policy or stand by to fix things when something breaks. The result is that the very technology designed to empower platform teams is now holding them back, costing time, resources, and headspace because it struggles to handle modern-day edge operations for which it was never designed.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;The goal isn&amp;#8217;t only to reduce operational overhead, but to give teams back the bandwidth to do the work they&amp;#8217;re actually there to do.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Solving that problem starts with a different way of thinking about what&amp;#8217;s actually being managed: fleet management. It means treating a group of clusters as a single, centrally governed unit, grouped by shared properties and governed by common policies, rather than as a collection of individual systems managed one by one. The goal isn&amp;#8217;t only to reduce operational overhead, but to give teams back the bandwidth to do the work they&amp;#8217;re actually there to do.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-challenges-of-edge"&gt;&lt;strong&gt;The challenges of edge&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Kubernetes wasn&amp;#8217;t built with the edge specifically in mind, yet two of its core design features are a large part of why it has become the default starting point for edge deployments anyway. Its declarative API lets teams describe the end state they want, rather than scripting a sequence of steps that assumes someone is present to run and adapt them. &lt;/p&gt;
-
-
-
-&lt;p&gt;This means that a cluster doesn&amp;#8217;t need an engineer standing in front of it to be built, rebuilt, or recovered. Secondly, its reconciliation loops continuously check a cluster&amp;#8217;s actual state against its declared desired state, correcting drift automatically, with no human intervention required. Together, these let an edge site keep running and, crucially, keep correcting itself, without anyone on-site.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s necessary, but it isn&amp;#8217;t sufficient on its own. Self-healing at the level of a single cluster is not the same as operating reliably at the level of a fleet, and getting real value from Kubernetes at the edge still requires a careful, deliberate approach.&lt;/p&gt;
-
-
-
-&lt;p&gt;Edge computing, almost by definition, means many remote Kubernetes clusters spread across many physical locations. These could be a factory floor, a retail store, or a cell tower, and they are usually remote locations without a platform engineer on-site. That absence of local expertise is precisely what makes snowflake clusters problematic. When something drifts or breaks, it must be resolved manually, but there&amp;#8217;s no one on hand to fix it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Three recurring challenges show up across nearly every edge deployment, regardless of industry: standardizing lifecycle management across dispersed clusters, maintaining synced configuration when connectivity is unreliable, and making observability work at fleet scale. The traditional approaches that made sense in an earlier era of Kubernetes are no longer sufficient, and teams face growing complexity as a result.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-standardizing-lifecycle-management-configuration-and-application-drift"&gt;&lt;strong&gt;Standardizing lifecycle management: configuration and application drift&lt;/strong&gt;&lt;/h3&gt;
-
-
-
-&lt;p&gt;The foundation of fleet management is the ability to create and manage clusters consistently across different environments. For years, the default approach was to script cluster provisioning with tools like Terraform and Ansible, cluster by cluster, which worked reasonably well when organizations ran a small number of long-lived clusters and the process was manageable and worth the manual investment. &lt;/p&gt;
-
-
-
-&lt;p&gt;At the scale at which most organizations are now operating, this is not merely untenable, but also creates a wider margin for human error. Every scripted, hand-tuned cluster requires an individual decision, slightly different from the last one, and creates the inconsistent fleets described above.&lt;/p&gt;
-
-
-
-&lt;p&gt;What&amp;#8217;s increasingly expected today is a standardized, declarative approach to cluster lifecycle management, rather than one-off scripting. Cluster API (CAPI), a Kubernetes sub-project that provides a declarative API for cluster lifecycle management across any infrastructure, has become the closest thing the industry has to a standard for lifecycle management.&lt;/p&gt;
-
-
-
-&lt;p&gt;Alongside it, immutable &amp;#8220;golden image&amp;#8221; practices are becoming more common, whereby every cluster version is built from a pretested image, and an upgrade produces a new image rather than patching a running cluster in place. That removes much of the operational risk that accumulates when teams modify live clusters across dozens of slightly different environments. This model doesn&amp;#8217;t fit every environment uniformly because some bare-metal edge deployments lack the hypervisor layer that image-based replacement depends on, and in-place upgrade paths remain the more practical option in those cases.&lt;/p&gt;
-
-
-
-&lt;p&gt;Where applicable, the consistency this model creates also supports stronger security. When every cluster is built from the same versioned specification, a security patch can move through the same declarative pipeline as any other update, rather than requiring individual audits and remediation at every site.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;A patch that might previously have taken months to roll out across a fragmented fleet can, in a well-run declarative pipeline, be automated and deployed dramatically faster. However, the exact timeline depends on fleet size, rollout policy, and how much of the estate is on a consistent baseline to begin with. For highly regulated sectors such as defense, government, and finance, a smaller window of vulnerability is a meaningful reduction in security risk.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-keeping-applications-and-configurations-in-sync"&gt;&lt;strong&gt;Keeping applications and configurations in sync&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-application-and-configuration-drift"&gt;&lt;strong&gt;Application and configuration drift&lt;/strong&gt;&lt;/h3&gt;
-
-
-
-&lt;p&gt;Consistent cluster lifecycle management solves half the problem, but applications and configurations running inside those clusters still need to be monitored once they&amp;#8217;re live. If left unmanaged, deployed workloads drift from their intended state just as easily as the clusters themselves do.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;GitOps addresses this by making Git or an OCI registry the single source of truth for what should be running on a cluster. Any GitOps-compatible tooling, whether that&amp;#8217;s ArgoCD, FluxCD, or a GitHub Actions-based pipeline, continuously reconciles a cluster&amp;#8217;s actual state with the state declared in the repository and automatically corrects drift rather than waiting for someone to notice a discrepancy.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-handling-connection-loss"&gt;&lt;strong&gt;Handling connection loss&lt;/strong&gt;&lt;/h3&gt;
-
-
-
-&lt;p&gt;The unreliable connectivity of edge environments creates additional challenges for reducing drift. Standard Kubernetes update models are push-based, which assumes a reliable connection, but this doesn&amp;rsquo;t hold up at the edge. When a site goes offline, or an operation fails mid-rollout, teams relying on a push-based model are left to manually reconcile what was deployed against what wasn&amp;#8217;t.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;For cluster lifecycle management, the Cluster API relies on Kubernetes controllers and operators that include an automatic retry mechanism. This means that when connectivity fails, the controller will retry once connectivity returns, rather than requiring manual intervention. However, the specifics of that retry behavior can vary somewhat by infrastructure provider.&lt;/p&gt;
-
-
-
-&lt;p&gt;For applications and workloads, GitOps tools such as FluxCD extend this approach using a pull-based model with local agents deployed on each cluster. In many configurations, those agents can continue operating from a local cache when the central management cluster is unreachable, rather than stalling outright. When this is in place, the reconciliation process pauses rather than fails and resumes once the connection returns, without requiring someone to manually diagnose what happened or restart a rollout from scratch.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-observability-and-security-at-fleet-scale"&gt;&lt;strong&gt;Observability and Security at fleet scale&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-observability-at-scale"&gt;&lt;strong&gt;Observability at scale&lt;/strong&gt;&lt;/h3&gt;
-
-
-
-&lt;p&gt;The traditional model relied on a single dashboard and alerting stack per cluster, built for a small number of long-lived environments. The sheer volume of data generated by large fleets makes a manual approach untenable and meaningfully increases the risk of warning signs slipping through the cracks. Observability needs to be a proactive, fleet-wide process that catches issues before they escalate, rather than after. This pressure is pushing the industry toward an integrated observability stack with automated, increasingly AI-assisted anomaly detection able to flag CPU throttling, storage capacity warnings, configuration drift, vulnerabilities, and performance degradation as they emerge.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading" id="h-centralized-policy-and-security"&gt;&lt;strong&gt;Centralized policy and security&lt;/strong&gt;&lt;/h3&gt;
-
-
-
-&lt;p&gt;Policy enforcement is a related but distinct fleet-management function. Once visibility into the fleet is centralized, controlling it can become centralized too: capabilities like CIS Benchmark hardening, FIPS 140-2 support, and policy-as-code enforcement let policy be defined once and applied consistently across the fleet, rather than configured site by site. For the most sensitive deployments across defense, government, and other regulated industries, that same centralized approach can extend to air-gapped operation, where the OS binaries, container images, and Helm charts needed to stand up and run a cluster are packaged into a self-contained, disconnected bundle. This reduces, though doesn&amp;rsquo;t eliminate, dependence on internet connectivity throughout the cluster&amp;#8217;s operational lifecycle.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-building-the-infrastructure-for-fleet-management"&gt;&lt;strong&gt;Building the infrastructure for fleet management&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The fleet management approach is the shift that provides the framework for overcoming the challenges outlined above. The cluster-management mindset made sense in the early years of Kubernetes, when clusters were time-consuming to build, and so organizations ran as few as possible, each managed as an individual entity, and every configuration decision mattered. The speed and ease with which clusters can be spun up and torn down have eliminated their value as an operational unit. What matters most now are the definitions, policies, and standards that govern them, and a fleet management approach enables teams to enforce these from a single management layer.&lt;/p&gt;
-
-
-
-&lt;p&gt;Done properly, fleet management requires four things to work together: centralized control through single-pane-of-glass observability, standardization and automation of the cluster lifecycle and workload deployment processes, centralized policy management, and integration with the tooling a team already relies on. None of these four are new ideas individually, but they must now be performed simultaneously, from a central control point, with the view to create a uniform and standardized &amp;ldquo;fleet.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;The edge Kubernetes problem is as much a people and process problem as it is a technical one.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The mindset shift is often where the barrier to achieving fleet management sits. The edge Kubernetes problem is as much a people and process problem as it is a technical one. Teams have built their workflows around specific tools and patterns over the years, which creates resistance when change arrives, even if the change will benefit them. In practice, the resistance tends to soften once a team starts to feel the benefits directly, even if that is only from a handful of initial pilot clusters, teams, or tools. The mindset shift follows quickly, and adoption moves quickly and, most importantly, lasts.&lt;/p&gt;
-
-
-
-&lt;p&gt;Executing on that operating model well depends on one more decision: how open the underlying tooling is to begin with.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-why-open-upstream-tooling-matters-for-fleet-management"&gt;&lt;strong&gt;Why open, upstream tooling matters for fleet management&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The fleet management model above only works if the underlying tooling can keep pace with how quickly the edge itself is changing. A platform wrapped in proprietary abstractions around the Kubernetes API creates a dependency on the abstraction layer to be updated before customers can use new tools or capabilities.&lt;/p&gt;
-
-
-
-&lt;p&gt;Staying upstream and unwrapped avoids that lag. It means new tooling can be adopted as fast as the ecosystem produces it, rather than being gated by a vendor&amp;#8217;s own release cycle. It also means existing CNCF tooling and automation a team has already invested in continues to work without modification, rather than needing to be replaced or reconfigured to fit a proprietary model.&lt;/p&gt;
-
-
-
-&lt;p&gt;This matters even more now than it did a few years ago, as AI inference at the edge accelerates the pace at which the underlying requirements shift. An open foundation can keep adapting as those requirements change, rather than one that has to be rearchitected and replaced when they do.&lt;/p&gt;
-
-
-
-&lt;p&gt;It is clear across each of the four pillars of standardization, connectivity, security, and observability that cluster-by-cluster management is dead. The shift toward fleet management is now underway, even if many teams still lack the confidence to break away from the tools and habits that hold them back. This is where NKP comes in.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-nkp-puts-this-into-practice"&gt;&lt;strong&gt;How NKP puts this into practice&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;The Nutanix Kubernetes Platform (NKP) is built on a fleet-management approach. It is a comprehensive, CNCF-compliant stack designed for the operational reality of managing many clusters across distributed, heterogeneous, and often constrained environments. Every layer is left open and unwrapped, so the platform can absorb new tooling as fast as the ecosystem produces it, rather than waiting on a proprietary abstraction to catch up.&lt;/p&gt;
-
-
-
-&lt;p&gt;That principle extends to how NKP was built in the first place. Nutanix was one of the early adopters of Cluster API before it became the industry-wide standard. It was a deliberate bet on where the Kubernetes ecosystem was heading, rather than a reaction to where it had already arrived.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;Standardization and lifecycle management:&lt;/strong&gt; NKP pairs CAPI with golden images, so every cluster is immediately configured to the framework a team defines. If something breaks, a new cluster can be created quickly, with GitOps pipelines and backups pointed to it, and the fleet is back up and running, including the consistent, declarative patch path that keeps security updates from becoming a per-site manual task.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;Connectivity:&lt;/strong&gt; NKP uses FluxCD for GitOps-driven application and configuration delivery, with local caching so that clusters keep operating from their last known state when the central management cluster is unreachable. When the connection returns, clusters automatically resume from where they left off.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;Observability and policy:&lt;/strong&gt; NKP provides an integrated logging, monitoring, and alerting stack out of the box, configurable with a single UI checkbox. Its Insights engine and AI Navigator continuously monitor the fleet and flag anomalies before they escalate, while CIS Benchmark hardening, FIPS 140-2 support, and policy-as-code enforcement via Gatekeeper are applied centrally across the fleet by default. For the most sensitive deployments, NKP supports fully air-gapped operation, with no dependency on internet connectivity at any point in the cluster lifecycle.&lt;/p&gt;
-
-
-
-&lt;p&gt;Across all of this, the aim is the same: give platform teams back the time and headspace to focus on innovation, not integration.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-reclaiming-the-platform-engineer-s-headspace"&gt;&lt;strong&gt;Reclaiming the Platform Engineer&amp;#8217;s Headspace&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p&gt;At its core, transitioning to a fleet management mindset across standardization, connectivity, security, and observability comes down to a single goal: giving platform teams back the time and mental bandwidth to innovate, rather than constantly fighting fires.&lt;/p&gt;
-
-
-
-&lt;p&gt;Reaching this modern standard requires four key steps:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Standardize&lt;/strong&gt; cluster creation using declarative frameworks like Cluster API.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Integrate&lt;/strong&gt; automated GitOps pipelines to keep edge sites reconciled through spotty connectivity.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Automate&lt;/strong&gt; security and policy enforcement by default across all remote nodes.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Add&lt;/strong&gt; &lt;strong&gt;intelligence&lt;/strong&gt; via fleet-wide, proactive observability to flag anomalies before outages happen.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;Whether an organization migrates its infrastructure all at once or takes an incremental approach through pilot projects, moving away from cluster-by-cluster management is essential for operating at modern edge scale. By grounding fleet architecture in open, upstream standards, engineering teams can build an edge foundation that adapts as fast as the cloud-native ecosystem evolves.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;To learn more about the Nutanix Kubernetes Platform, visit &lt;/strong&gt;&lt;/em&gt;&lt;a href="https://www.nutanix.com/solutions/cloud-native" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Nutanix&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;em&gt;&lt;strong&gt;.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/edge-kubernetes-fleet-management/"&gt;Kubernetes at the edge has hit a wall. Fleet management is the way through.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Edge Kubernetes fleet management uses Cluster API, GitOps, centralized policy, and observability to standardize operations across remote sites more safely.</content:encoded>
-    </item>
-    <item>
-      <title>“The opening stages of OpenAI’s unraveling”: OpenAI slows model training — not everyone is buying the explanation</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-training-pause-cybersecurity/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Wed, 19 Aug 2026 21:53:30 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833879</guid>
-      <description>&lt;img width="1024" height="708" src="https://cdn.thenewstack.io/media/2026/08/5594d8ce-barsrsind-y1xxobukttc-unsplash-1024x708.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a smiley face split down the middle by a jagged crack, its mouth taped shut with string tied in a bow — a visual metaphor for OpenAI&amp;#039;s unraveling amid its safety pause." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/5594d8ce-barsrsind-y1xxobukttc-unsplash-scaled.jpg" /&gt;&lt;p&gt;Something of a trend has emerged this year, with the major AI labs going all-out to tell the world how&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-training-pause-cybersecurity/"&gt;&amp;#8220;The opening stages of OpenAI&amp;#8217;s unraveling&amp;#8221;: OpenAI slows model training &amp;#8212; not everyone is buying the explanation&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="708" src="https://cdn.thenewstack.io/media/2026/08/5594d8ce-barsrsind-y1xxobukttc-unsplash-1024x708.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a smiley face split down the middle by a jagged crack, its mouth taped shut with string tied in a bow — a visual metaphor for OpenAI&amp;#039;s unraveling amid its safety pause." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/5594d8ce-barsrsind-y1xxobukttc-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Something of a trend has emerged this year, with the major AI labs going all-out to tell the world how powerfully unsafe their models are. In April, &lt;a href="https://thenewstack.io/anthropic-claude-mythos-cybersecurity/" class="local-link"&gt;Anthropic announced&lt;/a&gt; heavily restricted access to an unreleased model, &lt;a href="https://thenewstack.io/claude-mythos-preview-simulation/" class="local-link"&gt;Claude Mythos&lt;/a&gt;, over cybersecurity concerns. In June, the US government went further, &lt;a href="https://thenewstack.io/fable-5-and-mythos-5-remain-suspended-the-ball-is-in-anthropics-court/" class="local-link"&gt;issuing a national security directive&lt;/a&gt; that forced Anthropic to disable Mythos and its sibling Fable 5 model for every customer &amp;#8212; a move criticized by the security community, and which the government &lt;a href="https://thenewstack.io/anthropic-fable-ban-lifted/" class="local-link"&gt;reversed a few weeks later&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI, for its part, has been sounding similar alarms about its own unreleased models. In early August, &lt;a href="https://thenewstack.io/openai-astra-cybersecurity-delay/" class="local-link"&gt;the company said&lt;/a&gt; that its upcoming &lt;a href="https://thenewstack.io/openai-astra-math-cost/" class="local-link"&gt;Astra&lt;/a&gt; model may have crossed into &amp;#8220;critical&amp;#8221; territory for cybersecurity risk under its internal safety framework, moving it into isolated testing environments with tighter network and tool access limits. This, in turn, followed just weeks after a &lt;a href="https://thenewstack.io/openai-huggingface-sandbox-breach/" class="local-link"&gt;breach&lt;/a&gt; whereby an OpenAI agent escaped its testing environment and attacked Hugging Face&amp;#8217;s systems. &lt;/p&gt;
-
-
-
-&lt;p&gt;This week, OpenAI announced what&amp;#8217;s coming next in its efforts to address safety concerns. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;As models become more capable, the risks associated with developing and testing them internally also grow. Our standards for monitoring, alignment, and security must stay ahead of those risks.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt; In a &lt;a href="https://openai.com/index/pacing-model-development-cyber-capabilities/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Tuesday, OpenAI says it&amp;#8217;s locking its models down harder &amp;#8212; walling off risky code from the internet and from other internal systems &amp;#8212; and monitoring more closely to catch potentially dangerous activity within 30 minutes. Notably, the company says the monitoring system alone could add roughly 20% overhead to the inference compute it covers. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;As models become more capable, the risks associated with developing and testing them internally also grow,&amp;#8221; the company writes. &amp;#8220;Our standards for monitoring, alignment, and security must stay ahead of those risks. We wanted to take the time necessary to meet those standards, so we temporarily slowed the pace of scaling.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Specifically, this slowdown process has &amp;#8220;included a two-week pause&amp;#8221; in reinforcement learning of its &amp;#8220;latest models intended for deployment.&amp;#8221; The company notes that its &amp;#8220;largest planned frontier RL run remains on hold&amp;#8221; while it runs a series of smaller, more contained training and evaluation rounds first.&lt;/p&gt;
-
-
-
-&lt;p&gt;All in all, there&amp;#8217;s a lot to dissect there. So what, exactly, is OpenAI saying that it&amp;#8217;s doing in terms of &amp;#8220;pacing model development,&amp;#8221; and what models does it impact?&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-which-openai-models-are-impacted"&gt;Which OpenAI models are impacted?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Digging into the meat and bones of the language raises some key questions. First of all, OpenAI describes its two-week training pause in the past tense (&amp;#8220;included&amp;#8221;), which suggests it applies to the same Astra slow-down reported in early August. Separately, the &amp;#8220;largest planned frontier RL run,&amp;#8221; which remains on hold, seemingly refers to different, further-out models.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Sam Altman himself adds some context. In an initial &lt;a href="https://x.com/sama/status/2089787807611195475" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post on X&lt;/a&gt;, the OpenAI CEO says the pause is necessary to bring safety and monitoring up to the standard today&amp;#8217;s capabilities demand.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Model progress is now extremely rapid, and we always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment,&amp;#8221; Altman writes.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;We have paused some frontier RL training to ensure that we can meet the appropriate alignment, security and monitoring standards for the new level of capabilities in front of us. Model progress is now extremely rapid, and we always said we would take action if we felt that model&amp;hellip;&lt;/p&gt;&amp;mdash; Sam Altman (@sama) &lt;a href="https://x.com/sama/status/2089787807611195475?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 18, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;In a follow-up post, Altman brought some clarity on what models, specifically, are impacted here. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We still expect to ship great new models soon; this impacts further-out releases,&amp;#8221; he &lt;a href="https://x.com/sama/status/2089805495783813196?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;However, in Time, &lt;a href="https://www.linkedin.com/in/alexeheath/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alex Heath&lt;/a&gt; wrote that a &amp;#8220;significant number of Astra workloads remain paused,&amp;#8221; with restoration handled incrementally. So while OpenAI&amp;#8217;s largest frontier RL run remains on hold, it seems that Astra itself hasn&amp;#8217;t fully cleared the slowdown either.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-better-aligned"&gt;Better aligned&lt;/h2&gt;
-
-
-
-&lt;p&gt;A major theme running through much of the slowdown has been that of alignment. The phrase, or variations of it such as &amp;#8220;aligned&amp;#8221; and &amp;#8220;misaligned,&amp;#8221; was among the most common in OpenAI&amp;#8217;s blog post, with 16 mentions. Altman himself used &amp;#8220;alignment&amp;#8221; three times in his 118-word post on X.&lt;/p&gt;
-
-
-
-&lt;p&gt;Heath, who reported the story for &lt;a href="https://time.com/article/2026/08/18/openai-slowing-training/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Time&lt;/a&gt; and his own &lt;a href="https://sources.news/p/openais-big-slowdown" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sources newsletter&lt;/a&gt;, got additional comment from Altman. The slowdown, Heath wrote, wasn&amp;#8217;t triggered by a single incident, but by a &amp;#8220;collection of research observations showing &lt;a href="https://x.com/alexeheath/status/2089777725385109784?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;various degrees of misalignment&lt;/a&gt;&amp;#8221; as its capabilities grew faster than researchers had bargained for.&lt;/p&gt;
-
-
-
-&lt;p&gt;Alignment, in this context, &lt;a href="https://thenewstack.io/ai-alignment-in-practice-what-it-means-and-how-to-get-it/" class="local-link"&gt;refers to&lt;/a&gt; whether a model does what its developers intend and stays responsive to human oversight. This is quite distinct from capability: a model can be very capable at something and still be misaligned, if it gets there in ways its developers didn&amp;#8217;t sanction or can&amp;#8217;t fully observe. &lt;/p&gt;
-
-
-
-&lt;p&gt;That distinction is the crux of Tuesday&amp;#8217;s announcement: OpenAI is telling the world its systems are outpacing its ability to reliably keep them in check, and that slowing down on its own &amp;#8212; competitive cost included &amp;#8212; is the response it&amp;#8217;s chosen while the rest of the industry catches up.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-an-ulterior-motive"&gt;An ulterior motive? &lt;/h2&gt;
-
-
-
-&lt;p&gt;Of course, &lt;a href="https://www.theregister.com/security/2026/05/11/anthropics-bug-hunting-mythos-was-greatest-marketing-stunt-ever-says-curl-creator/5238111" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;similar to&lt;/a&gt; Anthropic&amp;#8217;s &lt;a href="https://thenewstack.io/anthropic-public-bug-bounty/" class="local-link"&gt;Mythos misadventures&lt;/a&gt; before it, OpenAI may have other incentives for publicizing the slowdown.&lt;/p&gt;
-
-
-
-&lt;p&gt;On the same day that OpenAI was explaining its slowdown, the Wall Street Journal &lt;a href="https://www.wsj.com/tech/ai/openais-second-quarter-sales-show-tepid-growth-compared-with-anthropic-5cb42998" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reported&lt;/a&gt; that OpenAI&amp;#8217;s operating losses widened by $3 billion to $12.3 billion in the second quarter &amp;#8212; three times the $1 billion in extra revenue it brought in over the same period, which grew 18% to $6.7 billion. Anthropic, over the same quarter, more than doubled its revenue to $11.6 billion &amp;#8212; overtaking OpenAI for the first time.&lt;/p&gt;
-
-
-
-&lt;p&gt;On Wednesday, CNBC &lt;a href="https://www.cnbc.com/2026/08/19/open-ai-ipo-timing-2027-friar.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reported&lt;/a&gt; that CFO Sara Friar was eyeing an entry to the public markets for OpenAI in 2027, or sooner if &amp;ldquo;our business continues to inflect.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;These reports don&amp;#8217;t definitely establish that financial pressure caused the RL training pause. But they do provide a plausible alternative incentive: OpenAI is hemorrhaging cash in an extremely resource-intensive business, and it could be looking for ways to cut costs. &lt;/p&gt;
-
-
-
-&lt;p&gt;Many in the online community also questioned why OpenAI chose to announce a training pause at all. As one &lt;a href="https://x.com/Dr_Gingerballs/status/2089816114092245012" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;X user&lt;/a&gt; put it: &amp;#8220;Paused for two weeks? Why tell anyone? Who makes a public announcement about a two week delay for a large project?&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The opening stages of OpenAI&amp;rsquo;s unraveling have begun.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;AI researcher and long-time OpenAI critic &lt;a href="https://www.linkedin.com/in/gary-marcus-b6384b4/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gary Marcus&lt;/a&gt; also chimed in, aggregating a series of comments from across the web to highlight the fact that not everyone was buying OpenAI&amp;#8217;s reasoning for pausing training. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;The opening stages of OpenAI&amp;rsquo;s unraveling, which &lt;a href="https://garymarcus.substack.com/p/openais-got-99-problems-and-twitch?r=8tdk6&amp;amp;utm_medium=ios" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;I first warned about&lt;/a&gt; in January 2024 (if not before), have begun,&amp;#8221; Marcus &lt;a href="https://garymarcus.substack.com/p/breaking-openais-unraveling-has-begun" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &amp;#8220;To begin with, hardly anyone trusts them anymore, which can&amp;rsquo;t be great for business.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-at-face-value"&gt;At face value&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/darrenwwilliams/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Darren Williams&lt;/a&gt;, CEO and founder of AI security company &lt;a href="https://www.blackfog.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;BlackFog&lt;/a&gt;, argues that it&amp;#8217;s the same companies raising the alarm that are angling to write the rules around it &amp;#8212; though that&amp;#8217;s not necessarily a bad thing, provided it leads to oversight from outside the labs themselves, and rules with teeth.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;There is a legitimate safety argument behind OpenAI and Anthropic warning about their own models,&amp;#8221; Williams tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;But these warnings also reinforce a powerful narrative: the companies creating the risk are positioning themselves as authorities on how it should be governed. That does not make the concerns disingenuous. Safety, competitive positioning, and influence over regulation can coexist. The real test is whether warnings lead to independent evaluation, meaningful controls, and restrictions with genuine commercial consequences.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;There is a legitimate safety argument behind OpenAI and Anthropic warning about their own models.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Stability AI co-founder &lt;a href="https://www.linkedin.com/in/emad-mostaque-9840ba274/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Emad Mostaque&lt;/a&gt;, meanwhile, publicly applauded Sam Altman and OpenAI, saying he was inclined to take their explanation at &amp;#8220;face value.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;It is very clear that strange and perhaps dangerous things are happening and our systems are not ready for this,&amp;#8221; Mostaque &lt;a href="https://x.com/EMostaque/status/2089807825883009428?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &amp;#8220;Models below frontier are competent enough to change lives, so lets optimse.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Zooming out, &lt;a href="https://www.linkedin.com/in/jodihoffmandaniels/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jodi Daniels&lt;/a&gt;, faculty member at &lt;a href="https://www.iansresearch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IANS Research&lt;/a&gt; and founder of data privacy consultancy Red Clover Advisors, says one reason Anthropic and OpenAI have been so vocal about their models&amp;#8217; dangers comes down to trust and liability &amp;#8212; giving enterprise buyers confidence going in, and giving themselves cover if something goes wrong down the line.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;In my view, being transparent about the capabilities, both positive and negative, of their own LLMs provides its customers more confidence that when they are deployed they are safe,&amp;#8221; Daniels tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;It is likely too that neither of these companies want to be the organization responsible for a catastrophic event that can produce real harm for companies or individuals.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Being transparent about the capabilities, both positive and negative, of their own LLMs provides its customers more confidence that when they are deployed they are safe.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-china-and-the-open-weight-factor"&gt;China and the open-weight factor&lt;/h2&gt;
-
-
-
-&lt;p&gt;The elephant in the room amid all this hullaballoo is, of course, China. Or to put it more precisely, the slew of super-powerful open-weight models emanating from Chinese AI firms.&lt;/p&gt;
-
-
-
-&lt;p&gt;On &lt;a href="https://openai.com/index/the-defenders-window/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Monday&lt;/a&gt;, OpenAI president Greg Brockman outlined a swathe of security measures he said the company was implementing in the wake of the Hugging Face breach, while also advising every organization to up their security automation. However, he also took the opportunity to warn about Z.ai&amp;#8217;s GLM-5.3 model, after the Chinese company &lt;a href="https://thenewstack.io/glm-5-3-post-training-coding/" class="local-link"&gt;posted benchmarks&lt;/a&gt; showing it outperforming Anthropic&amp;#8217;s Fable 5 and OpenAI&amp;#8217;s own GPT-5.6 Sol on some coding and vulnerability-detection metrics. Such models, in Brockman&amp;#8217;s view, are likely to &amp;#8220;&lt;a href="https://thenewstack.io/openai-open-weight-glm-5-3/" class="local-link"&gt;significantly accelerate the threat landscape&lt;/a&gt;&amp;#8221; if the weights are made public. &lt;/p&gt;
-
-
-
-&lt;p&gt;A few days previous, Anthropic CEO Dario Amodei &lt;a href="https://thenewstack.io/amodei-open-weights-compute-regulation/" class="local-link"&gt;made a related argument&lt;/a&gt;: open-weight releases, he said, don&amp;#8217;t solve AI&amp;#8217;s underlying concentration-of-power problem &amp;#8212; they just relocate it to whoever controls the most compute and chips.&lt;/p&gt;
-
-
-
-&lt;p&gt;While neither company has explicitly called for open-weight models to be banned, the sheer amount of attention both have devoted to warning about them suggests OpenAI and Anthropic view open weights as much a competitive threat as a safety one.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s not to say that &lt;a href="https://thenewstack.io/kimi-k3-open-weights/" class="local-link"&gt;Moonshot&lt;/a&gt;, &lt;a href="https://thenewstack.io/deepseek-v4-flash-open-weights/" class="local-link"&gt;DeepSeek&lt;/a&gt;, &lt;a href="https://thenewstack.io/glm-5-3-post-training-coding/" class="local-link"&gt;Z.ai&lt;/a&gt; &lt;em&gt;et al&lt;/em&gt; are responsible for OpenAI&amp;#8217;s current predicament. But they have shown the world that frontier capability no longer requires a frontier budget.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-training-pause-cybersecurity/"&gt;&amp;#8220;The opening stages of OpenAI&amp;#8217;s unraveling&amp;#8221;: OpenAI slows model training &amp;#8212; not everyone is buying the explanation&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI cites cybersecurity risk for the pause, but mounting losses and Chinese rivals suggest more than safety is at stake</content:encoded>
-    </item>
-    <item>
-      <title>AI-generated Rust compiles perfectly. That’s the scary part.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/canonical-c-rust-apparmor/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 19 Aug 2026 19:30:42 +0000</pubDate>
-      <category>AI</category>
-      <category>Rust</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22833920</guid>
-      <description>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/08/b8897add-olga-kovalski-d8flj44xnpe-unsplash-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="intricate rust" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b8897add-olga-kovalski-d8flj44xnpe-unsplash-scaled.jpg" /&gt;&lt;p&gt;Canonical wants to know whether automated tools can finally rewrite legacy C code in safe, maintainable Rust without altering the&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/canonical-c-rust-apparmor/"&gt;AI-generated Rust compiles perfectly. That&amp;#8217;s the scary part.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/08/b8897add-olga-kovalski-d8flj44xnpe-unsplash-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="intricate rust" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b8897add-olga-kovalski-d8flj44xnpe-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Canonical wants to know whether automated tools can finally rewrite legacy C code in safe, maintainable Rust without altering the software. That&amp;rsquo;s why researchers at the University of Bristol are throwing the tool into the deep end with AppArmor and snap-confine.&lt;/p&gt;
-
-
-
-&lt;p&gt;AppArmor confines applications, while snap-confine creates the sandboxed environments where snaps run. Both perform security-critical jobs, and Canonical isn&amp;rsquo;t rushing to rewrite either one in Rust, but it wants to find out what evidence maintainers would need before trusting an automated translation of production code.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-proving-behavioral-equivalence-at-scale"&gt;Proving behavioral equivalence at scale&lt;/h2&gt;
-
-
-
-&lt;p&gt;Canonical&amp;rsquo;s &lt;a href="https://discourse.ubuntu.com/t/investing-in-automated-c-to-rust-translation/86369" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;proposed system&lt;/a&gt; will use language models to generate Rust code, then run it through a verification process designed to catch and repair differences in behavior. It&amp;#8217;s a recognition that &lt;a href="https://thenewstack.io/openai-codex-cloud-evolution/" class="local-link"&gt;generating code at scale is no longer the hard part&lt;/a&gt; &amp;mdash; the hard part is proving that code actually does what the original did.&lt;/p&gt;
-
-
-
-&lt;p&gt;Generated Rust code can compile cleanly while still behaving differently from the original C code. The researchers plan to combine fuzzing with formal program analysis to compare the two implementations and find differences that conventional tests may otherwise miss. &lt;/p&gt;
-
-
-
-&lt;p&gt;When the system detects a mismatch, it uses symbolic repair to diagnose the exact failure and fix the code directly. That feedback is critical for solving the overuse of &lt;code&gt;unsafe.&lt;/code&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;Rust&amp;#8217;s &lt;code&gt;unsafe&lt;/code&gt; blocks allow operations that aren&amp;#8217;t permitted in safe Rust, including some forms of raw pointer manipulation. A translator could use them to carry difficult C constructs into Rust, but relying on &lt;code&gt;unsafe&lt;/code&gt; too heavily would bring many of the original memory-safety risks into the new code.&lt;/p&gt;
-
-
-
-&lt;p&gt;The harder target is Rust that is both safe enough to deliver the benefits of the language and close enough in behavior to the original C that maintainers can trust it.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The harder target is Rust that is both safe enough to deliver the benefits of the language and close enough in behavior to the original C that maintainers can trust it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-security-tools-raise-translation-stakes"&gt;Security tools raise translation stakes&lt;/h2&gt;
-
-
-
-&lt;p&gt;AppArmor makes a useful test of whether that is possible because mistakes in the translation could have security consequences.&lt;/p&gt;
-
-
-
-&lt;p&gt;The Linux security module restricts what applications can access according to defined policies. Its surrounding userspace tooling &amp;mdash; written in a mix of C, Python, and C++ &amp;mdash; has to parse, compile, and load those policies correctly. A Rust port that interprets a policy differently from the existing implementation might compile perfectly and still be wrong. As anyone covering AI-assisted development knows, &lt;a href="https://thenewstack.io/go-language-ai-agents/" class="local-link"&gt;code that passes every test can still break things&lt;/a&gt; in ways no one anticipated.&lt;/p&gt;
-
-
-
-&lt;p&gt;Snap-confine presents a related challenge because it helps set up the execution environment and confinement used by snaps. Rewriting C in Rust can eliminate entire classes of vulnerabilities, including use-after-free bugs and buffer overflows, but an automated translator can still introduce a logic error. The Bristol team must also show that the focus ion behaves like the original C.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Rewriting C in Rust can eliminate entire classes of vulnerabilities, including use-after-free bugs and buffer overflows, but an automated translator can still introduce a logic error. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-unsafe-rust-defeats-the-purpose"&gt;Unsafe Rust defeats the purpose&lt;/h2&gt;
-
-
-
-&lt;p&gt;Getting the full benefit of Rust often requires more than translating C syntax line by line. Writing idiomatic Rust can require changes to data structures and lifetimes across several functions or entire modules. An automated translator could stay close to the original C by leaning on &lt;code&gt;unsafe&lt;/code&gt;, but those risks carrying the same bugs into the Rust code. &lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s why Canonical is funding the Bristol team to find answers to whether the approach can scale to entire repositories containing hundreds of thousands of lines of C.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-trust-not-code-is-bottleneck"&gt;Trust, not code, is bottleneck&lt;/h2&gt;
-
-
-
-&lt;p&gt;Operating systems, libraries and infrastructure built over decades are still written in C, and much of that software remains actively maintained and deployed. Rewriting it by hand would take an enormous amount of engineering work and could introduce regressions. But generating code at scale is already a solved problem; the real bottleneck is &lt;a href="https://thenewstack.io/stop-correcting-ai-code-build-the-system-agents-need/" class="local-link"&gt;developer trust&lt;/a&gt;. Canonical&amp;#8217;s work with Bristol tackles the actual hurdle of proving that the resulting Rust is both memory-safe and functionally identical to the decades-old C it&amp;#8217;s designed to replace.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Canonical&amp;#8217;s work with Bristol tackles the actual hurdle of proving that the resulting Rust is both memory-safe and functionally identical to the decades-old C it&amp;#8217;s designed to replace.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/canonical-c-rust-apparmor/"&gt;AI-generated Rust compiles perfectly. That&amp;#8217;s the scary part.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Canonical and the University of Bristol will test whether AI can translate AppArmor and snap-confine from C to Rust without breaking the security tools&amp;#039; behavior.</content:encoded>
     </item>
   </channel>
 </rss>
