@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 28 Aug 2026 21:01:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 21:30:32 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,517 @@
       <height>32</height>
     </image>
     <item>
+      <title>Your container runs. Everything around it shouldn’t be your problem.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/amazon-ecs-express-mode/</link>
+      <dc:creator>Satej Sawant</dc:creator>
+      <pubDate>Sat, 29 Aug 2026 15:00:00 +0000</pubDate>
+      <category>Containers</category>
+      <category>Developer tools</category>
+      <category>DevOps</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834967</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/9bac07c4-zyanya-citlalli-xtsvy5rarpy-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital binary data wave depicting cloud container orchestration and automated infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9bac07c4-zyanya-citlalli-xtsvy5rarpy-unsplash.jpg" /&gt;&lt;p&gt;The promise with containers was simple: if it runs on your local machine, it will run in production. And this&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/amazon-ecs-express-mode/"&gt;Your container runs. Everything around it shouldn&amp;#8217;t be your problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/9bac07c4-zyanya-citlalli-xtsvy5rarpy-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital binary data wave depicting cloud container orchestration and automated infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9bac07c4-zyanya-citlalli-xtsvy5rarpy-unsplash.jpg" /&gt;
+&lt;p&gt;The promise with containers was simple: if it runs on your local machine, it will run in production. And this promise holds &amp;#8211; your container runs. But there&amp;#8217;s a tax: setting up everything around it. To reach your container, you&amp;#8217;ll need a load balancer to route traffic to it, and scaling policies to handle variable traffic. Then come the networking components and the minimally scoped access roles. And somewhere in that checklist, don&amp;#8217;t forget the security configuration; unless you&amp;#8217;d rather hear about it from your compliance team. At some point, you wonder why you can&amp;#8217;t just go back to building.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;You give it a container image. You get a production service. And when your workload outgrows a single container, you don&amp;#8217;t outgrow Amazon ECS Express Mode.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Sound familiar? You&amp;#8217;re not alone. Most teams spend cycles before they feel confident deploying containers in production. That&amp;#8217;s time from your roadmap spent on decisions that don&amp;#8217;t differentiate your business. Somewhere between the third Terraform module and the second &lt;a href="https://thenewstack.io/how-iam-missteps-cause-data-breaches/" data-type="link" data-id="https://thenewstack.io/how-iam-missteps-cause-data-breaches/" class="local-link"&gt;IAM policy review&lt;/a&gt;, you&amp;#8217;ve lost the speed containers were supposed to give you.&lt;/p&gt;
+
+
+
+&lt;p&gt;Amazon Elastic Container Service (ECS) is the container orchestration engine behind some of the largest production workloads on AWS. But until now, getting started with it meant understanding load balancers, networking, IAM roles, and scaling policies before you shipped anything.&lt;/p&gt;
+
+
+
+&lt;p&gt;We tried to change that and make it easier for you to get started and stay focused on building when we &lt;a href="https://aws.amazon.com/about-aws/whats-new/2025/11/announcing-amazon-ecs-express-mode/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched Amazon ECS Express Mode&lt;/a&gt;. Express Mode is a new interface into that same engine. You&amp;#8217;re not trading power for simplicity. You&amp;#8217;re getting a faster door into infrastructure that&amp;#8217;s already battle-tested. The vision was clear: keep it simple but extensible. You give it a container image and two IAM roles; you get an HTTPS service running on Fargate with a load balancer, a TLS certificate, autoscaling, and canary deployments. Oh, and all these resources run in your account, where you have full control.&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+ // Sample Terraform Code
+ resource &amp;quot;aws_ecs_express_gateway_service&amp;quot; &amp;quot;frontend_service&amp;quot; {
+   execution_role_arn = aws_iam_role.execution.arn
+   infrastructure_role_arn = aws_iam_role.infrastructure.arn
+ 
+   primary_container {
+     image = &amp;quot;111122223333.dkr.ecr.us-east-1.amazonaws.com/my-service:1.4.2&amp;quot;
+   }
+ }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 class="wp-block-heading" id="h-what-s-in-amazon-ecs-express-mode"&gt;What&amp;#8217;s in Amazon ECS Express Mode?&lt;/h2&gt;
+
+
+
+&lt;p&gt;Underneath the one-step deploy, this is what you&amp;#8217;re getting:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;No sprawl&lt;/strong&gt; &amp;#8211; Every service sits behind an Application Load Balancer, but doesn&amp;#8217;t get its own. Up to 25 Express Mode services within a VPC share a single ALB. Express Mode adds load balancers only when needed and removes them when services are deleted. No dangling resources for you to worry about.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Safer rollouts&lt;/strong&gt; &amp;#8211; Out of the box, each deployment is a canary release where 5% of your traffic is routed to the new revision and bakes for 3 minutes, following which the remaining traffic is shifted. If your 4xx/5xx error rate exceeds 1%, an alarm we create for you triggers an automatic rollback.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Scaling&lt;/strong&gt; &amp;ndash; Each service ships with an auto-scaling policy that targets 60% CPU utilization, scaling from 1 task to a maximum of 20 by default. If your workloads need to scale on memory or request count, you can configure that too.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;IaC ready&lt;/strong&gt; &amp;#8211; Create and manage Express services through CloudFormation, CDK, Terraform or GitHub Actions.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Complete ownership&lt;/strong&gt; &amp;#8211; The cluster, load balancer, target groups, log groups and other resources are all in your AWS account. You can inspect them, audit events, and modify them directly if needed. Nothing is a black box.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;But what about my sidecars? My workloads aren&amp;#8217;t that simple.&lt;/h3&gt;
+
+
+
+&lt;p&gt;Sooner or later, as your application evolves, the workload becomes more than just one container. An observability agent needs to run beside the app, publishing traces to your monitoring solution. The base image gets swapped for the hardened one security maintains. The credentials move out of environment variables and into Secrets Manager. This is where extensibility comes into play.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;For this, &lt;a href="https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-ecs-express-mode-custom-task-def/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Express Mode now supports&lt;/a&gt; providing a standard ECS task definition &amp;ndash; the spec that describes your containers, their resource limits, and how they connect. Your sidecar, image, and credentials all fit right in. If your team runs ECS today, this is the spec you&amp;#8217;re already writing. If not, Express Mode generates a task definition in your account, and when requirements arrive, you take that working spec, add what you need, and hand back the ARN. Once you associate a task definition with an Express Mode service, you can continue managing your application either through task definition updates or directly through Express Mode, whichever you prefer.&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+// Sample CDK snippet
+const taskDef = new ecs.FargateTaskDefinition(this, &amp;#039;TaskDef&amp;#039;, {
+  cpu: 1024,
+  memoryLimitMiB: 2048,
+  executionRole,
+  taskRole,
+});
+ 
+taskDef.addContainer(&amp;#039;Main&amp;#039;, {
+image:
+ecs.ContainerImage.fromRegistry(&amp;#039;111122223333.dkr.ecr.us-east-1.amaz
+onaws.com/my-service:1.4.2&amp;#039;),
+  essential: true,
+  portMappings: &amp;#x5B;{ containerPort: 8080, name: &amp;#039;main&amp;#039; }],
+});
+ 
+taskDef.addContainer(&amp;#039;otel-collector&amp;#039;, {
+image:
+ecs.ContainerImage.fromRegistry(&amp;#039;public. ecr.aws/aws-observability/aw
+s-otel-collector:latest&amp;#039;),
+  essential: false,
+  memoryReservationMiB: 256,
+  command: &amp;#x5B;&amp;#039;--config=/etc/ecs/ecs-default-config.yaml&amp;#039;],
+});
+ 
+new ecs.CfnExpressGatewayService(this, &amp;#039;FrontendService&amp;#039;, {
+  infrastructureRoleArn: infrastructureRole.roleArn,
+  taskDefinitionArn: taskDef.taskDefinitionArn,
+});
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 class="wp-block-heading"&gt;Wait, am I locked into this?&lt;/h2&gt;
+
+
+
+&lt;p&gt;No. Express Mode is an interface into Amazon ECS, not a walled garden. Every resource it creates is a standard AWS resource in your account, addressable by an ARN. If required, you can modify them directly through their respective AWS APIs in the Console, CLI or SDK.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Express Mode is an interface into Amazon ECS, not a walled garden.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;If you change the scaling policy, update a security group rule, or swap the task definition, Express honors those modifications on the next update. It does not overwrite changes you make. This means you can start with Express defaults today and customize individual resources as your requirements evolve, without migrating off Express or recreating your service.&lt;/p&gt;
+
+
+
+&lt;p&gt;Express also exposes the ARN of everything it manages &amp;ndash; the load balancer, target groups, security groups, and alarms &amp;ndash; through the Describe APIs and as CloudFormation/CDK outputs. You can reference them in your own stacks or hand them to existing constructs.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Why did we design it as a single operation?&lt;/h2&gt;
+
+
+
+&lt;p&gt;We deliberately made Express Mode a single API call, not a multi-step workflow. One input (your image or task definition ARN), one operation, one outcome.&lt;/p&gt;
+
+
+
+&lt;p&gt;That design choice compounds. Your IaC is under ten lines. Your &lt;a href="https://thenewstack.io/cicd-pipeline-front-line/" data-type="link" data-id="https://thenewstack.io/cicd-pipeline-front-line/" class="local-link"&gt;CI/CD pipeline&lt;/a&gt; doesn&amp;#8217;t need custom steps. An AI coding agent can deploy and iterate on your behalf because the entire surface is one well-defined spec it already knows how to read and modify.&lt;/p&gt;
+
+
+
+&lt;p&gt;But there&amp;#8217;s an engineering reason too. Because Express Mode owns the full lifecycle of what it creates, it can clean up what it sets up. Delete a service, and the target groups, &lt;a href="https://thenewstack.io/beyond-magic-scaling-myth/" data-type="link" data-id="https://thenewstack.io/beyond-magic-scaling-myth/" class="local-link"&gt;scaling policies&lt;/a&gt;, and alarms go with it. No orphaned infrastructure. And because you didn&amp;#8217;t wire these resources together manually, one service&amp;#8217;s deploy can&amp;#8217;t accidentally touch another&amp;#8217;s.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Wrapping it up&lt;/h3&gt;
+
+
+
+&lt;p&gt;As we continue to build on ECS Express Mode, our priority is simple &amp;#8211; taking away the undifferentiated heavy lifting from our customers. Amazon ECS Express Mode is our attempt to make good on that: point it at an image, get a production service: load balancer, TLS, autoscaling, canary deployments, all running in your account, where you can see it and change it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The configuration grows with your requirements; the operational burden doesn&amp;#8217;t.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;And when your workload outgrows a single container, you don&amp;#8217;t outgrow Express Mode. Bring your own task definition: the sidecars, the hardened images, the secrets, and keep handing the infrastructure to us. The configuration grows with your requirements; the operational burden doesn&amp;#8217;t.&lt;/p&gt;
+
+
+
+&lt;p&gt;Try it from the AWS Console, Terraform, CloudFormation, CDK, or GitHub Actions &amp;#8211; or just ask your agent.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/amazon-ecs-express-mode/"&gt;Your container runs. Everything around it shouldn&amp;#8217;t be your problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Streamline container deployments with Amazon ECS Express Mode. Pass an image to get automated load balancing, canary releases, and scaling.</content:encoded>
+    </item>
+    <item>
+      <title>Commits on GitHub have doubled in four months. Verification capacity has not.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/scaling-ai-code-verification/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 29 Aug 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Software Testing</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22834984</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/ef62c549-angga-dwi-bayu-saputra-qh7rfhvyjau-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital artwork of diverging red and blue wave lines, symbolizing AI code generation and software verification bottlenecks." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ef62c549-angga-dwi-bayu-saputra-qh7rfhvyjau-unsplash-scaled.jpg" /&gt;&lt;p&gt;I have been waiting for agent-generated code to show up in public infrastructure data rather than in vendor benchmarks. In&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/scaling-ai-code-verification/"&gt;Commits on GitHub have doubled in four months. Verification capacity has not.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/ef62c549-angga-dwi-bayu-saputra-qh7rfhvyjau-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital artwork of diverging red and blue wave lines, symbolizing AI code generation and software verification bottlenecks." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/ef62c549-angga-dwi-bayu-saputra-qh7rfhvyjau-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;I have been waiting for agent-generated code &lt;/strong&gt;to show up in public infrastructure data rather than in vendor benchmarks. In August, it did. GitHub now handles &lt;a href="https://thenewstack.io/github-2-9b-monthly-commits/" class="local-link"&gt;2.9 billion commits a month and says it cannot keep up&lt;/a&gt;. Monthly commit volume &lt;a href="https://www.engadget.com/2241272/github-says-commits-have-doubled-in-the-last-four-months/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;more than doubled in four months&lt;/a&gt;, from 1.4 billion in April to 2.9 billion in August.&lt;/p&gt;
+
+
+
+&lt;p&gt;The growth broke the platform. On August 17, GitHub went down for &lt;a href="https://github.blog/news-insights/company-news/the-august-17-outage-and-the-work-ahead/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;7 hours and 47 minutes&lt;/a&gt; after a core infrastructure component in its Central US data center failed to scale with traffic. The postmortem from CTO Vladimir Fedorov did not hedge: If you were trying to ship software that day, GitHub let you down. The remediation is what a hyperscaler does when demand outruns supply. More than 3 million new CPU cores, 120 petabytes of high-speed storage, and an accelerated migration to Azure, which &lt;a href="https://www.theregister.com/devops/2026/08/21/we-let-you-down-github-pledges-to-scale-up-before-developers-give-up/5291031" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;now serves 58% of platform load&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;Most coverage treated this as a capacity story, and for GitHub it is one. The number that should worry you is one the postmortem never touches. Every one of those 2.9 billion commits carried an implicit claim that the change works. Almost nothing in the system that produced, transported, and merged them checked that claim against a running system.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Code generation has become machine-paced, and its volume curve is exponential. Verification is still human-paced, and its capacity curve is close to flat.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That is the warning inside GitHub&amp;#8217;s data. Code generation has become machine-paced, and its volume curve is exponential. Verification, the work of proving a change does what was intended without breaking what already worked, is still human-paced, and its capacity curve is close to flat. The distance between those two curves is the defining infrastructure problem of the next three years.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-commit-curve-is-the-first-public-trace-of-machine-paced-development"&gt;The commit curve is the first public trace of machine-paced development&lt;/h2&gt;
+
+
+
+&lt;p&gt;GitHub&amp;#8217;s telemetry is a proxy for your own organization: it aggregates what thousands of engineering teams are doing at once. Alongside the commit number, the postmortem reports about 130 million merged pull requests and 24 million new repositories a month. Engadget&amp;#8217;s reporting notes that GitHub attributes the surge to AI-generated code.&lt;/p&gt;
+
+
+
+&lt;p&gt;The shape of the curve matters more than its height. Commit volume grew for years at roughly the same rate as the developer population, because commits tracked people. Then it doubled in four months, because it stopped tracking people. A developer who &lt;a href="https://thenewstack.io/github-mcp-security-scanning/" data-wpil-monitor-id="4054" class="local-link"&gt;runs three coding agent&lt;/a&gt; sessions in parallel produces commits at a rate no hiring plan ever predicted.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;A developer who runs three coding agent sessions in parallel produces commits at a rate no hiring plan ever predicted.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Your internal dashboards almost certainly show the same shape in miniature: pull request counts climbing quarter over quarter, more commits per engineer, more branches open at once. The public number matters because it proves your curve is not a local anomaly. This is what development looks like when generation is no longer the scarce step.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;GitHub&amp;#8217;s bottleneck is capacity. Yours is confidence&lt;/h2&gt;
+
+
+
+&lt;p&gt;GitHub&amp;#8217;s problem, for all its severity, has a known fix: When traffic outgrows infrastructure, you add infrastructure. Cores, disks, and data centers scale with money, and Microsoft has plenty.&lt;/p&gt;
+
+
+
+&lt;p&gt;The problem on your side of the platform does not respond to money the same way. A commit is not traffic. It is a claim about behavior: This change does what its description says and breaks nothing downstream. In a distributed, cloud-native system, checking that claim means running the change against the services, data, and traffic it will meet after merge.&lt;/p&gt;
+
+
+
+&lt;p&gt;The pipeline in front of that check keeps getting faster. AI code review tools triage diffs before a human looks at them, CI has learned test selection and caching, and static analysis catches more than it used to. Those are real gains, and none of them runs the change. The step that verifies behavior, integration, and end-to-end tests against a live system still funnels through a shared staging environment or waits on a full copy of the stack, which takes too long and costs too much to stand up for each change.&lt;/p&gt;
+
+
+
+&lt;p&gt;That step has a hard ceiling. Staging is one environment per organization, so it functions as a queue. Full-stack duplicates are expensive enough that teams ration them. Neither doubles in four months because you approved a budget. Generation now scales like GitHub. Verification still moves one change at a time.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/08/6bd721a6-image-1024x546.png" alt="Workflow diagrams comparing a single shared queue vs one environment per change." class="wp-image-22834992"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Verification was sized for human pace, and agents broke the sizing&lt;/h2&gt;
+
+
+
+&lt;p&gt;None of this is new. Large engineering organizations were complaining about staging contention and review backlogs years before coding agents existed. The apparatus was built when code arrived at the pace humans type, and at that pace its costs were a tax teams could manage: an occasional staging conflict, a review queue that cleared by Friday. Deferring expensive full-fidelity testing to the end of the pipeline was a reasonable trade while changes were scarce.&lt;/p&gt;
+
+
+
+&lt;p&gt;Agents do not introduce the bottleneck. They multiply it past the point where the old coping strategies work, and they bring it to smaller teams. Throughput that used to strain a 500-engineer platform now appears on a 50-engineer team running agents in parallel. The assumption under all of those design decisions, that code is the scarce input, is gone, and the checking machinery built on it has not moved. The two curves that used to track each other roughly have come apart. GitHub&amp;#8217;s chart is the aggregate picture of that separation.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="609" src="https://cdn.thenewstack.io/media/2026/08/e737df17-image-1024x609.png" alt="Chart showing monthly commits vs verification capacity" class="wp-image-22834988"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The gap between the curves fills with unverified merges&lt;/h2&gt;
+
+
+
+&lt;p&gt;Teams respond to the widening gap in a few ways. The first is to make review faster. AI code review tools sit in front of human reviewers, catch real defects in the diff, and keep improving. They also have a limit: A reviewer, human or model, is reasoning about code they have not run, and a diff cannot tell you whether the change holds up against its real dependencies.&lt;/p&gt;
+
+
+
+&lt;p&gt;The second is to throttle the agents, capping the amount of generated work that enters the pipeline. That protects the verification queue by returning most of the throughput the agents were designed to deliver.&lt;/p&gt;
+
+
+
+&lt;p&gt;The third is to merge anyway and absorb downstream failures. Changes that were never run against a real system land in main at the rate commits arrive, and the cost surfaces later as broken staging environments and lengthy debugging sessions. Or worse, production incidents and rollbacks.&lt;/p&gt;
+
+
+
+&lt;p&gt;The August 17 outage is a preview of how that ends. The root cause was not a bad change. It was a component that everyone depended on, and nobody had scaled, failing on the day traffic finally exceeded its design. In most delivery systems, verification is that component.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Verification has to run on the same curve as generation&lt;/h2&gt;
+
+
+
+&lt;p&gt;The structural fix is to make verification match the shape of generation: parallel and per-change. For a single application, this is nearly solved: an agent runs the app on a laptop or in a CI container and checks whether the change works. The hard case is the cloud-native one, where the change&amp;#8217;s behavior only exists when interacting with other services, databases, and queues. Both familiar options fail at agent volume: A shared staging environment serializes everything into a queue, and duplicating the full stack for each change is too costly and too time-consuming.&lt;/p&gt;
+
+
+
+&lt;p&gt;There is a third shape. Keep one shared environment running the stable version of every service, and for each change, deploy only the services that the change touched. Test traffic carries the change&amp;#8217;s routing key, so at each hop, a request for that change reaches the changed version while every other request flows through the stable one. Each change gets isolation where it matters, at the services it modified, and shares everything else: the same cluster, the same data, the same downstream dependencies.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="443" src="https://cdn.thenewstack.io/media/2026/08/2aa97818-image-1024x443.png" alt="Workflow diagram showing request routing in the shared environment" class="wp-image-22834989"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;That shape changes the economics and the actor. Verifying one more change costs one extra deployment, not another copy of the stack, so hundreds of changes can be checked in parallel on the cluster you already run.&lt;/p&gt;
+
+
+
+&lt;p&gt;Because an environment appears in seconds, an agent can use one inside its loop: open a change, run functional checks against real upstream and downstream services, read the failures, and iterate until they pass. The pull request that reaches a human arrives already exercised against the real system, and review time goes to intent and design.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Match the curves or lose the generation gains&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/qwen-autonomous-coding-audit/" class="local-link"&gt;GitHub&amp;#8217;s 2.9 billion commits&lt;/a&gt; quantify a shift that every engineering organization is living through on a smaller scale. Generation is now effectively free and unlimited, so it is no longer the source of advantage.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The teams pulling ahead are not the ones producing the most commits. They are the ones whose verification capacity rises with their generation capacity.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The teams pulling ahead are not the ones producing the most commits. They are the ones whose verification capacity rises with their generation capacity, so more generated &lt;a href="https://thenewstack.io/snyk-pentesting-ai-agents-security/" data-wpil-monitor-id="4055" class="local-link"&gt;code becomes more shipped&lt;/a&gt; code, rather than a longer review queue, a deeper staging backlog, and a bigger incident bill. Ask what happens to your pipeline when commit volume doubles in four months, because that is no longer a hypothetical. It is the gap we work on at &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Signadot&lt;/a&gt;, and it is worth closing before the curve doubles again.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/scaling-ai-code-verification/"&gt;Commits on GitHub have doubled in four months. Verification capacity has not.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI code generation doubled commit volume, but verification capacity remains flat. Learn how to match testing speed to machine-paced code.</content:encoded>
+    </item>
+    <item>
+      <title>The 3 roles AI agents play in your developer platform</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-platform-roles/</link>
+      <dc:creator>Matar Peles</dc:creator>
+      <pubDate>Sat, 29 Aug 2026 13:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Operations</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-port</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835002</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/9e5cc02d-pawel-czerwinski-rvkxbovwldk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D metallic waves illustrating complex AI agent roles in developer platform architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9e5cc02d-pawel-czerwinski-rvkxbovwldk-unsplash.jpg" /&gt;&lt;p&gt;Engineering organizations are trying to deliver as fast as technology allows, bringing agentic AI into their developer platforms and working&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-platform-roles/"&gt;The 3 roles AI agents play in your developer platform&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/08/9e5cc02d-pawel-czerwinski-rvkxbovwldk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D metallic waves illustrating complex AI agent roles in developer platform architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/9e5cc02d-pawel-czerwinski-rvkxbovwldk-unsplash.jpg" /&gt;&lt;p&gt;Engineering organizations are trying to deliver as fast as technology allows, bringing agentic AI into their developer platforms and working out how to use AI agents to maximize engineering productivity.&lt;/p&gt;
+
+
+
+&lt;p&gt;But when it comes to AI agents in an agentic developer platform, every team we talk with sees the role of those agents a little differently. Following hundreds of calls with our customers, we captured three types of roles.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-role-1-ai-agents-as-platform-consumers"&gt;Role 1: AI agents as platform consumers&lt;/h2&gt;
+
+
+
+&lt;p&gt;In this role, an agent is basically a user of the platform. It uses the platform as part of its task to read context and to run actions. When agents first showed up, a lot of companies said they treat their AI agents like employees, and in &lt;a href="https://thenewstack.io/thomas-dohmke-interview-entire/" data-type="link" data-id="https://thenewstack.io/thomas-dohmke-interview-entire/" class="local-link"&gt;a development platform&lt;/a&gt; that makes the agent just another engineering resource consuming it.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="458" src="https://cdn.thenewstack.io/media/2026/08/fcf5410b-image3-1024x458.png" alt="Diagram showing an AI agent reading context and running actions from an agentic SDLC platform." class="wp-image-22835003"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;A typical case: an engineer asks Claude Code to add an endpoint to the payments service. Before it writes any code, the agent pulls the service owner, dependencies, and the standards it must meet from the platform, then spins up a preview environment via a self-service action and runs the tests.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“A lot of companies said they treat their AI agents like employees, and in a development platform that makes the agent just another engineering resource consuming it.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;For this to work, the agent has to reason over real, current information about your systems, starting with the service catalog and extending to ownership, dependencies, standards, and current state. If you get the context wrong, there’s a good chance an &lt;a href="https://thenewstack.io/hyland-enterprise-context-engine-agents/" data-wpil-monitor-id="4056" class="local-link"&gt;agent will get overconfident and do the wrong thing&lt;/a&gt;. Most teams solve this one agent at a time by providing local context. But then the same information ends up connected to agents in fragile ways, not to mention that none of them are governed. Compare that to a &lt;a href="https://docs.google.com/document/d/1UhFPYcyguR5W-v3eKRpsnpmKeYs82eCukAUwMVMdWIs/edit#" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;context lake&lt;/a&gt; that provides every agent with a single governed source of truth. The platform also has to be reachable the way an agent works, which means being API- and MCP-first.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;What does it require from the platform?&lt;/strong&gt; An API and MCP-first interface, a governed &lt;a href="https://thenewstack.io/ai-agent-infrastructure-bottleneck/" class="local-link"&gt;context layer the agent reads from&lt;/a&gt;, and a set of self-service actions it can call.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Role 2: AI agents as internal platform components&lt;/h2&gt;
+
+
+
+&lt;p&gt;Platforms that can register agents and run them within workflows are using AI agents as part of a full business process. The agent runs within the platform, triggered by an event rather than requested by a person, and sits in the orchestration engine next to the deterministic steps.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="530" src="https://cdn.thenewstack.io/media/2026/08/4ba94367-image2-1024x530.png" alt="Diagram showing an AI agent as an internal platform component" class="wp-image-22835005"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Run a nightly scan that flags vulnerable dependencies across 40 services. The platform pulls the remediation agent from the registry and runs it once per service, so every owning team wakes up to an open PR awaiting review.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;What does it require from the platform?&lt;/strong&gt; An orchestration layer to run the agents, a registry to pull the right agent from, an identity per agent so the action is logged against the agent rather than a borrowed human credential, and a human-in-the-loop step where the risk is significant.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-role-3-ai-as-a-resource-with-its-own-lifecycle-a-k-a-agenticops"&gt;Role 3: AI as a resource with its own lifecycle (a.k.a AgenticOps)&lt;/h2&gt;
+
+
+
+&lt;p&gt;In this role, the agent is a resource like any other, as are the LLMs, MCP servers, and the skills that come with it. The platform provisions them, governs them, and hands them back, just as it does with a service, a database, or an environment.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="482" src="https://cdn.thenewstack.io/media/2026/08/24a4fd43-image1-1024x482.png" alt="Diagram showing AI agents as a resource with a lifecycle, being requested by an engineer." class="wp-image-22835006"&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;For example, say an engineer needs an on-call triage agent. They pick the model, the tools, and the environment it runs in, either through a form or by describing what they need, and the platform provisions everything needed, a bit like a vending machine, with the addition of a well-governed agent, in the right standards. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“That makes it a golden path problem. A golden path is the route that, by default, gets a team a resource the right way.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;That makes it a golden path problem. A golden path is the route that, by default, gets a team a resource the right way, and the agent lifecycle needs one: request it, get it provisioned and registered, and publish it for the next team. It is also what customers ask us for most, with an agent and skill registry raised by 47% of the organizations we spoke with through early 2026. I went into this in more depth in &lt;a href="https://docs.google.com/document/d/1UhFPYcyguR5W-v3eKRpsnpmKeYs82eCukAUwMVMdWIs/edit#" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;our golden paths post&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;What does it require from the platform?&lt;/strong&gt; A self-service path that provisions the runtime, issues the identity and scoped credentials, wires in the approved context, and registers the agent on the way out, plus a route to publish it for the next team.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The three roles at a glance&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;strong&gt;Role&lt;/strong&gt;&lt;/th&gt;&lt;th&gt;&lt;strong&gt;What the agent is&lt;/strong&gt;&lt;/th&gt;&lt;th&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/th&gt;&lt;th&gt;&lt;strong&gt;What it requires from the platform&lt;/strong&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Role 1: AI agents as platform consumers&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;A user of the platform, reading context and running actions as part of its task&lt;/td&gt;&lt;td&gt;Claude Code pulls the service owner, dependencies, and standards, then spins up a preview environment and runs the tests&lt;/td&gt;&lt;td&gt;A governed context layer, such as a context lake, and self-service actions it can call&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Role 2: AI agents as internal platform components&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;A step inside a workflow, triggered by an event rather than requested by a person&lt;/td&gt;&lt;td&gt;A nightly scan flags a vulnerable dependency across 40 services, and the remediation agent opens a PR for each one&lt;/td&gt;&lt;td&gt;An orchestration layer to run agents in, a registry to pull the right agent from, an identity per agent, and a human in the loop where the risk is real&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Role 3: AI as reusable building blocks (AgenticOps)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;A resource the platform provisions, governs, and hands back&lt;/td&gt;&lt;td&gt;An engineer requests an on-call triage agent, picks the model and tools, and gets one back already registered&lt;/td&gt;&lt;td&gt;A self-service path that provisions the runtime, issues the identity and scoped credentials, wires in the approved context, and registers the agent&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Sometimes the three roles connect&lt;/h2&gt;
+
+
+
+&lt;p&gt;The chained case is an interesting one. An engineer requests a triage agent through role 3; it’s added to the agent registry as part of the creation workflow, and a week later, an incident workflow calls it as a component (role 2). When it runs, it reads service ownership and recent deploys out of the same context lake, which is role 1. It is the same agent throughout, and which role it is in depends on when you look at it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“It is the same agent throughout, and which role it is in depends on when you look at it.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What does a platform that covers all three look like?&lt;/h2&gt;
+
+
+
+&lt;p&gt;That is what we built Port for. An agent can use Port as a user through a service account, reading the context lake and running self-service actions. Agents run within Port workflows as part of a business process. And AgenticOps runs as self-service workflows, so a team can request an agent and get a registered one back. All three sit on the same catalog, the same context, and the same audit trail.&lt;/p&gt;
+
+
+
+&lt;p&gt;If you want the full picture, it is in our playbook, &lt;a href="https://docs.google.com/document/d/1UhFPYcyguR5W-v3eKRpsnpmKeYs82eCukAUwMVMdWIs/edit#" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;From Agentic Chaos to an AI-Native SDLC&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-platform-roles/"&gt;The 3 roles AI agents play in your developer platform&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Discover how AI agents function as consumers, internal components, and managed resources within modern developer platforms.</content:encoded>
+    </item>
+    <item>
       <title>JetBrains told everyone to patch. It didn’t patch itself.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/jetbrains-told-everyone-to-patch-it-didnt-patch-itself/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +539,10 @@
       <category>Cloud Services</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22834966</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract black and blue" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-scaled.jpg" /&gt;&lt;p&gt;JetBrains is urging users of its Cadence cloud development service to rotate credentials and treat previous executions and their outputs&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract black and blue" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-scaled.jpg" /&gt;&lt;p&gt;JetBrains is urging users of its Cadence cloud development service to rotate credentials and treat previous executions and their outputs&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/jetbrains-told-everyone-to-patch-it-didnt-patch-itself/"&gt;JetBrains told everyone to patch. It didn&amp;#8217;t patch itself.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract black and blue" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract black and blue" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/5e3cf5bb-logan-voss-vyjntug-l0s-unsplash-scaled.jpg" /&gt;
 &lt;p&gt;JetBrains is urging users of its Cadence cloud development service to rotate credentials and treat previous executions and their outputs as untrusted after attackers exploited a critical TeamCity vulnerability on a server the company failed to patch.&lt;/p&gt;
 
 
@@ -176,7 +687,7 @@
       <category>Developer tools</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22834919</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/b466f4db-logan-voss-2i0npi8abmw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b466f4db-logan-voss-2i0npi8abmw-unsplash-scaled.jpg" /&gt;&lt;p&gt;A command as ordinary as git diff can become a problem for an AI coding agent once a variable gets&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/b466f4db-logan-voss-2i0npi8abmw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b466f4db-logan-voss-2i0npi8abmw-unsplash-scaled.jpg" /&gt;&lt;p&gt;A command as ordinary as git diff can become a problem for an AI coding agent once a variable gets&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/bionic-shell-command-safety/"&gt;LM Studio built a judge for AI commands. Then the judge started agreeing with the defendant.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/b466f4db-logan-voss-2i0npi8abmw-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/b466f4db-logan-voss-2i0npi8abmw-unsplash-scaled.jpg" /&gt;
@@ -3225,381 +3736,6 @@ print(retrieved_context)
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-agent-lightning-harness/"&gt;Microsoft just released Agent Lightning v1.0. Here’s why it matters for platform engineers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Microsoft&amp;#039;s Agent Lightning v1.0 lets the production harness own the agent loop in reinforcement learning, cutting train-serve mismatch on coding agents.</content:encoded>
-    </item>
-    <item>
-      <title>Shopify’s CEO threatened to ban Claude Code. Anthropic had already closed the feature request.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/shopify-claude-code-agentsmd/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 25 Aug 2026 19:39:17 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22834522</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/58ef9a03-logan-voss-rdx4tqbi3wq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="broken abstract green" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/58ef9a03-logan-voss-rdx4tqbi3wq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Shopify CEO Tobi L&amp;#252;tke is considering banning Claude Code at the company, but not because he thinks Anthropic&amp;#8217;s coding agent&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/shopify-claude-code-agentsmd/"&gt;Shopify&amp;#8217;s CEO threatened to ban Claude Code. Anthropic had already closed the feature request.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/58ef9a03-logan-voss-rdx4tqbi3wq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="broken abstract green" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/58ef9a03-logan-voss-rdx4tqbi3wq-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Shopify CEO &lt;a href="https://www.linkedin.com/in/tobiaslutke/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tobi L&amp;uuml;tke&lt;/a&gt; is considering banning&lt;/strong&gt; Claude Code at the company, but not because he thinks Anthropic&amp;rsquo;s coding agent isn&amp;rsquo;t good. The problem, he says, is a Markdown file.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;I&amp;rsquo;m thinking about banning Claude Code at Shopify until they change their mind and read AGENTS.md and .agents/skills etc.,&amp;rdquo; L&amp;uuml;tke posted Tuesday on &lt;a href="https://x.com/tobi/status/2092259436538495186" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;X.&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;I&amp;#8217;m thinking about banning Claude Code at Shopify until they change their mind and read AGENTS.md and .agents/skills etc.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;And while this might sound like a small disagreement over how an AI coding tool is configured, at a company the size of Shopify, even a small difference can quickly become a much bigger issue.&lt;/p&gt;
-
-
-
-&lt;p&gt;Shopify has thousands of developers working in a massive monorepo, and because they don&amp;rsquo;t all use the same AI coding tools, each agent needs to pick up the right instructions for whatever part of the codebase it happens to be working in. If one coding agent doesn&amp;rsquo;t pick up the same instructions as the others, developers can end up with &lt;a href="https://thenewstack.io/go-language-ai-agents/" class="local-link"&gt;agents operating under different rules&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Agents and Claude files are recursively applied through the tree,&amp;rdquo; L&amp;uuml;tke wrote in a &lt;a href="https://x.com/tobi/status/2092308116524138711" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;follow-up post&lt;/a&gt;. &amp;ldquo;With thousands of [developers] in a mono repo, it just does happen that one directory is missing one of the two files and this means that a subset of devs work with lobotomy.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;I&amp;rsquo;m thinking about banning Claude code at Shopify until they change their mind and read AGENTS.md and .agents/skills etc. &lt;br&gt;&lt;br&gt;Insisting on only reading CLAUDE.md sometimes leads to split brain problems when different team members use different tools. Just unnecessary.&lt;/p&gt;&amp;mdash; tobi lutke (@tobi) &lt;a href="https://x.com/tobi/status/2092259436538495186?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 25, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;Shopify has built automation to work around the discrepancy, but L&amp;uuml;tke&amp;rsquo;s core objection is that its engineers shouldn&amp;rsquo;t have to.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;We fix this with automation, but it&amp;rsquo;s a stupid complexity tax that shouldn&amp;rsquo;t have to be paid,&amp;rdquo; he writes.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;We fix this with automation, but it&amp;#8217;s a stupid complexity tax that shouldn&amp;#8217;t have to be paid.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-files-telling-ai-agents-how-to-work"&gt;The files telling AI agents how to work&lt;/h2&gt;
-
-
-
-&lt;p&gt;Now that coding agents are more capable, engineering teams have needed ways to provide persistent instructions for a codebase, which is where files such as AGENTS.md and CLAUDE.md come in.&lt;/p&gt;
-
-
-
-&lt;p&gt;Developers can put things like build commands, testing requirements, and coding conventions directly into a file in the repository, so the agent has that information as it works, rather than needing to be told every time. The problem is that coding tools haven&amp;rsquo;t all standardized on the same convention.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI introduced AGENTS.md in August 2025 to give coding agents instructions specific to a project; by December, OpenAI said it was being used by more than 60,000 open-source projects and agent frameworks, with support from tools including Codex, Cursor, Gemini CLI, GitHub Copilot, Jules and VS Code. OpenAI later handed the format over to the Agentic AI Foundation under the Linux Foundation.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Agents and Claude files are recursively applied through the tree&amp;hellip; one directory is missing one of the two files and this means that a subset of devs work with lobotomy.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-where-agents-md-and-claude-md-diverge"&gt;Where AGENTS.md and CLAUDE.md diverge&lt;/h2&gt;
-
-
-
-&lt;p&gt;Claude Code does things differently, however. It uses CLAUDE.md for project instructions and can pick up those files from different parts of a repository as it works. What it doesn&amp;#8217;t do is read AGENTS.md natively, something developers have been asking Anthropic to change.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic does provide workarounds, including importing AGENTS.md from a CLAUDE.md file or using symbolic links, but in a large repository, teams still have to make sure those instructions stay in sync across all the places they appear.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-platform-teams-bear-the-cost"&gt;Platform teams bear the cost&lt;/h2&gt;
-
-
-
-&lt;p&gt;In a large codebase, those instructions can live throughout the directory tree, giving an agent different guidance depending on what it&amp;rsquo;s working on. Claude Code does this with CLAUDE.md, picking up relevant instruction files as it moves through the repository.&lt;/p&gt;
-
-
-
-&lt;p&gt;That is also why L&amp;uuml;tke&amp;rsquo;s example carries so much weight. If a directory contains instructions for tools reading AGENTS.md but the equivalent instructions aren&amp;#8217;t available to Claude Code, developers using Claude can end up working without the same context.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://github.com/anthropics/claude-code/issues/7060" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Developers have been asking Anthropic to support AGENTS.md for nearly a year.&lt;/a&gt;. More recent requests have continued to push for native support, including &lt;a href="https://github.com/anthropics/claude-code/issues/69151" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;one focused on recursive AGENTS.md discovery&lt;/a&gt;, which Anthropic has closed as &amp;ldquo;not planned.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;And Shopify isn&amp;#8217;t alone. A &lt;a href="https://arxiv.org/abs/2602.14690" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2026 study of 2,926 GitHub repositories&lt;/a&gt; found that context files are now the most common way developers give coding agents instructions, with AGENTS.md already being used across several different tools.&lt;/p&gt;
-
-
-
-&lt;p&gt;Shopify has already built automation to deal with the problem, a point L&amp;uuml;tke clearly made, stressing that as companies bring more coding agents into the same repositories, keeping those tools on the same page becomes one more job for platform teams.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/shopify-claude-code-agentsmd/"&gt;Shopify&amp;#8217;s CEO threatened to ban Claude Code. Anthropic had already closed the feature request.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Shopify CEO Tobi Lütke says Claude Code&amp;#039;s refusal to read AGENTS.md creates a &amp;quot;complexity tax&amp;quot; for teams managing AI coding agents across large codebases.</content:encoded>
-    </item>
-    <item>
-      <title>IBM’s new Granite 4.2 models add reasoning and stay dense</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ibm-granite-reasoning-models/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 25 Aug 2026 19:13:45 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22834498</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/6dbec13c-blog_art_granitev4_2_release_6e4404e908-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6dbec13c-blog_art_granitev4_2_release_6e4404e908-scaled.png" /&gt;&lt;p&gt;On Tuesday, IBM launched the latest family of its open-weight Granite large language models (LLMs). Weighing in at 3 billion,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ibm-granite-reasoning-models/"&gt;IBM&amp;#8217;s new Granite 4.2 models add reasoning and stay dense&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/6dbec13c-blog_art_granitev4_2_release_6e4404e908-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/6dbec13c-blog_art_granitev4_2_release_6e4404e908-scaled.png" /&gt;
-&lt;p&gt;On Tuesday, IBM &lt;a href="https://huggingface.co/blog/ibm-granite/granite-4-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; the latest family of its open-weight Granite large language models (LLMs). Weighing in at 3 billion, 8 billion, and 30 billion parameters, IBM is taking a very different approach to model building from some of the competition here, with dense, decoder-only reasoning models that it pre-trained from scratch.&lt;/p&gt;
-
-
-
-&lt;p&gt;Many recent&amp;nbsp;models&amp;nbsp;have&amp;nbsp;moved&amp;nbsp;from&amp;nbsp;all-attention&amp;nbsp;Transformers&amp;nbsp;toward&amp;nbsp;hybrid&amp;nbsp;Mamba/attention&amp;nbsp;architectures,&amp;nbsp;including&amp;nbsp;Nvidia&amp;rsquo;s&amp;nbsp;&lt;a href="https://thenewstack.io/nvidia-launches-nemotron-3-super-a-120b-open-model-for-large-scale-ai-systems/" data-type="post" data-id="22816902" class="local-link"&gt;Nemotron 3 family&lt;/a&gt;. But IBM tried that with its Granite 4.0 models. That generation included conventional dense, dense-hybrid, and hybrid MoE models. &lt;/p&gt;
-
-
-
-&lt;p&gt;With Granite 4.1, IBM returned the main family to an all-attention, dense Transformer architecture. At the time, IBM &lt;a href="https://research.ibm.com/blog/granite-4-1-ai-foundation-models" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said&lt;/a&gt; that these new models outperformed the older generation, &amp;#8220;while using a simpler &amp;mdash; and therefore more flexible &amp;mdash; architecture for fine-tuning for downstream tasks.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-reasoning-with-granite"&gt;Reasoning with Granite&lt;/h2&gt;
-
-
-
-&lt;p&gt;IBM describes the 4.2 family as a &amp;#8220;reasoning-focused release.&amp;#8221; Models can run in thinking and non-thinking modes, but there is also a low-effort mode that only spends a low number of reasoning tokens for answering easy questions. &lt;/p&gt;
-
-
-
-&lt;p&gt;When the company launched the Granite 4.1 models, IBM still argued that reasoning models weren&amp;#8217;t efficient enough, so &amp;#8220;turning to less expensive, non-reasoning models with similar benchmark performance for select tasks like instruction following and tool calling makes sense for enterprise users.&amp;#8221; At this point, though, the team clearly believes that reasoning is a necessary feature &amp;#8212; even as it remains optional for the 4.2 models.&lt;/p&gt;
-
-
-
-&lt;p&gt;Unlike some other models in its class, including &lt;a href="https://thenewstack.io/qwen38-27b-local-inference/" class="local-link"&gt;Qwen-3.8 27B&lt;/a&gt;, Muse Glimmer 30B, and Google&amp;#8217;s Gemma 4 31B, it&amp;#8217;s a text-only model, though. The others are all multi-modal, though IBM does offer Granite Vision 4.1 4B, for example, and there&amp;#8217;s always a chance we&amp;#8217;ll get a 4.2 version of this model, too.&lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s worth noting that IBM also &lt;a href="https://huggingface.co/blog/ibm-granite/granite-speech-5-0-470m-turboctc" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; two new speech recognition models in the Granite Speech family on Tuesday as well.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-training-granite"&gt;Training Granite&lt;/h2&gt;
-
-
-
-&lt;p&gt;The Apache 2.0-licensed models were pre-trained on 15 trillion tokens and in five phases, including a long-context training phase that now brings the family&amp;#8217;s context window to 512,000 tokens (although the released configuration natively supports 128K). &lt;/p&gt;
-
-
-
-&lt;p&gt;IBM notes that the model&amp;#8217;s training set also included 1 trillion tokens of synthetic code, generated by IBM&amp;#8217;s &lt;a href="https://research.ibm.com/blog/code-alchemy-for-synthetic-code" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CodeAlchemy pipeline&lt;/a&gt; (though the models&amp;#8217; overall coding performance remains average).&lt;/p&gt;
-
-
-
-&lt;p&gt;For the most part, all of the models share this same pipeline, but the 8B and 30B models also went through an additional agentic reinforcement learning step to allow them to call tools, edit and run code, work in the terminal, and search the web. &amp;#8220;Combined with reinforcement learning from human feedback (RLHF) alignment, this approach produces models better equipped for complex, multi-step agentic work,&amp;#8221; IBM writes.&lt;/p&gt;
-
-
-
-&lt;p&gt;The 3B model also supports tool calling. Just don&amp;#8217;t expect too much from it.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="810" src="https://cdn.thenewstack.io/media/2026/08/e6479eae-screenshot-2026-08-25-at-11.06.07-am-1024x810.png" alt="" class="wp-image-22834499"/&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-benchmarks-it-s-fine"&gt;Benchmarks? It&amp;#8217;s fine.&lt;/h2&gt;
-
-
-
-&lt;p&gt;In terms of benchmarks, the Granite 4.2 models aren&amp;#8217;t breaking any new ground, but it&amp;#8217;s worth noting that the small 8B model often gets very close to the results of the larger 30B model &amp;#8212; and it&amp;#8217;s easy to run on virtually any modern Mac and even some relatively lower-end Nvidia RTX GPUs. &lt;/p&gt;
-
-
-
-&lt;p&gt;Qwen 3.8 27B, especially, beats the Granite models across the board, especially when it comes to coding, where the IBM models deliver inconsistent results overall.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="427" src="https://cdn.thenewstack.io/media/2026/08/26f7b135-blog_art_competitor_charts_granite4_2_30b_1_b808f60cde-1024x427.webp" alt="" class="wp-image-22834507"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;As always, though, benchmarks only tell part of the story. For the right kind of usecase, frontier models are often overkill and IBM argues that the main argument for Granite is its performance in high-throughput agentic tasks, for example.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;This release extends the Granite family with a clear goal: helping enterprises build agents that can reason, act, and adapt during real-life workflows,&amp;#8221; IBM writes in its announcement. &amp;#8220;Now that AI systems are being asked to carry out tasks in the real world, our expectations have risen. It&amp;rsquo;s no longer enough to answer clearly and concisely. An AI system must be able to plan, call applications, and execute complex tasks in a reliable and consistent way &amp;mdash; while staying light enough to actually use without breaking the bank.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ibm-granite-reasoning-models/"&gt;IBM&amp;#8217;s new Granite 4.2 models add reasoning and stay dense&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>IBM’s Granite 4.2 sticks with decoder-only models, adds a 512,000-token context window, and trains its larger versions for agentic work.</content:encoded>
-    </item>
-    <item>
-      <title>How telemetry pipelines keep AI agent costs under control</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agentic-ai-telemetry-costs/</link>
-      <dc:creator>Megan Carnegie</dc:creator>
-      <pubDate>Tue, 25 Aug 2026 19:01:28 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>FinOps</category>
-      <category>Observability</category>
-      <category>sponsor-apica</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22834500</guid>
-      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/08/a0da9bf2-hj-project-14jvgisjoto-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract neon pink and purple angular pathways interlock against a dark geometric background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a0da9bf2-hj-project-14jvgisjoto-unsplash-scaled.png" /&gt;&lt;p&gt;As enterprises move from experimenting with AI to running autonomous agents in production, an infrastructure problem is emerging: rising telemetry&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-telemetry-costs/"&gt;How telemetry pipelines keep AI agent costs under control&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/08/a0da9bf2-hj-project-14jvgisjoto-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract neon pink and purple angular pathways interlock against a dark geometric background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/a0da9bf2-hj-project-14jvgisjoto-unsplash-scaled.png" /&gt;
-&lt;p&gt;&lt;strong&gt;As enterprises move from experimenting with AI&lt;/strong&gt; to running autonomous agents in production, an infrastructure problem is emerging: rising telemetry costs. Non-deterministic, iterative, and capable of generating data at machine speed, agents are far harder to monitor &amp;mdash; and their costs far harder to predict &amp;mdash; than conventional applications.&lt;/p&gt;
-
-
-
-&lt;p&gt;Many companies are struggling to attribute and defend their telemetry bills. In fact, &lt;a href="https://www.prnewswire.com/news-releases/new-apica-research-agentic-ai-poised-to-trigger-9-5x-telemetry-data-explosion-leaving-most-enterprises-exposed-302789312.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;59% of organizations&lt;/a&gt; have already terminated or delayed an agentic AI deployment due to monitoring costs, according to a survey of more than 300 enterprise IT decision-makers in North America and Western Europe, commissioned by Apica and conducted by Omdia/Informa TechTarget.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;The agents most affected are often in some of the most high-stakes deployments: think cybersecurity, compliance, and fraud detection. As monitoring bills explode, deployments aren&amp;rsquo;t necessarily getting killed by engineering teams. More often than not, it&amp;rsquo;s finance pulling the plug.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/andimann/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Andi Mann&lt;/a&gt;, chief product and technology officer at &lt;a href="https://www.apica.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Apica&lt;/a&gt;, recently saw this play out at a large bank. The organization couldn&amp;rsquo;t pin down exactly what it was spending on its AI programs.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;They knew they couldn&amp;rsquo;t afford to keep going on the same trajectory, so they had no choice but to cancel certain AI programs,&amp;rdquo; Mann tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;It&amp;rsquo;s a pattern I have seen before, because AI projects are cannibalizing typical budgets.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s a pattern I have seen before, because AI projects are cannibalizing typical budgets.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The implications are huge. As people, funding, and monitoring resources are diverted toward new AI workloads, other parts of the business start to suffer. Mann says he&amp;rsquo;s seeing outages, downtime, penetration attacks, and DDoS protection compete for the same resources.&lt;/p&gt;
-
-
-
-&lt;p&gt;The problem is already showing up in research. Most (54%) enterprises have seen telemetry volume &lt;a href="https://www.prnewswire.com/news-releases/new-apica-research-agentic-ai-poised-to-trigger-9-5x-telemetry-data-explosion-leaving-most-enterprises-exposed-302789312.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;triple&lt;/a&gt; in the past year alone, with 43% of that growth coming from AI/ML workloads &amp;mdash; by far the largest driver. Businesses are under pressure to address this crisis as their observability bills climb. &lt;/p&gt;
-
-
-
-&lt;p&gt;They report spending an average of $3.17 million on observability, with that figure growing 28% year over year and showing no obvious ceiling. No wonder then that 83% rank AI observability as a top priority for the year ahead.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-coming-wave-could-be-catastrophic"&gt;The coming wave could be catastrophic&lt;/h2&gt;
-
-
-
-&lt;p&gt;With a new cloud service, database, or application, you&amp;rsquo;d expect the monitoring burden and telemetry data to rise by a relatively predictable increment. But enterprises now foresee an average 9.5X increase in telemetry data within two years.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Imagine if your credit card or grocery bill went up more than nine times &amp;mdash; that is not a marginal amount,&amp;rdquo; Mann says. &amp;ldquo;This isn&amp;rsquo;t a gentle ramp; it&amp;rsquo;s a skyscraper, and it&amp;rsquo;s prompting panic.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;This isn&amp;#8217;t a gentle ramp; it&amp;#8217;s a skyscraper, and it&amp;#8217;s prompting panic.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Some 44% of organizations expect their telemetry data to increase by 6X to 100X.&lt;/p&gt;
-
-
-
-&lt;p&gt;The reason is that an agent task isn&amp;rsquo;t the same as a single application request. A customer-support task might generate a top-level trace, several model calls, retrieval operations, tool calls, retries, and loops. But if the agent delegates work to another agent, that adds another branch to the trace.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Each model can produce token, latency, cost, and provider data, while each tool call generates its own records for arguments, results, status, and downstream activity. Identifiers such as &lt;code&gt;tool_name&lt;/code&gt;, &lt;code&gt;agent_id&lt;/code&gt;, and &lt;code&gt;trace_id&lt;/code&gt; also create high cardinality, making data harder to aggregate and more expensive to index, with costs compounding at every stage.&lt;/p&gt;
-
-
-
-&lt;p&gt;That creates an uncomfortable gap between AI ambition and infrastructure readiness. Although 35% of enterprises claim widespread agentic AI deployment, operating and managing those systems is very different. Nearly two-thirds are only somewhat prepared for the shift. Unlike conventional applications, agents can call multiple models and tools, repeat tasks, or expand a workflow in unpredictable ways, making both capacity and monitoring costs difficult to forecast.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-from-extreme-telemetry-costs-to-an-upstream-control-layer"&gt;From extreme telemetry costs to an upstream control layer&lt;/h2&gt;
-
-
-
-&lt;p&gt;The answer, according to Mann, is to intervene earlier. &amp;ldquo;You can&amp;rsquo;t keep sending essentially useless data to an expensive central analytics or storage platform because there&amp;rsquo;s no point analyzing data which says everything is fine,&amp;rdquo; he says. &amp;ldquo;As early as possible, get the pipeline to use data collectors and manage those at source.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;Legacy observability platforms were built around collecting data, ingesting it, storing and indexing it, and then analyzing it. That model worked for human-driven, dashboard-queried workloads, but agentic AI requires decisions to be made before telemetry reaches the most expensive parts of the stack.&lt;/p&gt;
-
-
-
-&lt;p&gt;A pipeline-first architecture can sample repetitive successful events while retaining failures, retries, policy violations, and unusually slow traces. It can enrich records with agent, session, model, tool, token, and estimated-cost data, redact sensitive prompts and identifiers, and aggregate metrics and long-term records to destinations with different cost and retention profiles.&lt;/p&gt;
-
-
-
-&lt;p&gt;A compact metric or sampled span might represent a routine successful tool call, while a failed call retains its parent trace, error details, retry history, and security context. The aim is to preserve the information needed to explain an agent&amp;rsquo;s behavior while reducing redundant data and limiting what gets indexed.&lt;/p&gt;
-
-
-
-&lt;p&gt;Agents also need millisecond-level context for autonomous decisions. Processing telemetry close to its source allows organizations to quickly detect retry storms, excessive tool loops, or unusual token consumption, rather than waiting for data to be ingested and indexed centrally.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Without upstream control, businesses risk feeding fragmented, unnecessary telemetry into platforms that charge for every additional gigabyte, index, and retained record.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-architecture-that-separates-winners-from-cancellations"&gt;Architecture that separates winners from cancellations&lt;/h2&gt;
-
-
-
-&lt;p&gt;The payoff for rethinking the telemetry pipeline is hard to ignore. Enterprises with a telemetry pipeline are 50% more likely to be prepared for the growth of agentic AI data. Among mature agentic AI organizations, pipeline adoption is what sets them apart: these organizations are 80% more likely to have avoided the operational cost challenges hampering their peers.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Rather than treating the observability platform as a catch-all destination, enterprises can make decisions about telemetry before it gets there.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The answer is to move the intelligence upstream. Rather than treating the observability platform as a catch-all destination, enterprises can make decisions about telemetry before it gets there &amp;mdash; filtering out noise, enriching what matters, and routing data according to its value and purpose. That means less data hitting expensive storage and analytics systems, while the information that does make it through is more useful and available in real time.&lt;/p&gt;
-
-
-
-&lt;p&gt;Crucially, this isn&amp;rsquo;t about ripping out the observability platforms enterprises already rely on. It&amp;rsquo;s about putting a smarter control layer in front of them: deciding what data deserves to be ingested, where it should go, and how much it should cost.&lt;/p&gt;
-
-
-
-&lt;p&gt;Existing observability platforms still have an important role to play. &amp;ldquo;The pipeline can&amp;rsquo;t do everything, but it can act as a first responder,&amp;rdquo; says Mann. &amp;ldquo;You still work with the big analytics platforms, but you&amp;rsquo;re saving money, reducing risk, and improving your compliance performance.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;The Apica study finds that its pipeline control, metrics foundation, and data readiness services, for example, can reduce the total cost of ownership by 40% compared to legacy observability platforms. Of course, though, the actual savings will depend on telemetry volumes, retention policies, sampling rules, routing decisions, existing contracts, and the proportion of data that can be processed before ingestion.&lt;/p&gt;
-
-
-
-&lt;p&gt;The window to rethink the architecture is now. Some 68% of enterprises plan to evaluate changes to their observability stack within the next six months, while almost a quarter say existing vendor relationships won&amp;rsquo;t be a significant factor in those decisions. The next phase of observability will be won by the ability to handle what agentic AI throws at the infrastructure.&lt;/p&gt;
-
-
-
-&lt;p&gt;That means the pipeline can no longer be treated as plumbing that moves telemetry from A to B. It&amp;rsquo;s becoming the control layer for an increasingly autonomous, data-hungry environment.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Organizations that establish agentic-ready infrastructure will be better positioned to reduce observability costs and improve risk performance. Mann doesn&amp;rsquo;t think platform engineering and SRE teams have much choice. &amp;ldquo;This has already become a board-level decision,&amp;rdquo; he says. &amp;ldquo;Ultimately, it&amp;rsquo;s a choice about how smart you can afford to make your business.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Download the Omdia research report: &amp;ldquo;&lt;/em&gt;&lt;/strong&gt;&lt;a href="https://www.apica.io/state-of-agentic-ready-observability-infrastructure-report-2026/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;The Agentic AI Telemetry Crisis: Are You Ready for What&amp;#8217;s Coming?&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;&amp;rdquo;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-telemetry-costs/"&gt;How telemetry pipelines keep AI agent costs under control&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Finance, not engineering, is killing agentic AI projects. With telemetry set to grow 9.5X, the observability pipeline is becoming the control layer.</content:encoded>
     </item>
   </channel>
 </rss>
