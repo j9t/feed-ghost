@@ -20,6 +20,410 @@
       <height>32</height>
     </image>
     <item>
+      <title>Claude Fable 5.1 vs. Fable 5: On real work, I couldn’t tell them apart.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-fable-upgrade-tested/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Sat, 05 Sep 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Software Development</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835825</guid>
+      <description>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;Anthropic launched Claude Fable 5.1 this week, calling it “our most advanced model for coding and knowledge work.”  There was&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-upgrade-tested/"&gt;Claude Fable 5.1 vs. Fable 5: On real work, I couldn&amp;#8217;t tell them apart.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;&lt;strong&gt;Anthropic launched Claude Fable 5.1 this week&lt;/strong&gt;, calling it “&lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/" class="local-link"&gt;our most advanced model for coding and knowledge work&lt;/a&gt;.” &lt;/p&gt;
+
+
+
+&lt;p&gt;There was quite a lot of excitement surrounding the launch. Every CEO Dan Shipper &lt;a href="https://x.com/danshipper/status/2094848951568474186" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted&lt;/a&gt; that after a week of testing, it was “the strongest coding model we’ve used.”AI commentator Min Choi &lt;a href="https://x.com/minchoi/status/2094990525912752547" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;collected examples&lt;/a&gt; of people “one-shotting games, building 3D worlds + creating insane simulations” within 24 hours of release.&lt;/p&gt;
+
+
+
+&lt;p&gt;The announcement highlights the Terminal-Bench-Science benchmark, an agentic research benchmark, where 5.1 scores 52.6% against Fable 5’s 24.7%. Terminal-Bench-Science gives a model a terminal and a set of multi-step scientific research tasks, then scores what percentage it completes correctly.&lt;/p&gt;
+
+
+
+&lt;p&gt;The Terminal-Bench-Science score gap illustrates the main measurable difference between Fable 5 and 5.1. Fable 5 finishes about a quarter of them. 5.1 finishes about half. With the new model costing exactly what the old one does — $10 per million input tokens and $50 per million output — this score is the reason to upgrade, if it’s true.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Benchmark scores don’t always translate to real-world work.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Benchmark scores don’t always translate to real-world work. They measure narrow task sets under conditions vendors help define. Some companies have been known to tune models toward the tests they get graded on. I’m not saying Anthropic did that, but the possibility is baked into how benchmark marketing works.&lt;/p&gt;
+
+
+
+&lt;p&gt; A score of 52.6% on a research benchmark tells me nothing about whether AI’s output on the work I need it to do gets better. So I wanted to see what these numbers and strong claims mean for a real user doing real work.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-tests"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p&gt;I tested both models on four tasks that mimic real work that people use AI for.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Agentic research&lt;/strong&gt;: Experiment data with five bad rows; the lab notes explain how to catch them. The model has to exclude them, compute the batch averages, and write up its findings.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Agentic coding&lt;/strong&gt;: A small Python project with two planted bugs and a failing test suite. The model has to find the bugs and fix the code until every test passes.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Reasoning&lt;/strong&gt;: Two math problems with exact answers I verified in advance. This includes no terminal work, only thinking.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Sensor data audit&lt;/strong&gt;: Messy readings from five sensors, with every problem documented in an equipment log: a fast clock, a mid-run hardware swap, corrupted rows, one sensor in Fahrenheit. Added as a tiebreaker; more on that later.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;I usually paste my prompts so you can rerun my tests. I was unable to do that for these tests. These tests require folders of data files with planted errors, and the prompts are useless without them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-agentic-research"&gt;Agentic research&lt;/h2&gt;
+
+
+
+&lt;p&gt;Both models finished the task correctly in 3 turns. Each read the lab notes and excluded exactly the right five rows, including the subtle case where a duplicated trial’s first entry is corrupt, and its rerun is valid. Both produced batch means that matched the correct answers to the decimal.&lt;/p&gt;
+
+
+
+&lt;p&gt;Fable 5.1 was slightly faster (19.2s vs. 20.6s) and slightly cheaper ($0.086 vs. $0.100). On the benchmark this task imitates, Fable 5 supposedly fails three-quarters of the time. On my machine, it didn’t make any mistakes.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-agentic-coding"&gt;Agentic coding&lt;/h2&gt;
+
+
+
+&lt;p&gt;The coding test went the same way. Both models ran the suite and spotted the loud bug, a remove function that added stock instead of subtracting it. Both also caught the quiet one, an off-by-one in a threshold comparison. Each fixed both bugs and finished with 8 of 8 tests passing in 3 turns.&lt;/p&gt;
+
+
+
+&lt;p&gt;Fable 5.1 finished in 13.6 seconds, and Fable 5 took 17.2, with both runs costing $0.07. The new model was faster, but nothing else separated them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-reasoning"&gt;Reasoning&lt;/h2&gt;
+
+
+
+&lt;p&gt;Anthropic’s numbers predicted a near-tie here. I saw the same result. Both models answered the two challenges correctly, with correct step-by-step work. Fable 5.1 was slightly faster on both problems: 12.0 seconds against 12.5 on the first, and 9.7 seconds against 10.7 on the second. It was also more concise, using 771 output tokens against Fable 5’s 1,045 on the first problem and 647 against 798 on the second.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-sensor-audit-data"&gt;Sensor audit data&lt;/h2&gt;
+
+
+
+&lt;p&gt;AKA the tiebreaker. After three rounds of perfect ties on accuracy, I added a fourth test. I built this test to be harder than the first three, because a model that supposedly doubles its predecessor should reveal that somewhere.&lt;/p&gt;
+
+
+
+&lt;p&gt;Both models handled every trap. Each shifted the fast clock back before filtering the time window, which also excluded two hot readings from the data. Each split the swapped sensor’s calibration at the right moment, dropped the corrupted rows, and converted Fahrenheit after calibrating rather than before. Once again, the two result files were identical and fully correct.&lt;/p&gt;
+
+
+
+&lt;p&gt;The difference between the two was in the timing, cost, and token usage. Fable 5 finished in 4 turns, 23.9 seconds, and $0.134. Fable 5.1 needed 5 turns, took 28.4 seconds, and cost $0.304, more than double. The extra turn is what did it. Every turn resends the entire conversation so far, so Fable 5.1 pushed 23,602 input tokens through the API, compared to Fable 5’s 7,940. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Fable 5 was as accurate, cheaper, and faster on the hardest task of the set. I wasn’t expecting that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Fable 5 was as accurate, cheaper, and faster on the hardest task of the set. I wasn’t expecting that.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-results"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Metric&lt;/td&gt;&lt;td&gt;Fable 5&lt;/td&gt;&lt;td&gt;Fable 5.1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Accuracy&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;24/24&lt;/td&gt;&lt;td&gt;24/24&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Total tokens&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;22219&lt;/td&gt;&lt;td&gt;37809&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Total cost&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;$0.398&lt;/td&gt;&lt;td&gt;$0.533&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Total time&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;84.9s&lt;/td&gt;&lt;td&gt;82.9s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Both models scored a perfect 24 out of 24 across the four tests. Fable 5.1 finished the full run slightly faster, 82.9 seconds against 84.9, but used 70% more tokens and cost 34% more (these results were skewed after I did the sensor test, but it still counts). &lt;/p&gt;
+
+
+
+&lt;p&gt;These results also don’t mean the Terminal-Bench-Science numbers are wrong. The benchmark was built using long, messy research tasks where Fable 5 allegedly fails most of the time. In my opinion, though, this doesn’t apply to what most users are using Fable 5 for. Some, yes, sure.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;Two caveats I also want to add. The claimed savings rely on cache read prices, which have dropped by 75%. My short tasks didn’t use caching at all, so my cost numbers don’t test that claim. And Anthropic says 5.1 was benchmarked with its production safeguards on, which sometimes lowered its own scores.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;What do I think?&lt;/p&gt;
+
+
+
+&lt;p&gt;I went looking for a 2x improvement and found a model I couldn’t differentiate from its predecessor. That doesn’t mean there aren’t any differences, but it does mean that for day-to-day tasks you were already using Fable 5 for, it may not look any different.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;I went looking for a 2x improvement and found a model I couldn’t differentiate from its predecessor.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;If you’re on Fable 5 today and your work looks like mine — code fixes, data cleanup, analysis with documented gotchas — this upgrade will not change your results. On a long agentic task, it may even cost more per run. If your work looks like the benchmark, meaning hours-long research agents that fail more than they succeed, Anthropic’s numbers say 5.1 is where the improvement lives. I couldn’t build that test in an afternoon.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-upgrade-tested/"&gt;Claude Fable 5.1 vs. Fable 5: On real work, I couldn&amp;#8217;t tell them apart.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic shipped Claude Fable 5.1 on September 1, claiming doubled performance in agentic research. I ran it against Fable 5 on four real jobs and tracked every token. Both scored perfectly, and on the hardest task, the new model billed more than double that of the old one.</content:encoded>
+    </item>
+    <item>
+      <title>Building trust in agentic RAG starts with evidence</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/building-trust-agentic-rag/</link>
+      <dc:creator>Jeremy Daly</dc:creator>
+      <pubDate>Sat, 05 Sep 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Large Language Models</category>
+      <category>sponsor-oracle</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835900</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High contrast abstract digital texture evoking complex AI data traces and execution paths." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash.jpg" /&gt;&lt;p&gt;Basic retrieval-augmented generation (RAG) follows a straightforward pattern. A user asks a question, the system finds relevant content in a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/building-trust-agentic-rag/"&gt;Building trust in agentic RAG starts with evidence&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High contrast abstract digital texture evoking complex AI data traces and execution paths." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash.jpg" /&gt;
+&lt;p&gt;Basic retrieval-augmented generation (RAG) follows a straightforward pattern. A user asks a question, the system finds relevant content in a knowledge base, and the model uses it to ground its answer. This works for simple lookups, but many real-world &lt;a href="https://thenewstack.io/ai-agents-retrieval-engineering/" data-type="link" data-id="https://thenewstack.io/ai-agents-retrieval-engineering/" class="local-link"&gt;retrieval systems&lt;/a&gt; need more control over how and where they search.&lt;/p&gt;
+
+
+
+&lt;p&gt;Agentic RAG lets an agent rewrite the question and choose where and how to search. It may query a knowledge base or an account system, combine lexical, semantic, and graph search, fuse the resulting scores, rerank candidates, discard weak results, and try again. This can find evidence that a single semantic search would miss. It also adds more decision points that should be supported by evidence, and a confident answer may not reveal the retrieval path that led to it.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The opportunity comes with a responsibility: more decisions require a clear evidence trail.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The opportunity comes with a responsibility: more decisions require a clear evidence trail. More control can improve coverage, but control alone cannot create trust. The system earns that trust by showing what it searched and why it accepted a source. It must also disclose what it couldn&amp;#8217;t verify. Without that record, it can be harder to understand the basis for even a good answer.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-retrieval-is-a-series-of-decisions"&gt;Retrieval is a series of decisions&lt;/h2&gt;
+
+
+
+&lt;p&gt;A retrieval turn may look like a single operation in the application, but the agent is making a chain of choices. It interprets the user&amp;#8217;s intent and creates a query. Then it chooses data sources, applies the required filters, and inspects the results. Only then can it decide whether the evidence is sufficient and connect claims to citations.&lt;/p&gt;
+
+
+
+&lt;p&gt;Each choice deserves care. An agent might search the support index for a billing question, remove a product name while rewriting a query, or find the right policy in the wrong customer&amp;#8217;s account. The final answer could sound convincing yet be incomplete, fall outside the intended scope, or be unsuitable to share.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="439" height="583" src="https://cdn.thenewstack.io/media/2026/09/57ef99f0-image.png" alt="Workflow diagram comparing basic RAG against agentic RAG." class="wp-image-22835901"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;A one-shot retriever makes a single retrieval pass. An agentic retriever may make several, and each can fail with no visible change in the final answer.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;A final list of top-k chunks can&amp;#8217;t reconstruct this process. By then, the agent may have issued multiple queries and rejected several sources. It may have switched tools or rewritten the query. Each step must record structured data while it happens. This becomes your flight recorder for retrieval:&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+request      &amp;quot;Can I cancel this contract early?&amp;quot;
+query        &amp;quot;early termination enterprise agreement&amp;quot;
+source       approved_contracts (tenant=acme, region=US)
+accepted     contract_884 &amp;sect;12, effective=2026-01-01, score=0.81
+rejected     policy_119, reason=&amp;quot;expired 2025-12-31&amp;quot;
+decision     evidence sufficient for contract terms; fee amount unverified
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Keep the query and its filters. Add source IDs, ranking data, timestamps, and the reason for each branch. There isn&amp;#8217;t one correct retrieval method for every request. Lexical keyword search may be best for an exact contract number. Vector search may be best for a paraphrased policy question, while a plain SQL query pulls back an account balance. Graph traversal may be used to connect related documents or entities. The record should say which one the agent chose and why.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Give users and operators visible evidence&lt;/h2&gt;
+
+
+
+&lt;p&gt;Users and operators need different views of the same evidence. A user needs citations that identify the source and the relevant passage or record. Each citation should show the source&amp;#8217;s effective date or last updated date, along with the date it was retrieved. Users need plain language when the evidence has limits: &amp;ldquo;I found the cancellation terms, but I couldn&amp;#8217;t verify the current fee for your account.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Operators need enough detail to produce and improve an answer. Preserve the rewritten queries and search attempts, while protecting those traces with appropriate access controls, redaction, and retention rules. Keep the rejected results, tool calls, applied filters, and any instructions that affected source selection. A citation alone does not establish claim support. An agent can cite a legitimate document that contains related language but doesn&amp;#8217;t support the claim it wrote. It can also attach a citation after the answer is generated, leaving it unclear whether the source informed the answer.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Preserve citation provenance during generation, then verify that each claim is supported before releasing the answer. Store the source IDs passed to the model and map each supported claim back to the excerpt or record that supplied it. If a claim has no source, the application can remove or qualify it. For a high-risk claim, it can hold the answer for review before it reaches the user.&lt;/p&gt;
+
+
+
+&lt;p&gt;Use a practical replay test. Give an engineer the request and the trace, then ask, &amp;#8220;Why this source?&amp;#8221; Why was it valid at that time? Why did the system reject the alternative? If the trace can&amp;#8217;t answer those questions, it isn&amp;#8217;t detailed enough.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Make currency and authority part of retrieval&lt;/h2&gt;
+
+
+
+&lt;p&gt;Semantic similarity measures resemblance, not authority. A policy from last year can match a question perfectly and still not be the appropriate result in the index. A current policy with different wording may be the only one the agent should use.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;A similarity score is an opinion; a scope filter is a rule the system can enforce.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Treat source metadata as part of retrieval. Start with the effective date and owner, then record the access scope and document type. Approval status and jurisdiction matter for controlled material. Tenant identity is a hard boundary. A similarity score is an opinion; a scope filter is a rule the system can enforce. All of these fields should affect filtering and ranking. A regulatory question may require an approved primary source. A product question may prefer the latest published manual. A customer question must stay inside that customer&amp;#8217;s scope.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="468" height="493" src="https://cdn.thenewstack.io/media/2026/09/42e0defc-image.png" alt="Workflow diagram of an example where the closest match isn't the most appropriate one." class="wp-image-22835902"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;The closest match is not always the most appropriate source. Metadata rules decide what a similarity score can&amp;#8217;t: whether a candidate is current, approved, and inside the caller&amp;#8217;s scope.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;These rules can run before or after similarity ranking&amp;mdash;or at both stages. The placement depends on the data and the risk, but either way, an unauthorized or expired record should be excluded, even when its wording appears to be a closer match. When tenant and scope boundaries are properly implemented, unauthorized records can be excluded before they become candidates.&lt;/p&gt;
+
+
+
+&lt;p&gt;Conflicting sources need their own path. If two approved policies overlap, the agent should not default to the most convenient paragraph. It should report the conflict and narrow the answer to what both sources support. If that isn&amp;#8217;t possible, it should send the request for review. Someone must also own each source throughout its active life and retire it upon expiration. Retrieval cannot establish currency from a document library that is no longer maintained.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Define a retrieval policy for the agent&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;ldquo;Be accurate&amp;rdquo; is an important goal, but too vague to serve as a retrieval policy. The application needs &lt;a href="https://thenewstack.io/why-ai-agents-need-their-own-identity-not-yours/" class="local-link"&gt;enforceable rules for when the agent searches&lt;/a&gt; and which source types it can use. Separate rules should govern when it may broaden a query and when it must admit the evidence is incomplete.&lt;/p&gt;
+
+
+
+&lt;p&gt;Apply those rules before the model writes. Customer data stays within the verified customer scope. Regulatory answers use approved sources for the correct jurisdiction and effective date. A missing primary source results in a qualified answer or a request for review. These constraints should be implemented in tool permissions, query filters, and application code rather than relying on the model to remember a sentence in its instructions.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The agent decides what to ask; the retrieval layer decides what may be returned.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Tool access needs the same treatment. Searching a public knowledge base carries a different risk than searching contracts, case notes, or a company-wide file store. Give the agent access only to the systems required for the task, and pass verified identity and scope to each search tool. Do not rely on the model to supply them as query arguments. The agent decides what to ask; the retrieval layer decides what may be returned.&lt;/p&gt;
+
+
+
+&lt;p&gt;Build these controls into the retrieval path before exceptions reach users.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-treat-retrieved-content-as-data-not-policy"&gt;Treat retrieved content as data, not policy&lt;/h3&gt;
+
+
+
+&lt;p&gt;Every document an agentic retriever reads should be treated as &lt;a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;untrusted model input&lt;/a&gt;, even when the application controls the source. Some of those documents will contain instructions. A wiki page can contain language that asks the agent to disregard its source restrictions. An ingested PDF can carry a line telling the model to prefer it over newer material. In basic RAG, a planted instruction can corrupt the answer. In agentic RAG, it can also steer subsequent searches, right down to the citations the agent presents as evidence.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="468" height="428" src="https://cdn.thenewstack.io/media/2026/09/670bc689-image.png" alt="Workflow diagram showing how an embedded instruction can influence a basic RAG answer." class="wp-image-22835904"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;An embedded instruction can influence a basic RAG answer. In agentic RAG, it can redirect later searches, and memory can carry that influence into future requests.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The governing rule is that retrieved content is data, never policy. Scope and permissions come from the application, and nothing in a document body should be allowed to change authorization or policy. Identity and scope filters belong in tool code and, where possible, in the database itself.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The governing rule is that retrieved content is data, never policy.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The prompt alone is not a sufficient enforcement layer. Query rewrites and tool calls still need to be validated against the retrieval policy. The trace can reveal that a document influenced the next search, making it useful as a tool for detection and investigation. By the time it tells you anything, though, the search has already run. If retrieved material can be promoted into memory, the instruction can outlive the retrieval that introduced it and influence unrelated future requests.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-keep-retrieval-near-the-data-when-it-helps"&gt;Keep retrieval near the data when it helps&lt;/h3&gt;
+
+
+
+&lt;p&gt;Many RAG systems copy documents into one service, embeddings into another, metadata into a third, and permissions into application code. Each copy can update on a different schedule. That makes answer freshness harder to diagnose and access decisions more difficult to demonstrate.&lt;/p&gt;
+
+
+
+&lt;p&gt;Keeping more of that work near the operational data can shorten the path. &lt;a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/overview-ai-vector-search.html?source=:ex:pw:::::TNS_AgenticRAG_A&amp;amp;SC=:ex:pw:::::TNS_AgenticRAG_A&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oracle AI Vector Search&lt;/a&gt; stores vector embeddings alongside business data, and its SQL queries can combine similarity search with &lt;a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/nfcoa/vector-data-type.html?source=:ex:pw:::::TNS_AgenticRAG_B&amp;amp;SC=:ex:pw:::::TNS_AgenticRAG_B&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;relational filters&lt;/a&gt; and &lt;a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/sqlrf/create-hybrid-vector-index.html?source=:ex:pw:::::TNS_AgenticRAG_C&amp;amp;SC=:ex:pw:::::TNS_AgenticRAG_C&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;lexical search&lt;/a&gt;. A team using Oracle AI Database can keep operational records, vectors, and access rules in a data platform it already controls. Database-enforced access controls can apply &lt;a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/arpls/DBMS_RLS.html?source=:ex:pw:::::TNS_AgenticRAG_D&amp;amp;SC=:ex:pw:::::TNS_AgenticRAG_D&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;row- and column-level policies&lt;/a&gt; inside the database, allowing access restrictions to be enforced independently of the retrieval service.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;This arrangement can reduce data copies and make lineage easier to inspect. It doesn&amp;#8217;t decide which policy is authoritative, detect a conflict, or prove that a citation supports a claim. The retrieval policy and evaluations still have to do that work. Additional products do not resolve an undefined evidence path.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Test decisions as well as answers&lt;/h2&gt;
+
+
+
+&lt;p&gt;An evaluation that scores only the final prose does not assess much of the decision-making in &lt;a href="https://thenewstack.io/the-precision-engine-why-agentic-rag-is-genais-next-leap/" data-type="link" data-id="https://thenewstack.io/the-precision-engine-why-agentic-rag-is-genais-next-leap/" class="local-link"&gt;agentic RAG&lt;/a&gt;. Build a small set of requests that exercise those decisions. Include a current-policy question and a case with two tenants holding similar records. Add conflicting documents, an unusual but valid source, and a document that carries embedded instructions to the model. The set should also include a request with the correct result &amp;ldquo;I can&amp;#8217;t verify this.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p&gt;Score retrieval separately from generation using measures such as corpus-selection accuracy, recall at k, tenant-isolation violation rate, citation coverage, and claim-support accuracy. Check whether the agent selected the correct corpus and applied all required filters. Inspect the selected sources and their citation-to-claim links. Confirm that the agent appropriately declined or escalated when it lacked evidence. The answer can sound awkward and still retrieve correctly. It can also sound convincing while using an expired policy.&lt;/p&gt;
+
+
+
+&lt;p&gt;Run these cases after a change to the embedding model, chunking method, index, prompt, ranking rules, or search tool. A higher relevance score means very little if the new index starts to prefer older documents or crosses a tenant boundary. Save production issues as new evaluation cases so the same issue is less likely to recur.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Each answer needs an evidence path&lt;/h2&gt;
+
+
+
+&lt;p&gt;Agentic RAG adds decisions, and confidence grows when the system can account for them. Make the evidence path and retrieval policy visible outputs instead of details buried in logs. When an answer needs review, that record is what lets a person decide whether it deserves their trust.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Trying to implement agentic RAG? Working examples of these patterns, such as agentic RAG with hybrid search, are available in &lt;/em&gt;&lt;/strong&gt;&lt;a href="https://github.com/oracle-devrel/oracle-ai-developer-hub" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Oracle&amp;#8217;s AI Developer Hub&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/building-trust-agentic-rag/"&gt;Building trust in agentic RAG starts with evidence&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Agentic RAG requires clear evidence. Discover how tracking retrieval decisions, metadata, and citations builds trust in AI agent outputs.</content:encoded>
+    </item>
+    <item>
       <title>“Sorry for the messy rollout”: OpenAI launches GPT-6 Astra to most paying users a day after its unveiling</title>
       <link>https://web.archive.org/web/https://thenewstack.io/gpt6-astra-developer-access-delayed/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +432,10 @@
       <category>AI Models</category>
       <category>Large Language Models</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22835881</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="ominous door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-scaled.jpg" /&gt;&lt;p&gt;Update: As of 6:30 p.m. Eastern on Friday, September 4, GPT-6 Astra was available on ChatGPT for all paying users&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="ominous door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-scaled.jpg" /&gt;&lt;p&gt;Update: As of 6:30 p.m. Eastern on Friday, September 4, GPT-6 Astra was available on ChatGPT for all paying users&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt6-astra-developer-access-delayed/"&gt;&amp;#8220;Sorry for the messy rollout&amp;#8221;: OpenAI launches GPT-6 Astra to most paying users a day after its unveiling&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="ominous door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="ominous door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f7f96e5e-dima-pechurin-jubjyfvcv00-unsplash-scaled.jpg" /&gt;
 &lt;p&gt;&lt;strong&gt;Update: As of 6:30 p.m. Eastern&lt;/strong&gt; &lt;strong&gt;on Friday, September 4&lt;/strong&gt;, GPT-6 Astra was available on ChatGPT for all paying users with plans that include access to it. &lt;/p&gt;
 
 
@@ -48,7 +452,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="402" src="https://cdn.thenewstack.io/media/2026/09/8f9c93c8-screenshot-2026-09-04-at-18.25.22-1024x402.png" alt="" class="wp-image-22835949"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="402" src="https://cdn.thenewstack.io/media/2026/09/8f9c93c8-screenshot-2026-09-04-at-18.25.22-1024x402.png" alt="" class="wp-image-22835949"/&gt;&lt;/figure&gt;
 
 
 
@@ -1117,357 +1521,6 @@ ARC Prize’s standard harness.&lt;/p&gt;
       <content:encoded>OpenAI says GPT-6 Astra scored 98.6% on ARC-AGI-3, up from 7.8% six months ago. But undisclosed test settings and opaque reasoning complicate the AGI question.</content:encoded>
     </item>
     <item>
-      <title>Cut GPU inference cold start from 8 minutes to less than a minute</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cut-gpu-cold-starts/</link>
-      <dc:creator>Sajjan Gundapuneedi</dc:creator>
-      <pubDate>Thu, 03 Sep 2026 18:30:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Kubernetes</category>
-      <category>Large Language Models</category>
-      <category>sponsor-aws-marketplace</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835731</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;We instrumented the full path from pod creation to first inference response on a GPU node running a 70B-class model.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;We instrumented the full path from pod creation&lt;/strong&gt; to first inference response on a GPU node running a 70B-class model. Eight minutes. Six sequential phases. We expected one bottleneck. We found six, and which one dominates depends on model size.&lt;/p&gt;
-
-
-
-&lt;p&gt;For a 64 GB model, 65% of the startup time is spent recompiling CUDA kernels that produce identical output every time. For a 203 GB model, 92% of the time is spent downloading weights from S3 through a calling pattern that leaves 98% of available bandwidth idle. Both are fixable with configuration changes. Neither is fixed by default.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“Eight minutes. Six sequential phases. We expected one bottleneck. We found six.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;We define &lt;strong&gt;time to first token served (TTFTS)&lt;/strong&gt; as the wall-clock duration from pod creation to the first inference response leaving the GPU. Not time to first token (TTFT), which measures per-request latency once the model is warm. TTFTS is the one-time startup tax. TTFT begins where TTFTS ends.&lt;/p&gt;
-
-
-
-&lt;p&gt;Here’s what we achieved:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Scenario&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Reduction&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Pod restart on warm node&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Weights loading + compilation on existing node&lt;/td&gt;&lt;td&gt;1.5-8 min&lt;/td&gt;&lt;td&gt;under 30s&lt;/td&gt;&lt;td&gt;80-93%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;New node from scratch&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Fresh node provisioned, nothing cached&lt;/td&gt;&lt;td&gt;8-15 min&lt;/td&gt;&lt;td&gt;~5 min&lt;/td&gt;&lt;td&gt;40-65%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;The warm-node row is what you pay on every pod restart: scale-up events, rolling updates, OOM recoveries. That’s the 80-93% win, and it requires only configuration changes. The cold-node row includes ~2 minutes of fixed infrastructure cost (node provisioning and framework initialization) that no application-layer optimization can remove. The rest is avoidable waste that we eliminated through platform and configuration fixes. The warm-node optimizations are environment variables and a volume mount that work on any Kubernetes cluster. The cold-node optimizations require EKS Auto Mode, which comes pre-configured with pre-compiled NVIDIA drivers, SOCI (Seekable OCI) parallel image pull, and NVMe instance store mounting.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;All model startup measurements were taken on p5.48xlarge instances running &lt;/em&gt;&lt;a href="https://aws.amazon.com/eks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt; Auto Mode, with S3 traffic routed directly (bypassing the NAT Gateway) and container images in a private Amazon ECR repository (same region as compute). Model startup improvement ratios (80-93%) hold consistently across instance types (validated on P-family and G-family). Cold-node times vary with network bandwidth and CPU count. For the weights loading and compilation cache configuration, see &lt;/em&gt;&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Accelerate model loading on Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;The Kubernetes ecosystem has made real progress on the inference stack in 2026. OCI image volumes are now stable for model delivery. &lt;a href="https://thenewstack.io/kubernetes-primer-dynamic-resource-allocation-dra-for-gpu-workloads/" data-wpil-monitor-id="4068" class="local-link"&gt;Dynamic Resource Allocation&lt;/a&gt; (DRA) gives GPUs structured attributes instead of opaque integer counts and provides flexibility in allocating GPUs to workloads. Gateway API has inference-aware routing extensions. But none of these primitives address the full cold-start stack: the six layers between “pod pending” and “first token served,” each with its own bottleneck and its own fix.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-six-layers-of-cold-start"&gt;The six layers of cold start&lt;/h2&gt;
-
-
-
-&lt;p&gt;When a new inference pod starts on a freshly provisioned GPU node, it passes through six distinct phases before serving its first request:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Node provisioning.&lt;/strong&gt; Karpenter launches an EC2 instance, boots it, and registers it with the Kubernetes API server (~60-90s).&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;GPU driver initialization.&lt;/strong&gt; The driver kernel module must load and expose accelerator devices.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/accelerating-eks-image-pulls/" data-wpil-monitor-id="4069" class="local-link"&gt;Container image pull.&lt;/a&gt;&lt;/strong&gt; The inference engine image (8-12 GB compressed) must be transferred to the node and extracted.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Model weights download.&lt;/strong&gt; The model files must stream from object storage into GPU memory.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;GPU kernel compilation.&lt;/strong&gt; torch.compile traces the model graph and generates optimized CUDA kernels.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Engine initialization.&lt;/strong&gt; CUDA graph capture, KV cache profiling, and HTTP server startup (30-120s depending on whether compilation is cached).&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;Each layer has a different bottleneck, a different fix, and a different owner.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Which layer dominates depends on model size&lt;/h2&gt;
-
-
-
-&lt;p&gt;Before diving into each layer, one finding shaped every decision we made: the bottleneck is not fixed.&lt;/p&gt;
-
-
-
-&lt;p&gt;We instrumented the model startup path (layers 4 and 5) and measured each phase independently for two model sizes:&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;64 GB model&lt;/strong&gt; (Qwen3.6-35B-A3B):&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Weights loading: ~29s (35% of model startup)&lt;/li&gt;
-
-
-
-&lt;li&gt;torch.compile: ~53s (&lt;strong&gt;65%&lt;/strong&gt; of model startup)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;203 GB model&lt;/strong&gt; (Llama-4-Scout, TP=4 where TP is tensor parallelism, splitting the model across GPUs):&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Weights loading: ~423s (&lt;strong&gt;92%&lt;/strong&gt; of model startup)&lt;/li&gt;
-
-
-
-&lt;li&gt;torch.compile: ~34s (8% of model startup)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;For models under ~100 GB, compilation dominates. For larger models, network transfer dominates. torch.compile time stays roughly constant (it depends on graph complexity, not parameter count). Weights loading scales linearly with file size.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“For models under ~100 GB, compilation dominates. For larger models, network transfer dominates.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This means any single-layer optimization has a ceiling.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 1: Node provisioning&lt;/h2&gt;
-
-
-
-&lt;p&gt;On EKS Auto Mode and Karpenter-managed clusters, node provisioning takes approximately 60-90 seconds for accelerated instances from pod pending to node Ready. Karpenter calls the EC2 Fleet API directly and reacts to pending pods within seconds, keeping provisioning at the EC2 launch floor.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 2: GPU driver initialization&lt;/h2&gt;
-
-
-
-&lt;p&gt;The NVIDIA GPU Operator in its default configuration adds &lt;strong&gt;2-3 minutes to node boot&lt;/strong&gt; while it compiles the driver kernel module from source. This cost repeats on every new node.&lt;/p&gt;
-
-
-
-&lt;p&gt;When the platform controls the full stack (OS image, kernel version, driver version, boot sequence) it can pre-compile driver kernel modules at image build time. The node boots, runs modprobe to load an already-compiled .ko file, and the GPU is ready in seconds.&lt;/p&gt;
-
-
-
-&lt;p&gt;This matters more now than it used to. Blackwell-architecture GPUs (G7, G7e instances) require NVIDIA’s open-source kernel modules exclusively. Older Maxwell/Pascal/Volta GPUs can only run proprietary modules. A cluster with both legacy and next-gen GPU nodes needs different drivers, different AMIs, different upgrade cycles. A managed platform that pre-compiles the correct module per instance family eliminates this complexity.&lt;/p&gt;
-
-
-
-&lt;p&gt;On EKS Auto Mode, the GPU driver loads in seconds (pre-compiled at image build time), compared to the 2-3 minutes a runtime-compilation approach requires.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 3: Container image pull&lt;/h2&gt;
-
-
-
-&lt;p&gt;A production vLLM or SGLang inference image is typically 8-12 GB compressed. Standard containerd pulls layers sequentially, decompresses them one by one in memory, and writes them to disk. At this size, sequential pull takes 2-4 minutes on a cold node depending on instance type and available CPU cores. For larger custom images (30-50 GB compressed), containerd can run out of memory entirely during decompression.&lt;/p&gt;
-
-
-
-&lt;p&gt;EKS Auto Mode uses SOCI’s parallel pull mode, which replaces containerd’s default snapshotter. The SOCI snapshotter downloads layer chunks concurrently via HTTP range requests and writes each chunk directly to its target byte position on disk (no in-memory ordering buffer). Decompression runs in parallel across all available CPU cores.&lt;/p&gt;
-
-
-
-&lt;p&gt;Pull time is bottlenecked by CPU-bound decompression, not network bandwidth. We confirmed this directly: a p4d.24xlarge with 400 Gbps networking achieved only ~1 Gbps effective pull throughput because CPU decompression was the constraint. On instances with more cores (48+ vCPUs), SOCI parallel pull reduces image pull time from 2-4 minutes to 30-60 seconds. On smaller instances with fewer cores, the improvement is modest because decompression cannot parallelize effectively. For a deeper look at how bounded-memory parallel pull handles images exceeding 30 GB without OOM, see &lt;a href="https://arxiv.org/abs/2607.05596" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bounded-Memory Parallel Image Pulling for Large Container Images&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 4: Model weights download&lt;/h2&gt;
-
-
-
-&lt;p&gt;The obvious optimization for weights loading: more parallel connections. Split the model files into small chunks, download them concurrently, saturate the network pipe.&lt;/p&gt;
-
-
-
-&lt;p&gt;We tested it on p5.48xlarge with the 64 GB model streaming from same-region S3. The results were counterintuitive:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Chunk size&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Connections needed&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Weights load time&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;256 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;256&lt;/td&gt;&lt;td&gt;13.98s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;512 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;128&lt;/td&gt;&lt;td&gt;14.20s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;2 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;td&gt;13.62s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;4 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;13.35s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;8 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;21.80s (+56%)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;256 parallel connections provided no benefit over 17. The only failure mode was 8 GB chunks (exceeding shard file size), which caused a 56% regression.&lt;/p&gt;
-
-
-
-&lt;p&gt;Why? Because the open-source &lt;a href="https://github.com/run-ai/runai-model-streamer" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Run:ai Model Streamer&lt;/a&gt; (integrated into vLLM and SGLang) processes S3 range requests sequentially within each worker thread. A worker assigned to a 3.9 GB shard file downloads its byte-range requests one after another on a single connection. The parallelism comes from running multiple workers on different &lt;em&gt;files&lt;/em&gt;, not from splitting one file into more pieces.&lt;/p&gt;
-
-
-
-&lt;p&gt;We settled on 4 GB chunks matching typical SafeTensors shard size (3-5 GB per file) with an aggressive timeout-and-retry for slow requests. S3 GET latency has a measurable long tail: in our testing, a meaningful fraction of requests took 2-3x longer than median, and a single stalled connection holds up the entire model load. Rather than wait, we kill stalled connections after a few seconds below a speed threshold and retry on a fresh connection. This follows &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-guidelines.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;S3’s own performance guidance&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;For the 203 GB model, these config-only changes reduced weights loading from 423 seconds to 25 seconds (94% improvement). For the 64 GB model, from 29 seconds to 12 seconds. No code modifications, just environment variables. The tuning consists of three settings: chunk size aligned to shard file boundaries (eliminating the serial sub-request problem), a minimum-speed threshold that kills and retries stalled S3 connections, and explicit concurrency matching the number of shard files per tensor-parallel rank.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 5: GPU kernel compilation&lt;/h2&gt;
-
-
-
-&lt;p&gt;Every time a vLLM or SGLang pod starts, PyTorch traces the model’s computation graph and compiles it to optimized CUDA kernels. This takes 34-53 seconds depending on model architecture. The output is identical every time for the same model, GPU type, and tensor-parallel configuration.&lt;/p&gt;
-
-
-
-&lt;p&gt;And Kubernetes throws it away on every pod restart. Pods use ephemeral storage by default. When a pod terminates, its local filesystem is destroyed. The next pod recompiles from scratch.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“The output is identical every time for the same model, GPU type, and tensor-parallel configuration. And Kubernetes throws it away on every pod restart.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Point the torch.compile cache directory at local NVMe instance store. GPU instances ship with NVMe that EKS Auto Mode mounts automatically. First pod compiles and writes ~15-30 MB of cached kernels. The second pod on the same node loads pre-compiled binaries in 4-6 seconds. One volume mount and environment variables.&lt;/p&gt;
-
-
-
-&lt;p&gt;The cache is safe because the compiled artifacts are deterministic: same model architecture + GPU architecture + tensor-parallel degree + PyTorch version equals valid cache. An image update or hardware change triggers exactly one recompilation.&lt;/p&gt;
-
-
-
-&lt;p&gt;torch.compile time is hardware independent. The same model compiles in ~52 seconds whether running on H100 or A100. The cache hit (4-6 seconds) is equally consistent across GPU types. This means the optimization works identically regardless of instance type.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 6: Engine initialization&lt;/h2&gt;
-
-
-
-&lt;p&gt;After weights are loaded and kernels compiled, the inference engine must capture CUDA execution graphs and profile KV cache memory. With compiled kernels cached, this completes in 30-45 seconds. Without cache, graph capture triggers additional JIT compilation and takes 60-120 seconds.&lt;/p&gt;
-
-
-
-&lt;p&gt;This is why the torch.compile cache has an outsized impact: it accelerates not just layer 5 but also layer 6. Cached compilation reduces a 2-3-minute combined phase to a 35-50-second combined phase.&lt;/p&gt;
-
-
-
-&lt;p&gt;Framework initialization (Python interpreter startup and &lt;a href="https://thenewstack.io/this-is-how-to-optimize-pytorch-for-faster-model-training/" class="local-link"&gt;PyTorch&lt;/a&gt; import) adds tens of seconds of fixed overhead that cannot be reduced through configuration.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The compounding effect&lt;/h2&gt;
-
-
-
-&lt;p&gt;The six layers compound. Platform fixes (layers 1-3) eliminate 4-8 minutes of overhead: pre-compiled drivers replace 2-3 minutes of runtime compilation, parallel pull reduces image transfer time from 2-4 minutes to 30-60 seconds, and Karpenter keeps node provisioning to its hardware minimum. Configuration changes (layers 4-5) cut the remaining model startup by 80-93%. Engine initialization (layer 6) drops from 60-120 seconds to 30-45 seconds once the compile cache is warm. Together, cold-node TTFTS drops from 8-15 minutes to approximately 5 minutes.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;64 GB model (Qwen3.6-35B-A3B), TP=2:&lt;/h3&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;16s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-21%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-80%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;203 GB model (Llama-4-Scout), TP=4:&lt;/h3&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;32s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-87%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-93%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;The warm-node subsequent pod number is what matters most for production. It’s what you pay on every pod restart. The 80-93% reduction is consistent across instance types because the optimizations target software bottlenecks (calling patterns, redundant compilation), not hardware limits.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The cost of cold starts at scale&lt;/h2&gt;
-
-
-
-&lt;p&gt;Why does any of this matter? Because GPU nodes are expensive and inference traffic is bursty.&lt;/p&gt;
-
-
-
-&lt;p&gt;A single p5.48xlarge costs $55/hour on-demand. Even G-family instances commonly used for inference cost $10-20/hour. Every minute of cold start is GPU time you’re paying for but not using. If your autoscaler needs 8+ minutes to bring up new capacity, you must over-provision (burn money on idle GPUs) or accept latency spikes during traffic surges.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“Every minute of cold start is GPU time you’re paying for but not using.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;When model startup drops to 16-32 seconds on warm nodes, the calculus changes. You can scale more aggressively, keep fewer buffer nodes, and respond to traffic spikes without multi-minute startup delays.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;What we learned&lt;/h2&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Decompose before optimizing.&lt;/strong&gt; For 64 GB models, torch.compile dominates (65%). For 203 GB models, S3 loading dominates (92%). Without measuring each phase independently, we would have optimized the wrong layer.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;The bottleneck flips with model size.&lt;/strong&gt; torch.compile time is roughly constant across model sizes. Weights loading scales linearly. Every team running inference should know which regime they’re in.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;“More parallelism” requires understanding the execution model.&lt;/strong&gt; 256 connections performing sequential work inside each thread is no faster than 17. The bottleneck was the calling pattern, not the concurrency limit.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;15-30 MB can save 53 seconds.&lt;/strong&gt; The most impactful optimization for smaller models was persisting a tiny cache file. Always check whether an expensive computation produces deterministic output before trying to make it faster.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Platform-level control enables optimizations that configuration alone cannot achieve.&lt;/strong&gt; Pre-compiled drivers, default-on parallel image pull, and NVMe auto-mounting are infrastructure-layer decisions that compound upward. Together with the config-only changes at the application layer, these changes reduce cold start time from minutes to seconds.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;The ecosystem is building the right primitives, but cold start lives between them.&lt;/strong&gt; OCI image volumes, DRA, inference-aware routing, and local model caches are all real progress. But the compilation bottleneck and S3 tuning gaps sit in spaces that no upstream Kubernetes primitive addresses. Sometimes the highest-impact optimization is a volume mount and two environment variables, not a new API.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;For the complete configuration guide, including environment variables, YAML manifests, and instance-specific recommendations, see “&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Accelerate model loading on Amazon EKS&lt;/a&gt;” in the Amazon EKS User Guide.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Cut GPU inference cold start times from 8 minutes to under 30 seconds with simple configuration and platform fixes.</content:encoded>
-    </item>
-    <item>
       <title>The systems guide to production token optimization</title>
       <link>https://web.archive.org/web/https://thenewstack.io/production-token-optimization-guide/</link>
       <dc:creator>Boris Chabeda</dc:creator>
@@ -1820,6 +1873,357 @@ model_list:
       <content:encoded>Scale AI systems efficiently by treating token optimization as a distributed systems and hardware utilization challenge.</content:encoded>
     </item>
     <item>
+      <title>Cut GPU inference cold start from 8 minutes to less than a minute</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cut-gpu-cold-starts/</link>
+      <dc:creator>Sajjan Gundapuneedi</dc:creator>
+      <pubDate>Thu, 03 Sep 2026 18:30:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>Kubernetes</category>
+      <category>Large Language Models</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835731</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;We instrumented the full path from pod creation to first inference response on a GPU node running a 70B-class model.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;We instrumented the full path from pod creation&lt;/strong&gt; to first inference response on a GPU node running a 70B-class model. Eight minutes. Six sequential phases. We expected one bottleneck. We found six, and which one dominates depends on model size.&lt;/p&gt;
+
+
+
+&lt;p&gt;For a 64 GB model, 65% of the startup time is spent recompiling CUDA kernels that produce identical output every time. For a 203 GB model, 92% of the time is spent downloading weights from S3 through a calling pattern that leaves 98% of available bandwidth idle. Both are fixable with configuration changes. Neither is fixed by default.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Eight minutes. Six sequential phases. We expected one bottleneck. We found six.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;We define &lt;strong&gt;time to first token served (TTFTS)&lt;/strong&gt; as the wall-clock duration from pod creation to the first inference response leaving the GPU. Not time to first token (TTFT), which measures per-request latency once the model is warm. TTFTS is the one-time startup tax. TTFT begins where TTFTS ends.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here’s what we achieved:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Scenario&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Reduction&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Pod restart on warm node&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Weights loading + compilation on existing node&lt;/td&gt;&lt;td&gt;1.5-8 min&lt;/td&gt;&lt;td&gt;under 30s&lt;/td&gt;&lt;td&gt;80-93%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;New node from scratch&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Fresh node provisioned, nothing cached&lt;/td&gt;&lt;td&gt;8-15 min&lt;/td&gt;&lt;td&gt;~5 min&lt;/td&gt;&lt;td&gt;40-65%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The warm-node row is what you pay on every pod restart: scale-up events, rolling updates, OOM recoveries. That’s the 80-93% win, and it requires only configuration changes. The cold-node row includes ~2 minutes of fixed infrastructure cost (node provisioning and framework initialization) that no application-layer optimization can remove. The rest is avoidable waste that we eliminated through platform and configuration fixes. The warm-node optimizations are environment variables and a volume mount that work on any Kubernetes cluster. The cold-node optimizations require EKS Auto Mode, which comes pre-configured with pre-compiled NVIDIA drivers, SOCI (Seekable OCI) parallel image pull, and NVMe instance store mounting.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;All model startup measurements were taken on p5.48xlarge instances running &lt;/em&gt;&lt;a href="https://aws.amazon.com/eks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt; Auto Mode, with S3 traffic routed directly (bypassing the NAT Gateway) and container images in a private Amazon ECR repository (same region as compute). Model startup improvement ratios (80-93%) hold consistently across instance types (validated on P-family and G-family). Cold-node times vary with network bandwidth and CPU count. For the weights loading and compilation cache configuration, see &lt;/em&gt;&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Accelerate model loading on Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The Kubernetes ecosystem has made real progress on the inference stack in 2026. OCI image volumes are now stable for model delivery. &lt;a href="https://thenewstack.io/kubernetes-primer-dynamic-resource-allocation-dra-for-gpu-workloads/" data-wpil-monitor-id="4068" class="local-link"&gt;Dynamic Resource Allocation&lt;/a&gt; (DRA) gives GPUs structured attributes instead of opaque integer counts and provides flexibility in allocating GPUs to workloads. Gateway API has inference-aware routing extensions. But none of these primitives address the full cold-start stack: the six layers between “pod pending” and “first token served,” each with its own bottleneck and its own fix.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-six-layers-of-cold-start"&gt;The six layers of cold start&lt;/h2&gt;
+
+
+
+&lt;p&gt;When a new inference pod starts on a freshly provisioned GPU node, it passes through six distinct phases before serving its first request:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Node provisioning.&lt;/strong&gt; Karpenter launches an EC2 instance, boots it, and registers it with the Kubernetes API server (~60-90s).&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;GPU driver initialization.&lt;/strong&gt; The driver kernel module must load and expose accelerator devices.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/accelerating-eks-image-pulls/" data-wpil-monitor-id="4069" class="local-link"&gt;Container image pull.&lt;/a&gt;&lt;/strong&gt; The inference engine image (8-12 GB compressed) must be transferred to the node and extracted.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Model weights download.&lt;/strong&gt; The model files must stream from object storage into GPU memory.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;GPU kernel compilation.&lt;/strong&gt; torch.compile traces the model graph and generates optimized CUDA kernels.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Engine initialization.&lt;/strong&gt; CUDA graph capture, KV cache profiling, and HTTP server startup (30-120s depending on whether compilation is cached).&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;Each layer has a different bottleneck, a different fix, and a different owner.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Which layer dominates depends on model size&lt;/h2&gt;
+
+
+
+&lt;p&gt;Before diving into each layer, one finding shaped every decision we made: the bottleneck is not fixed.&lt;/p&gt;
+
+
+
+&lt;p&gt;We instrumented the model startup path (layers 4 and 5) and measured each phase independently for two model sizes:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;64 GB model&lt;/strong&gt; (Qwen3.6-35B-A3B):&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Weights loading: ~29s (35% of model startup)&lt;/li&gt;
+
+
+
+&lt;li&gt;torch.compile: ~53s (&lt;strong&gt;65%&lt;/strong&gt; of model startup)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;203 GB model&lt;/strong&gt; (Llama-4-Scout, TP=4 where TP is tensor parallelism, splitting the model across GPUs):&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Weights loading: ~423s (&lt;strong&gt;92%&lt;/strong&gt; of model startup)&lt;/li&gt;
+
+
+
+&lt;li&gt;torch.compile: ~34s (8% of model startup)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For models under ~100 GB, compilation dominates. For larger models, network transfer dominates. torch.compile time stays roughly constant (it depends on graph complexity, not parameter count). Weights loading scales linearly with file size.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“For models under ~100 GB, compilation dominates. For larger models, network transfer dominates.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;This means any single-layer optimization has a ceiling.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 1: Node provisioning&lt;/h2&gt;
+
+
+
+&lt;p&gt;On EKS Auto Mode and Karpenter-managed clusters, node provisioning takes approximately 60-90 seconds for accelerated instances from pod pending to node Ready. Karpenter calls the EC2 Fleet API directly and reacts to pending pods within seconds, keeping provisioning at the EC2 launch floor.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 2: GPU driver initialization&lt;/h2&gt;
+
+
+
+&lt;p&gt;The NVIDIA GPU Operator in its default configuration adds &lt;strong&gt;2-3 minutes to node boot&lt;/strong&gt; while it compiles the driver kernel module from source. This cost repeats on every new node.&lt;/p&gt;
+
+
+
+&lt;p&gt;When the platform controls the full stack (OS image, kernel version, driver version, boot sequence) it can pre-compile driver kernel modules at image build time. The node boots, runs modprobe to load an already-compiled .ko file, and the GPU is ready in seconds.&lt;/p&gt;
+
+
+
+&lt;p&gt;This matters more now than it used to. Blackwell-architecture GPUs (G7, G7e instances) require NVIDIA’s open-source kernel modules exclusively. Older Maxwell/Pascal/Volta GPUs can only run proprietary modules. A cluster with both legacy and next-gen GPU nodes needs different drivers, different AMIs, different upgrade cycles. A managed platform that pre-compiles the correct module per instance family eliminates this complexity.&lt;/p&gt;
+
+
+
+&lt;p&gt;On EKS Auto Mode, the GPU driver loads in seconds (pre-compiled at image build time), compared to the 2-3 minutes a runtime-compilation approach requires.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 3: Container image pull&lt;/h2&gt;
+
+
+
+&lt;p&gt;A production vLLM or SGLang inference image is typically 8-12 GB compressed. Standard containerd pulls layers sequentially, decompresses them one by one in memory, and writes them to disk. At this size, sequential pull takes 2-4 minutes on a cold node depending on instance type and available CPU cores. For larger custom images (30-50 GB compressed), containerd can run out of memory entirely during decompression.&lt;/p&gt;
+
+
+
+&lt;p&gt;EKS Auto Mode uses SOCI’s parallel pull mode, which replaces containerd’s default snapshotter. The SOCI snapshotter downloads layer chunks concurrently via HTTP range requests and writes each chunk directly to its target byte position on disk (no in-memory ordering buffer). Decompression runs in parallel across all available CPU cores.&lt;/p&gt;
+
+
+
+&lt;p&gt;Pull time is bottlenecked by CPU-bound decompression, not network bandwidth. We confirmed this directly: a p4d.24xlarge with 400 Gbps networking achieved only ~1 Gbps effective pull throughput because CPU decompression was the constraint. On instances with more cores (48+ vCPUs), SOCI parallel pull reduces image pull time from 2-4 minutes to 30-60 seconds. On smaller instances with fewer cores, the improvement is modest because decompression cannot parallelize effectively. For a deeper look at how bounded-memory parallel pull handles images exceeding 30 GB without OOM, see &lt;a href="https://arxiv.org/abs/2607.05596" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bounded-Memory Parallel Image Pulling for Large Container Images&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 4: Model weights download&lt;/h2&gt;
+
+
+
+&lt;p&gt;The obvious optimization for weights loading: more parallel connections. Split the model files into small chunks, download them concurrently, saturate the network pipe.&lt;/p&gt;
+
+
+
+&lt;p&gt;We tested it on p5.48xlarge with the 64 GB model streaming from same-region S3. The results were counterintuitive:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Chunk size&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Connections needed&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Weights load time&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;256 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;256&lt;/td&gt;&lt;td&gt;13.98s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;512 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;128&lt;/td&gt;&lt;td&gt;14.20s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;2 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;td&gt;13.62s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;4 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;13.35s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;8 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;21.80s (+56%)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;256 parallel connections provided no benefit over 17. The only failure mode was 8 GB chunks (exceeding shard file size), which caused a 56% regression.&lt;/p&gt;
+
+
+
+&lt;p&gt;Why? Because the open-source &lt;a href="https://github.com/run-ai/runai-model-streamer" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Run:ai Model Streamer&lt;/a&gt; (integrated into vLLM and SGLang) processes S3 range requests sequentially within each worker thread. A worker assigned to a 3.9 GB shard file downloads its byte-range requests one after another on a single connection. The parallelism comes from running multiple workers on different &lt;em&gt;files&lt;/em&gt;, not from splitting one file into more pieces.&lt;/p&gt;
+
+
+
+&lt;p&gt;We settled on 4 GB chunks matching typical SafeTensors shard size (3-5 GB per file) with an aggressive timeout-and-retry for slow requests. S3 GET latency has a measurable long tail: in our testing, a meaningful fraction of requests took 2-3x longer than median, and a single stalled connection holds up the entire model load. Rather than wait, we kill stalled connections after a few seconds below a speed threshold and retry on a fresh connection. This follows &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-guidelines.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;S3’s own performance guidance&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;For the 203 GB model, these config-only changes reduced weights loading from 423 seconds to 25 seconds (94% improvement). For the 64 GB model, from 29 seconds to 12 seconds. No code modifications, just environment variables. The tuning consists of three settings: chunk size aligned to shard file boundaries (eliminating the serial sub-request problem), a minimum-speed threshold that kills and retries stalled S3 connections, and explicit concurrency matching the number of shard files per tensor-parallel rank.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 5: GPU kernel compilation&lt;/h2&gt;
+
+
+
+&lt;p&gt;Every time a vLLM or SGLang pod starts, PyTorch traces the model’s computation graph and compiles it to optimized CUDA kernels. This takes 34-53 seconds depending on model architecture. The output is identical every time for the same model, GPU type, and tensor-parallel configuration.&lt;/p&gt;
+
+
+
+&lt;p&gt;And Kubernetes throws it away on every pod restart. Pods use ephemeral storage by default. When a pod terminates, its local filesystem is destroyed. The next pod recompiles from scratch.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The output is identical every time for the same model, GPU type, and tensor-parallel configuration. And Kubernetes throws it away on every pod restart.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Point the torch.compile cache directory at local NVMe instance store. GPU instances ship with NVMe that EKS Auto Mode mounts automatically. First pod compiles and writes ~15-30 MB of cached kernels. The second pod on the same node loads pre-compiled binaries in 4-6 seconds. One volume mount and environment variables.&lt;/p&gt;
+
+
+
+&lt;p&gt;The cache is safe because the compiled artifacts are deterministic: same model architecture + GPU architecture + tensor-parallel degree + PyTorch version equals valid cache. An image update or hardware change triggers exactly one recompilation.&lt;/p&gt;
+
+
+
+&lt;p&gt;torch.compile time is hardware independent. The same model compiles in ~52 seconds whether running on H100 or A100. The cache hit (4-6 seconds) is equally consistent across GPU types. This means the optimization works identically regardless of instance type.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 6: Engine initialization&lt;/h2&gt;
+
+
+
+&lt;p&gt;After weights are loaded and kernels compiled, the inference engine must capture CUDA execution graphs and profile KV cache memory. With compiled kernels cached, this completes in 30-45 seconds. Without cache, graph capture triggers additional JIT compilation and takes 60-120 seconds.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is why the torch.compile cache has an outsized impact: it accelerates not just layer 5 but also layer 6. Cached compilation reduces a 2-3-minute combined phase to a 35-50-second combined phase.&lt;/p&gt;
+
+
+
+&lt;p&gt;Framework initialization (Python interpreter startup and &lt;a href="https://thenewstack.io/this-is-how-to-optimize-pytorch-for-faster-model-training/" class="local-link"&gt;PyTorch&lt;/a&gt; import) adds tens of seconds of fixed overhead that cannot be reduced through configuration.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The compounding effect&lt;/h2&gt;
+
+
+
+&lt;p&gt;The six layers compound. Platform fixes (layers 1-3) eliminate 4-8 minutes of overhead: pre-compiled drivers replace 2-3 minutes of runtime compilation, parallel pull reduces image transfer time from 2-4 minutes to 30-60 seconds, and Karpenter keeps node provisioning to its hardware minimum. Configuration changes (layers 4-5) cut the remaining model startup by 80-93%. Engine initialization (layer 6) drops from 60-120 seconds to 30-45 seconds once the compile cache is warm. Together, cold-node TTFTS drops from 8-15 minutes to approximately 5 minutes.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;64 GB model (Qwen3.6-35B-A3B), TP=2:&lt;/h3&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;16s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-21%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-80%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;203 GB model (Llama-4-Scout), TP=4:&lt;/h3&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;32s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-87%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-93%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The warm-node subsequent pod number is what matters most for production. It’s what you pay on every pod restart. The 80-93% reduction is consistent across instance types because the optimizations target software bottlenecks (calling patterns, redundant compilation), not hardware limits.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The cost of cold starts at scale&lt;/h2&gt;
+
+
+
+&lt;p&gt;Why does any of this matter? Because GPU nodes are expensive and inference traffic is bursty.&lt;/p&gt;
+
+
+
+&lt;p&gt;A single p5.48xlarge costs $55/hour on-demand. Even G-family instances commonly used for inference cost $10-20/hour. Every minute of cold start is GPU time you’re paying for but not using. If your autoscaler needs 8+ minutes to bring up new capacity, you must over-provision (burn money on idle GPUs) or accept latency spikes during traffic surges.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Every minute of cold start is GPU time you’re paying for but not using.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;When model startup drops to 16-32 seconds on warm nodes, the calculus changes. You can scale more aggressively, keep fewer buffer nodes, and respond to traffic spikes without multi-minute startup delays.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What we learned&lt;/h2&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Decompose before optimizing.&lt;/strong&gt; For 64 GB models, torch.compile dominates (65%). For 203 GB models, S3 loading dominates (92%). Without measuring each phase independently, we would have optimized the wrong layer.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;The bottleneck flips with model size.&lt;/strong&gt; torch.compile time is roughly constant across model sizes. Weights loading scales linearly. Every team running inference should know which regime they’re in.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;“More parallelism” requires understanding the execution model.&lt;/strong&gt; 256 connections performing sequential work inside each thread is no faster than 17. The bottleneck was the calling pattern, not the concurrency limit.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;15-30 MB can save 53 seconds.&lt;/strong&gt; The most impactful optimization for smaller models was persisting a tiny cache file. Always check whether an expensive computation produces deterministic output before trying to make it faster.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Platform-level control enables optimizations that configuration alone cannot achieve.&lt;/strong&gt; Pre-compiled drivers, default-on parallel image pull, and NVMe auto-mounting are infrastructure-layer decisions that compound upward. Together with the config-only changes at the application layer, these changes reduce cold start time from minutes to seconds.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;The ecosystem is building the right primitives, but cold start lives between them.&lt;/strong&gt; OCI image volumes, DRA, inference-aware routing, and local model caches are all real progress. But the compilation bottleneck and S3 tuning gaps sit in spaces that no upstream Kubernetes primitive addresses. Sometimes the highest-impact optimization is a volume mount and two environment variables, not a new API.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;For the complete configuration guide, including environment variables, YAML manifests, and instance-specific recommendations, see “&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Accelerate model loading on Amazon EKS&lt;/a&gt;” in the Amazon EKS User Guide.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Cut GPU inference cold start times from 8 minutes to under 30 seconds with simple configuration and platform fixes.</content:encoded>
+    </item>
+    <item>
       <title>OpenAI launches GPT-6 Astra and says welcome to the “AGI era”</title>
       <link>https://web.archive.org/web/https://thenewstack.io/openai-gpt6-astra-benchmarks/</link>
       <dc:creator>Frederic Lardinois</dc:creator>
@@ -1979,7 +2383,7 @@ model_list:
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9bd1691abae&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9bd1691abae" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="880" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/358eb84a-screenshot-2026-09-03-at-10.51.35-am-1024x880.png" alt="" class="wp-image-22835709"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9d26802eb6f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9d26802eb6f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="880" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/358eb84a-screenshot-2026-09-03-at-10.51.35-am-1024x880.png" alt="" class="wp-image-22835709"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4261,342 +4665,6 @@ $(document).ready(function() {
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/runway-solaris-generated-interfaces/"&gt;Runway wants to generate software as you use it. Solaris is its first step.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>The first model of a new class of AI systems Runway calls Interface World Models turns the visual into the application itself.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic’s Fable 5.1 is a bit cheaper, a bit smarter, and refuses a lot less</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-fable-5-1-launch/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 01 Sep 2026 19:38:32 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835372</guid>
-      <description>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;On Tuesday, Anthropic launched the latest versions of its flagship Fable and Mythos models. Anthropic promises that the updated models&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/"&gt;Anthropic&amp;#8217;s Fable 5.1 is a bit cheaper, a bit smarter, and refuses a lot less&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;
-&lt;p&gt;&lt;strong&gt;On Tuesday, Anthropic launched the latest versions of its flagship Fable and Mythos models&lt;/strong&gt;. Anthropic promises that the updated models will offer stronger performance at a lower cost, largely because the company is reducing cache read pricing.&lt;/p&gt;
-
-
-
-&lt;p&gt;Like before, Fable 5.1 and Mythos 5.1 are the same model under the hood, but while Fable 5.1 is now generally available, Mythos 5.1 remains restricted to Anthropic&amp;#8217;s trusted access program because it features safeguards that &lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic says&lt;/a&gt; are &amp;#8220;specifically designed to support work in cybersecurity and the life sciences.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Pricing remains unchanged at $10/$50 per million input/output tokens, but cache reads are now only $0.25 per million, down 75%.&lt;/p&gt;
-
-
-
-&lt;p&gt;Fable 5.1, like Fable 5, remains restricted to API usage and users with Max, Team Premium, and Enterprise Premium plans (at 50% of their weekly usage limits). Pro subscribers can use it via usage credits.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-fable-5-1-benchmark-results"&gt;Fable 5.1 benchmark results&lt;/h2&gt;
-
-
-
-&lt;p&gt;In the benchmarks Anthropic shared, Fable 5.1 easily outperforms the older model, Anthropic&amp;#8217;s Opus 5, and OpenAI&amp;#8217;s GPT-5.6 Sol. Nobody is bothering with comparisons to Gemini 3.1 Pro anymore.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9bd16937519&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9bd16937519" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="756" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/37aee892-screenshot-2026-09-01-at-11.45.05-am-1024x756.png" alt="" class="wp-image-22835384"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			aria-label="Enlarge"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.imageButtonRight"
-			data-wp-style--top="state.imageButtonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Anthropic&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;In general, Anthropic says the new model outperforms Fable 5 in virtually all aspects at a lower cost. This depends a bit on the benchmark, but for the most part, it comes down to being able to step down the reasoning mode by one or two notches and still get the same results as Fable 5 at higher settings, all with Fable 5.1 using fewer tokens overall.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;In general, Anthropic says the new model outperforms Fable 5 in virtually all aspects at a lower cost.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Many of the improvements aren&amp;#8217;t dramatic, except for a major step-up in Fable 5.1&amp;#8217;s performance on the Terminal-Bench-Science 0.1 benchmarks, which test the model&amp;#8217;s capabilities around using agents for scientific research. Here, Fable 5.1 scored 52.6% versus Fable 5&amp;#8217;s 24.7%.&lt;/p&gt;
-
-
-
-&lt;p&gt;In most other areas, the improvements are within 2-4% of either Fable 5 or Opus 5.&lt;/p&gt;
-
-
-
-&lt;p&gt;Because of this, Fable 5.1 in Claude Code defaults to the high reasoning mode setting, but medium on Claude Cowork and Claude.ai.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9bd169378f3&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9bd169378f3" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="744" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/37aee892-screenshot-2026-09-01-at-11.45.20-am-1024x744.png" alt="" class="wp-image-22835385"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			aria-label="Enlarge"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.imageButtonRight"
-			data-wp-style--top="state.imageButtonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Anthropic&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-claude-code-safeguards-loosen-up"&gt;Claude Code safeguards loosen up&lt;/h2&gt;
-
-
-
-&lt;p&gt;One issue with Fable 5 was that it was often too cautious and deferred to the Opus models when it sensed that the user was pushing its safeguards. Now, Anthropic says, it has made these safeguards more precise, &amp;#8220;ensuring that they&amp;#8217;re less likely to flag benign content (like queries about medical issues or cyber defenders using the model to make their systems safer), but still ensuring they provide robust protection against genuine threats.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;For coders who use Claude Code, the most immediate change is that the model&amp;#8217;s safeguards will hopefully get out of the way more often.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;For coders who use Claude Code, the most immediate change is that the model&amp;#8217;s safeguards will hopefully get out of the way more often. &lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic says its cyber safeguards now intervene about 60% less per session than they did with Fable 5, and the model is now allowed to identify vulnerabilities in code. &lt;/p&gt;
-
-
-
-&lt;p&gt;Penetration testing, exploit generation, and scanning binaries for vulnerabilities remain off the table, though, and Anthropic says it will continue to redirect those requests to its Opus models. &lt;/p&gt;
-
-
-
-&lt;p&gt;The biology safeguards got a similar update and now intervene 85% less often on benign requests about basic biology and medical questions. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-about-those-watermarks"&gt;What about those watermarks?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anthropic recently shared its technique for watermarking text generated by its models (for models released after August 2, 2026. &lt;/p&gt;
-
-
-
-&lt;p&gt;The watermark is an invisible numerical marker that signals how likely it is that Claude wrote a given piece of text. Anthropic says it doesn&amp;#8217;t affect output quality and contains no data about the user, organization, or conversation. Until now, though, nobody outside Anthropic had a way actually to check for it.&lt;/p&gt;
-
-
-
-&lt;p&gt;With this release, Anthropic is opening a detection API in private preview &amp;#8220;to eligible organizations as required under EU law (such as regulators, law enforcement, media, fact-checkers, independent researchers, educational organizations, and EU civil society groups).&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Enterprises that are obligated to verify watermarking to comply with the EU&amp;#8217;s AI Act will also get access, with a wider rollout planned for the future.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-data-retention"&gt;Data retention&lt;/h2&gt;
-
-
-
-&lt;p&gt;One point of contention for enterprises that wanted to use Fable 5 was Anthropic&amp;#8217;s retention policy. While Anthropic offers zero data retention to qualifying customers on its other models, Fable 5 users had to opt into a 30-day retention period.&lt;/p&gt;
-
-
-
-&lt;p&gt;Now, Anthropic is rolling out what it calls &lt;a href="https://www.anthropic.com/news/enterprise-frontier-safeguards" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Enterprise Frontier Safeguards&lt;/a&gt; (EFS), which it says delivers the privacy of zero data retention while preserving its ability to monitor for misuse.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;EFS works by storing data in cloud infrastructure controlled entirely by the customer, not Anthropic,&amp;#8221; the company writes in its announcement. &amp;#8220;It will be made available to enterprise customers in phases, beginning later this fall. Until EFS is available, eligible customers will be able to use Fable 5.1 with zero data retention.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9bd16937e2e&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9bd16937e2e" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="847" height="1024" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/bb4999b9-021fdfc765d03eaac26f5d2aa9cb06111b7a9297-3840x4644-1-847x1024.webp" alt="" class="wp-image-22835396"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			aria-label="Enlarge"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.imageButtonRight"
-			data-wp-style--top="state.imageButtonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: Anthropic&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;Anthropic says it designed this new system based on customer feedback. Businesses in regulated industries, after all, were essentially unable to use the model under those data retention rules.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We therefore sat down with customers to design a solution that could provide the best of both worlds: the privacy of ZDR and the safety allowed by monitoring across time and accounts,&amp;#8221; Anthropic explains.&lt;/p&gt;
-
-
-
-&lt;p&gt;In practice, this means EFS moves that data into the customer&amp;#8217;s own cloud storage, such as Amazon S3, Azure Blob Storage, or Google Cloud Storage, where it remains encrypted with the user&amp;#8217;s encryption keys. It then runs Anthropic&amp;#8217;s automated detection against it with no human review on Anthropic&amp;#8217;s side, and routes any alerts back to the customer.&lt;/p&gt;
-
-
-
-&lt;p&gt;As of now, this tooling covers Claude Code, Claude Enterprise, the Claude Platform, and Claude on Amazon Bedrock, Microsoft Foundry, and Google&amp;#8217;s Agent Platform. The company says there will be no additional cost beyond the customer&amp;#8217;s own cloud storage bill.&lt;/p&gt;
-
-
-
-&lt;p&gt;EFS will roll out in phases starting this fall. Until then, Anthropic will not retain any data from usage of Fable 5 and Fable 5.1.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-anti-distillation"&gt;Anti-distillation&lt;/h2&gt;
-
-
-
-&lt;p&gt;Fable 5.1 also ships with what Anthropic calls strengthened mechanisms to avoid distillation. The company, of course, has been quite vocal about &lt;a href="https://thenewstack.io/moonshot-fable5-distillation-accusations/" data-type="link" data-id="https://thenewstack.io/moonshot-fable5-distillation-accusations/" class="local-link"&gt;its suspicions that Chinese labs have been distilling&lt;/a&gt; its models at an industrial scale.&lt;/p&gt;
-
-
-
-&lt;p&gt;The first of them is a change to the API itself: New accounts can no longer &amp;#8220;manually edit Claude&amp;#8217;s prior context in a multi-turn conversation while preserving the transcript of Claude&amp;#8217;s prior thinking.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;This, Anthropic says, closes off &amp;#8220;a common, publicly documented distillation technique.&amp;#8221; However, it&amp;#8217;ll also trip up agent harnesses that rewrite or compact conversation history, and the company says the restriction will extend to existing accounts with future model releases.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/"&gt;Anthropic&amp;#8217;s Fable 5.1 is a bit cheaper, a bit smarter, and refuses a lot less&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic keeps Fable&amp;#039;s $10/$50 pricing, cuts cache reads by 75%, and tunes the safeguards that made Fable 5 punt to Opus.</content:encoded>
-    </item>
-    <item>
-      <title>Your Mac is now part of Perplexity’s AI infrastructure</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/perplexity-hybrid-compute-mac/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 01 Sep 2026 19:21:51 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Hardware</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835319</guid>
-      <description>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/18546c6f-screenshot-2026-09-01-122637-1024x569.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/18546c6f-screenshot-2026-09-01-122637.png" /&gt;&lt;p&gt;Perplexity wants its AI agents to use more of the computing power already sitting inside a Mac. The company launched&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/perplexity-hybrid-compute-mac/"&gt;Your Mac is now part of Perplexity&amp;#8217;s AI infrastructure&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/18546c6f-screenshot-2026-09-01-122637-1024x569.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/18546c6f-screenshot-2026-09-01-122637.png" /&gt;
-&lt;p&gt;&lt;strong&gt;Perplexity wants its AI agents to use more of the computing power&lt;/strong&gt; already sitting inside a Mac. The company launched Hybrid Compute on Tuesday, a new feature that lets &lt;a href="https://thenewstack.io/perplexity-portable-computer-nvidia/" class="local-link"&gt;Perplexity Computer&lt;/a&gt; move parts of the same task between powerful cloud models and smaller models running directly on Apple silicon.&lt;/p&gt;
-
-
-
-&lt;p&gt;The timing is significant. Hybrid Compute arrives on the first day of &lt;a href="https://www.linkedin.com/in/john-ternus-908257356/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;John Ternus&amp;#8217;&lt;/a&gt; tenure as Apple&amp;#8217;s CEO. Ternus, who previously led Apple&amp;#8217;s hardware engineering organization and played a key role in the company&amp;#8217;s transition from Intel processors to its own Apple silicon, succeeds Tim Cook after 15 years as CEO. Perplexity is now betting that same hardware can become part of the infrastructure behind autonomous AI agents.&lt;/p&gt;
-
-
-
-&lt;p&gt;The task starts in the cloud. When a step involves sensitive information, Computer can move that part of the job to a model running on the Mac without having to start over.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;When a step involves sensitive information, Computer can move that part of the job to a model running on the Mac without starting over.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-privacy-gate-checks-first"&gt;Privacy Gate checks first&lt;/h2&gt;
-
-
-
-&lt;p&gt;A Perplexity-trained Privacy Gate runs locally on the Mac and looks for sensitive information such as names, addresses, account numbers, and secrets. When it flags something, the user can decide whether that part of the task should stay on the device.&lt;/p&gt;
-
-
-
-&lt;p&gt;Users can review what the system wants to keep local before work begins and ensure it hasn&amp;#8217;t missed anything they don&amp;#8217;t want sent to the cloud. They can also choose which model handles the local work.&lt;/p&gt;
-
-
-
-&lt;p&gt;At launch, users can choose between &lt;a href="https://thenewstack.io/google-gemma-local-ai/" class="local-link"&gt;Gemma E4B&lt;/a&gt;, &lt;a href="https://thenewstack.io/ollama-taps-apples-mlx/" class="local-link"&gt;Qwen3.6 35B-A3B&lt;/a&gt;, and a version of Qwen3.6 35B that Perplexity post-trained itself, with more models planned for later. Perplexity also handles the installation through the desktop app, so users don&amp;#8217;t have to open a terminal or set up the model themselves.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-local-tokens-cost-nothing"&gt;Local tokens cost nothing&lt;/h2&gt;
-
-
-
-&lt;p&gt;Once a task is running, the app displays local CPU, GPU, and memory utilization, as well as the number of tokens consumed. Users aren&amp;#8217;t charged for tokens generated by models running locally on their Mac. That gives Perplexity another reason to move work onto the device beyond privacy, since running models locally can also cut inference costs. (The question of &lt;a href="https://thenewstack.io/openai-outcome-based-pricing/" class="local-link"&gt;who bears inference costs and when&lt;/a&gt; is becoming a competitive issue across the industry.)&lt;/p&gt;
-
-
-
-&lt;p&gt;There is a compromise. Perplexity uses its most capable models in the cloud, while smaller models handle local work, so keeping more of a task on the Mac can improve privacy and cut costs at the expense of some capability. Hybrid Compute leaves that choice to the user.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Perplexity uses its most capable models in the cloud, while smaller models handle local work, so keeping more of a task on the Mac can improve privacy and cut costs at the expense of some capability.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-context-crosses-the-boundary"&gt;Context crosses the boundary&lt;/h2&gt;
-
-
-
-&lt;p&gt;The trickier bit is what happens to context when part of a task moves onto the Mac. The cloud model still needs to know enough about what happened locally to continue the job, without getting access to the private information that was supposed to stay there.&lt;/p&gt;
-
-
-
-&lt;p&gt;Perplexity says Computer can move a step from the cloud to a local model without restarting the task or losing context, and ultimately combine the cloud and local work into a single result. It does not detail in its announcement exactly what context is passed between those environments or how information produced by the local subagent is filtered before it returns to the broader workflow.&lt;/p&gt;
-
-
-
-&lt;p&gt;The local subagent can work with private files and data and take actions on the Mac. Users can also start a task on an iPhone and hand off local work to their Mac without having to start over.&lt;/p&gt;
-
-
-
-&lt;p&gt;For enterprise customers, Perplexity adds company-wide rules for what stays local and a record of what leaves each device, bringing the same &lt;a href="https://thenewstack.io/enterprise-ai-agent-governance/" class="local-link"&gt;governance questions facing AI agents&lt;/a&gt; down to the device level.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-dgx-spark-starts-local"&gt;DGX Spark starts local&lt;/h2&gt;
-
-
-
-&lt;p&gt;Hybrid Compute reverses the approach Perplexity introduced for Nvidia&amp;#8217;s DGX Spark last week. DGX Spark starts locally and reaches out to frontier cloud models only with permission, while the Mac version starts in the cloud and moves work onto the device when needed.&lt;/p&gt;
-
-
-
-&lt;p&gt;In both cases, the agent harness decides where each part of the job runs. That orchestration &amp;mdash; &lt;a href="https://thenewstack.io/ard-agent-discovery-specification/" class="local-link"&gt;deciding which tools and context an agent actually needs&lt;/a&gt; &amp;mdash; is becoming an increasingly difficult engineering problem as agents gain access to more systems and data.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Apple silicon becomes part of the agent stack&lt;/h2&gt;
-
-
-
-&lt;p&gt;Running this much of an agent locally still requires a fairly powerful Mac. Perplexity recommends at least 32GB of unified memory, Apple silicon, and macOS 15. The feature is available to Pro and Max subscribers as well as enterprise customers.&lt;/p&gt;
-
-
-
-&lt;p&gt;Those requirements show the limits of local AI at the moment. Smaller models can run on plenty of Macs, but giving an agent enough compute to handle meaningful work still requires relatively high-end hardware.&lt;/p&gt;
-
-
-
-&lt;p&gt;That will likely change as Macs get better at running larger models. For Ternus, the bigger question is how much of the AI work now happening in the cloud will eventually move onto the machines Apple sells.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;For Ternus, the bigger question is how much of the AI work now happening in the cloud will eventually move onto the machines Apple sells.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/perplexity-hybrid-compute-mac/"&gt;Your Mac is now part of Perplexity&amp;#8217;s AI infrastructure&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Perplexity’s Hybrid Compute shifts sensitive AI agent work onto a Mac, trading some cloud capability for greater privacy, lower costs, and more control.</content:encoded>
     </item>
   </channel>
 </rss>
