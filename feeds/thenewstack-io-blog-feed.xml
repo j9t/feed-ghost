@@ -20,6 +20,311 @@
       <height>32</height>
     </image>
     <item>
+      <title>Permissions belong in the assembly context</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/enterprise-rag-permission-assembly/</link>
+      <dc:creator>Daniel Shimoni</dc:creator>
+      <pubDate>Mon, 07 Sep 2026 03:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835924</guid>
+      <description>&lt;img width="1024" height="684" src="https://cdn.thenewstack.io/media/2026/09/a2e60296-joshua-sortino-lqkhndzsf-8-unsplash-1-1024x684.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Thousands of warm white string lights form a glowing canopy inside a multistory building atrium." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/a2e60296-joshua-sortino-lqkhndzsf-8-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Someone moves off the finance team at 9 a.m. on a Monday. Your sync runs nightly at 2 a.m. For&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/enterprise-rag-permission-assembly/"&gt;Permissions belong in the assembly context&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="684" src="https://cdn.thenewstack.io/media/2026/09/a2e60296-joshua-sortino-lqkhndzsf-8-unsplash-1-1024x684.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Thousands of warm white string lights form a glowing canopy inside a multistory building atrium." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/a2e60296-joshua-sortino-lqkhndzsf-8-unsplash-1-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Someone moves off the finance team at 9 a.m. on a Monday.&lt;/strong&gt; Your sync runs nightly at 2 a.m. For seventeen hours, that person can still pull finance documents out of your retrieval index, and nothing in the system knows it is wrong. I am &lt;a href="https://truto.one/blog/how-to-maintain-document-level-rbac-in-enterprise-rag-pipelines/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;borrowing the example from Truto&lt;/a&gt;, but every team I talk to recognizes some version of it.&lt;/p&gt;
+
+
+
+&lt;p&gt;That is the version with a clock on it. The version people ask about in security review sounds different. The retrieval pilot works, the demo lands, the executive sponsor is happy, and then someone asks how you guarantee this thing will never summarize the CEO&amp;#8217;s compensation review for an intern who asked an innocent question about salary bands.&lt;/p&gt;
+
+
+
+&lt;p&gt;Most teams do not have an answer. What they have is a filter.&lt;/p&gt;
+
+
+
+&lt;p&gt;I think the answer has to be structural. Permissions are not a filter you apply to context after you have assembled it. They are a property of how context gets assembled for a particular identity, because assembly is the last moment where refusing to include something still means the model never saw it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Permissions are not a filter you apply to context after you have assembled it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The major platform vendors in this race are building some version of the same step, and nobody has really settled on a name for it. I run a company, Modus, that builds in this lane, so weigh the argument accordingly. In our product, we call it context composition. For this piece, I will call it context assembly. It is where a system decides which pieces of enterprise knowledge to hand a model for a specific person, in a specific moment, for a specific question. Everything upstream is storage, and everything downstream is inference. Assembly is where identity either lives or doesn&amp;#8217;t.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-announced-is-not-the-same-as-shipped"&gt;&lt;strong&gt;Announced is not the same as shipped&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The reason to argue about this in September rather than in June is that platform vendors have stopped disagreeing about where the step goes, and the software most companies run has not caught up with them.&lt;/p&gt;
+
+
+
+&lt;p&gt;AWS made the most explicit version of the case in June, &lt;a href="https://aws.amazon.com/blogs/aws/top-announcements-of-the-aws-summit-in-new-york-2026/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announcing AWS Context&lt;/a&gt; at its New York Summit, &lt;a href="https://thenewstack.io/aws-context-knowledge-graph-agents/" class="local-link"&gt;covered here at the time&lt;/a&gt;. The design decision underneath it is the interesting part. The graph is governed by the same permissions as the lake through&amp;nbsp;Glue&lt;a href="https://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Data Catalog, SageMaker Unified Studio, and Lake Formation&lt;/a&gt;, and identity is checked again when someone asks. The people who would govern it are the ones already governing everything else, with the&amp;nbsp;column-&lt;a href="https://docs.aws.amazon.com/lake-formation/latest/dg/data-filtering.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;, row-, and cell-level policies&lt;/a&gt; that S3 object permissions alone can&amp;#8217;t provide.&lt;/p&gt;
+
+
+
+&lt;p&gt;It is worth being precise about the tense, because the retelling has already blurred it. Every call&amp;nbsp;is &lt;a href="https://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;#8220;designed to inherit the calling user&amp;#8217;s IAM and Lake Formation permissions, so an agent can only see and traverse the relationships its identity is authorized to access.&amp;#8221;&lt;/a&gt; Designed to. That is a roadmap language, and nearly three months later, AWS Context is still listed as coming soon, with no GA date, no regional list, and no pricing. &lt;a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-bedrock-managed-knowledge-base/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amazon Bedrock Managed Knowledge Base&lt;/a&gt; did go generally available that day, which is most of why the two get conflated.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Microsoft shipped identity-aware retrieval on June 16. AWS announced it on June 17, and you still cannot buy it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The day before AWS announced Context, Microsoft&amp;#8217;s&lt;a href="https://www.microsoft.com/en-us/licensing/news/work-iq-general-availability" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Work IQ API became generally available&lt;/a&gt;. It&amp;nbsp;runs &lt;a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/work-iq" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in the context of the signed-in user, honors Microsoft 365 permissions&lt;/a&gt;, is billable through Copilot Credits, and an administrator can switch it on today. Two announcements one day apart, the same architectural position, and only one of them is something you can put in production.&lt;/p&gt;
+
+
+
+&lt;p&gt;Databricks reached the same slot from the other direction, &lt;a href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;extending Unity Catalog to the agent&lt;/a&gt;.&amp;nbsp;However,h partners in that ecosystem&amp;nbsp;note that the protection is anchored to the Databricks Runtime rather than to the data, so it stops applying when a BI tool or an MCP server reaches the same source directly.&lt;/p&gt;
+
+
+
+&lt;p&gt;Teams did not wait for any of this. They shipped the flat-index version while the identity-aware version stayed on the slide.&lt;/p&gt;
+
+
+
+&lt;p&gt;The direction is consistent, and so is the limit. Each of those controls is strongest inside the system that issues it. The interesting problem begins when an agent needs context that crosses several of those systems at once, and that is the job assembly has to solve.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-lake-is-not-the-business"&gt;&lt;strong&gt;The lake is not the business&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Lake Formation enforces fine-grained permissions inside the lake it governs, and it does that well. Those permissions do not become the sharing rules in Salesforce, Slack, Google Drive, or Confluence.&lt;/p&gt;
+
+
+
+&lt;p&gt;AWS documents where its own boundaries sit. Its&amp;nbsp;August &lt;a href="https://aws.amazon.com/blogs/security/propagate-user-authorization-context-in-ai-agents-with-amazon-bedrock-agentcore/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;guidance on propagating user authorization context through AgentCore&lt;/a&gt; walks through handing Salesforce a token scoped to the actual user, so Salesforce applies its own sharing rules. In AWS&amp;#8217;s words, &amp;#8220;the agent acts as an orchestrator, not a gatekeeper,&amp;#8221; and &amp;#8220;downstream services enforce authorization.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;That is a reasonable call. It is also an important product boundary. Lake Formation is not integrating with Salesforce, GitHub, Jira, Slack, Confluence, or Google Drive. Each of those decides who sees what on its own terms, or nobody does.&lt;/p&gt;
+
+
+
+&lt;p&gt;The most useful line is about the filter itself. In that same security post, AWS states plainly that &lt;a href="https://aws.amazon.com/blogs/security/propagate-user-authorization-context-in-ai-agents-with-amazon-bedrock-agentcore/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;#8220;metadata filtering is application-layer enforcement. The bedrock:Retrieve API doesn&amp;#8217;t expose metadata filter content as an IAM condition key.&amp;#8221;&lt;/a&gt; I keep coming back to that sentence because it is a vendor calmly telling you where its guarantee ends and yours begins.&lt;/p&gt;
+
+
+
+&lt;p&gt;The same is true of your own stack. The tags on your chunks are not an identity boundary. They are a hint that your application code is trusted to honor.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-breaks-when-authorization-arrives-too-late"&gt;&lt;strong&gt;What breaks when authorization arrives too late&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The failure is structural, which is why I keep running into the same few versions of it.&lt;/p&gt;
+
+
+
+&lt;p&gt;I want to be careful here. &amp;#8220;Filters are bad&amp;#8221; is not the argument. The problem is ordering. A retrieval system can search a mixed index, retrieve opaque IDs, authorize them, and hydrate only the documents the person is allowed to read. That is a filter, and it is fine, because nothing unauthorized ever left the retrieval boundary.&lt;/p&gt;
+
+
+
+&lt;p&gt;The version I see more often runs the check after the documents have already been fetched. Once restricted text has been hydrated, reranked, summarized, or cached outside that boundary, authorization is chasing the problem instead of preventing it. AWS&amp;#8217;s own guidance calls the broad-credential version of this a single point of failure because a prompt injection or a bug in the filtering logic can expose the whole dataset. And if it reached a model, the model has already read something the person was never entitled to retrieve, with any bug or injected instruction in that window free to act on it.&lt;/p&gt;
+
+
+
+&lt;p&gt;The defense most teams reach for first can make things worse. Jiale Liu, Jiahao Zhang, and Suhang Wang at Penn State &lt;a href="https://aclanthology.org/2026.findings-acl.899/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;red-teamed graph-based retrieval&lt;/a&gt; and found that summarization reduces leakage in untargeted attacks but can increase it in targeted attacks. My read of why is that summarizing preserves the salient detail, and the salient detail is usually the sensitive one. A separate &lt;a href="https://arxiv.org/abs/2602.08668" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2026 preprint&lt;/a&gt; found cross-tenant leakage in pipelines that hand off from vector search to a graph, and eliminated it by re-checking authorization at every hop. Two individually secure components can still compose an insecure system when no one re-checks authorization at the transition between them.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Two individually secure components can still compose an insecure system when no one re-checks authorization at the transition between them.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The seventeen-hour window at the top of this piece is the same failure in slower motion. Direct shares, nested groups, and public links all change independently, which is why Google built &lt;a href="https://www.usenix.org/conference/atc19/presentation/pang" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Zanzibar&lt;/a&gt; as a relationship model rather than a list. A list of allowed users stamped on each chunk is a snapshot of a graph that moved without telling you.&lt;/p&gt;
+
+
+
+&lt;p&gt;None of this is fringe anymore. The &lt;a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OWASP Top 10 for LLM Applications&lt;/a&gt; moved sensitive information disclosure from sixth place to second in its 2025 revision and added &lt;a href="https://genai.owasp.org/llmrisk/llm082025-vector-and-embedding-weaknesses/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LLM08, Vector and Embedding Weaknesses&lt;/a&gt;, which names the risk of context leaking between users who share a vector database and recommends a permission-aware store as the fix.&lt;/p&gt;
+
+
+
+&lt;p&gt;The enterprise-scale version of this is Copilot. In the first year of its enterprise rollout, a 2024 Gartner survey of 132 IT leaders found that oversharing &lt;a href="https://www.computerworld.com/article/3542000/microsoft-365-copilot-rollouts-slowed-by-data-security-roi-concerns.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;led 40 percent to delay Microsoft 365 Copilot rollouts&lt;/a&gt; by 3 months or more. What makes that example useful is that Copilot is not the one doing the wrong thing. Microsoft checks the user&amp;#8217;s permissions at query time, and its own documentation says results are &lt;a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/copilot-apis-security-authentication" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;trimmed to content the signed-in user has permission to access&lt;/a&gt;. Copilot surfaces what those people were already allowed to open.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;A surprising amount of enterprise data stays private mainly because it is hard to find, and retrieval is very good at finding things.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The exposure was sitting there the whole time. A surprising amount of enterprise data stays private mainly because it is hard to find, and retrieval is very good at finding things.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-where-identity-has-to-arrive"&gt;&lt;strong&gt;Where identity has to arrive&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;So the lesson from Copilot is that resolving identity at assembly is necessary and not sufficient. Assembly inherits whatever the permission graph actually says. If the graph is wrong, stale, or too broad, the retrieval system will faithfully enforce the wrong answer. Homegrown retrieval can inherit the same problem, often with less governance tooling.&lt;/p&gt;
+
+
+
+&lt;p&gt;That does not weaken the case for assembly. It locates it. Assembly is not what makes your permissions correct. It is the last place where correct permissions still matter, because after that point the model has read the document.&lt;/p&gt;
+
+
+
+&lt;p&gt;I am not claiming to have invented this. AWS is arguing a version of it by governing the graph with the permissions the lake already has. OWASP got to the same place from the security side, and its recommended fix for LLM08 is a store that knows who is asking rather than a check that runs after the fact.&lt;/p&gt;
+
+
+
+&lt;p&gt;The part I would add comes from watching enterprise products make the jump from pilot to production. Teams can postpone many architectural decisions during a demo. They cannot postpone this one for very long. Eventually somebody asks who can see what, who guarantees it, how quickly a permission change propagates, and who owns the answer when three different systems disagree. That is often the moment when an impressive AI pilot turns into a security project, and it usually starts with something like an intern&amp;#8217;s question.&lt;/p&gt;
+
+
+
+&lt;p&gt;So there are four questions I would put to any team building this.&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;Whether identity gets resolved at assembly or after retrieval.&lt;/li&gt;
+
+
+
+&lt;li&gt;How much of your context lives outside the lake, in chat and tickets and docs, where IAM does not reach.&lt;/li&gt;
+
+
+
+&lt;li&gt;What your worst-case staleness window looks like when someone changes teams.&lt;/li&gt;
+
+
+
+&lt;li&gt;And whether you can re-check authorization at every step along the way, or only once at the door.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;If those answers are uncomfortable, that is useful. I have not had many of these conversations where they weren&amp;#8217;t.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/enterprise-rag-permission-assembly/"&gt;Permissions belong in the assembly context&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+    </item>
+    <item>
+      <title>Polars 2.0 pre-release comes with a 5x speed boost — but it could change row order</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/polars-streaming-row-order/</link>
+      <dc:creator>Meredith Shubel</dc:creator>
+      <pubDate>Sun, 06 Sep 2026 13:30:00 +0000</pubDate>
+      <category>Data</category>
+      <category>Data Streaming</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835688</guid>
+      <description>&lt;img width="1024" height="684" src="https://cdn.thenewstack.io/media/2026/09/956a075f-alexander-sinn-7kylhidm770-unsplash-1024x684.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/956a075f-alexander-sinn-7kylhidm770-unsplash-scaled.jpg" /&gt;&lt;p&gt;Working with large datasets can lead to slow queries and out-of-memory errors. Polars, an open-source library that developers and data&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/polars-streaming-row-order/"&gt;Polars 2.0 pre-release comes with a 5x speed boost — but it could change row order&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="684" src="https://cdn.thenewstack.io/media/2026/09/956a075f-alexander-sinn-7kylhidm770-unsplash-1024x684.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/956a075f-alexander-sinn-7kylhidm770-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Working with large datasets can lead to slow queries&lt;/strong&gt; and out-of-memory errors. Polars, an open-source library that developers and data analysts use to clean, combine, and analyze tables of data, promises to ease both problems in its upcoming 2.0 release. But the first release candidate, out last week, comes with a catch: The new default can change the order of returned rows, potentially affecting code that depends on that order.&lt;/p&gt;
+
+
+
+&lt;p&gt;In announcing the first release candidate for &lt;a href="https://pola.rs/posts/announcing-polars-2/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Polars 2.0&lt;/a&gt;, the company says that calling collect on any LazyFrame query will now default to the streaming engine.&amp;nbsp;Per &lt;a href="https://pola.rs/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Polars&lt;/a&gt;, users can expect &amp;ldquo;massive memory and performance improvements on most queries,&amp;rdquo; with the streaming engine expected to be &amp;ldquo;easily 5x faster&amp;rdquo; in aggregate.&lt;/p&gt;
+
+
+
+&lt;p&gt;But they need to keep an eye out for changes in row order.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-move-fast-and-maybe-re-order-things-nbsp"&gt;Move fast &amp;mdash; and maybe re-order things?&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Improved memory usage and performance are obvious upgrades for Polars users who rely on the library for data processing and analysis, and it&amp;rsquo;s the streaming engine that&amp;rsquo;s bringing it.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;Streaming engine doesn&amp;rsquo;t guarantee row-order by default for certain operations.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;With streaming, Polars &lt;a href="https://docs.pola.rs/user-guide/concepts/streaming/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;says&lt;/a&gt; it can execute lazy queries in batches, rather than processing all data at once. This way, users can process datasets that don&amp;rsquo;t fit into available memory.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;But changing how those queries execute could potentially lead to trouble down the line, as the streaming engine can also change the order in which rows are returned.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As Polars explains, the &amp;ldquo;streaming engine doesn&amp;rsquo;t guarantee row-order by default for certain operations.&amp;rdquo; That includes operations such as join, group_by, and unpivot.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;In its &lt;a href="https://docs.pola.rs/releases/upgrade/2/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Version 2.0-rc user guide&lt;/a&gt;, the company explicitly calls out the migration hazard and underscores its risk in a red &amp;ldquo;danger&amp;rdquo; box, acknowledging that the change &amp;ldquo;may silently impact the results of your pipelines.&amp;rdquo; &lt;/p&gt;
+
+
+
+&lt;p&gt;For users whose code expects rows to appear in a certain order, that could create more problems for downstream processes.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-you-can-enforce-row-order-but-there-s-a-chance-it-may-cost-you-some-speed"&gt;You can enforce row order, but there&amp;rsquo;s a chance it may cost you some speed&lt;/h2&gt;
+
+
+
+&lt;p&gt;All is not lost, though. If users are working with code that depends on incidental ordering or observable row order, Polars offers guidance on mitigating the migration risk that comes with the new default.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The change &amp;ldquo;may silently impact the results of your pipelines.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;There are two main options: Sort explicitly or set maintain_order=True where applicable. &lt;/p&gt;
+
+
+
+&lt;p&gt;Alternatively, users can keep the in-memory engine as default by setting the engine affinity.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-else-is-coming-in-polars-2-0-nbsp"&gt;What else is coming in Polars 2.0&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p&gt;Making all LazyFrame queries default to the streaming engine isn&amp;rsquo;t the only change users can expect from Polars 2.0. Per the announcement, the biggest changes in the upcoming release are improved defaults (the streaming engine being the most significant) and a better API.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;In the pre-release post, Polars explains that 2.0 also removes many ambiguous casts. &lt;/p&gt;
+
+
+
+&lt;p&gt;For example, it directs users to use &lt;code&gt;.str.to_date()/.str.to_datetime()&lt;/code&gt; to parse strings to temporal data types. This way, Polars says users get &amp;ldquo;one obvious way to parse data.&amp;rdquo; More examples of improvements to strictness are in the &lt;a href="https://docs.pola.rs/releases/upgrade/2/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;migration guide&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Why the pre-release before the upcoming Polars 2.0? Because Polars says it &amp;ldquo;[doesn&amp;rsquo;t] gate new features&amp;rdquo; and prefers to ship them as soon as they&amp;rsquo;re ready. &lt;/p&gt;
+
+
+
+&lt;p&gt;That said, the company assured users there&amp;rsquo;s more to look forward to for 2.x, hinting at a new IO-plugin design, a faster S3 reader, a cost-based planner, join reordering, and big SQL coverage improvements, among others.&lt;/p&gt;
+
+
+
+&lt;p&gt;For developers exploring the release candidate now, the takeaway is clear: Better memory and performance are worth getting excited about, but don&amp;rsquo;t forget to watch that row order.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/polars-streaming-row-order/"&gt;Polars 2.0 pre-release comes with a 5x speed boost — but it could change row order&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>The streaming engine becomes the default for LazyFrame queries, improving memory and performance. There’s one hiccup, though.</content:encoded>
+    </item>
+    <item>
       <title>Claude Fable 5.1 vs. Fable 5: On real work, I couldn’t tell them apart.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/claude-fable-upgrade-tested/</link>
       <dc:creator>Jessica Wachtel</dc:creator>
@@ -28,10 +333,10 @@
       <category>AI Models</category>
       <category>Software Development</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22835825</guid>
-      <description>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;Anthropic launched Claude Fable 5.1 this week, calling it “our most advanced model for coding and knowledge work.”  There was&lt;/p&gt;
+      <description>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;Anthropic launched Claude Fable 5.1 this week, calling it “our most advanced model for coding and knowledge work.”  There was&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-upgrade-tested/"&gt;Claude Fable 5.1 vs. Fable 5: On real work, I couldn&amp;#8217;t tell them apart.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;&lt;strong&gt;Anthropic launched Claude Fable 5.1 this week&lt;/strong&gt;, calling it “&lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/" class="local-link"&gt;our most advanced model for coding and knowledge work&lt;/a&gt;.” &lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="572" src="https://cdn.thenewstack.io/media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-1024x572.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ca11b9a3-screenshot-2026-09-01-at-12.45.26-pm-scaled.png" /&gt;&lt;p&gt;&lt;strong&gt;Anthropic launched Claude Fable 5.1 this week&lt;/strong&gt;, calling it “&lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/" class="local-link"&gt;our most advanced model for coding and knowledge work&lt;/a&gt;.” &lt;/p&gt;
 
 
 
@@ -209,7 +514,7 @@
       <category>sponsor-oracle</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22835900</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High contrast abstract digital texture evoking complex AI data traces and execution paths." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash.jpg" /&gt;&lt;p&gt;Basic retrieval-augmented generation (RAG) follows a straightforward pattern. A user asks a question, the system finds relevant content in a&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High contrast abstract digital texture evoking complex AI data traces and execution paths." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash.jpg" /&gt;&lt;p&gt;Basic retrieval-augmented generation (RAG) follows a straightforward pattern. A user asks a question, the system finds relevant content in a&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/building-trust-agentic-rag/"&gt;Building trust in agentic RAG starts with evidence&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High contrast abstract digital texture evoking complex AI data traces and execution paths." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e80b94f6-tsd-studio-a5ccy4bleku-unsplash.jpg" /&gt;
@@ -1521,6 +1826,357 @@ ARC Prize’s standard harness.&lt;/p&gt;
       <content:encoded>OpenAI says GPT-6 Astra scored 98.6% on ARC-AGI-3, up from 7.8% six months ago. But undisclosed test settings and opaque reasoning complicate the AGI question.</content:encoded>
     </item>
     <item>
+      <title>Cut GPU inference cold start from 8 minutes to less than a minute</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cut-gpu-cold-starts/</link>
+      <dc:creator>Sajjan Gundapuneedi</dc:creator>
+      <pubDate>Thu, 03 Sep 2026 18:30:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>Kubernetes</category>
+      <category>Large Language Models</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22835731</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;We instrumented the full path from pod creation to first inference response on a GPU node running a 70B-class model.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;We instrumented the full path from pod creation&lt;/strong&gt; to first inference response on a GPU node running a 70B-class model. Eight minutes. Six sequential phases. We expected one bottleneck. We found six, and which one dominates depends on model size.&lt;/p&gt;
+
+
+
+&lt;p&gt;For a 64 GB model, 65% of the startup time is spent recompiling CUDA kernels that produce identical output every time. For a 203 GB model, 92% of the time is spent downloading weights from S3 through a calling pattern that leaves 98% of available bandwidth idle. Both are fixable with configuration changes. Neither is fixed by default.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Eight minutes. Six sequential phases. We expected one bottleneck. We found six.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;We define &lt;strong&gt;time to first token served (TTFTS)&lt;/strong&gt; as the wall-clock duration from pod creation to the first inference response leaving the GPU. Not time to first token (TTFT), which measures per-request latency once the model is warm. TTFTS is the one-time startup tax. TTFT begins where TTFTS ends.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here’s what we achieved:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Scenario&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Reduction&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Pod restart on warm node&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Weights loading + compilation on existing node&lt;/td&gt;&lt;td&gt;1.5-8 min&lt;/td&gt;&lt;td&gt;under 30s&lt;/td&gt;&lt;td&gt;80-93%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;New node from scratch&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Fresh node provisioned, nothing cached&lt;/td&gt;&lt;td&gt;8-15 min&lt;/td&gt;&lt;td&gt;~5 min&lt;/td&gt;&lt;td&gt;40-65%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The warm-node row is what you pay on every pod restart: scale-up events, rolling updates, OOM recoveries. That’s the 80-93% win, and it requires only configuration changes. The cold-node row includes ~2 minutes of fixed infrastructure cost (node provisioning and framework initialization) that no application-layer optimization can remove. The rest is avoidable waste that we eliminated through platform and configuration fixes. The warm-node optimizations are environment variables and a volume mount that work on any Kubernetes cluster. The cold-node optimizations require EKS Auto Mode, which comes pre-configured with pre-compiled NVIDIA drivers, SOCI (Seekable OCI) parallel image pull, and NVMe instance store mounting.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;All model startup measurements were taken on p5.48xlarge instances running &lt;/em&gt;&lt;a href="https://aws.amazon.com/eks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt; Auto Mode, with S3 traffic routed directly (bypassing the NAT Gateway) and container images in a private Amazon ECR repository (same region as compute). Model startup improvement ratios (80-93%) hold consistently across instance types (validated on P-family and G-family). Cold-node times vary with network bandwidth and CPU count. For the weights loading and compilation cache configuration, see &lt;/em&gt;&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Accelerate model loading on Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The Kubernetes ecosystem has made real progress on the inference stack in 2026. OCI image volumes are now stable for model delivery. &lt;a href="https://thenewstack.io/kubernetes-primer-dynamic-resource-allocation-dra-for-gpu-workloads/" data-wpil-monitor-id="4068" class="local-link"&gt;Dynamic Resource Allocation&lt;/a&gt; (DRA) gives GPUs structured attributes instead of opaque integer counts and provides flexibility in allocating GPUs to workloads. Gateway API has inference-aware routing extensions. But none of these primitives address the full cold-start stack: the six layers between “pod pending” and “first token served,” each with its own bottleneck and its own fix.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-six-layers-of-cold-start"&gt;The six layers of cold start&lt;/h2&gt;
+
+
+
+&lt;p&gt;When a new inference pod starts on a freshly provisioned GPU node, it passes through six distinct phases before serving its first request:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Node provisioning.&lt;/strong&gt; Karpenter launches an EC2 instance, boots it, and registers it with the Kubernetes API server (~60-90s).&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;GPU driver initialization.&lt;/strong&gt; The driver kernel module must load and expose accelerator devices.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/accelerating-eks-image-pulls/" data-wpil-monitor-id="4069" class="local-link"&gt;Container image pull.&lt;/a&gt;&lt;/strong&gt; The inference engine image (8-12 GB compressed) must be transferred to the node and extracted.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Model weights download.&lt;/strong&gt; The model files must stream from object storage into GPU memory.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;GPU kernel compilation.&lt;/strong&gt; torch.compile traces the model graph and generates optimized CUDA kernels.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Engine initialization.&lt;/strong&gt; CUDA graph capture, KV cache profiling, and HTTP server startup (30-120s depending on whether compilation is cached).&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;Each layer has a different bottleneck, a different fix, and a different owner.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Which layer dominates depends on model size&lt;/h2&gt;
+
+
+
+&lt;p&gt;Before diving into each layer, one finding shaped every decision we made: the bottleneck is not fixed.&lt;/p&gt;
+
+
+
+&lt;p&gt;We instrumented the model startup path (layers 4 and 5) and measured each phase independently for two model sizes:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;64 GB model&lt;/strong&gt; (Qwen3.6-35B-A3B):&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Weights loading: ~29s (35% of model startup)&lt;/li&gt;
+
+
+
+&lt;li&gt;torch.compile: ~53s (&lt;strong&gt;65%&lt;/strong&gt; of model startup)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;203 GB model&lt;/strong&gt; (Llama-4-Scout, TP=4 where TP is tensor parallelism, splitting the model across GPUs):&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Weights loading: ~423s (&lt;strong&gt;92%&lt;/strong&gt; of model startup)&lt;/li&gt;
+
+
+
+&lt;li&gt;torch.compile: ~34s (8% of model startup)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;For models under ~100 GB, compilation dominates. For larger models, network transfer dominates. torch.compile time stays roughly constant (it depends on graph complexity, not parameter count). Weights loading scales linearly with file size.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“For models under ~100 GB, compilation dominates. For larger models, network transfer dominates.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;This means any single-layer optimization has a ceiling.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 1: Node provisioning&lt;/h2&gt;
+
+
+
+&lt;p&gt;On EKS Auto Mode and Karpenter-managed clusters, node provisioning takes approximately 60-90 seconds for accelerated instances from pod pending to node Ready. Karpenter calls the EC2 Fleet API directly and reacts to pending pods within seconds, keeping provisioning at the EC2 launch floor.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 2: GPU driver initialization&lt;/h2&gt;
+
+
+
+&lt;p&gt;The NVIDIA GPU Operator in its default configuration adds &lt;strong&gt;2-3 minutes to node boot&lt;/strong&gt; while it compiles the driver kernel module from source. This cost repeats on every new node.&lt;/p&gt;
+
+
+
+&lt;p&gt;When the platform controls the full stack (OS image, kernel version, driver version, boot sequence) it can pre-compile driver kernel modules at image build time. The node boots, runs modprobe to load an already-compiled .ko file, and the GPU is ready in seconds.&lt;/p&gt;
+
+
+
+&lt;p&gt;This matters more now than it used to. Blackwell-architecture GPUs (G7, G7e instances) require NVIDIA’s open-source kernel modules exclusively. Older Maxwell/Pascal/Volta GPUs can only run proprietary modules. A cluster with both legacy and next-gen GPU nodes needs different drivers, different AMIs, different upgrade cycles. A managed platform that pre-compiles the correct module per instance family eliminates this complexity.&lt;/p&gt;
+
+
+
+&lt;p&gt;On EKS Auto Mode, the GPU driver loads in seconds (pre-compiled at image build time), compared to the 2-3 minutes a runtime-compilation approach requires.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 3: Container image pull&lt;/h2&gt;
+
+
+
+&lt;p&gt;A production vLLM or SGLang inference image is typically 8-12 GB compressed. Standard containerd pulls layers sequentially, decompresses them one by one in memory, and writes them to disk. At this size, sequential pull takes 2-4 minutes on a cold node depending on instance type and available CPU cores. For larger custom images (30-50 GB compressed), containerd can run out of memory entirely during decompression.&lt;/p&gt;
+
+
+
+&lt;p&gt;EKS Auto Mode uses SOCI’s parallel pull mode, which replaces containerd’s default snapshotter. The SOCI snapshotter downloads layer chunks concurrently via HTTP range requests and writes each chunk directly to its target byte position on disk (no in-memory ordering buffer). Decompression runs in parallel across all available CPU cores.&lt;/p&gt;
+
+
+
+&lt;p&gt;Pull time is bottlenecked by CPU-bound decompression, not network bandwidth. We confirmed this directly: a p4d.24xlarge with 400 Gbps networking achieved only ~1 Gbps effective pull throughput because CPU decompression was the constraint. On instances with more cores (48+ vCPUs), SOCI parallel pull reduces image pull time from 2-4 minutes to 30-60 seconds. On smaller instances with fewer cores, the improvement is modest because decompression cannot parallelize effectively. For a deeper look at how bounded-memory parallel pull handles images exceeding 30 GB without OOM, see &lt;a href="https://arxiv.org/abs/2607.05596" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bounded-Memory Parallel Image Pulling for Large Container Images&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 4: Model weights download&lt;/h2&gt;
+
+
+
+&lt;p&gt;The obvious optimization for weights loading: more parallel connections. Split the model files into small chunks, download them concurrently, saturate the network pipe.&lt;/p&gt;
+
+
+
+&lt;p&gt;We tested it on p5.48xlarge with the 64 GB model streaming from same-region S3. The results were counterintuitive:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Chunk size&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Connections needed&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Weights load time&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;256 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;256&lt;/td&gt;&lt;td&gt;13.98s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;512 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;128&lt;/td&gt;&lt;td&gt;14.20s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;2 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;td&gt;13.62s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;4 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;13.35s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;8 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;21.80s (+56%)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;256 parallel connections provided no benefit over 17. The only failure mode was 8 GB chunks (exceeding shard file size), which caused a 56% regression.&lt;/p&gt;
+
+
+
+&lt;p&gt;Why? Because the open-source &lt;a href="https://github.com/run-ai/runai-model-streamer" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Run:ai Model Streamer&lt;/a&gt; (integrated into vLLM and SGLang) processes S3 range requests sequentially within each worker thread. A worker assigned to a 3.9 GB shard file downloads its byte-range requests one after another on a single connection. The parallelism comes from running multiple workers on different &lt;em&gt;files&lt;/em&gt;, not from splitting one file into more pieces.&lt;/p&gt;
+
+
+
+&lt;p&gt;We settled on 4 GB chunks matching typical SafeTensors shard size (3-5 GB per file) with an aggressive timeout-and-retry for slow requests. S3 GET latency has a measurable long tail: in our testing, a meaningful fraction of requests took 2-3x longer than median, and a single stalled connection holds up the entire model load. Rather than wait, we kill stalled connections after a few seconds below a speed threshold and retry on a fresh connection. This follows &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-guidelines.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;S3’s own performance guidance&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p&gt;For the 203 GB model, these config-only changes reduced weights loading from 423 seconds to 25 seconds (94% improvement). For the 64 GB model, from 29 seconds to 12 seconds. No code modifications, just environment variables. The tuning consists of three settings: chunk size aligned to shard file boundaries (eliminating the serial sub-request problem), a minimum-speed threshold that kills and retries stalled S3 connections, and explicit concurrency matching the number of shard files per tensor-parallel rank.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 5: GPU kernel compilation&lt;/h2&gt;
+
+
+
+&lt;p&gt;Every time a vLLM or SGLang pod starts, PyTorch traces the model’s computation graph and compiles it to optimized CUDA kernels. This takes 34-53 seconds depending on model architecture. The output is identical every time for the same model, GPU type, and tensor-parallel configuration.&lt;/p&gt;
+
+
+
+&lt;p&gt;And Kubernetes throws it away on every pod restart. Pods use ephemeral storage by default. When a pod terminates, its local filesystem is destroyed. The next pod recompiles from scratch.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“The output is identical every time for the same model, GPU type, and tensor-parallel configuration. And Kubernetes throws it away on every pod restart.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Point the torch.compile cache directory at local NVMe instance store. GPU instances ship with NVMe that EKS Auto Mode mounts automatically. First pod compiles and writes ~15-30 MB of cached kernels. The second pod on the same node loads pre-compiled binaries in 4-6 seconds. One volume mount and environment variables.&lt;/p&gt;
+
+
+
+&lt;p&gt;The cache is safe because the compiled artifacts are deterministic: same model architecture + GPU architecture + tensor-parallel degree + PyTorch version equals valid cache. An image update or hardware change triggers exactly one recompilation.&lt;/p&gt;
+
+
+
+&lt;p&gt;torch.compile time is hardware independent. The same model compiles in ~52 seconds whether running on H100 or A100. The cache hit (4-6 seconds) is equally consistent across GPU types. This means the optimization works identically regardless of instance type.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Layer 6: Engine initialization&lt;/h2&gt;
+
+
+
+&lt;p&gt;After weights are loaded and kernels compiled, the inference engine must capture CUDA execution graphs and profile KV cache memory. With compiled kernels cached, this completes in 30-45 seconds. Without cache, graph capture triggers additional JIT compilation and takes 60-120 seconds.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is why the torch.compile cache has an outsized impact: it accelerates not just layer 5 but also layer 6. Cached compilation reduces a 2-3-minute combined phase to a 35-50-second combined phase.&lt;/p&gt;
+
+
+
+&lt;p&gt;Framework initialization (Python interpreter startup and &lt;a href="https://thenewstack.io/this-is-how-to-optimize-pytorch-for-faster-model-training/" class="local-link"&gt;PyTorch&lt;/a&gt; import) adds tens of seconds of fixed overhead that cannot be reduced through configuration.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The compounding effect&lt;/h2&gt;
+
+
+
+&lt;p&gt;The six layers compound. Platform fixes (layers 1-3) eliminate 4-8 minutes of overhead: pre-compiled drivers replace 2-3 minutes of runtime compilation, parallel pull reduces image transfer time from 2-4 minutes to 30-60 seconds, and Karpenter keeps node provisioning to its hardware minimum. Configuration changes (layers 4-5) cut the remaining model startup by 80-93%. Engine initialization (layer 6) drops from 60-120 seconds to 30-45 seconds once the compile cache is warm. Together, cold-node TTFTS drops from 8-15 minutes to approximately 5 minutes.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;64 GB model (Qwen3.6-35B-A3B), TP=2:&lt;/h3&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;16s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-21%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-80%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;203 GB model (Llama-4-Scout), TP=4:&lt;/h3&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;32s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-87%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-93%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The warm-node subsequent pod number is what matters most for production. It’s what you pay on every pod restart. The 80-93% reduction is consistent across instance types because the optimizations target software bottlenecks (calling patterns, redundant compilation), not hardware limits.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The cost of cold starts at scale&lt;/h2&gt;
+
+
+
+&lt;p&gt;Why does any of this matter? Because GPU nodes are expensive and inference traffic is bursty.&lt;/p&gt;
+
+
+
+&lt;p&gt;A single p5.48xlarge costs $55/hour on-demand. Even G-family instances commonly used for inference cost $10-20/hour. Every minute of cold start is GPU time you’re paying for but not using. If your autoscaler needs 8+ minutes to bring up new capacity, you must over-provision (burn money on idle GPUs) or accept latency spikes during traffic surges.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;“Every minute of cold start is GPU time you’re paying for but not using.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;When model startup drops to 16-32 seconds on warm nodes, the calculus changes. You can scale more aggressively, keep fewer buffer nodes, and respond to traffic spikes without multi-minute startup delays.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What we learned&lt;/h2&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Decompose before optimizing.&lt;/strong&gt; For 64 GB models, torch.compile dominates (65%). For 203 GB models, S3 loading dominates (92%). Without measuring each phase independently, we would have optimized the wrong layer.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;The bottleneck flips with model size.&lt;/strong&gt; torch.compile time is roughly constant across model sizes. Weights loading scales linearly. Every team running inference should know which regime they’re in.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;“More parallelism” requires understanding the execution model.&lt;/strong&gt; 256 connections performing sequential work inside each thread is no faster than 17. The bottleneck was the calling pattern, not the concurrency limit.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;15-30 MB can save 53 seconds.&lt;/strong&gt; The most impactful optimization for smaller models was persisting a tiny cache file. Always check whether an expensive computation produces deterministic output before trying to make it faster.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Platform-level control enables optimizations that configuration alone cannot achieve.&lt;/strong&gt; Pre-compiled drivers, default-on parallel image pull, and NVMe auto-mounting are infrastructure-layer decisions that compound upward. Together with the config-only changes at the application layer, these changes reduce cold start time from minutes to seconds.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;The ecosystem is building the right primitives, but cold start lives between them.&lt;/strong&gt; OCI image volumes, DRA, inference-aware routing, and local model caches are all real progress. But the compilation bottleneck and S3 tuning gaps sit in spaces that no upstream Kubernetes primitive addresses. Sometimes the highest-impact optimization is a volume mount and two environment variables, not a new API.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;For the complete configuration guide, including environment variables, YAML manifests, and instance-specific recommendations, see “&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Accelerate model loading on Amazon EKS&lt;/a&gt;” in the Amazon EKS User Guide.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Cut GPU inference cold start times from 8 minutes to under 30 seconds with simple configuration and platform fixes.</content:encoded>
+    </item>
+    <item>
       <title>The systems guide to production token optimization</title>
       <link>https://web.archive.org/web/https://thenewstack.io/production-token-optimization-guide/</link>
       <dc:creator>Boris Chabeda</dc:creator>
@@ -1873,357 +2529,6 @@ model_list:
       <content:encoded>Scale AI systems efficiently by treating token optimization as a distributed systems and hardware utilization challenge.</content:encoded>
     </item>
     <item>
-      <title>Cut GPU inference cold start from 8 minutes to less than a minute</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cut-gpu-cold-starts/</link>
-      <dc:creator>Sajjan Gundapuneedi</dc:creator>
-      <pubDate>Thu, 03 Sep 2026 18:30:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Kubernetes</category>
-      <category>Large Language Models</category>
-      <category>sponsor-aws-marketplace</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835731</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;We instrumented the full path from pod creation to first inference response on a GPU node running a 70B-class model.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/86928606-ruliff-andrean-_ktxstb1sl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;strong&gt;We instrumented the full path from pod creation&lt;/strong&gt; to first inference response on a GPU node running a 70B-class model. Eight minutes. Six sequential phases. We expected one bottleneck. We found six, and which one dominates depends on model size.&lt;/p&gt;
-
-
-
-&lt;p&gt;For a 64 GB model, 65% of the startup time is spent recompiling CUDA kernels that produce identical output every time. For a 203 GB model, 92% of the time is spent downloading weights from S3 through a calling pattern that leaves 98% of available bandwidth idle. Both are fixable with configuration changes. Neither is fixed by default.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“Eight minutes. Six sequential phases. We expected one bottleneck. We found six.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;We define &lt;strong&gt;time to first token served (TTFTS)&lt;/strong&gt; as the wall-clock duration from pod creation to the first inference response leaving the GPU. Not time to first token (TTFT), which measures per-request latency once the model is warm. TTFTS is the one-time startup tax. TTFT begins where TTFTS ends.&lt;/p&gt;
-
-
-
-&lt;p&gt;Here’s what we achieved:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Scenario&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Reduction&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Pod restart on warm node&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Weights loading + compilation on existing node&lt;/td&gt;&lt;td&gt;1.5-8 min&lt;/td&gt;&lt;td&gt;under 30s&lt;/td&gt;&lt;td&gt;80-93%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;New node from scratch&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Fresh node provisioned, nothing cached&lt;/td&gt;&lt;td&gt;8-15 min&lt;/td&gt;&lt;td&gt;~5 min&lt;/td&gt;&lt;td&gt;40-65%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;The warm-node row is what you pay on every pod restart: scale-up events, rolling updates, OOM recoveries. That’s the 80-93% win, and it requires only configuration changes. The cold-node row includes ~2 minutes of fixed infrastructure cost (node provisioning and framework initialization) that no application-layer optimization can remove. The rest is avoidable waste that we eliminated through platform and configuration fixes. The warm-node optimizations are environment variables and a volume mount that work on any Kubernetes cluster. The cold-node optimizations require EKS Auto Mode, which comes pre-configured with pre-compiled NVIDIA drivers, SOCI (Seekable OCI) parallel image pull, and NVMe instance store mounting.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;All model startup measurements were taken on p5.48xlarge instances running &lt;/em&gt;&lt;a href="https://aws.amazon.com/eks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt; Auto Mode, with S3 traffic routed directly (bypassing the NAT Gateway) and container images in a private Amazon ECR repository (same region as compute). Model startup improvement ratios (80-93%) hold consistently across instance types (validated on P-family and G-family). Cold-node times vary with network bandwidth and CPU count. For the weights loading and compilation cache configuration, see &lt;/em&gt;&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Accelerate model loading on Amazon EKS&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;The Kubernetes ecosystem has made real progress on the inference stack in 2026. OCI image volumes are now stable for model delivery. &lt;a href="https://thenewstack.io/kubernetes-primer-dynamic-resource-allocation-dra-for-gpu-workloads/" data-wpil-monitor-id="4068" class="local-link"&gt;Dynamic Resource Allocation&lt;/a&gt; (DRA) gives GPUs structured attributes instead of opaque integer counts and provides flexibility in allocating GPUs to workloads. Gateway API has inference-aware routing extensions. But none of these primitives address the full cold-start stack: the six layers between “pod pending” and “first token served,” each with its own bottleneck and its own fix.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-six-layers-of-cold-start"&gt;The six layers of cold start&lt;/h2&gt;
-
-
-
-&lt;p&gt;When a new inference pod starts on a freshly provisioned GPU node, it passes through six distinct phases before serving its first request:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Node provisioning.&lt;/strong&gt; Karpenter launches an EC2 instance, boots it, and registers it with the Kubernetes API server (~60-90s).&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;GPU driver initialization.&lt;/strong&gt; The driver kernel module must load and expose accelerator devices.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/accelerating-eks-image-pulls/" data-wpil-monitor-id="4069" class="local-link"&gt;Container image pull.&lt;/a&gt;&lt;/strong&gt; The inference engine image (8-12 GB compressed) must be transferred to the node and extracted.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Model weights download.&lt;/strong&gt; The model files must stream from object storage into GPU memory.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;GPU kernel compilation.&lt;/strong&gt; torch.compile traces the model graph and generates optimized CUDA kernels.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Engine initialization.&lt;/strong&gt; CUDA graph capture, KV cache profiling, and HTTP server startup (30-120s depending on whether compilation is cached).&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;Each layer has a different bottleneck, a different fix, and a different owner.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Which layer dominates depends on model size&lt;/h2&gt;
-
-
-
-&lt;p&gt;Before diving into each layer, one finding shaped every decision we made: the bottleneck is not fixed.&lt;/p&gt;
-
-
-
-&lt;p&gt;We instrumented the model startup path (layers 4 and 5) and measured each phase independently for two model sizes:&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;64 GB model&lt;/strong&gt; (Qwen3.6-35B-A3B):&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Weights loading: ~29s (35% of model startup)&lt;/li&gt;
-
-
-
-&lt;li&gt;torch.compile: ~53s (&lt;strong&gt;65%&lt;/strong&gt; of model startup)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;203 GB model&lt;/strong&gt; (Llama-4-Scout, TP=4 where TP is tensor parallelism, splitting the model across GPUs):&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Weights loading: ~423s (&lt;strong&gt;92%&lt;/strong&gt; of model startup)&lt;/li&gt;
-
-
-
-&lt;li&gt;torch.compile: ~34s (8% of model startup)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p&gt;For models under ~100 GB, compilation dominates. For larger models, network transfer dominates. torch.compile time stays roughly constant (it depends on graph complexity, not parameter count). Weights loading scales linearly with file size.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“For models under ~100 GB, compilation dominates. For larger models, network transfer dominates.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;This means any single-layer optimization has a ceiling.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 1: Node provisioning&lt;/h2&gt;
-
-
-
-&lt;p&gt;On EKS Auto Mode and Karpenter-managed clusters, node provisioning takes approximately 60-90 seconds for accelerated instances from pod pending to node Ready. Karpenter calls the EC2 Fleet API directly and reacts to pending pods within seconds, keeping provisioning at the EC2 launch floor.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 2: GPU driver initialization&lt;/h2&gt;
-
-
-
-&lt;p&gt;The NVIDIA GPU Operator in its default configuration adds &lt;strong&gt;2-3 minutes to node boot&lt;/strong&gt; while it compiles the driver kernel module from source. This cost repeats on every new node.&lt;/p&gt;
-
-
-
-&lt;p&gt;When the platform controls the full stack (OS image, kernel version, driver version, boot sequence) it can pre-compile driver kernel modules at image build time. The node boots, runs modprobe to load an already-compiled .ko file, and the GPU is ready in seconds.&lt;/p&gt;
-
-
-
-&lt;p&gt;This matters more now than it used to. Blackwell-architecture GPUs (G7, G7e instances) require NVIDIA’s open-source kernel modules exclusively. Older Maxwell/Pascal/Volta GPUs can only run proprietary modules. A cluster with both legacy and next-gen GPU nodes needs different drivers, different AMIs, different upgrade cycles. A managed platform that pre-compiles the correct module per instance family eliminates this complexity.&lt;/p&gt;
-
-
-
-&lt;p&gt;On EKS Auto Mode, the GPU driver loads in seconds (pre-compiled at image build time), compared to the 2-3 minutes a runtime-compilation approach requires.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 3: Container image pull&lt;/h2&gt;
-
-
-
-&lt;p&gt;A production vLLM or SGLang inference image is typically 8-12 GB compressed. Standard containerd pulls layers sequentially, decompresses them one by one in memory, and writes them to disk. At this size, sequential pull takes 2-4 minutes on a cold node depending on instance type and available CPU cores. For larger custom images (30-50 GB compressed), containerd can run out of memory entirely during decompression.&lt;/p&gt;
-
-
-
-&lt;p&gt;EKS Auto Mode uses SOCI’s parallel pull mode, which replaces containerd’s default snapshotter. The SOCI snapshotter downloads layer chunks concurrently via HTTP range requests and writes each chunk directly to its target byte position on disk (no in-memory ordering buffer). Decompression runs in parallel across all available CPU cores.&lt;/p&gt;
-
-
-
-&lt;p&gt;Pull time is bottlenecked by CPU-bound decompression, not network bandwidth. We confirmed this directly: a p4d.24xlarge with 400 Gbps networking achieved only ~1 Gbps effective pull throughput because CPU decompression was the constraint. On instances with more cores (48+ vCPUs), SOCI parallel pull reduces image pull time from 2-4 minutes to 30-60 seconds. On smaller instances with fewer cores, the improvement is modest because decompression cannot parallelize effectively. For a deeper look at how bounded-memory parallel pull handles images exceeding 30 GB without OOM, see &lt;a href="https://arxiv.org/abs/2607.05596" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bounded-Memory Parallel Image Pulling for Large Container Images&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 4: Model weights download&lt;/h2&gt;
-
-
-
-&lt;p&gt;The obvious optimization for weights loading: more parallel connections. Split the model files into small chunks, download them concurrently, saturate the network pipe.&lt;/p&gt;
-
-
-
-&lt;p&gt;We tested it on p5.48xlarge with the 64 GB model streaming from same-region S3. The results were counterintuitive:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Chunk size&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Connections needed&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Weights load time&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;256 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;256&lt;/td&gt;&lt;td&gt;13.98s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;512 MB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;128&lt;/td&gt;&lt;td&gt;14.20s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;2 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;34&lt;/td&gt;&lt;td&gt;13.62s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;4 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;17&lt;/td&gt;&lt;td&gt;13.35s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;8 GB&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;9&lt;/td&gt;&lt;td&gt;21.80s (+56%)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;256 parallel connections provided no benefit over 17. The only failure mode was 8 GB chunks (exceeding shard file size), which caused a 56% regression.&lt;/p&gt;
-
-
-
-&lt;p&gt;Why? Because the open-source &lt;a href="https://github.com/run-ai/runai-model-streamer" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Run:ai Model Streamer&lt;/a&gt; (integrated into vLLM and SGLang) processes S3 range requests sequentially within each worker thread. A worker assigned to a 3.9 GB shard file downloads its byte-range requests one after another on a single connection. The parallelism comes from running multiple workers on different &lt;em&gt;files&lt;/em&gt;, not from splitting one file into more pieces.&lt;/p&gt;
-
-
-
-&lt;p&gt;We settled on 4 GB chunks matching typical SafeTensors shard size (3-5 GB per file) with an aggressive timeout-and-retry for slow requests. S3 GET latency has a measurable long tail: in our testing, a meaningful fraction of requests took 2-3x longer than median, and a single stalled connection holds up the entire model load. Rather than wait, we kill stalled connections after a few seconds below a speed threshold and retry on a fresh connection. This follows &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance-guidelines.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;S3’s own performance guidance&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;For the 203 GB model, these config-only changes reduced weights loading from 423 seconds to 25 seconds (94% improvement). For the 64 GB model, from 29 seconds to 12 seconds. No code modifications, just environment variables. The tuning consists of three settings: chunk size aligned to shard file boundaries (eliminating the serial sub-request problem), a minimum-speed threshold that kills and retries stalled S3 connections, and explicit concurrency matching the number of shard files per tensor-parallel rank.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 5: GPU kernel compilation&lt;/h2&gt;
-
-
-
-&lt;p&gt;Every time a vLLM or SGLang pod starts, PyTorch traces the model’s computation graph and compiles it to optimized CUDA kernels. This takes 34-53 seconds depending on model architecture. The output is identical every time for the same model, GPU type, and tensor-parallel configuration.&lt;/p&gt;
-
-
-
-&lt;p&gt;And Kubernetes throws it away on every pod restart. Pods use ephemeral storage by default. When a pod terminates, its local filesystem is destroyed. The next pod recompiles from scratch.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“The output is identical every time for the same model, GPU type, and tensor-parallel configuration. And Kubernetes throws it away on every pod restart.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Point the torch.compile cache directory at local NVMe instance store. GPU instances ship with NVMe that EKS Auto Mode mounts automatically. First pod compiles and writes ~15-30 MB of cached kernels. The second pod on the same node loads pre-compiled binaries in 4-6 seconds. One volume mount and environment variables.&lt;/p&gt;
-
-
-
-&lt;p&gt;The cache is safe because the compiled artifacts are deterministic: same model architecture + GPU architecture + tensor-parallel degree + PyTorch version equals valid cache. An image update or hardware change triggers exactly one recompilation.&lt;/p&gt;
-
-
-
-&lt;p&gt;torch.compile time is hardware independent. The same model compiles in ~52 seconds whether running on H100 or A100. The cache hit (4-6 seconds) is equally consistent across GPU types. This means the optimization works identically regardless of instance type.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Layer 6: Engine initialization&lt;/h2&gt;
-
-
-
-&lt;p&gt;After weights are loaded and kernels compiled, the inference engine must capture CUDA execution graphs and profile KV cache memory. With compiled kernels cached, this completes in 30-45 seconds. Without cache, graph capture triggers additional JIT compilation and takes 60-120 seconds.&lt;/p&gt;
-
-
-
-&lt;p&gt;This is why the torch.compile cache has an outsized impact: it accelerates not just layer 5 but also layer 6. Cached compilation reduces a 2-3-minute combined phase to a 35-50-second combined phase.&lt;/p&gt;
-
-
-
-&lt;p&gt;Framework initialization (Python interpreter startup and &lt;a href="https://thenewstack.io/this-is-how-to-optimize-pytorch-for-faster-model-training/" class="local-link"&gt;PyTorch&lt;/a&gt; import) adds tens of seconds of fixed overhead that cannot be reduced through configuration.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The compounding effect&lt;/h2&gt;
-
-
-
-&lt;p&gt;The six layers compound. Platform fixes (layers 1-3) eliminate 4-8 minutes of overhead: pre-compiled drivers replace 2-3 minutes of runtime compilation, parallel pull reduces image transfer time from 2-4 minutes to 30-60 seconds, and Karpenter keeps node provisioning to its hardware minimum. Configuration changes (layers 4-5) cut the remaining model startup by 80-93%. Engine initialization (layer 6) drops from 60-120 seconds to 30-45 seconds once the compile cache is warm. Together, cold-node TTFTS drops from 8-15 minutes to approximately 5 minutes.&lt;/p&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;64 GB model (Qwen3.6-35B-A3B), TP=2:&lt;/h3&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;td&gt;82s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;65s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;16s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-21%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-80%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;h3 class="wp-block-heading"&gt;203 GB model (Llama-4-Scout), TP=4:&lt;/h3&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;First pod&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Subsequent pod (warm node)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Baseline (no tuning)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;td&gt;457s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ S3 chunk tuning&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;+ torch.compile cache&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;59s&lt;/td&gt;&lt;td&gt;&lt;strong&gt;32s&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Improvement&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;-87%&lt;/td&gt;&lt;td&gt;&lt;strong&gt;-93%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;The warm-node subsequent pod number is what matters most for production. It’s what you pay on every pod restart. The 80-93% reduction is consistent across instance types because the optimizations target software bottlenecks (calling patterns, redundant compilation), not hardware limits.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The cost of cold starts at scale&lt;/h2&gt;
-
-
-
-&lt;p&gt;Why does any of this matter? Because GPU nodes are expensive and inference traffic is bursty.&lt;/p&gt;
-
-
-
-&lt;p&gt;A single p5.48xlarge costs $55/hour on-demand. Even G-family instances commonly used for inference cost $10-20/hour. Every minute of cold start is GPU time you’re paying for but not using. If your autoscaler needs 8+ minutes to bring up new capacity, you must over-provision (burn money on idle GPUs) or accept latency spikes during traffic surges.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;“Every minute of cold start is GPU time you’re paying for but not using.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;When model startup drops to 16-32 seconds on warm nodes, the calculus changes. You can scale more aggressively, keep fewer buffer nodes, and respond to traffic spikes without multi-minute startup delays.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;What we learned&lt;/h2&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Decompose before optimizing.&lt;/strong&gt; For 64 GB models, torch.compile dominates (65%). For 203 GB models, S3 loading dominates (92%). Without measuring each phase independently, we would have optimized the wrong layer.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;The bottleneck flips with model size.&lt;/strong&gt; torch.compile time is roughly constant across model sizes. Weights loading scales linearly. Every team running inference should know which regime they’re in.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;“More parallelism” requires understanding the execution model.&lt;/strong&gt; 256 connections performing sequential work inside each thread is no faster than 17. The bottleneck was the calling pattern, not the concurrency limit.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;15-30 MB can save 53 seconds.&lt;/strong&gt; The most impactful optimization for smaller models was persisting a tiny cache file. Always check whether an expensive computation produces deterministic output before trying to make it faster.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Platform-level control enables optimizations that configuration alone cannot achieve.&lt;/strong&gt; Pre-compiled drivers, default-on parallel image pull, and NVMe auto-mounting are infrastructure-layer decisions that compound upward. Together with the config-only changes at the application layer, these changes reduce cold start time from minutes to seconds.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;The ecosystem is building the right primitives, but cold start lives between them.&lt;/strong&gt; OCI image volumes, DRA, inference-aware routing, and local model caches are all real progress. But the compilation bottleneck and S3 tuning gaps sit in spaces that no upstream Kubernetes primitive addresses. Sometimes the highest-impact optimization is a volume mount and two environment variables, not a new API.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p&gt;For the complete configuration guide, including environment variables, YAML manifests, and instance-specific recommendations, see “&lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/ml-inference-fast-model-loading.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Accelerate model loading on Amazon EKS&lt;/a&gt;” in the Amazon EKS User Guide.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cut-gpu-cold-starts/"&gt;Cut GPU inference cold start from 8 minutes to less than a minute&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Cut GPU inference cold start times from 8 minutes to under 30 seconds with simple configuration and platform fixes.</content:encoded>
-    </item>
-    <item>
       <title>OpenAI launches GPT-6 Astra and says welcome to the “AGI era”</title>
       <link>https://web.archive.org/web/https://thenewstack.io/openai-gpt6-astra-benchmarks/</link>
       <dc:creator>Frederic Lardinois</dc:creator>
@@ -2383,7 +2688,7 @@ model_list:
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9d26802eb6f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9d26802eb6f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="880" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/358eb84a-screenshot-2026-09-03-at-10.51.35-am-1024x880.png" alt="" class="wp-image-22835709"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6a9e81bf7a18f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6a9e81bf7a18f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="880" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/358eb84a-screenshot-2026-09-03-at-10.51.35-am-1024x880.png" alt="" class="wp-image-22835709"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4427,244 +4732,6 @@ $(document).ready(function() {
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-fluency-operating-model/"&gt;Your organization prioritized AI adoption, but you actually need AI fluency.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Moving from AI adoption to AI fluency requires a new hub-and-spoke operating model. Re-engineer your enterprise workflows today.</content:encoded>
-    </item>
-    <item>
-      <title>Claude Fable 5.1 watermark: It has a blind spot developers can’t ignore</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/fable-5-1-watermark/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 01 Sep 2026 20:59:09 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835442</guid>
-      <description>&lt;img width="1024" height="682" src="https://cdn.thenewstack.io/media/2026/09/0af57a1f-robert-anderson-alzb2gv20ty-unsplash-1024x682.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Water droplet" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/0af57a1f-robert-anderson-alzb2gv20ty-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic launched Claude Fable 5.1 on Tuesday with a statistical signature embedded in its generated text, but developers shouldn&amp;#8217;t expect&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/fable-5-1-watermark/"&gt;Claude Fable 5.1 watermark: It has a blind spot developers can’t ignore&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="682" src="https://cdn.thenewstack.io/media/2026/09/0af57a1f-robert-anderson-alzb2gv20ty-unsplash-1024x682.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Water droplet" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/0af57a1f-robert-anderson-alzb2gv20ty-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Anthropic &lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/" class="local-link"&gt;launched Claude Fable 5.1&lt;/a&gt; on Tuesday&lt;/strong&gt; with a statistical signature embedded in its generated text, but developers shouldn&amp;#8217;t expect that signature to appear equally strongly across everything the model produces.&lt;/p&gt;
-
-
-
-&lt;p&gt;Code is one place where the limits of &lt;a href="https://thenewstack.io/anthropic-claude-text-watermark/" class="local-link"&gt;Anthropic&amp;#8217;s watermarking system&lt;/a&gt; become obvious. Instead of adding metadata or hidden characters, the system changes the randomness Claude uses to choose between possible next tokens, which Anthropic says doesn&amp;#8217;t affect the quality or content of its output.&lt;/p&gt;
-
-
-
-&lt;p&gt;Over a sufficiently long response, those token choices create a statistical pattern that can provide evidence that Claude was likely involved in writing or processing the text. That works better with natural language, where the model often has several ways to say the same thing, than with code, where choosing a different variable, operator, or function could change how a program behaves or break it entirely. Anthropic therefore doesn&amp;#8217;t apply the watermark when a particular token is required for accuracy.&lt;/p&gt;
-
-
-
-&lt;p&gt;Developers will also have to adjust to a change in how Claude handles preserved thinking. With Fable 5.1, Anthropic is limiting when new API accounts can carry those thinking blocks into a modified conversation, a practice the company says has also been used to &lt;a href="https://thenewstack.io/glm-5-3-anthropic-distillation/" class="local-link"&gt;distill its models at scale&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Over a sufficiently long response, those token choices create a statistical pattern that can provide evidence that Claude was likely involved in writing or processing the text.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-the-watermark-works"&gt;How the watermark works&lt;/h2&gt;
-
-
-
-&lt;p&gt;Anthropic detailed its plan to meet those requirements on August 14, after signing the EU Code of Practice on Transparency of AI-Generated Content as one of roughly 190 other signatories. The company is applying the watermark worldwide because it says there isn&amp;#8217;t a reliable way to limit it by region and plans to add it to older Claude models over the coming months.&lt;/p&gt;
-
-
-
-&lt;p&gt;The technology is based on Google DeepMind&amp;#8217;s SynthID-Text. It doesn&amp;#8217;t change the probabilities Claude assigns to the next token; instead, it changes the randomness involved in choosing among possible options. Over a long enough response, those choices leave behind a statistical pattern that can later be detected with the right key.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Since the watermark is part of the text itself rather than attached as metadata, simply copying a response somewhere else won&amp;#8217;t remove it. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Since the watermark is part of the text itself rather than attached as metadata, simply copying a response somewhere else won&amp;#8217;t remove it. Anthropic says it can even survive some editing, although rewriting enough of the text will eventually erase the signal.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-code-s-low-entropy-problem"&gt;Code&amp;#8217;s low-entropy problem&lt;/h2&gt;
-
-
-
-&lt;p&gt;Code is where the limits of watermarking become more obvious. If choosing a different token could make an answer incorrect or break the code, Anthropic doesn&amp;#8217;t apply the watermark. The watermark can still appear in less-constrained parts of the output, such as comments, while short responses may not contain enough signal to be reliably detected.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic is beginning to make that detection available through an API in private preview. For now, access is limited to eligible groups, including regulators, law enforcement, media organizations, fact-checkers, and researchers, as well as enterprises that need it for their own AI Act compliance. Anthropic says it plans to make the API more widely available later.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-thinking-blocks-and-distillation"&gt;Thinking blocks and distillation&lt;/h2&gt;
-
-
-
-&lt;p&gt;Another change in Fable 5.1 is aimed at model distillation. Claude&amp;#8217;s Messages API can return encrypted thinking blocks that developers pass back in later turns, allowing the model to continue its reasoning across a conversation.&lt;/p&gt;
-
-
-
-&lt;p&gt;The problem, according to Anthropic, is that changing earlier parts of the conversation while keeping those blocks can cause Claude to decrypt and print its reasoning. That reasoning could then be used to train another model.&lt;/p&gt;
-
-
-
-&lt;p&gt;With Fable 5.1, Anthropic is closing that route by tying preserved thinking to the context that produced it. The restriction applies to new accounts created on or after Aug. 31 across Claude Platform, Amazon Bedrock, Google Cloud Vertex AI and Microsoft Azure Foundry.&lt;/p&gt;
-
-
-
-&lt;p&gt;Existing accounts can continue using Fable 5.1 without the restriction for now, but Anthropic says it will apply to everyone with future model releases.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agent-harnesses-face-tradeoffs"&gt;Agent harnesses face tradeoffs&lt;/h2&gt;
-
-
-
-&lt;p&gt;The restriction creates a less obvious problem for developers building their own agent harnesses. Agent systems don&amp;#8217;t necessarily keep their context static between every model call. A harness might remove old exchanges, summarize earlier history or reorganize a conversation as an agent works through a task. Those are normal &lt;a href="https://thenewstack.io/claude-code-token-reduction/" class="local-link"&gt;context-management techniques&lt;/a&gt;, but they also change the context associated with a thinking block.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic says developers should leave thinking blocks unchanged and keep the prior system prompt, tool definitions, and messages byte-for-byte unchanged. Applications that modify that context will need to change how they manage Claude&amp;#8217;s reasoning state instead of carrying the same thinking blocks forward.&lt;/p&gt;
-
-
-
-&lt;p&gt;Only a small number of customers with custom integrations are expected to be affected, and existing Fable 5.1 API customers are getting time to make changes before the restriction becomes standard in future models.&lt;/p&gt;
-
-
-
-&lt;p&gt;The two changes address different problems, but both add protections without completely &lt;a href="https://thenewstack.io/shopify-claude-code-agentsmd/" class="local-link"&gt;limiting the flexibility&lt;/a&gt; developers have when building with Claude. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The two changes address different problems, but both add protections without completely limiting the flexibility developers have when building with Claude. &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/fable-5-1-watermark/"&gt;Claude Fable 5.1 watermark: It has a blind spot developers can’t ignore&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic&amp;#039;s Fable 5.1 watermarks text but skips code tokens that could break accuracy, while a new API restriction targets model distillation at scale.</content:encoded>
-    </item>
-    <item>
-      <title>Runway wants to generate software as you use it. Solaris is its first step.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/runway-solaris-generated-interfaces/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Tue, 01 Sep 2026 19:44:41 +0000</pubDate>
-      <category>AI Models</category>
-      <category>Frontend Development</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835341</guid>
-      <description>&lt;img width="1024" height="583" src="https://cdn.thenewstack.io/media/2026/09/8a3254e7-screenshot-2026-09-01-at-14.38.41-1024x583.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Runway Solaris screenshot" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/8a3254e7-screenshot-2026-09-01-at-14.38.41.png" /&gt;&lt;p&gt;Runway introduced Solaris on Monday, the first model of a new class of AI systems it calls Interface World Models,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/runway-solaris-generated-interfaces/"&gt;Runway wants to generate software as you use it. Solaris is its first step.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="583" src="https://cdn.thenewstack.io/media/2026/09/8a3254e7-screenshot-2026-09-01-at-14.38.41-1024x583.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Runway Solaris screenshot" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/8a3254e7-screenshot-2026-09-01-at-14.38.41.png" /&gt;
-&lt;p&gt;&lt;a href="https://runway.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Runway&lt;/a&gt; introduced &lt;a href="https://runway.com/news/research/introducing-solaris" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Solaris&lt;/a&gt; on Monday, the first model of a new class of AI systems it calls Interface World Models, which aims to do away with the traditional process of translating designs into code and make the visual interface the application itself.&lt;/p&gt;
-
-
-
-&lt;p&gt;Solaris is a real-time interactive model that generates an interface frame by frame, learning from users&amp;#8217; clicks, drags, and other interactions to determine what to render next. In it, Runway sees an early step towards a new kind of operating layer in which interfaces are generated in real time.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-image-is-the-application-now"&gt;The image is the application now&lt;/h2&gt;
-
-
-
-&lt;p&gt;Runway argues that conventional visual interfaces require designers and developers to translate designs into code and define interactions in advance. With Solaris, Runway promises to bypass this step entirely.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;The Interface World Model handles both rendering and interactions, generating every frame and every response to user input so, as Runway describes it, &amp;#8220;the entire frame becomes the interface.&amp;#8221; In this way, the interface is no longer a sequence of pages but a continuously generated, interactive experience in which &amp;ldquo;users interact directly with the scene itself.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="Introducing Solaris our first Interface World Model | Runway" width="500" height="281" src="https://www.youtube.com/embed/c2yCePPnrSA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;To illustrate its vision, Runway offers several examples of what becomes possible with a generative interface: dragging and dropping a shirt from a rack onto an image of yourself; moving furniture around a room; watching a salad bowl change as you drag and drop ingredients from a pile.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-learning-reasoning-and-rendering-in-real-time"&gt;Learning, reasoning, and rendering in real time&lt;/h2&gt;
-
-
-
-&lt;p&gt;Solaris is built on Runway&amp;#8217;s Gen-4.5 video generation model and follows the path of GWM-1, its general world model. It observes a user&amp;#8217;s clicks, drags, and other interactions as signals to generate the next frame. In doing so, it learns what should happen visually each time a user takes an action so it can respond without requiring each interaction to be explicitly programmed.&lt;/p&gt;
-
-
-
-&lt;p&gt;Runway says it cut the number of denoising steps, taught the model to generate frames autoregressively, and trained it on its own outputs to maintain visual quality over long sessions.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt; By doing away with the implementation step where visual designs are translated into code, the image users see quite literally is the application.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;It also pairs Solaris with a language model to separate reasoning and rendering. Working together, the language model interprets user requests, decides what the application should do next, and creates prompts to guide rendering. Solaris, meanwhile, generates that behavior in real time.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Runway argues that agents trained on conventional, coded interfaces can struggle to generalize when layouts change. It says that Solaris can eanble agents can train on ever-changing interfaces and never-before-seen layouts.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Altogether, Runway&amp;#8217;s approach boils down to three new software capabilities: interfaces can be visual, &amp;#8220;alive,&amp;#8221; and open-ended, continuously responding to user actions. By doing away with the implementation step in which visual designs are translated into code, the image users see is literally the application.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-you-stand-to-gain-when-you-lose-the-translation-step-nbsp"&gt;What you stand to gain when you lose the translation step&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p&gt;Runway conducted two evaluations examining coded and generated interfaces.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;First, several state-of-the-art multimodal language models, including Claude Fable 5, were tasked with recreating website interfaces from a single screenshot. &lt;/p&gt;
-
-
-
-&lt;p&gt;Across 30 interfaces, as visuals became more complex, reconstruction quality consistently fell, which Runway points to as evidence that translating an interface through an intermediate representation loses information. But because Solaris operates directly on the visual interface, the company claims it can preserve the interface&amp;#8217;s complete visual and semantic state from the first frame onward.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Next, it tested whether a coded interface can recreate &amp;#8220;the same sense of a living, responsive environment&amp;#8221; as an Interface World Model can.&lt;/p&gt;
-
-
-
-&lt;p&gt;Runway stacked Solaris against the state-of-the-art language model Claude Opus 5, giving both models the same starting image and interaction requests. Per Runway, across almost 7,500 pairwise judgments and 30 interaction examples, the 250 participants in its user study preferred Solaris for better adherence to the given instructions and for behaving more naturally within the scene in 61% and 71% of comparisons, respectively.&lt;/p&gt;
-
-
-
-&lt;p&gt;Runway says the evaluation results point to a fundamental difference between coded interfaces and Interface World Models: the former treats each user interaction as an isolated update to the environment, whereas the latter generates interactions that remain coherent within the scene.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-advent-of-a-new-operating-layer"&gt;The advent of a new operating layer?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Runway says it expects interface generation to follow the development of image and video generation, with successive models improving speed, coherence, and controllability.&lt;/p&gt;
-
-
-
-&lt;p&gt;For starters, it says that keeping text stable and legible is a top challenge, along with maintaining coherence over long sessions, grounding generation in richer, verified context, and integrating generated interfaces with the rest of the software stack.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Looking ahead, it envisions a new operating layer that can generate useful interfaces to suit nearly any user need. Personalized storefronts and tutorials are just some of the possibilities Runway puts forth, even going so far as to question whether apps will remain the basic unit of interaction.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Runway says it&amp;#8217;s working with partners to launch Solaris publicly and is accepting requests for early access.&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/runway-solaris-generated-interfaces/"&gt;Runway wants to generate software as you use it. Solaris is its first step.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>The first model of a new class of AI systems Runway calls Interface World Models turns the visual into the application itself.</content:encoded>
     </item>
   </channel>
 </rss>
