@@ -229,7 +229,7 @@ def generate_index(feeds_info, out_path, now_str, config_edit_url=None):
 <html lang="en" class="dark">
 \t<head>
 \t\t<meta charset="utf-8">
-\t\t<meta name="viewport" content="width=device-width, initial-scale=1.0">
+\t\t<meta name="viewport" content="width=device-width">
 \t\t<title>Neutralized Feeds</title>
 \t\t<link rel="stylesheet" href="../setup/default.css">
 \t\t<link rel="stylesheet" href="../setup/basecoat.min.css">
