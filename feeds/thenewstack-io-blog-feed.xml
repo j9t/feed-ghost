@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 11 Sep 2026 21:27:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 15:59:58 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,613 @@
       <height>32</height>
     </image>
     <item>
+      <title>Why MCP security is about permissions overhaul</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/mcp-security-permissions-overhaul/</link>
+      <dc:creator>Mohit Bansal</dc:creator>
+      <pubDate>Sat, 12 Sep 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Model Context Protocol (MCP)</category>
+      <category>Security</category>
+      <category>sponsor-webflow</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836597</guid>
+      <description>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark subterranean grid pattern representing non-human identity layers and AI security architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash.jpg" /&gt;&lt;p&gt;Anthropic&amp;#8217;s Model Context Protocol (MCP) went into production in late 2024. It spread rapidly after that.&amp;#160; Since then, thousands of&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-security-permissions-overhaul/"&gt;Why MCP security is about permissions overhaul&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark subterranean grid pattern representing non-human identity layers and AI security architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash.jpg" /&gt;
+&lt;p&gt;Anthropic&amp;#8217;s Model Context Protocol (MCP) went into production in late 2024. It spread rapidly after that.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Since then, thousands of MCP servers have been created. Microsoft, Google, and OpenAI embraced it. The Linux Foundation took over protocol maintenance. Today, MCP is considered critical infrastructure. It sits between an AI agent and the tools and data it interacts with. Most teams implemented it the same way they implement any other integration standard. People installed it and trusted the defaults.&lt;/p&gt;
+
+
+
+&lt;p&gt;The understanding that emerged in 2026 is that the problem wasn&amp;#8217;t in the infrastructure. The problem is in the permissions below this infrastructure.&lt;/p&gt;
+
+
+
+&lt;p&gt;This matters because it changes how people approach MCP security problems. A patch solves a specific problem on a particular server. The permission change requires asking a complicated question.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The understanding that emerged in 2026 is that the problem wasn&amp;#8217;t in the infrastructure. The problem is in the permissions below this infrastructure.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Why did that particular server require access to something it never needed to be there? According to the SANS 2026 Identity Threats Survey, which surveyed more than 500 security experts, 76 percent of businesses noted an increase in non-human identities. 74 percent of businesses use AI systems that rely on standing credentials to work independently. This same survey revealed that none of the protection measures, such as approval processes, sandboxing, or logging, is used by more than 40 percent of businesses.&lt;/p&gt;
+
+
+
+&lt;p&gt;Look past the individual disclosures, and the same root cause keeps showing up. In May 2025, an attacker used prompt injection against the &lt;a href="https://invariantlabs.ai/blog/mcp-github-vulnerability" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub MCP server&lt;/a&gt; to pull private repository data, not because the server had a bug in the traditional sense, but because the personal access token behind it was scoped far wider than the task required. Days later, a logic flaw in an &lt;a href="https://www.bleepingcomputer.com/news/security/asana-warns-mcp-ai-feature-exposed-customer-data-to-other-orgs/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Asana MCP integration&lt;/a&gt; allowed cross-tenant access because the permission layer never enforced the isolation boundary between customers.&lt;/p&gt;
+
+
+
+&lt;p&gt;Security researchers now group it under a couple of recognizable patterns: tool poisoning, where a server&amp;#8217;s own tool description carries hidden instructions, and the confused deputy problem, where an agent inherits more trust than the task in front of it requires.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-a-permissions-redesign-actually-asks-you-to-check"&gt;What a permissions redesign actually asks you to check&lt;/h2&gt;
+
+
+
+&lt;p&gt;The solution that keeps coming up isn&amp;#8217;t a better scanner, but compartmentalizing access. GitHub&amp;#8217;s &lt;a href="https://github.blog/ai-and-ml/generative-ai/how-to-build-secure-and-scalable-remote-mcp-servers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Engineering Blog&lt;/a&gt;, which discusses developing secure remote MCP servers, suggests the following: every instance must have its own secrets for the specific task, all requests must be limited to the acting user, and authorization must be based on action rather than assumed after user authentication. Replace fixed, permanent tokens with dynamic, temporary credentials generated on the fly.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Replace fixed, permanent tokens with dynamic, temporary credentials generated on the fly.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;This solution is tiered and has been working until now. In &lt;a href="https://webflow.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Webflow&lt;/a&gt;, we treat MCP integrations in the same way as we treat other third-party components with access to customer data.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="582" src="https://cdn.thenewstack.io/media/2026/09/22933462-image1-1024x582.png" alt="The MCP server credential scope to review cycle." class="wp-image-22836599"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Each credential the team gives to an AI agent was probably a good idea when it was provisioned. The tough call isn&amp;#8217;t whether that access was a good idea at the time. It&amp;#8217;s whether it is anymore, and most teams aren&amp;#8217;t in the habit of making it.&lt;/p&gt;
+
+
+
+&lt;p&gt;Some things to consider while integrating any MCP:&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;What can this credential reach now, rather than the scope for which it was intended?&lt;/strong&gt; The scope of access is likely to creep. No review will be scheduled until something breaks.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Is authorization granted on a per-site, per-repository, or per-Workspace basis, or all or nothing?&lt;/strong&gt; Be leery of any integration that only provides organizational access. If an integration doesn&amp;#8217;t give you control over scope at connection time, that&amp;#8217;s the finding, not a footnote.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Does the AI agent inherit the person&amp;#8217;s existing credentials, or create entirely new credentials that bypass those permissions?&lt;/strong&gt; The latter is how a GitHub personal access token can have more access to repos than the user who authorized it.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Does logging assign accountability for what the agent does in the same way it does for a human? &lt;/strong&gt;If the agent&amp;#8217;s activities are invisible or unattributable, incident response starts at ground zero.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Do changes from the &lt;a href="https://thenewstack.io/agent-runtime-application-server/"  data-wpil-monitor-id="4077" class="local-link"&gt;agent go straight into production&lt;/a&gt;, or do they pass through a reviewable process like draft, branch, and approval queue first? &lt;/strong&gt;This is just applying the security discipline the team already has around human access controls to a newer class of entity.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-identity-comes-before-access"&gt;Identity comes before access&lt;/h2&gt;
+
+
+
+&lt;p&gt;Before you can talk about what an agent is allowed to do, you have to answer a harder question: what is an agent, identity-wise? Right now the honest answer for most of the industry is &amp;#8220;a human&amp;#8217;s OAuth token wearing a trenchcoat.&amp;#8221; The agent doesn&amp;#8217;t have &lt;a href="https://thenewstack.io/can-dns-become-the-basis-for-ai-agent-identity/" class="local-link"&gt;its own identity&lt;/a&gt;. It inherits the scope, the blast radius, and often the literal credential of whoever spun it up.&lt;/p&gt;
+
+
+
+&lt;p&gt;That&amp;#8217;s a problem the moment agents stop being ephemeral. Most agents today live for minutes to hours: a task starts, the agent runs, it dies. But that&amp;#8217;s changing. We&amp;#8217;re heading toward agents that run for weeks or months, and a thing that lives that long needs its own identity, not a borrowed one, with permissions that get stricter, not looser, as the lifespan grows.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;Right now the honest answer for most of the industry is &amp;#8216;a human&amp;#8217;s OAuth token wearing a trenchcoat.'&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Think of it like the difference between a contractor you bring in for an afternoon and a contingent worker embedded in your systems for a quarter. You wouldn&amp;#8217;t give the afternoon contractor a permanent badge, and you shouldn&amp;#8217;t give the quarter-long agent the same access as a five-minute script.&lt;/p&gt;
+
+
+
+&lt;p&gt;OAuth wasn&amp;#8217;t built for this, and it&amp;#8217;s not just a missing feature; it&amp;#8217;s a structural mismatch, and at root a UX failure: a consent model built for a human in the loop, applied to a process that has none.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Its whole model assumes a human sits in front of a scope dialog and makes an informed choice, and we all know how that goes: nobody reads the scope list; they click allow. That already-shaky assumption collapses completely when there&amp;#8217;s no human reading anything.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The base spec has no concept of &amp;#8220;this client is an agent&amp;#8221; or &amp;#8220;this grant is expected to run for six months,&amp;#8221; just a server-set expiry after the fact. A few IETF drafts are starting to sketch a fix: binding token lifetime to a task&amp;#8217;s actual lifecycle and tagging &lt;a href="https://thenewstack.io/agent-workload-identity-authentication/"  data-wpil-monitor-id="4078" class="local-link"&gt;agents with stable identities&lt;/a&gt; distinct from the human who invoked them. Still, those are early-stage proposals, not deployed standard(s).&lt;/p&gt;
+
+
+
+&lt;p&gt;We don&amp;#8217;t have a clean answer for where the line sits between &amp;#8220;short-lived task, broad-ish access&amp;#8221; and &amp;#8220;long-lived agent, locked down tight.&amp;#8221; Webflow&amp;rsquo;s security team is actively working through this, and we&amp;#8217;re comparing notes with peers across the industry rather than pretending we&amp;#8217;ve solved it. But the framing itself matters: treat agent lifespan as a first-class input to your permission model, not an afterthought.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Permissions aren&amp;#8217;t a checkbox at provisioning&lt;/h2&gt;
+
+
+
+&lt;p&gt;A permissions redesign, a protocol update, and an identity model represent three distinct levels of the same problem. For each level to remain effective, the other two must be effective too.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;If you create a credential with the correct scope on Day One, but then no one ever verifies that the credential remains valid, your efforts were wasted. Similarly, if you develop a new protocol that finally distinguishes an agent from the human behind it, but all integrations continue to provide standing, all-or-nothing access by default, you have done little good. Neither approach addresses the deeper question at the root of both: what an agent is permitted to do should depend on how long it will exist.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;The teams who get this right will be the teams who stopped viewing scope, identity, and lifetime as three separate evaluations, and began treating them as a single setting.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Right now, nearly all components of the technology stack don&amp;#8217;t know how to ask that question, much less answer it. The teams who get this right will not be the ones who developed a &lt;a href="https://thenewstack.io/why-docker-scout-is-changing-how-developers-scan-for-vulnerabilities/" class="local-link"&gt;more efficient scanning&lt;/a&gt; tool. Rather, they will be the teams who stopped viewing scope, identity, and lifetime as three separate evaluations that occur once per agent instance, and began treating them as a single setting that must be evaluated each time the agent&amp;#8217;s function or existence changes.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;This article was originally published on September 9, 2026, on &lt;/em&gt;&lt;a href="https://webflow.com/blog/mcp-security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;webflow.com&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-security-permissions-overhaul/"&gt;Why MCP security is about permissions overhaul&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>MCP security requires a total permissions overhaul. Discover how to secure AI agent identities, standing credentials, and access scope.</content:encoded>
+    </item>
+    <item>
+      <title>“Same mission, bigger stage”: OpenAI hires Git AI founders to help Codex prove its ROI</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-hires-git-ai/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Sat, 12 Sep 2026 14:46:53 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836607</guid>
+      <description>&lt;img width="1024" height="715" src="https://cdn.thenewstack.io/media/2026/09/00c8f2e0-manaa-graphic-yzdokvgnfhm-unsplash-1024x715.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Data on a computer screen" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/00c8f2e0-manaa-graphic-yzdokvgnfhm-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI has hired the founders of Git AI, an open-source tool that tracks how much code AI writes and measures&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-hires-git-ai/"&gt;&amp;#8220;Same mission, bigger stage&amp;#8221;: OpenAI hires Git AI founders to help Codex prove its ROI&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="715" src="https://cdn.thenewstack.io/media/2026/09/00c8f2e0-manaa-graphic-yzdokvgnfhm-unsplash-1024x715.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Data on a computer screen" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/00c8f2e0-manaa-graphic-yzdokvgnfhm-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;OpenAI has hired the founders&lt;/strong&gt; of &lt;a href="https://usegitai.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Git AI&lt;/a&gt;, an &lt;a href="https://github.com/git-ai-project/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;open-source tool&lt;/a&gt; that tracks how much code AI writes and measures the performance and cost of coding agents.&lt;/p&gt;
+
+
+
+&lt;p&gt;Taking to LinkedIn late Friday night, &lt;a href="https://www.linkedin.com/in/acunniffe/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aidan Cunniffe&lt;/a&gt; noted that he and his Git AI co-founder &lt;a href="https://www.linkedin.com/in/sashavarlamov/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sasha Varlamov&lt;/a&gt; will join OpenAI&amp;#8217;s Codex team, where they will work on giving businesses better data on how coding agents perform and the returns they generate.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Same mission, bigger stage,&amp;#8221; Cunniffe &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7504340859455246336/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;p&gt;While details of the integration plans are scant, OpenAI&amp;rsquo;s &lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thibault Sottiaux&lt;/a&gt;, a member of technical staff at OpenAI who&amp;#8217;s working on ChatGPT and Codex, &lt;a href="https://x.com/thsottiaux/status/2098569976143806918" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;confirmed on X&lt;/a&gt; that the company wants to use Git AI&amp;#8217;s technology to help businesses understand Codex&amp;#8217;s impact.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;We&amp;#8217;ll make it easier for businesses to see where Codex is making a difference when working through problems for individuals and teams,&amp;#8221; Sottiaux writes.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Excited to welcome Aidan &amp;amp; @&lt;br&gt;Sasha from the Git AI team to OpenAI! &lt;br&gt;&lt;br&gt;They are building in the open and have developed an open-source tool that helps developers understand how coding agents contribute to their codebase. &lt;br&gt;&lt;br&gt;Together, we&amp;rsquo;ll make it easier for businesses to see where&amp;hellip;&lt;/p&gt;&amp;mdash; Tibo (@thsottiaux) &lt;a href="https://x.com/thsottiaux/status/2098569976143806918?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September 12, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;In a separate &lt;a href="https://usegitai.com/blog/git-ai-is-joining-openai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; announcing the deal on Friday, Cunniffe notes that the tie-up reflects a shared focus on measuring the performance and value of AI coding tools. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;OpenAI shares our belief that users should have the data to compare model performance and understand the ROI of every token they spend.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&amp;#8220;OpenAI shares our belief that users should have the data to compare model performance and understand the ROI of every token they spend,&amp;#8221; he writes.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-tracking-ai-generated-code"&gt;Tracking AI-generated code&lt;/h2&gt;
+
+
+
+&lt;p&gt;Git AI, for the uninitiated, is an open-source Git extension that tracks AI-generated code. Every line of code is linked to the agent, model, and prompts that generated it, preserving the context behind a change even after the code has been committed, merged, or rebased.&lt;/p&gt;
+
+
+
+&lt;p&gt;More broadly, it&amp;#8217;s designed to help teams see how much AI-generated code ultimately reaches production, how often it&amp;#8217;s reworked, and where time and tokens are being spent. That data can then be used to compare coding agents and models, and assess whether the money being spent on them is producing useful output.&lt;/p&gt;
+
+
+
+&lt;p&gt;The tool already supports a broad range of coding agents, including OpenAI Codex, Anthropic&amp;#8217;s Claude Code, Cursor, and Google&amp;#8217;s Gemini CLI, as well as background agents including Codex Cloud, Claude Web, Cursor Agent, and Devin.&lt;/p&gt;
+
+
+
+&lt;p&gt;After installation, supported agents automatically report their edits to Git AI. For developers, the pitch is basically: &amp;#8220;Just prompt and commit&amp;#8221;&amp;mdash;they can keep using their coding tools and Git as usual.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="370" src="https://cdn.thenewstack.io/media/2026/09/765c5718-giffy.gif" alt="Git AI" class="wp-image-22836611"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Git AI&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Git AI can then show the split between human- and AI-written code and trace individual lines back to the agent that produced them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-story-so-far"&gt;The story so far&lt;/h2&gt;
+
+
+
+&lt;p&gt;Cunniffe has, in fact, been here before. He founded developer tooling startup Optic in 2018, which built open-source tools around API development, before &lt;a href="https://www.atlassian.com/blog/company-news/optic-acquisition" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Atlassian acquired the company in 2024&lt;/a&gt;. He subsequently joined Atlassian as a principal product manager leading go-to-market efforts for developer tools.&lt;/p&gt;
+
+
+
+&lt;p&gt;Git AI began while Cunniffe was still at Atlassian. He and Varlamov started working on the project in the summer of 2025 as a side project, initially trying to answer one seemingly simple question: how much of their code was actually being written by AI, and what happened to that code afterward?&lt;/p&gt;
+
+
+
+&lt;p&gt;By the &lt;a href="https://usegitai.com/blog/introducing-git-ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;first major release in November&lt;/a&gt;, Cunniffe was publicly describing Git AI as a &amp;#8220;weekend project&amp;#8221; that had grown into something much larger. He subsequently left Atlassian in January 2026 to turn Git AI into a company, building a commercial business around the open-source project.&lt;/p&gt;
+
+
+
+&lt;p&gt;Now, less than a year later, Cunniffe and Varlamov are heading to OpenAI. It is not yet clear what that means for Git AI as a commercial business, but with both founders joining OpenAI, the standalone business will likely be wound down while the open-source project continues.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;The New Stack &lt;/em&gt;has reached out to OpenAI and will update this story when we hear back.&lt;/p&gt;
+
+
+
+&lt;p&gt;Cunniffe, for his part, says OpenAI will continue backing the open-source project.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;We&amp;#8217;ll keep investing in open source, while also giving enterprises the data they need to build effective software factories,&amp;#8221; he writes.&lt;/p&gt;
+
+
+
+&lt;p&gt;How that cross-model independence ultimately holds up under OpenAI stewardship will be one of the more interesting things to watch.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-hires-git-ai/"&gt;&amp;#8220;Same mission, bigger stage&amp;#8221;: OpenAI hires Git AI founders to help Codex prove its ROI&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Git AI can already track how much code Codex and rival agents produce. Now its founders are taking that measurement inside OpenAI itself.</content:encoded>
+    </item>
+    <item>
+      <title>The AI-native SDLC won’t be one process </title>
+      <link>https://web.archive.org/web/https://thenewstack.io/spec-driven-sdlc-gates/</link>
+      <dc:creator>Anirudh Ramanathan</dc:creator>
+      <pubDate>Sat, 12 Sep 2026 14:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>DevOps</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-dynatrace</category>
+      <category>sponsor-signadot</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836558</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/3ae35597-martin-martz-9j04mfj1keg-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Five fuzzy pom-poms — white, pink, magenta, purple, and teal — arranged in a horizontal row across the upper portion of a dark navy background, each casting a small shadow, with colored light washing the backdrop in magenta and teal." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/3ae35597-martin-martz-9j04mfj1keg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic recently published its AI-Native SDLC Playbook. Its central claim is that &amp;#8220;code is no longer the bottleneck.&amp;#8221; When agents&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/spec-driven-sdlc-gates/"&gt;The AI-native SDLC won&amp;#8217;t be one process &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/3ae35597-martin-martz-9j04mfj1keg-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Five fuzzy pom-poms — white, pink, magenta, purple, and teal — arranged in a horizontal row across the upper portion of a dark navy background, each casting a small shadow, with colored light washing the backdrop in magenta and teal." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/3ae35597-martin-martz-9j04mfj1keg-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Anthropic recently published its AI-Native SDLC Playbook&lt;/strong&gt;. Its central claim is that &amp;#8220;code is no longer the bottleneck.&amp;#8221; When agents can produce an implementation in minutes, the constraint moves to everything around the build phase: planning, review, verification, deployment, and governance.&lt;/p&gt;
+
+
+
+&lt;p&gt;The risk, if organizations get this wrong, is producing ten times the changes at the same quality per change or worse, with no way to identify which changes are the bad ones. The traditional answer is that a person looks at each one, and that is exactly what stops working at this volume.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;The risk&amp;hellip; is producing ten times the changes at the same quality per change or worse, with no way to identify which changes are the bad ones.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;The &lt;a href="https://claude.com/blog/the-ai-native-sdlc-playbook" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;playbook&lt;/a&gt; gets the foundations right. What it doesn&amp;#8217;t capture is that an organization&amp;#8217;s process has nuance: it is really a family of processes that vary with the change at hand, not a single flow every change travels through.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-spec-driven-wave"&gt;&lt;strong&gt;The spec-driven wave&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The playbook is part of a broader wave of spec-driven development tooling, including Amazon&amp;#8217;s &lt;a href="https://kiro.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kiro&lt;/a&gt; and GitHub&amp;#8217;s &lt;a href="https://github.com/github/spec-kit" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Spec Kit&lt;/a&gt;. The tools share a common shape. Written artifacts drive the work: an intent document becomes a spec, a plan, a diff, and review findings, all committed to version control. Policy is enforced by deterministic mechanisms such as hooks, rather than by instructions in a prompt. Agents check their own work before a human sees it. Humans own the approvals.&lt;/p&gt;
+
+
+
+&lt;p&gt;But each of these tools also prescribes a particular process: a fixed sequence of stages that produce fixed artifacts, and that every change travels through. Adopting the tool means adopting its process.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-one-organization-runs-many-processes"&gt;&lt;strong&gt;One organization runs many processes&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;No real organization runs a single process. The right process for a change depends on the risk it carries and the accountability it requires. A documentation fix, a dependency upgrade, and a schema migration in a payments service should not travel the same path. They need different levels of verification, different approvers, and different records. In regulated domains, the process itself is part of the compliance obligation: auditors expect a record of who approved each change and based on what evidence. What must be recorded differs by the type of change.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;When a tool prescribes one process, teams route around it for changes that don&amp;#8217;t fit, which is the worst outcome because the real process becomes invisible.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;When a tool prescribes one process, teams route around it for changes that don&amp;#8217;t fit, which is the worst outcome because the real process becomes invisible. Or the vendor keeps adding configuration until the tool becomes a workflow engine that nobody fully understands.&lt;/p&gt;
+
+
+
+&lt;p&gt;The tool should not prescribe a process. It should give the organization a way to define its own.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-processes-as-state-machines"&gt;&lt;strong&gt;Processes as state machines&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;A better model is to define each process as a state machine. The states are facts about a change: reviewed, validated against its dependencies, approved for production. Those facts live in systems no single tool owns: the repository, CI, the cluster, the tracker. So a process cannot be a program that executes steps. It is a set of rules that react to observations about those systems. Each rule specifies:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;The facts it requires before it can fire.&lt;/li&gt;
+
+
+
+&lt;li&gt;Its gate: fire automatically, or wait for a person&amp;#8217;s approval.&lt;/li&gt;
+
+
+
+&lt;li&gt;The permission it grants when it fires, such as merging or deploying.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p&gt;The definition is this set of rules, stored as data and reviewed like code. An organization runs many small machines, one per risk class.&lt;/p&gt;
+
+
+
+&lt;p&gt;At runtime, this behaves nothing like a workflow engine. No component tracks &amp;#8220;we are on step four&amp;#8221;: the process advances when a fact appears in the system that owns it, and rules react. Events that arrive late, twice, or after a restart are handled like any other, because rules only react to current state. The gate is one of a rule&amp;#8217;s conditions, so you can hold firing during an incident or a release freeze without editing any definition.&lt;/p&gt;
+
+
+
+&lt;p&gt;Gates need enforcement. A gate implemented as a prompt instruction depends on the model following it. The agent harness can provide the determinism required to run the state machine and enforce its gates, stopping the agent between actions until a gate is answered, while the infrastructure enforces the rest.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-process-adapts-to-the-change"&gt;&lt;strong&gt;The process adapts to the change&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;One fixed process definition per repository is not enough: every change in that repository would still travel the same path, regardless of its risk. The path a change takes should depend on what the change is, and this routing comes from classifying the change, not from the author choosing a path. The organization defines classification using signals it already has: the paths a change touches, the repository it lives in, a label on its tracking issue, etc.&lt;/p&gt;
+
+
+
+&lt;p&gt;The definitions themselves also need to change over time, and that has to be safe. Because a process definition is data, editing it is itself a change, and it goes through its own gated process. Loosening an approval gate on the release process gets reviewed the way a schema migration does, not edited the way a config file does.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa66da7d8c51&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa66da7d8c51" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="481" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/69869781-img_1-1024x481.png" alt="" class="wp-image-22836561"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge graphic.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Concretely, consider three changes to the same service:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;A documentation fix&lt;/strong&gt; is classified by the paths it touches. Its process has two states: the build passes, and it merges. No person is involved.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A dependency upgrade&lt;/strong&gt; skips design review, but its process requires compatibility evidence: the upgraded service runs its integration tests against real dependencies. A major version bump adds an approval that a patch bump does not.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A schema migration in the payments service&lt;/strong&gt; is classified by the component it touches, no matter what kind of change it claims to be. Its process adds states the others never see: review by a payments owner, validation against production-shaped data, and a release approval from someone accountable for that domain.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p&gt;Each transition, in each path, is logged with who approved it and on what evidence.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-tenets"&gt;&lt;strong&gt;Tenets&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The tenets these processes should follow:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Autonomy is granted per action, and grows over time.&lt;/strong&gt; Each transition is set to fire automatically, require approval, or hold. As agents prove reliable on a class of change, that setting is relaxed, so the process absorbs agent improvements without redesign.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Human attention is spent only where judgment is needed.&lt;/strong&gt; Agent effort keeps getting cheaper; supervision hours do not. A person is brought into the loop only when the decision requires human judgment, and is given the context to decide quickly.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Evidence comes from outside the agent.&lt;/strong&gt; An agent&amp;#8217;s own report never moves a change forward. Transitions fire on facts from systems the agent cannot write to, such as test results and &lt;a href="https://thenewstack.io/enabling-autonomous-agents-with-environment-virtualization/" class="local-link"&gt;validation in a realistic environment&lt;/a&gt;.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;The process record is the audit trail.&lt;/strong&gt; The definition is the written policy, and the transition log shows who approved each step, on what evidence, under which version of the policy.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-quality-at-scale"&gt;&lt;strong&gt;Quality at scale&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p&gt;The playbook and its peers get the foundations right. What is missing is the ability for an organization to define its own processes, vary them by the risk of each change, and evolve them safely. The goal is not fewer humans in the loop. It is spending human judgment only where it is needed, backed by evidence agents cannot produce about themselves, so that quality holds while throughput multiplies.&lt;/p&gt;
+
+
+
+&lt;p&gt;We are building these ideas at &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Signadot&lt;/strong&gt;&lt;/a&gt; and acting as our own guinea pigs, running our own development through this process. If you&amp;#8217;re experimenting with these ideas too, we&amp;#8217;d love to talk!&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/spec-driven-sdlc-gates/"&gt;The AI-native SDLC won&amp;#8217;t be one process &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic says code is no longer the bottleneck. It&amp;#039;s right -- but the process that catches your agent&amp;#039;s mistakes can&amp;#039;t be one size for every change.</content:encoded>
+    </item>
+    <item>
+      <title>Jacob Coxon warns AI could kill us all. Anthropic’s own report exposes safety gaps. </title>
+      <link>https://web.archive.org/web/https://thenewstack.io/coxon-anthropic-ai-monitoring-failures/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Sat, 12 Sep 2026 11:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Observability</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836475</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/130ef9de-jr-korpa-mj2z5r26zv0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract teal composition with overlapping translucent geometric shapes and scattered flecks of red, yellow, white, and black paint." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/130ef9de-jr-korpa-mj2z5r26zv0-unsplash-scaled.jpg" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/coxon-anthropic-ai-monitoring-failures/"&gt;Jacob Coxon warns AI could kill us all. Anthropic’s own report exposes safety gaps. &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/130ef9de-jr-korpa-mj2z5r26zv0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract teal composition with overlapping translucent geometric shapes and scattered flecks of red, yellow, white, and black paint." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/130ef9de-jr-korpa-mj2z5r26zv0-unsplash-scaled.jpg" /&gt;&lt;p&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Former OpenAI and Anthropic researcher Jacob Coxon&lt;/strong&gt; &lt;a href="https://thenewstack.io/anthropic-alignment-superintelligence-warnings/" class="local-link"&gt;made a lot of noise&lt;/a&gt; this week with a viral thread on X. He has since talked to &lt;em&gt;Wired&lt;/em&gt; and &lt;em&gt;Axios&lt;/em&gt;. His warning deserves attention, but another revelation this week gives developers something concrete to investigate.&lt;br&gt;&lt;br&gt;In &lt;a href="https://thenewstack.io/anthropic-claude-cyber-alignment/" class="local-link"&gt;retrospective testing&lt;/a&gt; of the Mythos 5 incident, Anthropic’s offline monitor flagged around 1% of actions. When researchers removed the model’s chain of thought and showed the monitor only user turns, tool calls, and tool results, that rose to about 50%. &lt;/p&gt;
+
+
+
+&lt;p&gt;The model’s written reasoning is what talked the monitor out of flagging that harmful behavior. The offline monitor kept concluding it was operating in a simulation.&lt;/p&gt;
+
+
+
+&lt;p&gt;The lesson is to test whether your monitoring accepts an agent’s justification a little too easily. An AI’s explanation can help a safety monitor reveal a problem, or persuade it to essentially convey, “move along, nothing to see here.”&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;An AI’s explanation can help a safety monitor reveal a problem, or persuade it to essentially convey, “move along, nothing to see here.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Coxon is warning about the pursuit of self-improving superintelligence. Developers are already pointing agents at real credentials during everyday work. Those problems differ substantially, but both deserve attention.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-forecasts-aren-t-checkable-incident-reports-are"&gt;Forecasts aren’t checkable. Incident reports are.&lt;/h2&gt;
+
+
+
+&lt;p&gt;Jacob Coxon’s &lt;a href="https://x.com/hilbertspaess/status/2097476196791709843" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;thread&lt;/a&gt; is short and hard. He says neither of his former employers is acting responsibly, and that both are “racing straight to self-improving superintelligence and gambling with our lives.”&lt;/p&gt;
+
+
+
+&lt;p&gt;Maxwell Zeff pressed him on the end-of-humans mechanism twice &lt;a href="https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in an interview with &lt;em&gt;Wired&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt; Coxon described shutdown avoidance, then biological and cyber threats. His answers explain the concern, but leave substantial questions about how AI will kill us all.&lt;/p&gt;
+
+
+
+&lt;p&gt;Annie Jacobsen, whose books on this stuff I wholeheartedly recommend, &lt;a href="https://x.com/AnnieJacobsen/status/2097826954666033250" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;spelled out the scary biological scenario&lt;/a&gt;: A system that can hack anything, turned loose on the world’s 3,600-plus BSL-3 and BSL-4 labs, is how you get from a software problem to a biological one. For me, Jacobsen’s commentary is the most concrete, real-world implication anyone has given of what Coxon is actually worried about. &lt;/p&gt;
+
+
+
+&lt;p&gt;Two incident reports published in the last few weeks are more useful anyway. &lt;a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI’s report&lt;/a&gt; on the Hugging Face incident, published August 26, traces the whole thing from May 12 to July 20. The agents found a hole in an internal package server and used it to reach the open internet that the same server was supposed to keep them off of. OpenAI rebuilt the server; they got back out. By July 11, they were far enough into Hugging Face to run their own commands on its machines.&lt;/p&gt;
+
+
+
+&lt;p&gt;The model doing most of that was never released. It’s a research version OpenAI runs in-house, with fewer safety checks than the ChatGPT everybody else uses. When the company ran the same work again with those checks switched on, it found that this kind of behavior could drop by more than 100 times.&lt;/p&gt;
+
+
+
+&lt;p&gt;That context matters. &lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/" class="local-link"&gt;Amanda Caswell covered&lt;/a&gt; this in August. The incident demonstrates a serious failure under particular conditions. It also illustrates why the surrounding safeguards belong in any assessment of an agent’s behavior.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-the-monitor-was-talked-out-of-it"&gt;The monitor was talked out of it&lt;/h2&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://thenewstack.io/anthropic-claude-cyber-alignment/" class="local-link"&gt;Anthropic’s assessment&lt;/a&gt;, published on September 9, covers four incidents and analyzes the first three in a scan of roughly 141,000 transcripts, identified a fourth in August while assembling material for METR, then widened the search to roughly 481 million transcripts and reported no additional incidents of similar or greater severity. In each case, the model reached the open internet through a misconfiguration rather than by breaking out of a properly isolated sandbox. That’s an important detail. It makes the evaluation infrastructure part of the story. &lt;/p&gt;
+
+
+
+&lt;p&gt;If you’re a developer, you should look at the monitoring results. Mythos 5 kept reasoning its way to the conclusion that it was operating in a simulation, and the offline monitor read and accepted that reasoning. The limits matter here too: These were cybersecurity evaluations running without released cyber safeguards, Anthropic reports no coordination between models and no concealment, and its independent METR review was planned rather than finished. This is not the same failure as the OpenAI incident. Don’t equate them as similar incidents&lt;/p&gt;
+
+
+
+&lt;p&gt;But yet the shape of it is familiar, and it’s what Adrian Bridgwater &lt;a href="https://thenewstack.io/anthropic-claude-agent-security/" class="local-link"&gt;reported on last week&lt;/a&gt; in his piece on agent observability, which is a useful read if you’re producing agents (who isn’t). Jacob Krell of Suzu Labs put it about as well as it can be put: “The model can recite your constraints and reason past them in the same breath.” Liran Hason of Coralogix added the result: “System guardrails help, but a guardrail only stops what the developer already thought of.”&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-developers-can-take-from-steven-adler-s-recommendations"&gt;What developers can take from Steven Adler’s recommendations&lt;/h2&gt;
+
+
+
+&lt;p&gt;Largely overshadowed this week by Coxon, &lt;a href="https://www.nytimes.com/2026/09/09/opinion/openai-ai-companies-safety-regulation.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Steven Adler’s op-ed&lt;/a&gt; in &lt;em&gt;The New York Times&lt;/em&gt; asks AI companies for four things: disclose incidents including near misses, the way aviation does; keep tamper-evident records of model behavior; never let a model cut power to its own alarm systems; and formally swear off training techniques that undermine researchers’ ability to detect deception. &lt;/p&gt;
+
+
+
+&lt;p&gt;Adler worked for OpenAI from 2020 to 2024 and later founded a nonprofit called Guidelight AI Standards. It has since graded six control practices at the frontier labs using public information and gave out a top mark of C-plus.&lt;/p&gt;
+
+
+
+&lt;p&gt;Guidelight also &lt;a href="https://guidelight.ai/control" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;publishes a Control standard&lt;/a&gt; for frontier labs, recently revised in August. It wants monitors to access the chain of thought and scan both reasoning and actions. &lt;/p&gt;
+
+
+
+&lt;p&gt;But those asks of frontier labs don’t apply to most developers. Here are five you can check on your own setup right now.&lt;/p&gt;
+
+
+
+&lt;style&gt; div.tnsht{--ink:#1B2A4A;--teal:#0D8F8F;--muted:#5D6D7E;--band:#F4F6F8;--line:#DDE3E9; font-family:Arial,Helvetica,"Helvetica Neue",sans-serif;color:var(--ink); background:#FFFFFF;margin:28px 0;max-width:760px;box-sizing:border-box;} div.tnsht *{box-sizing:border-box;} div.tnsht p.tnsht-hed{font-size:17px!important;font-weight:700!important;line-height:1.3!important; margin:0 0 4px!important;padding:0!important;color:var(--ink)!important;} div.tnsht p.tnsht-dek{font-size:13px!important;line-height:1.5!important;margin:0 0 12px!important; padding:0!important;color:var(--muted)!important;} div.tnsht div.tnsht-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch; border:1px solid var(--line);border-radius:5px;background:#FFFFFF;} div.tnsht table{border-collapse:collapse!important;border-spacing:0!important;width:100%!important; margin:0!important;padding:0!important;border:0!important;font-size:14px!important; background:#FFFFFF!important;display:table!important;table-layout:auto!important;} div.tnsht thead{background:transparent!important;} div.tnsht tr{background:transparent!important;border:0!important;} div.tnsht thead tr th{background-color:#1B2A4A!important;background-image:none!important; color:#FFFFFF!important;font-size:11.5px!important;font-weight:700!important; text-transform:uppercase!important;letter-spacing:.05em!important;line-height:1.35!important; text-align:left!important;vertical-align:bottom!important;padding:10px 14px!important; border:0!important;white-space:normal!important;} div.tnsht thead tr th:first-child{width:34%;} div.tnsht tbody tr th,div.tnsht tbody tr td{padding:11px 14px!important; border:0!important;border-bottom:1px solid var(--line)!important; color:var(--ink)!important;background-color:#FFFFFF!important;background-image:none!important; font-size:14px!important;line-height:1.45!important;vertical-align:top!important; white-space:normal!important;} div.tnsht tbody tr th{text-align:left!important;font-weight:700!important;} div.tnsht tbody tr td{text-align:left!important;font-weight:400!important;} div.tnsht tbody tr:nth-child(even) th, div.tnsht tbody tr:nth-child(even) td{background-color:#F4F6F8!important;} div.tnsht tbody tr:last-child th, div.tnsht tbody tr:last-child td{border-bottom:0!important;} div.tnsht p.tnsht-foot{margin:10px 0 0!important;padding:0!important;font-size:11.5px!important; line-height:1.5!important;color:var(--muted)!important;} div.tnsht p.tnsht-foot a{color:var(--teal)!important;text-decoration:underline;} @media (max-width:520px){ div.tnsht table{font-size:13px!important;} div.tnsht tbody tr th,div.tnsht tbody tr td{padding:9px 10px!important;font-size:13px!important;} div.tnsht thead tr th{padding:9px 10px!important;} } &lt;/style&gt; &lt;div class="tnsht"&gt; &lt;p class="tnsht-hed"&gt;Five checks you can run on your own agent setup&lt;/p&gt; &lt;p class="tnsht-dek"&gt;Steven Adler’s asks of the frontier labs, applied one layer down.&lt;/p&gt; &lt;div class="tnsht-wrap"&gt; &lt;div class="table-scroll-wrap"&gt;&lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th scope="col"&gt;Check&lt;/th&gt; &lt;th scope="col"&gt;What passes&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt;&lt;th scope="row"&gt;Someone reads the near misses&lt;/th&gt; &lt;td&gt;An agent crosses a line and nothing breaks. There’s still a record, a person who looks at it, and a copy the agent can’t reach.&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;The agent can’t edit its own history&lt;/th&gt; &lt;td&gt;Logs are append-only and stored outside the agent’s reach. If its credentials can delete the log, the log is decorative.&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;The agent can’t touch its own oversight&lt;/th&gt; &lt;td&gt;Separate tokens help. Then check whether it can shut off monitoring, rewrite an approval rule or get around the kill switch.&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;Rule-breaking gets blocked and logged&lt;/th&gt; &lt;td&gt;In a test environment, hand it a job it can only finish by breaking a rule. Judge the monitor on what it does with the action, not with the agent’s account of it.&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;The explanation doesn’t change the answer&lt;/th&gt; &lt;td&gt;Run the same rule-breaking action past your monitor twice. Change nothing but the explanation, one flat and one reassuring. If the reassuring version gets flagged less, you’ve found the problem.&lt;/td&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;/div&gt; &lt;/div&gt; &lt;p class="tnsht-foot"&gt;Sources: &lt;a href="https://www.nytimes.com/2026/09/09/opinion/openai-ai-companies-safety-regulation.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Steven Adler, The New York Times&lt;/a&gt;; &lt;a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic alignment assessment&lt;/a&gt;, Sept. 9, 2026.&lt;/p&gt; &lt;/div&gt;
+
+
+
+&lt;p&gt;These checks do not establish that frontier alignment is solved. They give a team evidence about the system it operates on and a clearer account of where its protections need work.&lt;/p&gt;
+
+
+
+&lt;p&gt;Anthropic’s report is why I’d include that last test in a deployment review. Hold the action and its permissions constant, change the explanation, and see whether your monitor changes its judgment.&lt;/p&gt;
+
+
+
+&lt;p&gt;That won’t settle Coxon’s warning. Will AI kill us all? I don’t know. But I know developers need to test their agents’ permissions, protect their logs, and make sure a convincing explanation can’t talk a safety monitor into overlooking an unauthorized action.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/coxon-anthropic-ai-monitoring-failures/"&gt;Jacob Coxon warns AI could kill us all. Anthropic’s own report exposes safety gaps. &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>This week, Anthropic reported that an AI’s explanation led a safety monitor to overlook harmful actions. Developers can test for that failure.</content:encoded>
+    </item>
+    <item>
       <title>OpenAI’s researchers burned $7,000 a day on AI agents — now it’s opening the floodgates</title>
       <link>https://web.archive.org/web/https://thenewstack.io/openai-agents-api-compute/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,19 +635,29 @@
       <category>AI Infrastructure</category>
       <category>Cloud Services</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22836548</guid>
-      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="speed abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI rolled out its Agents API in public beta Thursday, opening the backend behind Codex to developers looking to run&lt;/p&gt;
+      <description>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="speed abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI rolled out its Agents API in public beta Thursday, opening the backend behind Codex to developers looking to run&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-agents-api-compute/"&gt;OpenAI’s researchers burned $7,000 a day on AI agents — now it’s opening the floodgates&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="speed abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;OpenAI rolled out its Agents API in public beta Thursday, opening the backend behind Codex to developers looking to run agents unattended for days.&lt;br&gt;&lt;br&gt;Now, developers don&amp;rsquo;t have to build their own system to keep an agent going because the API keeps track of the job as it progresses and gives the agent somewhere to execute its work, even when a task stretches well beyond a single context window.&lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-1024x556.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="speed abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/31ec027a-egor-komarov-dhnwpyd9qba-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;OpenAI rolled out its Agents API&lt;/strong&gt; in public beta Thursday, opening the backend behind Codex to developers looking to run agents unattended for days.&lt;br&gt;&lt;br&gt;Now, developers don&amp;#8217;t have to build their own system to keep an agent going because the API tracks the job as it progresses and gives the agent somewhere to execute its work, even when a task stretches well beyond a single context window.&lt;/p&gt;
 
 
 
-&lt;p&gt;Although that makes long-running agents easier to try, it also gives developers more ways to burn through compute. Interestingly enough, on the same day Agents API launched, OpenAI paused new sign-ups for its $200-a-month Pro plan after demand for GPT-6 Astra strained capacity. &lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thibault Sottiaux&lt;/a&gt;, engineering lead for Codex, &lt;a href="https://x.com/thsottiaux/status/2098113585683808624" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said on X &lt;/a&gt;that Pro subscriptions &amp;ldquo;put the most strain on our systems,&amp;rdquo; adding that OpenAI was working to add capacity &amp;ldquo;as fast as we can.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;That makes long-running agents easier to try, but it also gives developers more ways to burn through compute. Interestingly enough, on the same day Agents API launched, OpenAI paused new sign-ups for its $200-a-month Pro plan after demand for GPT-6 Astra strained capacity. &lt;/p&gt;
 
 
 
-&lt;p&gt;The Agents API and ChatGPT Pro are separate products, so there&amp;#8217;s no reason to assume one is taking capacity from the other. Still, the timing stands out as the company is making it easier for developers to run agents for hours or days while &lt;a href="https://x.com/thsottiaux/status/2098113585683808624" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pulling back access to its heaviest-use consumer plan&lt;/a&gt;, working to add more capacity.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thibault Sottiaux&lt;/a&gt;, engineering lead for Codex, writes on X that Pro subscriptions &amp;#8220;put the most strain on our systems,&amp;#8221; adding that OpenAI was working to add capacity &amp;ldquo;as fast as we can.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;To make sure our current users have an incredible experience and continued access to Astra, we are going to pause subscriptions to our $200 Pro plan. These put the most strain on our systems and we wanted to take the smallest step that allows us to continue giving the broadest&amp;hellip; &lt;a href="https://t.co/WhLEm3HBL7" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;https://t.co/WhLEm3HBL7&lt;/a&gt;&lt;/p&gt;&amp;mdash; Tibo (@thsottiaux) &lt;a href="https://x.com/thsottiaux/status/2098113585683808624?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September 10, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The Agents API and ChatGPT Pro are separate products, so there&amp;#8217;s no reason to assume one is taking capacity from the other. Still, the timing stands out: the company is making it easier for developers to run agents for hours or days while &lt;a href="https://x.com/thsottiaux/status/2098113585683808624" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pulling back access to its heaviest-use consumer plan&lt;/a&gt; and working to add more capacity.&lt;/p&gt;
 
 
 
@@ -62,11 +679,11 @@
 
 
 
-&lt;p&gt;OpenAI has already seen what this looks like inside its own shop. In a &lt;a href="https://openai.com/index/research-acceleration-view-inside-openai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;research report published September 6&lt;/a&gt;, OpenAI said its research organization was logging 3.1 agent-workdays for every human workday by mid-August, measured in standard eight-hour equivalents. The median researcher, ranked by agent usage, was spending more than $600 per day on inference at API prices, while &lt;a href="https://thenewstack.io/openai-agent-research-bottleneck/" class="local-link"&gt;the 90th percentile exceeded $7,000&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;OpenAI has already seen this inside its own shop. In a &lt;a href="https://openai.com/index/research-acceleration-view-inside-openai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;research report published September 6&lt;/a&gt;, OpenAI said its research organization was logging 3.1 agent-workdays for every human workday by mid-August, measured in standard eight-hour equivalents. The median researcher, ranked by agent usage, was spending more than $600 per day on inference at API prices, while &lt;a href="https://thenewstack.io/openai-agent-research-bottleneck/" class="local-link"&gt;the 90th percentile exceeded $7,000&lt;/a&gt;.&lt;/p&gt;
 
 
 
-&lt;p&gt;Before June, OpenAI&amp;#8217;s researchers were still putting in more hours than their agent but by&amp;nbsp;mid-August, the agents were doing three times as much work.&lt;/p&gt;
+&lt;p&gt;Before June, OpenAI&amp;#8217;s researchers were still putting in more hours than their agent, but by&amp;nbsp;mid-August, the agents were doing three times as much work.&lt;/p&gt;
 
 
 
@@ -96,7 +713,7 @@
 
 
 
-&lt;p&gt;The Astra rollout offers a preview of what that could look like. OpenAI stopped accepting new Pro subscribers less than two weeks after &lt;a href="https://thenewstack.io/gpt6-astra-developer-access-delayed/" class="local-link"&gt;the model launched on September 3&lt;/a&gt;, saying those accounts put the most strain on its systems. The Agents API has its own rate limits and usage tiers, so the Pro pause doesn&amp;#8217;t directly affect developers using it, but the company is already having to manage capacity around its newest model.&lt;/p&gt;
+&lt;p&gt;The Astra rollout offers a preview of what that could look like. OpenAI stopped accepting new Pro subscribers less than two weeks after &lt;a href="https://thenewstack.io/gpt6-astra-developer-access-delayed/" class="local-link"&gt;the model launched on September 3&lt;/a&gt;, saying those accounts put the most strain on its systems. The Agents API has its own rate limits and usage tiers, so the Pro pause doesn&amp;#8217;t directly affect developers using it. Still, the company is already having to manage capacity around its newest model.&lt;/p&gt;
 
 
 
@@ -104,7 +721,7 @@
 
 
 
-&lt;p&gt;The more agents developers run, and the longer they run them, the faster that usage adds up. One developer might have several agents working at once, each going back to the model throughout the task. So headcount alone doesn&amp;#8217;t tell you much about how much compute is being used.&lt;/p&gt;
+&lt;p&gt;The more agents developers run, and the longer they run them, the faster that usage adds up. One developer might have several agents working at once, each going back to the model throughout the task. So headcount alone doesn&amp;#8217;t tell you much about how much compute you&amp;#8217;re using.&lt;/p&gt;
 
 
 
@@ -128,7 +745,7 @@
       <category>AI Strategy</category>
       <category>Software Development</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22836501</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/b13afb24-logan-voss-jpgocgsx3wa-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shattered glass" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/b13afb24-logan-voss-jpgocgsx3wa-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI companies have spent the last few years competing to build the best models, faster than the other, with each&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/b13afb24-logan-voss-jpgocgsx3wa-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shattered glass" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/b13afb24-logan-voss-jpgocgsx3wa-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI companies have spent the last few years competing to build the best models, faster than the other, with each&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-slowing-ai-development/"&gt;OpenAI&amp;#8217;s safety system is already cutting off API responses mid-task&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/b13afb24-logan-voss-jpgocgsx3wa-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shattered glass" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/b13afb24-logan-voss-jpgocgsx3wa-unsplash-scaled.jpg" /&gt;
@@ -2270,7 +2887,7 @@ ring bytes =~ 62,500 pps x 0.1 s x ~24 bytes x 2 directions
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa50e7ba075a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa50e7ba075a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/2e42e65c-image-1024x512.png" alt="" class="wp-image-22836238"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa66da8097cc&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa66da8097cc" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/2e42e65c-image-1024x512.png" alt="" class="wp-image-22836238"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3389,467 +4006,6 @@ ecommerce.billing.invoice imports ecommerce.shipping.calculator
 &lt;p&gt;Anthropic did not respond to a request for comment.&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-alignment-superintelligence-warnings/"&gt;&amp;#8220;It could kill us all&amp;#8221;: what Anthropic&amp;#8217;s own researchers really think about superintelligence&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
-    </item>
-    <item>
-      <title>How much control should AI get? A CISO roundtable takes on SOC autonomy</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-soc-autonomy/</link>
-      <dc:creator>Carly Page</dc:creator>
-      <pubDate>Wed, 09 Sep 2026 15:38:58 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Operations</category>
-      <category>Security</category>
-      <category>sponsored-webinar</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836071</guid>
-      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/07/feaa8b19-andania-humaira-9jlcaeefkio-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a robot with a headset and antenna sitting between empty office cubicles, with a phone handset and looping white cables running around it, depicting an AI agent standing in for a human customer support worker." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/feaa8b19-andania-humaira-9jlcaeefkio-unsplash-scaled.jpg" /&gt;&lt;p&gt;Security operations centers have struggled with alerts for years, and AI agents offer a new way to tackle it: Enable&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-soc-autonomy/"&gt;How much control should AI get? A CISO roundtable takes on SOC autonomy&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/07/feaa8b19-andania-humaira-9jlcaeefkio-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a robot with a headset and antenna sitting between empty office cubicles, with a phone handset and looping white cables running around it, depicting an AI agent standing in for a human customer support worker." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/07/feaa8b19-andania-humaira-9jlcaeefkio-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Security operations centers have struggled with alerts for years&lt;/strong&gt;, and AI agents offer a new way to tackle it: Enable machines investigate some of those alerts themselves.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;That&amp;#8217;s already starting to happen:&lt;/strong&gt; Security teams are experimenting with AI that can pull together signals from different systems, investigate suspicious activity, and recommend next steps to humans in the loop.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;There&amp;rsquo;s an obvious appeal:&lt;/strong&gt; SOC analysts have finite time and attention, while the volume of potential threats does not come with the same constraint. Attackers are also getting access to AI tools that can accelerate parts of their own operations. Simply giving analysts better ways to work through an ever-growing queue may only get security teams so far.&lt;/p&gt;
-
-
-
-&lt;p&gt;But moving from AI-assisted security to increasingly autonomous security creates a new problem: &lt;em&gt;&lt;strong&gt;How much control are organizations actually prepared to hand over?&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;That question is at the heart of &lt;a href="https://thenewstack.io/webinar/the-ai-speed-soc-a-peer-workshop-for-security-leaders/" class="local-link"&gt;&lt;em&gt;The New Stack&lt;/em&gt;&amp;rsquo;s AI-Speed SOC CISO Roundtable on September 15&lt;/a&gt;, where security leaders will discuss how far to let AI agents go &amp;mdash; and when humans need the final say.&lt;/p&gt;
-
-
-
-&lt;p&gt;There is a big difference between asking an AI agent to investigate a suspicious login and allowing it to disable the account responsible for it. The same goes for isolating an endpoint, blocking network traffic, or making other changes that could immediately impact the business. An autonomous agent could potentially make those decisions much faster and at much greater scale than a human analyst.&lt;/p&gt;
-
-
-
-&lt;p&gt;The model is only part of the trust equation. Security teams also need to know what an agent is doing, when a human gets the final say and, crucially, whether they can undo a bad decision. That could mean putting some fairly hard limits on autonomy,&amp;nbsp; including a way to shut the whole thing down if an agent goes off course.&lt;/p&gt;
-
-
-
-&lt;p&gt;Giving agents more responsibility also changes the role of the people working alongside them. If AI handles a large chunk of routine investigation, analysts could spend less time working through queues and more time threat hunting, making judgment calls and overseeing the agents doing the repetitive work. The SOC analyst starts to look less like an investigator and more like an orchestrator.&lt;/p&gt;
-
-
-
-&lt;p&gt;Eventually, the bigger change may be to the SOC itself. &amp;ldquo;Continuous detection and response&amp;rdquo; has become familiar security language, but AI agents could make it something more literal. Instead of detection, investigation, and response being separate steps, an agent could move between them, with what it learns during one investigation feeding directly into how the next threat is detected.&lt;/p&gt;
-
-
-
-&lt;p&gt;That starts to look less like AI bolted onto the existing SOC and more like a different operating model altogether. It also presents CISOs with a familiar problem: tooling. Security teams already have sprawling stacks, and vendors are racing to add agents and AI capabilities to them. Organizations risk ending up with another collection of products to manage rather than the continuous system they were promised.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-join-us-on-september-15-2026"&gt;Join us on September 15, 2026&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;strong&gt;On September 15&lt;/strong&gt;, I&amp;rsquo;ll be joined by &lt;a href="https://www.linkedin.com/in/jamimhughes/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jami Hughes&lt;/a&gt;, deputy CISO at Zions Bancorporation, and &lt;a href="http://linkedin.com/in/oren-saban" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oren Saban&lt;/a&gt;, co-founder and CPO of Mate Security and former Microsoft Defender XDR and Security Copilot product lead, to discuss alert overload, autonomous agents, the future of the SOC analyst, and what continuous security actually looks like.&lt;/p&gt;
-
-
-
-&lt;p&gt;The session is limited to 20&amp;ndash;25 security leaders, with applications reviewed to keep the group small and relevant. This isn&amp;rsquo;t a traditional webinar with hundreds of people listening in: everyone in the room will be expected to take part. Chatham House Rule will apply throughout, so participants can speak candidly about what&amp;rsquo;s working, what isn&amp;rsquo;t, and where they still have concerns.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-apply-for-a-seat-at-the-table"&gt;&lt;strong&gt;Apply for a seat at the table&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;div data-tf-live="01M0G4YJ6KG7FYKFDQS8KFPBXE"&gt;&lt;/div&gt;&lt;script src="//embed.typeform.com/next/embed.js"&gt;&lt;/script&gt;
-
-
-
-&lt;p&gt;Because if attackers increasingly operate at AI speed, security teams need to work out how much of the response they&amp;rsquo;re willing to hand to AI, too.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-soc-autonomy/"&gt;How much control should AI get? A CISO roundtable takes on SOC autonomy&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AI agents could ease SOC alert overload, but control remains a challenge that The New Stack’s CISO roundtable will explore on September 15. Here&amp;#039;s how to get a seat at the table.</content:encoded>
-    </item>
-    <item>
-      <title>K2 Horizon just shipped as six new fully open models — developers aren’t fully convinced</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/k2-horizon-fully-open/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Wed, 09 Sep 2026 12:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <category>Developer tools</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836051</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/9a520a6b-getty-images-ygwzbktj0c8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Color-coded data streams converge, then expand into hundreds of glowing dots against a dark blue background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/9a520a6b-getty-images-ygwzbktj0c8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Based in the Emirati capital, Abu Dhabi, the Institute of Foundation Models (IFM) introduced K2 Horizon last week. This group&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/k2-horizon-fully-open/"&gt;K2 Horizon just shipped as six new fully open models — developers aren&amp;#8217;t fully convinced&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/9a520a6b-getty-images-ygwzbktj0c8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Color-coded data streams converge, then expand into hundreds of glowing dots against a dark blue background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/9a520a6b-getty-images-ygwzbktj0c8-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Based in the Emirati capital, Abu Dhabi&lt;/strong&gt;, the &lt;a href="https://ifm.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Institute of Foundation Models&lt;/a&gt; (IFM) introduced &lt;a href="https://ifm.ai/k2/press-release/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;K2 Horizon&lt;/a&gt; last week. This group of six AI foundation models, ranging from 0.9 billion to 375 billion parameters, is claimed to be the &amp;#8220;largest fully &lt;a href="https://thenewstack.io/is-open-source-in-trouble/" class="local-link"&gt;open-source&lt;/a&gt; fleet of AI models&amp;#8221; yet made available.&lt;/p&gt;
-
-
-
-&lt;p&gt;IFM uses &amp;ldquo;fully open&amp;rdquo; to mean more than mere downloadable model weights. Across K2 Horizon, it has committed to publishing training and evaluation code, training data where redistribution is possible or detailed construction recipes where it is not, plus configurations, logs and intermediate checkpoints spanning pretraining through agentic post-training. &lt;/p&gt;
-
-
-
-&lt;p&gt;The aim is to let developers inspect how the models were built, reproduce their development and adapt them for their own work. But that commitment should not be confused with complete availability at launch: All six models had downloadable weights, while the model cards for the 0.9B, 32B and flagship 375B said some training data, code or checkpoints would arrive later. The 32B release was also only a Stage 1 checkpoint, with the final model still to come.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Open source is much more than open weights. Science works when others can see the data, follow the method, reproduce the result, and improve on it,&amp;#8221; said &lt;a href="https://www.linkedin.com/in/eric-xing-b34a0b/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eric Xing&lt;/a&gt;, IFM founder and university professor at the &lt;a href="https://mbzuai.ac.ae/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mohamed bin Zayed University&lt;/a&gt; of Artificial Intelligence. &amp;#8220;K2 Horizon delivers on that need. Every model in the fleet ships with its training data, recipe, and evaluations. This is open science, and we believe it&amp;#8217;s the best path forward for AI.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Open source is much more than open weights. Science works when others can see the data, follow the method, reproduce the result, and improve on it.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-all-the-open-model-components-you-can-think-of"&gt;All the open model components you can think of&lt;/h2&gt;
-
-
-
-&lt;p&gt;IFM says it is opening the full training lifecycle for every K2 Horizon model, from pretraining through reasoning and agentic post-training. For each model, it is releasing &amp;mdash; or has committed to release &amp;mdash; intermediate checkpoints, training data, or detailed data-construction recipes. The checkpoints are snapshots saved throughout training, allowing researchers to examine how a model develops and reproduce or resume particular stages. The broader artifact set includes architecture details, mixture compositions, training code, configurations, fine-grained logs, evaluation results, and final weights.&lt;/p&gt;
-
-
-
-&lt;p&gt;Across reasoning, mathematics, coding, and agentic tasks, the K2 Horizon team says every model size performs well. The 0.9B model is designed for highly constrained environments such as smartwatches and smartglasses, while the 3.7B and 7B models bring advanced capabilities to phones and other on-device applications.&lt;/p&gt;
-
-
-
-&lt;p&gt;The dense 32B model and sparse 36B-A4B model deliver stronger performance for local hosting and on-premises servers. The 375B-A23B model brings the fleet&amp;#8217;s strongest capabilities to demanding enterprise deployments.&lt;/p&gt;
-
-
-
-&lt;p&gt;The six models share a core architecture, vocabulary, training methodology, interfaces, and deployment tooling, with the 0.9B model having a smaller vocabulary. IFM&amp;#8217;s &lt;a href="https://arxiv.org/abs/2603.04445" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;dynamic model routing&lt;/a&gt; technique directs tasks to the most cost-effective model and provides developers with a path from prototype to production. The organization insists that the fully open code, training data, and recipes are &amp;#8220;a significant step forward in transparency&amp;#8221; that go &amp;#8220;well beyond&amp;#8221; the open-weights dialogue that has dominated AI industry headlines this year.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-could-this-openness-have-been-more-open"&gt;Could this openness have been more&amp;#8230; open?&lt;/h2&gt;
-
-
-
-&lt;p&gt;The IFM team is clearly aiming for differentiation through all-encompassing openness, but could it have been more open&amp;hellip; and will it need to be even more open in the future?&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;To answer that question, the level of openness varied by model at launch. The 3.7B and 7B models shipped with the full artifact set &amp;mdash; including weights, recipes, training code and data &amp;mdash; while the 0.9B model card, the documentation describing its capabilities and limitations, said its data and code were still forthcoming. The flagship 375B-A23B and sparse 36B-A4B initially arrived with final weights, with full training code, raw datasets, and intermediate checkpoints promised in later updates. The 32B model shipped as an incomplete Stage 1 checkpoint, with the final model and remaining artifacts to follow.&lt;/p&gt;
-
-
-
-&lt;p&gt;But really, the real question of open purity comes down to the more granular aspects of model training, and this is the stuff that will either delight or infuriate developers. If published data for each model size and synthetic generation pipelines aren&amp;#8217;t fully reproducible, AI engineers likely won&amp;#8217;t be impressed.&lt;/p&gt;
-
-
-
-&lt;p&gt;According to &lt;a href="https://www.linkedin.com/in/gargnitish/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nitish Garg&lt;/a&gt;, founder &amp;amp; CEO of AI super-app company &lt;a href="https://cellcog.ai/story" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CellCog&lt;/a&gt;, in &lt;a href="https://cellcog.ai/blog/k2-horizon/#:~:text=The%20pitch%20is%20full%2Dlifecycle%20openness%2C%20not%20open,data%20and%20training%20code%20'will%20be%20released." class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;his analysis&lt;/a&gt; of K2 Horizon and its model training processes, &amp;#8220;Reasoning traces for math were rewritten into dialogues and study guides and mixed into pretraining rather than saved for post-training. Compute is not disclosed anywhere: no accelerator count, no hours, no cost. For a release whose thesis is inspectability, that is the one obvious hole, and the fine-grained training logs, when they arrive, may fill it.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Compute is not disclosed anywhere: no accelerator count, no hours, no cost. For a release whose thesis is inspectability, that is the one obvious hole, and the fine-grained training logs, when they arrive, may fill it.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-reproducibility-mission-impossible-what-open-models-need-to-share"&gt;Reproducibility mission impossible: what open models need to share&lt;/h2&gt;
-
-
-
-&lt;p&gt;The narrative here suggests that releasing synthetic datasets is good. Still, if open frontier model companies do this without also providing the full generator prompts (text inputs that direct AI models to create synthetic training data), seed code (as it sounds, core code that controls and initiates the dataset generation process), or exact filtering heuristics (where low-quality synthetic data needs to be cleaned or removed), then developers will find that true end-to-end reproducibility is hard, problematic, and in some cases impossible.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p&gt;Going further, IFM said it has shared methodologies, but developers will also demand execution specifics, including precise details of the hardware topology used to run complex models. Engineers might also like to see &lt;a href="https://ui.adsabs.harvard.edu/abs/1964ITCoS..12C8883B/abstract" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;distributed communication configurations&lt;/a&gt; to examine how parallel processors exchange data during training. We could also point to the need for &lt;a href="https://eureka.patsnap.com/article/what-is-the-optimizer-state-in-deep-learning-training" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;optimizer state&lt;/a&gt; records, the parameters that track ongoing model optimization progression for each training iteration.&lt;/p&gt;
-
-
-
-&lt;p&gt;Developers openly discussing this topic have not held back. However, the conversation has quickly veered from K2 Horizon to Chinese labs becoming prominent suppliers of open-weight models &amp;mdash; though their training data and full training stacks generally remain closed.&lt;/p&gt;
-
-
-
-&lt;p&gt;Reacting to one user who claimed that &amp;#8220;Chinese models these days don&amp;#8217;t even release pre-trained weights anymore&amp;#8221; and that all developers get now is the finished post-trained product, user culi &lt;a href="https://news.ycombinator.com/item?id=49581551" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;retorted&lt;/a&gt;, &amp;#8220;No? That&amp;#8217;s absolutely not true. Qwen, GLM, Kimi, DeepSeek, etc all consistently release both the post-trained &amp;#8220;Instruct/Chat&amp;#8221; versions and the underlying &amp;#8216;base&amp;#8217; (pre-trained) weights.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Joining in the fray, Hacker News user &lt;a href="https://news.ycombinator.com/item?id=49561233" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;thepasch&lt;/a&gt; thinks that there is true open-weight openness, but that it has limits. &amp;#8220;Inference code, yes, but the specifics of their training process (as well as the training of the vast majority of all other open-weight models) are still a complete black box, and I can&amp;#8217;t think of any Chinese model that made its training corpus public.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-we-re-the-360-degree-open-source-of-open-source"&gt;We&amp;#8217;re the 360-degree open source of open source&lt;/h2&gt;
-
-
-
-&lt;p&gt;Speaking in a recent &lt;a href="https://www.youtube.com/watch?v=Y0vZ9Z3kU88" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;video interview (6:51),&lt;/a&gt; &lt;a href="https://www.linkedin.com/in/hunterhector/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hector Liu&lt;/a&gt;, director of IFM&amp;#8217;s Silicon Valley lab, said, &amp;#8220;In AI, recently,&amp;nbsp; people have some confusion about the [term] open source. People sometimes open-weight their final model, but they don&amp;#8217;t let you know how things are trained, how production is done&amp;hellip; so at IFM we are the pioneer of 360 [degree] open source or fully open source.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Separately, he said developers can prototype on the smallest model, scale to the flagship, and verify every claim IFM makes along the way. Statements that not everybody really understands the difference between different open approaches to technology should not come as news to anyone. Still, the imbalance in perception here is clearly on show.&lt;/p&gt;
-
-
-
-&lt;p&gt;The weights are available on &lt;a href="https://huggingface.co/collections/IFM/k2-horizon" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hugging Face&lt;/a&gt;, with launch-day support for vLLM and SGLang. The K2 Horizon API is available through IFM&amp;#8217;s inference partners, including Compass, Cerebras, and Nebius. K2 Horizon models and code are released under the &lt;a href="https://www.apache.org/licenses/LICENSE-2.0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Apache 2.0 license&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/k2-horizon-fully-open/"&gt;K2 Horizon just shipped as six new fully open models — developers aren&amp;#8217;t fully convinced&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>IFM&amp;#039;s K2 Horizon ships six open AI models with full training code and data — but the flagship models&amp;#039; openness is still a work in progress.</content:encoded>
-    </item>
-    <item>
-      <title>Harness rebuilt its Git repository for nonstop AI agent traffic</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/harness-ai-code-review/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 09 Sep 2026 11:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>DevOps</category>
-      <category>Podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22835923</guid>
-      <description>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/09/cf5a934c-tri-wiranto-dlfzo0l9r74-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/cf5a934c-tri-wiranto-dlfzo0l9r74-unsplash-scaled.jpg" /&gt;&lt;p&gt;As one of Harness&amp;#8217;s field CTOs, Martin Reynolds spends much of his time asking engineering leaders one question with no&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-ai-code-review/"&gt;Harness rebuilt its Git repository for nonstop AI agent traffic&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/09/cf5a934c-tri-wiranto-dlfzo0l9r74-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/cf5a934c-tri-wiranto-dlfzo0l9r74-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;As one of Harness&amp;#8217;s field CTOs,&lt;/strong&gt; &lt;a href="LINKEDIN-URL"&gt;Martin Reynolds&lt;/a&gt; spends much of his time asking engineering leaders one question with no easy answer.&lt;/p&gt;
-
-
-
-&lt;p&gt;It&amp;#8217;s how they&amp;#8217;re keeping up with all the pull requests their coding agents now produce. One of them recently answered with two words, &amp;#8220;we&amp;#8217;re not,&amp;#8221; and explained that his team&amp;#8217;s threshold for pushing code into production had dropped, Reynolds tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="YouTube video player" src="https://www.youtube.com/embed/Cm0rOsy-y0U?si=PyA3_ZGqZuj0dEYk" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;TNS spoke with Reynolds a few days after Harness &lt;a href="https://www.harness.io/press-and-news/harness-launches-code-repository-with-ai-code-review" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; a rebuilt Code Repository and a new AI Code Review product &amp;mdash; and a few weeks after GitHub&amp;#8217;s &lt;a href="https://github.blog/news-insights/company-news/the-august-17-outage-and-the-work-ahead/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;nearly eight-hour platform outage&lt;/a&gt; on August 17.&lt;/p&gt;
-
-
-
-&lt;p&gt;In our conversation, we discussed how the review bottleneck arose, why Harness rebuilt its Git repository for agent traffic, and which parts of the pipeline should remain deterministic.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;iframe loading="lazy" src="https://player.simplecast.com/6ced3fc9-3d14-4f04-8990-319411c0950a?dark=true" width="100%" height="200px" frameborder="no" scrolling="no" seamless=""&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-drowning-in-pull-requests"&gt;Drowning in pull requests&lt;/h2&gt;
-
-
-
-&lt;p&gt;Reynolds says he first ran into the bottleneck during Harness&amp;#8217; early trials of GitHub Copilot and Amazon CodeWhisperer.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;We were getting more PRs, but all the PRs were getting stuck,&amp;#8221; he says, &amp;#8220;and the test team was shouting, saying, we can&amp;#8217;t keep up with all of this.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Imagine what that test team feels like right now.&amp;#8221; &lt;br&gt;&amp;mdash;Martin Reynolds, Harness Field CTO.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;The 1.5x to 2x increase in new code pushed the testing teams to the breaking point, he says, and now, he sometimes sees teams at 10x, with some claiming 50x. &amp;#8220;Imagine what that test team feels like right now.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Reynolds notes that during hallway conversations with engineering leaders at the conference, drowning in pull requests was a recurring theme. And what he sees when talking to customers tends to split three ways: Some have raised their risk tolerance, some have a backlog they can&amp;#8217;t manage, and most sit in the middle.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;The somewhere in the middle, I think, is the most common,&amp;#8221; Reynolds says. &amp;#8220;We&amp;#8217;re using some kind of another AI tool to help us in that space, but it doesn&amp;#8217;t necessarily solve the problem.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-review-what-s-changing-not-the-scaffolding"&gt;Review what&amp;#8217;s changing, not the scaffolding&lt;/h2&gt;
-
-
-
-&lt;p&gt;Ideally, a reviewer opening a pull request should see the most important changes first, Reynolds says, and he suggests reviewers should come from whoever has worked on that part of the codebase before, &amp;#8220;not the person who did the prompt or wrote the code.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;This other stuff is like 30 files because they updated a dependency. That&amp;#8217;s less important in terms of getting eyes on,&amp;#8221; he says. Reviewers should &amp;#8220;actually review what&amp;#8217;s changing rather than a bunch of stuff that&amp;#8217;s scaffolding around it.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;It&amp;#8217;s not just the model on its own,&amp;#8221; he also notes. Harness spent &amp;#8220;a good chunk of the last 12 months&amp;#8221; building what it calls a &lt;a href="https://developer.harness.io/harness-ai/use-harness-platform/knowledge-graph/overview.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;software delivery knowledge graph&lt;/a&gt;, a map of a customer&amp;#8217;s pipelines, deployments, incidents, and policies, so the reviewer can pull context &amp;#8220;at speed and not burn lots of tokens.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;The company&amp;#8217;s own example is a migration flagged because an earlier incident review found an unindexed CREATE INDEX statement had locked a production table for 14 minutes.&lt;/p&gt;
-
-
-
-&lt;p&gt;By the company&amp;#8217;s own count, its engineers saved more than 10,000 hours of manual review time a month. The day Harness launched, GitHub&amp;#8217;s Copilot code review &lt;a href="https://github.blog/changelog/2026-08-27-copilot-code-review-resolution-reasons-and-expanded-capabilities/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;began reviewing&lt;/a&gt; pull requests opened by bots, including its own coding agent.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agents-don-t-work-nine-to-five"&gt;Agents don&amp;#8217;t work nine to five&lt;/h2&gt;
-
-
-
-&lt;p&gt;Recently, Harness customers on GitHub &amp;#8220;would quite often genuinely send us screenshots of GitHub being down,&amp;#8221; Reynolds says.&lt;/p&gt;
-
-
-
-&lt;p&gt;The reason for GitHub&amp;#8217;s struggles, he believes, is that GitHub &amp;#8220;was ultimately built for people, teams of maybe up to 10, 15, who are changing code, creating pull requests. Those pull requests will be there for a few hours to maybe a couple of days.&amp;#8221; But agents &amp;#8220;don&amp;#8217;t work nine to five.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Harness has been selling a repository service since 2023, when it &lt;a href="https://techcrunch.com/2023/09/21/oh-gitness-harness-launches-gitness-an-open-source-github-competitor/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; Harness Code on top of its open-source Git project, and Reynolds says the company rebuilt it as &amp;#8220;a ground-up AI-first repository that works for humans and AI.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;He describes it as Kubernetes-based, running across multiple clouds and regions, tested at thousands of commits per second, and used by about 20 enterprise customers during beta, none of which Harness has published.&lt;/p&gt;
-
-
-
-&lt;p&gt;GitHub CTO Vlad Fedorov&amp;#8217;s postmortem on the August 17 outage said &amp;#8220;a critical infrastructure component in our Central US data center failed to scale&amp;#8221; as traffic hit a new peak. GitHub now handles &lt;a href="https://thenewstack.io/github-2-9b-monthly-commits/" class="local-link"&gt;2.9 billion commits a month&lt;/a&gt;, a little more than 1,000 a second on average.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;rsquo;s not the scale Harness operates at, of course, but for its enterprise users, that may just be an advantage.&lt;/p&gt;
-
-
-
-&lt;p&gt;Harness is also starting to look beyond the traditional process. The capabilities for an autonomous delivery lifecycle exist today, Reynolds argues, but &amp;#8220;are organizations and companies ready for that? I&amp;#8217;m not entirely sure.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Either way, he says deterministic tooling needs to stay, and test results still come from the test runner. &amp;#8220;There&amp;#8217;s no need to rip those out and replace them. It&amp;#8217;s like, where can you enhance them?&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;The reviewer is the part of this launch most teams will touch first. It works on pull requests that already live on GitHub, and moving a repository is a long project at most enterprises.&lt;/p&gt;
-
-
-
-&lt;p&gt;The engineering leader who told Reynolds &amp;#8220;we&amp;#8217;re not&amp;#8221; doesn&amp;#8217;t need a new Git host to change that answer. He needs something that tells his reviewers which files in a pull request still need a human and which 30 came with a dependency bump.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s a much smaller promise than an autonomous delivery lifecycle, but for now, it&amp;#8217;s also likely the more useful one.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-ai-code-review/"&gt;Harness rebuilt its Git repository for nonstop AI agent traffic&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Harness field CTO Martin Reynolds on why AI coding agents are flooding teams with pull requests, and why some enterprises are letting more code through.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic promised 20x more usage. Then developers hit a weekly ceiling.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-max-lawsuit/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 08 Sep 2026 22:16:28 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Strategy</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836095</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/d75e80c9-jorge-cesar-rlbta4do3oa-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract ceiling" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d75e80c9-jorge-cesar-rlbta4do3oa-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic sells its top-tier Claude Max subscription with the promise of 20 times more usage than its $20-a-month Pro plan.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-max-lawsuit/"&gt;Anthropic promised 20x more usage. Then developers hit a weekly ceiling.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/d75e80c9-jorge-cesar-rlbta4do3oa-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract ceiling" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d75e80c9-jorge-cesar-rlbta4do3oa-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;Anthropic sells its top-tier Claude Max subscription with the promise of 20 times more usage than its $20-a-month Pro plan. But developers paying $200 a month can still hit a separate weekly ceiling &amp;mdash; and an expanded class-action lawsuit filed Tuesday argues Anthropic didn&amp;rsquo;t make that clear enough.&lt;/p&gt;
-
-
-
-&lt;p&gt;The dispute over Anthropic&amp;rsquo;s $100 Max 5x and $200 Max 20x tiers points to a bigger problem within the AI sector: Companies are trying to package unpredictable amounts of compute into straightforward monthly subscriptions. Those plans get harder to understand when the advertised usage comes with additional restrictions. If the plaintiffs succeed, the case could set a precedent for how clearly AI providers have to explain those restrictions before developers sign up.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Companies are trying to package unpredictable amounts of compute into straightforward monthly subscriptions. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-anatomy-of-20x"&gt;The anatomy of &amp;#8220;20x&amp;#8221;&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic&amp;rsquo;s documentation&lt;/a&gt; states that its Max 5x and 20x multipliers apply &amp;ldquo;per session,&amp;rdquo; with usage limits resetting every five hours. But the five-hour window isn&amp;rsquo;t the only limit since Anthropic also imposes a weekly usage cap across all models and says it may add other restrictions to manage capacity. That&amp;rsquo;s pertinent for Claude Code users whose interactive coding sessions count toward the same plan limits.&lt;/p&gt;
-
-
-
-&lt;p&gt;Once that included usage runs out, developers either have to wait for it to reset or pay more to keep working, which is where the usage promise gets murky. It tells you how Max compares with Pro, not how much actual coding a developer can expect for $200 a month.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;Marketing AI subscriptions using simple multipliers like &amp;lsquo;20x&amp;rsquo; fails to account for the stochastic nature of agentic coding,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/mr305afridi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sajid Afridi&lt;/a&gt;, CTO of Pakistan Red Team and an enterprise systems architect, tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;When a single autonomous debugging loop can consume millions of tokens via context re-submission and tool calling, a subscriber can hit their entire weekly quota in a couple of intense sprints.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p&gt;That variability also creates a gap between what the multiplier may suggest to a buyer and what it delivers in practice.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;ldquo;If I see a SaaS product advertised as offering &amp;lsquo;5x&amp;rsquo; or &amp;lsquo;20x&amp;rsquo; more usage, my natural interpretation as a buyer would be that I can do roughly five to twenty times as much work,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/manishvjain/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Manish Jain&lt;/a&gt;, founder and principal analyst at Strategic Horizon, tells &lt;em&gt;The New Stack&lt;/em&gt;. But with AI, he said, capacity can depend on the model, context and workload, making it difficult to know what those higher limits will translate to for a particular developer.&lt;/p&gt;
-
-
-
-&lt;p&gt;According to the complaint, which &lt;em&gt;&lt;a href="https://www.theverge.com/ai-artificial-intelligence/990313/anthropic-class-action-lawsuit-pricing-subscription-plans" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Verge&lt;/a&gt;&lt;/em&gt; first reported, Anthropic introduced weekly limits in late July 2025 &amp;mdash; months after Max launched in April &amp;mdash; while continuing to market the plans with its 5x and 20x usage claims. The plaintiffs allege those constraints weren&amp;rsquo;t adequately disclosed during subscription. Anthropic has pushed back on that characterization, arguing in its motion to dismiss an earlier version of the case that customers could access information about the limits through hyperlinks during purchase. The company compared those disclosures to the information on a product label, which customers can find by turning over the package before deciding whether to buy it.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-fixed-price-compute-s-dilemma"&gt;Fixed-price compute&amp;#8217;s dilemma&lt;/h2&gt;
-
-
-
-&lt;p&gt;And yet, Claude Max isn&amp;rsquo;t the only subscription where it&amp;rsquo;s difficult to know exactly how much work you&amp;rsquo;re getting for the monthly price. That&amp;rsquo;s partially because coding tasks can vary so much. While a quick fix might not make much of a difference to a developer&amp;rsquo;s allowance, a more complicated job can burn through it much faster. A usage multiplier doesn&amp;rsquo;t tell developers much about that difference.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-how-competitors-price-uncertainty"&gt;How competitors price uncertainty&lt;/h2&gt;
-
-
-
-&lt;p&gt;OpenAI has to account for the same variability with Codex. Its &lt;a href="https://openai.com/codex/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt; tells subscribers that usage depends on the task, the model, and where the work is being run. Codex can also draw from a shared allowance with other agentic products. Once that allowance runs out, users can buy more credits. OpenAI has also made &lt;a href="https://thenewstack.io/codex-async-developer-messaging/" class="local-link"&gt;Codex more autonomous&lt;/a&gt;, allowing it to keep working while it waits for a developer to respond. And the model a developer chooses makes a difference, too: &lt;a href="https://thenewstack.io/astra-reasoning-effort-cost/" class="local-link"&gt;Astra costs 2.5x more per token than GPT-5.6, so that&lt;/a&gt; the same allowance can go a lot further with one model than another.&lt;/p&gt;
-
-
-
-&lt;p&gt;The mechanics aren&amp;rsquo;t identical to Claude Max, and the lawsuit does not accuse OpenAI or other providers of wrongdoing, but both systems show why comparing AI coding subscriptions isn&amp;rsquo;t as simple as looking at their monthly prices. Saying a plan offers substantially more usage still doesn&amp;rsquo;t tell a team how much work it can actually get done before hitting a limit.&lt;/p&gt;
-
-
-
-&lt;p&gt;And some AI companies are already experimenting with different ways to charge for that work. OpenAI has been &lt;a href="https://thenewstack.io/openai-outcome-based-pricing/" class="local-link"&gt;testing outcome-based pricing&lt;/a&gt; with some enterprise customers, charging only when an agent completes a task rather than metering raw compute. That approach introduces its own problems since someone has to define &amp;ldquo;success,&amp;rdquo; and failed agent runs become the provider&amp;rsquo;s expense. But it does show that AI companies are recognizing that token- and multiplier-based pricing doesn&amp;rsquo;t always tell developers what&amp;rsquo;s in a subscription.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Saying a plan offers substantially more usage still doesn&amp;rsquo;t tell a team how much work it can actually get done before hitting a limit.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-a-warning-shot-for-subscription"&gt;A warning shot for subscription&lt;/h2&gt;
-
-
-
-&lt;p&gt;If the plaintiffs succeed, other AI providers may have to rethink how they describe their subscriptions. More detail at signup would help, particularly around when usage resets and what restrictions apply. But even that doesn&amp;#8217;t answer what developers really want to know: &lt;em&gt;How much work can I get done for the price I&amp;#8217;m paying?&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p&gt;As coding agents take on larger jobs and work on their own for longer stretches, the Anthropic case could help establish how much providers need to disclose when selling subscriptions whose actual value can vary so much from one workload to the next.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;The Anthropic case could help establish how much providers need to disclose when selling subscriptions whose actual value can vary so much from one workload to the next.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&lt;em&gt;The New Stack reached out to Anthropic for comment on the lawsuit and its Claude Max usage policies and has not received a response. We will update this story if we hear back.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-max-lawsuit/"&gt;Anthropic promised 20x more usage. Then developers hit a weekly ceiling.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>A class-action lawsuit over Anthropic&amp;#039;s Claude Max plan exposes a broader industry problem: AI companies can&amp;#039;t easily price unpredictable compute as flat-rate subscriptions.</content:encoded>
     </item>
   </channel>
 </rss>
