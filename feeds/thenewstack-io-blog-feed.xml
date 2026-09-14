@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 12 Sep 2026 15:59:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 14:21:48 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,725 @@
       <height>32</height>
     </image>
     <item>
+      <title>Chip Huyen explains how to cut inference costs without new hardware</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/pg-99-conf-2026-inference-costs/</link>
+      <dc:creator>Tim Koopmans</dc:creator>
+      <pubDate>Sun, 13 Sep 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>AI Infrastructure</category>
+      <category>sponsor-scylladb</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836624</guid>
+      <description>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/1fb832a9-puscas-adryan-jf3a1zgq4w4-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Layers of wavy yellow horizontal strips with deep shadows between them, forming an abstract pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1fb832a9-puscas-adryan-jf3a1zgq4w4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Last October, the P99 conference &amp;#8212; the online gathering for developers focused on high-performance, low-latency applications &amp;#8212; featured a cracking&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/pg-99-conf-2026-inference-costs/"&gt;Chip Huyen explains how to cut inference costs without new hardware&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/1fb832a9-puscas-adryan-jf3a1zgq4w4-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Layers of wavy yellow horizontal strips with deep shadows between them, forming an abstract pattern." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1fb832a9-puscas-adryan-jf3a1zgq4w4-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Last October, the P99 conference &lt;/strong&gt;&amp;mdash; the online gathering for developers focused on high-performance, low-latency applications &amp;mdash; featured a cracking keynote from Chip Huyen.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;The author of the best-selling &lt;a href="https://www.oreilly.com/library/view/ai-engineering/9781098166298/" target="_blank" rel="noreferrer noopener external nofollow" class="ext-link" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;AI Engineering&lt;/em&gt;&lt;/a&gt;, &lt;a href="https://huyenchip.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Huyen&lt;/a&gt; opened with simple math: Training a frontier model is a one-off cost, but inference is the same cost paid over and over. That&amp;#8217;s great for the frontier model providers, and bad for us token burners. Over the life of a model, Huyen reckons the compute split ratio lands somewhere between 1:10 and 1:100 for training to inference. Reasoning models &amp;mdash; which burn even more tokens &amp;mdash; push that out even further. We all know the feeling of hitting our weekly session quotas.&lt;/p&gt;
+
+
+
+&lt;p&gt;Huyen&amp;#8217;s point is that if inference is too expensive, then nobody ever recovers the training bill, which might explain why there are so many memes about the &amp;#8220;profitability&amp;#8221; of frontier models. So, how do we optimize inference?&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;That&amp;#8217;s a topic that Huyen spent months researching for her book. And in the spirit of optimization, Huyen distilled it down to 30 minutes for the conference in October 2025.&lt;/p&gt;
+
+
+
+&lt;p&gt;Huyen is &lt;a href="https://www.p99conf.io/?latest_sfdc_campaign=701Rb00000qrLWi&amp;amp;campaign_status=Submitted&amp;amp;utm_campaign=smo%20new%20stack%202026-10-21%20p99%20conf&amp;amp;utm_medium=social%20media%20-%20organic&amp;amp;utm_source=the%20new%20stack&amp;amp;lead_source_type=the%20new%20stack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;returning for P99 CONF 2026&lt;/a&gt; in a few weeks. Ahead of that moment, watch her full talk &amp;ndash; or read the recap below &amp;ndash;  from last year, then let&amp;#8217;s talk about how those ideas aged over the past 11 months.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="P99 CONF 2025 | LLM Inference Optimization by Chip Huyen" width="500" height="281" src="https://www.youtube.com/embed/-MIv3mWAlBc?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-to-measure"&gt;What to measure&lt;/h2&gt;
+
+
+
+&lt;p&gt;Chip recommends focusing on a few key latency metrics:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Time to first token (TTFT): How much time elapses before the user sees anything&lt;/li&gt;
+
+
+
+&lt;li&gt;Time per output token (TPOT): The average time between consecutive tokens (aka &lt;em&gt;inter-token latency&lt;/em&gt;)&lt;/li&gt;
+
+
+
+&lt;li&gt;End-to-end latency: Time to first token, plus time per output token, multiplied by the number of output tokens minus one&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbc3b7&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbc3b7" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img decoding="async" width="1024" height="493" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-1024x493.png" alt="" class="wp-image-22836625"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;With reasoning models, some of those tokens never reach the user. &amp;#8220;The first generated token might not be the same as the first visible token,&amp;#8221; Huyen explained. &amp;#8220;The model might think for a while, and it will only show the first token of the final output to the user.&amp;#8221;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;The first generated token might not be the same as the first visible token,&amp;rdquo;&lt;br&gt;&amp;mdash; Chip Huyen&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Some people also measure Time to Publish for that (i.e., how long until the user sees the first token). The best metric to prioritize depends on what matters most for your users.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Also consider &amp;#8220;goodput&amp;#8221; alongside throughput. Throughput measures requests processed in a given window. Goodput measures the requests that actually met your targets. Chip&amp;#8217;s example: an app targets 200 ms time to first token and 100 ms time per output token, and processes 10 requests per minute, but only three hit both.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbc89e&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbc89e" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="496" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-5-1024x496.png" alt="" class="wp-image-22836631"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-3-ways-to-optimize-llm-inference"&gt;3 ways to optimize LLM inference&lt;/h2&gt;
+
+
+
+&lt;p&gt;With inference servers, you can optimize from 3 different angles: the hardware, the model, and the service that manages the requests and responses.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbcbec&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbcbec" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="738" height="479" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-3.png" alt="" class="wp-image-22836628"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;Huyen previously worked at Nvidia and opted out of the hardware discussion: &amp;#8220;Even though I find it to be an intellectually interesting topic, it&amp;#8217;s not relevant to a lot of people because we don&amp;#8217;t have the power to change the hardware itself,&amp;#8221; Huyen explained. She also didn&amp;#8217;t want to spend much time on the obvious solution: replica parallelism, or just adding more machines. It&amp;#8217;s costly, and it gets complicated fast &amp;ndash; especially if you end up with a mix of 80GB, 48GB and 24GB machines and models of varying sizes to distribute across them.&lt;/p&gt;
+
+
+
+&lt;p&gt;That leaves the model and the service. Huyen offers these tips on how to decide: &amp;#8220;If you want to host the models yourself, or if you have access to the model weights, or if you train a model yourself, or you want to fine-tune or distill a model, then model optimizations might be for you. However, if you want to take a model as-is and make it more efficient on your own inference service, you might want to look into service optimizations.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-model-optimization"&gt;Model optimization&lt;/h3&gt;
+
+
+
+&lt;p&gt;The following techniques change the actual weights so that they can change the model outputs.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Quantization &lt;/strong&gt;lowers the precision used to store weights and activations&amp;nbsp; (e.g., from four bytes per parameter at 32-bit to one byte at 8-bit). Huyen explained, &amp;#8220;Reducing the precision not only reduces the memory requirement to run the model, making it cheaper. It can also make the model a lot faster. If you do additions bit by bit and each weight is 32 bits, you have to do it 32 times. If it&amp;#8217;s 8 bits, you only have to do it eight times.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p&gt;The tradeoff is a small quality hit. Huyen continued: &amp;#8220;It&amp;#8217;s possible to reduce a lot of the model&amp;#8217;s memory footprint with minimal quality degradation, and quantization is pretty generalizable to a wide variety of model architectures and model sizes. That&amp;#8217;s why it&amp;#8217;s very popular. I rarely see any companies running a model at full precision anymore.&amp;#8221;&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;I rarely see any companies running a model at full precision anymore.&amp;rdquo;&lt;br&gt;&amp;mdash; Chip Huyen&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Distillation&lt;/strong&gt; involves using a large model to generate training data for a smaller model. For example, say you have a truly large model (the example Huyen used was o1) and want a model that performs like it, but is much smaller. Basically, you collect a large set of prompts, run them through the larger model, then train the smaller model on its responses.&lt;/p&gt;
+
+
+
+&lt;p&gt;Proceed with caution, though. Huyen warned, &amp;#8220;A lot of model providers have the condition that they do not allow their models to be used to train competitive models. So even though it&amp;#8217;s a very common technique, you need to check licensing.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading" id="h-service-optimization"&gt;Service optimization&lt;/h3&gt;
+
+
+
+&lt;p&gt;This set of techniques targets how requests are scheduled, routed, and reused. The actual weights aren&amp;#8217;t affected.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Batching&lt;/strong&gt; groups multiple requests so they&amp;#8217;re processed together in a single pass through the model &amp;ndash; which is much more efficient than dealing with them one at a time. Huyen presented a few batching options:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Static batching&lt;/strong&gt; waits for the batch to fill. This maximizes compute utilization, but it might increase the latency for the first requests.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Dynamic batching&lt;/strong&gt; runs on a timer instead (e.g., batching every 15 ms). This is less compute-efficient, but it&amp;#8217;s better for latency.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Continuous batching&lt;/strong&gt; handles the case where requests finish at wildly different times, which is common with LLMs. One request asks for the capital of Vietnam; another kicks off deep research. With static or dynamic batching, the finished request&amp;#8217;s slot sits idle until the slowest one completes &amp;ndash; and new requests queue up behind it. Continuous batching returns each request as it finishes and fills the spot with another request. That can improve compute resource utilization and latency.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbd1ef&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbd1ef" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="839" height="667" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-1.png" alt="" class="wp-image-22836626"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Decoupling prefill and decode&lt;/strong&gt; separates the two phases of a request onto different machines. (Prefill processes the input, while decode generates the output.) Huyen said, &amp;#8220;Input tokens can be processed in parallel, whereas output tokens need to be generated sequentially. With parallel processing, it&amp;#8217;s bounded by compute, the processing power of the chip. With decoding, it&amp;#8217;s bounded by memory, because you have to move model weights.&amp;#8221;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Because each phase stresses different resources, most services now separate them. To improve &lt;em&gt;time to first token&lt;/em&gt;, shift machines toward prefill. If you care more about improving &lt;em&gt;time per output token&lt;/em&gt;, shift them to decode.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbd514&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbd514" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="475" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-4.png" alt="" class="wp-image-22836630"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Parallelism&lt;/strong&gt; splits work across machines. Replica parallelism copies the whole model onto more machines. Tensor parallelism divides a very large matrix, so different machines compute different parts of it. Pipeline parallelism divides the model by layer, so requests move through as a pipeline.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbd81a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbd81a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="485" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-2-1024x485.png" alt="" class="wp-image-22836629"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;Prompt caching&lt;/strong&gt; processes shared text once, saving cost and latency. A lot of repetition exists across requests to the same application: the system prompt, the examples, the same code base, the same document behind different questions. You might as well process that shared segment once, cache it, and reuse it.&lt;/p&gt;
+
+
+
+&lt;p&gt;The technique was relatively rare when Huyen was writing &lt;em&gt;AI Engineering&lt;/em&gt;. &amp;#8220;There was one paper about it, and it was not really known, but it made a lot of sense. So I included prompt caching in the book, and I&amp;#8217;m very happy to see that nowadays it&amp;#8217;s pretty much everywhere.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfbdb4f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfbdb4f" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="738" height="479" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c34e67c5-image-3.png" alt="" class="wp-image-22836627"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			aria-label="Enlarge"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.imageButtonRight"
+			data-wp-style--top="state.imageButtonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;(&lt;em&gt;Click to enlarge graphic.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p&gt;The savings scale depending on how much of your prompt gets cached. In Claude Code logs, Huyen&amp;#8217;s open-source tool &lt;a href="https://github.com/chiphuyen/sniffly" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sniffly &lt;/a&gt;found cache hit rates of 90% to 97%. Some providers rewrite prompts internally to improve hit rates, but you might as well structure them yourself.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Huyen&amp;#8217;s tip: since caching works on shared prefixes, put the stable parts of your prompt first and the variable parts later. &amp;#8220;It&amp;#8217;s pretty easy to do, and it can improve your application performance significantly,&amp;#8221; she noted.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-evaluating-inference-providers"&gt;Evaluating inference providers&lt;/h2&gt;
+
+
+
+&lt;p&gt;Huyen closed with a warning for anyone evaluating inference providers: &amp;#8220;There are many inference companies that provide inference optimizations for models you want to use, and a lot of them advertise just cost and latency.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;But pay attention to how many inference optimization techniques also change the model behavior or reduce the model quality. So when evaluating an inference service, it&amp;#8217;s important to look not just at cost and latency, but also at model quality. Does this model, provided on this service, also perform similarly on standard benchmarks?&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-what-s-changed-one-year-later"&gt;What&amp;#8217;s changed one year later?&lt;/h2&gt;
+
+
+
+&lt;p&gt;So where do we stand today, one year on from this keynote? Most of it actually aged quite well.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;On the economics, I reckon Huyen was bang on&amp;#8230; I think, for most of us as users, we don&amp;#8217;t have all the cost levers to pull that Huyen outlined. But it&amp;#8217;s great to understand what is happening. As a novice local LLM user myself, I found I could relate to her points on parallelism (I don&amp;#8217;t have it) and prompt caching/quantization (within my grasp of control).&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Prompt caching (which Huyen said was new when Huyen wrote &lt;em&gt;AI Engineering&lt;/em&gt;) is now priced into every bundle purchase of API tokens. And her Claude Code observation (90% cache hit rates) is probably the reason we mere mortals can still afford agentic coding agents at all.&lt;/p&gt;
+
+
+
+&lt;p&gt;Some of it aged in ways that were hard to predict at the time. Huyen mentioned how reasoning models make inference even more significant. One year on, I think agents running multi-step loops with tool calls have turned that idea from a footnote into a way to turn Claude&amp;#8217;s rate limits (and their infamous 99.x% availability) on their head.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;All the metrics Huyen described &amp;#8211; time to first token, time to publish, goodput under a latency SLO, etc., are all now part of the lingo and probably need to be reasoned about differently.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;That&amp;#8217;s one thing I hope she&amp;#8217;s talking about this year! Grab a &lt;a href="https://www.p99conf.io/?latest_sfdc_campaign=701Rb00000qrLWi&amp;amp;campaign_status=Submitted&amp;amp;utm_campaign=smo%20new%20stack%202026-10-21%20p99%20conf&amp;amp;utm_medium=social%20media%20-%20organic&amp;amp;utm_source=the%20new%20stack&amp;amp;lead_source_type=the%20new%20stack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;free conference pass&lt;/a&gt; and join us online.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Grab &lt;/strong&gt;&lt;/em&gt;&lt;a href="https://www.p99conf.io/?latest_sfdc_campaign=701Rb00000qrLWi&amp;amp;campaign_status=Submitted&amp;amp;utm_campaign=smo%20new%20stack%202026-10-21%20p99%20conf&amp;amp;utm_medium=social%20media%20-%20organic&amp;amp;utm_source=the%20new%20stack&amp;amp;lead_source_type=the%20new%20stack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;a complimentary pass&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;em&gt;&lt;strong&gt; to PG 99 Conf 2026 and join us on October 21 and 22 to chat with Huyen.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/pg-99-conf-2026-inference-costs/"&gt;Chip Huyen explains how to cut inference costs without new hardware&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Ahead of her return to P99 CONF on October 21–22, Chip Huyen’s advice on cutting AI inference costs gets a fresh look in the age of agents.</content:encoded>
+    </item>
+    <item>
+      <title>“Machine translation is still broken for most of the world’s languages”: Cohere builds non-reasoning for a reason</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cohere-north-translate-sovereignty/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Sun, 13 Sep 2026 14:21:46 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Infrastructure</category>
+      <category>AI Models</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836656</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/c6efc3f4-curated-lifestyle-g0lqwchrqdk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A scattered pile of overlapping alphabet cutouts in bright blue, pink, green, gold, red, and silver." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/c6efc3f4-curated-lifestyle-g0lqwchrqdk-unsplash-scaled.jpg" /&gt;&lt;p&gt;Enterprise AI company Cohere announced North Small Translate last week, a mixture-of-experts (MOE) open-weight machine translation model that works across&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cohere-north-translate-sovereignty/"&gt;“Machine translation is still broken for most of the world&amp;#8217;s languages”: Cohere builds non-reasoning for a reason&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/c6efc3f4-curated-lifestyle-g0lqwchrqdk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A scattered pile of overlapping alphabet cutouts in bright blue, pink, green, gold, red, and silver." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/c6efc3f4-curated-lifestyle-g0lqwchrqdk-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;Enterprise AI company Cohere&lt;/strong&gt; &lt;a href="https://thenewstack.io/cohere-translation-commercial-licensing/" class="local-link"&gt;announced&lt;/a&gt; North Small Translate last week, a mixture-of-experts (MOE) open-weight machine translation model that works across 50 languages.&lt;/p&gt;
+
+
+
+&lt;p&gt;Developers can &lt;a href="https://huggingface.co/CohereLabs/North-Small-Translate-1.0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;download&lt;/a&gt; the weights for noncommercial use under &lt;a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CC BY-NC 4.0&lt;/a&gt;. Cohere offers commercially licensed deployment through &lt;a href="https://docs.cohere.com/docs/model-vault" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Model Vault&lt;/a&gt;, which is a Cohere-managed inference environment. Cohere positions the model as part of its sovereign AI strategy, aimed at organizations that want greater control over where their models run and how their data is handled.&lt;/p&gt;
+
+
+
+&lt;p&gt;North Small Translate builds on Cohere&amp;#8217;s multilingual and translation lineage, which includes its Tiny Aya and Command A Translate model families. The company claims North Small Translate outperforms &amp;#8220;similarly sized open-weight models&amp;#8221; under 1T parameters, as well as API-based translation models in various dimensions of machine translation on average.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;Cohere co-founder &lt;a href="https://www.linkedin.com/in/nick-frosst-19b80463/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nick Frosst&lt;/a&gt; tells &lt;em&gt;The New Stack &lt;/em&gt;that the model&amp;#8217;s efficiency draws from the fact that it is &lt;a href="https://www.zansara.dev/posts/2026-07-05-reasoning-makes-translations-worse/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;non-reasoning&lt;/a&gt;, i.e., it relies on learned statistical patterns without a step-by-step logic process, which means it uses fewer tokens.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-machine-translation-is-still-broken-for-most-of-the-world-s-languages"&gt;Machine translation is still broken for most of the world&amp;#8217;s languages&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;#8220;We spent nine years scaling an architecture invented to fix translation, and machine translation is still broken for most of the world&amp;#8217;s languages,&amp;#8221; Frosst says. &amp;#8220;General-purpose models get you most of the way and then stop. The next phase of enterprise AI in this space is smaller, more specialized, and runs inside your own walls.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;#8220;&amp;#8230;machine translation is still broken for most of the world&amp;#8217;s languages.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;In Cohere&amp;rsquo;s reported evaluation using WMT26 benchmarks, the company states that North Small Translate leads with a WMT26 All Languages benchmark score of 83.60, compared with 81.56 for Qwen 3.5 397B A17B, 76.50 for GLM 5.2 FP8, 81.37 for DeepL NextGen, 79.46 for Gemma 4 31B (on), and 68.20 for Google Translate.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;With its mixture-of-experts architecture and 218 billion total parameters, with 25 billion active. Cohere points to North Small Translate&amp;#8217;s smaller compute &amp;amp; memory footprint than other models. Some model-to-model comparisons in this space aren&amp;#8217;t fully substantiable, since not every vendor discloses parameter counts.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-with-current-solutions-long-documents-start-to-fall-apart"&gt;With current solutions, long documents start to fall apart&lt;/h2&gt;
+
+
+
+&lt;p&gt;&amp;#8220;Machine translation allows documents to be translated from one language to another automatically. With current solutions, long documents start to fall apart,&amp;#8221; Frosst says. &amp;#8220;Google Translate scores 21.3 on our long-context test, Gemma 4 31B 19.4; we score 48.9. That&amp;#8217;s [for example] a safety manual that reads fine on page one&amp;hellip; and has drifted by page ten. The other risk is where the text goes. Once you push HR policies or regulated documents through a third-party API, that data has left your building, and necessarily that means your control over it is diminished.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;The risk [in machine translation] is where the text goes. Once you push HR policies or regulated documents through a third-party API, that data has left your building and necessarily that means your control over it is diminished.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;Explaining why the model offers &amp;#8220;stronger translation performance&amp;#8221; across complex enterprise translation tasks, Frosst says the model can support work spanning &amp;#8220;a high volume&amp;#8221; of sensitive documents.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As well as its 50 languages (32 &amp;#8216;high-resource&amp;#8217; languages + 18 others), the Cohere team explains that the model also supports translation-workflow-focused capabilities, such as structured translations (i.e., &lt;a href="https://daringfireball.net/projects/markdown/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Markdown&lt;/a&gt; or &lt;a href="https://thenewstack.io/an-introduction-to-json/" class="local-link"&gt;JSON&lt;/a&gt; documents), instruction following (i.e., recommended tone &amp;amp; format), and terminology guides (i.e., providing specific vocabulary to use in the translation), all as part of the model.&lt;/p&gt;
+
+
+
+&lt;p&gt;&amp;#8220;North Small Translate works with a multi-pass workflow,&amp;#8221; explains Frosst. &amp;#8220;The model translates, reviews its own output, finds errors, and fixes them &amp;#8211; and this is the same loop we used in training. We ship both because standard is one pass and built for volume, while the agentic [version] spends more tokens for 84.36 against 83.60 on WMT26. That difference ends up being worth it when the document is a contract or a safety procedure, for instance, but in other cases you&amp;#8217;d rather optimize for efficiency.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;&amp;ldquo;The model translates, reviews its own output, finds errors and fixes them.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-model-steerability-drives-suggesting-language-tone-and-formatting"&gt;Model &amp;#8216;steerability&amp;#8217; drives suggesting language tone and formatting&lt;/h2&gt;
+
+
+
+&lt;p&gt;This model uses the same architecture as prior Cohere models but improves performance through post-training advances, including reinforcement learning and new datasets, specifically for machine translation tasks.&lt;/p&gt;
+
+
+
+&lt;p&gt;Frosst concludes that, across the translation model marketplace, generative machine translation models offer the highest quality and steerability (i.e., suggesting tone, formatting, etc.) but typically cost much more than Neural Machine Translation (NMT) models commonly used in commercial use cases.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;North Small Translate was developed in partnership with &lt;a href="https://www.rws.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RWS&lt;/a&gt;, an AI solutions company pioneering in language technology and services. Collaboration with RWS, specifically with its &lt;a href="https://www.rws.com/language-weaver/lp/?utm_term=language%20weaver&amp;amp;utm_campaign=TRAN-EMEA-FY26-PAID-gg-branded-all&amp;amp;utm_source=google&amp;amp;utm_medium=paid_search&amp;amp;hsa_acc=2231159122&amp;amp;hsa_cam=23072234561&amp;amp;hsa_grp=189111716551&amp;amp;hsa_ad=801934122649&amp;amp;hsa_src=g&amp;amp;hsa_tgt=kwd-300064526129&amp;amp;hsa_kw=language%20weaver&amp;amp;hsa_mt=b&amp;amp;hsa_net=adwords&amp;amp;hsa_ver=3&amp;amp;gad_source=1&amp;amp;gad_campaignid=23072234561&amp;amp;gbraid=0AAAAADqF18SP0hbwSs9l0dRMDlJoNs73d&amp;amp;gclid=Cj0KCQjwk5nVBhDiARIsAHNGqafiPRsX7yxI16JQE_8BnAuadEfY8k_46ZWLD54CMkVif72wfMZ8sqMaAkyREALw_wcB" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Language Weaver&lt;/a&gt; research and science teams along with its language experts, helped shape the model&amp;#8217;s real-world translation performance throughout development.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;As noted above, developers can access the weights free of charge for non-commercial use in three quantizations. There is also a Hugging Face &lt;a href="https://huggingface.co/spaces" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Space&lt;/a&gt; and an API for those who lack the required hardware.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cohere-north-translate-sovereignty/"&gt;“Machine translation is still broken for most of the world&amp;#8217;s languages”: Cohere builds non-reasoning for a reason&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Cohere&amp;#039;s North Small Translate beats DeepL and Google Translate on WMT26 across 50 languages — but commercial use requires a Model Vault license.</content:encoded>
+    </item>
+    <item>
+      <title>It passed CI. It passed your evals. The customer still got the wrong answer.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-trace-debugging/</link>
+      <dc:creator>Sean O’Dell</dc:creator>
+      <pubDate>Sun, 13 Sep 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Observability</category>
+      <category>sponsor-dynatrace</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22836569</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/5f390729-andrej-lisakov-ahnrhzknx4k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Blurred, overlapping close-ups of yellow analog thermometer dials, their curved scales marked 0, 10, 20, and 30 in black with a red band sweeping through the upper range." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5f390729-andrej-lisakov-ahnrhzknx4k-unsplash-scaled.jpg" /&gt;&lt;p&gt;A diff is not evidence. It&amp;#8217;s a statement of intent. The tests passed. The review&amp;#8217;s done. The change is live.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-trace-debugging/"&gt;It passed CI. It passed your evals. The customer still got the wrong answer.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/5f390729-andrej-lisakov-ahnrhzknx4k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Blurred, overlapping close-ups of yellow analog thermometer dials, their curved scales marked 0, 10, 20, and 30 in black with a red band sweeping through the upper range." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5f390729-andrej-lisakov-ahnrhzknx4k-unsplash-scaled.jpg" /&gt;
+&lt;p&gt;&lt;strong&gt;A diff is not evidence. It&amp;#8217;s a statement of intent.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;The tests passed. The review&amp;rsquo;s done. The change is live. Then someone says the app is slow, or the answers are wrong, or both. You open the diff. Your assistant points at the function it changed and offers a plausible cause. &lt;/p&gt;
+
+
+
+&lt;p&gt;It sounds right. It might not be.&lt;/p&gt;
+
+
+
+&lt;p&gt;This is the observability gap that AI features expose. &lt;a href="https://www.dynatrace.com/resources/the-state-of-sre-and-platform-engineering-17401248/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dynatrace&amp;#8217;s 2026 State of SRE and Platform Engineering report&lt;/a&gt; (919 enterprise leaders surveyed globally) found that while 77% of platform engineering teams embed observability in at least some services, only 40% have it fully integrated across all deployments. That gap was manageable when your services were deterministic. But with AI agents, it becomes a liability.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;A conventional service fails loudly&amp;hellip; An AI agent fails quietly. It returns a 200. It passes faithfulness checks. And the customer still gets the wrong answer.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;A conventional service fails loudly. A 500 error, a latency spike, a dependency that stops responding. An AI agent fails quietly. It returns a 200. It passes faithfulness checks. The customer still gets the wrong answer.&lt;/p&gt;
+
+
+
+&lt;p&gt;You can&amp;#8217;t alert on &amp;#8220;wrong.&amp;#8221; You need evidence from the running system &amp;mdash; and for AI features, that means something more than request traces and error rates.&lt;/p&gt;
+
+
+
+&lt;p&gt;Find the request first.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-one-release-two-symptoms"&gt;One release, two symptoms&lt;/h2&gt;
+
+
+
+&lt;p&gt;Say you run a support agent over product documentation. A customer asks how to configure export in version 2026.3. Your coding assistant helped rewrite the documentation lookup. CI passed. The existing evals passed.&lt;/p&gt;
+
+
+
+&lt;p&gt;After deploy, answers take longer. Some of them describe older product versions.&lt;/p&gt;
+
+
+
+&lt;p&gt;Start with one affected run. You want its release, retrieval config, and feature-flag state, so those need to be on the root span as attributes set at span start, not reconstructed later from a deploy log. Then put that run next to one for a similar question from before the change.&lt;/p&gt;
+
+
+
+&lt;p&gt;For an agent, that means the trajectory: every model call and tool call, in order, with arguments and results. A &lt;a href="https://opentelemetry.io/docs/concepts/signals/traces/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;distributed trace&lt;/a&gt; records those as spans and stitches them across service boundaries through context propagation.&lt;/p&gt;
+
+
+
+&lt;p&gt;Here&amp;#8217;s one run, simplified, with its evaluation linked separately.&lt;/p&gt;
+
+
+
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;
+# Illustrative pseudotelemetry, not a captured incident.
+
+# Names, IDs, timings, and labels are invented, not a standard schema.
+
+# Selected spans shown in execution order; other work is omitted.
+
+trace: example-run-a | session: example-session-7 | release: 2026.9.2
+
+requested.product_version: "2026.3"
+
+agent.run&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 12.4s
+
+&amp;nbsp;&amp;nbsp;model.choose_tool &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 1.0s
+
+&amp;nbsp;&amp;nbsp;tool.search_docs&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 0.9s
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;args: {query: "configure export", product_version: null}
+
+&amp;nbsp;&amp;nbsp;tool.search_docs&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 0.8s
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;args: {query: "configure export", product_version: null}
+
+&amp;nbsp;&amp;nbsp;tool.search_docs&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 0.9s
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;args: {query: "configure export", product_version: null}
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;returned.doc_versions: &amp;#91;"2024.1", "2024.1", "2023.9"]
+
+&amp;nbsp;&amp;nbsp;model.generate_answer &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 8.1s
+
+linked_evaluation:
+
+&amp;nbsp;&amp;nbsp;trace: example-run-a
+
+&amp;nbsp;&amp;nbsp;faithfulness: pass
+
+&amp;nbsp;&amp;nbsp;requested_version_answered: fail&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;&lt;br&gt;Two things to chase. The repeated searches. The null version filter.&lt;/p&gt;
+
+
+
+&lt;h1 class="wp-block-heading" id="h-check-the-repeated-work"&gt;Check the repeated work&lt;/h1&gt;
+
+
+
+&lt;p&gt;Three identical searches cost 2.6 seconds. The trace shows the symptom. It doesn&amp;#8217;t explain the cause.&lt;/p&gt;
+
+
+
+&lt;p&gt;But look at what sits between them. Nothing. One &lt;em&gt;model.choose_tool&lt;/em&gt; span at the top, and no model call between the second search and the third. The model didn&amp;#8217;t ask for those retries. Something in the harness did: the code that runs tools, handles retries, and manages context. A &lt;em&gt;model.choose_tool&lt;/em&gt; span between each search would mean the opposite: a model that kept requesting the same tool, which is a prompt or tool-description problem. Same symptom, different file to open.&lt;/p&gt;
+
+
+
+&lt;p&gt;That still doesn&amp;rsquo;t make the retries wrong. Read the retry policy, then read the tool results. A 200 from a search backend can carry an empty hit list, or every hit under your relevance threshold, and retrying on that is legitimate.&lt;/p&gt;
+
+
+
+&lt;p&gt;The generation call is the bigger slice anyway, at 8.1 seconds. Compare its input tokens and duration against similar runs. If the harness appended all three result sets to the context, the retries inflated that prompt, and you paid for them twice, in latency and in tokens. Check downstream services and traffic too before you pin the slowdown on the release.&lt;/p&gt;
+
+
+
+&lt;p&gt;Bringing this back into the IDE? Bound the question. Give the assistant the service, the release, the time window, and the trace IDs. Have it line the changed code path up against the dependency calls in the affected trace. Then separate what the evidence supports from what it&amp;#8217;s assuming.&lt;/p&gt;
+
+
+
+&lt;p&gt;Same workflow debugs a checkout service making three identical database calls. You don&amp;#8217;t need to build an agent to use it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-a-grounded-answer-can-still-fail"&gt;A grounded answer can still fail&lt;/h2&gt;
+
+
+
+&lt;p&gt;Now read the answer.&lt;/p&gt;
+
+
+
+&lt;p&gt;In this example, it accurately repeats the retrieved documentation. &lt;em&gt;Faithfulness&lt;/em&gt; passes, or &lt;em&gt;groundedness&lt;/em&gt;, depending on whose vocabulary your tooling uses.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;em&gt;The customer still gets instructions for the wrong version.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p&gt;Whether you call it faithfulness or groundedness, the metric only tells you whether the answer is supported by the sources you supplied. It says nothing about whether those were the right sources.&lt;/p&gt;
+
+
+
+&lt;p&gt;The obvious next move is a retrieval evaluator. It still won&amp;#8217;t catch this. Those score whether the retrieved context is relevant to the query, and the 2024.1 export instructions are relevant to configure the export. They&amp;#8217;re just invalid for the version asked. Those documents are relevant to the query. They are not valid for the version the customer requested. Relevance is not validity.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p&gt;Those documents are relevant to the query. They are not valid for the version the customer requested. Relevance is not validity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p&gt;So, this isn&amp;#8217;t a generation failure. It&amp;#8217;s a retrieval precondition nobody asserted, and the null filter names it: the requested version never reached the lookup. Reproduce that before you touch the prompt or the model.&lt;/p&gt;
+
+
+
+&lt;p&gt;Most of it is testable with ordinary code. Give the fixtures documents carrying version metadata, then assert on the lookup directly, no model in the loop:&lt;/p&gt;
+
+
+
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;def test_lookup_filters_to_requested_version(docs_fixture):
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;hits = search_docs(query="configure export", product_version="2026.3")
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;assert hits, "no hits for a version that has docs"
+
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;assert {h.product_version for h in hits} == {"2026.3"}&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p&gt;&lt;br&gt;Deterministic, cheap, belongs in CI. Then evaluate the answer separately, which is the part you can&amp;#8217;t assert: does it give usable 2026.3 instructions, or say the available documentation can&amp;#8217;t support one? Two tests, because they fail for different reasons and you want to know which one broke.&lt;/p&gt;
+
+
+
+&lt;p&gt;The assertion won&amp;#8217;t catch every wrong answer. It catches this missing constraint every time, which is more than a judge scoring helpfulness one to five will do for you.&lt;/p&gt;
+
+
+
+&lt;p&gt;Which is why evaluation needs retained context. Record the prompt version, model ID, retrieval config, and document IDs and versions alongside the release. Keep enough permitted evidence to read the answer back later, sensitive content redacted before export.&lt;/p&gt;
+
+
+
+&lt;p&gt;Link results by trace and span ID. If scoring lands after the span closes, store a separate linked result. Don&amp;#8217;t plan on writing attributes to a finished span: the &lt;a href="https://opentelemetry.io/docs/specs/otel/trace/api/#end" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenTelemetry tracing API&lt;/a&gt; says implementations should ignore updates after End.&lt;/p&gt;
+
+
+
+&lt;p&gt;GenAI semantic conventions are still evolving, and different instrumentation projects expose similar concepts with different attribute names.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-make-the-failure-part-of-the-next-release-check"&gt;Make the failure part of the next release check&lt;/h2&gt;
+
+
+
+&lt;p&gt;Confirmed the causes? Verify each fix against the behavior it&amp;#8217;s supposed to change.&lt;/p&gt;
+
+
+
+&lt;p&gt;For the repeated searches, add a regression test that reproduces the repetition without killing legitimate retries. Don&amp;#8217;t pin one exact tool sequence when several orderings finish the task correctly; a trajectory test that demands a single path fails on every valid refactor.&lt;/p&gt;
+
+
+
+&lt;p&gt;For the version mismatch, restore the filter. Add these cases: current version, an older supported version the customer names explicitly, irrelevant documentation, and no supportable answer. Run the answer evals repeatedly where output varies, because one pass isn&amp;#8217;t a result.&lt;/p&gt;
+
+
+
+&lt;p&gt;Use code for anything you can assert directly. Use a model-based judge for answer quality, and validate that judge against examples people reviewed. An unchecked judge is one more model you&amp;#8217;re taking on faith.&lt;/p&gt;
+
+
+
+&lt;p&gt;To run scoring against production traffic rather than fixtures, you&amp;#8217;ll need a way to sample spans already in your environment, score them with a judge model, and link each result back to the source trace &amp;mdash; the linked-result pattern above, not a write to a closed span. Whatever tooling you use, version the evaluator. A scoring change that looks like a product improvement isn&amp;#8217;t one.&lt;/p&gt;
+
+
+
+&lt;p&gt;After the release, compare latency and task success on similar requests, and keep tool-call and token counts on the same screen. Read them together, or they&amp;#8217;ll mislead you. Tool calls dropping from three to one can look like the fix is working, but it can also look like a lookup you removed by accident. Fewer output tokens look like a cost win, and it also looks like an answer that quietly stopped listing step four.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading" id="h-bring-one-debugging-question"&gt;Bring one debugging question&lt;/h2&gt;
+
+
+
+&lt;p&gt;If you wouldn&amp;#8217;t know where to start the investigation, you&amp;#8217;re not done instrumenting.&lt;/p&gt;
+
+
+
+&lt;p&gt;For a conventional service, that&amp;#8217;s the request path and dependency timing. For an AI feature, add what it retrieved, what it produced, and how you&amp;#8217;ll decide whether that was the right answer.&lt;/p&gt;
+
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Dynatrace is sponsoring &lt;a href="https://www.wearedevelopers.com/world-congress-north-america" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;WeAreDevelopers World Congress Americas, September 23-25, 2026, in San Jos&amp;eacute;&lt;/a&gt;. Come with a debugging question from an AI-assisted release or from an AI feature you&amp;#8217;re building, and we&amp;#8217;ll work through it.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-trace-debugging/"&gt;It passed CI. It passed your evals. The customer still got the wrong answer.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Your AI agent returned a 200, passed its faithfulness check, and still answered the wrong question. The evidence that explains why lives in the trace.</content:encoded>
+    </item>
+    <item>
       <title>Why MCP security is about permissions overhaul</title>
       <link>https://web.archive.org/web/https://thenewstack.io/mcp-security-permissions-overhaul/</link>
       <dc:creator>Mohit Bansal</dc:creator>
@@ -30,10 +749,10 @@
       <category>sponsor-webflow</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22836597</guid>
-      <description>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark subterranean grid pattern representing non-human identity layers and AI security architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash.jpg" /&gt;&lt;p&gt;Anthropic&amp;#8217;s Model Context Protocol (MCP) went into production in late 2024. It spread rapidly after that.&amp;#160; Since then, thousands of&lt;/p&gt;
+      <description>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark subterranean grid pattern representing non-human identity layers and AI security architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash.jpg" /&gt;&lt;p&gt;Anthropic&amp;#8217;s Model Context Protocol (MCP) went into production in late 2024. It spread rapidly after that.&amp;#160; Since then, thousands of&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-security-permissions-overhaul/"&gt;Why MCP security is about permissions overhaul&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark subterranean grid pattern representing non-human identity layers and AI security architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="569" src="https://cdn.thenewstack.io/media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash-1024x569.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark subterranean grid pattern representing non-human identity layers and AI security architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5125ce31-a-c-lntv7iqxjps-unsplash.jpg" /&gt;
 &lt;p&gt;Anthropic&amp;#8217;s Model Context Protocol (MCP) went into production in late 2024. It spread rapidly after that.&amp;nbsp;&lt;/p&gt;
 
 
@@ -86,7 +805,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="582" src="https://cdn.thenewstack.io/media/2026/09/22933462-image1-1024x582.png" alt="The MCP server credential scope to review cycle." class="wp-image-22836599"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="582" src="https://cdn.thenewstack.io/media/2026/09/22933462-image1-1024x582.png" alt="The MCP server credential scope to review cycle." class="wp-image-22836599"/&gt;&lt;/figure&gt;
 
 
 
@@ -421,7 +1140,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa66da7d8c51&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa66da7d8c51" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="481" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/69869781-img_1-1024x481.png" alt="" class="wp-image-22836561"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfca73a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfca73a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="481" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/69869781-img_1-1024x481.png" alt="" class="wp-image-22836561"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2887,7 +3606,7 @@ ring bytes =~ 62,500 pps x 0.1 s x ~24 bytes x 2 directions
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa66da8097cc&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa66da8097cc" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/2e42e65c-image-1024x512.png" alt="" class="wp-image-22836238"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aa7c3bfeef05&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aa7c3bfeef05" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/2e42e65c-image-1024x512.png" alt="" class="wp-image-22836238"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3530,482 +4249,6 @@ ecommerce.billing.invoice imports ecommerce.shipping.calculator
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-factories-are-among-the-most-complex-systems-ever-built-nvidia-and-palantir-turn-nvidias-supply-chain-into-a-proving-ground-for-sovereign-ai/"&gt;Nvidia and Palantir fine-tune a 30B Nemotron model for Nvidia&amp;#8217;s supply chain. It beats a model 18 times its size.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>The deployment puts Nvidia’s open-model strategy to work inside its own supply chain, with Palantir customers able to adapt the same approach to their own operations.</content:encoded>
-    </item>
-    <item>
-      <title>Claude performed best on a new benchmark for ‘agents that build agents’. But it passed fewer than a quarter of the tests.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/claude-build-agents-benchmark/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Wed, 09 Sep 2026 20:14:09 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836121</guid>
-      <description>&lt;img width="1024" height="806" src="https://cdn.thenewstack.io/media/2026/09/e02c352e-summertime-flag-mxjzwwmtwja-unsplash-1024x806.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a developer coding at a monitor, surrounded by floating UI windows, code snippets, and a password field." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e02c352e-summertime-flag-mxjzwwmtwja-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI models now power all manner of agents, from coding assistants that write and debug software to customer service systems&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-build-agents-benchmark/"&gt;Claude performed best on a new benchmark for &amp;#8216;agents that build agents&amp;#8217;. But it passed fewer than a quarter of the tests.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="806" src="https://cdn.thenewstack.io/media/2026/09/e02c352e-summertime-flag-mxjzwwmtwja-unsplash-1024x806.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a developer coding at a monitor, surrounded by floating UI windows, code snippets, and a password field." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/e02c352e-summertime-flag-mxjzwwmtwja-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;AI models now power all manner of agents&lt;/strong&gt;, from coding assistants that write and debug software to customer service systems that answer questions, process refunds, change bookings, and interact with company systems. But while AI is increasingly central to building these systems, humans still play a major steering role: setting goals, supplying context, choosing architectures, reviewing decisions, and testing the result.&lt;/p&gt;
-
-
-
-&lt;p&gt;Which raises a more interesting question: what happens when an agent is asked to build another agent entirely on its own?&lt;/p&gt;
-
-
-
-&lt;p&gt;This is the key question Hyper-&amp;#120591;-bench is designed to probe. &lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-hyper-&amp;#120591;-bench-asks-how-well-can-ai-agents-build-other-agents"&gt;Hyper-&amp;#120591;-bench asks: How well can AI agents build other agents?&lt;/h2&gt;
-
-
-
-&lt;p&gt;Created and &lt;a href="https://github.com/sierra-research/hyper-tau-bench" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;open-sourced&lt;/a&gt; in early September by &lt;a href="https://sierra.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sierra&lt;/a&gt;, the enterprise AI agent company co-founded by tech veteran and current OpenAI board chairman &lt;a href="https://www.linkedin.com/in/brettaylor/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bret Taylor&lt;/a&gt;, Hyper-&amp;#120591;-bench builds on the original &amp;#120591;-bench benchmark it introduced &lt;a href="https://sierra.ai/blog/benchmarking-ai-agents" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;back in 2024&lt;/a&gt;. But while &amp;#120591;-bench focused on measuring how well a finished agent could interact with users, use tools, and follow company policies, Hyper-&amp;#120591;-bench takes it a level up: it evaluates how well an AI developer agent can build that agent in the first place.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Today, most agents are built with the help of other agents like Sierra&amp;#39;s Ghostwriter. Yesterday, Sierra open-sourced hyper-&amp;#120591;-bench (published as &amp;#120591;^&amp;#120591;-bench), a new long horizon agent evaluation that measures how well models can not only act as an agent, but construct one.&amp;hellip;&lt;/p&gt;&amp;mdash; Bret Taylor (@btaylor) &lt;a href="https://x.com/btaylor/status/2097739645622915495?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September 9, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p&gt;In a &lt;a href="https://arxiv.org/pdf/2609.04611" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;research paper&lt;/a&gt; published on September 4, Sierra researchers tested six combinations of AI model and coding harness. Those included Anthropic models running in Claude Code, OpenAI models in Codex, and Moonshot AI&amp;#8217;s &lt;a href="https://thenewstack.io/kimi-k3-open-weights/" class="local-link"&gt;Kimi K3&lt;/a&gt; running in both Kimi Code and the &lt;a href="https://thenewstack.io/open-source-coding-agents-like-opencode-cline-and-aider-are-solving-a-huge-headache-for-developers/" class="local-link"&gt;open-source OpenCode&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p&gt;Hyper-&amp;#120591;-bench gives a developer agent key materials from a simulated business, such as documents, transcripts, an API, and a codebase, and asks it to build a customer service agent under model and cost constraints. Sierra then tests the finished agent on unseen customer conversations across airline, retail, telecom, and banking, with tasks such as canceling a flight or disputing a fee. It passes when the agent gives the right information and makes the correct changes in the business&amp;#8217;s underlying systems. A score of 50%, for example, would mean that the agents succeeded in half of those simulations.&lt;/p&gt;
-
-
-
-&lt;p&gt;As the &lt;a href="https://sierra-research.github.io/hyper-tau-bench/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;leaderboard shows&lt;/a&gt;, the best-performing combination was Claude Opus 5 running in Claude Code, at 23.9%, narrowly ahead of GPT-5.6 Sol in Codex at 22%. None of the six autonomous configurations broke 25%.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img decoding="async" src="https://cdn.thenewstack.io/media/2026/09/4eeba5ba-hyper-&amp;#120591;-bench-evaluating-agents-that-build-agents-sierra-1024x554.png" alt="Hyper-&amp;tau;-bench pass rates, build time, token spend and serving spend" class="wp-image-22836148"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Hyper-&amp;tau;-bench pass rates, build time, token spend and serving spend (Credit: Sierra&lt;/em&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Low scores alone aren&amp;#8217;t necessarily a problem for a benchmark. Tests aimed at frontier AI systems need to be difficult enough to leave room for improvement and to expose meaningful differences between systems; once the best models routinely ace a benchmark, it becomes much less useful as a measure of progress.&lt;/p&gt;
-
-
-
-&lt;p&gt;What stands out in Hyper-&amp;tau;-bench&amp;#8217;s initial results, however, is the 82.2% &amp;#8220;Human + AI reference&amp;#8221; bar on the right, which sits far above every autonomous developer. But that comparison comes with an important caveat.&lt;/p&gt;
-
-
-
-&lt;p&gt;In an accompanying &lt;a href="https://sierra.ai/blog/hyper-t-bench-evaluating-agents-that-build-agents" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Tuesday by Sierra researchers &lt;a href="https://www.linkedin.com/in/benshi34/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ben Shi&lt;/a&gt; and &lt;a href="https://www.linkedin.com/in/keshav-dhandhania/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Keshav Dhandhania&lt;/a&gt;, they describe the result as a model being paired with &amp;#8220;an engineer with deep context.&amp;#8221; The research paper explains this further: the reference agents were hand-built by a benchmark author working with a frontier model and, crucially, with access to the ground-truth requirements that the autonomous developer agents had to discover for themselves.&lt;/p&gt;
-
-
-
-&lt;p&gt;So while it&amp;#8217;s tempting to read the gap as evidence that human support more than tripled performance, Sierra cautions against that interpretation, saying the 82.2% figure is merely an &amp;#8220;oracle reference&amp;#8221; rather than a measure of average human performance.&lt;/p&gt;
-
-
-
-&lt;p&gt;Those overall numbers also hide some dramatic differences by task. Claude Opus 5, for example, reached 72.8% on retail, 55.9% on airline, and 48.2% on telecom, before falling to just 5.9% on banking. GPT-5.6 Sol did somewhat better on banking, at 9%. Banking accounts for 35 of the benchmark&amp;#8217;s 53 construction tasks. It is by far the most information-heavy domain: its corpus contains 2,969 individual policy facts, and a single task can depend on as many as 580 of them.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-where-the-agents-lose-ground"&gt;Where the agents lose ground&lt;/h2&gt;
-
-
-
-&lt;p&gt;The overall scores only show whether the finished agents worked. Sierra also examined what the developer agents actually did while building them, and found several recurring problems: they often stopped researching the business too soon, asked too few questions when information was missing, made poor decisions about how much computing power the finished agent should use, and showed little appetite for trying different technical approaches.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;The failures mirror ones human agent developers see.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Importantly, the researchers argue that these weren&amp;#8217;t uniquely machine-like mistakes. &amp;ldquo;The failures mirror ones human agent developers see,&amp;#8221; they write in the paper. That makes the results more interesting: the agents could write code and assemble functioning systems, but they were losing ground on familiar engineering problems such as gathering enough information before building, knowing when to ask questions, and exploring alternatives rather than settling quickly on an answer.&lt;/p&gt;
-
-
-
-&lt;p&gt;The information-gathering problem was particularly stark in banking. Developer agents opened fewer than 80 of roughly 1,700 available files, instead relying heavily on searches to find documents that appeared relevant. That meant they could start building without having uncovered all the business rules the finished agent needed to follow.&lt;/p&gt;
-
-
-
-&lt;p&gt;Nor did they make much use of the opportunity to ask the business for information that wasn&amp;#8217;t in those files. Across the recorded runs, such interactions accounted for just 0.3% of the developer agents&amp;#8217; tool calls. On some tasks, agents could discover 20 to 25 requirements only by asking questions, yet they asked no more than four. Sierra found that asking really did matter: on tasks where its expert-built reference scored between 95% and 100%, builds that asked no questions scored just 5%, rising to 15% after one question and 25% after two.&lt;/p&gt;
-
-
-
-&lt;p&gt;Cost was another problem. Hyper-&amp;tau;-bench limits how much the finished customer-service agent can spend on AI model calls while handling a conversation. Two builds exceeded that allowance &amp;mdash; by 3x and 1.3x, respectively   &amp;mdash;and received a score of zero after penalties. Most went too far the other way: among agents that stayed within the limit, average spending was just 45% of the amount available.&lt;/p&gt;
-
-
-
-&lt;p&gt;Other weaknesses appeared in the technical choices the developer agents made: what kind of agent they built, which model they chose to run it, and, in some cases, whether they tried to uncover parts of the benchmark that were deliberately hidden from them.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img decoding="async" src="https://cdn.thenewstack.io/media/2026/09/0af633fd-screenshot-2026-09-09-at-17-10-32-hyper-&amp;#120591;-bench-evaluating-agents-that-build-agents-sierra-1024x621.png" alt="Constructed-agent architectures, serving-model choices and &amp;ldquo;cheating-adjacent&amp;rdquo; attempts " class="wp-image-22836161"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Constructed-agent architectures, serving-model choices and &amp;#8220;cheating-adjacent&amp;#8221; attempts (Credit: Sierra)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;There was remarkably little experimentation with different designs, too. Ninety-two percent of builds used a &amp;#8220;single LLM tool loop&amp;#8221; &amp;#8212; essentially one AI model repeatedly deciding whether to respond or call a tool. This also mattered: in one telecom experiment, giving the developer agent a single sentence suggesting a different architecture lifted its score from 31% to 67%.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;ldquo;Because the system being built is an AI itself, the only way to know if a design works is to run it and read what it says to real users, who the developer never sees while building.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That creates a blind spot for the developer agent: it has to make design choices without seeing some of the strongest evidence of whether those choices actually improve the customer experience.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Because the system being built is an AI itself, the only way to know if a design works is to run it and read what it says to real users, who the developer never sees while building,&amp;#8221; Shi and Dhandhania write.&lt;/p&gt;
-
-
-
-&lt;p&gt;And Sierra&amp;#8217;s results suggest the developer agents often failed to compensate for that blind spot through enough testing and iteration, instead &amp;#8220;shipping the first design that runs.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;On top of that, the agents also tended to favor familiar models. Ninety-six percent of Codex builds chose an OpenAI model to power the finished agent, compared with 13% of builds produced by Kimi. Sierra argues that the pattern suggests developer agents often defaulted to familiar model families rather than testing which option worked best for the job.&lt;/p&gt;
-
-
-
-&lt;p&gt;Finally, the researchers recorded what they call &amp;#8220;cheating-adjacent&amp;#8221; behavior in between 17% and 42% of runs, depending on the developer setup. This didn&amp;#8217;t mean looking for business requirements they were expected to find; rather, the agents tried things like searching for the benchmark&amp;#8217;s hidden test data or probing the grading system&amp;mdash;information kept secret so a system cannot simply build to the answers. None of those attempts succeeded, according to Sierra.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agents-build-agents"&gt;Agents build agents&lt;/h2&gt;
-
-
-
-&lt;p&gt;AI is playing a growing role in building agents. Tools such as &lt;a href="https://www.microsoft.com/en-gb/microsoft-365-copilot/microsoft-copilot-studio" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Microsoft&amp;#8217;s Copilot Studio&lt;/a&gt; and &lt;a href="https://www.salesforce.com/uk/agentforce/agent-builder/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Salesforce&amp;#8217;s Agentforce Builder&lt;/a&gt; let people describe an agent in natural language and have AI generate much of its underlying logic.&lt;/p&gt;
-
-
-
-&lt;p&gt;Sierra itself goes further with &lt;a href="https://sierra.ai/uk/product/ghostwriter" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ghostwriter&lt;/a&gt;, dubbed the &amp;#8220;agent-building agent.&amp;#8221; Users can give it instructions, standard operating procedures, transcripts, or recordings and have it build or modify an agent, generate tests, run simulations, and fix problems it finds. Sierra still gives humans the final say: Ghostwriter shows what it has built before anything goes live so it can be reviewed and approved.&lt;/p&gt;
-
-
-
-&lt;p&gt;Developers can also hand coding agents such as Claude Code or Codex a much broader &amp;#8220;build me an agent&amp;#8221; task. In all of these cases, though, humans still tend to provide much of the business context, decide what good looks like, and check the result.&lt;/p&gt;
-
-
-
-&lt;p&gt;Sierra&amp;#8217;s own description of agent development helps explain why. Shi and Dhandhania argue that building an enterprise agent, even for people, is often &amp;#8220;less like implementing a spec, and more like doing research.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Requirements are scattered across handbooks, support, spreadsheets, and the minds of your best frontline reps &amp;#8212; so you form a hypothesis, dig up evidence, and build and test to identify which levers actually move performance,&amp;#8221; they write.&lt;/p&gt;
-
-
-
-&lt;p&gt;That is also where Hyper-&amp;#120591;-bench&amp;#8217;s results become interesting. The autonomous developer agents could write code and produce working systems. Still, they often failed to gather enough information, rarely asked questions when requirements were missing, and experimented little before settling on a design.&lt;/p&gt;
-
-
-
-&lt;p&gt;And this, perhaps, is why Hyper-&amp;#120591;-bench could prove a notable addition to the burgeoning benchmark brigade. AI is already taking on more of the work involved in building agents. The benchmark asks what happens when you remove much of the human guidance that still surrounds that process today&amp;mdash;and, at least for now, its results suggest autonomous developer agents still struggle with some of the judgment-heavy parts of the job.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-build-agents-benchmark/"&gt;Claude performed best on a new benchmark for &amp;#8216;agents that build agents&amp;#8217;. But it passed fewer than a quarter of the tests.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Sierra has open-sourced Hyper-𝜏-bench, a follow-up to its 2024 τ-bench that tests how well AI agents can build other agents.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI gave an AI the power to block its own engineers’ code</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-ai-code-review/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 09 Sep 2026 19:53:08 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Security</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836177</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/6f32d384-hao-wang-pvq6yhmdptk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract glitch" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/6f32d384-hao-wang-pvq6yhmdptk-unsplash-scaled.jpg" /&gt;&lt;p&gt;Every pull request submitted by an OpenAI engineer now goes through an automated security review, and the AI model can&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-ai-code-review/"&gt;OpenAI gave an AI the power to block its own engineers&amp;#8217; code&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/6f32d384-hao-wang-pvq6yhmdptk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract glitch" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/6f32d384-hao-wang-pvq6yhmdptk-unsplash-scaled.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;Every pull request submitted by an OpenAI engineer&lt;/strong&gt; now goes through an automated security review, and the AI model can stop code from being merged if it finds a vulnerability.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thibault Sottiaux&lt;/a&gt;, engineering lead of OpenAI&amp;#8217;s Codex team, described the system in a recent &lt;a href="https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;interview on &lt;em&gt;The Pragmatic Engineer&lt;/em&gt;&lt;/a&gt;, explaining that the security check is mandatory and doesn&amp;#8217;t require a human reviewer to enforce it.&lt;/p&gt;
-
-
-
-&lt;p&gt;Security review is only one of the jobs OpenAI is handing to its models. They&amp;#8217;re also reviewing code, catching regressions, handling dependency upgrades, and helping engineers tackle changes that Sottiaux says might previously have taken months. OpenAI has even started benchmarking some of its code-review models as &amp;#8220;superhuman.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-ai-reviewers-block-every-merge"&gt;AI reviewers block every merge&lt;/h2&gt;
-
-
-
-&lt;p&gt;OpenAI started training specialized code-review models early in Codex&amp;#8217;s development. In the interview, Sottiaux described models that could catch logic and reasoning mistakes a human engineer might spend hours on.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;When we benchmark them, it&amp;#8217;s like they&amp;#8217;re superhuman in code review,&amp;#8221; Sottiaux said. &amp;#8220;This is not just true for correctness. This is also true for security.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Those capabilities started in standalone review models and have since folded into OpenAI&amp;#8217;s mainline models. For security, a flagged issue blocks the merge without exception.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;When we benchmark them, it&amp;#8217;s like they&amp;#8217;re superhuman in code review,&amp;#8221; Sottiaux said. &amp;#8220;This is not just true for correctness. This is also true for security.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-intent-replaces-inspection"&gt;Intent replaces inspection&lt;/h2&gt;
-
-
-
-&lt;p&gt;As AI takes over more of the mechanics of reviewing code, Sottiaux thinks the human role may move earlier in the process.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI&amp;#8217;s review, deployment, and regression-catching processes are already, in Sottiaux&amp;#8217;s words, &amp;#8220;pretty much automated.&amp;#8221; Engineers can ship a PR the same day to ChatGPT, which he said serves roughly a billion active users.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Really what we see, and I see, is there&amp;#8217;s this sort of discussion around the intent that takes place around the pull request,&amp;#8221; Sottiaux said. &amp;#8220;It&amp;#8217;s like, what are you even trying to do? And is that the right thing to attempt to do?&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Really what we see, and I see, is there&amp;#8217;s this sort of discussion around the intent that takes place around the pull request,&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;That thinking needs to happen earlier, Sottiaux argued, back in planning instead of waiting for the review queue. Engineers still have to agree on the goal and kick the tires on a proposed change. Passing the review burden to AI doesn&amp;#8217;t take humans out of the loop; it just moves the gut-check to before anyone opens a PR.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-agents-tackle-maintenance-backlogs"&gt;Agents tackle maintenance backlogs&lt;/h2&gt;
-
-
-
-&lt;p&gt;While security gets most of the attention, basic maintenance may be where engineering teams feel it first, especially with third-party libraries that push breaking changes and get deferred sprint after sprint because new features always take priority. Sottiaux&amp;#8217;s point is that as long as you have a clear changelog and decent documentation, an agent can knock out those tedious updates in an afternoon, and the same goes for routine security patches.&lt;/p&gt;
-
-
-
-&lt;p&gt;The same calculation applies to bigger refactoring jobs. A team might know exactly what it wants to clean up and even have a better architecture in mind. Still, once the estimate comes back at two or three months of engineering work, it&amp;#8217;s easy to understand why everyone keeps working around the problem instead. The code may be ugly, but it works, and there are always other things that need to ship.&lt;/p&gt;
-
-
-
-&lt;p&gt;That changes when &lt;a href="https://thenewstack.io/codex-async-developer-messaging/" class="local-link"&gt;an agent can take on much of the work&lt;/a&gt;. A cleanup that would have been shelved because nobody could justify spending a quarter on it might suddenly take days instead of months, which makes it a much easier project to say yes to.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-when-models-outgrow-their-scaffolding"&gt;When models outgrow their scaffolding&lt;/h2&gt;
-
-
-
-&lt;p&gt;Sottiaux described a dynamic in agent development that runs opposite to how most software evolves.&lt;/p&gt;
-
-
-
-&lt;p&gt;Codex had a command called &lt;code&gt;/goal&lt;/code&gt;built to keep a model focused on a single objective for days or weeks without drifting. A &amp;#8220;crutch&amp;#8221; (Sottiaux&amp;#8217;s own word) to patch the model&amp;#8217;s tendency to lose the thread on long-running tasks, but newer models don&amp;#8217;t need it.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;You don&amp;#8217;t need slash goal anymore. You don&amp;#8217;t need a harness around it,&amp;#8221; Sottiaux said. &lt;/p&gt;
-
-
-
-&lt;p&gt;The Codex team often has to build extra infrastructure around a model to make up for what it can&amp;#8217;t do yet, only to find that the next generation can handle the same behavior on its own and the code they built around the previous model is no longer needed.&lt;/p&gt;
-
-
-
-&lt;p&gt;Sottiaux said the team now factors that into its planning, sometimes deciding not to build a workaround if researchers expect the next model to solve the problem on its own within a few months. As the models improve, the system prompt and the code surrounding them can get smaller, while parts of the product that once seemed necessary disappear altogether.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-blind-spot-question"&gt;The blind spot question&lt;/h2&gt;
-
-
-
-&lt;p&gt;If AI writes more of the code and AI reviews that code, both systems can share the same blind spot. That&amp;#8217;s the obvious objection, and Sottiaux&amp;#8217;s interview doesn&amp;#8217;t fully address it.&lt;/p&gt;
-
-
-
-&lt;p&gt;OpenAI trusts these models enough to let them block a pull request, which makes their mistakes matter in a very practical way. If the model is too cautious, engineers end up waiting on code that was fine to begin with. If it misses a real vulnerability, that code could move ahead with an automated security check giving everyone reason to believe it was safe.&lt;/p&gt;
-
-
-
-&lt;p&gt;The job also gets messier as &lt;a href="https://thenewstack.io/canonical-c-rust-apparmor/" class="local-link"&gt;AI-generated code proliferates&lt;/a&gt;. Code can compile, pass its tests, and still have problems that aren&amp;#8217;t obvious from the pull request itself. Some of those problems may not even start with the code an engineer is submitting. When &lt;a href="https://thenewstack.io/npm-supply-chain-worm-attack/" class="local-link"&gt;the supply chain &lt;/a&gt;is the attack surface, the weak point could be a dependency compromised weeks or months earlier, leaving a PR reviewer to catch a problem that originated elsewhere.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;Code can compile, pass its tests, and still have problems that aren&amp;#8217;t obvious from the pull request itself. &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-ai-code-review/"&gt;OpenAI gave an AI the power to block its own engineers&amp;#8217; code&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI now lets AI models block code merges over security flaws, and its engineers say the same approach is reshaping maintenance, refactoring, and review.</content:encoded>
-    </item>
-    <item>
-      <title>“It could kill us all”: what Anthropic’s own researchers really think about superintelligence</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-alignment-superintelligence-warnings/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 09 Sep 2026 19:51:46 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <category>Tech Culture</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836158</guid>
-      <description>&lt;img width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/08/4fa1c344-a-c-qgjxyahkdy8-unsplash-1024x546.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital visualization with glowing red data streams representing AI agent trace telemetry." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4fa1c344-a-c-qgjxyahkdy8-unsplash.jpg" /&gt;&lt;p&gt;On Tuesday evening, Anthropic pretraining researcher Jacob Coxon announced on X that he&amp;#8217;d resigned. Within hours, two of his colleagues&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-alignment-superintelligence-warnings/"&gt;&amp;#8220;It could kill us all&amp;#8221;: what Anthropic&amp;#8217;s own researchers really think about superintelligence&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/08/4fa1c344-a-c-qgjxyahkdy8-unsplash-1024x546.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital visualization with glowing red data streams representing AI agent trace telemetry." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/08/4fa1c344-a-c-qgjxyahkdy8-unsplash.jpg" /&gt;
-&lt;p&gt;&lt;strong&gt;On Tuesday evening, Anthropic pretraining researcher Jacob Coxon announced on X that he&amp;#8217;d resigned.&lt;/strong&gt; Within hours, two of his colleagues &amp;mdash; still employed at the company &amp;mdash; went public with variations of the same message, warning that the technical problem of aligning superintelligence remains unsolved even as the race to build it shows no signs of slowing down.&lt;/p&gt;
-
-
-
-&lt;p&gt;Coxon, 27, spent three years doing pretraining work at OpenAI and then Anthropic. He didn&amp;#8217;t frame his departure as a protest against a single employer, but that both companies are moving toward self-improving superintelligence without adequate safeguards.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;The people building AI earnestly believe that it could kill us all by the end of the decade,&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;&amp;#8220;The people building AI earnestly believe that it could kill us all by the end of the decade,&amp;#8221; Coxon &lt;a href="https://x.com/hilbertspaess/status/2097476196791709843" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;wrote&lt;/a&gt;. &amp;#8220;This is not a marketing stunt. If anything, many executives and senior researchers will couch their phrasing in the press to sound sensible &amp;mdash; but I hear the same people express fear privately.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-alignment-lead-confirms-the-risk"&gt;Alignment lead confirms the risk&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/ehubinger/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Evan Hubinger&lt;/a&gt;, Anthropic&amp;#8217;s Alignment Science Lead, responded directly to Coxon&amp;#8217;s thread. &lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Jacob is correct here &amp;mdash; we really do earnestly believe AI could kill all humans,&amp;#8221; Hubinger &lt;a href="https://x.com/EvanHub/status/2097497037956891126" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;wrote&lt;/a&gt;. &amp;#8220;I personally think it is &amp;gt;10% within the next decade. I believe Anthropic is trying its best, but we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;&amp;#8220;Jacob is correct here &amp;mdash; we really do earnestly believe AI could kill all humans,&amp;#8221; &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p&gt;Hubinger runs the team that stress-tests Anthropic&amp;#8217;s own alignment techniques &amp;mdash; probing for the ways they might fail before those failures show up in deployed models. His group has published research showing that models can &lt;a href="https://www.anthropic.com/research/alignment-faking" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;behave deceptively during training&lt;/a&gt; while preserving different behavior under other conditions. .&lt;/p&gt;
-
-
-
-&lt;p&gt;He drew a line between present and future risk, saying that current models (citing &lt;a href="https://www-cdn.anthropic.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378/Redacted%20Risk%20Report%20August%202026%20.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic&amp;#8217;s latest risk report&lt;/a&gt;) pose low risk. The concern is what happens as systems begin contributing to the development of their successors, and whether alignment research can keep pace.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-what-developers-should-actually-pay-attention-to"&gt;What developers should actually pay attention to&lt;/h2&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/samuelmarks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Samuel Marks&lt;/a&gt;, who leads scalable oversight research at Anthropic, posted the most technically specific account of the three. Writing in a &lt;a href="https://x.com/saprmarks/status/2097570226804011302" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;personal capacity&lt;/a&gt;, he laid out five points: AI developers believe their technology could cause catastrophic outcomes within the next few years. Concern goes up with seniority. Developers keep building because of money and the fear that less careful competitors will get there first.&lt;/p&gt;
-
-
-
-&lt;p&gt;Then he got to the part that matters for anyone building on top of these models. Existing alignment methods can nudge behavior but can&amp;#8217;t robustly guarantee it. The industry&amp;#8217;s tentative plan, to the extent one exists, is to make AI good enough at alignment training that it can align its successors better than humans can align the current generation.&lt;/p&gt;
-
-
-
-&lt;p&gt;That&amp;#8217;s a recursive bet on the same technology whose safety remains unproven, creating the dependency problem at the center of &lt;a href="https://thenewstack.io/ai-alignment-in-practice-what-it-means-and-how-to-get-it/" class="local-link"&gt;scalable oversight research&lt;/a&gt; in which developers eventually need AI systems whose alignment they can&amp;#8217;t fully verify to help align even more capable systems.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;Many AI developer staff desperately want to slow down to figure out how to build AI more safely,&amp;#8221; Marks wrote. &amp;#8220;I work on safety research at Anthropic because I hope my work will reduce the chance of these extinction-level bad outcomes.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-ai-accelerates-its-own-development"&gt;AI accelerates its own development&lt;/h2&gt;
-
-
-
-&lt;p&gt;What&amp;rsquo;s clear is that this is not hypothetical. AI is already accelerating the engineering process used to build the next generation of AI. &amp;nbsp;Anthropic disclosed in its June &lt;a href="https://www.anthropic.com/institute/recursive-self-improvement" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;#8220;When AI Builds Itself&amp;#8221;&lt;/a&gt; report that Claude was writing more than 80% of the code merged into Anthropic&amp;#8217;s codebase as of May, up from the low single digits before Claude Code launched in research preview in February 2025. The typical Anthropic engineer was merging 8x as much code per day in Q2 2026 as in 2024. That&amp;#8217;s the feedback loop Coxon says worries him, and it&amp;rsquo;s not just Anthropic.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-openai-is-confronting-the-same-gap"&gt;OpenAI is confronting the same gap&lt;/h2&gt;
-
-
-
-&lt;p&gt;Less than a week before the Anthropic disclosures, OpenAI released &lt;a href="https://thenewstack.io/astra-reasoning-effort-cost/" class="local-link"&gt;GPT-6 Astra,&lt;/a&gt; its most capable model yet, with president &lt;a href="https://www.linkedin.com/in/thegdb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Greg Brockman&lt;/a&gt; declaring the arrival of the &amp;#8220;AGI era.&amp;#8221; Three days later, OpenAI&amp;#8217;s own chief scientist walked that confidence back considerably.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://www.linkedin.com/in/jakub-pachocki/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jakub Pachocki&lt;/a&gt; published a lengthy essay titled &lt;a href="https://openai.com/index/an-alien-mind/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;#8220;An Alien Mind&amp;#8221;&lt;/a&gt; arguing that no AI lab &amp;mdash; his own included &amp;mdash; has solved alignment and monitoring well enough to keep scaling at maximum speed. He called for voluntary slowdowns until the industry agrees on shared, externally enforced safety standards.&lt;/p&gt;
-
-
-
-&lt;p&gt;One problem Pachocki flagged should be familiar to anyone following the &lt;a href="https://thenewstack.io/bionic-shell-command-safety/" class="local-link"&gt;ongoing difficulty of building reliable AI monitors&lt;/a&gt;: chain-of-thought reasoning, the primary method labs use to inspect whether a model is thinking what it appears to be thinking, is getting less reliable. Models can produce plausible-looking reasoning traces that don&amp;#8217;t reflect their actual computations.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic has &lt;a href="https://www.anthropic.com/research/alignment-faking" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documented exactly this problem&lt;/a&gt;. In experiments on alignment faking, models appeared to comply with training objectives under certain conditions while preserving different behavior under others. If a model can look aligned from its outputs and reasoning traces without actually being aligned, monitoring fails precisely when it&amp;#8217;s needed most.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p&gt;If a model can look aligned from its outputs and reasoning traces without actually being aligned, monitoring fails precisely when it&amp;#8217;s needed most.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-containment-fails-under-testing"&gt;Containment fails under testing&lt;/h2&gt;
-
-
-
-&lt;p&gt;Coxon pointed to the &lt;a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;July 2026 Hugging Face breach&lt;/a&gt; as evidence that capability is already outpacing control.&lt;/p&gt;
-
-
-
-&lt;p&gt;During an internal OpenAI cybersecurity evaluation, AI agents broke out of their sandboxes, found a way to communicate through an improvised message board, and hacked into Hugging Face&amp;#8217;s production infrastructure over several days. According to &lt;a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;METR and Redwood Research&amp;#8217;s analysis&lt;/a&gt;, roughly 1,200 agents exchanged more than 70,000 messages and files, with about 700 participating in the attack on Hugging Face.&lt;/p&gt;
-
-
-
-&lt;p&gt;&lt;a href="https://thenewstack.io/anthropic-claude-containment-failure/" class="local-link"&gt;Anthropic disclosed its own containment failures&lt;/a&gt; during capability testing in July; the evaluation infrastructure itself has become one of the most critical and fragile pieces of the AI stack. The safety controls researchers remove during testing to measure what a model can actually do are the same controls that would have prevented the breach.&lt;/p&gt;
-
-
-
-&lt;p&gt;For Coxon, the incident was a &amp;#8220;warning shot,&amp;rdquo; evidence that pacing agreements between U.S. labs may be becoming more plausible as the risks get harder to wave away. But he remains skeptical that voluntary coordination between a few American companies can prevent a global race. He suggested that stopping it could eventually require much stronger interventions, potentially including a temporary halt to capability improvements.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-washington-pushes-the-opposite-direction"&gt;Washington pushes the opposite direction&lt;/h2&gt;
-
-
-
-&lt;p&gt;Not everyone in Washington is receptive. On the same day Coxon resigned, Treasury Secretary &lt;a href="https://www.linkedin.com/in/scott-bessette/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Scott Bessent&lt;/a&gt; warned that slowing down risks ceding the race to China.&lt;/p&gt;
-
-
-
-&lt;p&gt;&amp;#8220;There is no day after tomorrow if China wins at this,&amp;#8221; Bessent &lt;a href="https://www.breitbart.com/politics/2026/09/08/exclusive-secretary-scott-bessent-if-china-were-pull-ahead-of-us-on-ai-nothing-else-matters/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said&lt;/a&gt; at a Breitbart News event. &amp;#8220;If they were to pull ahead of us on AI, then nothing else matters.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p&gt;Existential national-security threat versus existential species-level threat. Both arguments invoke catastrophe and point in opposite directions.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading" id="h-the-widening-gap-between-capability-and-control"&gt;The widening gap between capability and control&lt;/h2&gt;
-
-
-
-&lt;p&gt;What Coxon, Hubinger and Marks are saying &amp;mdash; and what Pachocki said from across the aisle at OpenAI &amp;mdash; is that the gap between what these systems can do and what researchers can verify about why they did it is getting wider.&lt;/p&gt;
-
-
-
-&lt;p&gt;Coxon decided the risk had become too great to keep going. Hubinger and Marks haven&amp;#8217;t reached that point, but they&amp;#8217;re confronting many of the same concerns from inside Anthropic as they try to figure out what to do about them.&lt;/p&gt;
-
-
-
-&lt;p&gt;Anthropic did not respond to a request for comment.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-alignment-superintelligence-warnings/"&gt;&amp;#8220;It could kill us all&amp;#8221;: what Anthropic&amp;#8217;s own researchers really think about superintelligence&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
     </item>
   </channel>
 </rss>
