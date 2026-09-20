@@ -20,6 +20,486 @@
       <height>32</height>
     </image>
     <item>
+      <title>One engineer shipped 2,000 PRs a month to production. Verification is the key.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/agentic-verification-distributed-systems/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 19 Sep 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Platform Engineering</category>
+      <category>Software Testing</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837267</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;&lt;p&gt;Lauren Tan, an engineer on the Grok team at SpaceXAI, who previously worked at Cursor and Meta, recently published a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-verification-distributed-systems/"&gt;One engineer shipped 2,000 PRs a month to production. Verification is the key.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Lauren Tan, an engineer on the Grok team at SpaceXAI, who previously worked at Cursor and Meta, recently published a guide to her personal agent workflow: pstack. The attention-grabbing number is that pstack has let her &lt;a href="https://x.com/poteto/status/2094457600259842065" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ship 2,000 pull requests (PRs) a month to production with high confidence&lt;/a&gt;. That&amp;rsquo;s one engineer shipping nearly 100 PRs per working day.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The number is incredible and undeniably an outlier, but the direction is not a surprise. I have argued previously that coding agents would &lt;a href="https://thenewstack.io/coding-agents-cicd-fix/" class="local-link"&gt;enable teams to generate ten times the code with similar headcounts&lt;/a&gt;. What is surprising is that these are not just code output numbers. These are actual changes landing in production.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to Tan, the most critical piece of that workflow is verification. A verification skill lets an agent check its own work and keep going until the task is done, and she treats it as &amp;ldquo;critical infrastructure&amp;rdquo; rather than one skill among many.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The verification skill rests on something underneath it: a rich runtime the agent can drive, inspect, and get structured answers from. For a single application, that runtime is the application itself, started on demand. For a system made of dozens or hundreds of services, no such runtime exists by default, and providing one that keeps up with hundreds of parallel agents is the hard part.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-verification-is-the-whole-game-and-the-math-says-so" class="wp-block-heading"&gt;Verification is the whole game, and the math says so&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Her argument for agentic verification is a throughput argument. An agent that can check its own output keeps working until the task is done. An agent that can&amp;#8217;t hand you a diff and wait makes you the slowest component in the loop. That is why she claims strong verification skills can multiply a team&amp;#8217;s output by 100 to 1,000 times.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;An agent that can check its own output keeps working until the task is done. An agent that can&amp;#8217;t hand you a diff and wait makes you the slowest component in the loop.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At &lt;a href="https://thenewstack.io/ai-generated-code-crisis/" data-type="link" data-id="https://thenewstack.io/ai-generated-code-crisis/" class="local-link"&gt;2,000 pull requests a month&lt;/a&gt;, reviewing every change by hand would allow about five minutes per PR across a full working month. Human review cannot be the verification layer at that volume. Whatever does the checking has to run without a person in the loop, and it has to run in parallel with the agents generating the work.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-model-assumes-the-agent-can-run-the-whole-application" class="wp-block-heading"&gt;The model assumes the agent can run the whole application&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The verification skill she describes generates a command line interface (CLI) and a feature map for the application. The CLI lets an agent start the app, navigate it, inspect state, and read structured JSON results back. Each agent gets a complete copy of the application and can test a change end to end.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;She is direct about how much rests on that runtime: &amp;ldquo;I personally feel that agentic verification is so important that I would unironically suggest building your own rich debugging tools, or even choosing a different tech stack, in order to have unfair advantages and extreme productivity in building software.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Her approach to providing a &lt;a href="https://thenewstack.io/agent-runtime-application-server/" data-wpil-monitor-id="4098" class="local-link"&gt;runtime for her agent&lt;/a&gt; works because the application fits in one process. A frontend, a compiler, or a single service with a database can start from a CLI in seconds and be thrown away afterward.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I would unironically suggest building your own rich debugging tools, or even choosing a different tech stack, in order to have unfair advantages and extreme productivity in building software.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For teams building complex distributed applications, their system does not have that property. The application is the interaction between an order service, a payments service, an inventory service, a queue, several databases, and a handful of third-party APIs. At larger shops, the count runs into the thousands. A pull request to one service is only verified by exercising the calls it makes and receives. The CLI can start the changed service. It cannot start the system.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-none-of-the-existing-runtimes-survive-hundreds-of-parallel-agents" class="wp-block-heading"&gt;None of the existing runtimes survive hundreds of parallel agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Local runtimes with mocks are cheap and can run fully parallel using worktrees or CDEs. Their problem is fidelity. Mocks encode what a dependency did the last time someone looked, and they drift the moment the real service changes. An agent that verifies against mocks closes its loop against fiction, and the failure shows up after merge.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A full copy of the stack per change is faithful and isolated. But its cost scales with the number of services times the number of concurrent changes, and at hundreds of agents that cost is untenable. Time is the bigger problem. A full stack takes minutes to provision, and the loop she describes has the agent testing every iteration of a change while it is still working on it. An environment that is ready after the agent has moved on to its next attempt is no use to it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Shared staging is faithful and cheap because there is one of it, and that is the whole problem. A single mutable environment cannot host hundreds of concurrent changes. Agents overwrite each other&amp;#8217;s deployments, a broken change from one agent becomes failed tests for every other agent, and the loop-closing property that makes the workflow valuable disappears.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="579" src="https://cdn.thenewstack.io/media/2026/09/bd6d419a-image-1024x579.png" alt="Each existing verification runtime plotted on a chart showing its realism of dependencies against concurrency." class="wp-image-22837270"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-verification-needs-when-the-callers-are-agents" class="wp-block-heading"&gt;What verification needs when the callers are agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Read Lauren&amp;#8217;s workflow as a requirements document, and five properties emerge:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;The change has to run against real dependencies or the verification means nothing.&lt;/li&gt;
+
+
+
+&lt;li&gt;Hundreds of concurrent changes have to be unable to see each other.&lt;/li&gt;
+
+
+
+&lt;li&gt;The cost of an environment has to scale with the size of the change, not the size of the system.&lt;/li&gt;
+
+
+
+&lt;li&gt;Environments have to come up in seconds, because an agent waiting on provisioning is parallelism you paid for but didn&amp;#8217;t use.&lt;/li&gt;
+
+
+
+&lt;li&gt;All of it has to be reachable through the &lt;a href="https://thenewstack.io/new-python-cli-tool-catches-mcp-server-issues-before-agents-do/" class="local-link"&gt;CLI or MCP server&lt;/a&gt; the agent already uses, because the caller is an agent.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first and third requirements pull in opposite directions. Realism pushes toward complete copies of the system. Cost pushes toward sharing as much as possible. Shared staging resolves that tension by giving up isolation, and a per-change full stack resolves it by giving up cost efficiency. A design that satisfies all five has to share and isolate at the same time.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-virtualized-full-stack-environments-share-the-system-and-isolate-the-change" class="wp-block-heading"&gt;Virtualized full-stack environments share the system and isolate the change&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The architecture that does this treats an environment as a view of a running system rather than a copy. One shared set of stable services runs continuously, deployed from the main branch and kept healthy the way production is. When an agent needs to verify a change, it runs only the service it modified, on its own machine or as a lightweight deployment in the cluster, and joins it to the shared stack as a new isolated environment.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The architecture that does this treats an environment as a view of a running system rather than a copy.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;From inside that environment, the changed service is the version of record, and every other call falls through to the shared stable versions. The agent sees a complete, realistic system, and so do the other hundred agents, each seeing a system that differs from the baseline by only the delta of its own change. Requests carry their environment identity as they cross service boundaries, which keeps one agent&amp;#8217;s traffic from reaching another agent&amp;#8217;s version under test. Stateful side effects that cannot be shared safely, like queue topics or writable databases, get a per-environment copy where needed.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="530" src="https://cdn.thenewstack.io/media/2026/09/1b47c76e-image-1024x530.png" alt="Diagram showing &amp;quot;agent 1 env&amp;quot; and &amp;quot;agent 2 env&amp;quot; interacting with the shared cluster." class="wp-image-22837271"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The cost model follows directly. An environment costs one or two running services instead of sixty; it is ready in the time a single service takes to start, and you can create and destroy it from inside the agent&amp;#8217;s own loop. This is the &lt;a href="https://thenewstack.io/kubernetes-native-ai-infrastructure/" data-wpil-monitor-id="4097" class="local-link"&gt;pattern Signadot packages for Kubernetes&lt;/a&gt;, with the shared stable stack running in the team&amp;#8217;s existing cluster.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-loop-end-to-end-with-an-agent-as-the-actor" class="wp-block-heading"&gt;The loop, end to end, with an agent as the actor&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Put the two halves together, and the workflow that enables her to ship 2,000 PRs a month to production carries over to a distributed system almost unchanged. An agent picks up a task and changes one service. It asks for an environment for that change and gets one in the time it takes its service to start. It then drives real requests through the system&amp;#8217;s entry point and watches them traverse the real dependency graph, with only its own service running new code. It reads structured results, fixes what failed, and runs again. When the checks pass, it opens the PR, and the environment goes away at merge.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Environments stop being something the platform team hands out and become something agents create, use, and discard as needed.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For the platform team, the unit of work changes. Today it provisions environments, whether that means keeping a shared staging alive or stamping out full copies of it. In this model, it runs one shared stable stack and the layer that virtualizes it: context propagation across every service, isolation for the stateful dependencies that cannot be shared, and the tooling that creates and tears down environments. Environments stop being something the platform team hands out and become something agents create, use, and discard as needed.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-verification-capacity-is-the-new-ceiling-on-throughput" class="wp-block-heading"&gt;Verification capacity is the new ceiling on throughput&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Lauren Tan&amp;#8217;s post is not a story about one unusually productive engineer. It shows what happens when agents run the full loop, writing a change, verifying it, and iterating without a person in between. The verification infrastructure is the foundation that the entire loop stands on.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In distributed applications, that infrastructure has to be a runtime environment that gives every agent real dependencies, keeps hundreds of concurrent changes from seeing each other, costs a change rather than a copy of the system, and is ready in the seconds an agent is willing to wait. That is what turns agent parallelism into shipped code rather than a longer review queue. That model of runtime environments is exactly what we built &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q3_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Signadot&lt;/a&gt; to enable.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-verification-distributed-systems/"&gt;One engineer shipped 2,000 PRs a month to production. Verification is the key.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Learn how agentic verification helps AI agents ship thousands of PRs monthly using isolated, virtualized testing environments.</content:encoded>
+    </item>
+    <item>
+      <title>“Dormant deployments were quietly consuming storage”: Why Vercel tightened its free-tier rules</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/vercel-hobby-deployment-retention/</link>
+      <dc:creator>Meredith Shubel</dc:creator>
+      <pubDate>Sat, 19 Sep 2026 13:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>CI/CD</category>
+      <category>Cloud Services</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837197</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/1c01b4ad-jr-korpa-mtsmod5sdz4-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1c01b4ad-jr-korpa-mtsmod5sdz4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Vercel announced this week that teams on its free Hobby plan will now have older, unprotected deployments deleted immediately if&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-hobby-deployment-retention/"&gt;“Dormant deployments were quietly consuming storage”: Why Vercel tightened its free-tier rules&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/1c01b4ad-jr-korpa-mtsmod5sdz4-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1c01b4ad-jr-korpa-mtsmod5sdz4-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Vercel announced this week&lt;/strong&gt; that teams on its free Hobby plan will now have older, unprotected deployments deleted immediately if they exceed the 10GB &lt;a href="https://vercel.com/docs/deployment-storage" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Deployment Storage&lt;/a&gt; limit.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When asked why Vercel decided to change its retention rules, &lt;a href="https://www.linkedin.com/in/jgarcha/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jas Garcha&lt;/a&gt;, head of pricing at Vercel, tells &lt;em&gt;The New Stack&lt;/em&gt; the update is a move to keep the free tier viable amid rapidly growing deployment volumes:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This change allows us to continue supporting a Hobby community that&amp;#8217;s deploying at a much higher rate than it was a year ago.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-old-deployments-now-deleted-immediately" class="wp-block-heading"&gt;Old deployments now deleted immediately&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Before, users in the free tier could count on eligible deployments to stick around for up to 30 days. But that window is gone for teams over the limit, and the protections that used to spare older deployments have narrowed for every Hobby project.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now, if users exceed the standard 10GB of Deployment Storage included on the free tier, old deployments not covered by Vercel&amp;rsquo;s &lt;a href="https://vercel.com/docs/deployment-retention#exceptions-to-the-retention-policy" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;retention-policy exceptions&lt;/a&gt; will be deleted immediately, per Vercel&amp;rsquo;s updated &lt;a href="https://vercel.com/docs/deployment-retention" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Deployment Retention Policy&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This change allows us to continue supporting a Hobby community that&amp;#8217;s deploying at a much higher rate than it was a year ago.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;What gets to stay?&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Vercel says each Hobby project will keep the three most recent production deployments, along with its three most recent deployments of any type, regardless of age. That&amp;#8217;s a cut from the previous Hobby exception, which preserved the 10 most recent production deployments, and it applies to every Hobby project &amp;mdash; not only teams over the 10GB limit.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-plus-preview-deployments-lose-a-separate-protection" class="wp-block-heading"&gt;Plus, preview deployments lose a separate protection&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In addition to cutting the 30-day holding period for over-limit teams, Vercel&amp;#8217;s policy update also removes a separate retention exception for preview deployments.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Preview deployments have not vanished from Vercel&amp;#8217;s exception list entirely &amp;mdash; the latest preview deployment on an active Git branch is still protected on every plan. What Hobby lost is the count-based exception: Pro and Enterprise teams keep their last 20 non-production deployments in a Ready state, and that protection no longer applies to Hobby.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Per Garcha, &amp;ldquo;Your current production deployment is never deleted, and aliased and active-branch deployments remain protected, along with each project&amp;#8217;s most recent deployments.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-why-the-change" class="wp-block-heading"&gt;Why the change?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Garcha tells The New Stack that Vercel&amp;rsquo;s latest policy update is needed to keep the Hobby tier sustainable as deployment volumes dramatically rise:&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Our former retention defaults were designed for teams that ship constantly and need deep rollback history. They made less sense for Hobby projects, where dormant deployments were quietly consuming storage that active projects need.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Your current production deployment is never deleted, and aliased and active-branch deployments remain protected, along with each project&amp;#8217;s most recent deployments.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And activity is much higher, even compared to a year ago. According to Garcha, Vercel now handles more than 10 million deployments every day&amp;mdash;&amp;nbsp;more than a 6x increase YoY. Immediately deleting older, unprotected deployments, Garcha says, is one way to free up storage for active projects as Vercel handles much higher deployment rates.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In other words, Vercel is moving out some of the old to make room for the new. It describes how the storage limit works in its post:&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Every deployment you keep uses some of it [Deployment Storage], and going over the limit can block you from deploying until you free some up.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-hobby-users-should-do" class="wp-block-heading"&gt;What Hobby users should do&lt;/h2&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s important to note that deletion isn&amp;#8217;t immediately permanent. Vercel gives successfully built deployments a 30-day recovery period, and users can restore them from a project&amp;#8217;s Settings, under &lt;code&gt;Security&lt;/code&gt; &amp;rarr; &lt;code&gt;Recently Deleted&lt;/code&gt;. Hobby users who want to stop old, unprotected deployments from being deleted in the first place can move off the free tier and onto the Pro plan. In the Pro tier, storage beyond the plan&amp;#8217;s included allowance is billed at $0.10 per GB-month, and the retention exceptions stay far more generous: the last 10 deployments created in a project, the last 20 production deployments in a Ready state, and the last 20 non-production ones.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For users who can&amp;rsquo;t or don&amp;rsquo;t want to upgrade to Pro, Vercel offers &lt;a href="https://vercel.com/docs/deployment-storage/optimize" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;guidance for optimizing Deployment Storage usage&lt;/a&gt; to help users stay under the free 10GB storage limit, like reducing unnecessary deployment output.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Still, Garcha says few Hobby users will feel the effects enough to warrant making a change. Pointing to Vercel&amp;rsquo;s list of exceptions that still protect certain deployments, he tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;ldquo;The vast majority of Hobby users won&amp;rsquo;t notice the change.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Garcha also says Vercel&amp;rsquo;s stricter retention policy helps the company keep offering Hobby as a permanent free plan.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;#8217;re one of the few platforms where the free tier isn&amp;#8217;t a trial or a credit that expires. It&amp;#8217;s a permanent plan, and we&amp;#8217;ve kept expanding it,&amp;rdquo; he says. &amp;ldquo;By ensuring its resources go to people actively building, we&amp;#8217;re able to continue offering it.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-hobby-deployment-retention/"&gt;“Dormant deployments were quietly consuming storage”: Why Vercel tightened its free-tier rules&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Vercel’s free Hobby plan now deletes older, unprotected deployments immediately above 10GB. Some retention protections remain as deployment volumes surge.</content:encoded>
+    </item>
+    <item>
+      <title>This week’s news from Zed, Anthropic, and OpenRouter shows why better harnesses matter more than better models</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-harness-economics/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Sat, 19 Sep 2026 10:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837312</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/845ffb70-randall-bruder-3_i4nvi9d1k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Loose computer cables with black connectors spread across a white background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/845ffb70-randall-bruder-3_i4nvi9d1k-unsplash-scaled.jpg" /&gt;&lt;p&gt;Our five most-read stories this week covered code collaboration, a model router, a UI change, a benchmark, and a caching&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-harness-economics/"&gt;This week’s news from Zed, Anthropic, and OpenRouter shows why better harnesses matter more than better models&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/845ffb70-randall-bruder-3_i4nvi9d1k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Loose computer cables with black connectors spread across a white background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/845ffb70-randall-bruder-3_i4nvi9d1k-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Our five most-read stories this week&lt;/strong&gt; covered code collaboration, a model router, a UI change, a benchmark, and a caching tutorial. Five different stories about the same problem: Turning a model into something users can actually use.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That’s the harness: The software around the model that supplies context, connects tools, routes work, and checks results.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zed was the big news this week and is rebuilding how people review agent-written code. OpenRouter is giving companies more control over where requests are processed. Anthropic is rebuilding its stack to be less confusing. The benchmark shows where coding agents still struggle, and the tutorial explains when you can skip a model call entirely.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Late in the week, Vercel’s AI Gateway reported that the average price per token fell 23.2% in August, the third straight monthly decline. Inference is getting cheaper. Companies are buying the harness around inference now, and Zed, OpenRouter, and Anthropic all spent this week selling it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-zed-and-anthropic-are-removing-blockers" class="wp-block-heading"&gt;&lt;strong&gt;Zed and Anthropic are removing blockers&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On Wednesday, two companies took aim at a familiar problem: getting people to organize work before they can do it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zed launched &lt;a href="https://thenewstack.io/zed-delta-github-alternative/" class="local-link"&gt;Delta&lt;/a&gt; in public beta, building code collaboration around shared threads instead of pull requests. Anthropic began rolling Claude Chat and Cowork into &lt;a href="https://thenewstack.io/anthropic-claude-unified-interface/" class="local-link"&gt;one interface&lt;/a&gt;, removing the upfront decisions about which mode a task belongs in. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Paul Sawers reported the Zed story for &lt;em&gt;The New Stack&lt;/em&gt;. It was our runaway piece of the week, drawing more than double the traffic of anything else. Zed is clearly onto something.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zed CEO Nathan Sobo &lt;a href="https://linkedin.com/posts/nathan-sobo-92b46720_max-brunsfeld-antonio-scandurra-and-i-have-activity-7506009374222622721-ZjPO" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said&lt;/a&gt; it best: “It seems like everyone is in a race to replace GitHub right now.”&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His argument is that a diff shows you where an agent landed, but leaves much of the conversation that got it there somewhere else. Delta keeps that conversation attached to the code, while DeltaDB records changes at edit-level granularity. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zed says 33 of its team members landed 570 changes to Delta’s main branch without opening a single pull request. That’s Delta’s own repository; the public Zed editor repository still accepts conventional pull requests. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Meanwhile, GitHub reported 2.9 billion monthly commits in August, up from 1.4 billion in April. This was despite GitHub crashing for nearly eight hours in August. Sobo thinks the thread will become software development’s fundamental unit. And Zed is not on this quest to replace GitHub alone. Cursor’s Origin and GitLab’s Project Switch are other takes on rebuilding code collaboration for agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic is tackling a different user handoff. This week, it announced a unified interface bringing Cowork’s capabilities into Claude Chat. The goal is to reduce confusion and merge capabilities. The rollout starts with Pro and Max users, with other plans following.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;“People used both, and told us the frustrating part was deciding where a task belonged,” the company said, as Amanda Caswell reported.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I’ve been using it since the switch, and removing the choice was the right call. Now, users should more easily grasp the capabilities and workflow possible with Cowork.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-economics-make-the-harness-matter-even-more" class="wp-block-heading"&gt;&lt;strong&gt;The economics make the harness matter even more&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenRouter’s &lt;a href="https://thenewstack.io/openrouter-us-region-routing/" class="local-link"&gt;US in-region routing&lt;/a&gt; is now generally available to business and enterprise customers. Requests sent through its US endpoint are decrypted, processed, and served inside the country, or rejected if that guarantee can’t be met.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sawers wrote that story too. One number explains the demand: Open-weight models accounted for roughly 60% of OpenRouter’s US-originating token consumption in August, with Chinese models making up most of the volume.&lt;br&gt;&lt;br&gt;DeepSeek V4 Pro, Kimi K3, GLM 5.2. These are models developed in China and available through providers running them in US data centers&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The models’ country of origin and the location where your data gets processed are different questions. OpenRouter is selling control over the second one. That matters, since Deloitte’s global survey cited in the story found that 77% of companies factor an AI solution’s country of origin into vendor selection. Stripe’s announced acquisition of OpenRouter, reportedly worth about $8 billion, adds another measure of the interest in this layer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Vercel’s &lt;a href="https://vercel.com/blog/ai-gateway-production-index-september-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September AI Gateway Production Index&lt;/a&gt;, published September 17, shows the economics from another angle:&lt;/p&gt;
+
+
+
+&lt;style&gt; div.tnsht{--ink:#1B2A4A;--teal:#0D8F8F;--muted:#5D6D7E;--band:#F4F6F8;--line:#DDE3E9; font-family:Arial,Helvetica,"Helvetica Neue",sans-serif;color:var(--ink); background:#FFFFFF;margin:28px 0;max-width:760px;box-sizing:border-box;} div.tnsht *{box-sizing:border-box;} div.tnsht p.tnsht-hed{font-size:17px!important;font-weight:700!important;line-height:1.3!important; margin:0 0 4px!important;padding:0!important;color:var(--ink)!important;} div.tnsht p.tnsht-dek{font-size:13px!important;line-height:1.5!important;margin:0 0 12px!important; padding:0!important;color:var(--muted)!important;} div.tnsht div.tnsht-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch; border:1px solid var(--line);border-radius:5px;background:#FFFFFF;} div.tnsht table{border-collapse:collapse!important;border-spacing:0!important;width:100%!important; margin:0!important;padding:0!important;border:0!important;font-size:14px!important; background:#FFFFFF!important;display:table!important;table-layout:auto!important;} div.tnsht thead{background:transparent!important;} div.tnsht tr{background:transparent!important;border:0!important;} div.tnsht thead tr th{background-color:#1B2A4A!important;background-image:none!important; color:#FFFFFF!important;font-size:11.5px!important;font-weight:700!important; text-transform:uppercase!important;letter-spacing:.05em!important;line-height:1.35!important; text-align:left!important;vertical-align:bottom!important;padding:10px 14px!important; border:0!important;white-space:normal!important;} div.tnsht thead tr th:first-child{width:34%;} div.tnsht thead tr th:nth-child(2),div.tnsht thead tr th:nth-child(3){width:23%;} div.tnsht tbody tr th,div.tnsht tbody tr td{padding:11px 14px!important; border:0!important;border-bottom:1px solid var(--line)!important; color:var(--ink)!important;background-color:#FFFFFF!important;background-image:none!important; font-size:14px!important;line-height:1.45!important;vertical-align:top!important; white-space:normal!important;} div.tnsht tbody tr th{text-align:left!important;font-weight:700!important;} div.tnsht tbody tr td{text-align:left!important;font-weight:400!important;} div.tnsht tbody tr:nth-child(even) th, div.tnsht tbody tr:nth-child(even) td{background-color:#F4F6F8!important;} div.tnsht tbody tr:last-child th, div.tnsht tbody tr:last-child td{border-bottom:0!important;} div.tnsht p.tnsht-foot{margin:10px 0 0!important;padding:0!important;font-size:11.5px!important; line-height:1.5!important;color:var(--muted)!important;} div.tnsht p.tnsht-foot a{color:var(--teal)!important;text-decoration:underline;} @media (max-width:520px){ div.tnsht table{font-size:13px!important;} div.tnsht tbody tr th,div.tnsht tbody tr td{padding:9px 10px!important;font-size:13px!important;} div.tnsht thead tr th{padding:9px 10px!important;} div.tnsht thead tr th:first-child{width:46%;} div.tnsht thead tr th:nth-child(2),div.tnsht thead tr th:nth-child(3){width:27%;} } &lt;/style&gt; &lt;div class="tnsht"&gt; &lt;p class="tnsht-hed"&gt;Open weights took the volume. Closed models kept the money.&lt;/p&gt; &lt;p class="tnsht-dek"&gt;Share of tokens against share of spending on Vercel’s AI Gateway, August 2026.&lt;/p&gt; &lt;div class="tnsht-wrap"&gt; &lt;div class="table-scroll-wrap"&gt;&lt;table&gt; &lt;thead&gt; &lt;tr&gt; &lt;th scope="col"&gt;Models&lt;/th&gt; &lt;th scope="col"&gt;Share of tokens&lt;/th&gt; &lt;th scope="col"&gt;Share of estimated spend&lt;/th&gt; &lt;/tr&gt; &lt;/thead&gt; &lt;tbody&gt; &lt;tr&gt;&lt;th scope="row"&gt;Open-weight models&lt;/th&gt; &lt;td&gt;56%&lt;/td&gt; &lt;td&gt;14%&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;Closed-weight models&lt;/th&gt; &lt;td&gt;44%&lt;/td&gt; &lt;td&gt;86%&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;Anthropic, all models&lt;/th&gt; &lt;td&gt;n/a&lt;/td&gt; &lt;td&gt;64%&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;th scope="row"&gt;GPT-6 Astra, first 12 days after Sept. 3 launch&lt;/th&gt; &lt;td&gt;n/a&lt;/td&gt; &lt;td&gt;7.7%&lt;/td&gt;&lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt;&lt;/div&gt; &lt;/div&gt; &lt;p class="tnsht-foot"&gt;Source: &lt;a href="https://vercel.com/blog/ai-gateway-production-index-september-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vercel AI Gateway Production Index&lt;/a&gt;, Sept. 17, 2026. Gateway traffic only; spending is estimated from labs’ published list prices, so actual bills may differ.&lt;/p&gt; &lt;/div&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Open weight crossed into the majority of Vercel’s gateway token volume for the first time, up from a reported 7% in December 2025. Vercel says its current open-weight classification is broader than the one used in earlier reports. Among teams running more than ten million tokens in both comparison months, the median team paid 7.6% less per token, following July’s 2.9% decline.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So what justifies the premium? &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Boris Renski, CEO of AI agent integration company Apelogic, argues that much of it buys enterprise plumbing: identity integration, connectors, and observability. In Adrian Bridgwater’s &lt;a href="https://thenewstack.io/open-weight-models-frontier-costs/" class="local-link"&gt;July reporting&lt;/a&gt;, CNCF executive director Jonathan Bryce described paying ten times more for a four-month capability lead as “a very expensive form of lock-in.”&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Closed models still command most of the estimated spending, and customers may be paying for capabilities that cheaper alternatives don’t reliably deliver.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But cheaper inference raises the pressure on everything around it, and Anthropic spent its week on exactly that. Instead of making headlines with a new model, it shipped a merged interface, documents and slides — features arguably more important to most users.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-harness-has-to-earn-its-keep" class="wp-block-heading"&gt;&lt;strong&gt;The harness has to earn its keep&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Amanda Caswell covered &lt;a href="https://thenewstack.io/real-swe-coding-benchmark/" class="local-link"&gt;Real-SWE&lt;/a&gt;, a benchmark from Y Combinator-backed Specific Labs built on private codebases from real companies. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The best setup tested, Claude Fable 5.1 running through Claude Code, succeeded 38.8% of the time. GPT-6 Astra through Codex CLI reached 33.8%; Gemini 3.8 Flash through Gemini CLI reached 31.2%. None broke 40%. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The benchmark is small: 10 tasks, with eight attempts per model on each. And it tests models with their coding tools, so the harness is already in the score. Still, no model solved the analytics stream reducer across 64 attempts. Zero.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Solutions touched a median of 11 files, compared with six in the public benchmarks cited in the reporting. Real work is spread out. These agents struggled to follow it. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable’s leading failure categories were missed requirements and integration errors. That doesn’t mean the information was missing. An agent can have it and still overlook it, misunderstand it, or skip the check.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The engineering problem is getting context, tools, and verification to work together. So is knowing when the model doesn’t need to run at all. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Abhilash Rao Mesala, a senior data engineer at Meta, &lt;a href="https://thenewstack.io/llm-response-caching-costs/" class="local-link"&gt;wrote a practical guide to LLM response caching&lt;/a&gt; for us: reuse an answer when the request, context, permissions, and underlying information make it valid. His example starts with a million calls a month at $0.006 each, or $6,000. A 60% cache hit rate, plus $150 in embedding and vector-store costs, brings that to $2,550. A 57.5% reduction from a principle older than the transformer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The hard part is knowing when a stored answer is still the right answer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pair Mesala’s piece with Ida Silfverskiöld’s on &lt;em&gt;Towards Data Science&lt;/em&gt; &lt;a href="https://towardsdatascience.com/agentic-ai-how-to-save-on-tokens/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;guide to saving on tokens&lt;/a&gt;, which covers prompt caching, model routing, and keeping unnecessary materials out of an agent’s context. Both are worth your time. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It’s hard to ignore the doom and gloom hovering over AI at the moment. But there’s good news out there, too. Each week, the price of inference is dropping, and companies are improving harnesses – both are critical improvements to push AI into the mainstream.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-harness-economics/"&gt;This week’s news from Zed, Anthropic, and OpenRouter shows why better harnesses matter more than better models&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI inference keeps getting cheaper. This week’s biggest stories show why the software around the model is becoming the real test of its value.</content:encoded>
+    </item>
+    <item>
       <title>Claude couldn’t hack OpenAI. Then Anthropic shipped Opus 5.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/claude-exploits-openai-forum/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +508,10 @@
       <category>AI Models</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22837334</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Three security researchers at Hacktron AI found a memory-corruption bug in a widely used image library. Finding it was the&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Three security researchers at Hacktron AI found a memory-corruption bug in a widely used image library. Finding it was the&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-exploits-openai-forum/"&gt;Claude couldn&amp;#8217;t hack OpenAI. Then Anthropic shipped Opus 5.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract door" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/62433673-behnam-mohsenzadeh-n6gc9ebg7v4-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Three security researchers at &lt;a href="https://www.hacktron.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hacktron AI&lt;/a&gt; found a memory-corruption bug&lt;/strong&gt; in a widely used image library. Finding it was the easy part.&lt;/p&gt;
 
 
@@ -156,7 +636,7 @@
       <category>sponsor-hpe</category>
       <category>sponsored-post</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22837309</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/c45b50fa-growtika-uyvnmrovrw4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D illustration of interconnected purple geometric nodes and gold lines representing a distributed network or cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/c45b50fa-growtika-uyvnmrovrw4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, where we&amp;#8217;re tracking the Kubernetes and cloud-native ecosystem on the way into&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/c45b50fa-growtika-uyvnmrovrw4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D illustration of interconnected purple geometric nodes and gold lines representing a distributed network or cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/c45b50fa-growtika-uyvnmrovrw4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, where we&amp;#8217;re tracking the Kubernetes and cloud-native ecosystem on the way into&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-ai-inference-costs/"&gt;Kubernetes can run AI inference. But can it count the real cost?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/c45b50fa-growtika-uyvnmrovrw4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D illustration of interconnected purple geometric nodes and gold lines representing a distributed network or cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/c45b50fa-growtika-uyvnmrovrw4-unsplash-scaled.jpg" /&gt;
@@ -3821,558 +4301,6 @@ trace exit: 0
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/bolt-forge-training-data/"&gt;Bolt is giving developers 50x more compute. But there&amp;#8217;s a catch.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Bolt.new&amp;#039;s Forge gives developers 50x more AI coding usage — if they share sessions to train a trillion-parameter open-weight model with Arcee AI.</content:encoded>
-    </item>
-    <item>
-      <title>Agents operate, humans govern: Scale your operations and reduce toil with Azure SRE Agent </title>
-      <link>https://web.archive.org/web/https://thenewstack.io/azure-sre-agent-operations/</link>
-      <dc:creator>TNS Staff</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 16:21:45 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Operations</category>
-      <category>DevOps</category>
-      <category>sponsor-microsoft-azure</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836801</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/6e4f87c8-yeti-iglesias-hwfqmmsdja4-unsplash-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of colorful doughnut, bar, radar, and line charts alongside slider controls on a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/6e4f87c8-yeti-iglesias-hwfqmmsdja4-unsplash-scaled.png" /&gt;&lt;p&gt;What if engineers could spend their time building and optimizing systems rather than maintaining them? It&amp;#8217;s 3 a.m., and the&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/azure-sre-agent-operations/"&gt;Agents operate, humans govern: Scale your operations and reduce toil with Azure SRE Agent &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/6e4f87c8-yeti-iglesias-hwfqmmsdja4-unsplash-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of colorful doughnut, bar, radar, and line charts alongside slider controls on a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/6e4f87c8-yeti-iglesias-hwfqmmsdja4-unsplash-scaled.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;What if engineers could spend their time building&lt;/strong&gt; and optimizing systems rather than maintaining them?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s 3 a.m., and the pager goes off. Tabbing between multiple dashboards and diagnostics, the SRE struggles to determine whether what woke them is a real incident, whether they&amp;#8217;re the right person to handle it, or whether they need to wake someone else. Digging through monitoring tools, deployment history, incident systems, and team runbooks &amp;mdash; and chasing what might be the wrong theory about the root cause &amp;mdash; they can&amp;#8217;t respond fast enough to stop more customers from being affected.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Or imagine that, by the time the SRE joins the incident bridge, &lt;a href="https://azure.microsoft.com/en-us/products/sre-agent/?msockid=02bb8e2a081a6e38377e9b9b09e26fcf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Azure SRE Agent&lt;/a&gt; has already analyzed the monitoring data, identified the root cause, and prepared a fix for approval and deployment.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/mehtasanchit/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sanchit Mehta&lt;/a&gt;, one of the head engineers for Azure SRE Agent, tells &lt;em&gt;The New Stack&lt;/em&gt; that &amp;#8220;[Azure SRE Agent] starts analyzing telemetry and correlates things like blast radius, deployment changes, recent changes, any recent rollouts, to try to tell the engineers, &amp;#8216;OK, this is what is causing it.'&amp;#8221; Increasingly, it will even create the PR for that fix.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The support is just as useful during normal working hours. At &lt;a href="https://www.youtube.com/live/eU4Psu3jSog" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;InEight&lt;/a&gt;, correlating telemetry across tens of thousands of Azure resources can take days, if not weeks. When a support ticket reports slow performance without identifying the product, engineers must determine which of the company&amp;#8217;s 14 products is affected, then check multiple observability and reliability tools.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;InEight shared that, during its first incident using Azure SRE Agent, the agent quickly identified the affected product, traced the performance issue to its root cause, and recommended scaling Redis. The DevOps team had been considering scaling the app service as a temporary fix.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-proactive-and-in-production" class="wp-block-heading"&gt;Proactive and in production&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This kind of help is becoming the new normal at Microsoft, where more than 3,000 service teams already use Azure SRE Agent to investigate issues, perform root cause analysis, respond to incidents, fix code, enable automatic mitigation, support proactive detection, analyze data, and report at scale. Azure SRE Agent has already handled more than 1.8 million incidents inside Microsoft, many mitigated in minutes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The team also uses Azure SRE Agent to develop and improve the service itself, with custom agents for code review, deployment, evaluation, and monitoring. This &amp;#8220;agent-powered engineering&amp;#8221; approach, as Mehta calls it, lets the team take advantage of ongoing advances in AI models. That includes proactively spotting problems, like quota issues that affected deployments, and automatically raising support tickets to resolve them. The agent recently identified the root cause of a change that broke synthetic tests as soon as the change reached the first region, he says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;nbsp;&amp;#8220;It said, &amp;#8216;OK, this was an upstream PyPI package that broke your dependency; you need to add tests for it; you should roll back immediately; here&amp;#8217;s how you should go fix this.'&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Mehta says that kind of proactive monitoring is hard to handle with deterministic queries. &amp;#8220;You need a level of intelligence to see when a large production payload is being deployed and if it has the potential to cause degradations.&amp;#8221;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For some internal teams, more than half of incidents are autonomously managed by the SRE agent and don&amp;#8217;t need any human intervention, adds &lt;a href="https://www.linkedin.com/in/meetshamir/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Shamir Abdul Aziz&lt;/a&gt;, lead program manager for Azure SRE Agent, because they&amp;#8217;re what he calls &amp;#8220;safe&amp;#8221; operations and mitigations: a restart, scale-out or rollback of a service, or change order requests escalated by customers. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The humans did the governance, set up the guidelines, gave some coaching to the agent, and then it went into auto mode to complete the entire workflow,&amp;#8221; Abdul Aziz says.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-agents-are-ready-to-help" class="wp-block-heading"&gt;Agents are ready to help&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;SREs are already drowning in repetitive toil. SREs are already drowning in repetitive toil, and coding agents add to that workload. Agentic operations are now powerful enough to help, &lt;a href="https://www.linkedin.com/in/vyomnagrani/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vyom Nagrani&lt;/a&gt;, one of the head PMs for Azure SRE Agent, tells &lt;em&gt;The New Stack&lt;/em&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;As code gets written more and more by agents, it&amp;#8217;s going to take another agent to operate it,&amp;#8221; Nagrani says. &amp;#8220;But why wait? If the agent can manage code which other agents write, why can&amp;#8217;t it manage code written by humans?&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;As code gets written more and more by agents, it&amp;#8217;s going to take another agent to operate it.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The reasoning loop has become mature enough that now agents can automatically start figuring out a lot of these complex problems, especially when it comes to correlating across multiple data sources, which has always been the hardest thing for humans to do,&amp;#8221; Nagrani says.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Powerful models aren&amp;#8217;t enough, though,&lt;/strong&gt; and homegrown automation won&amp;#8217;t have the production-grade governance, verification, evaluation, telemetry, and control a platform can offer. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The state of the art has progressed from prompt engineering to context engineering&amp;mdash;which grounds AI in your infrastructure, code, and institutional knowledge &amp;mdash; and now to harness engineering. &amp;#8220;That is what allows you to run agents at scale, control them, and govern them,&amp;#8221; says &lt;a href="https://www.linkedin.com/in/meetshamir/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Abdul Aziz&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When you combine all these things with being able to verify, audit, evaluate, and get real telemetry and metrics out of the system, where the agent claims it has done something, you can validate that agent&amp;#8217;s claim,&amp;#8221; Abdul Aziz says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Instead of a non-deterministic black box that can&amp;#8217;t explain its decisions, you can trace and learn from the agent&amp;#8217;s reasoning so that you can correct mistakes once, not over and over again. &amp;#8220;That&amp;#8217;s why companies are willing to adopt it now,&amp;#8221; Abdul Aziz says. &amp;#8220;Because when you try the same thing ten times, you&amp;#8217;re going to get the same output.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You don&amp;#8217;t just turn on the agent, give it full access, and ask it to solve everything.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;After two years of building enterprise-grade systems that can be trusted, audited, and validated, the next step for cloud-native SRE can be agentic ops with autonomous capabilities &amp;mdash; but you still need to know how to adopt it, Abdul Aziz warns. &amp;#8220;You don&amp;#8217;t just turn on the agent, give it full access, and ask it to solve everything.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-context-and-connections" class="wp-block-heading"&gt;Context and connections&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Azure SRE Agent is built for Azure but not limited to the Azure platform. The agent provides native access to Azure services such as Azure Monitor, Application Insights, Log Analytics, and Azure Resource Graph. Connecting the agent to your subscriptions, telemetry data, and source code gives it the operational context and institutional knowledge needed to understand how you work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Beyond Azure, Azure SRE Agent integrates with engineering and operational tools through &lt;a href="https://learn.microsoft.com/en-us/azure/sre-agent/managed-connectors" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;managed connectors&lt;/a&gt; for Azure DevOps and GitHub, plus &lt;a href="https://learn.microsoft.com/en-us/azure/sre-agent/mcp-server" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP connectors&lt;/a&gt; that enable access to external knowledge sources such as Google Drive, Confluence, Cursor, Claude Code, and other third-party systems.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Put all that knowledge into Markdown files in a repo, along with the skills and tools agents need to act on your systems (including third-party and on-premises services). That gives you artifacts that agents can version, review, test, reuse, and update.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When you want to dictate how to handle an incident &amp;mdash; what to check and in what order, what to post, and even how to format a report &amp;mdash; you can create a custom agent, either by using an existing runbook or by working through an incident with an agent and saving that skill. Using agents to improve agents is the shortcut to making Azure SRE Agent more useful the more you use it. Essentially, saving what agents learn during incidents helps improve their future responses.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-guidelines-and-guardrails" class="wp-block-heading"&gt;Guidelines and guardrails&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Governance covers identity, role-based access control (RBAC), and tool-access policies. These controls determine which actions are allowed, blocked, or subject to step-by-step approval, and whether an agent operates autonomously or with human review.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What makes governance both flexible and powerful are hooks, based on prompts or deterministic commands, that fire at different stages of a workflow and catch edge cases, such as allowing an agent to drop the index in a SQL database but never drop a table.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Metrics show you whether governance is working. The new live reports show time to mitigation, tool reliability, how often agents act autonomously, and cost per outcome at a glance. &lt;a href="https://techcommunity.microsoft.com/blog/appsonazureblog/a-paradigm-shift-in-cloud-operations-with-azure-sre-agent/4533244" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;InEight&amp;#8217;s&lt;/a&gt; metrics are typical: an 80% reduction in both incident investigation time and build failure triage time, a 67% reduction in the effort needed to investigate bugs, and an 84% reduction in cost.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To get those results, you need triggers that automatically launch agents instead of waiting for a human to open a chat window. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Bind skills and custom agents to specific alert classes so they can respond to incidents first. Start agents through pipelines, webhooks, or work items to automate delivery workflows. Schedule regular checks, reviews, and audits, and have agents automatically update their artifacts.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-agents-operate-you-stay-in-control" class="wp-block-heading"&gt;Agents operate; you stay in control&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;By reducing repetitive tasks and technical toil, Azure SRE Agent frees engineers to focus on more interesting and innovative projects. Just as there&amp;#8217;s a familiar maturity model for adopting site reliability engineering in the first place, you don&amp;#8217;t jump straight into having agents rather than humans handle operations. When you give agents the context about your infrastructure, you can start using them for investigations. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If you give agents read access to your source code, your telemetry, your resources, the time to get to the root cause is reduced to minutes rather than hours or days,&amp;#8221; Abdul Aziz points out. &amp;#8220;Every customer starts there.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Once you&amp;#8217;re happy with the answers you&amp;#8217;re getting, you can give the agent more permissions while still approving individual steps, he says. &amp;#8220;The fixing is easy once you understand the problem. It&amp;#8217;s usually changing your configuration, writing a piece of code, or restarting a service.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The fixing is easy once you understand the problem. It&amp;#8217;s usually changing your configuration, writing a piece of code, or restarting a service.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As you expand into other operational tasks, refine the agents&amp;#8217; artifacts, metrics, and governance before granting more autonomy: &amp;#8220;Things like rolling back a release when we know there was a regression in that release, restarting a service, dropping a corrupt index on a SQL table, or scaling out a service,&amp;#8221; Abdul Aziz suggests.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For more complicated issues, agents can deliver the entire fix, ready for approval. The Azure SRE Agent that manages the Azure SRE Agent product looks at exceptions, errors, incidents, Teams conversations, emails, and GitHub issues every night and spits out PRs.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Avoid code review bottlenecks by having agents deploy, test, measure, and include outcomes in the PRs. Use continuous evaluation to build a self-learning system that accurately follows your existing workflows. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The agent can self-improve because the agent learns constantly,&amp;#8221; Abdul Aziz says. &amp;#8220;You can configure scheduled tasks to identify which evaluation scores were low and automatically improve the custom agent, custom skills, and even your knowledge documents &amp;ndash; because knowledge management is also a toil. The agent can automate all of that.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-right-way-to-start" class="wp-block-heading"&gt;The right way to start&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Azure SRE Agent now offers a &lt;a href="https://aka.ms/sre-agent-trial" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;30-day trial experience&lt;/a&gt; with no always-on charges. Make the most of that by learning from some common mistakes:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;It&amp;#8217;s not magic! Turning on the agent doesn&amp;#8217;t mean you don&amp;#8217;t have to do DevOps anymore. Don&amp;#8217;t treat it as a chatbot or connect it to just your observability system. You need to give the agent the context it needs, the tools to do the job, and intentional triggers that tell it when to act. Otherwise, it may spend effort on low-value work or generate outputs that aren&amp;#8217;t grounded in your environment.&amp;nbsp;&lt;/li&gt;
-
-
-
-&lt;li&gt;Don&amp;#8217;t limit yourself to what the agent does out of the box: Customize agent skills, tools, connections, and logic to fit how your organization works, and build custom agents for specific tasks.&lt;/li&gt;
-
-
-
-&lt;li&gt;Don&amp;#8217;t use agents for jobs a single line of code can do: Using them to explore deterministic, structured data for anomalies is an expensive waste of tokens that will only flood the context window when the agent can write that line of code itself. &amp;#8220;Orchestrate, don&amp;#8217;t calculate,&amp;#8221; as Nagrani puts it. If you&amp;#8217;re drowning in alerts, use automation to filter the noise and only send alerts that need intelligent analysis to agents.&lt;/li&gt;
-
-
-
-&lt;li&gt;Don&amp;#8217;t stick with what you&amp;#8217;ve always done or copy your org chart: The most effective agents have a complete picture of the system, so they need all the context, even if it crosses two teams. That might mean crossing boundaries, coordinating who has expertise and who needs to grant access, or rethinking how the organization works.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If agents have the right context, they minimize the toil and truly make operations less costly,&amp;#8221; lead product manager &lt;a href="https://www.linkedin.com/in/deepthichelupati/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Deepthi Chelupati&lt;/a&gt; points out. That way you can move faster, be proactive, and give engineers more time to innovate and less maintenance work to dread.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;Get started today: &lt;a href="https://sre.azure.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;sre.azure.com&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/azure-sre-agent-operations/"&gt;Agents operate, humans govern: Scale your operations and reduce toil with Azure SRE Agent &lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Azure SRE Agent can investigate incidents and prepare fixes before engineers step in. Getting there takes context, clear permissions, and reliable triggers.</content:encoded>
-    </item>
-    <item>
-      <title>How to attach an owner to every cloud resource you find</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/attach-owner-cloud-resources/</link>
-      <dc:creator>Zeen Rachidi</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 14:00:00 +0000</pubDate>
-      <category>Cloud Services</category>
-      <category>DevOps</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-env-zero</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836777</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/31500e42-aakash-dhage-gsukpswjm2c-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D rendering of intertwined rings symbolizing complex cloud resource governance and technical debt." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/31500e42-aakash-dhage-gsukpswjm2c-unsplash.jpg" /&gt;&lt;p&gt;The engineer who knew why that cloud instance existed has left the company. The instance is still running, the bill&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/attach-owner-cloud-resources/"&gt;How to attach an owner to every cloud resource you find&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/31500e42-aakash-dhage-gsukpswjm2c-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D rendering of intertwined rings symbolizing complex cloud resource governance and technical debt." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/31500e42-aakash-dhage-gsukpswjm2c-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;The engineer who knew why that cloud instance existed has left the company. The instance is still running, the bill keeps growing, and the team must now decide whether it&amp;rsquo;s safe to shut down. This is a bad time to discover that its ownership history was someone&amp;rsquo;s memory.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Good resource governance has three pillars: continuously synced inventory, policy that blocks resources without tagged owners, and an audit trail that survives every reorg.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A cost review flags an EC2 instance nobody remembers provisioning. Someone scours Slack for the resource ID, finds nothing, burns half a day chasing dead ends, and eventually stumbles across an exhausted engineer who mumbles the mantra that ends most of these investigations: &amp;#8220;I think that&amp;#8217;s from the project Priya was running before she left.&amp;#8221;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nobody follows up, because nobody knows how to reach Priya anymore. The instance stays up, because tearing down a fence when you don&amp;#8217;t know what it&amp;#8217;s protecting you from is a good way to find out the hard way. It&amp;#8217;s the platform team equivalent of emotional baggage; they all seem to accumulate some.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Processing this baggage doesn&amp;#8217;t require knowing Priya&amp;#8217;s replacement, writing better documentation, or hoping the next reorg is more rigorous.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Processing this baggage doesn&amp;#8217;t require knowing Priya&amp;#8217;s replacement, writing better documentation, or hoping the next reorg is more rigorous.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Solving the problem requires three things that already exist: queries, policies, and logs; and maybe just a little bit of therapy.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-1-the-query-that-tells-you-what-s-missing-an-owner" class="wp-block-heading"&gt;1. The query that tells you what&amp;#8217;s missing an owner&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;CloudQuery&amp;#8217;s asset inventory syncs continuously across every provider a team runs on, into tables you can query directly: &lt;code&gt;aws_ec2_instances&lt;/code&gt;, &lt;code&gt;gcp_compute_instances&lt;/code&gt;, &lt;code&gt;azure_compute_virtual_machines&lt;/code&gt;, and so on. Finding every resource without an assigned owner is as easy as:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: sql; gutter: false; title: ; notranslate"&gt;
-SQL
-SELECT resource_id, &amp;#039;aws&amp;#039; AS provider, &amp;#039;ec2_instance&amp;#039; AS resource_type
-FROM aws_ec2_instances
-WHERE tags -&amp;gt;&amp;gt; &amp;#039;owner&amp;#039; IS NULL
-UNION ALL
-SELECT resource_id, &amp;#039;gcp&amp;#039;, &amp;#039;compute_instance&amp;#039;
-FROM gcp_compute_instances
-WHERE labels -&amp;gt;&amp;gt; &amp;#039;owner&amp;#039; IS NULL
-UNION ALL
-SELECT resource_id, &amp;#039;azure&amp;#039;, &amp;#039;virtual_machine&amp;#039;
-FROM azure_compute_virtual_machines
-WHERE tags -&amp;gt;&amp;gt; &amp;#039;owner&amp;#039; IS NULL
-ORDER BY provider;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Run it regularly, and you have a (hopefully short) boring list to refer to when the CFO asks who deployed an expensive instance; instead of being thrown into a frenzied goose chase at 4:59 p.m. on a Friday.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;2. The policy that prevents it recurring&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A query tells you what&amp;#8217;s already missing an owner; but how do you prevent the next ownerless resource from being deployed? The answer is a policy, and env zero evaluates &lt;a href="https://thenewstack.io/how-doordash-governs-its-infrastructure-with-open-policy-agent/"  data-wpil-monitor-id="4087" class="local-link"&gt;Open Policy Agent&lt;/a&gt; rules against every plan before it applies. A rule that requires an owner tag on every new resource looks something like this:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-package env0
-
-# METADATA
-# title: require owner tag
-# description: A resource can&amp;#039;t be created without a declared owner.
-deny&amp;#x5B;format(rego.metadata.rule())] {
-	resource := input.resource_changes&amp;#x5B;_]
-	resource.change.actions&amp;#x5B;_] == &amp;quot;create&amp;quot;
-	not resource.change.after.tags.owner
-}
-
-format(meta) := meta.description
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Add that to the project&amp;#8217;s policy set, and a plan that creates a resource without an owner tag doesn&amp;#8217;t just get a warning; it doesn&amp;#8217;t get created.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;3. The record that outlives its creator&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A tag tells you who owns something today. It doesn&amp;#8217;t tell you anything about who asked for it, why, or who signed off. By the time it matters, the person who could&amp;#8217;ve answered from memory may no longer be reachable. An audit entry records that at the moment of creation, instead of reconstructing it afterward from the scraps of recollection scattered around the rest of the team. Here&amp;#8217;s an example:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-{
-  &amp;quot;event&amp;quot;: &amp;quot;resource.created&amp;quot;,
-  &amp;quot;resource_id&amp;quot;: &amp;quot;i-0a1b2c3d4e5f&amp;quot;,
-  &amp;quot;requested_by&amp;quot;: &amp;quot;j.chen@company.com&amp;quot;,
-  &amp;quot;approved_by&amp;quot;: &amp;quot;platform-lead@company.com&amp;quot;,
-  &amp;quot;approval_ref&amp;quot;: &amp;quot;ENV-4471&amp;quot;,
-  &amp;quot;stated_purpose&amp;quot;: &amp;quot;load test environment, Q3 capacity planning&amp;quot;,
-  &amp;quot;timestamp&amp;quot;: &amp;quot;2026-08-14T09:12:03Z&amp;quot;
-}
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;This entry answers the question this whole piece opened with, without &lt;a href="https://thenewstack.io/if-i-need-slack-to-use-it-its-not-a-platform-as-product/"  data-wpil-monitor-id="4088" class="local-link"&gt;needing Priya or Slack&lt;/a&gt;. env zero keeps this record attached to the resource for as long as the resource exists, specifically so it outlasts any individual&amp;#8217;s tenure.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Why this keeps happening&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Employee attrition is an age-old challenge that&amp;#8217;s only accelerating in the modern era. &lt;a href="https://atlan.com/know/data-for-ai/tribal-knowledge/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;US private-sector voluntary turnover runs 22 to 25% a year&lt;/a&gt;, so a hundred-person org loses twenty-odd people every year, each one taking a small, specific piece of &amp;#8220;why this exists&amp;#8221; with them. &lt;a href="https://atlan.com/know/data-for-ai/tribal-knowledge/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Replacing a mid-level employee costs six to nine months of salary, more than double that for senior specialists&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Tags were supposed to survive this. In practice they rot the way everything else does.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That figure doesn&amp;#8217;t touch what the departure does to everyone else&amp;#8217;s mental model of what&amp;#8217;s actually running. Tags were supposed to survive this. In practice they rot the way everything else does: two teams merge and bring incompatible schemas, &lt;a href="https://www.sigmainfo.net/blog/platform-engineering-idp-stop-losing-developer-velocity-to-tooling-chaos/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;provisioning that runs on tribal knowledge accumulates configuration drift for the same reason it accumulates ambiguous ownership&lt;/a&gt;, and a resource tagged under a policy that&amp;#8217;s been replaced twice since its inception isn&amp;#8217;t much better documented than one that isn&amp;#8217;t tagged at all.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We wrote in April about &lt;a href="https://thenewstack.io/multi-cloud-blind-spots/" class="local-link"&gt;the hour it once took our own team to answer, &amp;#8220;what are we actually running across both clouds&lt;/a&gt;?&amp;#8221; That solved a point-in-time problem. The query, the policy, and the audit entry above stop the same story from playing out again next June.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The org chart will keep changing. The record doesn&amp;#8217;t have to.&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;None of this stops people from leaving or teams from reorganizing; pretending otherwise is how platform teams end up rebuilding the same spreadsheet every eighteen months. What changes is whether the next &amp;#8220;what are we actually running, and who owns it&amp;#8221; conversation takes hours of archaeology across three teams, or is a query that already has the answer attached. Institutional knowledge decays at a fairly predictable rate. A &lt;a href="https://thenewstack.io/netbox-labs-network-intent/"  data-wpil-monitor-id="4089" class="local-link"&gt;system of record&lt;/a&gt; shouldn&amp;#8217;t.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/attach-owner-cloud-resources/"&gt;How to attach an owner to every cloud resource you find&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Stop orphan cloud resources using query syncing, strict tagging policies, and audit records that survive employee turnover.</content:encoded>
-    </item>
-    <item>
-      <title>Kubernetes 1.36 restores a lost guarantee for database backups</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-volume-group-snapshots/</link>
-      <dc:creator>Shubham Pampattiwar</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 13:00:00 +0000</pubDate>
-      <category>Databases</category>
-      <category>Kubernetes</category>
-      <category>Storage</category>
-      <category>sponsor-cncf</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836762</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/deaa301c-point-normal-xezeq1s6k50-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital representation of multi-volume system architecture and structural alignment for Kubernetes database storage." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/deaa301c-point-normal-xezeq1s6k50-unsplash.jpg" /&gt;&lt;p&gt;It&amp;#8217;s 2 a.m., and you&amp;#8217;re restoring a PostgreSQL cluster from last night&amp;#8217;s backup. Its data directory lives on one PersistentVolumeClaim&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-volume-group-snapshots/"&gt;Kubernetes 1.36 restores a lost guarantee for database backups&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/deaa301c-point-normal-xezeq1s6k50-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital representation of multi-volume system architecture and structural alignment for Kubernetes database storage." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/deaa301c-point-normal-xezeq1s6k50-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;It&amp;#8217;s 2 a.m., and you&amp;#8217;re restoring a PostgreSQL cluster from last night&amp;#8217;s backup.&lt;/strong&gt; Its data directory lives on one PersistentVolumeClaim and its write-ahead log on another, a common split for I/O isolation. Every volume snapshot reported success. The pods come back. Then Postgres refuses to start because the WAL on one volume references pages that were never captured in the data files on the other. The backup wasn&amp;#8217;t corrupted in transit. It was inconsistent the moment it was taken.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If you run stateful workloads on Kubernetes, this &lt;a href="https://thenewstack.io/mastering-deadman-alerts-to-prevent-silent-failures/" data-wpil-monitor-id="4085" class="local-link"&gt;failure mode has been silently&lt;/a&gt; lurking in your backups for years. It has nothing to do with your backup tool crashing, and everything to do with a guarantee you gave up when you moved off traditional storage.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-consistency-group-you-lost-on-the-way-to-kubernetes" class="wp-block-heading"&gt;The consistency group you lost on the way to Kubernetes&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Enterprise storage arrays solved this problem decades ago with a feature called a consistency group. You told the array which LUNs belonged to the same application, and when you snapshotted the group, the array froze them all at the same instant. Every volume captured the same point in time. Restores were coherent by construction.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The backup wasn&amp;#8217;t corrupted in transit. It was inconsistent the moment it was taken.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That guarantee didn&amp;#8217;t survive the move to cloud native. The Container Storage Interface (CSI) standardized snapshots around a single object, the VolumeSnapshot, scoped to a single PersistentVolumeClaim (PVC). One PVC, one snapshot. For a stateless service with one volume, that model is fine. For anything that spreads its state across multiple volumes (a database with separate data and log disks, a sharded datastore, most real applications), the per-PVC model can&amp;#8217;t tell which volumes belong together.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As teams migrated off proprietary SANs and virtualization stacks onto Kubernetes-native storage, they gained enormous flexibility but lost the consistency group. Most never notice since the gap only shows up at restore time after an incident, when it is far too late to do anything about it.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/09/b8549924-image-1024x640.png" alt="Charts showing multi-volume backup: individual snapshots vs VolumeGroupSnapshot" class="wp-image-22836763"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-individual-pvc-snapshots-break" class="wp-block-heading"&gt;How individual PVC snapshots break&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When protecting a multi-volume application, backup tools enumerate the PVCs and issue a VolumeSnapshot for each one, in sequence. Snapshot volume A, volume B, then volume C.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Each snapshot is individually crash-consistent, equivalent to pulling the power cord on that one volume. But they are not consistent with one another. Between snapshotting A and snapshotting B, the application keeps writing. A transaction can land in the log on volume B that references data never captured on volume A, because A was frozen a few hundred milliseconds earlier. The busier the application and the more volumes involved, the wider the inconsistency window.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The result is a set of snapshots that each looks healthy and collectively describes a state that never existed.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The result is a set of snapshots that each looks healthy and collectively describes a state that never existed. You can quiesce the application to close the window (freeze I/O, flush buffers, snapshot, unfreeze), but at production scale, freezing a busy database for the duration of a multi-volume snapshot is exactly the disruption backups are supposed to avoid.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-volumegroupsnapshot-consistency-groups-as-a-kubernetes-api" class="wp-block-heading"&gt;VolumeGroupSnapshot: consistency groups as a Kubernetes API&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;VolumeGroupSnapshot is the missing primitive, and as of Kubernetes v1.36 (May 2026), it is generally available. It brings the consistency group back as a first-class, vendor-neutral Kubernetes API rather than a proprietary array feature.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The model has three objects. A VolumeGroupSnapshotClass, defined by an administrator, describes how group snapshots are created for a given CSI driver. A VolumeGroupSnapshot is the user&amp;#8217;s request, and it carries a label selector that picks out every PVC belonging to the application. A VolumeGroupSnapshotContent tracks the provisioned result. Under the hood, the CSI driver takes one atomic, point-in-time snapshot across every selected volume: a real consistency group, with no application quiescence required, provided the underlying storage supports it.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Under the hood, the CSI driver takes one atomic, point-in-time snapshot across every selected volume.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The label selector is the important design choice. You don&amp;#8217;t enumerate volumes; you describe them. A selector like `app=postgres` picks up the data and logs PVCs together, and the group boundary is expressed in Kubernetes terms that survive adding or resizing volumes over time.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-wiring-it-into-backup-what-changes" class="wp-block-heading"&gt;Wiring it into backup: what changes&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An &lt;a href="https://thenewstack.io/how-to-maintain-api-consistency-as-you-scale/" data-wpil-monitor-id="4086" class="local-link"&gt;API that produces consistent&lt;/a&gt; snapshots only helps if your backup workflow uses it. When I implemented VolumeGroupSnapshot support in Velero, the CNCF project that has become the de facto standard for Kubernetes backup and restore, the core change was replacing &amp;#8220;iterate over PVCs and snapshot each&amp;#8221; with &amp;#8220;group the PVCs that belong together, snapshot the group as one operation, then track the per-volume members for restore.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That last part matters. A group snapshot fans back out into individual volume snapshots, one per member, so restore still rehydrates each PVC independently, but now every member shares a single point in time. Velero was among the first backup projects to build directly on the upstream VolumeGroupSnapshot API, rather than a proprietary grouping scheme, so the consistency guarantee rides on a standard the whole ecosystem shares instead of a format locked to one tool.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-individual-snapshots-vs-group-snapshots-which-to-use" class="wp-block-heading"&gt;Individual snapshots vs. group snapshots: which to use&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is not a wholesale replacement. Individual PVC snapshots remain the right tool for single-volume workloads and for volumes that are genuinely independent, since snapshotting those as a group buys you nothing and adds coordination overhead. Reach for VolumeGroupSnapshot when correctness depends on multiple volumes sharing a point in time.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A quick decision guide:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;One volume, or several fully independent volumes: individual VolumeSnapshots.&lt;/li&gt;
-
-
-
-&lt;li&gt;Multiple volumes with cross-volume write ordering (data plus WAL, data plus index): VolumeGroupSnapshot.&lt;/li&gt;
-
-
-
-&lt;li&gt;Unsure whether a skewed or partial restore would corrupt the application? Treat it as a group.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 id="h-day-2-notes" class="wp-block-heading"&gt;Day 2 notes&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A few things to check before relying on this in production. Group snapshot support is per CSI driver: the API is standard, but the driver has to implement it, and adoption is still spreading. A growing set of CSI drivers implement it (Ceph CSI among them), so check the driver&amp;#8217;s release notes for upstream VolumeGroupSnapshot support, and create the&amp;nbsp;VolumeGroupSnapshotClass before needing it. The atomicity guarantee is only as strong as the storage backend behind the driver, so validate it by restoring, not by reading success statuses. Audit existing backups now: by protecting multi-volume applications with per-PVC snapshots today, you likely have inconsistent restore points that have never been tested under a real failure.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;With VolumeGroupSnapshot now GA and backup tooling adopting it upstream, multi-volume backups on Kubernetes are finally consistent by construction, not by luck.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The broader arc is that Kubernetes storage is catching up to what enterprise arrays offered for years, but as an &lt;a href="https://thenewstack.io/how-open-standards-enable-zero-trust-on-commodity-hardware/" data-wpil-monitor-id="4084" class="local-link"&gt;open standard&lt;/a&gt; rather than a capability locked to one vendor&amp;#8217;s hardware. Consistency groups were one of the last missing pieces. With VolumeGroupSnapshot now GA and backup tooling adopting it upstream, multi-volume backups on Kubernetes are finally consistent by construction, not by luck.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-volume-group-snapshots/"&gt;Kubernetes 1.36 restores a lost guarantee for database backups&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Kubernetes 1.36 fixes multi-volume database backups with VolumeGroupSnapshot, bringing back point-in-time consistency group protection.</content:encoded>
     </item>
   </channel>
 </rss>
