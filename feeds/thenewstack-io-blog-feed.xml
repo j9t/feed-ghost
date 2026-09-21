@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 18 Sep 2026 18:57:16 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 21:26:12 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,168 @@
       <height>32</height>
     </image>
     <item>
+      <title>Your AI agent failed. The model might not be the problem.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/nvidia-agent-debugging-safe/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sun, 20 Sep 2026 14:04:00 +0000</pubDate>
+      <category>AI</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837405</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled wires abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-scaled.jpg" /&gt;&lt;p&gt;As AI agents move into production, the path between a request and its result is becoming less predictable. An agent&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-agent-debugging-safe/"&gt;Your AI agent failed. The model might not be the problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled wires abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;As AI agents move into production, the path between a request and its result is becoming less predictable. An agent can choose its own tools and change course as it works, which makes failures harder to diagnose when there isn&amp;#8217;t an obvious error to trace.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a recent interview with &lt;em&gt;The New Stack&lt;/em&gt;, Nvidia VP of Product &lt;a href="https://www.linkedin.com/in/adelelhallak/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adel el Hallak&lt;/a&gt; described the additional visibility developers will need as agents take on more complex work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia is also part of an industry effort to share what companies learn when those systems fail. The Secure Agent Findings Exchange, or SAFE, is backed by roughly 140 companies and aims to create shared infrastructure for reporting agent failures, borrowing from vulnerability disclosure in traditional software.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When we find these vulnerabilities, it&amp;#8217;s not just for one company,&amp;#8221; el Hallak tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;It&amp;#8217;s for everyone to patch across.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But agent failures don&amp;#8217;t necessarily trace back to a single component, raising a more basic question for developers. When an agent fails, what exactly do you debug?&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When we find these vulnerabilities, it&amp;#8217;s not just for one company. It&amp;#8217;s for everyone to patch across.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Why traditional observability falls short&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With conventional software, developers usually have a starting point when something goes wrong, whether it&amp;#8217;s an exception, a failed request or a service that goes down. An agent can keep running while heading in the wrong direction, carrying an earlier mistake through the rest of a task without producing anything that looks like a conventional software failure &amp;mdash; or, as el Hallak put it, simply deciding to &amp;#8220;get creative&amp;#8221; when it shouldn&amp;#8217;t.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Even &lt;a href="https://thenewstack.io/real-swe-coding-benchmark/" class="local-link"&gt;the best-performing coding agents fail more than 60% of the time&lt;/a&gt; on tasks drawn from real codebases. Knowing the agent failed, though, is different from knowing why.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;It&amp;#8217;s not enough to just look at the logs or the inputs and the outputs,&amp;#8221; el Hallak tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;It is important to figure out how it got to the answer. What were the reasoning traces? What tools did it utilize? Where did it get stuck? Where did it decide to try a new approach?&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That can require replaying the agent&amp;#8217;s execution to see where it went off course. What looks like a model failure may have started somewhere else in the stack. And that&amp;#8217;s the tricky part for developers. Agent bugs aren&amp;#8217;t always model bugs.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;It&amp;#8217;s not enough to just look at the logs or the inputs and the outputs. It is important to figure out how it got to the answer. What were the reasoning traces? What tools did it utilize? Where did it get stuck? Where did it decide to try a new approach?&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-runtime-as-collection-point" class="wp-block-heading"&gt;Runtime as collection point&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia sees the runtime as the logical place to capture much of that information. Its OpenShell agent runtime, which sits underneath the &lt;a href="https://thenewstack.io/nvidia-nemoclaw-openclaw-security/" class="local-link"&gt;NemoClaw platform&lt;/a&gt;, manages sandboxing, and policy enforcement while providing visibility into an agent&amp;#8217;s execution.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;El Hallak called OpenShell the one non-negotiable component across Nvidia&amp;#8217;s reference architectures.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You can change whatever harness you need. I&amp;#8217;m even open to using whatever models you need,&amp;#8221; el Hallak tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;But the governance, the secure and open runtime that we want to leverage at all times is OpenShell.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia breaks the agent stack into &lt;a href="https://thenewstack.io/nvidia-openclaw-agent-blueprints/" class="local-link"&gt;three layers:&lt;/a&gt; the model provides the intelligence, the harness orchestrates its work, and the runtime governs execution. When an agent fails, the model itself may not be what went wrong.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia&amp;#8217;s &lt;a href="https://thenewstack.io/nvidia-nooa-agent-framework/" class="local-link"&gt;NOAH research&lt;/a&gt;, for example, showed that changing the harness while keeping the underlying model fixed can improve agent performance, which also means a poorly matched harness can drag down an otherwise capable model.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Every model&amp;#8217;s different. Some could be more chatty than others,&amp;#8221; el Hallak tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;Making sure those two things are either co-developed together or have profiles that are specific to models is a new unlock.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-safety-as-systems-engineering" class="wp-block-heading"&gt;Safety as systems engineering&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia CEO Jensen Huang has described AI safety as an engineering problem, an approach el Hallak compared to traditional software testing.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If there&amp;#8217;s a bug in your software, you don&amp;#8217;t release it,&amp;#8221; el Hallak tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;You work until it&amp;#8217;s fixed and it passes all your tests.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents complicate that model because reproducing a failure can require reconstructing what happened across the system. That requires instrumentation, which comes with its own cost. OpenAI has found that &lt;a href="https://thenewstack.io/openai-astra-persistent-agents/" class="local-link"&gt;monitoring adds roughly 20% to inference compute&lt;/a&gt; for its most capable persistent agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia&amp;#8217;s approach combines governed harnesses, sandboxed runtimes and confidential computing intended to protect models and user data.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;There are ways where you make guarantees all the way down to the silicon,&amp;#8221; el Hallak &lt;em&gt;tells The New Stack.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;SAFE extends that engineering approach beyond a single company&amp;#8217;s systems by creating infrastructure for organizations to share what they learn when agents fail.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If there&amp;#8217;s a bug in your software, you don&amp;#8217;t release it. You work until it&amp;#8217;s fixed and it passes all your tests.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-agents-debugging-other-agents" class="wp-block-heading"&gt;Agents debugging other agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;CrowdStrike is fine-tuning Nvidia&amp;#8217;s Nemotron models on years of security data to create paired agents, with one finding exploits and another patching them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If either agent goes wrong, the final output may not reveal why. A bad patch, for example, could trace back to the model, the agent&amp;#8217;s execution path or the tools it used along the way.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I don&amp;#8217;t need general purpose for a given task. I need specialization,&amp;#8221;el Hallak tells &lt;em&gt;The New Stack&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As companies build agents around increasingly specialized workflows, those failures may not show up in general-purpose model benchmarks or safety tests, putting more pressure on developers to understand what happened during execution.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-toward-shared-failure-reporting" class="wp-block-heading"&gt;Toward shared failure reporting&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For platform teams, finding the failure is one problem. Reconstructing enough of the agent&amp;#8217;s execution to understand what caused it is another.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;SAFE is intended to make those findings useful outside the company where they were discovered. Traditional software has established systems for sharing vulnerabilities and fixes, but nothing comparable exists yet for agent failures. The goal is to keep every team from having to discover the same failure on its own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-agent-debugging-safe/"&gt;Your AI agent failed. The model might not be the problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Nvidia explains why debugging AI agents means tracing decisions, not just logging errors — and backs a shared failure-reporting system called SAFE.</content:encoded>
+    </item>
+    <item>
       <title>One engineer shipped 2,000 PRs a month to production. Verification is the key.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/agentic-verification-distributed-systems/</link>
       <dc:creator>Arjun Iyer</dc:creator>
@@ -30,7 +192,7 @@
       <category>sponsor-signadot</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22837267</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;&lt;p&gt;Lauren Tan, an engineer on the Grok team at SpaceXAI, who previously worked at Cursor and Meta, recently published a&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;&lt;p&gt;Lauren Tan, an engineer on the Grok team at SpaceXAI, who previously worked at Cursor and Meta, recently published a&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-verification-distributed-systems/"&gt;One engineer shipped 2,000 PRs a month to production. Verification is the key.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;
@@ -110,7 +272,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="579" src="https://cdn.thenewstack.io/media/2026/09/bd6d419a-image-1024x579.png" alt="Each existing verification runtime plotted on a chart showing its realism of dependencies against concurrency." class="wp-image-22837270"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="579" src="https://cdn.thenewstack.io/media/2026/09/bd6d419a-image-1024x579.png" alt="Each existing verification runtime plotted on a chart showing its realism of dependencies against concurrency." class="wp-image-22837270"/&gt;&lt;/figure&gt;
 
 
 
@@ -170,7 +332,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="530" src="https://cdn.thenewstack.io/media/2026/09/1b47c76e-image-1024x530.png" alt="Diagram showing &amp;quot;agent 1 env&amp;quot; and &amp;quot;agent 2 env&amp;quot; interacting with the shared cluster." class="wp-image-22837271"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="530" src="https://cdn.thenewstack.io/media/2026/09/1b47c76e-image-1024x530.png" alt="Diagram showing &amp;quot;agent 1 env&amp;quot; and &amp;quot;agent 2 env&amp;quot; interacting with the shared cluster." class="wp-image-22837271"/&gt;&lt;/figure&gt;
 
 
 
@@ -4177,130 +4339,6 @@ trace exit: 0
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-agents-deterministic-validation/"&gt;AWS agents will suggest your new flights. Code decides what gets booked.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>AWS gives agents room to reason while code controls execution. Its airline rebooking pattern checks proposals before reservations or payments can follow.</content:encoded>
-    </item>
-    <item>
-      <title>Bolt is giving developers 50x more compute. But there’s a catch.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/bolt-forge-training-data/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 18:47:23 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836855</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/ea7efc3f-logan-voss-6esjqmxz6e8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract glitlch" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ea7efc3f-logan-voss-6esjqmxz6e8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Bolt.new, StackBlitz&amp;#8217;s browser-based AI development platform, is testing a new trade with developers: more coding-model usage in exchange for training&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/bolt-forge-training-data/"&gt;Bolt is giving developers 50x more compute. But there&amp;#8217;s a catch.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/ea7efc3f-logan-voss-6esjqmxz6e8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract glitlch" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/ea7efc3f-logan-voss-6esjqmxz6e8-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Bolt.new, StackBlitz&amp;#8217;s browser-based AI development platform, is testing a new trade with developers: more coding-model usage in exchange for training data.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company &lt;a href="https://x.com/EricSimons/status/2099528668917968970" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched Forge on Monday&lt;/a&gt;, a research preview for individual Pro subscribers that offers up to 50 times more usage of open weight coding models through October 14. Developers who use Forge must opt in to sharing anonymized versions of their sessions for model training, including prompts, source code and the fix traces it creates as developers work through problems, in addition to their conversations with the coding agent.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The sessions will be used in a project with Arcee AI to help train a trillion-parameter-class open-weight model. The first training run is scheduled to begin in October, with Bolt saying the resulting model weights will eventually be released publicly.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Forge makes that development activity part of the exchange, with developers getting more compute while Bolt and Arcee get data from real coding sessions.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Forge makes that development activity part of the exchange, with developers getting more compute while Bolt and Arcee get data from real coding sessions.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-why-coding-trajectories-matter" class="wp-block-heading"&gt;Why Coding Trajectories Matter&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Public repositories contain enormous amounts of source code, but they mostly show the end result. A coding session can fill in the gaps left by failed attempts and revisions along the way. The record of what worked (and what did not) is useful as the coding agents take on longer jobs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Working across a codebase means finding the right files, coordinating changes, and recovering when something breaks. That gets harder when agents inherit code written by other agents, which &lt;a href="https://thenewstack.io/go-language-ai-agents/" class="local-link"&gt;isn&amp;#8217;t always easy for the next one to understand or modify&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;SpaceXAI showed one version of this approach last month when it &lt;a href="https://thenewstack.io/grok-4-6-agent-training/" class="local-link"&gt;trained Grok 4.6 on agent failure traces&lt;/a&gt; &amp;mdash; the missteps, retries, and corrections that other labs typically discard. Bolt is making a similar bet but sourcing the data from developer sessions rather than synthetic runs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Arcee has been working on the same underlying problem. In a &lt;a href="https://www.arcee.ai/blog/nac" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post about NAC&lt;/a&gt;, its open-source agent harness, the company said software engineering tasks can stretch across tens of thousands of tokens as agents read code, edit files, run tests, and debug failures. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-bolt-gets-to-50x-more-usage" class="wp-block-heading"&gt;How Bolt Gets to 50X More Usage&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Coding agents can burn through large numbers of tokens on even a single complex task, so a 50-fold increase in usage is a truly significant offer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Forge changes the underlying setup by running open weight models on Bolt&amp;#8217;s own infrastructure. The agent currently uses GLM 5.3 Flash and GLM 5.3, with Kimi K3 and DeepSeek v4 Pro available as experimental options.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Bolt&amp;#8217;s WebContainers technology, built by parent company StackBlitz, gives it another cost advantage by running projects in an isolated environment inside the user&amp;#8217;s browser rather than on Bolt&amp;#8217;s servers.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Forge applies a similar approach to the models, using open weights on reserved hardware while developer sessions help train future versions, giving Bolt more control over costs and reducing its reliance on proprietary APIs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That push toward self-hosted models is showing up elsewhere in the industry. Nvidia&amp;#8217;s &lt;a href="https://thenewstack.io/nvidia-hugging-face-acquisition-neutrality/" class="local-link"&gt;$12.9 billion bid for Hugging Face&lt;/a&gt; is arguably the same bet at a very different scale.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Coding agents can burn through large numbers of tokens on even a single complex task, so a 50-fold increase in usage is a truly significant offer.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-forge-scores-91-of-bolt-s-top-model" class="wp-block-heading"&gt;Forge Scores 91% of Bolt&amp;#8217;s Top Model&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Forge&amp;#8217;s open models scored 92.2 on the company&amp;#8217;s internal Bolt Build Index, compared with 101.0 for its top paid model, putting them at about 91% of the top score. That&amp;#8217;s only a measure of performance inside Bolt, so the 91% figure doesn&amp;#8217;t tell us how those models compare more broadly.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But if Bolt can run more of its coding workloads on its own models instead of paying for proprietary APIs, it has more control over costs and usage, while the Forge sessions help train whatever comes next.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-developers-are-giving-up" class="wp-block-heading"&gt;What Developers Are Giving Up&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Forge requires an explicit opt-in, with a consent screen appearing each time a developer switches into the workspace. Standard and Max sessions aren&amp;rsquo;t included, and Teams and Enterprise accounts can&amp;rsquo;t participate.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Bolt says it anonymizes sessions before they leave its infrastructure, removing secrets, sensitive data, and personal information, and it tests the process against seeded data. Arcee receives the resulting data under a signed processing agreement.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can stop sharing new sessions by leaving Forge, but Bolt says anything already used for training will remain in the models.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-the-50-surge-ends-october-14-though-bolt-says-forge-itself-will-stick-around-as-an-open-model-testing-ground-once-the-preview-wraps-up"&gt;The 50&amp;times; surge ends October 14, though Bolt says Forge itself will stick around as an open-model testing ground once the preview wraps up. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph" id="h-the-50-surge-ends-october-14-though-bolt-says-forge-itself-will-stick-around-as-an-open-model-testing-ground-once-the-preview-wraps-up"&gt;The 50&amp;times; surge ends October 14, though Bolt says Forge itself will stick around as an open-model testing ground once the preview wraps up. &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/bolt-forge-training-data/"&gt;Bolt is giving developers 50x more compute. But there&amp;#8217;s a catch.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Bolt.new&amp;#039;s Forge gives developers 50x more AI coding usage — if they share sessions to train a trillion-parameter open-weight model with Arcee AI.</content:encoded>
     </item>
   </channel>
 </rss>
