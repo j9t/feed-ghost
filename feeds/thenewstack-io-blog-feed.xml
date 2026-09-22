@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 18 Sep 2026 21:26:12 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 09:08:10 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,16 +20,662 @@
       <height>32</height>
     </image>
     <item>
+      <title>Grok Build vs. Claude Code: I tested which one has the better memory</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/grok-build-vs-claude-code-memory/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Mon, 21 Sep 2026 20:04:18 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837486</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/d366d70a-logan-voss-opnssaxft6y-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d366d70a-logan-voss-opnssaxft6y-unsplash-scaled.jpg" /&gt;&lt;p&gt;On September 16, xAI announced memory in Grok Build, its terminal coding agent. The pitch was that Grok “keeps notes&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-build-vs-claude-code-memory/"&gt;Grok Build vs. Claude Code: I tested which one has the better memory&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/d366d70a-logan-voss-opnssaxft6y-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d366d70a-logan-voss-opnssaxft6y-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;On September 16, xAI announced memory in Grok Build&lt;/strong&gt;, its terminal coding agent. The pitch was that Grok “keeps notes on the conventions, decisions, and project facts that come up,” and “later sessions read those notes before touching related code.” Notes are Markdown files in a workspace scope per project and a global scope that applies everywhere. &lt;code&gt;/memory&lt;/code&gt; browses them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Meanwhile, Claude Code has done something similar for months under the name &lt;a href="https://code.claude.com/docs/en/memory" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;auto memory&lt;/a&gt;. It keeps a MEMORY.md index plus one file per note, per repository, and the docs say it is on by default. Anthropic’s &lt;a href="https://claude.com/blog/projects-redesigned" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Projects beta&lt;/a&gt;, announced September 17, adds shared memory across cloud threads, but only for select Pro and Max subscribers with no existing projects. I tested the CLI that everyone has.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both companies say their coding agent now remembers what you told it in an earlier session. I wanted to see whether that holds up, so I tested &lt;a href="https://x.ai/news/grok-build-memory" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grok&lt;/a&gt; and Claude on the same three tests.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tests" class="wp-block-heading"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The claim I wanted to check is simple. Tell each tool something once, close it, open it again, and see whether it remembers. Both tools ran on my Mac, each on its own copy of four small Node repos I built for this. Grok Build 1.0.40 ran &lt;a href="https://thenewstack.io/grok-4-6-agent-training/" class="local-link"&gt;Grok 4.6&lt;/a&gt; at high effort through an xAI API key. Claude Code 2.1.226 ran &lt;a href="https://thenewstack.io/anthropics-opus-5-almost-fable-5/" class="local-link"&gt;Opus 5&lt;/a&gt; on my subscription. Every session was scripted with each tool’s headless mode, which reports its own tokens and cost. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Each test has two sessions. Session 1 plants a fact. I quit the tool. Session 2 gives a task where the fact matters and never mentions it.&lt;br&gt;&lt;br&gt;Here are the tests I ran:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;The test command&lt;/strong&gt; – In this repo, &lt;code&gt;npm&lt;/code&gt; test fails and make test passes, and session 1 says so. Session 2 asks for a new endpoint with passing tests, after I removed the README line that pointed at the Makefile.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Project decisions with a trap&lt;/strong&gt; – Session 1 states that CSV export was dropped and money is integer cents, never floats, while a float helper and a half-built CSV exporter sit in the repo as bait. Session 2 asks for a refund endpoint that “takes an amount” and “a way for support staff to download all orders.”&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A rule across projects&lt;/strong&gt; – Session 1, in repo A, sets two rules “for all my projects,” conventional commit messages and no comments on obvious code. Session 2 runs in an unrelated repo B and asks for a small feature and a commit.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here’s my scoring breakdown. Did the tool write the fact to a memory file, did it read that file in session 2, and did the session 2 output follow it.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-the-test-command" class="wp-block-heading"&gt;The test command&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both passed. In session 1, each tool saved the rule as soon as I stated it. Grok wrote &lt;code&gt;topics/testing.md&lt;/code&gt; plus two raw observations. Claude Code wrote &lt;code&gt;orbit-api-run-tests-with-make.md&lt;/code&gt; with a “why” and a “how to apply” section.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In session 2, both remembered. Grok’s reasoning opened with “start by reading the memory files,” then it ran make &lt;code&gt;test&lt;/code&gt; and never touched npm &lt;code&gt;test&lt;/code&gt;. Claude Code read the Makefile and package.json, ran make &lt;code&gt;test&lt;/code&gt;, and also never tried npm test. Grok took 29 seconds, 102K tokens, and $0.11. Claude Code took 22 seconds, 186K tokens, and $0.32. Claude used about 80K more tokens and cost nearly 3x more. &lt;/p&gt;
+
+
+
+&lt;h3 id="h-project-decisions-with-a-trap" class="wp-block-heading"&gt;Project decisions with a trap&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both wrote both decisions down. Claude Code also converted “last quarter” into “Q2 2026” in its note. In session 2, both built the refund on integer cents, named the field amountCents, and left the float helper alone. For the download request, both shipped a JSON export. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Grok’s reasoning said the API is JSON-only, so it wouldn’t wire up CSV. Claude Code set a content-disposition header so the JSON downloads as a file. Both passed on both decisions, but Claude Code was more than double the price and just as fast. Grok took 103 seconds, 156K tokens, and $0.18. Claude Code took 32 seconds, 269K tokens, and $0.49.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-a-rule-across-projects" class="wp-block-heading"&gt;A rule across projects&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is where the results split. Grok saved the rules to its global scope as git-and-code-style.md. In the second repo, it committed &lt;code&gt;feat: add --help&lt;/code&gt; flag with usage and supported cities, and added no comments. Pass, in 33 seconds, 132K tokens, and $0.12.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Claude Code saved both rules too, but only in the first repo’s memory folder. It said so at the time, warning that its memory store “is scoped to this project’s directory.” In the second repo, it found nothing, and the commit came back with the &lt;code&gt;Add --help&lt;/code&gt; flag. No comments were added, but that is Claude’s default anyway. Claude passed the first rule but failed the second one and still cost twice as much. It completed the work in 12 seconds, 122K tokens, and $0.24.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-results" class="wp-block-heading"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Metric&lt;/td&gt;&lt;td&gt;Grok Build (Grok 4.6)&lt;/td&gt;&lt;td&gt;Claude Code (Opus 5)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Tests passed&lt;/td&gt;&lt;td&gt;3 of 3&lt;/td&gt;&lt;td&gt;2 of 3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;165 s&lt;/td&gt;&lt;td&gt;66 s&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens&lt;/td&gt;&lt;td&gt;390,848&lt;/td&gt;&lt;td&gt;576,863&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$0.41&lt;/td&gt;&lt;td&gt;$1.05&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Grok Build passed all three tests, and Claude Code passed two. They behaved the same on the per-project tests. The split was the cross-project rule, which Grok’s global scope carried into a second repo and Claude Code’s per-repo memory did not. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Claude Code was faster on every recall session, 66 seconds total against 165, and cost at least twice as much on every one, $1.05 total against $0.41. It also used more tokens: 576,863 against 390,848. The price gap mostly reflects Opus 5 versus Grok 4.6 rather than the memory systems.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On the core claim, remembering what you told it last time in the same project, I could not tell these two apart. Both wrote a markdown note the moment I stated a rule, read it back next session, and followed it. Claude Code’s notes were better written. But Claude Code failed the third test. Its CLI memory stops at the repo boundary, so a rule I gave it “for all my projects” never reached the second repo. Grok’s global scope carried the same rule over without being asked.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-what-do-i-think" class="wp-block-heading"&gt;What do I think?&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Grok Build is the better option for most people right now. It remembered everything, it carries rules across projects, and it cost less than half as much on every test. Yes, Claude Code was faster on every session, but that only matters if you aren’t concerned about accuracy. Its CLI memory stops at the repo boundary, so anything you want it to remember everywhere still has to go into &lt;code&gt;~/.claude/CLAUDE.md&lt;/code&gt; by hand. &lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-build-vs-claude-code-memory/"&gt;Grok Build vs. Claude Code: I tested which one has the better memory&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Grok Build and Claude Code both remembered last session&amp;#039;s rules. Only one carried a rule meant for every project into a second repo.</content:encoded>
+    </item>
+    <item>
+      <title>TypeSafe launched Jev because sequential LLMs are “totally useless for computers”</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/typesafe-jev-system-one/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Mon, 21 Sep 2026 19:36:29 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837419</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/5d8e81e2-philip-oroni-wczdjvzjwmu-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5d8e81e2-philip-oroni-wczdjvzjwmu-unsplash-scaled.jpg" /&gt;&lt;p&gt;When TypeSafe emerged last week after two years in stealth, backed by $40 million in seed funding led by DCVC,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/typesafe-jev-system-one/"&gt;TypeSafe launched Jev because sequential LLMs are &amp;#8220;totally useless for computers&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/5d8e81e2-philip-oroni-wczdjvzjwmu-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5d8e81e2-philip-oroni-wczdjvzjwmu-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;When TypeSafe emerged last week after two years in stealth, backed by $40 million in seed funding led by DCVC, to launch its first model, Jev, it claimed something that counters just about everything the industry has built since ChatGPT: The model doesn&amp;#8217;t write. It decides.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first of what the organization calls a new class of System One models, Jev is a text-only model that machines can use natively to make decisions inside software applications.&amp;nbsp;Developers can send Jev structured questions and get typed decisions with calibrated probabilities, meaning software can account for uncertainty.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://typesafe.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TypeSafe&lt;/a&gt; has built a new architecture for Jev, a new sampler (an algorithm that selects tokens from a model&amp;#8217;s predicted probability distribution to control randomness, creativity, and consistency), and a new training algorithm known as Reinforcement Learning for Calibrated Decisions (&lt;a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RLCD&lt;/a&gt;).&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-sequential-llms-are-totally-useless-for-computers" class="wp-block-heading"&gt;Sequential LLMs are totally useless for computers&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Co-founder and CEO of TypeSafe, &lt;a href="https://www.linkedin.com/in/diogomda/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Diogo Almeida&lt;/a&gt;, is ex-OpenAI, where, according to TypeSafe, he co-invented RLHF and InstructGPT, the methods behind ChatGPT and GPT-4.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Almeida &lt;a href="https://x.com/CompleteSkeptic/status/2099925682726002904" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted on X&lt;/a&gt; on September 15 to state, &amp;#8220;The improvements are clear if you see them [LLMs and Jev] side by side. Ask a System One model a ton of structured questions just like you would an LLM. Get the answers back near instantly. Meanwhile, LLMs take hundreds of times longer to respond. Look at how the &lt;a href="https://thenewstack.io/the-building-blocks-of-llms-vectors-tokens-and-embeddings/" class="local-link"&gt;LLM generates sequentially&lt;/a&gt;, which is great for a natural conversation, but totally useless for computers.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;After co-inventing ChatGPT, I kept asking myself: why have superhuman chat models not led to AGI?&lt;br&gt;&lt;br&gt;I&amp;rsquo;ve spent the last 2 years in stealth building a new way to train models (RLCD), and a new type of frontier AI model that we are releasing today: Jev&lt;br&gt;&lt;br&gt;&amp;bull; 20-200x faster&lt;br&gt;&amp;bull; 40-400x&amp;hellip; &lt;a href="https://t.co/JSybNG2BKJ" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/JSybNG2BKJ&lt;/a&gt;&lt;/p&gt;&amp;mdash; Diogo Almeida (@CompleteSkeptic) &lt;a href="https://x.com/CompleteSkeptic/status/2099925682726002904?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September 15, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Look at how LLMs generate sequentially, which is great for a natural conversation, but totally useless for computers.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Almeida said the inspiration for Jev came from asking himself: why haven&amp;#8217;t superhuman chat models led to artificial general intelligence yet? He said that Reinforcement Learning from Human Feedback (RLHF) chat has led to LLMs that are &amp;#8220;optimized for human preferences&amp;#8221; and include issues such as mode dropping, overconfidence, and an overall lack of reliability.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-typesafe-system-one-models-can-t-hallucinate" class="wp-block-heading"&gt;TypeSafe: System One models can&amp;#8217;t hallucinate&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Almeida&amp;#8217;s launch post lists headline stats for Jev as 20-200x faster, 40-400x cheaper (with &lt;a href="https://thenewstack.io/cut-coding-agent-tokens/" class="local-link"&gt;output tokens&lt;/a&gt; free), and frontier composable intelligence, optimized for decisions. Almeida further claimed that TypeSafe System One models output decisions with probabilities and confidence instead of words, and they &amp;ldquo;can&amp;#8217;t hallucinate&amp;rdquo; because they&amp;#8217;re &amp;ldquo;a lot more like code&amp;rdquo;, i.e., reliable, fast, self-consistent, and type-safe.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="555" src="https://cdn.thenewstack.io/media/2026/09/7adc4959-jev-joke-disclaimer-1024x555.png" alt="" class="wp-image-22837421"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Frontend cloud company Vercel has &lt;a href="https://vercel.com/blog/ai-gateway-jev-model-launch" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;noted that&lt;/a&gt;, within 24 hours of launching on AI Gateway, &amp;#8220;Jev from TypeSafe AI reached more than twice as many paid teams as any previous model launch, making it the fastest-adopted model in gateway history. Jev passed every other comparison model in its first twelve hours and continued to widen its lead for the rest of the day. By hour 24, nearly 13% of paid teams were using it. That&amp;#8217;s 2x the GPT-5.6 family and more than 6x Fable 5.1&amp;#8217;s share.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers can set thresholds for when Jev acts autonomously vs. when it needs human oversight and review. They can then combine those decisions in code to build larger workflows, with control over how the intelligence is used. Software engineers can use Jev to select an agent&amp;#8217;s next tool or subagent; they can also use it to confirm the veracity of a model&amp;#8217;s output and set guardrails.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://flaviocopes.com/jev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post titled&lt;/a&gt; &amp;#8220;A deep dive into Jev, TypeSafe&amp;#8217;s System One model,&amp;#8221; independent software developer &lt;a href="https://www.linkedin.com/in/flaviocopes/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Flavio Copes&lt;/a&gt; noted that Jev is &amp;#8220;not a chatbot&amp;#8221; like ChatGPT, and it is not a coding model. It does not write replies, explanations, or code.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-jev-is-a-smart-if-statement" class="wp-block-heading"&gt;Jev is a smart if statement&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The simplest way to describe it: Jev is a smart if statement,&amp;#8221; wrote Copes. &amp;#8220;The important difference is where the AI sits. With ChatGPT or a coding agent, the AI is the main interface or worker. Jev is a small component inside a regular application. You add it where code needs one judgment, while the rest of the product stays ordinary code.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You add it where code needs one judgment, while the rest of the product stays ordinary code.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Copes reiterates TypeSafe&amp;#8217;s stated performance levels: most calls to Jev complete in about 100 milliseconds, input tokens cost $0.042 per million, and (as already noted) output tokens are free.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;You send it some data and a list of typed questions, and it sends back one answer per question: a yes/no probability, one option picked from a list you defined, or a position on a scale you defined. Every answer comes with probabilities.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-one-developer-gave-jev-the-one-thing-it-can-t-handle" class="wp-block-heading"&gt;One developer gave Jev the &amp;#8220;one thing it can&amp;#8217;t handle&amp;#8221;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To put Jev to the test, AI engineer &lt;a href="https://www.linkedin.com/in/mikulskibartosz/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bartosz Mikulski&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that because Jev is advertised as a text-only model, he gave it the one thing it can&amp;#8217;t handle: pictures.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I turned 400 hand-drawn sketches into Scalable Vector Graphics (SVG) coordinates and asked what they were,&amp;#8221; Mikulski says. &amp;#8220;It got about 35% right, where just &amp;#8216;guessing&amp;#8217; typically returns 10%, but it answered &amp;#8216;airplane&amp;#8217; for more than half of the drawings, so that number is part real ability, and part a heavy bias toward one label.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To be fair, Mikulski notes that TypeSafe says in its own documentation that Jev reads text only and handles words better than numbers.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I fed it numbers that encode pictures, which is close to the &lt;a href="https://mikulskibartosz.name/typesafe-jev-guess-what-i-drew" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;least fair test&lt;/a&gt; anyone could design, and it still beat chance by a wide margin. I mean that as a compliment, not as a benchmark. It tells you nothing about how Jev does on the text classification it&amp;#8217;s actually sold for,&amp;#8221; Mikulski clarifies.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I fed it numbers that encode pictures, which is close to the least fair test anyone could design, and it still beat chance by a wide margin. I mean that as a compliment, not as a benchmark.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-why-is-typesafe-jev-called-jev" class="wp-block-heading"&gt;Why is TypeSafe Jev called Jev?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Jev is named after the 19th-century economist William Stanley Jevons and his &lt;a href="https://energyhistory.yale.edu/w-stanley-jevons-the-coal-question-1865/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jevons Paradox&lt;/a&gt;: the economic principle that as technology increases the efficiency with which a resource is used, that resource&amp;#8217;s total consumption actually rises rather than falls.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When steam engines became more efficient, we used more coal, not less; when LED lighting dropped lighting costs, we used more lighting; when data compression algorithms lowered the bandwidth needed to stream video, global web data traffic increased&amp;hellip; and so on.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Almeida concluded his X video post with a nod to developer productivity and said that, &amp;#8220;As we say at TypeSafe, we&amp;#8217;re building prod, not God.&amp;#8221; The company&amp;#8217;s comedy disclaimer is shown below.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/typesafe-jev-system-one/"&gt;TypeSafe launched Jev because sequential LLMs are &amp;#8220;totally useless for computers&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>TypeSafe launches Jev, a &amp;quot;System One&amp;quot; model built for machine decisions, not chat — faster, cheaper, and immune to hallucination, its makers claim.</content:encoded>
+    </item>
+    <item>
+      <title>Your AI agent is burning tokens on choices that don’t need words</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/kev-skips-text-generation/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 21 Sep 2026 19:13:46 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>AI Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837451</guid>
+      <description>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/09/53a8694c-sufyan-pir-canb_gohu2q-unsplash-1024x585.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Blur or abstract motion" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/53a8694c-sufyan-pir-canb_gohu2q-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI agents spend a ridiculous amount of compute generating text nobody actually needs. The decisions an agent makes along the&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kev-skips-text-generation/"&gt;Your AI agent is burning tokens on choices that don&amp;#8217;t need words&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/09/53a8694c-sufyan-pir-canb_gohu2q-unsplash-1024x585.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Blur or abstract motion" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/53a8694c-sufyan-pir-canb_gohu2q-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;AI agents spend a ridiculous amount of compute generating text nobody actually needs. The decisions an agent makes along the way don&amp;#8217;t require a written answer and yet, agents still send them to generative models, wait for an answer while burning through tokens and then parse that output back. The overhead is already drawing scrutiny &amp;mdash; &lt;a href="https://thenewstack.io/openai-agents-api-compute/" class="local-link"&gt;OpenAI&amp;#8217;s own researchers recently disclosed spending $7,000 a day running agent workloads&lt;/a&gt;.&lt;br&gt;&lt;br&gt;Kev, a new family of open decision models built on Qwen 3.5, takes a different approach and skips the generation entirely.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developer &lt;a href="https://www.linkedin.com/in/jaredlpalmer/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jared Palmer&lt;/a&gt; released a new generation of Kev on Sunday, with 0.8 billion, 4 billion, and 9 billion parameter models built on Qwen 3.5. Kev is prefill-only, processing the state, questions, and candidates in a single forward pass before reading the decisions from a pointer head without an autoregressive decoding loop. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Kev, a new family of open decision models built on Qwen 3.5, takes a different approach and skips the generation entirely.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-decisions-without-generated-text" class="wp-block-heading"&gt;Decisions without generated text&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kev supports three decision types: &lt;code&gt;Noul&lt;/code&gt; for yes/no, &lt;code&gt;Choice&lt;/code&gt; for selecting among candidates, and &lt;code&gt;Score&lt;/code&gt; for ordered levels, mirroring TypeSafe&amp;#8217;s System One API. Developers provide the state and questions, and the pointer head returns probabilities across the available candidates.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a tool-routing decision, the output could look like this:&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;code&gt;search: 0.82&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;code&gt;database: 0.13&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;code&gt;calculator: 0.05&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kev can still choose the wrong tool, but because it scores only the candidates it&amp;#8217;s given, it can&amp;#8217;t introduce an option that isn&amp;#8217;t on the list.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Routing, safety checks, escalation, and ranking can then move to the decision layer, leaving larger reasoning models to handle the open-ended work.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Kev can still choose the wrong tool, but because it scores only the candidates it&amp;#8217;s given, it can&amp;#8217;t introduce an option that isn&amp;#8217;t on the list.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-batching-choices-one-pass" class="wp-block-heading"&gt;Batching choices, one pass&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Multiple decisions can also be made against the same state in a single forward pass, with a block-causal attention mask isolating the questions while the pointer head scores each set of candidates independently.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Palmer&amp;#8217;s documentation shows the 4B model processing three questions in 277 milliseconds in bf16 on an M5, although without a controlled comparison against Qwen generating equivalent answers on the same hardware, the result doesn&amp;#8217;t establish how much faster the approach is in practice.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The ability to evaluate several decisions against the same context could become more useful as agent loops grow more complex, but skipping generation doesn&amp;#8217;t make the resulting decisions inherently better.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-calibration-limits-and-tradeoffs" class="wp-block-heading"&gt;Calibration limits and tradeoffs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The largest model, Kev-9B, reached 83.7% accuracy on the project&amp;#8217;s locked out-of-domain test, according to &lt;a href="https://github.com/jaredpalmer/kev/blob/main/docs/model-cards/kev-9b.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Palmer&amp;#8217;s model card&lt;/a&gt;. That&amp;#8217;s a developer-reported benchmark, and Palmer documents some limitations alongside it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The probabilities Kev returns don&amp;#8217;t always reflect how confident developers should be in the result. Palmer found that temperature calibration can drift on unseen source distributions, a problem for agents that use probability thresholds to decide whether to execute an action or escalate it, since even a high-probability choice can still be wrong.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fine-tuning also changes some of the capabilities inherited from the underlying model. Palmer&amp;#8217;s evaluations show declines on general-knowledge and arithmetic tests, particularly among the smaller models. That&amp;#8217;s consistent with Kev&amp;#8217;s more specialized role alongside a general-purpose model, although its performance in dynamic agent environments will also depend on how well it handles tools, choices, and labels it never encountered during training &amp;mdash; and &lt;a href="https://thenewstack.io/nvidia-agent-debugging-safe/" class="local-link"&gt;debugging agent failures often points to infrastructure rather than the model itself&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The approach predates Kev. TypeSafe introduced Jev earlier this month as part of its System One platform, using the same &lt;code&gt;Noul&lt;/code&gt;, &lt;code&gt;Choice&lt;/code&gt; and &lt;code&gt;Score&lt;/code&gt; primitives, and Kev implements its &lt;code&gt;/v1/systemone&lt;/code&gt; request and response format so applications built against the API can point to a local Kev server instead.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-open-weights-open-training" class="wp-block-heading"&gt;Open weights, open training&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The biggest difference is that Palmer released Kev under Apache 2.0 with the model weights, training code, and evaluation tooling, giving developers the option to run and train it on their own infrastructure. Jev&amp;#8217;s weights and training data aren&amp;#8217;t public, however, which makes direct performance comparisons difficult because differences between the models can&amp;#8217;t be isolated to architecture, size, or training.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph" id="h-for-applications-that-make-only-a-handful-of-bounded-decisions-constrained-decoding-on-a-model-that-s-already-running-may-be-simpler-than-adding-another-model-to-the-stack-agent-loops-can-make-those-decisions-constantly-however-moving-through-routing-ranking-safety-checks-tool-selection-and-escalation-before-generating-much-user-facing-text"&gt;For applications that make only a handful of bounded decisions, constrained decoding on a model that&amp;#8217;s already running may be simpler than adding another model to the stack. Agent loops can make those decisions constantly, however, moving through routing, ranking, safety checks, tool selection, and escalation before generating much user-facing text. It&amp;#8217;s a pattern &lt;a href="https://thenewstack.io/voice-agent-latency-architectures/" class="local-link"&gt;showing up across model architectures&lt;/a&gt; &amp;mdash; stripping out unnecessary computation when the task doesn&amp;#8217;t require it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When those steps only require a choice or probability, Kev can handle the decision directly while leaving open-ended reasoning and final responses to the larger generative model.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;When those steps only require a choice or probability, Kev can handle the decision directly while leaving open-ended reasoning and final responses to the larger generative model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kev-skips-text-generation/"&gt;Your AI agent is burning tokens on choices that don&amp;#8217;t need words&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI agents waste compute generating text for simple decisions. Kev, a new open-source model family, skips generation entirely and makes choices in a single forward pass.</content:encoded>
+    </item>
+    <item>
+      <title>Grok 4.7 was built to work for hours. It still fails most of the time.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/grok-4-7-agent-stamina/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 21 Sep 2026 19:13:23 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837460</guid>
+      <description>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2026/09/3e5b4c6b-hirzul-maulana-lu3vzl2yd2o-unsplash-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="labrynth abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/3e5b4c6b-hirzul-maulana-lu3vzl2yd2o-unsplash-scaled.jpg" /&gt;&lt;p&gt;A coding agent running for hours can make dozens of decisions as it edits files, runs tests, and works through&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-4-7-agent-stamina/"&gt;Grok 4.7 was built to work for hours. It still fails most of the time.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="540" src="https://cdn.thenewstack.io/media/2026/09/3e5b4c6b-hirzul-maulana-lu3vzl2yd2o-unsplash-1024x540.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="labrynth abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/3e5b4c6b-hirzul-maulana-lu3vzl2yd2o-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;A coding agent running for hours can make dozens of decisions as it edits files, runs tests, and works through errors. One wrong turn can carry through the rest of the task unless the agent catches it. SpaceXAI appears to be training Grok for exactly that problem.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company released &lt;a href="https://x.ai/news/grok-4-7" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grok 4.7&lt;/a&gt; on Sunday, and its training approach is uniquely different. SpaceXAI used a longer reinforcement learning run deliberately weighted toward harder tasks, including problems that take &amp;ldquo;many hours&amp;rdquo; to complete. The company says that training also made Grok better at verifying its own work and managing longer context.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every failed approach from an agent adds more history for the model to keep straight, and one bad assumption can follow it through the rest of the task. SpaceXAI is trying to address that with better context management and self-verification, so Grok can catch a wrong turn before it builds on it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;SpaceXAI used a longer reinforcement learning run deliberately weighted toward harder tasks, including problems that take &amp;ldquo;many hours&amp;rdquo; to complete. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-endurance-benchmarks-tell-the-story" class="wp-block-heading"&gt;Endurance benchmarks tell the story&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Grok 4.7 &lt;a href="https://www.vals.ai/benchmarks/terminal-bench-4" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;scored 38.0% on Terminal-Bench 4.0&lt;/a&gt;, up from 20.3% for Grok 4.6. It also improved from 40.4% to 46.3% on CursorBench 4.0, which tests longer-running coding workflows inside the editor, and from 1,546 to 1,657 on &lt;a href="https://www.aa-labs.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AA Briefcase v1.1&lt;/a&gt;, an evaluation of multi-hour professional work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For context, Anthropic&amp;#8217;s &lt;a href="https://thenewstack.io/fable-5-1-watermark/" class="local-link"&gt;Claude Fable 5.1&lt;/a&gt; scores 57.9% on Terminal-Bench 4.0 according to the &lt;a href="https://www.vals.ai/benchmarks/terminal-bench-4" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;independent leaderboard;&lt;/a&gt; Grok 4.7 still trails Fable 5.1 here. What&amp;rsquo;s arguably more interesting is how much it improved over Grok 4.6. SpaceXAI says the improvements came from pairing the larger base model with an extended reinforcement learning run deliberately shifted toward harder, multi-hour problems, and that the model specifically improved at two capabilities critical to long-horizon execution: self-verification and long-context management.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An agent working unattended for hours has to keep track of a growing interaction history while checking that each step worked before moving to the next. Those problems surfaced in &lt;a href="https://thenewstack.io/real-swe-coding-benchmark/" class="local-link"&gt;a recent benchmark of private codebases&lt;/a&gt;, where even the best-performing model failed more than 60% of the time. SpaceXAI says Grok 4.7 improved at both context management and self-verification, although it hasn&amp;#8217;t explained how. The company did not disclose whether the context gains came from architectural changes, summarization, retrieval, or better retention across long sequences, or how it evaluated self-verification during reinforcement learning.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;An agent working unattended for hours has to keep track of a growing interaction history while checking that each step worked before moving to the next. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-the-harness-is-becoming-part-of-the-model" class="wp-block-heading"&gt;The harness is becoming part of the model&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;SpaceXAI trained Grok 4.7 to natively understand the Grok Bot harness, bringing the model and the surrounding infrastructure closer together.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agent harnesses handle the work around the model, including exposing tools, formatting terminal responses, feeding execution results back into context, and deciding what happens next. &lt;a href="https://thenewstack.io/openai-agents-api-compute/" class="local-link"&gt;OpenAI took a similar approach last week&lt;/a&gt; when it opened its Codex harness as the Agents API, turning the infrastructure behind long-running agents into a managed service.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With Grok 4.7, SpaceXAI is pushing some of that integration into training. A model already familiar with its harness doesn&amp;#8217;t have to learn every tool format and interaction pattern through prompting at runtime. That could reduce the overhead involved in tool use and multi-step execution, although SpaceXAI hasn&amp;#8217;t published enough detail to show how much of Grok 4.7&amp;#8217;s performance gain comes from harness-specific training.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Training models around specific tool schemas, context formats, and execution environments could make it harder for developers to swap models without sacrificing agent performance.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That problem grows as agents take on more of the development cycle. &lt;a href="https://thenewstack.io/go-language-ai-agents/" class="local-link"&gt;Google&amp;#8217;s recent work on making Go easier for AI agents to work with&lt;/a&gt; took a different approach, changing the development environment rather than the model. In both cases, the model is no longer the only piece being optimized. The systems around it are changing too.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Training models around specific tool schemas, context formats, and execution environments could make it harder for developers to swap models without sacrificing agent performance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-where-the-gaps-still-are" class="wp-block-heading"&gt;Where the gaps still are&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Grok 4.7 starts at &lt;a href="https://docs.x.ai/docs/models" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;$2 per million input tokens and $6 per million output tokens&lt;/a&gt;. At that price, multi-hour agent runs may cost less, but reliability remains an issue. Grok 4.7 scored 38.0% on Terminal-Bench, while Fable 5.1 reached 57.9%.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-4-7-agent-stamina/"&gt;Grok 4.7 was built to work for hours. It still fails most of the time.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>SpaceXAI trained Grok 4.7 on multi-hour tasks to improve agent stamina. The benchmarks reveal where AI coding agents are heading next.</content:encoded>
+    </item>
+    <item>
+      <title>AWS open-sources an AI agent it says is 45% cheaper than Claude Code and Codex</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/aws-strands-harness-agent/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 21 Sep 2026 18:30:16 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Cloud Services</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22837417</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/aadba645-ubaid-e-alyafizi-hqmj4z9kizm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Multiple monitors on a desk." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/aadba645-ubaid-e-alyafizi-hqmj4z9kizm-unsplash-scaled.jpg" /&gt;&lt;p&gt;Amazon Web Services (AWS) is lifting the lid on a new open source, general-purpose AI agent, designed to give developers&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-strands-harness-agent/"&gt;AWS open-sources an AI agent it says is 45% cheaper than Claude Code and Codex&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/aadba645-ubaid-e-alyafizi-hqmj4z9kizm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Multiple monitors on a desk." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/aadba645-ubaid-e-alyafizi-hqmj4z9kizm-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Amazon Web Services (AWS) is &lt;a href="https://strandsagents.com/blog/introducing-strands-harness/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;lifting the lid&lt;/a&gt; on a new open source, general-purpose AI agent, designed to give developers a ready-made foundation they can run locally or deploy to the cloud.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://strandsagents.com/docs/user-guide/harness/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Strands Harness&lt;/a&gt;, as it&amp;rsquo;s called, builds on &lt;a href="https://github.com/strands-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Strands Agents&lt;/a&gt;, which AWS &lt;a href="https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;debuted in May 2025&lt;/a&gt; as an open source Python SDK for building AI agents. Strands takes what AWS calls a &amp;#8220;model-driven approach&amp;#8221;: developers provide the model, tools and instructions, while the model determines how to tackle the task and when to call those tools. AWS later &lt;a href="https://strandsagents.com/blog/strands-agents-typescript-v1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;brought Strands to TypeScript&lt;/a&gt;, and in February &lt;a href="https://thenewstack.io/aws-strands-labs-launch/" class="local-link"&gt;created Strands Labs&lt;/a&gt; as a separate home for more experimental projects.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/marc-brooker-b431772b/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Marc Brooker&lt;/a&gt;, VP and distinguished engineer at AWS, tells &lt;em&gt;The New Stack&lt;/em&gt; that Strands Harness essentially sits above the &lt;a href="https://github.com/strands-agents/harness-sdk" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;existing Strands SDK&lt;/a&gt;, giving developers a preconfigured Strands Agent. It brings together the tools and supporting machinery an agent needs to operate over longer-running tasks, with AWS supplying its own defaults for how those pieces work together.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You still need to decide how to manage context, persist conversations, integrate tools, and guide the agent&amp;rsquo;s behavior.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;An SDK like the Strands Harness SDK gives you the building blocks, but you still need to decide how to manage context, persist conversations, integrate tools, and guide the agent&amp;rsquo;s behavior,&amp;rdquo; Brooker explains.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-unpacking-strands-harness" class="wp-block-heading"&gt;Unpacking Strands Harness&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Out of the box, Strands Harness gives developers a working agent with file, shell and web tools, alongside built-in handling for context, memory, persistent sessions, prompt caching and delegation to other agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers can install Strands Harness as a Python or TypeScript package, using &lt;code&gt;pip install strands-harness&lt;/code&gt; or &lt;code&gt;npm install @strands-agents/harness&lt;/code&gt;. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS also provides the Strands CLI as an interactive way to prototype and configure an agent. Developers can choose a model, add prompts, tools and other capabilities, then use &lt;code&gt;/export&lt;/code&gt; to generate the resulting agent as Python or TypeScript code. &lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="503" src="https://cdn.thenewstack.io/media/2026/09/f7835bc7-giffy2.gif" alt="Configuring an agent with the Strands CLI." class="wp-image-22837461"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Configuring an agent with the Strands CLI.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Individual agents can be tailored to different jobs, with developers able to change their instructions, choose which model they use, control which tools and capabilities are available to them, and decide whether they can hand work off to another agent.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="500" src="https://cdn.thenewstack.io/media/2026/09/2baca1eb-giffy.gif" alt="Demo of Strands Harness running on a desktop" class="wp-image-22837424"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Demo of Strands Harness running on a desktop (Credit: AWS)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Most of Strands Harness itself doesn&amp;#8217;t depend on AWS infrastructure. The agent loop, tools, context management, session handling and delegation are all included in the open source release, and AWS says those processes run on the machine that&amp;#8217;s running the agent by default. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The exception is the call to the underlying model. Perhaps unsurprisingly, AWS routes model access through &lt;a href="https://thenewstack.io/mcp-summit-aws-bedrock/" class="local-link"&gt;Amazon Bedrock&lt;/a&gt;, its managed service for accessing and running foundation models. However, while Brooker says that this is the &lt;em&gt;only &lt;/em&gt;out-of-the-box default tied specifically to AWS infrastructure, it too can be switched out.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is easily overrided to use a different model provider with one line,&amp;rdquo; he says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Strands Harness can instead use Anthropic, OpenAI or Google as its model provider, or use a locally running model through &lt;a href="https://thenewstack.io/how-to-set-up-and-run-a-local-llm-with-ollama-and-llama-2/" class="local-link"&gt;Ollama&lt;/a&gt;. Changing provider doesn&amp;#8217;t necessarily mean changing the underlying model, but Brooker notes that choosing a different model will obviously affect how the agent behaves.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Different models have different strengths on reasoning, tool use, and cost,&amp;rdquo; he continues. &amp;ldquo;What doesn&amp;#8217;t change: context management, sessions, tools, delegation all work the same regardless of provider. No features require Bedrock.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that all the other defaults can be changed, too. Developers can bring their own tools and skills, connect MCP servers, alter how context is handled, and choose where session state is stored.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Developers can focus on their application&amp;rsquo;s task and domain expertise, while customizing the components that need different behavior.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Developers can focus on their application&amp;rsquo;s task and domain expertise, while customizing the components that need different behavior,&amp;rdquo; Brooker says. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-aws-benchmarks-its-agent" class="wp-block-heading"&gt;AWS benchmarks its agent&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS says Strands Harness is intended as a general-purpose agent rather than a coding assistant, though it takes cues from harnesses such as Claude Code and Codex. The difference, AWS says, is that developers can deploy Strands Harness to whichever cloud provider they choose &amp;#8212; addressing what it describes as a common wish among developers using Claude Code and Codex to be able to run the same setup in the cloud.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;From its own testing, AWS suggests the way a harness manages the surrounding agent machinery can materially affect cost and performance, even when the underlying model stays the same. For each harness, AWS averaged its score across six benchmarks &amp;#8212; ALFWorld, ContextBench, GAIA, WebShop, &amp;tau;&amp;sup3;-bench and Terminal-Bench 2.1&amp;#8211; and compared that with the average cost per task across the same tests. Against Claude Code and Codex specifically, the company says Strands Harness came out 45% cheaper, with broadly comparable accuracy.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;However, that figure drops to 28% once &lt;a href="https://thenewstack.io/deepseek-harness-open-source-plugins/" class="local-link"&gt;DeepSeek Harness&lt;/a&gt; &amp;#8212; which AWS says ran around 14% cheaper than Strands Harness on matched runs &amp;#8212; is folded into the wider comparison.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="752" height="719" src="https://cdn.thenewstack.io/media/2026/09/62791a1e-screenshot-2026-09-21-at-18-06-20-introducing-strands-harness-frontier-performance-with-28-lower-token-cost-strands-agents.png" alt="Strands Harness benchmark results. " class="wp-image-22837452" style="width:752px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Strands Harness benchmark results. (Credit: AWS)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS points specifically to its context-management defaults as a major reason for the result. Strands Harness truncates particularly large tool outputs, compacts context once the available window passes a set threshold, and attempts to recover within the agent loop if the context overflows.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On Terminal Bench 2.1 specifically, AWS says Strands Harness running Fable 5 cost 77% less than Claude Code, at $56.29 versus $248.05 across 89 trials, while scoring 69.7 versus 61.8. DeepSeek Harness was cheaper again at $40.30, though its score was lower at 59.5.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="752" height="536" src="https://cdn.thenewstack.io/media/2026/09/7e38a4c9-screenshot-2026-09-21-at-18-06-29-introducing-strands-harness-frontier-performance-with-28-lower-token-cost-strands-agents.png" alt="Terminal Bench 2.1 results." class="wp-image-22837453"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Terminal Bench 2.1 results. (Credit: AWS)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;For AWS, those results help make the case for packaging and tuning functions such as context management, versus requiring every developer to work out those decisions independently with the SDK.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Getting a prototype working is one step; evaluating how those choices affect performance and cost is another.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Getting a prototype working is one step; evaluating how those choices affect performance and cost is another,&amp;rdquo; Brooker says. &amp;ldquo;The opportunity we saw was to package that engineering into a complete, general-purpose agent.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-s-in-it-for-aws" class="wp-block-heading"&gt;What&amp;#8217;s in it for AWS?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS also has an obvious place to run the resulting agent. &lt;a href="https://thenewstack.io/aws-unveils-bedrock-agentcore-to-scale-ai-agents-from-prototype-to-production/" class="local-link"&gt;Amazon Bedrock AgentCore&lt;/a&gt; is its managed service for deploying and operating agents, providing identity and access controls, observability and the infrastructure needed to host them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There is, in fact, a close technical relationship between the open source project and that managed offering. AgentCore Harness and Strands Harness were built by the same team, although they live in separate codebases. Brooker says work on one can also feed improvements into the other, giving AWS a route for technology developed in the open source project to inform its managed service, and vice versa.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Brooker, again, stresses that Strands Harness can be deployed independently of AgentCore, outside of AWS altogether.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;AgentCore is an optional hosting layer for teams that want AWS to manage the infrastructure side,&amp;#8221; he says. &amp;#8220;However, all deployment paths are open for the developer to choose.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Still, this arrangement gives AWS a clear commercial path: developers can adopt Strands Harness freely, while AgentCore gives the company a natural destination for teams that eventually want AWS to run the infrastructure around it.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-strands-harness-agent/"&gt;AWS open-sources an AI agent it says is 45% cheaper than Claude Code and Codex&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Strands Harness bundles the tools, context and memory developers otherwise build. AWS says smarter context helped token efficiency — but one rival still beat it.</content:encoded>
+    </item>
+    <item>
       <title>Your AI agent failed. The model might not be the problem.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/nvidia-agent-debugging-safe/</link>
       <dc:creator>Amanda Caswell</dc:creator>
       <pubDate>Sun, 20 Sep 2026 14:04:00 +0000</pubDate>
       <category>AI</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22837405</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled wires abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-scaled.jpg" /&gt;&lt;p&gt;As AI agents move into production, the path between a request and its result is becoming less predictable. An agent&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled wires abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-scaled.jpg" /&gt;&lt;p&gt;As AI agents move into production, the path between a request and its result is becoming less predictable. An agent&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-agent-debugging-safe/"&gt;Your AI agent failed. The model might not be the problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled wires abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled wires abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/002a40b6-philippe-oursel-zaf-rhuyesy-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;As AI agents move into production, the path between a request and its result is becoming less predictable. An agent can choose its own tools and change course as it works, which makes failures harder to diagnose when there isn&amp;#8217;t an obvious error to trace.&lt;/p&gt;
 
 
@@ -192,7 +838,7 @@
       <category>sponsor-signadot</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22837267</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;&lt;p&gt;Lauren Tan, an engineer on the Grok team at SpaceXAI, who previously worked at Cursor and Meta, recently published a&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;&lt;p&gt;Lauren Tan, an engineer on the Grok team at SpaceXAI, who previously worked at Cursor and Meta, recently published a&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-verification-distributed-systems/"&gt;One engineer shipped 2,000 PRs a month to production. Verification is the key.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital wireframe mesh with chromatic glitch effects, representing AI agent verification and virtualized software environments." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/065e2b0e-ubaid-e-alyafizi-iztrm8h-rs8-unsplash.jpg" /&gt;
@@ -2512,6 +3158,7 @@
       <category>AI Engineering</category>
       <category>AI Operations</category>
       <category>AI Strategy</category>
+      <category>Contributed</category>
       <category>contributed-octopus-deploy</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22837018</guid>
       <description>&lt;img width="1024" height="586" src="https://cdn.thenewstack.io/media/2026/09/5306e55c-ardian-pranomo-qi9ryl-egx8-unsplash-1024x586.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5306e55c-ardian-pranomo-qi9ryl-egx8-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI is addictive, and managers are rewarding those who use it the most (even though they are shipping stuff they&lt;/p&gt;
@@ -3671,674 +4318,6 @@ trace exit: 0
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-unified-interface/"&gt;Anthropic bet users were choosing wrong. So it removed the choice.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Anthropic merges Claude Chat and Cowork into one interface and launches Docs and Slides in beta, betting the model can route your work without asking.</content:encoded>
-    </item>
-    <item>
-      <title>AI evaluator: The most important AI job in history? How developers might fill the proposed new job</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-embedded-evaluator-jobs/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Wed, 16 Sep 2026 15:58:41 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Infrastructure</category>
-      <category>AI Strategy</category>
-      <category>Tech Careers</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836943</guid>
-      <description>&lt;img width="1024" height="785" src="https://cdn.thenewstack.io/media/2026/09/f96a9847-valeria-nikitina-hnm-xfvgku4-unsplash-1024x785.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Lots of pink escape keys" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f96a9847-valeria-nikitina-hnm-xfvgku4-unsplash-scaled.jpg" /&gt;&lt;p&gt;The pace of frontier AI model development spurred Anthropic CEO Dario Amodei to publish an essay last weekend, calling for&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-embedded-evaluator-jobs/"&gt;AI evaluator: The most important AI job in history? How developers might fill the proposed new job&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="785" src="https://cdn.thenewstack.io/media/2026/09/f96a9847-valeria-nikitina-hnm-xfvgku4-unsplash-1024x785.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Lots of pink escape keys" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f96a9847-valeria-nikitina-hnm-xfvgku4-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;The pace of frontier AI model development spurred&lt;/strong&gt; &lt;a href="https://thenewstack.io/anthropic-claude-science-workbench/" class="local-link"&gt;Anthropic&lt;/a&gt; CEO Dario Amodei to publish an essay last weekend, calling for changes in how the industry is regulated and develops. In a three-part plan that includes both democratic and global coordination, Amodei writes that the first step was something Anthropic is committing to unilaterally.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Each frontier AI company [should] commit to giving ongoing, employee-like access to a team of embedded third-party evaluators (such as &lt;a href="https://metr.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;METR&lt;/a&gt;), whose role is to verify adherence to safety practices and commitments, report incidents, and help assess the alignment of not just completed AI models but training pipelines and processes,&amp;rdquo; &lt;a href="https://darioamodei.com/post/we-must-pace-the-frontier" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt; Amodei.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Amodei&amp;#8217;s essay followed &lt;a href="https://x.com/hilbertspaess/status/2097476203863224394" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;dire warnings&lt;/a&gt; from former Anthropic and &lt;a href="https://thenewstack.io/openai-astra-persistent-agents/" class="local-link"&gt;OpenAI&lt;/a&gt; pretraining research specialist Jacob Coxon, who posted a thread on X saying the people building AI earnestly &amp;ldquo;believe that it could kill us all&amp;rdquo; by the end of the decade. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Shortly after Amodei published his essay, OpenAI CEO Sam Altman and SpaceXAI founder Elon Musk chimed in: &amp;#8220;I agree with Dario,&amp;#8221; &lt;a href="https://x.com/sama/status/2098811563415150910?lang=en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted&lt;/a&gt; Altman; &amp;#8220;Dario is right,&amp;#8221; &lt;a href="https://x.com/elonmusk/status/2098789109980332057" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted&lt;/a&gt; Musk. Later that day, Demis Hassabis, founder of Google DeepMind, &lt;a href="https://x.com/demishassabis/status/2098909516582490602?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted&lt;/a&gt;, &amp;#8220;Dario&amp;#8217;s essay points towards the right path forward.&amp;#8221; In a &lt;a href="https://x.com/finkd/status/2099997096896274533?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post&lt;/a&gt; on X, Meta CEO Mark Zuckerberg writes that Meta Superintelligence Labs already uses independent evaluators, and that, &amp;#8220;In general, it would be helpful for there to be a larger and more diverse ecosystem of evaluators.&amp;#8221; &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This week, theories began to surface about &lt;em&gt;why&lt;/em&gt; the world&amp;#8217;s biggest frontier AI labs would want to intentionally slow their pace when competition is so fierce. &amp;#8220;The desire to slow down is puzzling, but perhaps if the whole system slows down, the rules of winning can be the same for all,&amp;#8221; &lt;a href="https://x.com/nikesharora/status/2099496759055798410?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;posted&lt;/a&gt; Nikesh Arora, chairman and CEO of Palo Alto Networks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;In his essay, Amodei likens the proposed job&lt;/strong&gt; of independent AI evaluator&amp;nbsp;to embedded regulatory supervisors used in the banking industry, i.e., third-party professionals. Altman &lt;a href="https://x.com/sama/status/2098811563415150910?lang=en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;describes&lt;/a&gt; the job as having &amp;#8220;employee-like access&amp;#8221; in his post on X.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So, who could fill these roles that AI leaders agree are desperately needed?&lt;/p&gt;
-
-
-
-&lt;h2 id="h-salaries-top-out-at-687k-are-you-interested" class="wp-block-heading"&gt;Salaries top out at $687K; are you interested?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;METR&amp;rsquo;s current job openings&amp;nbsp;are well paid (salaries top out at around $687,000), and the&amp;nbsp;job specs&amp;nbsp;are daunting.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You&amp;rsquo;re scrappy, creative, independent, and self-directed (because during the exercises you&amp;rsquo;ll only have a few other METR employees you can talk to). The work is novel, and you&amp;rsquo;ll need to figure a lot of stuff out on the fly largely by yourself. You are excellent at loss-of-control threat modeling and breaking down safety cases,&amp;rdquo; reads the spec.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You&amp;rsquo;re scrappy, creative, independent, and self-directed. The work is novel, and you&amp;rsquo;ll need to figure a lot of stuff out on the fly largely by yourself. You are excellent at loss-of-control threat modeling and breaking down safety cases.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Similar but less colorfully illustrated roles (paid between $180K&amp;ndash;$300K) are also available at AI model training company &lt;a href="https://work.mercor.com/jobs/list_AAABmGiJx9b5NQ-26PJLY6Ak/researcher-ai-evaluation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mercor&lt;/a&gt;, where candidates will need a Ph.D. or M.S. and more than two years of work experience in a computer science, electrical engineering, econometrics, or another STEM field that provides a solid understanding of machine learning and model evaluation.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-employee-like-access-fluctuates-wildly" class="wp-block-heading"&gt;&amp;#8220;Employee-like access fluctuates wildly&amp;#8221;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AI security consultant and CTO at &lt;a href="https://komo.do/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Komodo&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/hackd/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kadan Stadelmann&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that his typical week sees him work differently with each client. This is because &amp;ldquo;employee-like access fluctuates wildly&amp;rdquo;, from rigid focus areas to broad access, and much of that aspect is determined by contracts signed before work begins.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I am invited into labs to probe numerous risk vectors, including agent behaviors under realistic conditions,&amp;rdquo; Stadelmann says. &amp;ldquo;Among my duties are tasks that include monitoring chains-of-thought and prompts. The goal is to establish an objective and look at a specific AI system to question how autonomous the system is, and how long it takes to complete specific tasks. Most importantly, evaluators at my level monitor for how well a team adheres to its claimed safety practices.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-software-engineering-skills-beat-doctorates" class="wp-block-heading"&gt;Software engineering skills beat doctorates&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Although METR wants evaluators to have a Ph.D. up their sleeve, Stadelmann says that as the prevalence of this role expands, he feels the technology industry has been, and continues to be, driven by people who can demonstrate strong engineering skills, not doctorates.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I am invited into labs to probe numerous risk vectors, including agent behaviors under realistic conditions. Among my duties are tasks that include monitoring chains-of-thought and prompts.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Questioned on whether costs create a barrier for smaller labs, Stadelmann notes that some AI evaluation work is funded by third-party non-profits, which protects independence.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;But overall, evaluators will not be able to keep up with big frontier model firms. They will be out of control, and we will be dependent upon their own internal ethics. Plus, anyway, many of the smaller labs of any worth may inevitably be acquired by the big players in this space,&amp;rdquo; he adds.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-happens-when-an-evaluator-finds-something-wrong" class="wp-block-heading"&gt;What happens when an evaluator finds something wrong?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Founder and CEO of facial image AI identity governance company &lt;a href="https://indieme.studio/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Indie Me&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/christopherdionjohnson/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dion Johnson&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that what interests him most about embedded AI evaluators isn&amp;#8217;t the job title; it&amp;#8217;s what happens when their judgment uncovers that the model behaved in a way nobody expected.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If the evaluator can only raise concerns when those concerns are convenient, then we have not created independent oversight &amp;mdash; we have created another layer of process,&amp;rdquo; Johnson says. &amp;ldquo;The evaluator needs enough access to see the uncomfortable things, not just the polished demonstrations. They need to understand what happened during training, what failed during testing, what behaviors appeared unexpectedly, and where the team itself still has uncertainty.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On the required skills AI evaluators need, Johnson agrees that technical depth, machine learning environment security experience, and software engineering as a whole matter.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;To choose a competent AI evaluator, I would look for someone who is deeply comfortable with uncertainty and deeply uncomfortable pretending they know something they do not. This is someone who can sit in a room full of brilliant people at an AI model company on launch day and say &amp;lsquo;I&amp;rsquo;m not convinced&amp;rsquo;&amp;#8230; and that takes judgment and courage,&amp;rdquo; he adds.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I would look for someone who is deeply comfortable with uncertainty and deeply uncomfortable pretending they know something they do not.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-fear-and-loathing-in-the-ai-space" class="wp-block-heading"&gt;Fear and loathing in the AI space&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In his September 8&amp;nbsp;&lt;a href="https://x.com/hilbertspaess/status/2097476196791709843" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post&lt;/a&gt;, which has been viewed 172 million times and seemingly spurred AI leaders to change course, Coxon, the former AI researcher at OpenAI and later Anthropic, writes: &amp;#8220;This is not a marketing stunt. If anything, many executives and senior researchers will couch their phrasing in the press to sound sensible but I hear the same people express fear privately. No other human activity poses this level of danger.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As for where Coxon looks for work next, perhaps it might be a role in AI evaluation execution engineering.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-embedded-evaluator-jobs/"&gt;AI evaluator: The most important AI job in history? How developers might fill the proposed new job&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic&amp;#039;s Dario Amodei wants embedded third-party AI evaluators. With METR salaries topping $687K, AI security &amp;amp; assessment experts weigh in on the new role.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI president: “The computer should be there to empower you.” So stop retooling software for AI agents</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/computer-use-agent-connectors/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 23:41:22 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Model Context Protocol</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836933</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/300bcab5-rick-rothenberg-prtbzszfyvk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/300bcab5-rick-rothenberg-prtbzszfyvk-unsplash-scaled.jpg" /&gt;&lt;p&gt;This week on the a16z show, Greg Brockman, president and co-founder of OpenAI, made the point that developers have been&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/computer-use-agent-connectors/"&gt;OpenAI president: “The computer should be there to empower you.” So stop retooling software for AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/300bcab5-rick-rothenberg-prtbzszfyvk-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/300bcab5-rick-rothenberg-prtbzszfyvk-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;This week on &lt;a href="https://a16z.simplecast.com/episodes/greg-brockman-on-why-openai-says-were-entering-the-agi-era-deKod42i?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the &lt;em&gt;a16z&lt;/em&gt; show&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/thegdb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Greg Brockman&lt;/a&gt;, president and co-founder of OpenAI, made the point that developers have been &amp;ldquo;retooling the world&amp;rdquo; to make software more accessible to AI agents. But computer use could offer a simpler path forward.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And for Brockman, simplicity is really the North Star for AI: &amp;ldquo;We really should be one AI that&amp;#8217;s unified, that makes it so easy and smooth for you to be less engaging with the computer and less wrapping yourself around the computer.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Meanwhile, other AI companies continue to invest in connector infrastructure.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-we-re-kind-of-retooling-the-world-brockman-says-is-it-time-to-stop-nbsp" class="wp-block-heading"&gt;&amp;ldquo;We&amp;rsquo;re kind of retooling the world,&amp;rdquo; Brockman says. Is it time to stop?&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;MCP servers, CLIs, APIs, and other agent integrations help AI agents reach more tools, data, and software. But that wide access doesn&amp;rsquo;t come without some burden &amp;mdash; at least that&amp;rsquo;s what it sounds like in Brockman&amp;rsquo;s conversation with Ben Horowitz and Erik Torenberg, hosts of the &lt;em&gt;a16z&lt;/em&gt; show. As OpenAI&amp;rsquo;s president explains:&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;What if it&amp;rsquo;s more behaving like a human? Can it just use a computer?&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;People have been building these MCP servers and these CLIs and just really sort of taking the world of software and making it accessible in this almost stilted way that is not really meant for humans,&amp;rdquo; he said. &amp;ldquo;It&amp;rsquo;s like we&amp;rsquo;re kind of retooling the world.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;How did we get here? &amp;ldquo;For agentic use cases, it really comes down to the tools,&amp;rdquo; said Brockman, indicating why MCP servers and other connectors have become so common. But if models can learn to use computers the same way that people do, then perhaps developers no longer need to keep building purpose-built integrations for every application.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Brockman wonders: &amp;ldquo;What if it&amp;rsquo;s more behaving like a human? Can it just use a computer?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-openai-has-been-thinking-about-computer-use-since-the-beginning" class="wp-block-heading"&gt;OpenAI has been thinking about computer use since the beginning&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Brockman details on the podcast, the idea traces back to the early days of the AI company when the team laid out a three-step plan during an offsite meeting in November 2015 that the president says the team largely stuck to for the following 10 years.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Around this time, Brockman says the OpenAI team also broached the idea of using reinforcement learning directly against a computer interface:&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We also talked about, what if we could do reinforcement learning where the environment is screen pixels, keyboard, mouse, right? Same interface as a human.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;From where he sits, this could open up the computer for nearly any sort of task. More importantly, Brockman muses that computer use for agents could help the broader industry advance AI without requiring purpose-built integrations every step of the way. Instead of building and maintaining scores of specific connectors, an agent could simply use the same computer interface people do.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;There&amp;rsquo;s so much software that you don&amp;rsquo;t even think about,&amp;rdquo; he told Horowitz and Torenberg. &amp;ldquo;How much of your life is clicking around menus and typing things into a spreadsheet and things like that? None of that is what we should be doing.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Instead of building and maintaining scores of specific connectors, an agent could simply use the same computer interface people do.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In fact, Brockman says computer use capabilities are part of why he considers &lt;a href="https://thenewstack.io/openai-gpt6-astra-benchmarks/" class="local-link"&gt;GPT-6 Astra&lt;/a&gt;, OpenAI&amp;rsquo;s newest flagship model, &amp;ldquo;pretty reasonable to call&amp;rdquo; AGI.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-but-connectors-aren-t-disappearing-yet" class="wp-block-heading"&gt;But connectors aren&amp;rsquo;t disappearing yet&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Though Brockman is bullish on computer use, the rest of the industry isn&amp;rsquo;t giving up on structured integrations. In fact, some are plowing ahead.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AWS, for example, recently &lt;a href="https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-agentcore" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; a managed consent portal, a managed web experience and session binding endpoint for &lt;a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AgentCore Gateway&lt;/a&gt;, a capability of Amazon Bedrock AgentCore that connects agents to external tools and services. On Monday, the cloud company &lt;a href="https://aws.amazon.com/blogs/machine-learning/manage-end-user-oauth-consent-for-ai-agents-with-amazon-bedrock-agentcore/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;published&lt;/a&gt; a detailed walkthrough of the feature.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For example, with the Consent portal, an administrator could configure GitHub and Slack as gateway targets and send the portal URL to developers who can then open the URL, sign in with their corporate IdP, and connect GitHub and Slack as needed, independently.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Meanwhile, even at OpenAI, plugins aren&amp;rsquo;t going away. Though &lt;a href="https://thenewstack.io/openai-codex-chrome-extension/" class="local-link"&gt;OpenAI Codex arrived in the browser with a new Chrome extension&lt;/a&gt; back in May that allowed agents to operate within live browser sessions and authenticated workflows across multiple tabs, plugins remained the preferred route because they allowed Codex to work directly with services, such as Slack, Gmail, and GitHub, without manually navigating their interfaces.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Brockman told the &lt;em&gt;a16z&lt;/em&gt; show hosts that simplicity should be the North Star. Reliable computer use could be one way to get there. But for now, connectors are still hanging in there.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/computer-use-agent-connectors/"&gt;OpenAI president: “The computer should be there to empower you.” So stop retooling software for AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Greg Brockman sees computer use easing the need for custom AI integrations. But AWS — and OpenAI itself — still see a role for connectors in agent workflows.</content:encoded>
-    </item>
-    <item>
-      <title>Meta lets Claude and Codex configure WhatsApp Business via MCP. But the agents don’t get their own identity.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/meta-mcp-whatsapp-business-claude/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 22:08:56 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Model Context Protocol</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836863</guid>
-      <description>&lt;img width="1024" height="747" src="https://cdn.thenewstack.io/media/2026/09/1eb3fe57-mohamed-nohassi-0xmiyqmk8g-unsplash-1024x747.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A concept illustration depicting AI running a business" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1eb3fe57-mohamed-nohassi-0xmiyqmk8g-unsplash-scaled.jpg" /&gt;&lt;p&gt;Any business worth its salt in 2026 needs to be embracing the right tools to reach its customers, and few&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-mcp-whatsapp-business-claude/"&gt;Meta lets Claude and Codex configure WhatsApp Business via MCP. But the agents don&amp;#8217;t get their own identity.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="747" src="https://cdn.thenewstack.io/media/2026/09/1eb3fe57-mohamed-nohassi-0xmiyqmk8g-unsplash-1024x747.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A concept illustration depicting AI running a business" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1eb3fe57-mohamed-nohassi-0xmiyqmk8g-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Any business worth its salt in 2026 needs to be embracing the right tools to reach its customers, and few tools carry as much weight as WhatsApp. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Paid messaging on the app crossed a $2 billion annual run rate in the fourth quarter of 2025, CFO Susan Li told investors on &lt;a href="https://www.fool.com/earnings/call-transcripts/2026/01/28/meta-meta-q4-2025-earnings-call-transcript/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Meta&amp;#8217;s January earnings call&lt;/a&gt;. But getting a business properly set up on WhatsApp can still be a fiddly job. The initial onboarding can send developers jumping between Meta&amp;#8217;s account settings, API documentation, and code editor as they connect and verify a phone number, configure webhooks, and get the integration working. Some of that is a one-off job, but things like managing message templates, testing changes, and troubleshooting the setup can bring developers back to those same tools later.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Meta&amp;#8217;s answer, announced today, is to let AI coding agents handle much of that setup directly through MCP.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-connecting-coding-agents-with-whatsapp" class="wp-block-heading"&gt;Connecting coding agents with WhatsApp&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The easiest way to understand what the WhatsApp Business Tools MCP server is all about, is to look at the sort of job a developer might want to hand over to an agent.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Take an online retailer that wants to use WhatsApp for customer support, order updates or the occasional special offer. A developer can connect the new MCP server to an agent such as Claude or Codex, sign in with their Meta account, and choose which of the businesses they already administer the agent is allowed to access. That access is scoped to whatever businesses they select &amp;mdash; connecting the agent doesn&amp;#8217;t give it free rein across every Meta account associated with the developer.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="669" height="365" src="https://cdn.thenewstack.io/media/2026/09/f9700db8-newgif.gif" alt="Connecting Claude to WhatsApp" class="wp-image-22836895"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Connecting Claude to WhatsApp&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Give the agent the number and the display name the business wants to use, and it can handle the steps needed to add the number and set up the WhatsApp account behind it. Meta then sends a one-time verification code by SMS or voice; once the developer gives that code back to the agent, the number can be verified and registered for sending messages.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="680" height="354" src="https://cdn.thenewstack.io/media/2026/09/140226d7-gif5.gif" alt="Adding a WhatsApp number" class="wp-image-22836890"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Adding a WhatsApp number&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://developers.facebook.com/blog/post/2026/09/15/meta-business-messaging-mcp-ai-agent/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; announcing the feature on Tuesday, &lt;a href="https://www.linkedin.com/in/zo%C3%ABlieberman/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Zo&amp;euml; Lieberman&lt;/a&gt;, who works on product marketing at Meta, says the idea, ultimately, is to turn what might otherwise be a string of separate API tasks into something the user can ask an agent to do in plain English.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You describe what you want &amp;#8212; your agent handles the accounts, numbers, templates, and API calls.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You describe what you want &amp;#8212; your agent handles the accounts, numbers, templates, and API calls,&amp;#8221; Lieberman writes.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-template-example" class="wp-block-heading"&gt;A template example&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Much of the WhatsApp Business Tools MCP server is concerned with getting a business up and running on WhatsApp in the first place. Message templates, however, show how the agent can remain useful once that initial setup is done.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There is a WhatsApp rule worth explaining, though. When a customer messages a business, &lt;a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;it opens a 24-hour customer service window&lt;/a&gt;, during which the business can reply with ordinary, free-form messages. Each new message from the customer starts that 24-hour clock again. The idea is to stop businesses turning an old customer conversation into an open-ended channel for unsolicited messages: once the window has closed, the business generally needs to use a message template that Meta has approved if it wants to contact that customer again.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So the retailer could ask the agent to create a marketing template offering customers a coupon, for example, or a utility template for sending order updates. The template can include elements such as a header, body copy, footer and buttons.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="666" height="349" src="https://cdn.thenewstack.io/media/2026/09/d11fa2b6-marketing-template.gif" alt="Creating a marketing template" class="wp-image-22836894"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Creating a marketing template&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;From the same conversation, the person using the agent can list the business&amp;#8217;s existing templates, pull up a particular version, update it or delete it. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Once the pieces are in place, the developer can ask the agent to send a test message and check that everything behaves as expected before putting it in front of customers. If the recipient is outside the 24-hour customer service window, the agent can flag that a free-form message can&amp;rsquo;t be sent and offer an approved template instead.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="669" height="346" src="https://cdn.thenewstack.io/media/2026/09/ccefe526-gif6.gif" alt="Sending a test message" class="wp-image-22836891"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Sending a test message&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;There is also the other half of a WhatsApp conversation to deal with: what happens when the customer replies? &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The developer can ask the agent to configure the webhook that tells WhatsApp where to send those incoming messages and other events, such as the retailer&amp;rsquo;s CRM, customer-support platform, chatbot or order-management system.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="678" height="360" src="https://cdn.thenewstack.io/media/2026/09/eb1f05de-gif7.gif" alt="Configuring a WhatsApp webhook" class="wp-image-22836892"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Configuring a WhatsApp webhook&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;The agent can inspect the account as well as change it. That means asking what has already been configured or what still needs attention &amp;#8212; for example, whether the business is missing the payment information Meta needs to charge for billable WhatsApp messages.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="674" height="348" src="https://cdn.thenewstack.io/media/2026/09/cb3fc0ac-gif8.gif" alt="Checking WhatsApp account setup" class="wp-image-22836893"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Checking WhatsApp account setup&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;There are some guardrails around all of this. The agent operates using the access of the person who connected it, and Meta says actions performed through the MCP are recorded.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Every read runs under your own viewer context, every invocation is logged, and anything that changes state requires an authenticated person rather than an app-level credential.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Every read runs under your own viewer context, every invocation is logged, and anything that changes state requires an authenticated person rather than an app-level credential,&amp;#8221; Lieberman writes.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-meta-s-mcp-push-stays-tied-to-human-identity" class="wp-block-heading"&gt;Meta&amp;rsquo;s MCP push stays tied to human identity&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That human-bound approach lands amid a broader debate over &lt;a href="https://thenewstack.io/ai-agent-identity-crisis/" class="local-link"&gt;how AI agents should identify themselves&lt;/a&gt;. Agents today often inherit the permissions of the person using them, while some companies are pushing toward giving agents their own scoped, revocable identities &amp;#8212; evidenced by &lt;a href="https://thenewstack.io/vercel-acquires-better-auth/" class="local-link"&gt;Vercel&amp;#8217;s recent acquisition of Better Auth&lt;/a&gt;. The concept is also showing up in the big cloud platforms, too, such as with &lt;a href="https://techcommunity.microsoft.com/blog/microsoft-security-blog/enterprise-grade-controls-for-ai-apps-and-agents-built-with-azure-ai-foundry-and/4414757" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Microsoft&amp;rsquo;s Entra Agent ID&lt;/a&gt;, which automatically assigns an identity to agents created in Azure AI Foundry or Copilot Studio. And &lt;a href="https://aws.amazon.com/blogs/machine-learning/introducing-amazon-bedrock-agentcore-identity-securing-agentic-ai-at-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amazon Bedrock AgentCore Identity&lt;/a&gt;, meanwhile, gives each agent its own identity, letting it act on a user&amp;#8217;s behalf or independently, without borrowing anyone&amp;#8217;s login.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So while there is a clear push toward giving agents their own identity, Meta is keeping the human firmly in the loop here, The agent can act only within the authenticated user&amp;#8217;s existing access, keeping permissions bounded by a known human account and making sensitive changes easier to attribute and control. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s also worth noting that this isn&amp;#8217;t Meta&amp;#8217;s first attempt to put its developer tools within reach of AI agents. In June, the company &lt;a href="https://developers.facebook.com/blog/post/2026/06/30/developer-tools-mcp/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; Developer Tools MCP, later rebranded as &lt;a href="https://developers.facebook.com/documentation/mcp/devtools-mcp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Meta Social Technologies MCP&lt;/a&gt;, which works across Meta&amp;#8217;s developer platform &amp;#8212; including integrations built with the WhatsApp Business API.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There is some overlap between the two, but they operate at different levels. Meta Social Technologies MCP is the broader developer tool: an agent can use it to discover Graph API endpoints, search Meta&amp;#8217;s documentation, inspect the app behind an integration and troubleshoot errors. That can absolutely include a developer building with WhatsApp.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;WhatsApp Business Tools MCP, meanwhile, is much more specific to operating WhatsApp Business itself. It gives the agent tools for working with WhatsApp Business accounts, onboarding and verifying phone numbers, creating and managing message templates, configuring and testing webhooks, and sending test messages.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;They&amp;#8217;re complementary &amp;#8212; install both if you need both,&amp;#8221; Lieberman writes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s early days for the new WhatsApp server. Meta says it is rolling out gradually, meaning it may not be available to everyone immediately, while the interface and tools themselves remain in beta and are subject to change.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/meta-mcp-whatsapp-business-claude/"&gt;Meta lets Claude and Codex configure WhatsApp Business via MCP. But the agents don&amp;#8217;t get their own identity.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>The new MCP server lets AI agents handle WhatsApp phone onboarding, message templates, webhooks, and test messages.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s voice model doesn’t think. That’s the point.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/voice-agent-latency-architectures/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 21:50:15 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836905</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/f841ac91-ethos-dg-7uyvdu2x4jg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract waves" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f841ac91-ethos-dg-7uyvdu2x4jg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Voice agents have a latency problem that shows up as soon as they have to do real work. Within five&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/voice-agent-latency-architectures/"&gt;OpenAI&amp;#8217;s voice model doesn&amp;#8217;t think. That&amp;#8217;s the point.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/f841ac91-ethos-dg-7uyvdu2x4jg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract waves" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f841ac91-ethos-dg-7uyvdu2x4jg-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Voice agents have a latency problem that shows up as soon as they have to do real work. Within five days, Google and OpenAI shipped two very different fixes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Tuesday, Google launched Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking through the Gemini API and Google AI Studio, just five days after OpenAI released GPT-Live-1. Both let a voice agent keep talking while it works in the background, but they go about it very differently.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gemini 3.8 Live Extended Thinking keeps reasoning inside the voice model, letting it continue speaking while it executes asynchronous tool calls. OpenAI &lt;a href="https://thenewstack.io/gpt-live-1-voice-api/" class="local-link"&gt;separates those jobs&lt;/a&gt;, using GPT-Live-1 for the real-time conversation while a backend reasoning model handles complex tasks &amp;mdash; pushing more orchestration into the application layer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google cautions against treating that split as a direct comparison between Gemini and products like ChatGPT or Claude Voice.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Today&amp;rsquo;s models are more centered on giving developers/enterprises tools to build voice agents,&amp;rdquo; a Google spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;ChatGPT and Claude voice mode are full products rather than models, so the comparison is not apples-to-apples.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;ChatGPT and Claude voice mode are full products rather than models, so the comparison is not apples-to-apples.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-reasoning-inside-the-session" class="wp-block-heading"&gt;Reasoning inside the session&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gemini 3.8 Live Extended Thinking keeps speech, reasoning, and tool execution inside a single stateful session, even while external API calls are still running.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When a function is set to &lt;code&gt;NON_BLOCKING&lt;/code&gt;, Gemini can keep talking while it waits for the tool to respond, asking follow-up questions or giving updates along the way. Once the result comes back, Gemini picks up from there.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can set reasoning effort to low, medium, or high per request. Standard Gemini 3.8 Live skips the extended reasoning step to cut latency and token cost.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same underlying model also powers Gemini Live in the consumer Gemini app. Google calls that its &amp;ldquo;end-user focused offering more closely comparable to ChatGPT and Claude,&amp;rdquo; rather than the developer models themselves.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Multimodality carries over to the new audio models as well. &amp;ldquo;Visual understanding is excellent,&amp;rdquo; Google tells &lt;em&gt;The New Stack&lt;/em&gt;, adding that users can &amp;ldquo;converse with the model seamlessly about whatever you show it.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Gemini 3.8 Live Extended Thinking keeps speech, reasoning, and tool execution inside a single stateful session, even while external API calls are still running.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-coordinating-two-separate-layers" class="wp-block-heading"&gt;Coordinating two separate layers&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With GPT-Live-1, the voice model handles the full-duplex conversation while a backend model such as GPT-6 Astra, a lighter model like Luna, or even a third-party option, handles reasoning and tool execution independently.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Keeping the backend work separate lets the voice layer stay responsive, with OpenAI putting turn-taking latency at around 800 milliseconds.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The tradeoff is that developers must coordinate the two layers themselves, passing context between the voice model and backend reasoner through sideband channels and deciding what the conversation does while background work runs. That &lt;a href="https://thenewstack.io/ard-agent-discovery-specification/" class="local-link"&gt;orchestration burden&lt;/a&gt; falls entirely on the application layer.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-stale-work-when-a-user-interrupts" class="wp-block-heading"&gt;Stale work when a user interrupts&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Both approaches face the same headache when someone interrupts or changes their mind halfway through a request, leaving background work running that may no longer be needed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Gemini, that work stays within the same session, although developers have less visibility into exactly when a tool call stops. OpenAI leaves more of that cleanup to developers, who have to cancel pending jobs and make sure an outdated answer doesn&amp;rsquo;t find its way back into the conversation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google says Gemini has an edge under the messy conditions voice agents encounter outside a demo. The company tells &lt;em&gt;The New Stack&lt;/em&gt; that Extended Thinking handles &amp;ldquo;background noise, heavy accents, and unexpected interruptions better than competing models.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-per-minute-costs-diverge-sharply" class="wp-block-heading"&gt;Per-minute costs diverge sharply&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Standard Gemini 3.8 Live carries &lt;a href="https://ai.google.dev/gemini-api/docs/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini Live API rates&lt;/a&gt; of $0.005 per minute of audio input and $0.018 per minute of output. Extended Thinking adds reasoning tokens, with additional charges for inputs like live video and documents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GPT-Live-1 costs $0.05 per voice minute for the front-end voice layer alone. The backend reasoning model, function calls, and external agent runs are all billed separately. &lt;a href="https://thenewstack.io/astra-reasoning-effort-cost/" class="local-link"&gt;As with GPT-6 Astra&amp;rsquo;s adjustable reasoning settings&lt;/a&gt;, developers can dial cost up or down per call, but a voice agent that regularly calls a more powerful reasoning model will see its bill climb fast.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company also embeds DeepMind&amp;rsquo;s &lt;a href="https://deepmind.google/models/synthid/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SynthID watermark&lt;/a&gt; in generated audio.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-benchmark-numbers-with-caveats" class="wp-block-heading"&gt;Benchmark numbers, with caveats&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gemini 3.8 Live Extended Thinking scored 82.6 on &lt;a href="https://artificialanalysis.ai/speech-to-speech" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Artificial Analysis&lt;/a&gt;&amp;rsquo; Speech-to-Speech Quality Index, with task completion rates of 68.6% on &amp;tau;-Voice and 35.1% on Sierra&amp;rsquo;s &amp;tau;-Voice-banking benchmark.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company points directly to those results, telling &lt;em&gt;The New Stack&lt;/em&gt; that Extended Thinking &amp;ldquo;holds the #1 spot on the Speech-to-Speech Quality Index and leads on complex task-completion benchmarks.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GPT-Live-1, paired with GPT-6 Astra at medium reasoning effort, scored 86.2% Pass@1 on Tau3&amp;rsquo;s spoken customer-service evaluation spanning airline, retail, and telecom domains. On Full Duplex Bench, it beat GPT-Realtime-2.1 by 30 percentage points.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Extended Thinking holds the #1 spot on the Speech-to-Speech Quality Index and leads on complex task-completion benchmarks.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-different-tests-different-stacks" class="wp-block-heading"&gt;Different tests, different stacks&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But these results aren&amp;#8217;t head-to-head. Google and OpenAI used different tests and setups, and Google also notes that some comparisons put developer models up against finished consumer products.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-claude-voice-isn-t-part-of-this-developer-calculus-anthropic-offers-voice-in-its-consumer-apps-but-doesn-t-currently-offer-a-real-time-speech-to-speech-api-comparable-to-gemini-live-or-gpt-live-1-developers-building-voice-agents-around-claude-still-have-to-assemble-more-of-the-voice-stack-themselves"&gt;Claude Voice isn&amp;rsquo;t part of this developer calculus. Anthropic offers voice in its consumer apps but doesn&amp;#8217;t currently offer a real-time speech-to-speech API comparable to Gemini Live or GPT-Live-1. Developers building voice agents around Claude still have to assemble more of the voice stack themselves.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-google-keeps-speech-reasoning-and-tool-execution-inside-one-session-cutting-down-on-middleware-but-tying-developers-more-closely-to-its-runtime-openai-requires-more-orchestration-but-gives-developers-more-control-over-the-models-and-tools-running-behind-the-voice-layer"&gt;Google keeps speech, reasoning, and tool execution inside one session, cutting down on middleware but tying developers more closely to its runtime. OpenAI requires more orchestration but gives developers more control over the models and tools running behind the voice layer. &lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/voice-agent-latency-architectures/"&gt;OpenAI&amp;#8217;s voice model doesn&amp;#8217;t think. That&amp;#8217;s the point.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google&amp;#039;s Gemini 3.8 Live keeps reasoning inside one voice session; OpenAI&amp;#039;s GPT-Live-1 splits it out. Here&amp;#039;s what each architecture means for developers.</content:encoded>
-    </item>
-    <item>
-      <title>AWS agents will suggest your new flights. Code decides what gets booked.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/aws-agents-deterministic-validation/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Tue, 15 Sep 2026 21:27:21 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Cloud Services</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22836882</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/4e3ffff2-matthew-smith-oiithc8wf68-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Close-up of an airport departure board showing flight numbers, gates, departure times, and “On Time” and “Boarding” statuses." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4e3ffff2-matthew-smith-oiithc8wf68-unsplash-scaled.jpg" /&gt;&lt;p&gt;AWS published a new Step Functions pattern this week that gives AI agents a role in airline rebooking while keeping&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-agents-deterministic-validation/"&gt;AWS agents will suggest your new flights. Code decides what gets booked.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/4e3ffff2-matthew-smith-oiithc8wf68-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Close-up of an airport departure board showing flight numbers, gates, departure times, and “On Time” and “Boarding” statuses." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4e3ffff2-matthew-smith-oiithc8wf68-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;AWS published a new Step Functions pattern this week that gives AI agents a role in airline rebooking while keeping reservation changes and payments under code&amp;rsquo;s control. Amazon Bedrock AgentCore agents suggest new itineraries and draft compensation messages after a flight disruption. Deterministic steps in the workflow then validate those proposals before changing any reservation or issuing payment.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As AWS puts it: &amp;ldquo;The principle is that agents propose, and deterministic code validates.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Also yesterday, AWS threw more weight behind its case for supporting model reasoning with code execution in a new &lt;a href="https://aws.amazon.com/blogs/machine-learning/abnormal-ai-amazon-bedrock-agentcore-for-agentic-email-security-at-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Abnormal AI case study&lt;/a&gt;, arguing that agents need a compute environment where they can perform calculations, process data, and programmatically verify work before returning results.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-step-functions-pattern-to-keep-agents-away-from-the-money" class="wp-block-heading"&gt;A Step Functions pattern to keep agents away from the money&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Airline rebooking is a good candidate for agentic workflows because agents can help operations teams offload the tedious process of finding route alternatives, comparing constraints, and coordinating next steps &amp;mdash;&amp;nbsp;just think of the manual clicking it takes to rebook hundreds of passengers to new itineraries after a flight cancellation. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Such is the scenario put forth by AWS in its new &lt;a href="https://aws.amazon.com/blogs/compute/validating-multi-agent-decisions-with-step-functions-and-bedrock-agentcore/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Step Functions pattern&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The principle is that agents propose, and deterministic code validates.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;By orchestrating specialized Amazon Bedrock AgentCore agents with AWS Step Functions, AWS claims the pattern enables developers to get &amp;ldquo;the reasoning power of generative AI with the guardrails of deterministic validation.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Rather than putting orchestration, fan-out, validation, routing, and retries inside an agent&amp;rsquo;s reasoning, the pattern implements this work in Step Functions, where deterministic steps wrap each agent&amp;#8217;s non-deterministic behavior. This way, no agent can take a direct action, like writing a reservation or issuing a payment. Instead, each agent proposal is only applied after deterministic validation passes, with Step Functions maintaining an execution history for audit and review.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Compared to multi-agent collaboration, where a supervisor agent orchestrates sub-agent runs and tool calls, AWS&amp;rsquo;s pattern pushes those decisions out of the agent layer and into the Step Functions workflow. Per AWS, this separation could help developers use AI agents more safely &amp;mdash; that is, using agent reasoning to generate proposals but restricting any action until deterministic code gives the go-ahead.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The reasoning power of generative AI with the guardrails of deterministic validation.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While AWS uses airline rebooking as its example, the same pattern could apply to other high-stakes financial and regulatory workflows where deterministic code should stand between agent proposals and actions.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-compute-scratch-pad-to-bring-in-computation-when-semantic-reasoning-isn-t-enough-nbsp" class="wp-block-heading"&gt;A compute scratch pad to bring in computation when semantic reasoning isn&amp;rsquo;t enough&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On the same day it published the Step Functions pattern to validate multi-agent decisions, AWS made a related case for supporting agentic reasoning with code execution in a new case study of &lt;a href="https://www.abnormal.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Abnormal AI&lt;/a&gt;, a behavioral AI security platform.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per AWS, Abnormal AI uses &lt;a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amazon Bedrock AgentCore Code Interpreter&lt;/a&gt;, a capability of Amazon Bedrock AgentCore that provides a fully managed, serverless runtime for agents to execute code dynamically, to support its real-time inline email threat detection. In this study, AWS argues that Code Interpreter &amp;ldquo;is not merely a coding tool. It&amp;rsquo;s fundamental infrastructure that agents use to reason computationally.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Specifically, it describes pairing the managed, secured sandbox with a large language model (LLM) to combine two different strengths: the reasoning and semantic coherence of an LLM with the calculation, data processing, and verification that come from executing code. For real-world operations, like converting data into structured reports or counting, that don&amp;rsquo;t map cleanly to semantic reasoning, a compute scratchpad lets agents work through tasks computationally and verify answers instead of relying on reasoning alone.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-why-semantic-reasoning-alone-isn-t-enough-nbsp" class="wp-block-heading"&gt;Why semantic reasoning alone isn&amp;rsquo;t enough&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AWS isn&amp;rsquo;t the only one working to separate model reasoning from downstream actions.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Last month, &lt;a href="https://thenewstack.io/perplexity-agent-harness-security/" class="local-link"&gt;Perplexity shipped Portable Computer&lt;/a&gt;, the local-first version of its Computer agent running on an Nvidia DGX Spark workstation that puts deterministic software in charge of model actions. Rather than stacking reasoning and execution in the same layer, Perplexity separates them, using probabilistic reasoning to propose what should happen next and deterministic software to decide whether or not to execute it.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As agents take on more consequential work, like &lt;a href="https://thenewstack.io/ramp-forward-deployed-engineers-applied-ai/" class="local-link"&gt;tasks across accounts payable, procurement, and the monthly close&lt;/a&gt;, semantic reasoning alone can&amp;rsquo;t guarantee that agent proposals are safe enough to act on. But a layer of deterministic validation may at least add a verifiable check between proposal and execution.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-agents-deterministic-validation/"&gt;AWS agents will suggest your new flights. Code decides what gets booked.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AWS gives agents room to reason while code controls execution. Its airline rebooking pattern checks proposals before reservations or payments can follow.</content:encoded>
     </item>
   </channel>
 </rss>
