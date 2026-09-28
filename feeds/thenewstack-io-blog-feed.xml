@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 26 Sep 2026 13:35:46 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 09:53:16 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,498 @@
       <height>32</height>
     </image>
     <item>
+      <title>Nvidia launches Open Agent Safety Platform to lock down rogue AI agents</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/nvidia-openshell-sentry-agents/</link>
+      <dc:creator>Frederic Lardinois</dc:creator>
+      <pubDate>Mon, 28 Sep 2026 10:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22838296</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/f0f0ea15-img_3479-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f0f0ea15-img_3479-scaled.jpg" /&gt;&lt;p&gt;OpenAI, Anthropic, Meta, and Google have all recently disclosed that their models broke out of their test environments and reached&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-openshell-sentry-agents/"&gt;Nvidia launches Open Agent Safety Platform to lock down rogue AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/f0f0ea15-img_3479-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f0f0ea15-img_3479-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenAI, Anthropic, Meta, and Google have all recently disclosed that their models broke out of their test environments and reached real systems. Nvidia&amp;#8217;s response, announced Monday, is a runtime that locks agents into kernel-enforced sandboxes and a watchdog on its own silicon that can shut them down.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The&amp;nbsp;&lt;a href="https://nvidianews.nvidia.com/news/open-agent-safety-platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nvidia Open Agent Safety Platform&lt;/a&gt;&amp;nbsp;combines&amp;nbsp;&lt;a href="https://github.com/NVIDIA/openshell" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenShell&lt;/a&gt;&amp;nbsp;0.1.0, the Apache 2.0 agent runtime the company&amp;nbsp;&lt;a href="https://thenewstack.io/nemoclaw-openclaw-with-guardrails/" class="local-link"&gt;announced at GTC in March&lt;/a&gt;, with Nvidia Sentry, a watchdog service that runs on the company&amp;#8217;s&amp;nbsp;&lt;a href="https://blogs.nvidia.com/blog/bluefield-4-ai-factory/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;BlueField-4&lt;/a&gt;&amp;nbsp;data processing units (DPUs). &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The new OpenShell release adds a policy prover that checks that an agent&amp;#8217;s various permissions can&amp;#8217;t be combined into something the operator didn&amp;#8217;t intend &amp;#8212; like hacking HuggingFace.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Since the BlueField DPU is a separate processor with its own trust domain, it can watch the agent&amp;#8217;s traffic to the model and keep an eye on all of its actions and reasoning. Then, when things go awry, it can cut the agent off at the network level.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Justin Boitano, Nvidia&amp;#8217;s vice president of enterprise AI, said in a press briefing that the recent incidents &amp;#8220;have highlighted a fundamental hurdle for AI agents, and that is that model-level safeguards alone can&amp;#8217;t govern what agents can access or do.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;To date, model safety has been about training good behavior into the model. The industry calls that model alignment,&amp;#8221; Boitano said. &amp;#8220;For probabilistic systems, this approach has obvious limitations. That&amp;#8217;s why we&amp;#8217;re introducing a deterministic system to mediate and enforce how these agents behave.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aba471db9490&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aba471db9490" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img decoding="async" width="1024" height="441" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/e3ec2096-screenshot-2026-09-28-at-11.35.35-1024x441.png" alt="" class="wp-image-22838298"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Nvidia.&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-the-summer-of-sandbox-escapes" class="wp-block-heading"&gt;The summer of sandbox escapes&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI &lt;a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;disclosed on July 21&lt;/a&gt; that GPT-5.6 Sol and a research prototype had exploited a zero-day in the package proxy that was their sandbox&amp;#8217;s only network path and gone on to reach &lt;a href="https://huggingface.co/blog/agent-intrusion-technical-timeline" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hugging Face&amp;#8217;s production database&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Only a few days later, &lt;a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic reported&lt;/a&gt; that three of its models had found unintended internet access at its evaluation partner Irregular and, among other things, accessed a real company&amp;#8217;s database and published a live malicious package to PyPI.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://research.meta.ai/blog/addressing-third-party-testing-misconfiguration-muse-spark-1-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Meta followed on Aug. 6&lt;/a&gt; with a pre-release Muse Spark model that read and modified a real website&amp;#8217;s database after the same Irregular misconfiguration handed it a real site name.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most recently, &lt;a href="https://www.cybersecuritydive.com/news/google-ai-gemini-autonomous-hacks/830884/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google announced&lt;/a&gt;that Gemini had broken into the networks for three companies, again from an Irregular test environment.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Irregular, which runs pre-release cyber evaluations for frontier labs, is a common factor here, and it&amp;rsquo;s worth noting that the company is on Nvidia&amp;#8217;s partner list for this launch.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia&amp;#8217;s own &lt;a href="https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;technical blog&lt;/a&gt; puts the breakouts down not to a new capability but to &amp;#8220;a combination of tools, time, and ambiguous instructions.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Asked whether the platform would have prevented the Hugging Face breach, Boitano said each incident is unique, but &amp;#8220;from what we know, this new security platform could have stopped the breach if it was being used in frontier labs for model evaluation early on.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-enforcing-policy-outside-the-agent" class="wp-block-heading"&gt;Enforcing policy outside the agent&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenShell is the core of the platform, and it hasn&amp;#8217;t changed all that much since Nvidia first showed it at GTC in March.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With OpenShell, which Nvidia originally announced in parallel with its &lt;a href="thenewstack.io/nemoclaw-openclaw-with-guardrails/"&gt;NemoClaw distribution of OpenClaw&lt;/a&gt;, each agent runs in a kernel-isolated sandbox with no network access except through a supervisor that sits outside the workload.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Traditional sandboxes, whether we&amp;#8217;re talking micro VMs or containers or VMs, were built for application-level isolation,&amp;#8221; Boitano said. &amp;#8220;Every agent running within your company needs to run in its own isolated sandbox with security controls that are outside of the agent&amp;#8217;s reach.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-prover-not-a-judge" class="wp-block-heading"&gt;A prover, not a judge&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenShell is now at version 0.1.0, and the important new component added in this update is a policy prover. This Prover checks that the permissions a given policy grants always stay within the boundary the operator actually intended.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;It is deterministic. It is mathematical reasoning. So this is not LLM as a judge,&amp;#8221; &lt;a href="https://thenewstack.io/nvidia-openshell-agent-runtime/" class="local-link"&gt;Ali Golshan&lt;/a&gt;, Nvidia&amp;#8217;s senior director of AI software, said during the briefing. Because of that, he said, it runs &amp;#8220;roughly at two orders of magnitude higher performance and speed.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In Golshan&amp;#8217;s example, a policy can, for example, bar an agent from reading code on GitHub and posting it externally.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;An agent can bypass this by spawning two sub-agents: one that can read from GitHub, that can talk to another one, that could also then post outside,&amp;#8221; he said. The prover models the combined access of the entire agent fleet to find that path.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In Nvidia&amp;#8217;s own tests, agents running with reduced safeguards spent up to two hours trying to talk an AI reviewer into granting write access to a protected repository. The prover, the company says, gave the reviewer evidence of what the request actually allowed, and no protected writes occurred.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-sentry-the-safety-island" class="wp-block-heading"&gt;Sentry: the safety island&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nvidia Sentry adds an additional hardware layer to this system. It runs on BlueField-4 in a trust domain separate from the host, and according to Nvidia, it can quarantine an agent in milliseconds.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With a DPU in the system, the agent&amp;#8217;s model endpoint gets routed &amp;#8220;through a proxy on the DPU, so that you can see all of the reasoning traces of the agents on the host,&amp;#8221; Boitano said.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="442" src="https://cdn.thenewstack.io/media/2026/09/685b5d3d-screenshot-2026-09-28-at-11.36.38-1024x442.png" alt="" class="wp-image-22838299"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Unlike OpenShell, Sentry isn&amp;#8217;t open source, though Boitano said it has open APIs and that OpenShell can work with other network enforcement hardware.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He compared it to autonomous vehicles. &amp;#8220;There&amp;#8217;s a primary system that might be running the perception system, and then a safety island that ensures the safety of the system.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The DPU is really optional in these architectures,&amp;#8221; Boitano said. &amp;#8220;In a lot of cases, just using OpenShell on CPUs is honestly good enough for providing sort of strict access control for the agents.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The DPU, he said, is for &amp;#8220;frontier use cases of evaluating models or systems where you might have the guardrails off the models, so it could be for red teaming.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-who-s-building-on-it" class="wp-block-heading"&gt;Who&amp;#8217;s building on it&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic is integrating OpenShell with &lt;a href="https://claude.com/blog/claude-managed-agents-updates" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Managed Agents&lt;/a&gt;, which already keeps the agent loop on Anthropic&amp;#8217;s infrastructure and pushes tool execution into customer-controlled sandboxes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;SpaceXAI says it&amp;#8217;s using the platform for Cursor coding agents and Grok models, while Salesforce has added OpenShell audit events and permission approvals into Slack.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;SAP is embedding the runtime into Joule Studio and is also contributing code.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI and Google, two of the four labs whose agents went rogue this summer, aren&amp;#8217;t on the partner list. Neither is AWS. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Asked whether Anthropic and OpenAI plan to run OpenShell and Nvidia Sentry for their own training runs, Boitano said to look for the partners&amp;#8217; own blog posts.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-openshell-sentry-agents/"&gt;Nvidia launches Open Agent Safety Platform to lock down rogue AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>After four frontier labs saw agents escape test sandboxes this summer, Nvidia pairs its OpenShell runtime with a BlueField-4 watchdog called Nvidia Sentry.</content:encoded>
+    </item>
+    <item>
+      <title>Performance engineering from kernel analysis to AI: Adrian Cockcroft’s take</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cockcroft-performance-engineering-ai/</link>
+      <dc:creator>Tim Koopmans</dc:creator>
+      <pubDate>Sun, 27 Sep 2026 15:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <category>Observability</category>
+      <category>sponsor-scylladb</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22838212</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/d8c78ab2-getty-images-vgi8oknylk4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital landscape with glowing contour lines representing multidimensional performance data and response time distributions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d8c78ab2-getty-images-vgi8oknylk4-unsplash.jpg" /&gt;&lt;p&gt;Over its five-year history, P99 CONF has hosted quite a few speakers who&amp;#8217;ve offered pointed takedowns of the namesake metric.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cockcroft-performance-engineering-ai/"&gt;Performance engineering from kernel analysis to AI: Adrian Cockcroft’s take&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/d8c78ab2-getty-images-vgi8oknylk4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital landscape with glowing contour lines representing multidimensional performance data and response time distributions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d8c78ab2-getty-images-vgi8oknylk4-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Over its five-year history, P99 CONF has hosted quite a few speakers who&amp;rsquo;ve offered pointed takedowns of the namesake metric. At last year&amp;rsquo;s conference, Adrian Cockcroft didn&amp;rsquo;t explicitly state that &lt;a href="https://thenewstack.io/if-p99-latency-is-bs-whats-the-alternative/" class="local-link"&gt;P99s are BS&lt;/a&gt;&amp;hellip; but he did allude to it.&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you don&amp;rsquo;t know &lt;a href="https://www.linkedin.com/in/adriancockcroft/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cockcroft&lt;/a&gt;, he&amp;rsquo;s spent decades architecting, scaling, and optimizing resilient, high-performance systems at giants like Sun Microsystems, Netflix, eBay, and Amazon. We could probably dedicate an entire day of P99 CONF to discussing the lessons learned from just &lt;em&gt;some&lt;/em&gt; of his projects (Solaris kernel performance, multi-processor optimization, Netflix&amp;rsquo;s on-prem to cloud migration, Chaos Monkey&amp;hellip;)&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fortunately, RedMonk analyst &lt;a href="https://redmonk.com/team/rachel-stephens/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Rachel Stephens&lt;/a&gt; proved the perfect host for a conference that&amp;rsquo;s all about making things fast. She sat down with Adrian and led us on a whirlwind tour of how AI has impacted performance engineering. Here are some highlights from the chat (full video below).&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="P99 CONF 2025 | Performance Insights Beyond P99 by Rachel Stephens and Adrian Cockroft" width="500" height="281" src="https://www.youtube.com/embed/b4w69RjGF8I?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Note: P99 CONF 2026 &amp;ndash; a free + virtual conference on all things performance &amp;ndash; is going live October 21-22. Grab&lt;/em&gt; &lt;a href="https://www.p99conf.io/?latest_sfdc_campaign=701Rb00000qrLWi&amp;amp;campaign_status=Submitted&amp;amp;utm_campaign=smo%20new%20stack%202026-10-21%20p99%20conf&amp;amp;utm_medium=social%20media%20-%20organic&amp;amp;utm_source=the%20new%20stack&amp;amp;lead_source_type=the%20new%20stack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;a complimentary pass&lt;/em&gt;&lt;/a&gt; &lt;em&gt;and join us!&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-from-kernel-analysis-to-vibe-coding-perf-tools-nbsp" class="wp-block-heading"&gt;From kernel analysis to vibe coding perf tools&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As a performance specialist at Sun in its heyday, getting to the root of performance problems involved lots of digging and divination. Cockcroft recalls, &amp;ldquo;Back in the old days with Sun, people would look at the output of system metrics in &lt;a href="https://www.redhat.com/en/blog/linux-commands-vmstat" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;vmstat&lt;/a&gt; or whatever, and they&amp;#8217;d be guessing what the numbers meant. There was a very vague understanding of what these things meant. The manual page wasn&amp;#8217;t very clear.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cockcroft ended up going to the source, literally. &amp;ldquo;I went and read all the kernel source code and figured out exactly where these numbers came from, exactly what they meant, which ones were approximating what, and wrote all that down.&amp;rdquo; That led to two performance books: &lt;em&gt;Sun Performance and Tuning&lt;/em&gt; and &lt;em&gt;Resource Management&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;My speedup is infinite, because this code would never exist without these tools. I wouldn&amp;rsquo;t have the time to build them.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Four decades later, there&amp;rsquo;s now a wealth of helpful tools for end-to-end tracing, but Cockcroft&amp;rsquo;s curiosity still lies in what the tools are not showing. He continued, &amp;#8220;Everything &lt;em&gt;sort of&lt;/em&gt; looks okay in the tools &amp;ndash; but the system isn&amp;#8217;t behaving well. I usually come in and try to find a new way of looking at the data. A new type of analysis, or go a little bit deeper or finer grain, or stop looking at averages and start looking at distributions, and find all kinds of interesting things that nobody knew were happening.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Currently, he&amp;rsquo;s &lt;a href="https://thenewstack.io/beginners-guide-to-vibe-coding/" data-type="link" data-id="https://thenewstack.io/beginners-guide-to-vibe-coding/" class="local-link"&gt;vibe coding&lt;/a&gt; tools to better analyze the anomalies he finds. Saved from having to brush up on Python or hunt down graphics library fragments on Stack Overflow, Cockcroft can now stand up custom tooling in minutes. &amp;#8220;My speedup is infinite, because this code would never exist without these tools. I wouldn&amp;rsquo;t have the time to build them.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-peaks-not-percentiles" class="wp-block-heading"&gt;Peaks not percentiles&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One specific vibe coding project: Cockcroft built (and open-sourced) tooling to get a better understanding of response time distributions.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Response time distributions have been on Cockcroft&amp;rsquo;s mind for over a decade. While most people obsess over percentiles &amp;ndash; yes, P99 CONF included &amp;ndash; Cockcroft is most intrigued by the distribution of response time peaks in a histogram. He believes percentiles don&amp;#8217;t work when trying to understand the latency and performance of modern web services. A single number like P99 can&amp;#8217;t tell you whether the underlying distribution has one peak or several. And when there&amp;#8217;s more than one peak (as is often the case in the real world), the mean, the standard deviation, and even the P99 itself lose most of their meaning.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Percentiles don&amp;#8217;t work when trying to understand the latency and performance of modern web services.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="559" src="https://cdn.thenewstack.io/media/2026/09/a42212ef-image1-1024x559.png" alt="Image showing what people think response time distributions looks like vs what they really look like" class="wp-image-22838216"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;(source: &lt;a href="https://github.com/adrianco/slides/blob/master/Monitorama%20Histograms.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;A Tale of Two Histograms&lt;/a&gt;)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For example, assume you have a histogram with two response time peaks: a fast one from a cache hit and a slow one for misses that require actual work. As the cache hit rate shifts, each peak&amp;rsquo;s position remains the same (i.e., the latency values of the fast-response mode and the slow-response mode don&amp;#8217;t change), but the peak heights rise and fall. &amp;ldquo;Your averages and your P99 are changing all over the place, but all that&amp;#8217;s really happening is your cache hit rate is changing,&amp;rdquo; Cockcroft said.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So how do you go beyond measuring P99s and averages? Cockcroft did what he&amp;rsquo;s done for decades: dive in and &lt;a href="https://thenewstack.io/with-nova-forge-aws-makes-building-custom-ai-models-easy/" data-wpil-monitor-id="4110" class="local-link"&gt;build a custom&lt;/a&gt; tool. But these days, it&amp;rsquo;s much simpler thanks to LLMs.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Your averages and your P99 are changing all over the place, but all that&amp;#8217;s really happening is your cache hit rate is changing.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He had already worked out the statistical approach for analyzing the distribution. Once ChatGPT came out, he quickly used it to build a tool that automated it. Instead of collapsing everything into an average, it identifies an arbitrary number of peaks in a distribution and tracks how they fluctuate over time. It&amp;rsquo;s implemented in R &amp;ndash; a language Cockcroft hadn&amp;rsquo;t used in a while, but ChatGPT knew quite well &amp;ndash; and it&amp;rsquo;s &lt;a href="https://github.com/adrianco/responsetime-distribution-analysis/blob/main/README.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;open source&lt;/a&gt;. If you&amp;rsquo;re curious, learn more in his &lt;a href="https://adrianco.medium.com/percentiles-dont-work-analyzing-the-distribution-of-response-times-for-web-services-ace36a6a2a19" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Percentiles Don&amp;rsquo;t Work&lt;/a&gt; article and &amp;ldquo;A Tale of Two Histograms&amp;rdquo; &lt;a href="https://www.youtube.com/watch?v=kKx1E8C2tv0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;talk&lt;/a&gt; and &lt;a href="https://github.com/adrianco/slides/blob/master/Monitorama%20Histograms.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;deck&lt;/a&gt; (&amp;ldquo;&lt;em&gt;It was the best of response times, it was the worst of response times&amp;hellip;&amp;rdquo;)&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-where-do-we-go-from-here" class="wp-block-heading"&gt;Where do we go from here?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To close, Stephens asked Cockcroft what advice he&amp;rsquo;d share with teams working on high-performance systems today. His top tip was to start with the macro view to find what&amp;#8217;s interesting, then keep digging deeper until you&amp;#8217;re inspecting individual slow requests end-to-end.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Remember the microscope that you got when you were a kid,&amp;rdquo; Cockcroft said. &amp;ldquo;First, you have to focus it using the lowest resolution, at 10x, and then you can click it to 100x and adjust that, looking at just one speck now. Once you get that in focus, you click it to 1,000x.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cockcroft has spent his career building tools that bring obscure performance issues into focus. We look forward to seeing what others have cooked up with agentic tooling to help identify and &lt;a href="https://thenewstack.io/the-complexity-of-solving-performance-problems/" data-wpil-monitor-id="4109" class="local-link"&gt;solve performance problems&lt;/a&gt; this year at P99 CONF.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Learn about the latest performance optimization techniques, tooling, and case studies at P99 CONF &amp;ndash; free and virtual, October 21-22. Grab&lt;/em&gt; &lt;a href="https://www.p99conf.io/?latest_sfdc_campaign=701Rb00000qrLWi&amp;amp;campaign_status=Submitted&amp;amp;utm_campaign=smo%20new%20stack%202026-10-21%20p99%20conf&amp;amp;utm_medium=social%20media%20-%20organic&amp;amp;utm_source=the%20new%20stack&amp;amp;lead_source_type=the%20new%20stack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;a complimentary pass&lt;/em&gt;&lt;/a&gt; &lt;em&gt;and join us!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cockcroft-performance-engineering-ai/"&gt;Performance engineering from kernel analysis to AI: Adrian Cockcroft’s take&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Adrian Cockcroft discusses performance engineering, the limits of P99 metrics, and building AI-driven custom tools for response times.</content:encoded>
+    </item>
+    <item>
+      <title>The rise of agentic AI on Kubernetes: unleashing the new infrastructure layer</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/agentic-ai-kubernetes-management/</link>
+      <dc:creator>Rhys Oxenham</dc:creator>
+      <pubDate>Sun, 27 Sep 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Kubernetes</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-suse</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22838266</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/9a739656-guerrillabuzz-n2oyifeir-s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D render of blue cubes inside gold wireframe boxes, linked by red rods into a dense cluster, with teal lines connecting outer cubes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/9a739656-guerrillabuzz-n2oyifeir-s-unsplash-scaled.jpg" /&gt;&lt;p&gt;AI is changing expectations around infrastructure and operations, including Kubernetes management. When models run close to the data they use,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-kubernetes-management/"&gt;The rise of agentic AI on Kubernetes: unleashing the new infrastructure layer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/9a739656-guerrillabuzz-n2oyifeir-s-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D render of blue cubes inside gold wireframe boxes, linked by red rods into a dense cluster, with teal lines connecting outer cubes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/9a739656-guerrillabuzz-n2oyifeir-s-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;AI is changing expectations around infrastructure and operations&lt;/strong&gt;, including Kubernetes management. When models run close to the data they use, deployment, scaling, and governance responsibilities tend to shift to platform teams. And as clusters, environments, and operational signals continue to multiply, manual operations often strain under the added weight.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AI may simultaneously provide opportunities to lighten this growing load. Agentic software can now observe a system, reason about it, and act within predefined limits.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Ultimately, these platforms&amp;#8217; value depends on the quality of the context an agent can see and the boundaries you set. Without cluster state, policy, and access rules, an agent can only guess. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Without cluster state, policy, and access rules, an agent can only guess.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For agentic AI to streamline multi-cluster management, you need clear lines between what the system observes, what it recommends, and what it changes. Drawn well, those lines let teams gain notable speed while still maintaining control.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-impact-of-ai-on-computing-infrastructure" class="wp-block-heading"&gt;&lt;strong&gt;The impact of AI on computing infrastructure&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Teams once treated AI as an application concern; models sat on top of existing systems, and the stack underneath stayed mostly unchanged. Today, AI reaches into more and more customer interactions, while data storage needs simultaneously expand and orchestration pressure grows. A &lt;a href="https://www.suse.com/c/the-new-ai-computing-stack-a-guide-for-tech-leaders-to-navigate-shifting-power-dynamics/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;recent Forrester report&lt;/a&gt; describes the modern AI computing stack as stretching from the models themselves into and across the infrastructure beneath them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As AI workloads move into production, they place new demands on the infrastructure beneath them. Many lean on specialized compute, with resource needs that rise and fall through bursts of training and inference. Because conditions shift quickly, they can also call into question whether telemetry remains trustworthy. Each of these demands lands at the infrastructure layer, where the workloads run.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-infrastructure-layer-of-the-new-ai-stack" class="wp-block-heading"&gt;&lt;strong&gt;The infrastructure layer of the new AI stack&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The infrastructure layer covers compute, storage, and networking. It is a foundation that every workload running on the layer depends on. As AI workloads grow, choices about capacity, placement, and control will increasingly shape the performance of the data, intelligence, orchestration, and experience layers atop the infrastructure.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To operate the infrastructure layer efficiently across many machines and locations, a team may rely on orchestration instead of managing servers by hand. In cloud native contexts, &lt;a href="https://www.suse.com/c/the-ultimate-resource-for-choosing-a-hybrid-it-platform/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kubernetes has become a control point&lt;/a&gt; for scheduling workloads, applying policy, and presenting a consistent interface across environments. Kubernetes is especially well-suited to support organizations this way when teams need consistent control across an estate spanning data centers, clouds, and edge sites.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-agentic-ai-and-kubernetes-the-future-of-the-infrastructure-layer" class="wp-block-heading"&gt;&lt;strong&gt;Agentic AI and Kubernetes: the future of the infrastructure layer&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agentic AI can extend automation from fixed rules to systems that adapt to real-time conditions. Traditional automation runs the same script whether the environment has changed, while an agentic system observes the environment, reasons about what it finds, and then takes action.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When you apply agentic capabilities to multi-cluster management, the system follows this same sequence. An agent reads cluster state and operational data, proposes a diagnosis or next step, and then carries out actions based on an approved scope, usually after a person signs off. You can further reinforce these boundaries by routing each request to a specialized agent that receives only the metadata it needs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The signals that an agent receives from the cluster, the context about policy and access, and the definitions of what the agent may change are the key elements that give agentic systems their value. They also separate &lt;a href="https://thenewstack.io/ai-agents-vs-agentic-ai-a-kubernetes-developers-guide/" class="local-link"&gt;agentic AI on Kubernetes&lt;/a&gt; from a generic assistant.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-manual-kubernetes-management-is-less-efficient-at-scale" class="wp-block-heading"&gt;&lt;strong&gt;Manual Kubernetes management is less efficient at scale&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Admittedly, agentic AI fits some settings better than others. On a small single-cluster footprint, the overhead may outweigh the benefit. Manual Kubernetes management often holds up on a handful of clusters, but it can become unreliable in a rapidly growing estate. After all, each new cluster adds lifecycle work across upgrades, patching, configuration, and renewal. Those tasks can quickly multiply and diverge in hybrid environments.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Configuration drift is a high risk in these situations. Settings that started identical can fall out of sync, and policies can apply unevenly from one team to the next. Individually, these gaps may be manageable, but collectively they raise the odds of an outage or a failed rollout.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Visibility can also erode in an unmanageable way. Clusters spread across data centers, clouds, and edge sites often leave teams with no single view of the whole landscape. When DevOps and platform engineers stitch together signals from separate tools, resolution can slow and become more error-prone. A unified view helps enable sound, efficient decision-making by people, agents, or both.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-kubernetes-knowledge-is-fragmented-and-existing-ai-tools-lack-business-context" class="wp-block-heading"&gt;&lt;strong&gt;Kubernetes knowledge is fragmented, and existing AI tools lack business context&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kubernetes expertise often sits unevenly across an organization. For example, senior engineers may hold deep operational knowledge that application teams lack. The most current information about a running system may also be fragmented if logs sit in one tool and metrics in another. Real-time understanding can be further clouded when policies, runbooks, access rules, and deployment history each live elsewhere.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most well-trained AI models understand Kubernetes at a basic level, but they can&amp;rsquo;t know your unique cluster state, your policies, or your recent changes. Without that context, even a capable AI tool may fall short of providing meaningful Kubernetes management support.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Most well-trained AI models understand Kubernetes at a basic level, but they can&amp;#8217;t know your unique cluster state, your policies, or your recent changes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When an agent can read current signals alongside the rules that govern them, its suggestions become specific, testable, and actionable. In an incident, agentic systems can correlate logs with a recent change. Ahead of a rollout, they can check the change against policy. During troubleshooting, they can account for access rules rather than guessing at them. Kubernetes decisions carry real operational consequences, which makes these details all the more important to consider.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-engineering-toil-isn-t-time-efficient" class="wp-block-heading"&gt;&lt;strong&gt;Engineering &amp;ldquo;toil&amp;rdquo; isn&amp;rsquo;t time-efficient&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Site reliability teams use the word &amp;ldquo;toil&amp;rdquo; for repetitive manual work, especially tasks that keep systems running without adding lasting impact. In Kubernetes operations, toil takes the form of repeated triage, manual signal correlation, alert follow-up, and routine checks. The tasks aren&amp;#8217;t particularly difficult, but they can consume significant time and attention for enterprise teams.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When engineers spend their days on this kind of investigation, proactive modernization efforts tend to stall and planned upgrades can slip behind schedule. In other words, the conditions that created the original toil perpetuate it, since teams lack the capacity to make related improvements. In a recent survey about how AI provides value to DevOps teams, &lt;a href="https://thenewstack.io/survey-where-ai-reduces-toil-and-where-it-still-falls-short/" class="local-link"&gt;reducing toil&lt;/a&gt; emerged as one of the clearer opportunities.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;hellip;the conditions that created the original toil perpetuate it, since teams lack the capacity to make related improvements.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agentic AI can support repetitive investigations by gathering signals, correlating them, and proposing a likely cause for an engineer to weigh. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kept under human review, it can take on some of the routine correlation that would otherwise fall to the team. That kind of support can give engineers more room to focus on the strategic work that most needs their judgment.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-building-more-intelligent-infrastructure-with-agentic-ai-and-kubernetes" class="wp-block-heading"&gt;&lt;strong&gt;Building more intelligent infrastructure with agentic AI and Kubernetes&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As you consider building toward &lt;a href="https://www.suse.com/c/intelligent-infrastructure-in-the-age-of-agentic-ai-why-ecosystems-win/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;intelligent infrastructure&lt;/a&gt; without surrendering control, the following principles can inform your efforts:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Start with observable context, giving agents access to current cluster state, policy, and history before they reason about a problem.&lt;/li&gt;
+
+
+
+&lt;li&gt;Separate suggestions from actions, allowing agents to recommend freely while any change must wait for human approval and a defined scope.&lt;/li&gt;
+
+
+
+&lt;li&gt;Connect agents to existing controls, routing their work through the access rules, identity, and audit paths the team already trusts.&lt;/li&gt;
+
+
+
+&lt;li&gt;Keep the ecosystem open, favoring platforms that integrate with current tools and standards over those that lock work into a single stack.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Platforms like SUSE Rancher Prime and SUSE AI Factory embrace these principles and illustrate how Kubernetes management can become a foundation for agentic operations. These platforms can help you improve cluster and policy consistency without compromising your authority over AI. Built on open-source foundations, they can also help you avoid being trapped in a single vendor&amp;rsquo;s stack.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In SUSE Rancher Prime, the industry&amp;rsquo;s first &lt;a href="https://www.suse.com/c/kubecon-eu-2026-first-agentic-ecosystem-platform/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;context-aware agentic AI ecosystem&lt;/a&gt;, its AI assistants work as a crew of specialized agents with an intelligent router. The platform draws on the cluster context already in place and acts through existing access controls. Through support for external Model Context Protocol (MCP) servers, teams can extend that crew to their own sources. In addition, human validation tools allow you to hold a proposed action for approval before the agent runs it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Despite its potential, intelligent infrastructure is not universally beneficial. In situations where change control must stay fully manual, for example, agentic AI&amp;#8217;s role may be strictly limited to observation and suggestion. Measure the technology&amp;#8217;s value against the realities of your day-to-day operations. For those who are investing, agentic AI will have the greatest impact when it actively supports context, control, openness, and human judgment.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-kubernetes-management/"&gt;The rise of agentic AI on Kubernetes: unleashing the new infrastructure layer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI agents can now observe, reason about, and act on Kubernetes clusters. Their value depends on what they can see and the lines teams draw around them.</content:encoded>
+    </item>
+    <item>
       <title>Avoiding vendor lock-in through an open-source approach: a developer’s perspective</title>
       <link>https://web.archive.org/web/https://thenewstack.io/avoiding-vendor-lock-in/</link>
       <dc:creator>Andreas Prins</dc:creator>
@@ -30,10 +522,10 @@
       <category>sponsor-suse</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22838226</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital artwork depicting dense undulating layers, symbolizing cloud architecture and software ecosystem tension." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash.jpg" /&gt;&lt;p&gt;Every infrastructure team makes decisions that are difficult to reverse. Most of the time, that works out. Sometimes it does&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital artwork depicting dense undulating layers, symbolizing cloud architecture and software ecosystem tension." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash.jpg" /&gt;&lt;p&gt;Every infrastructure team makes decisions that are difficult to reverse. Most of the time, that works out. Sometimes it does&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/avoiding-vendor-lock-in/"&gt;Avoiding vendor lock-in through an open-source approach: a developer’s perspective&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital artwork depicting dense undulating layers, symbolizing cloud architecture and software ecosystem tension." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Every infrastructure team makes decisions that are difficult to reverse.&lt;/strong&gt; Most of the time, that works out. Sometimes it does not.&lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital artwork depicting dense undulating layers, symbolizing cloud architecture and software ecosystem tension." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4b4929a8-pawel-czerwinski-3behrpcbdg0-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Every infrastructure team makes decisions that are difficult to reverse.&lt;/strong&gt; Most of the time, that works out. Sometimes it does not.&lt;/p&gt;
 
 
 
@@ -284,7 +776,7 @@
       <category>Sponsored</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22838248</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/a497ab83-marianne-bos-4eboaeffy0w-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Three black circular directional signs on a gray concrete wall, showing arrows pointing straight ahead, turning left and turning right." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/a497ab83-marianne-bos-4eboaeffy0w-unsplash-scaled.jpg" /&gt;&lt;p&gt;The identity part of agent security is settled. An agent needs its own identity: a short-lived, revocable credential scoped to&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/a497ab83-marianne-bos-4eboaeffy0w-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Three black circular directional signs on a gray concrete wall, showing arrows pointing straight ahead, turning left and turning right." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/a497ab83-marianne-bos-4eboaeffy0w-unsplash-scaled.jpg" /&gt;&lt;p&gt;The identity part of agent security is settled. An agent needs its own identity: a short-lived, revocable credential scoped to&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/inside-out-agent-security/"&gt;The agent didn&amp;#8217;t break your controls. It went around them.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/a497ab83-marianne-bos-4eboaeffy0w-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Three black circular directional signs on a gray concrete wall, showing arrows pointing straight ahead, turning left and turning right." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/a497ab83-marianne-bos-4eboaeffy0w-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;The identity part of agent security is settled.&lt;/strong&gt; An agent needs its own identity: a short-lived, revocable credential scoped to the job, and an audit trail that names the human who set it running. NIST’s security leads made that case in August 2026, and most identity vendors agree.&lt;sup data-fn="b06aeae1-a10c-40b5-a2cc-baa87c7c4c05" class="fn"&gt;&lt;a href="#b06aeae1-a10c-40b5-a2cc-baa87c7c4c05" id="b06aeae1-a10c-40b5-a2cc-baa87c7c4c05-link"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
@@ -4568,414 +5060,6 @@ $(document).ready(function() {
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/whoop-automated-vulnerability-response-workflow/"&gt;Vulnerability alert fatigue nearly swamped WHOOP. But its fix still keeps a human in charge.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Join WHOOP and Datadog engineers live on October 7 to see how WHOOP automated vulnerability response and why it still keeps a human in the loop.</content:encoded>
-    </item>
-    <item>
-      <title>AI spending can run negative. Qodo’s CEO built an ROI equation to fix it.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/qodo-ai-roi-equation/</link>
-      <dc:creator>Alex Wilhelm</dc:creator>
-      <pubDate>Wed, 23 Sep 2026 13:00:00 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Strategy</category>
-      <category>FinOps</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22837581</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/58f6b725-kamil-894i850hyl0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Five stacks of mixed copper, silver, and brass coins arranged left to right in ascending height, like a bar chart, against a neutral beige background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/58f6b725-kamil-894i850hyl0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Flush with the proceeds of a $70 million Series B raised earlier this year, you might expect Qodo to spend&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/qodo-ai-roi-equation/"&gt;AI spending can run negative. Qodo&amp;#8217;s CEO built an ROI equation to fix it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/58f6b725-kamil-894i850hyl0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Five stacks of mixed copper, silver, and brass coins arranged left to right in ascending height, like a bar chart, against a neutral beige background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/58f6b725-kamil-894i850hyl0-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Flush with the proceeds&lt;/strong&gt; of a $70 million Series B raised earlier this year, you might expect Qodo to spend freely on internal AI. After all, the startup uses artificial intelligence to ensure AI-generated code meets customer quality and governance requirements. An upstart technology company using AI to improve AI outputs is AI-pilled by definition.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Instead, the company has limits on AI consumption. &lt;a href="https://www.qodo.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Qodo&lt;/a&gt; CEO &lt;a href="https://www.linkedin.com/in/itamarf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Itamar Friedman&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that his engineers can access $10,000 worth of tokens per month, a cap that he described as &amp;ldquo;generous.&amp;rdquo; Most Qodo developers never reach it. The ceiling wasn&amp;rsquo;t enacted to &amp;ldquo;restrict usage,&amp;rdquo; Friedman says, but instead to drive &amp;ldquo;visibility and efficiency&amp;rdquo; at the startup so that it can &amp;ldquo;scale without runaway costs.&amp;rdquo; Put another way, the cap exists to make somebody answer this question: &amp;ldquo;Which path of automation or usage will be the best [use] of our money?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Qodo&amp;rsquo;s AI footprint is larger than its developer token budget. The startup&amp;rsquo;s AI infrastructure spend &amp;mdash; the cost of running the product for customers rather than the cost of its own engineers using AI &amp;mdash; is growing at &amp;ldquo;roughly 5x year over year,&amp;rdquo; the company tells &lt;em&gt;TNS&lt;/em&gt; in an email, reflecting both &amp;ldquo;increased user adoption&amp;rdquo; and its agents taking on more, and longer tasks as they mature. Qodo says it is pushing the other direction at the same time, driving down the cost of reviewed pull requests through routing and inference efficiency.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-qodo-runs-on" class="wp-block-heading"&gt;What Qodo runs on&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company also dogfoods heavily, running its pull requests through Qodo. Friedman said the product powers its entire software development life cycle (SDLC). Around that sits a stack most engineering organizations would recognize: Slack and Notion and their constituent &amp;ldquo;bots,&amp;rdquo; a centralized knowledge base built to be agent-readable, AI inside Google Workspace, and models from several providers including Google.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Qodo&amp;rsquo;s own product sits alongside Claude Code and other leading coding assistants rather than replacing them. Claude Code still holds the crown internally, but OpenAI&amp;rsquo;s Codex has been taking share, with staff &amp;ldquo;shifting quickly towards Codex.&amp;rdquo; Friedman tracks this two ways. He polls his 130-person staff, spread across offices in several countries, on the tools they prefer, and compares those answers against what the usage data shows.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Friedman reports that Qodo sees &amp;ldquo;roughly double&amp;rdquo; the number of PRs &amp;ldquo;every couple of months&amp;rdquo; alongside &amp;ldquo;a decreasing amount of bugs and incidents.&amp;rdquo; Hold on to those two numbers. They&amp;rsquo;re important here.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-bottleneck-moved" class="wp-block-heading"&gt;The bottleneck moved&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;More PRs and fewer bugs indicate that Qodo is onto something with its focus on software testing and governance. Its technology helps developers deal with an increasingly common issue: What do with all the code that AI agents generate? Companies that adopt AI coding tools often find that they create more code with machines than their humans can assess. As a result, the SDLC bottleneck simply shifts one step down the process.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We solved the speed of writing code,&amp;rdquo; Friedman argues, &amp;ldquo;we didn&amp;rsquo;t solve the velocity of creating software.&amp;rdquo; The difference between accelerating one part of a task and its entire arc is the difference between AI hype and AI ROI.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The software development example shows that when we consider AI costs and benefits, we need to think broadly. If we focus too much on a single metric, we might spend our entire budget on Claude Code credits while shipping no more software than before. Alongside a massive bill.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-ai-roi-equation" class="wp-block-heading"&gt;The AI ROI Equation&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Friedman recommends an equation-based approach. The Qodo perspective on AI ROI is similar to a popular equation for happiness: Personal joy is the distance between your expectations and reality. The greater the expectations, the harder it is to be happy. The lower the expectations, the greater the chance of being content.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This can be expressed as either simple subtraction or as a ratio:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Reality/expectations = Happiness, where larger results indicate greater joy&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Take the same mathematical approach to AI ROI, per Friedman: Compare the positives against the negatives, add up all the good, and set it over all the bad.&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;AI benefits/AI costs = AI ROI, where larger results indicate greater return&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Friedman found the shape of the equation in &lt;a href="https://itrevolution.com/product/the-phoenix-project/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The Phoenix Project&lt;/em&gt;&lt;/a&gt;, the 2013 DevOps novel that contrasts types of software development work and sorts them into good and bad buckets. Plug those terms in:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;(Features + Infrastructure)/(Incidents + Bugs) = Software development velocity&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Now, those two numbers from earlier. Qodo has seen more PRs and fewer bugs thanks to AI. In DevOps terms, it&amp;rsquo;s shipping more and fixing less, so the equation returns a larger, better result. Feed the same terms into the AI ROI version, and it produces more benefits over fewer costs, and a larger final calculation.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The fraction is not a thought experiment at Qodo. It&amp;rsquo;s the shape of what the company says is already happening to it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Terms that have nothing to do with software development work too. Qodo runs AI inside Google Workspace, Slack, and Notion, and those benefits and costs go into the same calculation.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Qodo approach to measuring total AI ROI is less specific than &lt;em&gt;The Phoenix Project&lt;/em&gt;&amp;rsquo;s DevOps equation, but the difference is acceptable. Friedman argues that you have to start somewhere: &amp;ldquo;I know [the equation is] a simplification,&amp;rdquo; the CEO tells &lt;em&gt;TNS&lt;/em&gt;. &amp;ldquo;But what you can&amp;rsquo;t measure, you can&amp;rsquo;t improve.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;His argument is that imperfect beats absent. &amp;ldquo;Don&amp;rsquo;t think about it too much,&amp;rdquo; he says. &amp;ldquo;Try to put any number [in the AI ROI equation] and start tracking.&amp;rdquo; Being told not to overthink an equation is a great soundbite, but the benefit is real: A rough calculation on paper beats holding the same information in your head without form. In this case, the journey is a large part of the destination.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Friedman reckons that startups should pick no more than six or eight terms for their own calculations. That&amp;rsquo;s an afternoon&amp;rsquo;s work. A start on what will prove to be an ongoing exercise.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-negative-roi" class="wp-block-heading"&gt;Negative ROI&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The fraction runs backward, too.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Recall Friedman&amp;rsquo;s point about a company writing more code faster but not accelerating its software development speed. Stuff those terms in:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;(Faster code generation + other AI benefits)/(Slower code review and approval + agentic coding costs + other AI costs) = Smaller AI ROI&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That&amp;rsquo;s how a company spends a king&amp;rsquo;s ransom on AI credits and winds up nowhere or nonexistent.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Which is not hypothetical at Qodo either. AI doesn&amp;rsquo;t excel everywhere, and Friedman named email automation as an example. The company went all in on automating it, then pulled back, &amp;ldquo;mov[ing] from AI automation to AI enhancement&amp;rdquo; after discovering that AI struggled to match writing tone and intelligently extract tasks from messages. The retreat is the interesting part: Qodo&amp;rsquo;s stated approach to any task is to &amp;ldquo;go all in on complete automation,&amp;rdquo; and then &amp;ldquo;take a step back to human judgment.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The CEO says that automation falls short today in two areas: When human judgment is required and when context is missing. The second cuts across everything from software development to personal productivity to answering customer questions. Without timely context, what can AI do other than filibuster? Qodo&amp;rsquo;s service helps answer the context issue for software development, but collecting a company&amp;rsquo;s data and making it accessible, timely, and well-governed for general agentic usage is a massive undertaking, and one that a host of startups want to help solve. If they can, everyone&amp;rsquo;s AI ROI math should improve.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-no-mandate-high-expectations" class="wp-block-heading"&gt;No mandate, high expectations&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Qodo doesn&amp;rsquo;t require its staff to use AI. As Friedman puts it, you won&amp;rsquo;t get fired simply because you&amp;rsquo;re &amp;ldquo;not AI all the way,&amp;rdquo; or &amp;ldquo;eating AI for breakfast.&amp;rdquo; The company expects staff to complete their work as efficiently as possible and leaves the method to them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Employees make their own decisions and execute their own work. If they start to fall behind on assigned tasks, they&amp;rsquo;re expected to reach for automation. It&amp;rsquo;s a balanced approach with high expectations: An employee who isn&amp;#8217;t as efficient as they could be with AI could find themselves at risk.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Friedman has been on the unpopular side of an AI argument before. When he was building Qodo in 2023 and talking up agents, &amp;ldquo;agents&amp;rdquo; was a &amp;ldquo;bad word,&amp;rdquo; dismissed as little more than &amp;ldquo;fluff.&amp;rdquo; Three years and a $70 million Series B, the bet has paid off.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;His advice to founders starting now looks like his past. Predict &amp;ldquo;what&amp;rsquo;s going to happen two years from now,&amp;rdquo; he says, then solve for it immediately, because whatever looks like two years tends to arrive inside of twelve months. The future &amp;ldquo;is coming faster&amp;rdquo; than you think, he says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;rsquo;s a lot to ask of anyone working from an incomplete picture. Predicting the future is hard, he admits, &amp;ldquo;but you have to.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/qodo-ai-roi-equation/"&gt;AI spending can run negative. Qodo&amp;#8217;s CEO built an ROI equation to fix it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Qodo gives every engineer $10,000 in tokens a month. CEO Itamar Friedman says the cap isn&amp;#039;t a limit — it&amp;#039;s the start of an AI ROI calculation.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic made Opus 5.5 cheaper. Then it broke four things your agent depends on.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/claude-opus-agent-migration/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 23 Sep 2026 12:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22837757</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/4bd8e3db-logan-voss-vfo4jjog9ha-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Four sections, branched" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4bd8e3db-logan-voss-vfo4jjog9ha-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic made Claude Opus 5.5, released on Tuesday, cheaper than its predecessor, cutting the price from $5 to $4 per&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-opus-agent-migration/"&gt;Anthropic made Opus 5.5 cheaper. Then it broke four things your agent depends on.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/4bd8e3db-logan-voss-vfo4jjog9ha-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Four sections, branched" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/4bd8e3db-logan-voss-vfo4jjog9ha-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic made &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt;, released on Tuesday, cheaper than its predecessor&lt;/strong&gt;, cutting the price from $5 to $4 per million input tokens and from $25 to $20 per million output tokens. The 1 million-token context window and 128,000-token maximum output are unchanged.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On paper, that makes upgrading an easy decision. In practice, it may not be as simple as changing the model ID.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic&amp;rsquo;s migration guide flags four breaking changes that can cause requests built for Opus 5 to return 400 errors after switching to Opus 5.5. Several other changes won&amp;rsquo;t trigger an error but could still change how an existing agent behaves.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Anthropic&amp;rsquo;s migration guide flags four breaking changes that can cause requests built for Opus 5 to return 400 errors after switching to Opus 5.5. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-thinking-is-always-on" class="wp-block-heading"&gt;Thinking is always on&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The first change involves thinking controls. Opus 5.5 returns a 400 error when a request sets thinking to disabled or uses enabled with &lt;code&gt;budget_tokens&lt;/code&gt;, leaving effort as the way to control how much reasoning the model does. Agents that previously switched thinking off for simple steps to save time and tokens will need to assign those steps a lower effort level instead. Because thinking is now always on, responses begin with thinking blocks, so code that assumes the first content block is text will also need to change.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The default effort level has also dropped from high on Opus 5 to medium on Opus 5.5, so requests that omit the parameter will quietly run at a lower setting. Anthropic recommends setting effort explicitly and re-running effort evaluations, since the right level for each step may have shifted along with cost and latency.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-no-more-forced-tool-calls" class="wp-block-heading"&gt;No more forced tool calls&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Forced tool use no longer works either, as setting &lt;code&gt;tool_choice&lt;/code&gt; to any or tool returns a 400 error, including on the token counting endpoint, where cost estimates built on those settings will fail along with the requests they were meant to price. Many agent loops force a call when a step has to query a database, run code, or reach another service, and Anthropic&amp;#8217;s replacement is &lt;code&gt;auto&lt;/code&gt;-combined with strict tool use or structured outputs, with the prompt stating when the tool applies.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-routing-and-conversation-history" class="wp-block-heading"&gt;Routing and conversation history&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Thinking blocks are now tied to the model and conversation that produced them. On the Claude API, Fable 5.1 and Mythos 5.1 are the only other models that can read Opus 5.5 thinking blocks, so a router or fallback that hands a conversation to any other model will run those turns without the earlier reasoning instead of returning an error. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That adds another layer for teams already watching whether &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;their agent calls are quietly being routed to an older model&lt;/a&gt;. Opus 5.5 can read thinking blocks from Opus 5 and earlier Opus, Sonnet, and Haiku models, but not from Fable or Mythos.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Conversations must also stay append-only for those blocks to remain valid. Trimming old messages, changing tool definitions, summarizing earlier context on the client side, or rewriting the system prompt mid-conversation invalidates existing thinking blocks, and for &lt;a href="https://platform.claude.com/docs/en/build-with-claude/preserved-thinking" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;accounts created on or after August 31, 2026&lt;/a&gt;, at midnight UTC, replaying a thinking block after one of those edits returns a 400 error by default. Older accounts get no error, but the invalid blocks still reach the model, and Anthropic says future models will enforce the check for all accounts. Integrations that never edit earlier turns need no code change, and Anthropic says Claude Code, claude.ai, Claude Managed Agents, and the Claude Agent SDK already work this way, while agents that compact their own context should follow the company&amp;#8217;s preserved thinking documentation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The fourth change affects computer-use agents on the Claude API and Google Cloud, where Opus 5.5 rejects the &lt;code&gt;computer_20251124&lt;/code&gt; tool and accepts computer use only through the &lt;code&gt;computer_toolset_20260801&lt;/code&gt; toolset. The request itself gets simpler because the beta header goes away and the toolset entry takes no name or display dimensions, but the agent loop needs more work. Each action now arrives as its own &lt;code&gt;tool_use&lt;/code&gt; block identified by the block&amp;#8217;s name rather than &lt;code&gt;input.action&lt;/code&gt;, a single turn can contain several of them, and every result has to echo &lt;code&gt;toolset_name&lt;/code&gt;. The older tool still works on Amazon Bedrock, and Anthropic directs developers on other platforms to the computer use tool&amp;#8217;s compatibility documentation.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;hellip;a router or fallback that hands a conversation to any other model will run those turns without the earlier reasoning instead of returning an error.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-changes-that-won-t-throw-errors" class="wp-block-heading"&gt;Changes that won&amp;#8217;t throw errors&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The change most likely to go unnoticed doesn&amp;#8217;t produce an error at all. On Opus 5, text Claude writes between tool calls comes back as text blocks, but on Opus 5.5 that narration arrives as progress-update thinking blocks, and at the default &lt;code&gt;thinking.display&lt;/code&gt; setting of omitted those blocks are empty. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Any agent interface that streams that narration to users will go silent between tool calls until developers set display to updates, a beta option that returns progress updates while keeping reasoning hidden, or to summarized, which returns both, and then render each non-empty thinking block ahead of the tool call it precedes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Opus 5.5 also ships with broader safety classifiers. It can return a &lt;code&gt;stop_reason&lt;/code&gt; of refusal with &lt;code&gt;stop_details&lt;/code&gt; categories that now include bio and &lt;code&gt;reasoning_extraction&lt;/code&gt; alongside cyber, and Anthropic&amp;#8217;s server-side fallback won&amp;#8217;t retry requests declined under reasoning_extraction, handing the refusal back to the application instead.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agents that don&amp;#8217;t handle refusals will stop mid-task, a problem developers have already run into with &lt;a href="https://thenewstack.io/openai-slowing-ai-development/" class="local-link"&gt;OpenAI&amp;#8217;s safety system cutting off API responses&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The change most likely to go unnoticed doesn&amp;#8217;t produce an error at all.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-upgrading-from-older-models" class="wp-block-heading"&gt;Upgrading from older models&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams coming from Opus 4.8 need to work through the Opus 5 migration first, which covers thinking being on by default and the response-shape changes that follow, before applying the Opus 5.5 changes. Teams on Opus 4.7 or earlier have more ground to cover, and those on models older than Opus 4.7 also face rejected sampling parameters, rejected manual extended thinking, removed prefill, and a newer tokenizer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Claude Managed Agents users only need to change the model name. Developers working in Claude Code can run &lt;code&gt;/claude-api migrate&lt;/code&gt; to apply the model ID swap, parameter changes, prefill replacement, and effort calibration across a codebase before reviewing a checklist of items to verify by hand.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic recommends testing the migration in a development environment before switching production traffic. Developers maintaining their own integrations will need to test the pieces around the model, too. Tool calls, model handoffs, conversation history, and user-facing progress updates can all behave differently after the switch, because &lt;a href="https://thenewstack.io/nvidia-agent-debugging-safe/" class="local-link"&gt;agent failures often originate outside the model itself&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-opus-agent-migration/"&gt;Anthropic made Opus 5.5 cheaper. Then it broke four things your agent depends on.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Claude Opus 5.5 costs less than Opus 5, but four breaking changes to thinking, tool use and computer use can trigger 400 errors in existing AI agents.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI cut GPT-6 token prices in half. The bigger lever may be the cache.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-prompt-caching-costs/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Wed, 23 Sep 2026 11:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>FinOps</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22837761</guid>
-      <description>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48-1024x585.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman, OpenAI CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48.png" /&gt;&lt;p&gt;OpenAI released GPT-6 Sol and Luna on Tuesday, essentially more affordable versions of GPT-6 Astra that come closer to Astra&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-prompt-caching-costs/"&gt;OpenAI cut GPT-6 token prices in half. The bigger lever may be the cache.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48-1024x585.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman, OpenAI CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;OpenAI released &lt;a href="https://thenewstack.io/openai-gpt-6-sol-luna-release/" class="local-link"&gt;GPT-6 Sol and Luna&lt;/a&gt; on Tuesday, essentially more affordable versions of GPT-6 Astra that &lt;a href="https://thenewstack.io/gpt-sol-alignment-gaps/" class="local-link"&gt;come closer to Astra on alignment than GPT-5.6 Sol did&lt;/a&gt;, but still fall short of the flagship model.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Most notably, the AI company slashed token prices, making the new GPT-6 models significantly cheaper to use. Beyond token prices, though, OpenAI says better caching can also help developers push costs down even more.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per &lt;a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI&lt;/a&gt;: &amp;ldquo;Improvements in caching and inference let us serve these models at lower cost,&amp;#8221; with API prices for Sol and Luna down 50% compared to their GPT-5.6 counterparts (58% lower for Luna output tokens).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What improvements? Namely, higher cache-hit rates by default, the ability to preserve earlier context even when reasoning effort and tool availability change, and new tools to monitor and diagnose caching performance.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-reuse-context-without-starting-over" class="wp-block-heading"&gt;Reuse context without starting over&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Prompt caching isn&amp;rsquo;t, of course, novel to the new GPT-6 models themselves. But the upgraded Sol and Luna come with improvements designed to keep more previously processed context reusable as the agent moves forward on a task.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;ve improved prompt caching for GPT&amp;#8209;6 to deliver higher cache hit rates by default, helping agents reuse more context, respond faster, and benefit from discounts of 90% on cached input-token reads.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That adds another opportunity to lower the already low API price tag, though the 90% cached-input discount matches GPT-5.6 pricing; what&amp;rsquo;s new is how often the cache gets hit. By using cached context to reuse work it&amp;rsquo;s already done, the model doesn&amp;rsquo;t have to process the same context again from scratch for every single call, thereby reducing latency &amp;mdash; and token costs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Beyond this higher default cache-hit rate, OpenAI says the new GPT-6 models offer more flexibility to optimize caching performance.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The new models let developers adjust reasoning effort and tool availability without having to break the cache. This way, an agent can scale reasoning effort up and down based on how difficult a step is, then make different tools available depending on what the task requires without disturbing earlier cached context &amp;mdash; again, a win for both speed and cost.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-see-what-gets-cached-and-what-doesn-t-nbsp" class="wp-block-heading"&gt;See what gets cached and what doesn&amp;rsquo;t&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GPT-6 Sol and Luna also arrive with a Prompt Caching Dashboard, where OpenAI says developers can view caching performance to understand how much context is reused.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Specifically, they can see how much input is cached and how that amount changes over time. The diagnostics tool then flags missed caching opportunities to help developers understand what could use more efficient caching.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Rather than keeping cache performance largely hidden behind the scenes, the idea is to make it more visible so developers can actively measure and optimize cache reuse.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Altogether, OpenAI says these caching improvements are already making a difference. Per the AI company, GitHub reports, &amp;#8220;these improvements have reduced the share of prompt tokens requiring fresh processing by more than 50% across billions of requests to OpenAI models.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These results span the past &amp;ldquo;several months.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-token-prices-aren-t-the-only-way-to-make-agents-cheaper" class="wp-block-heading"&gt;Token prices aren&amp;rsquo;t the only way to make agents cheaper&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI&amp;rsquo;s pricing cuts for GPT-6 Sol and Luna made the biggest splash, with the AI company significantly dropping API prices from GPT-5.6 levels. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Compared to the current prices for GPT-5.6 &lt;a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sol&lt;/a&gt; and &lt;a href="https://developers.openai.com/api/docs/models/gpt-5.6-luna" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Luna&lt;/a&gt;, which stand at $4 and $0.20 per million input tokens and $20 and $1.20 per million output tokens, respectively (GPT-5.6 Sol&amp;rsquo;s rates are promotional pricing), the new GPT-6 models come in at just $2 and $0.10 per million input tokens and $10 and $0.50 per million output tokens, respectively.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;With GPT-6 Sol and Luna&amp;rsquo;s caching improvements and lower token pricing, OpenAI is making the case for tackling agent costs from both sides: charging less for fresh processing and reducing how often the same context needs to be reprocessed. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But as more AI model providers compete aggressively on pricing, it&amp;rsquo;s becoming clearer that &lt;a href="https://thenewstack.io/agentic-ai-token-costs/" class="local-link"&gt;cheaper models alone won&amp;rsquo;t save your AI budget&lt;/a&gt; &amp;mdash; and lower token prices aren&amp;rsquo;t the only way to make agents cheaper.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With GPT-6 Sol and Luna&amp;#8217;s caching improvements and lower token pricing, OpenAI is making the case for tackling agent costs from both sides: charging less for fresh processing and reducing how often the same context needs to be reprocessed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As agents continue to work on longer and more complex tasks, there will likely be more pressure to do both.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-prompt-caching-costs/"&gt;OpenAI cut GPT-6 token prices in half. The bigger lever may be the cache.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI cut GPT-6 Sol and Luna API prices in half. The quieter savings come from caching that no longer breaks when agents change reasoning effort or tools.</content:encoded>
     </item>
   </channel>
 </rss>
