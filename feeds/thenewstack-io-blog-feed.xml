@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Thu, 01 Oct 2026 22:00:59 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 18:25:30 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,594 @@
       <height>32</height>
     </image>
     <item>
+      <title>GitHub’s advice for its new Copilot feature is to try something else first</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/github-copilot-computer-use-desktop/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Fri, 02 Oct 2026 18:25:27 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839217</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled lines" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-scaled.jpg" /&gt;&lt;p&gt;GitHub launched computer use in public preview on Thursday, giving Copilot CLI and its desktop app the ability to operate&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-copilot-computer-use-desktop/"&gt;GitHub&amp;#8217;s advice for its new Copilot feature is to try something else first&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled lines" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;GitHub launched computer use in public preview on Thursday&lt;/strong&gt;, giving Copilot CLI and its desktop app the ability to operate applications on macOS and Windows. Agents can read app content and click, type, scroll, and drag, including in older, GUI-only software with no API, command-line interface, or MCP integration.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An expense report in Safari was GitHub&amp;rsquo;s &lt;a href="https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launch demonstration&lt;/a&gt; but the company described other uses including summarizing information in a legacy application, updating a presentation, entering data, and moving information between apps. Developers can access the feature from the terminal or through the Copilot app, which runs on Copilot CLI and &lt;a href="https://thenewstack.io/github-copilot-desktop-app/" class="local-link"&gt;launched earlier this year as a rival to Claude Code and Codex&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;GitHub has some catching up to do. OpenAI &lt;a href="https://thenewstack.io/openai-codex-chrome-extension/" class="local-link"&gt;added computer use to Codex in April&lt;/a&gt;, while Anthropic brought broader computer use on macOS to Claude Code and Claude Cowork earlier this year.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;GitHub has some catching up to do. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-computer-use-vs-mcp-servers" class="wp-block-heading"&gt;Computer use vs. MCP servers&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Enabling computer use in Copilot CLI activates a &lt;a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/computer-use" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;bundled plugin with its own MCP server&lt;/a&gt;. It works in local sessions, reading application content through the operating system&amp;rsquo;s accessibility tree and taking screenshots when it needs visual context.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company recommends using direct tools wherever possible. So, if an API, MCP server, terminal command, filesystem tool, or dedicated browser tool can handle the task, it typically provides more structured information and more predictable results than desktop interaction.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That advice limits where GitHub thinks computer use belongs. OpenAI president &lt;a href="https://www.linkedin.com/in/thegdb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Greg Brockman &lt;/a&gt;made a broader case &lt;a href="https://thenewstack.io/computer-use-agent-connectors/" class="local-link"&gt;last month&lt;/a&gt;, arguing that agents could use the same interfaces as people and spare the industry the work of building and maintaining a connector for every piece of software.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-saved-approvals-outlast-their-removal" class="wp-block-heading"&gt;Saved approvals outlast their removal&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers enable the feature with &lt;code&gt;/computer &lt;/code&gt;on in Copilot CLI or through the Copilot app&amp;rsquo;s Computer Use settings. macOS also requires Accessibility permission to operate controls and Screen Recording permission to inspect windows when visual context is needed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The CLI session&amp;rsquo;s permission mode determines whether Copilot asks before accessing an app; developers can check it with &lt;code&gt;/permissions show&lt;/code&gt;. When prompted, they can allow access for the current session, choose &amp;ldquo;Always allow&amp;rdquo; for future sessions or decline. Deny rules override both automatic and saved approvals.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Approvals saved in the CLI carry over to the desktop app on the same computer. Removing an app from the always-allowed list clears its approval for future sessions but leaves access already granted in a running session intact. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Stopping work requires a separate action: press Esc twice in the CLI, or click Stop or press Esc in the desktop app.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-enterprise-controls-over-computer-use" class="wp-block-heading"&gt;Enterprise controls over computer use&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Enterprise policy overrides a developer&amp;rsquo;s local preference. If managed settings block computer use, Copilot CLI reports that the feature is unavailable.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Enterprise policy overrides a developer&amp;rsquo;s local preference. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Through &lt;code&gt;managed-settings.json&lt;/code&gt;, enterprise owners can also &lt;a href="https://github.blog/changelog/2026-07-27-enterprise-managed-settings-now-apply-to-the-github-copilot-app/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;control whether developers may bypass approval prompts&lt;/a&gt;. That restriction applies across the Copilot app, CLI, and VS Code.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;GitHub&amp;rsquo;s default-enablement policy for Business and Enterprise does not change this preview&amp;rsquo;s opt-in status. The policy starts applying to unconfigured features on October 22 but excludes preview features.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-reliability-depends-on-the-interface" class="wp-block-heading"&gt;Reliability depends on the interface&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A change in timing or window state can cause Copilot to repeat an action or stall. GitHub also warns that the agent may choose the wrong control, type into the wrong field, or struggle with dynamic interfaces and complex workflows.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Sensitive information visible in an application window may also become context for the agent. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Unexpected on-screen content and ambiguous instructions can lead to actions affecting the user&amp;rsquo;s device, data, or connected accounts. Sensitive information visible in an application window may also become context for the agent.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-copilot-computer-use-desktop/"&gt;GitHub&amp;#8217;s advice for its new Copilot feature is to try something else first&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>GitHub Copilot can now click and type in desktop apps with no API or MCP server. Here&amp;#039;s how approvals, enterprise controls and reliability limits work.</content:encoded>
+    </item>
+    <item>
+      <title>What Kubernetes’ “monolith” lesson means for AI agent harnesses</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/kubecon-agent-harness-koordinator/</link>
+      <dc:creator>Bill Doerrfeld</dc:creator>
+      <pubDate>Fri, 02 Oct 2026 16:31:26 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Cloud Native Ecosystem</category>
+      <category>Kubecon Cloudnativecon NA 2026</category>
+      <category>Kubernetes</category>
+      <category>Road to KubeCon</category>
+      <category>sponsor-hpe</category>
+      <category>Sponsored</category>
+      <category>sponsored-post</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839193</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of translucent blue cubes inside silver wireframe containers, linked by piping and topped by gold ship&amp;#039;s-wheel shapes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, your source for everything Kubernetes and cloud-native as we count down the&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubecon-agent-harness-koordinator/"&gt;What Kubernetes’ &amp;#8220;monolith&amp;#8221; lesson means for AI agent harnesses&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of translucent blue cubes inside silver wireframe containers, linked by piping and topped by gold ship&amp;#039;s-wheel shapes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Welcome to another edition of&lt;/strong&gt; &lt;a href="https://thenewstack.io/kubecon-cloudnativecon-na-2026/road-to-kubecon/" class="local-link"&gt;&lt;strong&gt;Road to KubeCon&lt;/strong&gt;&lt;/a&gt;, your source for everything Kubernetes and cloud-native as we count down the days to &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeCon + CloudNativeCon NA&lt;/a&gt;, happening November 9-12 in Salt Lake City, Utah.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This week, we take a look at the state of agent harnesses and what needs to evolve. We also feature HPE&amp;#8217;s thoughts on Kubernetes visibility, more sci-fi agentic DevOps, and an impressive scheduler that shows Kubernetes&amp;#8217; default scheduler who&amp;#8217;s the boss of GPU utilization.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That plus news from CNCF: what to expect at this year&amp;#8217;s ArgoCon, a great opportunity to improve your open source project&amp;#8217;s security hygiene, Atlassian&amp;#8217;s stack for slashing event-to-metric latency, and a special gift for TNS readers.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-hpe-shares-tips-for-kubernetes-visibility-on-tns" class="wp-block-heading"&gt;&lt;strong&gt;HPE shares tips for Kubernetes visibility on TNS&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Getting Kubernetes running is a milestone. Knowing who owns the next upgrade, the access request, or failed recovery is an ongoing journey.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This week, we published &amp;#8220;&lt;a href="https://thenewstack.io/kubernetes-operations-ownership-governance/" class="local-link"&gt;A live Kubernetes cluster can still have an ownership gap&lt;/a&gt;,&amp;#8221; the second installment in Chris J. Preimesberger&amp;rsquo;s four-part, HPE-sponsored series. It examines how platform and application teams divide responsibilities after launch, from configuration drift and security policies to upgrade validation and recovery drills. A healthy cluster doesn&amp;rsquo;t necessarily mean a healthy application &amp;mdash; and someone needs to own that gap.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Hewlett Packard Enterprise (HPE) is a presenting sponsor of Road to KubeCon.&lt;/em&gt; &lt;a href="https://www.hpe.com/us/en/products/software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;HPE Software&lt;/em&gt;&lt;/a&gt; &lt;em&gt;helps IT organizations modernize infrastructure, streamline operations, and accelerate AI initiatives across hybrid, multi-vendor environments.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Missed the opener? &lt;a href="https://thenewstack.io/kubernetes-self-service-platform-teams/" class="local-link"&gt;Part one explores Kubernetes self-service&lt;/a&gt;: how developers can get approved environments without waiting through ticket queues, while platform teams retain responsibility for access, costs, and lifecycle controls. Together, the articles ask a practical question: How do you give developers more independence while making operational accountability clear?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Next, the series turns to diagnosing slow applications when Kubernetes looks healthy, then to measuring AI inference performance. Both will explore the visibility teams need as their workloads become more demanding on the road to KubeCon.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-cncf-offers-a-10-discount-to-tns-readers" class="wp-block-heading"&gt;&lt;strong&gt;CNCF offers a 10% discount to TNS readers&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This week, &lt;em&gt;The New Stack&lt;/em&gt; readers get a special treat from Cloud Native Computing Foundation (CNCF). If you&amp;#8217;re planning to attend KubeCon + CloudNativeCon NA in Salt Lake City, use the discount code &lt;code&gt;KCNA26MED10&lt;/code&gt; when you &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/?utm_campaign=45192315-KubeCon-NA-2026&amp;amp;utm_source=Media%20Partner%202026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;register at this link &lt;/a&gt;for 10% off your admission.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;re only 38 days out til KubeCon (or four Road to KubeCon editions out if you count in columns), so better act soon to register and plan your trip.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-agent-harnesses-go-cloud-native" class="wp-block-heading"&gt;&lt;strong&gt;Agent harnesses go cloud-native&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The agent &amp;#8220;harness&amp;#8221; quickly became a catch-all for everything that surrounds an AI agent: the context, filesystem, subagents, permissions, and more. However, &lt;a href="https://www.linkedin.com/in/craigmcluckie/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Craig McLuckie&lt;/a&gt;, founder and CEO of &lt;a href="https://stacklok.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Stacklok&lt;/a&gt;, says it&amp;#8217;s not enough.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To him, most harnesses are too local and built to serve a single developer at a laptop. The typical harness doesn&amp;#8217;t scale well enough to serve hundreds of sessions. Sessions break, and you can&amp;#8217;t easily move the experience between clients or devices.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This week, he takes to the&amp;nbsp;&lt;a href="https://www.cncf.io/blog/2026/09/28/the-case-for-a-cloud-native-agent-harness/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNCF blog&lt;/a&gt;&amp;nbsp;to argue for a cloud-native agent harness. To him, that&amp;#8217;s a distributed application that separates the agent loop from the infrastructure and services around it.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Kubernetes taught this industry that a monolith in a container is still a monolith,&amp;#8221; he writes. &amp;#8220;The lesson applies to agents too.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-koordinator-boosts-on-kubernetes-gpu-allocation-gt-95" class="wp-block-heading"&gt;&lt;strong&gt;Koordinator boosts on-Kubernetes GPU allocation &amp;gt;95%&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A &lt;a href="https://www.cncf.io/case-studies/zhuoyu-technology/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;case study&lt;/a&gt; published on Tuesday details how Zhuoyu Technology, a Chinese autonomous driving technology company, is dramatically improving Kubernetes utilization with &lt;a href="https://koordinator.sh/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Koordinator&lt;/a&gt;, a CNCF sandbox project for efficiently scheduling microservices, AI, and big data workloads.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zhuoyu Technology runs autonomous driving workloads on Kubernetes-based environments but hit performance inefficiencies with the default Kubernetes scheduler, which capped allocation and utilization. By using Koordinator, the team pushed GPU allocation above 95% and overall GPU utilization above 55%.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The case study demonstrates how certain gaps in the default Kubernetes scheduler can lead to failed launches, low GPU utilization, stranded GPUs, and distributed-job scheduling problems. It also demonstrates how Koordinator is faring well in production environments.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-cncf-and-openssf-announce-month-long-challenge" class="wp-block-heading"&gt;&lt;strong&gt;CNCF and OpenSSF announce month-long challenge&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://openssf.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Open Source Security Foundation&lt;/a&gt; (OpenSSF) and CNCF are teaming up to organize the &lt;a href="https://openssf.org/blog/2026/09/23/security-slam-2026-fall-edition/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Security Slam&lt;/a&gt;, a 30-day challenge that walks participants through using OpenSSF projects to improve their project&amp;#8217;s security posture.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;All open source projects are invited to participate. Write &lt;a href="https://www.linkedin.com/in/knight1776" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eddie Knight&lt;/a&gt; and OpenSSF&amp;#8217;s &lt;a href="https://www.linkedin.com/in/staceympotter" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Stacey Potter&lt;/a&gt;, the Slam is &amp;#8220;now taking advantage of new tools to greatly broaden the qualifications for participation.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The challenge runs October 5 through November 6. &lt;a href="http://securityslam.com/slam26/register" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Register here&lt;/a&gt; to get involved and follow the objectives as they&amp;#8217;re announced. Complete the challenges, and you might just have a fancy award ready for you at the OpenSSF booth (#313) at KubeCon.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-atlassian-s-cloud-native-stack-takes-event-to-metric-below-10-seconds" class="wp-block-heading"&gt;&lt;strong&gt;Atlassian&amp;#8217;s cloud-native stack takes event-to-metric below 10 seconds&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In incident detection and response, every second counts. On Wednesday, &lt;a href="https://www.linkedin.com/in/dkbiswas/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Deepak Biswas&lt;/a&gt;, senior engineering manager at Atlassian, shared a &lt;a href="https://www.cncf.io/blog/2026/09/30/from-40-seconds-to-under-10-rebuilding-incident-detection-on-opentelemetry-apache-kafka-and-apache-flink-on-kubernetes/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;deep case study&lt;/a&gt; on the CNCF blog about Atlassian&amp;#8217;s journey to show how far you can go to shave those seconds down.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The detection platform behind AutoHOT, its automated incident creation system, combines &lt;a href="https://thenewstack.io/opentelemetry-prometheus-observability-interoperability/" class="local-link"&gt;OpenTelemetry&lt;/a&gt;, &lt;a href="https://kafka.apache.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Apache Kafka&lt;/a&gt;, and &lt;a href="https://flink.apache.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Apache Flink&lt;/a&gt; on Kubernetes. Operational telemetry tracks user actions across more than 10 cloud products serving millions of tenants, generating billions of events per day.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The headline says it all: They&amp;#8217;ve reduced their event-to-metric &lt;em&gt;metric&lt;/em&gt; (to be meta about it) from more than 40 seconds to under 10.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Yet, Biswas is honest: &amp;#8220;It is not a success story with a bow on it.&amp;#8221; They&amp;#8217;re still working on fine-tuning. Recall, for instance, fell to 64% in August. Nevertheless, it&amp;#8217;s a useful blueprint for others building automated incident detection and response workflows.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;As Kubernetes evolves, so do the demands on the teams running it. Presenting sponsor&lt;/em&gt; &lt;a href="https://www.hpe.com/us/en/products/software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;HPE&lt;/em&gt;&lt;/a&gt; &lt;em&gt;helps teams address that complexity with software spanning virtualization, cloud management, observability, and automation.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-argo-cd-4-0-visioning-begins" class="wp-block-heading"&gt;&lt;strong&gt;Argo CD 4.0 visioning begins&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;KubeCon NA will feature &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/argocon/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ArgoCon North America 2026&lt;/a&gt; on the co-located day, Monday, Nov. 9. It&amp;#8217;s a full-day, two-track event with practical ideas on improving software delivery, managing data and machine learning pipelines, and implementing progressive delivery.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://www.cncf.io/blog/2026/09/30/argocon-north-america-2026-what-to-expect-as-the-argo-community-looks-toward-cd-4-0/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post on the CNCF blog on Wednesday&lt;/a&gt;, ArgoCon co-chairs Dan Garfield, Christian Hernandez, and Katie Lamkin stress that the event comes as the community begins the visioning process for Argo CD 4.0.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;They describe ArgoCon, &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/co-located-events/argocon/#about" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;whose schedule is live here&lt;/a&gt;, as &amp;#8220;an opportunity to connect around what users are building today and where the projects are heading next.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-cycle-s-devops-control-plane-gets-sci-fi" class="wp-block-heading"&gt;&lt;strong&gt;Cycle&amp;#8217;s &lt;/strong&gt;DevOps&lt;strong&gt; control plane gets sci-fi&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If you told me this existed just a couple of years ago, I would have thought &amp;#8216;this is science fiction, and it shouldn&amp;#8217;t be real,'&amp;#8221; says head of engineering &lt;a href="https://www.youtube.com/watch?v=q4T7U32g7xk" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alexander Mattoni&lt;/a&gt; in a &lt;a href="https://youtu.be/q4T7U32g7xk?si=-mXwRXdDZj1IBGn9" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;feature announcement video&lt;/a&gt; this week, showing off a &lt;a href="https://cycle.io/blog/cycle-launches-mcp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;new remote MCP server&lt;/a&gt; for Cycle, the DevOps control plane.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The release essentially means Cycle users can provision, orchestrate, and manage workloads across multicloud and hybrid environments via natural language, using MCP-compatible AI assistants and coding tools.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It follows a string of agentic features being released in the cloud native industry that continue to abstract DevOps and put impressive capabilities into the prompt. What was sci-fi yesterday is becoming more and more the status quo today.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-follow-the-road-to-kubecon" class="wp-block-heading"&gt;&lt;strong&gt;Follow the Road to KubeCon&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Road to KubeCon is an eight-part series presented by HPE at KubeCon + CloudNativeCon North America in Salt Lake City. Before you go, explore how&lt;/em&gt; &lt;a href="https://www.hpe.com/us/en/products/software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;HPE Software&lt;/em&gt;&lt;/a&gt; &lt;em&gt;helps IT teams do more with less complexity.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;228 &lt;a href="https://www.cncf.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNCF projects&lt;/a&gt;. 1,754 individual contributors to the &lt;a href="https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;latest Kubernetes release&lt;/a&gt;. Over 230 sponsors and exhibitors expected at KubeCon NA 2026&amp;hellip;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The cloud-native ecosystem is booming. As such, there&amp;#8217;s always something going on.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;ll be here every Friday to track it on &lt;em&gt;The New Stack&lt;/em&gt; until KubeCon NA.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That means, before we catch up at the show, there&amp;#8217;s still a handful of editions and blurbs to pen.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you&amp;#8217;re working in the cloud native space and have something interesting to share, &lt;a href="https://www.doerrfeld.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bill Doerrfeld&lt;/a&gt;, the writer of this series, is open to pitches. You can share news, story ideas, or quotes through his &lt;a href="https://www.doerrfeld.io/contact" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;personal contact page&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you missed last week&amp;#8217;s edition on &lt;a href="https://thenewstack.io/opentelemetry-prometheus-observability-interoperability/" class="local-link"&gt;OpenTelemetry and Prometheus interoperability&lt;/a&gt;, you can catch up here.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;You can also follow the Road to KubeCon &lt;a href="https://thenewstack.io/kubecon-cloudnativecon-na-2026/road-to-kubecon/" class="local-link"&gt;series archive&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubecon-agent-harness-koordinator/"&gt;What Kubernetes’ &amp;#8220;monolith&amp;#8221; lesson means for AI agent harnesses&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>In this edition of our Road to KubeCon series, Craig McLuckie wants agent harnesses off the laptop, and Koordinator pushes GPU allocation past 95%.</content:encoded>
+    </item>
+    <item>
+      <title>“No reason why everyone should have an identical Claude experience”: Anthropic’s mods let you change Claude Code’s look and behavior</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-code-mods-plugins/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Fri, 02 Oct 2026 14:07:50 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839147</guid>
+      <description>&lt;img width="1024" height="539" src="https://cdn.thenewstack.io/media/2026/10/00ff0e7a-doodler-collective-spdl0i0-gw4-unsplash-1024x539.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A row of developers sitting at terminals." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/00ff0e7a-doodler-collective-spdl0i0-gw4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Developers have long been able to customize Claude Code to their preferences, via settings, persistent instructions in CLAUDE.md, hooks, and&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-code-mods-plugins/"&gt;&amp;#8220;No reason why everyone should have an identical Claude experience&amp;#8221;: Anthropic&amp;#8217;s mods let you change Claude Code&amp;#8217;s look and behavior&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="539" src="https://cdn.thenewstack.io/media/2026/10/00ff0e7a-doodler-collective-spdl0i0-gw4-unsplash-1024x539.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A row of developers sitting at terminals." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/00ff0e7a-doodler-collective-spdl0i0-gw4-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Developers have long been able to customize Claude Code to their preferences, via &lt;a href="https://code.claude.com/docs/en/settings" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;settings&lt;/a&gt;, persistent instructions in &lt;a href="https://code.claude.com/docs/en/memory" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;code&gt;CLAUDE.md&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://code.claude.com/docs/en/hooks-guide" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;hooks&lt;/a&gt;, and &lt;a href="https://code.claude.com/docs/en/mcp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP servers&lt;/a&gt;, alongside tweaks such as &lt;a href="https://code.claude.com/docs/en/statusline" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;status lines&lt;/a&gt; and &lt;a href="https://code.claude.com/docs/en/output-styles" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;output styles&lt;/a&gt;. Those controls can shape the instructions Claude follows, its permissions, the tools it can use, and more &amp;#8212; but they can&amp;#8217;t change Claude Code&amp;#8217;s own features or the rest of its interface.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now, however, &lt;a href="https://claude.com/blog/claude-code-mods" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic is giving developers&lt;/a&gt; much deeper control of Claude Code via &lt;a href="https://code.claude.com/docs/en/plugins/mods/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;mods&lt;/a&gt;, which are small JavaScript or TypeScript functions that hook into events inside Claude Code. A mod can rewrite a prompt before it reaches the model, block or rewrite a tool call, handle permission requests, replace parts of Claude Code&amp;#8217;s interface, or add entirely new functionality.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Each person works differently, so there&amp;#8217;s no reason why everyone should have an identical Claude experience.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-changing-how-claude-code-looks-and-behaves" class="wp-block-heading"&gt;Changing how Claude Code looks and behaves&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Taking to X on Thursday, Claude Code creator &lt;a href="https://www.linkedin.com/in/bcherny/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Boris Cherny&lt;/a&gt; describes mods as a way for developers to reshape Claude&amp;rsquo;s appearance and behavior via a simple prompt, with the ability to package those customizations as plugins that other users can install.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Each person works differently, so there&amp;#8217;s no reason why everyone should have an identical Claude experience,&amp;#8221; Cherny &lt;a href="https://x.com/bcherny/status/2105756563302723721" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Mods are absolutely insane. You can now customize Claude to work and look the way you want by just prompting it.&lt;br&gt;&lt;br&gt;Each person works differently, so there&amp;#39;s no reason why everyone should have an identical Claude experience. Make Claude your own, and share mods as plugins so others&amp;hellip; &lt;a href="https://t.co/FxQ8ggZ0uK" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;https://t.co/FxQ8ggZ0uK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Boris Cherny (@bcherny) &lt;a href="https://x.com/bcherny/status/2105756563302723721?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 1, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That can include changing what Claude Code displays while it&amp;#8217;s working. For example, a mod might want to surface live information such as the number of tool calls Claude has made, how long it has been running, and how many tokens it has consumed, then present a summary once the task is complete.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="258" src="https://cdn.thenewstack.io/media/2026/10/748b9fbf-gif1.gif" alt="Live agent activity" class="wp-image-22839160"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Live agent activity&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Users were already experimenting with more specialized uses within hours of the announcement. One software developer &lt;a href="https://x.com/sean_snd/status/2105965372956623126?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;built a mod&lt;/a&gt; for passing credentials to Claude without leaving the underlying secret in the conversation history.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-claude-code-mods-work" class="wp-block-heading"&gt;How Claude Code mods work&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mods have actually been in the works publicly for at least a month already. Anthropic first floated the idea on GitHub &lt;a href="https://github.com/anthropics/claude-code/issues/91870" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on September 3&lt;/a&gt; under the more technical name &amp;ldquo;function hooks,&amp;rdquo; asking developers for feedback on an API that would let JavaScript and TypeScript functions intercept events inside Claude Code. Six days later, the company said it planned to ship the feature imminently under a rebranded &amp;ldquo;Claude Mods,&amp;rdquo; while retaining function hooks as the underlying mechanism.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mods are now enabled by default in Claude Code 2.1.287 and later. Because a mod&amp;#8217;s code stays active throughout a session, it can remember information between events and interact with Claude Code as things happen. That makes it possible to build interface elements that update live, launch processes, add commands, or expose new tools to the model. Anthropic says that it&amp;#8217;s already using mods for features including &lt;code&gt;AGENTS.md&lt;/code&gt; support and the &lt;code&gt;/diff&lt;/code&gt; pane, and has published their source in the Claude Code repository.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;That makes mods a way to fit Claude Code to how you work.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://claude.dev/blog/getting-started-with-claude-code-mods/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;technical blog post&lt;/a&gt; accompanying the launch, &lt;a href="https://www.linkedin.com/in/addyosmani/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Addy Osmani&lt;/a&gt; a member of technical staff at Anthropic, acknowledges that developers could already customize Claude Code through various mechanisms. However, he says that mods give them control over Claude Code&amp;rsquo;s own behavior and interface, with modules that respond to events during a session and can alter or replace what Claude Code does.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;That makes mods a way to fit Claude Code to how you work,&amp;rdquo; Osmani writes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In one example, Osmani walks through an approximately 80-line Mod called &lt;em&gt;Token Weather&lt;/em&gt;, which tracks how much of Claude&amp;rsquo;s context window has been consumed and displays the result in a band above the prompt. As Claude reads more files, the display moves from &amp;ldquo;Clear&amp;rdquo; at 18% of a 200,000-token window, to &amp;ldquo;Showers&amp;rdquo; at 67%, and finally &amp;ldquo;Storm&amp;rdquo; at 81%, while also showing recent usage and how many tokens the latest turn added.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/10/dab94512-gif4.gif" alt="Token Weather tracks context use" class="wp-image-22839174"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Token Weather tracks context use&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Given that mods are distributed as plugins, developers can publish them through the same plugin mechanism, including from repositories on GitHub. That does, however, introduce a security consideration: mod code executes locally with access through Claude Code to the developer&amp;rsquo;s machine, so Anthropic recommends inspecting the source and installing only code from trusted publishers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For teams, however, mods inherit Claude Code&amp;#8217;s existing plugin controls, while Team and Enterprise users and machines with managed settings load Anthropic&amp;#8217;s &lt;code&gt;sec-default&lt;/code&gt; guard ahead of user-installed mods. By default, that prevents those mods from overriding permission-deny rules; outside those guarded environments, mods can override some permission decisions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mods are available now in the Claude Code CLI and desktop app, and can be installed or shared through plugin marketplaces, including GitHub repositories.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-code-mods-plugins/"&gt;&amp;#8220;No reason why everyone should have an identical Claude experience&amp;#8221;: Anthropic&amp;#8217;s mods let you change Claude Code&amp;#8217;s look and behavior&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Claude Code users can now ask it to redesign itself. Mods can rewrite prompts, block tool calls, and redraw the interface, all from a plugin.</content:encoded>
+    </item>
+    <item>
+      <title>K3s vs. K8s: When lightweight Kubernetes distros win (and when they don’t)</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/k3s-vs-k8s-comparison/</link>
+      <dc:creator>Peter Smails</dc:creator>
+      <pubDate>Fri, 02 Oct 2026 13:00:00 +0000</pubDate>
+      <category>Containers</category>
+      <category>Edge Computing</category>
+      <category>Kubernetes</category>
+      <category>sponsor-suse</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839138</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e081d847-aakash-dhage-kmkvpevhoi4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract digital render of intersecting geometric beams symbolizing complex Kubernetes distributions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e081d847-aakash-dhage-kmkvpevhoi4-unsplash.jpg" /&gt;&lt;p&gt;The Kubernetes ecosystem has a complexity problem, and most teams already know it. Standard Kubernetes (K8s) is extraordinarily powerful, but&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/k3s-vs-k8s-comparison/"&gt;K3s vs. K8s: When lightweight Kubernetes distros win (and when they don&amp;#8217;t)&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e081d847-aakash-dhage-kmkvpevhoi4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract digital render of intersecting geometric beams symbolizing complex Kubernetes distributions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e081d847-aakash-dhage-kmkvpevhoi4-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://thenewstack.io/kubernetes-an-overview/" class="local-link"&gt;Kubernetes&lt;/a&gt; ecosystem has a complexity problem, and most teams already know it. Standard Kubernetes (K8s) is extraordinarily powerful, but that power comes with operational weight. Deploying and maintaining a production-ready cluster requires multiple components across the control plane, networking, storage, security, and observability, each of which needs to be configured, monitored, and maintained over time.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That&amp;#8217;s exactly why lightweight Kubernetes distributions are so popular. Among them, &lt;a href="https://k3s.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;K3s&lt;/a&gt; has become one of the most downloaded Kubernetes distributions in the world, and for good reason. It&amp;rsquo;s as powerful as any other distribution and can orchestrate containers on a Raspberry Pi.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Standard Kubernetes (K8s) is extraordinarily powerful, but that power comes with operational weight.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But &amp;#8220;lightweight is better&amp;#8221; isn&amp;#8217;t always true. The choice between K3s and K8s comes down to your infrastructure, your team, and what you&amp;#8217;re actually trying to run. Here&amp;#8217;s how to think through it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-are-k3s-and-k8s" class="wp-block-heading"&gt;What are K3s and K8s?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Standard Kubernetes (abbreviated K8s, with the 8 representing the letters between the K and the s) is an open-source container orchestration platform originally developed by &lt;a href="https://cloud.google.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google&lt;/a&gt; and now maintained by the &lt;a href="https://www.cncf.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cloud Native Computing Foundation (CNCF)&lt;/a&gt;. It automates the deployment, scaling, and management of containerized applications across clusters of machines. Standard Kubernetes provides comprehensive orchestration capabilities, including automated scheduling, service discovery, load balancing, storage orchestration, and self-healing mechanisms.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.suse.com/products/k3s/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;K3s&lt;/a&gt; is a fully compliant Kubernetes distribution originally developed by Rancher Labs, now part of SUSE. It became a CNCF Sandbox project on August 19, 2020. Designed to reduce Kubernetes&amp;#8217; operational and resource overhead, K3s packages the control plane and many supporting components into a single binary under 100 MB. It uses SQLite as the default datastore, while also supporting etcd, MySQL, and PostgreSQL, and includes components such as Flannel CNI and Traefik ingress out of the box.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And for a fun fact: the &amp;#8220;K3s&amp;#8221; name is deliberate. Kubernetes is a 10-letter word stylized as K8s. The goal was to create a Kubernetes distribution with roughly half the memory footprint, so it became a five-letter word stylized as K3s. K3s packages Kubernetes for environments where a smaller footprint and simpler deployment model can make a significant difference.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-understanding-the-differences-between-k3s-and-k8s" class="wp-block-heading"&gt;Understanding the differences between K3s and K8s&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The main differences between K3s and K8s are primarily operational. Let&amp;rsquo;s go through them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Architecture and components.&lt;/strong&gt; Standard Kubernetes follows a master-worker architecture with separate components for the API server, scheduler, controller manager, and etcd. This modular design provides flexibility, but it also increases complexity and resource overhead. K3s consolidates server and agent node roles so that all &lt;a href="https://thenewstack.io/agentic-ai-control-plane-production/" class="local-link"&gt;control plane&lt;/a&gt; components run in a single process, reducing the attack surface and simplifying troubleshooting.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;K3s consolidates server and agent node roles so that all control plane components run in a single process, reducing the attack surface and simplifying troubleshooting.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Resource footprint.&lt;/strong&gt; Standard Kubernetes typically requires at least 4GB RAM and two CPU cores for a basic cluster, with additional overhead for each component. K3s runs effectively on devices with as little as 512MB RAM and a single CPU core. That&amp;#8217;s often not just a cost difference, but also the difference between deployable and not deployable on edge hardware.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Installation and management.&lt;/strong&gt; Installing standard Kubernetes involves configuring container runtimes, networking plugins, storage drivers, and security policies. K3s installation reduces this to a single command that handles TLS certificates, networking configuration, and basic security policies automatically. Management overhead also diverges significantly. Standard Kubernetes requires coordinating security updates across multiple components, while K3s consolidates them into a single binary that updates atomically.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Storage and database.&lt;/strong&gt; Standard Kubernetes uses etcd as its backing store. K3s supports etcd too for high-availability configurations, but also supports SQLite for single-node deployments and external databases like PostgreSQL and MySQL. That flexibility matters for edge deployments where you need persistence without the operational complexity of distributed storage systems.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Security defaults.&lt;/strong&gt; Both distributions implement role-based access control (RBAC), network policies, and pod security standards. The difference is in defaults. Kubernetes gives you maximum flexibility in security configuration, which requires deep expertise to configure correctly. K3s implements secure defaults out of the box, which reduces the likelihood of security misconfigurations in distributed deployments.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-choosing-between-k3s-and-k8s-most-suitable-use-cases" class="wp-block-heading"&gt;Choosing between K3s and K8s: most suitable use cases&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Neither distribution is universally better. The right choice depends on what you&amp;#8217;re running, where you&amp;#8217;re running it, and how much operational complexity you can absorb.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-when-to-choose-k3s" class="wp-block-heading"&gt;When to choose K3s&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;K3s earns its place in three main scenarios.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Edge and IoT deployments.&lt;/strong&gt; &lt;a href="https://thenewstack.io/the-use-case-for-kubernetes-at-the-edge/" class="local-link"&gt;Kubernetes at the edge&lt;/a&gt; means running container orchestration on hardware that wasn&amp;#8217;t designed for it: industrial computers, retail terminals, Raspberry Pis, remote sensors. Standard Kubernetes would consume too many resources in these environments. K3s addresses this directly, running on devices with minimal RAM while maintaining full Kubernetes functionality. The single-binary architecture also simplifies updates in distributed edge environments where you might be managing thousands of nodes across locations with limited connectivity.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Kubernetes at the edge means running container orchestration on hardware that wasn&amp;#8217;t designed for it: industrial computers, retail terminals, Raspberry Pis, remote sensors.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Manufacturing facilities, retail locations, and remote monitoring stations are strong use cases for this reason. SUSE Edge, for example, is built around K3s as its Kubernetes distribution for exactly this scenario. It&amp;#8217;s ideal for managing edge deployments at scale in resource-constrained, unattended environments where operational simplicity is non-negotiable.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;CI/CD and developer environments.&lt;/strong&gt; K3s spins up quickly and tears down cleanly, which makes it well-suited to continuous integration pipelines. You can create clusters for testing, run workloads, and destroy them without the overhead of a full Kubernetes setup. For local development, K3s lets developers run containerized applications on laptops without the resource demands of standard Kubernetes, while maintaining API compatibility so application behavior is consistent between development and production.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Production workloads.&lt;/strong&gt; Organizations that need Kubernetes capabilities without complexity can use K3s for production workloads. The reduced operational overhead &lt;a href="https://thenewstack.io/how-real-time-database-design-boosts-total-cost-of-ownership/" class="local-link"&gt;lowers total cost of ownership&lt;/a&gt;. K3s is production-ready. It&amp;#8217;s designed for production workloads and maintains the same security and reliability standards as standard Kubernetes. With SUSE Rancher Prime, you can get up to five years of enterprise support for K3s deployments.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-when-to-choose-k8s" class="wp-block-heading"&gt;When to choose K8s&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kubernetes remains the better choice when you need maximum flexibility and have the infrastructure to support it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Complex deployments.&lt;/strong&gt; Organizations running complex, multi-tenant applications may want the feature set and specific configuration options that standard Kubernetes provides.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Regulated industries.&lt;/strong&gt; &lt;a href="https://thenewstack.io/the-year-of-ai-3-critical-shifts-coming-to-regulated-industries/" class="local-link"&gt;Industries with strict compliance&lt;/a&gt; requirements, such as financial services, healthcare, and government, often need extensive audit capabilities, granular access controls, and comprehensive security frameworks that can be configured and maintained with Kubernetes. If your environment requires certifications or compliance with frameworks like SOC 2, HIPAA, or PCI DSS, &lt;a href="https://docs.rke2.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RKE2&lt;/a&gt; gives you more tools to support those requirements. RKE2 is a sibling to K3s, with a similarly streamlined approach but a stronger emphasis on security. For instance, it is specifically designed to address the security and compliance needs of the U.S. Federal Government sector, with hardened defaults and configuration options that allow clusters to pass the CIS Kubernetes Benchmark.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-k3s-or-k8s-the-best-distro-depends-on-your-infrastructure-and-your-needs" class="wp-block-heading"&gt;K3s or K8s: the best distro depends on your infrastructure and your needs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The TLDR is this: K3s isn&amp;#8217;t a simplified Kubernetes for teams that can&amp;#8217;t handle the real thing. It&amp;#8217;s a purpose-built distribution that makes a specific set of trade-offs, like less configuration flexibility and ecosystem breadth in exchange for dramatically lower resource requirements, simpler operations, and faster deployment.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;K3s isn&amp;#8217;t a simplified Kubernetes for teams that can&amp;#8217;t handle the real thing. It&amp;#8217;s a purpose-built distribution that makes a specific set of trade-offs.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you&amp;#8217;re running containerized workloads at the edge, building CI/CD infrastructure, or managing distributed deployments across many small nodes, K3s is often the right call. If you&amp;#8217;re running workloads with more complex requirements that need extensive manual configuration, and you have the resources to support that complexity, standard Kubernetes can make sense.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For teams running K3s at scale across distributed edge sites, the real problem stops being Kubernetes and starts becoming sprawl: Hundreds of small clusters you can&amp;#8217;t see or govern consistently. SUSE Rancher Prime is built to close that gap.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At the end of the day, the question isn&amp;#8217;t whether K3s or K8s is better. It&amp;#8217;s which one fits the infrastructure you&amp;#8217;re actually running.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/k3s-vs-k8s-comparison/"&gt;K3s vs. K8s: When lightweight Kubernetes distros win (and when they don&amp;#8217;t)&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Compare K3s vs. K8s to find the best Kubernetes distro for your needs. Explore resource footprints, edge use cases, and key trade-offs.</content:encoded>
+    </item>
+    <item>
       <title>OpenAI’s always-on agents are free, until one specific thing happens</title>
       <link>https://web.archive.org/web/https://thenewstack.io/openai-dots-codex-usage/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +616,10 @@
       <category>AI Agents</category>
       <category>Developer tools</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839121</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Open sign at night" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI&amp;#8217;s new Dots can work around the clock without drawing down a user&amp;#8217;s normal usage allowance during the launch period,&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Open sign at night" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI&amp;#8217;s new Dots can work around the clock without drawing down a user&amp;#8217;s normal usage allowance during the launch period,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-dots-codex-usage/"&gt;OpenAI&amp;#8217;s always-on agents are free, until one specific thing happens&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Open sign at night" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Open sign at night" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/731d9815-joshua-bayliss-hrh_q1q5tmo-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI&amp;#8217;s new &lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;Dots&lt;/a&gt; can work around the clock without drawing down a user&amp;#8217;s normal usage allowance&lt;/strong&gt; during the launch period, but users might be surprised how that changes once an agent hands work to another OpenAI product such as Codex.&lt;/p&gt;
 
 
@@ -126,7 +714,7 @@
       <category>FinOps</category>
       <category>Model Context Protocol (MCP)</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839105</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/bf0638f1-steve-a-johnson-tx5xt2af9ze-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Towering stack" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf0638f1-steve-a-johnson-tx5xt2af9ze-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cloudflare opened a closed beta of its Monetization Gateway on Wednesday, giving domain owners a way to charge AI agents&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/bf0638f1-steve-a-johnson-tx5xt2af9ze-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Towering stack" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf0638f1-steve-a-johnson-tx5xt2af9ze-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cloudflare opened a closed beta of its Monetization Gateway on Wednesday, giving domain owners a way to charge AI agents&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudflare-x402-agent-spending/"&gt;Cloudflare brings paid access to MCP tools — who controls the agent’s spending?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/bf0638f1-steve-a-johnson-tx5xt2af9ze-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Towering stack" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf0638f1-steve-a-johnson-tx5xt2af9ze-unsplash-scaled.jpg" /&gt;
@@ -2846,7 +3434,7 @@ $(document).ready(function() {
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf89121fa07&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf89121fa07" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac0d25cba3b5&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac0d25cba3b5" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3887,682 +4475,6 @@ $(document).ready(function() {
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/featherless-simple-jev-classifier/"&gt;Why Featherless says you don&amp;#8217;t need a tank to deliver a pizza&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Featherless releases open source Simple Jev, turning open models into zero-shot classifiers, with free output tokens and pricing from $0.03 per million.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI makes ‘Sign in with ChatGPT’ a way to use your subscription in third-party developer tools</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/sign-in-with-chatgpt/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 29 Sep 2026 17:31:05 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Strategy</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838568</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/872fa997-feat-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Connect ChatGPT and Devin" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/872fa997-feat.png" /&gt;&lt;p&gt;OpenAI has announced that it&amp;#8217;s making it easier for ChatGPT subscribers to use their allowance inside third-party AI and coding&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/sign-in-with-chatgpt/"&gt;OpenAI makes &amp;#8216;Sign in with ChatGPT&amp;#8217; a way to use your subscription in third-party developer tools&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/872fa997-feat-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Connect ChatGPT and Devin" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/872fa997-feat.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;OpenAI has announced that it&amp;#8217;s making it easier for ChatGPT subscribers to use their allowance inside third-party AI and coding platforms such as &lt;a href="https://ampcode.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amp&lt;/a&gt;, &lt;a href="https://devin.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Devin&lt;/a&gt;, &lt;a href="https://lovable.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lovable&lt;/a&gt;, and &lt;a href="https://openclaw.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenClaw&lt;/a&gt;, alongside broader developer and productivity platforms including &lt;a href="https://www.notion.com/en-gb" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Notion&lt;/a&gt; and &lt;a href="https://vercel.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vercel&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The announcement came on Tuesday at &lt;a href="https://devday.openai.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI DevDay&lt;/a&gt;, the fourth incarnation of its annual developer conference, where the AI juggernaut unveiled a number of notable tidbits, &lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;including Dots&lt;/a&gt;, a new class of always-on agents, and &lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/" class="local-link"&gt;GPT-6.1 Sol&lt;/a&gt;, its latest model for coding, computer use and professional work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Speaking on stage, OpenAI CEO Sam Altman told developers that enabling users to bring their existing ChatGPT allowance into their products could lower the barrier to adoption for those tools.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This makes it easier for people to try your product,&amp;rdquo; Altman said. &amp;ldquo;They&amp;#8217;re already paying for an AI subscription, and now you don&amp;#8217;t have to cover their token costs to get them going.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-sign-in-with-chatgpt-identity-and-plan-usage" class="wp-block-heading"&gt;Sign in with ChatGPT: Identity and plan usage&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Back in July, &lt;a href="https://learn.chatgpt.com/docs/changelog#codex-2026-07-29" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI had already&lt;/a&gt; released &lt;a href="https://help.openai.com/en/articles/20001410-sign-in-with-chatgpt" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sign in with ChatGPT&lt;/a&gt; as a beta feature in &lt;a href="https://x.com/reach_vb/status/2082911102904435078" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;partnership with companies&lt;/a&gt; including Airtable, GitLab, HubSpot, Notion, &lt;a href="https://supabase.com/blog/sign-in-with-chatgpt-beta" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Supabase&lt;/a&gt;, and &lt;a href="https://vercel.com/changelog/sign-in-with-chatgpt-is-now-available-on-vercel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vercel&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At that point, however, the feature was chiefly about identity. Users could create or access an account on participating sites using their ChatGPT login, while supported plugins could use the same sign-in process to create or link an account with the underlying service.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h6 id="h-openai-devday-2026-coverage" class="wp-block-heading"&gt;OpenAI DevDay 2026 coverage:&lt;/h6&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/sign-in-with-chatgpt/" class="local-link"&gt;OpenAI makes &amp;lsquo;Sign in with ChatGPT&amp;rsquo; a way to use your subscription in third-party coding tools&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;OpenAI just launched Dots. Here&amp;rsquo;s why they matter for developers.&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-halves-200-plan/" class="local-link"&gt;OpenAI halves $200 plan allowance, launches $500 plan&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-decision-api-luna/" class="local-link"&gt;OpenAI answers TypeSafe&amp;rsquo;s Jev with a Decision API built on Luna&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/" class="local-link"&gt;OpenAI&amp;rsquo;s new GPT-6.1 Sol undercuts its own Astra flagship&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI said partners received a user&amp;rsquo;s name, email address and profile picture, while any additional plugin permissions had to be approved separately.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/09/e277f879-giffy.gif" alt="&amp;quot;Continue with ChatGPT&amp;quot; on Supabase" class="wp-image-22838593"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&amp;#8220;Continue with ChatGPT&amp;#8221; in Supabase&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Now, OpenAI is extending that idea beyond identity, allowing ChatGPT Plus and Pro subscribers to use their existing plan allowance inside participating third-party tools. &amp;#8220;Eligible&amp;#8221; OpenAI usage in those services counts against the user&amp;rsquo;s existing ChatGPT plan limits, with controls for how much each partner can consume.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI has named 16 launch partners for ChatGPT plan usage, spanning both open-source and commercial tools. The currently available services include OpenCode, OpenClaw, Pi, T3, Hyperagent, Hermes Agent, Vorflux, Amp, Dactyl, Kilo Code, Warp, Conductor, Devin, Notion and Vercel, with Lovable &amp;#8220;coming soon.&amp;#8221;&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/09/eee39f17-giffy2.gif" alt="Using your ChatGPT plan in Devin" class="wp-image-22838750"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Using your ChatGPT plan in Devin&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;An OpenAI spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt; that more will be added to the mix in the future.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;We&amp;rsquo;re starting with these 16 launch partners today, and we&amp;rsquo;ll expand quickly,&amp;#8221; the company says in a statement.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-extending-chatgpt-subscriptions" class="wp-block-heading"&gt;Extending ChatGPT subscriptions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that at least one of the launch partners has been showcasing this integration for the best part of a month already. &lt;a href="https://en.wikipedia.org/wiki/Ryan_Dahl" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ryan Dahl&lt;/a&gt;, a software engineer known for Node.js, &lt;a href="https://x.com/rough__sea/status/2091755677974983025" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;took to X in late August&lt;/a&gt; to debut &lt;a href="https://dactyl.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dactyl&lt;/a&gt;, a vibe-coding platform for building native mobile apps.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As part of the launch, Dahl highlighted the option to bring an existing ChatGPT subscription into Dactyl.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Introducing Dactyl&lt;br&gt;&lt;br&gt;Dactyl is a vibe coding platform for native iOS and native Android apps. What&amp;#39;s interesting about it is the device simulator: we&amp;#39;ve built a SwiftUI renderer in WASM. &lt;br&gt;&lt;br&gt;This means as you&amp;#39;re developing, you get low latency in browser canvas simulation of the app&amp;hellip;&lt;/p&gt;&amp;mdash; Ryan Dahl (@rough__sea) &lt;a href="https://x.com/rough__sea/status/2091755677974983025?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;August 24, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Dactyl &lt;a href="https://dactyl.dev/pricing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;offers a free plan&lt;/a&gt; with 100 credits a month for trying the service, while its $20-a-month Builder plan puts the ChatGPT connection front and center, promising that the &amp;ldquo;Agent runs on your ChatGPT subscription &amp;#8212; no token bills from us.&amp;rdquo; &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Dactyl&amp;#8217;s &lt;a href="https://dactyl.dev/docs/chatgpt/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt; provides a little more detail, too. Connecting ChatGPT covers the agent that interprets a user&amp;rsquo;s request and writes the Swift code. Compiling the app, generating icons and images, creating 3D assets and publishing continue to consume &lt;a href="https://dactyl.dev/docs/credits/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dactyl credits&lt;/a&gt;. Users don&amp;rsquo;t need to supply an OpenAI API key: authentication happens through their normal ChatGPT account.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At the time, Dactyl said plan sharing was limited to personal ChatGPT Pro subscribers on its Builder plan or higher. Plus and Business users could still sign in with ChatGPT, but that only provided the account connection; their Dactyl builds continued to consume Dactyl credits rather than drawing on their ChatGPT allowance.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The official announcement from OpenAI today broadens plan usage to both Plus and Pro subscribers.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI says third-party requests draw from the ChatGPT Work and Codex usage already included in a subscriber&amp;rsquo;s plan. Users can set weekly caps for individual apps, and once the relevant limit is reached, included usage stops rather than automatically switching to the third party&amp;rsquo;s own billing. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Dactyl, for what it&amp;#8217;s worth, wasn&amp;rsquo;t the first third-party tool to let users draw on an existing ChatGPT subscription for OpenAI-powered usage. In practice, that meant a service could use a user&amp;rsquo;s existing ChatGPT/Codex entitlement for model usage, rather than requiring them to pay separately through the OpenAI API or the service&amp;rsquo;s own credits.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenClaw was one example of this in operation. In May, it &lt;a href="https://openclaw.ai/blog/openai-models-in-openclaw-done-right" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; that users could power OpenAI agent turns with their existing ChatGPT subscription through OpenAI&amp;rsquo;s Codex authentication route. Users signed into their ChatGPT/Codex account from the OpenClaw command line, creating what OpenClaw called a &amp;ldquo;subscription-backed Codex auth profile.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And so today&amp;#8217;s launch brings those various implementations into a wider program that users can manage directly through ChatGPT.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Today&amp;rsquo;s rollout builds on that earlier work, bringing plan usage to more participating tools with clearer visibility and controls in ChatGPT settings,&amp;rdquo; the OpenAI spokesperson says.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-portable-chatgpt-subscriptions" class="wp-block-heading"&gt;Portable ChatGPT subscriptions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The distinction between that earlier approach and today&amp;rsquo;s announcement is also now included in OpenClaw&amp;rsquo;s &lt;a href="https://github.com/openclaw/openclaw/blob/main/docs/cli/models.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;own documentation&lt;/a&gt;. It lists Codex account login and the new Sign in with ChatGPT option as separate authentication methods, alongside a traditional OpenAI API key. Sign in with ChatGPT is specifically described as using a user&amp;rsquo;s Codex allowance with its own usage tracking and token limits.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And this also helps illustrate what OpenAI is adding today. A ChatGPT subscription and OpenAI&amp;rsquo;s developer API have traditionally been separate products: developers using OpenAI through its API generally supply an API key and pay according to usage, while third-party services may instead pass those model costs on through their own subscriptions or credit systems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Sign in with ChatGPT gives participating services an official route for letting users bring their existing ChatGPT allowance with them.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/sign-in-with-chatgpt/"&gt;OpenAI makes &amp;#8216;Sign in with ChatGPT&amp;#8217; a way to use your subscription in third-party developer tools&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>ChatGPT subscribers can now easily use their plan allowance in Devin, Amp, Warp, OpenClaw, and other third-party tools.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI just launched Dots. Here’s why they matter for developers.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-dots-gpt6-agents/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 29 Sep 2026 17:15:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838595</guid>
-      <description>&lt;img width="1024" height="562" src="https://cdn.thenewstack.io/media/2026/09/7922f74a-screenshot-2026-09-29-at-13.38.46-1024x562.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/7922f74a-screenshot-2026-09-29-at-13.38.46.png" /&gt;&lt;p&gt;At its DevDay event on Tuesday, OpenAI introduced Dots: persistent agents built on GPT-6 Astra that run on their own&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/"&gt;OpenAI just launched Dots. Here&amp;#8217;s why they matter for developers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="562" src="https://cdn.thenewstack.io/media/2026/09/7922f74a-screenshot-2026-09-29-at-13.38.46-1024x562.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/7922f74a-screenshot-2026-09-29-at-13.38.46.png" /&gt;
-&lt;p class="wp-block-paragraph" id="h-openai-used-devday-on-tuesday-to-introduce-dots-persistent-agents-built-on-gpt-6-astra-that-run-on-their-own-cloud-computers-use-their-own-browsers-and-can-reach-more-than-4-000-apps-through-openai-s-plugin-ecosystem"&gt;&lt;strong&gt;At its DevDay event on Tuesday, OpenAI introduced Dots&lt;/strong&gt;: persistent agents built on GPT-6 Astra that run on their own cloud computers, use their own browsers, and can reach more than 4,000 apps through OpenAI&amp;#8217;s plugin ecosystem.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Unlike most agents that wait for the next prompt, a Dot keeps working when you step away. It can juggle several projects at once and carry what it knows between ChatGPT, Slack, and Microsoft Teams. You can also open its cloud computer to see what it&amp;#8217;s doing or give it permission to work directly from your laptop.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Unlike most agents that wait for the next prompt, a Dot keeps working when you step away.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-from-feedback-to-pull-requests" class="wp-block-heading"&gt;From feedback to pull requests&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI&amp;#8217;s developer example shows a Dot taking on much of the work between identifying a problem and delivering a fix. It can watch customer feedback for recurring requests, scope smaller improvements and bug fixes, build and test changes, and return finished pull requests with videos showing what changed. Developers can then review the work while staying focused on larger features.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h6 id="h-openai-devday-2026-coverage" class="wp-block-heading"&gt;OpenAI DevDay 2026 coverage:&lt;/h6&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/sign-in-with-chatgpt/" class="local-link"&gt;OpenAI makes &amp;lsquo;Sign in with ChatGPT&amp;rsquo; a way to use your subscription in third-party coding tools&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;OpenAI just launched Dots. Here&amp;rsquo;s why they matter for developers.&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-halves-200-plan/" class="local-link"&gt;OpenAI halves $200 plan allowance, launches $500 plan&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-decision-api-luna/" class="local-link"&gt;OpenAI answers TypeSafe&amp;rsquo;s Jev with a Decision API built on Luna&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/" class="local-link"&gt;OpenAI&amp;rsquo;s new GPT-6.1 Sol undercuts its own Astra flagship&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Inside OpenAI, the company said, Dots start investigating when a bug appears in Slack. In another example, a Dot can turn a new design into a working app while the team stays focused on customer feedback.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can give a Dot new tasks while it&amp;#8217;s still working on others, without starting a new thread or walking it through every step. And the work isn&amp;#8217;t limited to coding. OpenAI showed Dots rerunning scientific analyses as new data comes in, updating sales proposals as customer requirements change, and turning interview transcripts into clips, show notes, and social posts.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Announcing dots. Dots work 24/7 for you, learn from your feedback, have their own computer, browser and can be connected to over 4k apps in our ecosystem.&lt;br&gt;&lt;br&gt;They&amp;rsquo;re powered by Astra our best model yet. Included in your Pro plan, without drawing down on any of your usage. You can&amp;hellip;&lt;/p&gt;&amp;mdash; Tibo (@thsottiaux) &lt;a href="https://x.com/thsottiaux/status/2104981170685616361?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September 29, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-read-only-proactive-research" class="wp-block-heading"&gt;Read-only proactive research&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An agent that works around the clock unsupervised needs limits on what it can do, and OpenAI separates finding work from acting on it. When a user isn&amp;#8217;t actively working with a Dot, it can perform what OpenAI calls &amp;#8220;proactive research,&amp;#8221; looking through connected apps for ways to help. But that access is read-only, meaning the Dot can&amp;#8217;t send messages, change app content, or control a browser or computer.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;galleryId&amp;quot;:&amp;quot;6abf891234c15&amp;quot;}" data-wp-interactive="core/gallery" class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex"&gt;
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf891234ebc&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf891234ebc" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" data-id="22838626" src="https://cdn.thenewstack.io/media/2026/09/2742c080-dots-example-3-1024x576.png" alt="" class="wp-image-22838626"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;/figure&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf8912352b8&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf8912352b8" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" data-id="22838627" src="https://cdn.thenewstack.io/media/2026/09/2742c080-dots-example-4-1024x576.png" alt="" class="wp-image-22838627"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;/figure&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf891235656&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf891235656" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" data-id="22838624" src="https://cdn.thenewstack.io/media/2026/09/2742c080-dots-example-2-1024x576.png" alt="" class="wp-image-22838624"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;/figure&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf8912359cf&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf8912359cf" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" data-id="22838625" src="https://cdn.thenewstack.io/media/2026/09/2742c080-dots-example-1-1024x576.png" alt="" class="wp-image-22838625"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;/figure&gt;
-&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Examples of Dots in use. Click on an image for a larger view. (Credit: OpenAI)&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Actions that could affect a user&amp;#8217;s accounts or share information pass through a separate &amp;#8220;auto-review&amp;#8221; step that checks them against the user&amp;#8217;s instructions, OpenAI&amp;#8217;s safety requirements, and any Custom Rules the user has set. Those rules can let specific actions proceed on their own, require approval or block them, while certain sensitive tasks, such as changing a password, always stay with the user.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;An agent that works around the clock unsupervised needs limits on what it can do, and OpenAI&amp;#8217;s approach is to separate finding work from acting on it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI promises Dots also include safeguards against malicious instructions, a real concern for an agent reading content from thousands of connected apps, along with a monitoring system that can pause or stop a Dot when it detects a safety problem. Users can track everything a Dot does, including background work, in an Activity View and redirect it from there. OpenAI cautions that Dots can still make mistakes and recommends reviewing consequential work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The user&amp;#8217;s own computer stays separate from the Dot&amp;#8217;s environment unless they choose to connect it, and on supported websites a Dot can sign in with saved passwords without exposing them to the model. OpenAI says it does not use content from Business, Enterprise, or Education workspaces to improve its models by default; personal plan users can control whether their Dots&amp;#8217; conversations and work are used for training, and it does not train directly on proactive research or on the notes a Dot writes to itself, though information from them may be used if it informs an eligible conversation or task, depending on a user&amp;#8217;s settings.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-specialist-dots-and-agent-365" class="wp-block-heading"&gt;Specialist Dots and Agent 365&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI also previewed specialist Dots, which an organization provisions with their own identity, credentials, IT-provisioned hardware, and access to systems of record so each one owns a defined workflow instead of assisting a single employee.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company has tested the approach internally in procurement, invoice processing, email marketing, customer support, and commercial contracting, and it plans to begin external deployments through enterprise pilots in which OpenAI engineers work with customers to define each Dot&amp;#8217;s responsibilities, tool access, and review points.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI is also working with Microsoft to integrate specialist Dots with the governance and security controls in Agent 365, so administrators can manage them through tooling they already run.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-pricing-dots-by-agent-capacity" class="wp-block-heading"&gt;Pricing Dots by agent capacity&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Dots are rolling out now to ChatGPT Pro and Business Premium users in eligible markets, with one Dot included in those plans at no extra cost. Enterprise customers, including Edu and Healthcare, can use the beta once a workspace admin enables it. Setup happens in the ChatGPT desktop app or a desktop browser, after which the Dot is also reachable from the mobile app, and OpenAI says text messaging support is coming soon.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Conversations with a Dot do not count toward ChatGPT usage limits, although tasks it starts or manages in Codex or ChatGPT Work draw from those products&amp;#8217; limits as usual. Plans include an allowance for deeper work, with extended limits for the first month after launch.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI plans to let customers add more Dots and increase either a Dot&amp;#8217;s speed or the amount of work it can take on each month.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/"&gt;OpenAI just launched Dots. Here&amp;#8217;s why they matter for developers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI&amp;#039;s Dots give GPT-6 Astra agents their own cloud computers so they keep working after you log off, with read-only research and auto-review guardrails.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s new GPT-6.1 Sol undercuts its own Astra flagship</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-gpt-6-1-sol/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 29 Sep 2026 17:15:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838570</guid>
-      <description>&lt;img width="1024" height="510" src="https://cdn.thenewstack.io/media/2026/09/955703ec-screenshot-2026-09-29-at-13.50.11-1024x510.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/955703ec-screenshot-2026-09-29-at-13.50.11.png" /&gt;&lt;p&gt;OpenAI on Tuesday launched GPT-6.1 Sol, the newest version of its workhorse model, only a week after launching GPT-6 Sol.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/"&gt;OpenAI&amp;#8217;s new GPT-6.1 Sol undercuts its own Astra flagship&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="510" src="https://cdn.thenewstack.io/media/2026/09/955703ec-screenshot-2026-09-29-at-13.50.11-1024x510.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/955703ec-screenshot-2026-09-29-at-13.50.11.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI on Tuesday launched GPT-6.1 Sol&lt;/strong&gt;, the newest version of its workhorse model, only a week after &lt;a href="https://thenewstack.io/openai-gpt-6-sol-luna-release/" class="local-link"&gt;launching GPT-6 Sol&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company describes the new model as &amp;#8220;an upgrade to GPT-6 Sol that nearly matches GPT-6 Astra&amp;#8217;s intelligence on agentic coding, computer use, and professional work at one-fifth of Astra&amp;#8217;s standard input and output token prices.&amp;#8221; &lt;/p&gt;
-
-
-
-&lt;h2 id="h-same-price-near-astra-performance" class="wp-block-heading"&gt;Same price, near-Astra performance&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Pricing for GPT-6.1 Sol remains the same as before, at $2 per million input tokens and $10 per million output tokens, with cached input significantly discounted to $0.10 per million tokens.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf89123845d&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf89123845d" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="587" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/c0fecfd2-screenshot-2026-09-29-at-18.02.34-1024x587.png" alt="" class="wp-image-22838621"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click image to enlarge. (Credit: OpenAI.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GPT-6.1 Sol is now available in the API, as well as to all Plus, Pro, Business, Enterprise, and Edu users in ChatGPT Work and Codex. For now, though, the model isn&amp;#8217;t available in Chat.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One new feature is that GPT-6.1 Sol will also come in an &lt;a href="https://openai.com/index/devday-2026-recap/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ultrafast version&lt;/a&gt; in Codex, with token generation that is up to 8x faster than the standard speed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Although its predecessor is only a week old, the updated model shows significant improvements. In virtually every benchmark OpenAI provided ahead of the announcement, the new model ranks similarly to OpenAI&amp;#8217;s costly GPT-6 Astra flagship model, but at a significantly lower cost.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6abf8912388fe&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6abf8912388fe" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="667" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/19663f21-screenshot-2026-09-29-at-18.03.01-1024x667.png" alt="" class="wp-image-22838623"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click image to enlarge. (Credit: OpenAI.)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For example, on coding benchmarks, GPT-6.1 Sol scores 6.4 percentage points higher than GPT-6 Sol on DeepSWE 1.1, with results that essentially match GPT-6 Astra&amp;mdash;but at one-fifth the cost.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In some benchmarks, the new Sol model also beats Anthropic&amp;#8217;s Opus 5.5 (with fallbacks), which launched on the same day as GPT-6 Sol. On the GDP.pdf benchmark, for example, which tests how the models answer questions about complex PDF documents, GPT-6.1 Sol tops out around 32%, while Opus 5.5 hits about 29%. Here, too, the results are similar to GPT-6 Astra at about one-fifth the cost per task.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h6 id="h-openai-devday-2026-coverage" class="wp-block-heading"&gt;OpenAI DevDay 2026 coverage:&lt;/h6&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/sign-in-with-chatgpt/" class="local-link"&gt;OpenAI makes &amp;lsquo;Sign in with ChatGPT&amp;rsquo; a way to use your subscription in third-party coding tools&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;OpenAI just launched Dots. Here&amp;rsquo;s why they matter for developers.&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-halves-200-plan/" class="local-link"&gt;OpenAI halves $200 plan allowance, launches $500 plan&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-decision-api-luna/" class="local-link"&gt;OpenAI answers TypeSafe&amp;rsquo;s Jev with a Decision API built on Luna&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/" class="local-link"&gt;OpenAI&amp;rsquo;s new GPT-6.1 Sol undercuts its own Astra flagship&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One area where GPT-6.1 Sol performs especially well is computer use. Here, the new model outperforms its predecessor by seven percentage points at maximum reasoning, at half the cost &amp;mdash; and once again with performance in line with Astra.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Indeed, given these results, it&amp;#8217;ll be hard to justify using Astra for most use cases. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-mixed-results-against-sonnet-5-5" class="wp-block-heading"&gt;Mixed results against Sonnet 5.5&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Sadly, only a few comparison benchmarks exist for &lt;a href="https://thenewstack.io/claude-sonnet-55-launch/" class="local-link"&gt;Sonnet 5.5,&lt;/a&gt; which was released on Monday and costs the same $2/$10 per million input/output tokens. Where benchmarks exist for both models, the results are mixed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Sonnet 5.5 scores 71% on DeepSWE, while GPT-6.1 Sol scores about 75%. On AutomationBench, GPT-6.1 Sol scores around 36% compared to 44.7% for Sonnet 5.5, but Sol&amp;#8217;s price per task is significantly lower ($0.30 vs. $1.14).&lt;/p&gt;
-
-
-
-&lt;h2 id="h-fewer-errors-better-alignment" class="wp-block-heading"&gt;Fewer errors, better alignment&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI also says GPT-6.1 Sol makes fewer factual errors. At low reasoning effort, the share of responses containing at least one factual error fell from 11.4 percent with GPT-6 Sol to 7.7 percent, a reduction of about 32 percent. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These results come from deliberately difficult conversations where users flagged mistakes by earlier models, and they do not represent error rates in typical use.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Given that we&amp;#8217;re not quite pacing the frontier (yet), it&amp;#8217;s good to see that GPT-6.1 Sol brings Sol&amp;#8217;s alignment in line with Astra. In general, it is better at respecting user intent and safety constraints, OpenAI says, and only fails to disclose broken search tools in 2.1% of cases (instead of guessing).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the company&amp;#8217;s tests, the GPT-6.1 Sol-based agents also never tried to work around an automated safety reviewer&amp;#8217;s decision to block their agents.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/"&gt;OpenAI&amp;#8217;s new GPT-6.1 Sol undercuts its own Astra flagship&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI&amp;#039;s GPT-6.1 Sol lands a week after GPT-6 Sol, nearly matching GPT-6 Astra on agentic coding and computer use at one-fifth the token price.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI answers TypeSafe’s Jev with a Decision API built on Luna</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-decision-api-luna/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 29 Sep 2026 17:15:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838581</guid>
-      <description>&lt;img width="1024" height="511" src="https://cdn.thenewstack.io/media/2026/09/8bc9597f-screenshot-2026-09-29-at-13.59.37-1024x511.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Decisions API by OpenAI" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/8bc9597f-screenshot-2026-09-29-at-13.59.37.png" /&gt;&lt;p&gt;With the sudden rise of TypeSafe&amp;#8217;s Jev, decision models have become incredibly popular, so it&amp;#8217;s not surprising that OpenAI is&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-decision-api-luna/"&gt;OpenAI answers TypeSafe&amp;#8217;s Jev with a Decision API built on Luna&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="511" src="https://cdn.thenewstack.io/media/2026/09/8bc9597f-screenshot-2026-09-29-at-13.59.37-1024x511.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Decisions API by OpenAI" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/8bc9597f-screenshot-2026-09-29-at-13.59.37.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;With the sudden rise of &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;TypeSafe&amp;#8217;s Jev&lt;/a&gt;&lt;/strong&gt;, decision models have become incredibly popular, so it&amp;#8217;s not surprising that OpenAI is also announcing its take on this model type at its annual DevDay conference on Tuesday.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s new Decisions API is based on the company&amp;#8217;s Luna model &amp;#8212; the smallest and most affordable model in its current lineup.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-limited-preview" class="wp-block-heading"&gt;Limited preview&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Decisions API is likely a reaction to TypeSafe and Jev, and OpenAI probably rushed the announcement ahead of its DevDay,&amp;nbsp;so for now, this is all OpenAI is sharing about the Decisions API.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An OpenAI spokesperson tells&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;&amp;nbsp;that the company plans to share more &amp;#8220;at broad rollout.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For now, the new API is available in limited preview, and the broad release is planned for the coming days.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-predefined-answers-real-confidence-scores" class="wp-block-heading"&gt;Predefined answers, real confidence scores&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The core idea behind these decision models is that they are explicitly not chat models; instead, they return a set of predefined answers with confidence scores. Regular LLMs are not always very good at this. Their confidence scores, after all, are often a rough guess &amp;mdash; and they burn quite a few tokens to get there.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This makes this kind of model ideal for classifying content, routing requests, or choosing an agent&amp;#8217;s next action from a limited set of choices.&lt;/p&gt;
-
-
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Decision models, however, can provide more realistic confidence scores, and they tend to return them extremely fast. OpenAI says its model returns results in 150 milliseconds, compared to GPT-6 Luna, which would take 1.6 seconds.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;All the developer has to do is provide the questions, answers, and context.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h6 id="h-openai-devday-2026-coverage" class="wp-block-heading"&gt;OpenAI DevDay 2026 coverage:&lt;/h6&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/sign-in-with-chatgpt/" class="local-link"&gt;OpenAI makes &amp;lsquo;Sign in with ChatGPT&amp;rsquo; a way to use your subscription in third-party coding tools&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;OpenAI just launched Dots. Here&amp;rsquo;s why they matter for developers.&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-halves-200-plan/" class="local-link"&gt;OpenAI halves $200 plan allowance, launches $500 plan&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-decision-api-luna/" class="local-link"&gt;OpenAI answers TypeSafe&amp;rsquo;s Jev with a Decision API built on Luna&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/" class="local-link"&gt;OpenAI&amp;rsquo;s new GPT-6.1 Sol undercuts its own Astra flagship&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h2 id="h-prompts-vs-small-classifiers" class="wp-block-heading"&gt;Prompts vs. small classifiers&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Today, most teams handle this today with a regular chat model and a carefully worded prompt, asking it to pick from a list and, if they&amp;#8217;re lucky, reading the token probabilities to get something that resembles a confidence score. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The alternative is to train a small classifier. That is fast and cheap but needs labeled data and a retraining run every time the label set changes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A decision model basically sits between those two options. It takes new labels in the prompt but returns a score a developer can work with.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This isn&amp;#8217;t a completely new concept for OpenAI. Its Moderation API has long returned per-category scores instead of prose, too, though in this API, the categories are pre-set by OpenAI, not the developer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What&amp;#8217;s still unclear is what the Decision API costs per call, how many candidate answers a single request can handle, and whether developers can tune it on their own data. Those details will decide whether this becomes a standard building block in agent frameworks or stays a niche tool next to the chat models.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-decision-api-luna/"&gt;OpenAI answers TypeSafe&amp;#8217;s Jev with a Decision API built on Luna&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI&amp;#039;s Decision API, built on its small Luna model, returns predefined answers with confidence scores in 150 milliseconds. Pricing is still unknown.</content:encoded>
     </item>
   </channel>
 </rss>
