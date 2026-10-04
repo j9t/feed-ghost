@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 02 Oct 2026 18:25:30 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 14:05:45 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,287 @@
       <height>32</height>
     </image>
     <item>
+      <title>AI is speeding up exploits. Vulnerability spreadsheets can’t keep up.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cve-vulnerability-risk-management/</link>
+      <dc:creator>Russ Andersson</dc:creator>
+      <pubDate>Sat, 03 Oct 2026 14:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>DevOps</category>
+      <category>Security</category>
+      <category>sponsor-rapidfort</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839264</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A worn warning sign with a black exclamation point inside a triangle, its cream paint cracked and peeling against an orange metal surface." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-scaled.jpg" /&gt;&lt;p&gt;Artificial intelligence has changed almost every aspect of software development and cybersecurity. But perhaps one of the most profound changes&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cve-vulnerability-risk-management/"&gt;AI is speeding up exploits. Vulnerability spreadsheets can&amp;#8217;t keep up.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A worn warning sign with a black exclamation point inside a triangle, its cream paint cracked and peeling against an orange metal surface." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Artificial intelligence has changed almost every aspect&lt;/strong&gt; of software development and cybersecurity. But perhaps one of the most profound changes is happening in an area that has traditionally received less strategic attention: How organizations manage software vulnerabilities.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The basic vulnerability-management model has remained relatively consistent for years. Scan software, identify CVEs, assign severity scores, prioritize the findings, and send them to developers for remediation. That approach was never a perfect representation of risk. In the age of AI, however, its limitations are becoming impossible to ignore.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The problem isn&amp;#8217;t simply that organizations have more vulnerabilities to address. The amount of software being produced is expanding rapidly, vulnerability discovery is accelerating, and the time required to develop exploits is shrinking. AI-enabled attacks can also combine vulnerabilities in ways that create attack paths that are difficult to anticipate manually.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The result is a growing gap between the number of vulnerabilities security teams can identify and the number they can meaningfully investigate and remediate. We need to close that gap by changing the question we ask. Instead of asking, &amp;#8220;How many CVEs do we have?&amp;#8221;, we should be asking, &amp;#8220;Which vulnerabilities create meaningful risk in our environment?&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-severity-is-not-the-same-as-risk" class="wp-block-heading"&gt;&lt;strong&gt;Severity is not the same as risk&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A CVE tells us that a publicly identified security vulnerability exists. It does not, by itself, tell us how likely that vulnerability is to be exploited against a particular organization. That distinction is fundamental.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The Common Vulnerability Scoring System (CVSS), for example, is designed primarily to communicate technical severity and the potential impact if a vulnerability is successfully exploited. But severity does not necessarily tell us whether an exploit exists, whether the vulnerability is being exploited in the wild, whether the vulnerable component is exposed, or whether the vulnerable code path is executed in a particular environment.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Two organizations can therefore have exactly the same CVE in their environments and face very different levels of risk. One organization might have the vulnerable component sitting behind multiple layers of protection, with no external exposure and no relevant execution path. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The CVE is identical. The risk is not.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Another might have it running in an internet-facing production application supporting a critical business process. The CVE is identical. The risk is not.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is why vulnerability programs built around static severity scores can produce a misleading sense of progress. Teams may spend significant effort closing large numbers of findings without necessarily reducing the organization&amp;#8217;s most consequential exposure. That creates what I would call &amp;ldquo;CVE theater&amp;rdquo;: Measuring activity rather than meaningful risk reduction.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-ai-is-changing-the-economics-of-exploitation" class="wp-block-heading"&gt;&lt;strong&gt;AI is changing the economics of exploitation&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The urgency of this shift is being amplified by AI. The amount of code being developed is increasing dramatically. Even if vulnerability density per line of code declines, the sheer growth in software volume can result in greater overall exposure. At the same time, a growing proportion of modern &lt;a href="https://thenewstack.io/is-ai-killing-open-source-software/"  data-wpil-monitor-id="4121" class="local-link"&gt;software depends on open-source&lt;/a&gt; components, expanding the amount of code that organizations must understand and secure.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Attackers are also benefiting from automation. Tasks that previously required substantial manual effort can increasingly be accelerated by AI. The combination of more vulnerabilities and a collapsing time-to-exploit window creates a fundamentally different security environment.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That means organizations cannot afford vulnerability-management processes that depend on lengthy, sequential manual triage. The security program has to become more contextual, continuous, and automated.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-start-with-less-risk" class="wp-block-heading"&gt;&lt;strong&gt;Start with less risk&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One of the most effective ways to improve vulnerability management is to stop thinking only about remediating vulnerabilities after they appear. We should also ask how to reduce the number of vulnerabilities entering the environment in the first place. That starts with the software foundation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Using hardened or curated base images and language libraries can reduce the vulnerability footprint before deploying applications. First-party code can be addressed through Static Application Security Testing (SAST) and AI-assisted code scanning, while configuration weaknesses can be identified through security configuration frameworks such as Security Technical Implementation Guides, or STIGs. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This matters because vulnerabilities are only one dimension of software security. A system can contain relatively few CVEs and still be dangerously configured. Excessive privileges, weak authentication settings, or other configuration issues can give attackers opportunities to gain an initial foothold or move laterally.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;STIG scanning addresses this second dimension by evaluating configuration against established security requirements. These tools are essentially automated security checklists that can identify and, in some cases, remediate configuration weaknesses. The objective should be to make the software as secure as possible before it becomes someone else&amp;#8217;s remediation problem.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-scan-what-is-actually-running" class="wp-block-heading"&gt;&lt;strong&gt;Scan what is actually running&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Another important shift security leaders should consider: Production is the source of truth.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Historically, organizations have often scanned registries or repositories before software reaches production. That provides useful information, but it reflects perceived risk rather than what is actually deployed. Production environments change. Images change. Configurations change. New vulnerabilities are disclosed after deployment. Consequently, organizations need visibility into what is actually running and need to assess it continuously. This is where production scanning, reachability analysis, and environmental context become essential.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Network reachability can help determine whether a system is externally accessible. Software-level reachability can provide another layer of insight: Is the vulnerable code path actually being executed? Those questions can dramatically change the remediation priority.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-build-a-risk-based-remediation-model" class="wp-block-heading"&gt;&lt;strong&gt;Build a risk-based remediation model&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Once we know what is actually running, the next step is to evaluate vulnerabilities based on the context that matters. That means looking beyond CVSS.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Threat intelligence can provide important signals. CISA&amp;#8217;s Known Exploited Vulnerabilities catalog, or KEV, identifies vulnerabilities known to be exploited. The Exploit Prediction Scoring System (EPSS) estimates the likelihood that a vulnerability will be exploited within a specified timeframe. Those signals can then be combined with production exposure, reachability, configuration, business impact, and how long a vulnerability has remained exposed. The result is a much more useful question for engineering teams: Which vulnerability should we fix first, in this environment, and why?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That is a substantially different operating model from handing developers a spreadsheet containing thousands of CVEs sorted by severity.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-continuous-risk-management-is-the-goal" class="wp-block-heading"&gt;&lt;strong&gt;Continuous risk management is the goal&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The ultimate objective shouldn&amp;#8217;t be a perfectly empty vulnerability dashboard. In a modern software environment, that is neither realistic nor necessarily the right measure of security. The goal should be a continuously improving understanding of actual risk. That requires a layered approach. Start with secure software foundations, scan first-party code, harden configurations, understand what is running in production, determine reachability, incorporate threat intelligence, and prioritize remediation according to real-world exposure and impact. It also requires temporal discipline. Different categories of &lt;a href="https://thenewstack.io/demo-rapid-vulnerability-remediation-with-slim-ai/"  data-wpil-monitor-id="4122" class="local-link"&gt;vulnerabilities may warrant different remediation&lt;/a&gt; windows, rather than treating every finding identically.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;We need to know which doors are open, which ones an attacker can reach, which ones lead somewhere important, and which ones represent the greatest risk right now.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AI has made the old model increasingly difficult to sustain. But it also gives us an opportunity to &lt;a href="https://thenewstack.io/we-need-to-rethink-risk-in-vulnerability-management/"  data-wpil-monitor-id="4120" class="local-link"&gt;rethink vulnerability management&lt;/a&gt; around a more meaningful objective. We don&amp;#8217;t need to know only how many doors exist in the software. We need to know which doors are open, which ones an attacker can reach, which ones lead somewhere important, and which ones represent the greatest risk right now.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That is the difference between counting vulnerabilities and managing risk. And in the AI era, that difference is becoming essential.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cve-vulnerability-risk-management/"&gt;AI is speeding up exploits. Vulnerability spreadsheets can&amp;#8217;t keep up.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI is widening the gap between the CVEs teams find and the ones they can fix. Closing it means asking which flaws attackers can actually reach.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic’s answer to Dots and Muse is already inside Claude</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-answer-to-dots-muse/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Sat, 03 Oct 2026 10:11:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>AI Strategy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839186</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/afe55952-claud-muse-dots-grok-bots-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/afe55952-claud-muse-dots-grok-bots.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-answer-to-dots-muse/"&gt;Anthropic’s answer to Dots and Muse is already inside Claude&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/afe55952-claud-muse-dots-grok-bots-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/afe55952-claud-muse-dots-grok-bots.png" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI launched &lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;Dots at DevDay&lt;/a&gt; on Tuesday. Each Dot is an always-on agent with its own cloud computer and browser, hooked into the 4,000-plus apps that already connect to ChatGPT. In OpenAI’s own example, a Dot sees a bug alert land in Slack and starts digging in on its own. Cool.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And before Dots, Meta launched Muse, and it’s crushing the mobile install numbers previously set by ChatGPT. And before Muse, xAI shipped its version, Grok Bot, in August. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic’s version, though different in a couple of ways, &lt;a href="https://thenewstack.io/claude-cowork-vs-chatgpt-work-benchmark/" class="local-link"&gt;arrived two weeks ago as an update to Claude,&lt;/a&gt; and without a cute name or fuzzy mascot. This update folds Cowork, which has worked since July &lt;a href="https://thenewstack.io/claude-cowork-cloud-mobile/" class="local-link"&gt;to run scheduled jobs after a user closes their laptop&lt;/a&gt; without being asked, into the main Claude app.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic made the right call with Cowork, whether or not it ever matches Muse’s downloads. Always-on agents are too young to have a winner, and the moats are shallow. A feature one lab ships tends to show up at its rivals within weeks or months. Meta needs Muse to be a blockbuster. Anthropic needs the people already building with Claude to hand it real, recurring work and keep coming back. Repeat use and finished jobs matter more than a flashy launch.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-always-on-agents-are-too-early-to-have-a-winner" class="wp-block-heading"&gt;Always-on agents are too early to have a winner&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This wave of always-on personal agents took off less than a year ago. Peter Steinberger pushed a weekend project called Clawdbot to GitHub last November. It lived on a spare computer, took prompts over WhatsApp or Telegram, and relied mostly on Claude. Anthropic &lt;a href="https://laravel-news.com/clawdbot-rebrands-to-moltbot-after-trademark-request-from-anthropic" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;sent the lawyers in January&lt;/a&gt;, so &lt;a href="https://thenewstack.io/moltbook-the-singularity-or-hype/" class="local-link"&gt;it became Moltbot&lt;/a&gt;, then OpenClaw a couple of days later. It turned into a security headache, and in February Steinberger joined OpenAI. On Tuesday, the foundation that runs the project &lt;a href="https://thenewstack.io/openclaw-enterprise-kubernetes-agents/" class="local-link"&gt;released an early, pre-1.0 version of OpenClaw Enterprise&lt;/a&gt; for companies to try internally.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Ten months, three names, one OpenAI hire and an enterprise edition. Ideas move between these products faster than ever. Meta’s Nat Friedman &lt;a href="https://thenextweb.com/news/meta-muse-openclaw-friedman-soul-md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said Muse was heavily inspired by OpenClaw&lt;/a&gt;, and users digging through Muse found a SOUL.md personality file nearly identical to OpenClaw’s.&lt;/p&gt;
+
+
+
+&lt;style&gt; div.tnsht{--ink:#1B2A4A;--teal:#0D8F8F;--muted:#5D6D7E;--band:#F4F6F8;--line:#DDE3E9; font-family:Arial,Helvetica,"Helvetica Neue",sans-serif;color:var(--ink); background:#FFFFFF;margin:28px 0;max-width:760px;box-sizing:border-box;} div.tnsht *{box-sizing:border-box;} div.tnsht p.tnsht-hed{font-size:17px!important;font-weight:700!important;line-height:1.3!important; margin:0 0 4px!important;padding:0!important;color:var(--ink)!important;} div.tnsht p.tnsht-dek{font-size:13px!important;line-height:1.5!important;margin:0 0 12px!important; padding:0!important;color:var(--muted)!important;} div.tnsht div.tnsht-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch; border:1px solid var(--line);border-radius:5px;background:#FFFFFF;} div.tnsht table{border-collapse:collapse!important;border-spacing:0!important;width:100%!important; margin:0!important;padding:0!important;border:0!important;font-size:14px!important; background:#FFFFFF!important;display:table!important;table-layout:auto!important;} div.tnsht thead{background:transparent!important;} div.tnsht tr{background:transparent!important;border:0!important;} div.tnsht thead tr th{background-color:#1B2A4A!important;background-image:none!important; color:#FFFFFF!important;font-size:11.5px!important;font-weight:700!important; text-transform:uppercase!important;letter-spacing:.05em!important;line-height:1.35!important; text-align:left!important;vertical-align:bottom!important;padding:10px 14px!important; border:0!important;white-space:normal!important;} div.tnsht thead tr th:first-child{width:30%;} div.tnsht thead tr th:nth-child(2){width:32%;} div.tnsht thead tr th:nth-child(3){width:38%;} div.tnsht tbody tr th,div.tnsht tbody tr td{padding:11px 14px!important; border:0!important;border-bottom:1px solid var(--line)!important; color:var(--ink)!important;background-color:#FFFFFF!important;background-image:none!important; font-size:14px!important;line-height:1.45!important;vertical-align:top!important; white-space:normal!important;} div.tnsht tbody tr th{text-align:left!important;font-weight:700!important;} div.tnsht tbody tr td{text-align:left!important;font-weight:400!important;} div.tnsht tbody tr:nth-child(even) th, div.tnsht tbody tr:nth-child(even) td{background-color:#F4F6F8!important;} div.tnsht tbody tr:last-child th, div.tnsht tbody tr:last-child td{border-bottom:0!important;} div.tnsht p.tnsht-foot{margin:10px 0 0!important;padding:0!important;font-size:11.5px!important; line-height:1.5!important;color:var(--muted)!important;} div.tnsht p.tnsht-foot a{color:var(--teal)!important;text-decoration:underline;} @media (max-width:520px){ div.tnsht table{font-size:13px!important;} div.tnsht tbody tr th,div.tnsht tbody tr td{padding:9px 10px!important;font-size:13px!important;} div.tnsht thead tr th{padding:9px 10px!important;} div.tnsht thead tr th:first-child{width:32%;} div.tnsht thead tr th:nth-child(2){width:32%;} div.tnsht thead tr th:nth-child(3){width:36%;} } &lt;/style&gt;
+&lt;div class="tnsht"&gt;
+  &lt;p class="tnsht-hed"&gt;A feature one lab ships shows up at its rivals within months.&lt;/p&gt;
+  &lt;p class="tnsht-dek"&gt;Where an early version of each AI assistant and agent feature launched, and who offers one now.&lt;/p&gt;
+  &lt;div class="tnsht-wrap"&gt;
+    &lt;div class="table-scroll-wrap"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table&gt;
+      &lt;thead&gt;
+      &lt;tr&gt; &lt;th scope="col"&gt;Feature&lt;/th&gt; &lt;th scope="col"&gt;Example of an early launch&lt;/th&gt; &lt;th scope="col"&gt;Now also at&lt;/th&gt; &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Deep research reports&lt;/th&gt; &lt;td&gt;Google Gemini (Dec. 2024)&lt;/td&gt; &lt;td&gt;OpenAI, Anthropic, Perplexity&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Terminal coding agent&lt;/th&gt; &lt;td&gt;Claude Code (Feb. 2025)&lt;/td&gt; &lt;td&gt;OpenAI Codex, Gemini CLI, Meta Muse Code&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Agent personality file&lt;/th&gt; &lt;td&gt;OpenClaw (SOUL.md)&lt;/td&gt; &lt;td&gt;Meta Muse&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Agent with its own work identity&lt;/th&gt; &lt;td&gt;Anthropic Claude Tag (June 2026)&lt;/td&gt; &lt;td&gt;OpenAI specialist Dots (preview)&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;th scope="row"&gt;Chat and agent work in one window&lt;/th&gt; &lt;td&gt;OpenAI Work mode (July 2026)&lt;/td&gt; &lt;td&gt;Claude (Sept. 2026)&lt;/td&gt;&lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class="tnsht-foot"&gt;Sources: company announcements; &lt;a href="https://thenextweb.com/news/meta-muse-openclaw-friedman-soul-md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Next Web&lt;/a&gt; (SOUL.md); &lt;a href="https://openai.com/index/introducing-dots/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI&lt;/a&gt; (specialist Dots); &lt;a href="https://thenewstack.io/claude-cowork-vs-chatgpt-work-benchmark/" class="local-link"&gt;The New Stack&lt;/a&gt; (Work mode and the Claude merge). Dates mark an early example, not necessarily the first.&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic’s September merge is on the list above as a copier, two months behind OpenAI’s Work mode — though Cowork’s cloud and scheduled-task features shipped July 7, two days before Work mode. Jessica Wachtel &lt;a href="https://thenewstack.io/claude-cowork-vs-chatgpt-work-benchmark/" class="local-link"&gt;tested both on our site&lt;/a&gt; across three developer tasks and found them tied on accuracy, with ChatGPT faster and Claude more thorough. When a product is this young, a me-too launch is how a lab gets its own users in the room to see what they do with it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-meta-needs-muse-to-be-huge-the-others-need-paying-users" class="wp-block-heading"&gt;Meta needs Muse to be huge. The others need paying users.&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Muse is a hit. Counting only iOS, &lt;a href="https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Apptopia estimated 359,000 daily U.S. users&lt;/a&gt; in Muse’s first 12 days, compared with 231,000 for ChatGPT’s iOS app at the same point. Sensor Tower &lt;a href="https://techcrunch.com/2026/09/25/meta-is-putting-its-muscle-behind-muse-as-the-ai-app-takes-off/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;estimated&lt;/a&gt; more than 3.4 million downloads as of September 24, though other firms’ counts vary.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Meta needs this. Its Reality Labs division spent tens of billions of dollars on the metaverse without a mainstream product to show for it. Llama 4 landed so flat last year that Zuckerberg rebuilt his AI division around a new superintelligence lab, notably taking a 49% stake in Scale AI and hiring its founder Alexandr Wang. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Muse is the first product from that rebuild to break through, and it got there on Meta’s user base: Apptopia found that more than 95% of Muse users also use Facebook. Muse has a free tier, paid plans at $20 and $100 a month, and connectors to Shopify and Stripe checkout, enabling agents to buy things. Meta’s route runs through scale. Scale has a downside, too. Janakiram MSV explains for TNS &lt;a href="https://thenewstack.io/amazon-meta-muse-block/" class="local-link"&gt;why Amazon started blocking Muse&lt;/a&gt; two weeks after launch, and it’s well worth your time because this is a new wedge in ecommerce.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI and xAI started at the paid end. The price of entry for Dots? A ChatGPT Pro plan at $100 to $500 a month, or a Business Premium or Enterprise account. Sam Altman called Dots a premium product because each one needs so much compute. Grok Bot reached 418,000 weekly users by mid-September, &lt;a href="https://www.bloomberg.com/news/articles/2026-09-22/spacexai-s-grok-bot-agent-tops-400-000-users-after-first-month" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;per Bloomberg&lt;/a&gt;, and xAI just launched Team Bots on Monday.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Neither company needs Meta’s install base to learn something useful. Paying customers already spend money on AI, and retention will show whether they keep using the agent once the novelty wears off. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-anthropic-shipped-its-version-to-the-people-already-building-with-claude" class="wp-block-heading"&gt;Anthropic shipped its version to the people already building with Claude&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic did what I’d expect from labs right now. It shipped fast, shipped to paying subs, and put the agent inside the app those people already use. The merged Claude hit Pro and Max customers, with Team and Free plans coming soon. Teams have had &lt;a href="https://thenewstack.io/anthropic-claude-tag-slack/" class="local-link"&gt;Claude Tag in Slack since June&lt;/a&gt;, a proactive teammate with its own identity and audit trail. Cat Wu said an internal version accounts for about &lt;a href="https://www.latent.space/p/ainews-claude-tag-multiplayer-proactive" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;65% of the product teams’ code changes&lt;/a&gt;. Developers have had Managed Agents for hosted, long-running agents since April.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;What Anthropic hasn’t done is put Claude where Muse lives. Muse works inside Meta-owned WhatsApp, but Claude still asks you to open the Claude app or tag it in Slack. That workflow might matter for mainstream consumers. Teams wiring an agent into their code care more about what it can touch. Jani &lt;a href="https://thenewstack.io/persistent-ai-agent-identities/" class="local-link"&gt;laid out the difference&lt;/a&gt; on our site in August: Grok Bots share one cloud computer and one set of logins across the whole roster, while Claude Tag joins a Slack workspace with its own service identity and channel-scoped access. Before handing agents your logins, know what you’re getting into.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Those are the users Anthropic should want. Writers on &lt;em&gt;Towards Data Science&lt;/em&gt; have spent the year showing what builders do with always-on agents. &lt;a href="https://towardsdatascience.com/i-simulated-an-international-supply-chain-and-let-openclaw-monitor-it/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Samir Saci put a team of OpenClaw agents&lt;/a&gt; on a supply chain simulation to chase down late shipments. Eivind Kjosbakken’s &lt;a href="https://towardsdatascience.com/how-to-orchestrate-a-fleet-of-openclaw-bots/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;guide to running a fleet&lt;/a&gt; of OpenClaw bots walks through nightly QA bots that test an app and report bugs, plus agents that check invoices. Both ran their agents on OpenAI’s Codex. OpenAI runs its own OpenClaw agent, Androidclaw, that traces broken builds and, in some cases, merges the fix, &lt;a href="https://venturebeat.com/orchestration/openclaw-launches-free-enterprise-control-plane-for-persistent-ai-agents-backed-by-openai-red-hat-and-nvidia" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;VentureBeat&lt;/em&gt; reported&lt;/a&gt;. Anthropic needs that kind of work running on Claude.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I set up OpenClaw on an old Mac Mini this spring, and I had so many questions (and breakthroughs). That’s why builders, coders, and developers are critical to product development: They ask these questions out loud in GitHub issues and Discord threads, and the answers end up in the product.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The obvious objection is trust. It’s fair. An always-on agent holds credentials and acts while nobody is watching. xAI’s own documentation tells users not to treat Grok Bots as a security boundary, and the OpenClaw Foundation says most IT departments ban agent platforms outright. Anthropic’s defaults lean cautious: Claude asks before it acts unless you tell it otherwise, and Tag keeps its own audit trail. If builders don’t come back, or each finished task takes more supervision than doing it themselves, the experiment hasn’t worked. But if they keep finding useful work to hand off, their questions and breakthroughs become the roadmap.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That’s the race that matters for Claude, Dots and Muse: becoming the agent people trust with the next job.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-answer-to-dots-muse/"&gt;Anthropic’s answer to Dots and Muse is already inside Claude&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Claude, Dots, Muse and Grok Bots are competing for work that continues after you log off. The real test is whether users trust them enough to hand over the next job.</content:encoded>
+    </item>
+    <item>
       <title>GitHub’s advice for its new Copilot feature is to try something else first</title>
       <link>https://web.archive.org/web/https://thenewstack.io/github-copilot-computer-use-desktop/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +309,10 @@
       <category>Developer tools</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839217</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled lines" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-scaled.jpg" /&gt;&lt;p&gt;GitHub launched computer use in public preview on Thursday, giving Copilot CLI and its desktop app the ability to operate&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled lines" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-scaled.jpg" /&gt;&lt;p&gt;GitHub launched computer use in public preview on Thursday, giving Copilot CLI and its desktop app the ability to operate&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/github-copilot-computer-use-desktop/"&gt;GitHub&amp;#8217;s advice for its new Copilot feature is to try something else first&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled lines" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled lines" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7e392c2b-steve-a-johnson-3suqrc8-dne-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;GitHub launched computer use in public preview on Thursday&lt;/strong&gt;, giving Copilot CLI and its desktop app the ability to operate applications on macOS and Windows. Agents can read app content and click, type, scroll, and drag, including in older, GUI-only software with no API, command-line interface, or MCP integration.&lt;/p&gt;
 
 
@@ -141,7 +422,7 @@
       <category>Sponsored</category>
       <category>sponsored-post</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839193</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of translucent blue cubes inside silver wireframe containers, linked by piping and topped by gold ship&amp;#039;s-wheel shapes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, your source for everything Kubernetes and cloud-native as we count down the&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of translucent blue cubes inside silver wireframe containers, linked by piping and topped by gold ship&amp;#039;s-wheel shapes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, your source for everything Kubernetes and cloud-native as we count down the&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubecon-agent-harness-koordinator/"&gt;What Kubernetes’ &amp;#8220;monolith&amp;#8221; lesson means for AI agent harnesses&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of translucent blue cubes inside silver wireframe containers, linked by piping and topped by gold ship&amp;#039;s-wheel shapes." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/de419750-growtika-qpkdga-kdik-unsplash-scaled.jpg" /&gt;
@@ -3434,7 +3715,7 @@ $(document).ready(function() {
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac0d25cba3b5&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac0d25cba3b5" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac22cce1eb0f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac22cce1eb0f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4216,265 +4497,6 @@ $(document).ready(function() {
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/eclipse-sovereign-ai-foundation/"&gt;Eclipse wants companies to be free to switch AI providers. Today, doing so can mean a costly rebuild.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Eclipse Foundation launches Sovereign AI Foundation with 17 members to help organizations avoid AI vendor lock-in, per exec director Mike Milinkovich.</content:encoded>
-    </item>
-    <item>
-      <title>“Think of it as Kubernetes for agents”: OpenClaw lands in the enterprise with OpenAI, Nvidia and Red Hat on board</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openclaw-enterprise-kubernetes-agents/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 10:36:01 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Kubernetes</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838849</guid>
-      <description>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/09/1506ac27-feat-1024x512.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="OpenClaw Enterprise illustration" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1506ac27-feat.png" /&gt;&lt;p&gt;OpenClaw has come a long way since it emerged as a viral weekend project less than a year ago. Created&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openclaw-enterprise-kubernetes-agents/"&gt;&amp;#8220;Think of it as Kubernetes for agents&amp;#8221;: OpenClaw lands in the enterprise with OpenAI, Nvidia and Red Hat on board&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/09/1506ac27-feat-1024x512.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="OpenClaw Enterprise illustration" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/1506ac27-feat.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;OpenClaw has come a long way since it emerged as a viral weekend project less than a year ago. Created by Austrian developer &lt;a href="https://www.linkedin.com/in/steipete/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Peter Steinberger&lt;/a&gt; in late 2025, the self-hosted AI agent exploded in popularity and by February &amp;#8212; when &lt;a href="https://www.reuters.com/business/openclaw-founder-steinberger-joins-openai-open-source-bot-becomes-foundation-2026-02-15/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI hired Steinberger&lt;/a&gt; &amp;#8212; it had already amassed more than 100,000 GitHub stars.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the intervening months, OpenClaw has gone to great lengths to bring more rigor to the project, tightening up &lt;a href="https://thenewstack.io/openclaw-persistent-agent-architecture/" class="local-link"&gt;its persistent-agent architecture&lt;/a&gt;, investing heavily in security, adding new &lt;a href="https://thenewstack.io/openclaw-hermes-agent-harness/" class="local-link"&gt;agent harness options&lt;/a&gt;, and &lt;a href="https://thenewstack.io/openclaw-foundation-nonprofit-status/" class="local-link"&gt;establishing&lt;/a&gt; the independent OpenClaw Foundation to oversee the project. This included sponsors such as OpenAI, Nvidia, Red Hat, and GitHub, as well as a slew of other big-name companies who committed to contributing resources. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Now, it&amp;#8217;s making perhaps its clearest push yet into becoming a serious business play with &lt;a href="https://docs-enterprise.openclaw.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenClaw Enterprise&lt;/a&gt; (OCE), an open-source, &amp;ldquo;vendor neutral&amp;rdquo; platform for managing agents.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-openclaw-gets-an-enterprise-control-plane" class="wp-block-heading"&gt;OpenClaw gets an enterprise control plane&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Giving persistent agents access to codebases, credentials, plugins, messaging channels and other company systems creates an obvious problem for enterprise IT: the more useful those agents become, the more consequential their permissions and actions can be. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://openclaw.ai/blog/openclaw-enterprise" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Tuesday, &lt;a href="https://www.linkedin.com/in/kevinslin-nimbus/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kevin Lin&lt;/a&gt;, a member of technical staff at OpenAI leading OCE efforts, argues that many companies still see agent platforms as too difficult to police centrally, leaving prohibition as the default.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The default stance of IT in most organizations is to ban agentic platforms like OpenClaw altogether.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The main feedback we hear from organizations is that a stronger common security, safety, and governance standard is needed before agents can be fully adopted,&amp;#8221; Lin writes. &amp;#8220;As a consequence, the default stance of IT in most organizations is to ban agentic platforms like OpenClaw altogether.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenClaw Enterprise is still in its embryonic phase. Lin says that the project is currently &amp;ldquo;being developed in the open before its 1.0 release&amp;#8221; later this year, adding that it&amp;#8217;s suitable for internal pilot projects only right now.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So there is still some distance to travel before OCE can reasonably be considered a finished enterprise platform. But much of its intended shape is already visible.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At the center of OCE is the OpenClaw Control Plane (OCC), which gives administrators a central place to deploy agents, separate them into isolated namespaces, manage configuration and credentials, set permissions, and keep a record of changes made through the platform. The agent activity itself happens separately: gateways receive messages, while harnesses handle agent turns, model calls and tool execution.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ultimately, OCE is being built for environments where multiple agents, users and teams may share the same underlying infrastructure, with controls around who can access what, and how individual agent deployments are isolated from each another.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In terms of gaps, OpenClaw&amp;rsquo;s &lt;a href="https://docs-enterprise.openclaw.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;architecture documentation&lt;/a&gt; says its API, console, persistent worker, PostgreSQL backend, and Kubernetes packaging are already implemented, while areas including external gateway admission, workload authentication back to OCC and some approaches to model authentication remain unfinished.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;OCE is built to run on your own infrastructure and will always be free for any organization to use.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That unfinished state is at least partly why OpenClaw has released OCE as an open-source project this early. The idea is to let companies inspect and adapt the software themselves, while giving outside developers a chance to shape the project before the formal release. The code is &lt;a href="https://github.com/openclaw/openclaw-enterprise" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;already available on GitHub&lt;/a&gt;, with a &lt;a href="https://docs-enterprise.openclaw.org/#getting-started" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;getting started guide&lt;/a&gt; for running it locally or deploying it inside an organization.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;OCE is built to run on your own infrastructure and will always be free for any organization to use,&amp;#8221; Lin notes.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-kubernetes-playbook-applied-to-agents" class="wp-block-heading"&gt;The Kubernetes playbook, applied to agents&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenClaw Enterprise has an interesting provenance. OpenAI was its original home before the company handed the project over to the OpenClaw Foundation. Red Hat and Nvidia have since contributed to its development, while OpenAI and Red Hat are already testing the software internally.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Think of it as Kubernetes for agents.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s also a fairly explicit Kubernetes-inspired idea permeating the project: OpenClaw wants OCE to provide a common layer for managing agents across different environments. &amp;ldquo;Think of it as Kubernetes for agents,&amp;#8221; the project&amp;#8217;s official &lt;a href="https://docs-enterprise.openclaw.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt; notes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That comparison carries through to how OCE is actually deployed. Its full local development environment runs the control plane, PostgreSQL, and agent workloads inside a Kubernetes cluster, while companies can install OCE into Kubernetes infrastructure they already operate. The documentation does include a Docker or Podman Compose option, although that&amp;#8217;s currently limited to a control-plane preview and cannot deploy agents through OCC.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Taking to LinkedIn, Lin also draws a clear Kubernetes (K8) comparison, reflecting OpenClaw&amp;#8217;s longer-term ambitions for the project.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Similar to how K8 became the standard for deploying containers in the cloud, we want OCE to be that for agents.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Similar to how K8 became the standard for deploying containers in the cloud, we want OCE to be that for agents,&amp;rdquo; Lin &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7510806587981344768/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Red Hat, for its part, sees the emergence of enterprise agents through a similar lens. In a separate &lt;a href="https://www.redhat.com/en/blog/why-red-hat-building-open-foundation-enterprise-agents-openclaw-enterprise" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Tuesday, &lt;a href="https://www.linkedin.com/in/joefernandes1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Joe Fernandes&lt;/a&gt;, VP and general manager of Red Hat&amp;#8217;s AI business unit, drew a line from the move away from proprietary Unix systems to Linux, through the rise of containers and Kubernetes, and now to agents. His argument is that Red Hat can apply what it learned helping bring those earlier technologies into enterprise environments to this next generation of software.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Throughout Red Hat&amp;#8217;s history, some of the biggest changes in enterprise computing have been driven by fundamental shifts in how applications are built and operated,&amp;rdquo; Fernandes writes. &amp;ldquo;Red Hat engineers are already contributing to OpenClaw, and we&amp;#8217;re expanding that investment with expertise in Linux, Kubernetes, distributed systems, security and enterprise infrastructure.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Security remains the main area OpenClaw says it&amp;#8217;s concentrating its efforts. The project is combining isolation between trusted and untrusted workloads with sandboxing, granular permissions, and LLM-assisted review, and says it plans to publish a reference architecture showing how those pieces fit together in practice.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For now, OCE is still very much a work in progress. The control plane is taking shape, but much remains unfinished, and OpenClaw is still inviting developers, operators, and security teams to help influence what the project becomes before 1.0.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We are early, and there is much more work ahead,&amp;rdquo; Lin adds.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openclaw-enterprise-kubernetes-agents/"&gt;&amp;#8220;Think of it as Kubernetes for agents&amp;#8221;: OpenClaw lands in the enterprise with OpenAI, Nvidia and Red Hat on board&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Most IT teams ban agent platforms outright. Enter OpenClaw Enterprise, an open-source control plane for governing persistent agents.</content:encoded>
-    </item>
-    <item>
-      <title>Why Featherless says you don’t need a tank to deliver a pizza</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/featherless-simple-jev-classifier/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Tue, 29 Sep 2026 19:38:59 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838571</guid>
-      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/09/bca67036-zoshua-colah-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/bca67036-zoshua-colah-scaled.jpg" /&gt;&lt;p&gt;The debate over what size, shape, and scale of model best suits each task isn&amp;#8217;t going away any time soon.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/featherless-simple-jev-classifier/"&gt;Why Featherless says you don&amp;#8217;t need a tank to deliver a pizza&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/09/bca67036-zoshua-colah-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/bca67036-zoshua-colah-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;The debate over what size, shape, and scale of model&lt;/strong&gt; best suits each task isn&amp;#8217;t going away any time soon. Joining the fray now is serverless inference provider &lt;a href="http://featherless.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Featherless&lt;/a&gt;. The company has released &lt;a href="https://simple-jev.featherless.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Simple Jev&lt;/a&gt;, an open-source library that converts open-source AI models into high-speed, &lt;a href="https://huggingface.co/tasks/zero-shot-classification" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;zero-shot classification engines&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Building on this month&amp;#8217;s&amp;nbsp;&lt;a href="https://typesafe.ai/?utm_source=the+new+stack&amp;amp;utm_medium=referral&amp;amp;utm_content=inline-mention&amp;amp;utm_campaign=tns+platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TypeSafe&lt;/a&gt;&amp;nbsp;launch of closed-source, text-only &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;Jev&lt;/a&gt;, Featherless&amp;#8217;s Simple Jev extends structured decision functionality to open-source models, with image capabilities on Featherless&amp;#8217;s hosted endpoints. It enables applications to evaluate incoming data and return categorical assignments or binary choices without generating conversational text.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-don-t-use-a-tank-to-deliver-a-pizza" class="wp-block-heading"&gt;Don&amp;rsquo;t use a tank to deliver a pizza&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/eugene-cheah-a47791126/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eugene Cheah&lt;/a&gt;, CEO and co-founder of Featherless, tells &lt;em&gt;The New Stack&lt;/em&gt; that using bleeding-edge frontier models to classify something like a support ticket is &amp;ldquo;like using a tank to deliver a pizza&amp;rdquo; in terms of tooling overload.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Sure, the pizza tank gets there eventually, but it&amp;#8217;s slow, it&amp;#8217;s expensive, and it&amp;#8217;s the wrong vehicle,&amp;rdquo; Cheah says. &amp;ldquo;Businesses need the fast reflexes, the instant they are called for, and that&amp;#8217;s a different kind of AI that the industry has neglected for far too long.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Featherless&amp;#8217;s hosted Simple Jev endpoints also include &lt;a href="https://thenewstack.io/which-vision-language-models-should-you-use-for-your-apps/" class="local-link"&gt;vision support&lt;/a&gt; for decision workflows. Currently available only with&amp;nbsp;Gemma&amp;nbsp;or&amp;nbsp;Qwen&amp;nbsp;models, this feature lets developer teams use images as context&amp;nbsp;for instant classification. By bypassing conversational text, the software reduces latency and cuts compute usage.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The pizza tank gets there eventually, but it&amp;#8217;s slow, it&amp;#8217;s expensive, and it&amp;#8217;s the wrong vehicle.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Featherless has carefully positioned its stance on multi-modal vision support. Cheah concedes that big closed-source models can work on these tasks. Still, he insists that &amp;ldquo;it&amp;rsquo;s the wrong tool for the job&amp;rdquo;, because they get there by generating text through &amp;ldquo;enormous multi-trillion-parameter LLMs&amp;rdquo;, and developers obviously pay frontier prices for that kind of service.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The industry has been so focused on the size of LLMs it hasn&amp;rsquo;t stepped back to think about cost and efficiency for a while. Simple Jev never &amp;lsquo;writes&amp;rsquo; an answer: we stop the model right where it would choose, read its scores for each allowed option, and output the probabilities,&amp;rdquo; explains Cheah.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-is-a-zero-shot-classification-engine" class="wp-block-heading"&gt;What is a zero-shot classification engine?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For the uninitiated, zero-shot engines use pre-trained language models to classify inputs into unseen target categories without task-specific training data. Because a zero-shot engine classifies inputs it wasn&amp;#8217;t explicitly trained on, it relies on transfer learning to predict categories for new inputs without prior exposure.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;But classifiers aren&amp;#8217;t new; it&amp;#8217;s what universities taught for AI before ChatGPT. What&amp;#8217;s new (and credit to Jev here) is a well-designed zero-shot API for it. The core pieces were already there, and we knew them well, which is why we got it up so quickly.&amp;nbsp;What was old is new again,&amp;rdquo; enthuses Cheah.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Illustrating how his team built the new tooling, Cheah thinks that &amp;ldquo;Any graduating AI/ML PhD could reimplement Simple Jev from one sentence.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;They would implement a &amp;lsquo;shared-prefix, two-stage, prefill-only, logit-based classifier&amp;rsquo; to do it. We&amp;#8217;re open sourcing it to make it easier to replicate and more efficient, and I expect hundreds more open source Jev clones,&amp;rdquo; adds Cheah.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Any graduating AI/ML PhD could reimplement Simple Jev from one sentence. I expect hundreds more open source Jev clones.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Featherless is also introducing free public endpoints, which it says will let developers test classification models without API keys or logins (the demo is capped at 2,000 tokens of context and two requests per second). For production use, Simple Jev pricing starts at $0.03 per million input tokens, with output tokens free, compared with TypeSafe&amp;#8217;s $0.042 per million input tokens for Jev. That is a beta floor price that may rise, and Featherless&amp;#8217;s own listings put its Qwen-based classifiers at $0.28 and $0.30 per million input tokens. So is that expensive, or as cheap as a Little Caesars pizza deal?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It&amp;rsquo;s almost too cheap to meter in a literal sense,&amp;rdquo; details Cheah. &amp;ldquo;Let&amp;rsquo;s say a typical decision when classifying an image/paragraph of text is roughly 500 to 1,200 tokens, so at $0.03 per million you&amp;#8217;re paying about three thousandths of a cent for a decision. To put that in perspective, that&amp;#8217;s about $15&amp;ndash;35 per &lt;em&gt;million&lt;/em&gt; decisions. And the output is free, too.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-moving-on-from-monolithic-generalist-models" class="wp-block-heading"&gt;&lt;strong&gt;Moving on from&lt;/strong&gt; monolithic generalist models&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Urging us to move on from what it has called &amp;ldquo;monolithic generalist models,&amp;rdquo; Featherless has offered its latest tooling, promising that millions of lightweight, dedicated models will drive the future.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;&amp;ldquo;&lt;/em&gt;&lt;/strong&gt;First they said open models would never catch up. Then they said open only wins in isolated cases. Soon they&amp;#8217;ll be saying closed models only win in isolated cases,&amp;rdquo; adds Cheah.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As the Featherless CEO conceded, classifiers are not new. As a sub-classification of model toolset engineering, other zero-shot vision and multi-modal classification technologies have been around for a while.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-other-models-that-work-in-the-zero-shot-arena" class="wp-block-heading"&gt;Other models that work in the zero-shot arena&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;First introduced in early 2021, &lt;a href="https://openai.com/index/clip/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI&amp;#8217;s CLIP&lt;/a&gt; might reasonably be called an early open pioneer for zero-shot image classification. The model learns visual concepts from natural language supervision and can be applied to any visual classification benchmark.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.microsoft.com/en-us/research/publication/florence-2-advancing-a-unified-representation-for-a-variety-of-vision-tasks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Microsoft&amp;rsquo;s Florence-2&lt;/a&gt; arrived in summer 2024 as an open-weight vision-language foundation model. It promised to overcome the complexities of &amp;ldquo;spatial hierarchy and semantic granularity&amp;rdquo; and is said to be well-suited to zero-shot and fine-tuning tasks, including visual object detection, grounding and segmentation, and image captioning. Other contenders in the zero-shot visual tagging and object classification arena include &lt;a href="https://roboflow.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Roboflow&lt;/a&gt; and &lt;a href="https://mixpeek.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mixpeek&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&amp;ldquo;&lt;/strong&gt;Everyone in this space is standing on each other&amp;#8217;s shoulders; that&amp;#8217;s how open source works. CLIP and the rest are great tools that changed the industry. We&amp;#8217;re bringing an old idea back with today&amp;#8217;s models, because sometimes you don&amp;#8217;t need the tank; you need something small and fast,&amp;rdquo; concludes Cheah.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Simple Jev is now available as a fully open-source library on &lt;a href="https://github.com/featherless-ai/simple-jev" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub&lt;/a&gt;. Featherless says it offers developers a dedicated model distillation workflow (a process that transfers capabilities from large frontier models into smaller, efficient architectures) to compress complex prompts and decisions from large frontier models into smaller, highly efficient open models for production.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/featherless-simple-jev-classifier/"&gt;Why Featherless says you don&amp;#8217;t need a tank to deliver a pizza&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Featherless releases open source Simple Jev, turning open models into zero-shot classifiers, with free output tokens and pricing from $0.03 per million.</content:encoded>
     </item>
   </channel>
 </rss>
