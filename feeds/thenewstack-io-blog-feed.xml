@@ -20,6 +20,211 @@
       <height>32</height>
     </image>
     <item>
+      <title>Agents have made CI the bottleneck. Faster pipelines are the wrong fix.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ci-bottleneck-agent-verification/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sun, 04 Oct 2026 15:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>CI/CD</category>
+      <category>Software Testing</category>
+      <category>sponsor-signadot</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839249</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled orange and pink chain links on purple, an image for interconnected services and the CI/CD verification bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-scaled.jpg" /&gt;&lt;p&gt;Three posts landed in September that I think engineering leaders should read together. Anthropic&amp;#8217;s engineering team wrote that their continuous&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ci-bottleneck-agent-verification/"&gt;Agents have made CI the bottleneck. Faster pipelines are the wrong fix.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled orange and pink chain links on purple, an image for interconnected services and the CI/CD verification bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Three posts landed in September&lt;/strong&gt; that I think engineering leaders should read together.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic&amp;#8217;s engineering team wrote that their &lt;a href="https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;continuous integration (CI) job volume grew 25x in six months&lt;/a&gt;. Their engineers now ship about 8x as much code per quarter as they did from 2021 to 2025. The fix they shipped was test impact analysis: run only the tests a change could affect.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A week later, Linear published a post titled &lt;a href="https://linear.app/now/ci-bottleneck-reworked" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AI coding has made CI a bottleneck&lt;/a&gt;. Their test suite has nearly quadrupled since January, and agents now write most of their tests. They reworked the pipeline end to end to keep up.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then Depot&amp;#8217;s CEO wrote that &lt;a href="https://depot.dev/blog/ci-is-changing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CI is changing&lt;/a&gt;, and that the future is &amp;#8220;giving agents a way to validate code and maintain trust as they work.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic and Linear do not sell CI tooling. They are reporting what happened to their own pipelines, which is what makes it worth paying attention to. Here is my read: all three are right about the problem, and two of them are fixing the wrong layer.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-ci-became-the-bottleneck" class="wp-block-heading"&gt;&lt;strong&gt;How CI became the bottleneck&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For twenty years, CI was sized for human output. A developer opened a few pull requests (PRs) a week, and the pipeline ran after each one. If it took 20 minutes, nobody cared much, because the developer was already on the next task.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents broke that arithmetic in two ways. First, volume. When one engineer runs several agents in parallel, PR count goes up by a multiple, not a percentage. Anthropic&amp;#8217;s 25x number is not an outlier. Blacksmith, which sells CI runners, says &lt;a href="https://www.prnewswire.com/news-releases/blacksmith-raises-45m-series-b-from-peak-xv-partners-as-ai-generated-code-drives-demand-for-faster-code-validation-302849104.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the number of CI jobs it runs has grown between 5% and 10% week over week&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The agent is fast, and the loop around it is slow.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Second, placement. CI runs after the PR exists. An agent that writes code, opens a PR, and waits 20 minutes for a red check has lost its working context by the time the result comes back. Every failure costs a full round trip. The agent is fast, and the loop around it is slow.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So the industry did the obvious thing and made CI faster. Faster runners, smarter test selection, bigger caches, pipelines that agents can call before commit. All of it helps, and all of it is necessary. All of it also leaves one assumption untouched: that what you&amp;#8217;re verifying is a repository.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-a-green-pipeline-does-not-tell-you" class="wp-block-heading"&gt;&lt;strong&gt;What a green pipeline does not tell you&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a standalone application, a repository is the system. Run the tests, and you know most of what you need to know.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a cloud-native system, a repository is one service out of forty. The tests in that repo exercise that service, and they mock everything else. A change can pass every unit test, pass CI in record time, pass a sandbox built from the branch, and still break the first real request that crosses a service boundary.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The failures that hurt in distributed systems live in the seams. A field renamed in a response that a downstream consumer still reads. A timeout tightened in one service that cascades into retries somewhere else. A schema change that works against the test fixture and locks a table in staging. A new endpoint that behaves correctly when the test harness calls it and incorrectly when the service that depends on it calls it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nothing in the CI pipeline, fast or slow, sees any of that. It cannot, because it is looking at a repo.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is why I think the September posts are a symptom, not a diagnosis. CI got slow because verification moved from a human gate to an automated one without anyone asking what the automated gate checks. Making the gate faster does not change what it checks.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Faster code, same verification, more breakage. That is the gap.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DevOps Research and Assessment (DORA) found something that should worry you: &lt;a href="https://dora.dev/insights/balancing-ai-tensions/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;higher AI adoption is associated with increases in both software delivery throughput and software delivery instability&lt;/a&gt;. Faster code, same verification, more breakage. That is the gap.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-verification-loop-has-to-move" class="wp-block-heading"&gt;&lt;strong&gt;The verification loop has to move&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cursor made a point in February that is only becoming more relevant. Their agents run in cloud sandboxes, each with its own virtual machine, and more than 30% of the PRs Cursor merges now come from agents working that way. Their stated reason: &lt;a href="https://cursor.com/blog/agent-computer-use" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;#8220;Without the ability to use the software they are creating, agents hit a ceiling.&amp;#8221;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That is the right instinct. The agent has to run the code, not only write it. Every serious coding agent now does some version of this. GitHub&amp;#8217;s Copilot cloud agent runs tests in an ephemeral environment powered by GitHub Actions. Codex runs a setup script and resumes cached containers. Devin boots from environment blueprints. Greptile&amp;#8217;s TREX runs the branch and attaches logs and screenshots to the PR.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But look at what each of those sandboxes contains: the repo, the branch, and whatever the setup script could install. None of them include the other 39 services, the real message queue, or the database with production-shaped data.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;So the loop closes, but it closes around the wrong thing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So the loop closes, but it closes around the wrong thing. The agent verifies its change against a copy of its own code. Then the change goes to CI, which verifies it against the same copy, faster. Then it merges into staging, and that is the first moment anything checks whether it works with the rest of the system.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For distributed systems, verification before the PR has to be against the system, not the repo. That is the shift. It is not faster feedback on the same question. It is a different question, asked earlier.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac38bde2fe50&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac38bde2fe50" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img decoding="async" width="1200" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/00644982-three-validation-loops.svg" alt="" class="wp-image-22839258"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge image.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-why-this-looks-expensive-and-is-not" class="wp-block-heading"&gt;&lt;strong&gt;Why this looks expensive and is not&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The reflexive objection is cost. If every agent needs the whole system to verify against, and one engineer is running five agents, you need five staging environments per engineer. Nobody can afford that, and nobody should try.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The answer is the same one the industry used for compute two decades ago. You do not give every workload its own machine. You multiplex.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A single Kubernetes cluster can run one shared stable version of every service and host thousands of lightweight test environments on top of it. Each test environment deploys only the changed service. Requests tagged for that environment pass through the modified service, and every other hop resolves to the shared stable versions. The modified service talks to real dependencies, and those dependencies do not know anything changed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A test environment costs roughly the price of one pod, and it comes up in seconds. Fifty agents working in parallel share one stable environment instead of cloning it fifty times. That is what makes system-level verification inside the agent loop affordable in the first place.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac38bde303dd&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac38bde303dd" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img decoding="async" width="1200" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/10a51f46-clone-vs-multiplex.svg" alt="" class="wp-image-22839259"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge image.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-agents-need-governed-verification-not-only-environments" class="wp-block-heading"&gt;&lt;strong&gt;Agents need governed verification, not only environments&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cheap, fast environments are not the whole answer. An agent also needs a structured way to use them: send this request, capture that log, assert this contract held, report the result. Left to improvise, each agent invents its own checks, and no two runs are comparable.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The model that works is one where the platform team writes those steps once, as a sequence of approved actions that exercises a change against the live system and records what happened. Agents invoke them through the skills and hooks that Claude Code, Cursor, and similar tools already support, so verification runs as part of the loop rather than after it. The governance matters as much as the steps, because platform teams need to know an agent cannot do something unsafe in a shared cluster.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The output matters too. A record showing which requests were sent, which services were touched, and which contracts were held is an artifact the next layer can read. Review tools and merge gates can see that a change was exercised against live services before a human looks at it, and CI becomes a confirmation step instead of the first place cross-service breakage shows up.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-verification-belongs-inside-the-agent-s-loop" class="wp-block-heading"&gt;&lt;strong&gt;Verification belongs inside the agent&amp;#8217;s loop&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I expect the CI vendors to keep getting faster, and I expect coding agents to keep getting better at running code in sandboxes. Both are good for everyone, and neither closes the gap between a repo and a system. The teams that come out ahead will stop asking how fast the pipeline can confirm that a repo still passes its own tests and start asking how early an agent can prove that a change works with everything around it. That question gets answered in one place: inside the agent&amp;#8217;s loop, against the real system, before the PR. We built &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=paid_sponsorship&amp;amp;utm_campaign=q4_26_sponsored_content&amp;amp;utm_content=ci-bottleneck-wrong-fix" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Signadot&lt;/a&gt; to make that check cheap enough to run on every change, with the governed.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ci-bottleneck-agent-verification/"&gt;Agents have made CI the bottleneck. Faster pipelines are the wrong fix.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Agents pushed CI job volume up 25x at Anthropic. Faster pipelines help, but they still check a repo, not the distributed system it has to work with.</content:encoded>
+    </item>
+    <item>
       <title>AI is speeding up exploits. Vulnerability spreadsheets can’t keep up.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/cve-vulnerability-risk-management/</link>
       <dc:creator>Russ Andersson</dc:creator>
@@ -31,10 +236,10 @@
       <category>Sponsored</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839264</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A worn warning sign with a black exclamation point inside a triangle, its cream paint cracked and peeling against an orange metal surface." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-scaled.jpg" /&gt;&lt;p&gt;Artificial intelligence has changed almost every aspect of software development and cybersecurity. But perhaps one of the most profound changes&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A worn warning sign with a black exclamation point inside a triangle, its cream paint cracked and peeling against an orange metal surface." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-scaled.jpg" /&gt;&lt;p&gt;Artificial intelligence has changed almost every aspect of software development and cybersecurity. But perhaps one of the most profound changes&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/cve-vulnerability-risk-management/"&gt;AI is speeding up exploits. Vulnerability spreadsheets can&amp;#8217;t keep up.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A worn warning sign with a black exclamation point inside a triangle, its cream paint cracked and peeling against an orange metal surface." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A worn warning sign with a black exclamation point inside a triangle, its cream paint cracked and peeling against an orange metal surface." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/955c4801-markus-spiske-vo5w2ida70s-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Artificial intelligence has changed almost every aspect&lt;/strong&gt; of software development and cybersecurity. But perhaps one of the most profound changes is happening in an area that has traditionally received less strategic attention: How organizations manage software vulnerabilities.&lt;/p&gt;
 
 
@@ -181,7 +386,7 @@
       <category>AI Infrastructure</category>
       <category>AI Strategy</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839186</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/afe55952-claud-muse-dots-grok-bots-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/afe55952-claud-muse-dots-grok-bots.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/afe55952-claud-muse-dots-grok-bots-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/afe55952-claud-muse-dots-grok-bots.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-answer-to-dots-muse/"&gt;Anthropic’s answer to Dots and Muse is already inside Claude&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/afe55952-claud-muse-dots-grok-bots-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/afe55952-claud-muse-dots-grok-bots.png" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
@@ -3715,7 +3920,7 @@ $(document).ready(function() {
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac22cce1eb0f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac22cce1eb0f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac38bde69b2e&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac38bde69b2e" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4315,188 +4520,6 @@ $(document).ready(function() {
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/cra-readiness-starts-codebase/"&gt;CRA readiness starts in the codebase&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>CRA compliance starts in the codebase. Learn how to build repeatable, automated security controls into your software delivery system.</content:encoded>
-    </item>
-    <item>
-      <title>Eclipse wants companies to be free to switch AI providers. Today, doing so can mean a costly rebuild.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/eclipse-sovereign-ai-foundation/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 11:00:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>AI Models</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838285</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/5f4127f0-getty-images-pjj2bv6fatc-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D render of a low-poly wireframe mesh in purple, teal and green, with translucent triangular facets connected across a dark blue background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5f4127f0-getty-images-pjj2bv6fatc-unsplash-scaled.jpg" /&gt;&lt;p&gt;If you rely too heavily on one AI provider, switching can mean rebuilding workloads and moving data while you face&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/eclipse-sovereign-ai-foundation/"&gt;Eclipse wants companies to be free to switch AI providers. Today, doing so can mean a costly rebuild.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/5f4127f0-getty-images-pjj2bv6fatc-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D render of a low-poly wireframe mesh in purple, teal and green, with translucent triangular facets connected across a dark blue background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5f4127f0-getty-images-pjj2bv6fatc-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;If you rely too heavily on one AI provider&lt;/strong&gt;, switching can mean rebuilding workloads and moving data while you face untangling integrations. A new vendor-neutral group aims to help organizations keep their options open. That&amp;#8217;s the goal of the Eclipse Foundation, which announced the formation of the Sovereign AI Foundation on Wednesday.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The new body will serve as a vendor-neutral initiative to help member organizations manage AI platform lock-in, monitor cyber risk, and maintain control of their data. The group has been active on Eclipse&amp;#8217;s project site since July.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An initial community of 17 organizations comes together to advance AI sovereignty through open-source collaboration.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The foundation&amp;rsquo;s mission is to help organizations &amp;ldquo;navigate AI dependencies&amp;rdquo; (as in dependence on any single AI service, not control over where &lt;a href="https://thenewstack.io/a-guide-to-software-dependencies/" class="local-link"&gt;application dependencies&lt;/a&gt; get tied to a particular model&amp;rsquo;s DNA&amp;hellip; although, by extension, that too), where dependence can limit a software engineering team&amp;rsquo;s ability to control where data is processed, choose which technologies to use, or change direction as costs, requirements, and provider terms evolve.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-core-rationale-for-ai-sovereignty-control" class="wp-block-heading"&gt;A core rationale for AI sovereignty control&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Executive director at the &lt;a href="https://eclipse.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eclipse Foundation&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/mikemilinkovich/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mike Milinkovich&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that the risk of not adopting an open approach to AI sovereignty control depends on how deeply AI is embedded in an organization and how difficult the underlying systems are to change.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The deeper the dependency, the greater the potential risk,&amp;rdquo; Milinkovich says. &amp;ldquo;But however embedded the underlying systems are, the costs show up in predictable places: higher prices that make switching difficult, and the challenge of rebuilding integrations, moving data and workloads, documenting systems after the fact, compliance delays, and operational disruption.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He underlines his point and says part of the Sovereign AI Foundation&amp;rsquo;s work will be to &amp;ldquo;compare real-world experiences&amp;rdquo; and build stronger evidence around those risks.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The deeper the dependency, the greater the potential risk. But however embedded the underlying systems are, the costs show up in predictable places.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://aieclipse.org/sovereign-ai-foundation/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sovereign AI Foundation&lt;/a&gt; will work to give members an open forum to understand AI dependencies, compare experiences, and develop practical guidance for decisions about data, models, infrastructure, and operations.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-can-we-move-beyond-the-ai-hype-cycle-now" class="wp-block-heading"&gt;Can we move beyond the AI hype-cycle now?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-can-we-move-beyond-the-ai-hype-cycle-now-acknowledging-what-he-calls-the-pre-ipo-hype-hype-cycle-that-exists-around-the-promotion-of-frontier-models-milinkovicx-calls-for-a-concerted-focus-on-where-the-real-value-in-ai-lies-i-e-enterprise-and-industrial-applications-that-deliver-measurable-business-value-which-must-not-happen-at-the-expense-of-vendor-lock-in-anywhere"&gt;Acknowledging what he calls the pre-IPO hype cycle around the promotion of frontier models, Milinkovich calls for a concerted focus on where the real value in AI lies: enterprise and industrial applications that deliver measurable business value, without vendor lock-in.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI will not deliver on its potential if it is based entirely on a dependence on a relatively small number of providers for critical AI models, platforms, and infrastructure,&amp;rdquo; Milinkovich insists. &amp;ldquo;As AI becomes part of the systems organizations rely on every day, that dependence can leave them with too little visibility into where their data goes, which models use it, or how easily they can switch when costs, terms, or requirements change.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-choice-control-amp-nbsp-freedom-of-action" class="wp-block-heading"&gt;Choice, control &amp;amp;&amp;nbsp; freedom of action&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-choice-control-amp-freedom-of-actionhe-asks-us-to-understand-just-how-far-the-sovereign-ai-foundation-will-work-to-find-practical-ways-to-preserve-choice-and-control-with-a-vision-of-delivering-open-source-and-open-weight-solutions-allowing-for-freedom-of-action"&gt;He asks us to understand how far the Sovereign AI Foundation will go to find practical ways to &amp;ldquo;preserve choice and control,&amp;rdquo; with a vision of delivering open-source and open-weight solutions that allow freedom of action.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-choice-control-amp-freedom-of-actionhe-asks-us-to-understand-just-how-far-the-sovereign-ai-foundation-will-work-to-find-practical-ways-to-preserve-choice-and-control-with-a-vision-of-delivering-open-source-and-open-weight-solutions-allowing-for-freedom-of-action"&gt;As admirable and philanthropic as this sounds &amp;mdash; and coming from a Brussels-based foundation whose founding members are mostly European &amp;mdash; is there any America-first idealism here, given that &lt;a href="https://thenewstack.io/china-leads-open-ai-models/" class="local-link"&gt;open-weight Chinese models&lt;/a&gt; are also openly available?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-choice-control-amp-freedom-of-actionhe-asks-us-to-understand-just-how-far-the-sovereign-ai-foundation-will-work-to-find-practical-ways-to-preserve-choice-and-control-with-a-vision-of-delivering-open-source-and-open-weight-solutions-allowing-for-freedom-of-action"&gt;&amp;ldquo;This is not about China or any single provider. The same questions apply to AI technologies from the United States, Europe, Asia, or anywhere else,&amp;rdquo; confirms Milinkovich. &amp;ldquo;Closed models can limit visibility, while access to model weights alone does not provide the transparency, control, or the independent governance that organizations may need. The real question for our members is whether they can understand, adapt, and, if necessary, replace the systems they depend on.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-17-founding-members" class="wp-block-heading"&gt;17 founding members&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-17-founding-membersas-noted-above-this-initiative-launches-with-17-participating-organizations-spanning-technology-industry-research-and-the-open-source-community-france-s-cea-list-thales-and-kentyou-germany-s-eclipsesource-open-elements-typefox-vector-informatik-and-bosch-italy-s-engineering-ingegneria-informatica-and-eurotech-sweden-s-ericsson-india-s-infosys-belgium-s-ku-leuven-japan-s-renesas-electronics-malaysia-s-the-io-foundation-and-then-there-s-north-carolina-s-red-hat-and-the-university-of-york-in-the-uk"&gt;As noted above, this initiative launches with 17 participating organizations spanning technology, industry, research, and the open source community: France&amp;rsquo;s &lt;a href="https://list.cea.fr/en/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CEA LIST&lt;/a&gt;,&amp;nbsp; &lt;a href="https://www.thalesgroup.com/en#" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thales&lt;/a&gt; and &lt;a href="https://kentyou.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kentyou&lt;/a&gt;, Germany&amp;rsquo;s &lt;a href="https://eclipsesource.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;EclipseSource&lt;/a&gt;, &lt;a href="https://open-elements.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Open Elements&lt;/a&gt;, &lt;a href="https://www.typefox.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TypeFox&lt;/a&gt;, &lt;a href="https://www.vector.com/en/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vector Informatik&lt;/a&gt;, and &lt;a href="https://www.bosch.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bosch&lt;/a&gt;, Italy&amp;rsquo;s &lt;a href="https://www.eng.it/en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Engineering Ingegneria Informatica&lt;/a&gt; and &lt;a href="https://www.eurotech.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eurotech&lt;/a&gt;, Sweden&amp;rsquo;s &lt;a href="https://www.ericsson.com/en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ericsson&lt;/a&gt;, India&amp;rsquo;s &lt;a href="https://www.infosys.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Infosys&lt;/a&gt;, Belgium&amp;rsquo;s &lt;a href="https://www.kuleuven.be/kuleuven/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KU Leuven&lt;/a&gt;, Japan&amp;rsquo;s &lt;a href="https://www.renesas.com/en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Renesas Electronics&lt;/a&gt;, Malaysia&amp;rsquo;s &lt;a href="https://discover.theiofoundation.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The IO Foundation&lt;/a&gt;&amp;hellip; and then there&amp;rsquo;s North Carolina&amp;rsquo;s &lt;a href="https://www.redhat.com/en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Red Hat&lt;/a&gt;, and the &lt;a href="https://www.york.ac.uk/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;University of York&lt;/a&gt; in the UK.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Sovereign AI Foundation focuses on five areas:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Mapping real-world use cases: Building a shared view of how members deploy, evaluate, and pilot open-source AI.&lt;/li&gt;
-
-
-
-&lt;li&gt;Assessing technologies and trends: Monitoring developments across models, evaluation frameworks, inference infrastructure, and regulation.&lt;/li&gt;
-
-
-
-&lt;li&gt;Developing practical resources: Producing whitepapers, blueprints, landscape analyses, and reference materials.&lt;/li&gt;
-
-
-
-&lt;li&gt;Building a peer community: Connecting organizations at every stage of open source AI adoption.&lt;/li&gt;
-
-
-
-&lt;li&gt;Translating research into action: Turning outcomes from Eclipse Foundation research initiatives, including EU-funded projects, into insights that members can apply. &lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 id="h-a-mission-to-tackle-data-control-cyber-safety-or-lock-in" class="wp-block-heading"&gt;A mission to tackle data control, cyber safety, or lock-in?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-a-mission-for-data-control-cyber-safety-or-lock-in-there-s-a-lot-to-unpack-here-in-an-organization-only-just-out-of-the-blocks-it-begs-the-question-whether-the-sovereign-ai-foundation-will-be-focused-on-data-control-challenges-and-efficiency-cyber-safety-or-platform-lock-in-challenge"&gt;There&amp;rsquo;s a lot to unpack here in an organization only just out of the blocks; it begs the question whether the Sovereign AI Foundation will focus on data control challenges and efficiency, cyber safety, or platform lock-in challenges.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-a-mission-for-data-control-cyber-safety-or-lock-in-there-s-a-lot-to-unpack-here-in-an-organization-only-just-out-of-the-blocks-it-begs-the-question-whether-the-sovereign-ai-foundation-will-be-focused-on-data-control-challenges-and-efficiency-cyber-safety-or-platform-lock-in-challenge"&gt;&amp;ldquo;It&amp;rsquo;s all three, and they reinforce one another,&amp;rdquo; Milinkovich says. &amp;ldquo;It is an efficiency issue if moving to a better or less expensive model requires rebuilding the workload. It is a security issue if organizations lack the visibility needed to assess risk. And it is a lock-in and resilience issue if critical operations become so tied to one provider that changing direction is costly or disruptive.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The need here is clearest wherever AI is used in systems with long lifecycles, demanding safety and security requirements, or sensitive data.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-a-mission-for-data-control-cyber-safety-or-lock-in-there-s-a-lot-to-unpack-here-in-an-organization-only-just-out-of-the-blocks-it-begs-the-question-whether-the-sovereign-ai-foundation-will-be-focused-on-data-control-challenges-and-efficiency-cyber-safety-or-platform-lock-in-challenge"&gt;He explains that &amp;ldquo;the specific needs vary&amp;rdquo;, so a manufacturer may need AI to keep operating when connectivity is limited, while a public agency may need to explain how an AI-supported decision was made.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-a-mission-for-data-control-cyber-safety-or-lock-in-there-s-a-lot-to-unpack-here-in-an-organization-only-just-out-of-the-blocks-it-begs-the-question-whether-the-sovereign-ai-foundation-will-be-focused-on-data-control-challenges-and-efficiency-cyber-safety-or-platform-lock-in-challenge"&gt;&amp;ldquo;The need here is clearest wherever AI is used in systems with long lifecycles, demanding safety and security requirements, or sensitive data. That includes automotive, manufacturing, telecommunications, aerospace and defense, energy, and the public sector,&amp;rdquo; adds Milinkovich.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-interest-will-extend-well-beyond-europe" class="wp-block-heading"&gt;Interest will extend well beyond Europe&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-a-mission-for-data-control-cyber-safety-or-lock-in-there-s-a-lot-to-unpack-here-in-an-organization-only-just-out-of-the-blocks-it-begs-the-question-whether-the-sovereign-ai-foundation-will-be-focused-on-data-control-challenges-and-efficiency-cyber-safety-or-platform-lock-in-challenge"&gt;He confirms that the foundation&amp;rsquo;s initial participants do &amp;ldquo;reflect that mix&amp;rdquo;, as companies including Bosch, Vector, Renesas, Ericsson, and Thales put sovereignty high on the agenda. But he qualifies that dependence on critical AI technologies is a global concern, &amp;ldquo;so we expect interest well beyond Europe&amp;rdquo; in the weeks and months ahead.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-a-mission-for-data-control-cyber-safety-or-lock-in-there-s-a-lot-to-unpack-here-in-an-organization-only-just-out-of-the-blocks-it-begs-the-question-whether-the-sovereign-ai-foundation-will-be-focused-on-data-control-challenges-and-efficiency-cyber-safety-or-platform-lock-in-challenge"&gt;Milinkovich offers a selection of still-forming use cases that he thinks are already solid.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;EclipseSource is working with industrial customers on AI-enabled development tools like Eclipse Theia AI, where teams need flexibility over models and deployment.&lt;/li&gt;
-
-
-
-&lt;li&gt;The Open VSX Registry provides vendor-neutral access to thousands of extensions for a growing range of open source and AI-enabled development tools.&lt;/li&gt;
-
-
-
-&lt;li&gt;Eurotech is using Eclipse-governed projects to bring AI to the edge, where systems interact with physical equipment and must remain secure, reliable, and maintainable for years.&lt;/li&gt;
-
-
-
-&lt;li&gt;Eclipse LMOS, originally developed at Deutsche Telekom, supports production multi-agent systems at significant scale and underpins multiple global deployments today.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Across these examples, the common approach is modularity: keeping models, infrastructure, and applications separate enough that one can change without rebuilding everything. Our job is to capture what works and turn it into guidance others can use,&amp;rdquo; affirmed Milinkovich.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Sovereign AI Foundation team says that alongside the 17 founding members, additional organizations are in the process of joining, and it invites eligible Eclipse Foundation member organizations to participate.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/eclipse-sovereign-ai-foundation/"&gt;Eclipse wants companies to be free to switch AI providers. Today, doing so can mean a costly rebuild.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Eclipse Foundation launches Sovereign AI Foundation with 17 members to help organizations avoid AI vendor lock-in, per exec director Mike Milinkovich.</content:encoded>
     </item>
   </channel>
 </rss>
