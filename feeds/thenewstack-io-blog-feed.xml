@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 03 Oct 2026 14:05:45 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 21:55:14 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,669 @@
       <height>32</height>
     </image>
     <item>
+      <title>One MCP server used 18,000 tokens before doing anything. Here’s the workaround.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/pi-agent-mcp-codemode/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 05 Oct 2026 21:55:12 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Model Context Protocol (MCP)</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839237</guid>
+      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/bbb08aa4-boliviainteligente-o3qynyl9xiu-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="stacks abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bbb08aa4-boliviainteligente-o3qynyl9xiu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Pi spent much of the past year leaving MCP out of its coding agent, even as the protocol became standard&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/pi-agent-mcp-codemode/"&gt;One MCP server used 18,000 tokens before doing anything. Here’s the workaround.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/bbb08aa4-boliviainteligente-o3qynyl9xiu-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="stacks abstract" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bbb08aa4-boliviainteligente-o3qynyl9xiu-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Pi spent much of the past year leaving MCP out of its coding agent&lt;/strong&gt;, even as the protocol became standard across developer tools. Its creator, &lt;a href="https://www.linkedin.com/in/mariozechner/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mario Zechner&lt;/a&gt;, had a concrete reason for resisting it. When he measured the context cost of popular browser-automation servers, Chrome DevTools MCP alone took up roughly 18,000 tokens, or about 9% of a 200,000-token context window, before the agent had done anything useful.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;MCP is now built into Pi, but connecting a server doesn&amp;rsquo;t put all of its tools in front of the model. Pi leaves those definitions out of the prompt and uses Codemode to find tools as needed, call them from JavaScript and return only the useful output.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-measuring-mcp-s-context-cost" class="wp-block-heading"&gt;Measuring MCP&amp;#8217;s context cost&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zechner spelled out the problem last November. Playwright MCP needed about 13,700 tokens to describe its 21 tools, or 6.8% of a 200,000-token window, and &lt;a href="https://thenewstack.io/how-to-reduce-mcp-token-bloat/" class="local-link"&gt;each additional server added more overhead&lt;/a&gt;. He was also bothered by what happened after a tool was called. &amp;#8220;MCP servers also aren&amp;#8217;t composable,&amp;#8221; he &lt;a href="https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;wrote&lt;/a&gt;. &amp;#8220;Results returned by an MCP server have to go through the agent&amp;#8217;s context to be persisted to disk or combined with other results.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Results returned by an MCP server have to go through the agent&amp;#8217;s context to be persisted to disk or combined with other results.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His answer was Bash and a handful of scripts. The model already knew how to use them, so there was little reason to teach it another large tool interface. His CLI-based browser tools needed only a 225-token README, and their output could be piped into another command, filtered or saved to disk without first passing through the model. Extensions such as pi-mcp-adapter brought MCP to Pi before it became a native feature in Pi 1.0.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-pi-changed-mcp-instead" class="wp-block-heading"&gt;Pi changed MCP instead&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Earendil, which acquired Pi earlier this year, says &lt;a href="https://thenewstack.io/mcp-release-candidate-rewrite/" class="local-link"&gt;MCP has matured enough&lt;/a&gt; to justify a second look, though the company&amp;#8217;s explanation for the reversal points to something more practical. &amp;#8220;The reason we brought MCP into the core is not just about how MCP has changed, but also because we found that the changes it would require were generally useful,&amp;#8221; &lt;a href="https://earendil.com/posts/you-said-no-mcp/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Earendil wrote.&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt; &amp;#8220;The reason we brought MCP into the core is not just about how MCP has changed, but also because we found that the changes it would require were generally useful,&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pi was already using the same idea with Jev, putting Codemode &amp;mdash; its version of the &lt;a href="https://thenewstack.io/port-of-context-the-open-source-code-mode/" class="local-link"&gt;code mode pattern&lt;/a&gt; &amp;mdash; between the model and its tools. MCP could use that architecture instead of exposing every tool directly to the model.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-codemode-handles-tool-discovery" class="wp-block-heading"&gt;Codemode handles tool discovery&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Codemode runs inside a QuickJS sandbox without Node APIs, file system, network access or timers. Scripts can call Pi&amp;#8217;s tools and models, run operations concurrently and process the results before returning anything to the model.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;By default, Pi keeps an MCP server&amp;#8217;s tools out of the model&amp;#8217;s context. The system prompt gets a one-line description of each server, while the agent uses Codemode to find and call the tools it needs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers can change that behavior with &lt;code&gt;toolExposure&lt;/code&gt;. On the same server, Pi can expose some tools directly, leave others behind Codemode or block them entirely. A GitHub setup, for example, might expose &lt;code&gt;search_code&lt;/code&gt;, keep &lt;code&gt;get_*&lt;/code&gt; behind Codemode and block &lt;code&gt;delete_*&lt;/code&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-per-tool-exposure-controls" class="wp-block-heading"&gt;Per-tool exposure controls&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Codemode has a 3,000-token default budget for tool declarations; anything beyond it stays discoverable. Pi 1.0 also reduced Codemode&amp;#8217;s overall footprint. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Codemode has a 3,000-token default budget for tool declarations; anything beyond it stays discoverable. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to the &lt;a href="https://pi.dev/changelog/releases/1.0.0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;release notes&lt;/a&gt;, a GPT-5.6 request with the default tools and Codemode fell from roughly 5,300 prompt tokens to 3,300 after Pi shortened the Codemode description, moved model API documentation out of the prompt and stopped repeating declarations for tools scripts could already access. MCP tools using the default exposure don&amp;#8217;t count toward that 3,000-token budget.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pi 1.0 doesn&amp;rsquo;t resolve Earendil&amp;rsquo;s broader complaints about MCP, including composability. Codemode gives Pi a way to support the protocol without adopting the approach Zechner objected to in the first place.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/pi-agent-mcp-codemode/"&gt;One MCP server used 18,000 tokens before doing anything. Here’s the workaround.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+    </item>
+    <item>
+      <title>Developers are secretly hoping OpenAI fails to ship this month</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-codex-shipping-sprint/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 05 Oct 2026 21:49:57 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839346</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/80ec294c-istock-2217652660-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dice roll" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/80ec294c-istock-2217652660.jpg" /&gt;&lt;p&gt;OpenAI&amp;#8217;s 28-day Codex shipping sprint has its first result, which means subscribers hoping for a free usage reset will have&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-codex-shipping-sprint/"&gt;Developers are secretly hoping OpenAI fails to ship this month&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/80ec294c-istock-2217652660-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dice roll" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/80ec294c-istock-2217652660.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI&amp;#8217;s 28-day Codex shipping sprint has its first result&lt;/strong&gt;, which means subscribers hoping for a free usage reset will have to wait at least another day.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Thibault Sottiaux, engineering lead for Codex at OpenAI, said on Day 1 that the company had made GPT-6 Astra and GPT-6.1 Sol about 50% faster by default. Speeding things up is the first move in an unusually steep challenge Sottiaux set for his team on Sunday, when he promised to ship a &amp;#8220;clear improvement&amp;#8221; relevant to most Codex and ChatGPT Work users every day for the next 28 days or ship a full usage reset instead.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;&lt;a href="https://x.com/thsottiaux/status/2106845241357824205" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Let the improvements begin&lt;/a&gt;,&amp;#8221; the &lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sottiaux&lt;/a&gt; wrote.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-faster-gpt-6-astra-and-sol" class="wp-block-heading"&gt;Faster GPT-6 Astra and Sol&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sottiaux put a more concrete number on the change in a &lt;a href="https://x.com/thsottiaux/status/2107159119107146237" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;follow-up post&lt;/a&gt;, saying the two models can now generate approximately 50 tokens per second, up from about 30. Taken literally, that&amp;#8217;s closer to a two-thirds jump than 50%, although both figures appear to be rough estimates rather than benchmark results.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The speedup isn&amp;#8217;t limited to OpenAI&amp;#8217;s own products, since subscribers using Sign in with ChatGPT also get it through OpenCode, Pi, Amp and Devin. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The timing carries some irony. Two days before the challenge began, Sottiaux apologized for a slow start with GPT-6.1 Sol, blaming a major load spike in the model&amp;#8217;s first two days, and &lt;a href="https://x.com/thsottiaux/status/2106131810921136451" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced a global reset&lt;/a&gt; for paid ChatGPT accounts to make up for it, so the sprint&amp;#8217;s first official ship turned out to be a speed improvement to that same model.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first ship also gives an early sense of what OpenAI is willing to count. Just before announcing the challenge, &lt;a href="https://x.com/thsottiaux/status/2106610099720720811?" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sottiaux said the team was &amp;#8220;locking in&amp;#8221; on simplification&lt;/a&gt;, greater efficiency that translates into more usage, &amp;#8220;groundbreaking features,&amp;#8221; and new models, adding that &amp;#8220;feedback is clear that you all want things to get simpler.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Just before announcing the challenge, Sottiaux said the team was &amp;#8220;locking in&amp;#8221; on simplification, greater efficiency that translates into more usage, &amp;#8220;groundbreaking features,&amp;#8221; and new models, adding that &amp;#8220;feedback is clear that you all want things to get simpler.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-codex-resets-as-currency" class="wp-block-heading"&gt;Codex resets as currency&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Usage works as a currency for Sottiaux&amp;#8217;s bet because OpenAI has spent months teaching subscribers to watch for resets. When he reset Codex rate limits for all paid plans in April, Sottiaux &lt;a href="https://x.com/thsottiaux/status/2048997818673537399" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;opened the announcement&lt;/a&gt; by joking that resets shouldn&amp;#8217;t be handed out for fun because they cost money, before conceding that the vibes were good. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In July, after the launch that &lt;a href="https://thenewstack.io/openai-codex-work-atlas/" class="local-link"&gt;folded Codex into the ChatGPT desktop app&lt;/a&gt; introduced regressions in some multi-agent workflows, he reset usage twice in a single day, and he marked Codex and ChatGPT Work &lt;a href="https://thenewstack.io/gpt-5-6-codex-user-surge/" class="local-link"&gt;passing 8 million active users&lt;/a&gt; with yet another. He and OpenAI CEO Sam Altman later handed out a banked reset live on stage at DevDay on September 29.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Resets are common enough now that unofficial services track them, with &lt;a href="https://codex-resets.com/tibo-28" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;one putting up a 28-day scoreboard&lt;/a&gt; within hours of Sottiaux&amp;#8217;s announcement, and developers quickly worked out the obvious gamble. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One &lt;a href="https://x.com/Ananth7e/status/2106847679632589075" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;joked that Sottiaux had turned Codex usage into gambling&lt;/a&gt;, suggesting subscribers burn through their allowance each day and hope OpenAI misses a ship. Others would rather have higher limits in the first place. One Plus subscriber said the five-hour cap already dictates when they can work, while &lt;a href="https://www.linkedin.com/in/markkretschmann/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mark Kretschmann&lt;/a&gt;, software engineer at ASYS Group, &lt;a href="https://x.com/mark_k/status/2106854194116518315" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;treated Sottiaux&amp;#8217;s pledge as 28 Codex resets in 28 days&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;That frustration over limits lands at an awkward time, since OpenAI said last week that starting October 30, near the end of the 28-day window, it will cut the Codex and ChatGPT Work allowance on its $200 Pro plan from 20 times the Plus allowance to 10 times. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That frustration over limits lands at an awkward time, since OpenAI &lt;a href="https://thenewstack.io/openai-halves-200-plan/" class="local-link"&gt;said last week&lt;/a&gt; that starting October 30, near the end of the 28-day window, it will cut the Codex and ChatGPT Work allowance on its $200 Pro plan from 20 times the Plus allowance to 10 times. The company paired that change with a new $500 plan offering 25 times the Plus allowance and an Ultrafast tier for GPT-6 Astra that promises up to eight times the standard speed in Codex.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Not everyone is rooting for the reset button. The pseudonymous X account Token Gremlin &lt;a href="https://x.com/TokenGremlin/status/2106848269678575933" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;argued&lt;/a&gt; that 28 smaller improvements won&amp;#8217;t count for much unless OpenAI ships a model that can beat Claude Opus 5.5. That&amp;#8217;s a high bar, but an understandable one, given that Opus 5.5 is already pulling developers its way. T3 Code creator &lt;a href="https://www.linkedin.com/in/t3gg/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Theo Browne&lt;/a&gt; said on October 3 that Anthropic&amp;#8217;s newest Opus model had become the first to break 50% of traffic in T3 Code, with &amp;#8220;literally half of all prompts&amp;#8221; going to Opus.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-who-judges-codex-improvements" class="wp-block-heading"&gt;Who judges Codex improvements&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The 28-day challenge is not set in OpenAI terms, just in Sottiaux&amp;#8217;s posts. Even the dates are unofficial, with one tracker putting the run from October 5 through November 1 and noting that it&amp;#8217;s making its own call on the timeline. Sottiaux hasn&amp;#8217;t said which subscription tiers would get a reset either, or what exactly a &amp;#8220;full reset&amp;#8221; would restore, confusion that OpenAI has caused before.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;After the April reset for &amp;#8220;ALL paid plans,&amp;#8221; one Plus user &lt;a href="https://github.com/openai/codex/issues/20395" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;filed a GitHub issue&lt;/a&gt; saying their weekly limit stayed on its normal cycle while Codex offered no way to tell whether the special reset had applied at all. &lt;a href="https://github.com/openai/codex/issues/20395" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;According to the issue,&lt;/a&gt; OpenAI Support later clarified that the reset did not cover every quota type for every user.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Full reset&amp;#8221; still leaves plenty unanswered. Codex has shorter rolling windows alongside weekly limits, and those are very different things to get back when you&amp;#8217;ve run out of usage.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Codex has shorter rolling windows alongside weekly limits, and those are very different things to get back when you&amp;#8217;ve run out of usage.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-codex-shipping-sprint/"&gt;Developers are secretly hoping OpenAI fails to ship this month&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>OpenAI&amp;#039;s Codex team will ship one improvement a day for 28 days or reset usage limits. Day 1 sped up GPT-6 models, but the rules remain loosely defined.</content:encoded>
+    </item>
+    <item>
+      <title>OpenAI brings text watermarking to its API — and unlike Anthropic, it’s off by default</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-api-text-watermarking/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 05 Oct 2026 19:29:15 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Engineering</category>
+      <category>Compliance</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839297</guid>
+      <description>&lt;img width="1024" height="775" src="https://cdn.thenewstack.io/media/2026/10/070ca3af-dorothy-livelo-bkflmti2ns4-unsplash-1024x775.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Concept illustrating depicting AI watermarking." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/070ca3af-dorothy-livelo-bkflmti2ns4-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI has announced that developers can now opt in to watermarking text generated through its API, as the company extends&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-api-text-watermarking/"&gt;OpenAI brings text watermarking to its API &amp;#8212; and unlike Anthropic, it&amp;#8217;s off by default&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="775" src="https://cdn.thenewstack.io/media/2026/10/070ca3af-dorothy-livelo-bkflmti2ns4-unsplash-1024x775.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Concept illustrating depicting AI watermarking." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/070ca3af-dorothy-livelo-bkflmti2ns4-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenAI has announced that developers can now opt in to watermarking text generated through its API, as the company extends its existing content provenance efforts to one of the more difficult forms of AI output to reliably identify.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://openai.com/index/eu-text-provenance/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post published on Monday&lt;/a&gt;, the company details a new system dubbed textGrain, which embeds a &amp;#8220;statistical signal&amp;#8221; into generated text by subtly influencing the words a model chooses &amp;#8212; for example, favoring one suitable word over another when either would make sense in a sentence. Over a long enough passage, those choices form a pattern that OpenAI&amp;#8217;s detector can identify. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;API customers worldwide can enable watermarking on supported models from today, and in the coming weeks, OpenAI says it will begin automatically watermarking eligible text produced by ChatGPT and Codex in the European Union (EU). This is in response to new transparency requirements under the &lt;a href="https://artificialintelligenceact.eu/article/50/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;EU AI Act&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt; &amp;ldquo;Starting today, API customers globally will be able to opt in to text watermarking for select models. Text watermarking will remain off by default in the API,&amp;rdquo; the company writes. &amp;ldquo;This lets customers decide how watermarking fits their transparency obligations and the experiences they provide to users.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Text watermarking will remain off by default in the API. This lets customers decide how watermarking fits their transparency obligations and the experiences they provide to users.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-differing-approaches-from-openai-and-anthropic" class="wp-block-heading"&gt;Differing approaches from OpenAI and Anthropic&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;rsquo;s worth noting that OpenAI&amp;rsquo;s approach differs from that Anthropic outlined when it &lt;a href="https://thenewstack.io/anthropic-claude-text-watermark/" class="local-link"&gt;announced text watermarking for Claude in August&lt;/a&gt;. Anthropic said it would apply watermarking globally to supported Claude models, explaining that it didn&amp;#8217;t yet have a reliable way to limit the technology by region. That watermark also extends to developers using Claude through its API, as well as other products such as Claude and Claude Code. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic doesn&amp;#8217;t describe an equivalent opt-out for API developers, giving developers less control over whether their model output carries the watermark.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Watermarking will be applied at the model level, which means it will be present no matter which Claude product or surface the text comes from,&amp;rdquo; the company &lt;a href="https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;confirms in its documentation&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For OpenAI API customers that &lt;em&gt;do &lt;/em&gt;want watermarking, it can be activated at either the project or organization level, with customers able to choose which supported models should use it. The company says no changes to individual API requests are required once it&amp;#8217;s enabled.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-openai-s-provenance-track-record" class="wp-block-heading"&gt;OpenAI&amp;#8217;s provenance track record&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI already uses several provenance technologies for other types of generated content. Back in 2024, it &lt;a href="https://openai.com/index/understanding-the-source-of-what-we-see-and-hear-online/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;began adding&lt;/a&gt; Content Credentials to generated images, using an open standard developed by the Coalition for Content Provenance and Authenticity (C2PA) to record information about a file&amp;#8217;s origin and history.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It &lt;a href="https://openai.com/index/advancing-content-provenance/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;later added&lt;/a&gt; Google&amp;#8217;s SynthID watermarks to supported images in May 2026 and audio in July, and now offers a &lt;a href="https://developers.openai.com/api/docs/guides/content-provenance" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Content Provenance API&lt;/a&gt; for checking supported images and audio for those signals. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI could feasibly have used an existing text watermarking technology such as SynthID, while Meta has developed its own &lt;a href="https://github.com/facebookresearch/textseal" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TextSeal&lt;/a&gt; method too. On its &lt;a href="https://help.openai.com/en/articles/8912793-provenance-signals-in-openai-generated-content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;FAQ&lt;/a&gt; page, OpenAI says it developed textGrain to give it &amp;#8220;more control&amp;#8230;.over the balance between watermark detectability and the variety of responses generated from the same prompt.&amp;#8221; Indeed, it says textGrain matched or exceeded SynthID&amp;#8217;s detection performance in its testing, and plans to open-source the technology so &amp;#8220;others can build on it and help improve text watermarking.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-code-is-also-harder-to-watermark-where-the-signal-fades" class="wp-block-heading"&gt;&amp;#8220;Code is also harder to watermark&amp;#8221;: Where the signal fades&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The technique comes with some limitations, however. Because textGrain creates its signal through the choices a model makes between suitable words, detection becomes more difficult when there are fewer choices available. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI says its detector catches around 80% of watermarked 200-token passages, and 95% of 400-token passages in domains such as psychology, at a target false-positive rate of 1%. And detection is lower for more constrained material such as mathematics.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="688" height="464" src="https://cdn.thenewstack.io/media/2026/10/d4ff8c2c-screenshot-2026-10-05-at-19-06-20-our-approach-to-eu-text-provenance-rules-openai.png" alt="Impact of text length and type on detection rate" class="wp-image-22839310"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Impact of text length and type on detection rate (credit: OpenAI)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Editing the output can also substantially weaken the signal. In OpenAI&amp;#8217;s tests, replacing 10% of the words in a 400-token passage with synonyms reduced its detection rate from around 92% to 66%. Replacing 25% brought it down to just 17%.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="695" height="471" src="https://cdn.thenewstack.io/media/2026/10/a8071bd2-screenshot-2026-10-05-at-18-56-34-our-approach-to-eu-text-provenance-rules-openai.png" alt="Impact of edits on detection rate" class="wp-image-22839309"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Impact of edits on detection rate (credit: OpenAI)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Notably, OpenAI cautions that shorter passages may simply contain too little material for its detector to reliably identify a watermark. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Code is also harder to watermark because there are fewer plausible choices for what comes next than in ordinary prose,&amp;#8221; the company adds. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Code is also harder to watermark because there are fewer plausible choices for what comes next than in ordinary prose.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This makes the forthcoming Codex rollout worth watching. OpenAI plans to automatically watermark eligible Codex text output in the EU, while acknowledging that source code itself is particularly difficult to watermark. The company hasn&amp;#8217;t yet explained exactly what it means by &amp;ldquo;eligible&amp;rdquo; Codex output, or whether the watermark will apply to generated code itself.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As &lt;em&gt;The New Stack&lt;/em&gt; has &lt;a href="https://thenewstack.io/fable-5-1-watermark/" class="local-link"&gt;previously reported&lt;/a&gt;, Anthropic has encountered similar limitations with Claude. Code gives its watermarking system fewer opportunities to embed a signal without potentially altering how the program behaves, although natural-language text within code, such as comments, is easier to watermark.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And then there&amp;#8217;s also the question of whether introducing those token preferences affects the quality of generated code. OpenAI tested its Astra model with and without watermarking against several coding and agent benchmarks, including DeepSWE, AutomationBench and Terminal-Bench, and says it found no meaningful difference in performance. That suggests textGrain can be enabled without significantly hurting coding ability, although it doesn&amp;#8217;t tell us how reliably the resulting code can subsequently be identified as watermarked.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Access to the detector is a separate matter altogether. API customers that opt into textGrain don&amp;#8217;t automatically gain the ability to detect its watermark, with OpenAI saying that it&amp;#8217;s initially limiting detector access to approved research and academic organizations studying areas including text provenance and detection reliability. Such access could, for example, allow researchers to examine how reliably the watermark survives editing and other transformations, or investigate the circumstances in which the detector produces false positives or misses watermarked text.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; asked OpenAI for more detail on what constitutes eligible Codex output and whether it has code-specific detection rates. We will update here if, or when, we hear back.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-api-text-watermarking/"&gt;OpenAI brings text watermarking to its API &amp;#8212; and unlike Anthropic, it&amp;#8217;s off by default&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Developers can now choose whether to watermark their API text, as questions remain over how well the technology works with code.</content:encoded>
+    </item>
+    <item>
+      <title>Dynatrace’s $915M Arize deal bets AI agents are just another app to monitor</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/dynatrace-arize-ai-observability/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Mon, 05 Oct 2026 19:06:17 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Operations</category>
+      <category>Observability</category>
+      <category>Podcast</category>
+      <category>sponsor-dynatrace</category>
+      <category>sponsored-video</category>
+      <category>Video</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839306</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/3aae5110-for-thumbnail-15-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dynatrace completed its $915 million acquisition of Arize on Oct. 1, combining Dynatrace’s application and infrastructure monitoring with Arize’s AI agent tracing and evaluation capabilities. The deal aims to provide a unified view of AI applications, from model behavior to the underlying systems supporting them. Dynatrace’s Sean O’Dell emphasized that despite their complexity, AI applications are still applications" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/3aae5110-for-thumbnail-15.png" /&gt;&lt;p&gt;Dynatrace closed its $915 million acquisition of Arize on October 1, joining Arize&amp;#8217;s tracing and evaluation of AI agents to&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/dynatrace-arize-ai-observability/"&gt;Dynatrace&amp;#8217;s $915M Arize deal bets AI agents are just another app to monitor&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/3aae5110-for-thumbnail-15-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dynatrace completed its $915 million acquisition of Arize on Oct. 1, combining Dynatrace’s application and infrastructure monitoring with Arize’s AI agent tracing and evaluation capabilities. The deal aims to provide a unified view of AI applications, from model behavior to the underlying systems supporting them. Dynatrace’s Sean O’Dell emphasized that despite their complexity, AI applications are still applications" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/3aae5110-for-thumbnail-15.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Dynatrace closed its $915 million acquisition of Arize on October 1&lt;/strong&gt;, joining Arize&amp;#8217;s tracing and evaluation of AI agents to its own monitoring of the applications and infrastructure underneath them. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It also takes an independent AI observability vendor off the market, one Datadog had invested in.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I sat down with &lt;a href="https://www.linkedin.com/in/theseanodell/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sean O&amp;rsquo;Dell&lt;/a&gt;, a principal product marketing manager at &lt;a href="https://www.dynatrace.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dynatrace&lt;/a&gt;, on September 25 at the &lt;a href="https://thenewstack.io/wearedevelopers-san-jose-expansion/" class="local-link"&gt;WeAreDevelopers&lt;/a&gt; conference in San Jose, five days before the deal closed. Dynatrace was in a quiet period, so he kept his Arize comments general. &lt;/p&gt;
+
+
+&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/v3oyRMu9Ggg?si=869cDGiDFn5FesR2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;When I asked where Dynatrace is headed with Arize, his answer started from the premise that an AI app is still an app. When it breaks, the business needs to know what the outage cost, and the engineers on call need to know why it happened.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;We can ask a question, we can do natural language, we can have fantastic RAGs, we can do evaluations, but at the end of the day, it is an application,&amp;#8221; O&amp;#8217;Dell said. &lt;/p&gt;
+
+
+&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/5893ba0d-9cf7-490c-b584-0d760eb5ba41?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Teams need to know whether a response is appropriate, whether it&amp;#8217;s hallucinating, and what it cost, he said, and both Dynatrace and Arize already answer those questions. Those AI apps &amp;#8220;are still a part of a broader ecosystem of legacy applications, mainframes in many cases,&amp;#8221; he said.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Until now, that meant two tools. Arize co-founder Aparna Dhinakaran told &lt;em&gt;The New Stack&amp;rsquo;s&lt;/em&gt; Paul Sawers &lt;a href="https://thenewstack.io/dynatrace-arize-agents-observability/" class="local-link"&gt;that teams could debug the AI side in Arize&lt;/a&gt;, but a software problem sent them digging through separate traces to find the root cause.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Arize also brings Phoenix, its source-available tool for tracing and testing AI apps, and the developers who use it. O&amp;#8217;Dell called that community &amp;#8220;hard to find because it&amp;#8217;s so early and so new.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both companies already have agents that act on the data. Dynatrace&amp;#8217;s Bluebox, unveiled in June, reads a team&amp;#8217;s code in GitHub, GitLab or Bitbucket, matches it against production data and proposes a fix, according to O&amp;#8217;Dell. &amp;#8220;So here is your PR,&amp;#8221; O&amp;#8217;Dell said. Arize&amp;#8217;s Signal does the same for Alyx, Arize&amp;#8217;s own AI assistant. Arize accepts roughly 65% to 70% of the pull requests Signal writes, Dhinakaran told &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That leaves about a third for a person to catch. O&amp;#8217;Dell said a team can step back as &amp;#8220;a human out of the loop&amp;#8221; on Bluebox&amp;#8217;s fixes, but he still tells customers to validate a fix before approving it. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Ops has rarely let automation change production on its own. Back in the ITIL days, he said, an automated change came with &amp;#8220;1,500 checks and balances.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I don&amp;#8217;t trust everything that comes out of my [chatbot] or my agent,&amp;#8221; O&amp;#8217;Dell said. &amp;#8220;So why would you?&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He&amp;rsquo;s right.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/dynatrace-arize-ai-observability/"&gt;Dynatrace&amp;#8217;s $915M Arize deal bets AI agents are just another app to monitor&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+    </item>
+    <item>
+      <title>The AI safety check that runs on a laptop and nearly matched a 35B model</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/red-hat-guardrail-benchmark/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 05 Oct 2026 18:36:28 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839299</guid>
+      <description>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2024/12/5f6583f6-laptop-5673901_1280-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="laptop" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/12/5f6583f6-laptop-5673901_1280.jpg" /&gt;&lt;p&gt;Guardrail selection has typically meant choosing between a purpose-built classifier and an LLM acting as a judge. Decision models such&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/red-hat-guardrail-benchmark/"&gt;The AI safety check that runs on a laptop and nearly matched a 35B model&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2024/12/5f6583f6-laptop-5673901_1280-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="laptop" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2024/12/5f6583f6-laptop-5673901_1280.jpg" /&gt;
+&lt;p class="wp-block-paragraph" id="h-red-hat-tested-the-new-guardrail-models-the-boring-classifier-nearly-won"&gt;&lt;strong&gt;Guardrail selection has typically meant choosing between a purpose-built classifier&lt;/strong&gt; and an LLM acting as a judge. Decision models such as TypeSafe AI&amp;#8217;s Jev have added a third option, promising the flexibility of zero-shot policies without the cost of open-ended generation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;TypeSafe launched Jev in mid-September with performance claims based on evaluations it designed and ran itself. Red Hat&amp;#8217;s AI Safety team has now &lt;a href="https://developers.redhat.com/articles/2026/10/02/benchmarking-ai-decision-models-against-traditional-guardrails" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;put all three approaches through the same benchmarks&lt;/a&gt;. It tested nine guardrail configurations on prompt injection and content safety, running each through NVIDIA&amp;#8217;s open source &lt;a href="https://thenewstack.io/nvidia-launches-ai-guardrails-llm-turtles-all-the-way-down/" class="local-link"&gt;NeMo Guardrails&lt;/a&gt; toolkit. And the first result was actually pretty close.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B-FP8" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Qwen3.6-35B&lt;/a&gt;, used as an LLM judge, topped that test with 89.31% accuracy. Red Hat&amp;#8217;s &lt;a href="https://huggingface.co/RedHatAI/deberta-v3-base-prompt-injection-v2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DeBERTa-based prompt-injection classifier&lt;/a&gt;, which has roughly 200 million parameters, finished second at 89.01%. Qwen3.6-35B is a mixture-of-experts model with about 3 billion parameters active per token; however, the 175x figure overstates the difference in inference compute.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The latency results separated the two far more clearly. Red Hat&amp;#8217;s main results table puts DeBERTa at a median of 54.1 milliseconds, compared with 312.5 milliseconds for Qwen and 348.1 milliseconds for Jev, which reached 86.35% accuracy. On prompt injection, the small classifier matched the largest model in the test almost point for point while returning its decision in a fraction of the time.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;On prompt injection, the small classifier matched the largest model in the test almost point for point while returning its decision in a fraction of the time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The content-safety benchmark reversed the leaderboard order. Jev led at 86.20%, followed by DiffusionGemma, an open source Jev-style model &lt;a href="https://developers.redhat.com/articles/2026/09/28/run-decision-model-vllm-and-red-hat-ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;served through vLLM&lt;/a&gt;, at 85.53% and Qwen at 85.47%. Red Hat&amp;#8217;s 125-million-parameter &lt;a href="https://huggingface.co/RedHatAI/granite-guardian-hap-125m" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Granite Guardian classifier&lt;/a&gt; finished sixth at 80.27%, about six points behind Jev, though it remained the fastest option with a 33.2-millisecond median.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Red Hat plans to ship both classifiers as the default guardrail configurations in OpenShift AI 3.6, which gives the company a stake in how they compare. Its authors acknowledged that the content-safety result also points to a need for better small predictive models in that category.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-where-decision-models-pull-ahead" class="wp-block-heading"&gt;Where decision models pull ahead&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Decision models are pitched as a way to keep an LLM&amp;#8217;s flexibility for classification without paying to generate tokens the application never uses. Jev takes the application&amp;#8217;s state and a set of typed questions, then returns typed answers, such as a probability between 0 and 1.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The content-safety benchmark is where that approach paid off. Red Hat&amp;#8217;s policy covered prejudice, violence, profanity, illegal activity, sexual content, and pretexts such as role play, a much broader mix of risks than prompt injection, and both Jev and DiffusionGemma beat the purpose-built Granite classifier on it by more than five points.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Red Hat stopped short of endorsing decision models as a replacement for LLM judges. Qwen posted lower median latency than Jev on both benchmarks in Red Hat&amp;#8217;s setup. NVIDIA&amp;#8217;s 4-billion-parameter &lt;a href="https://huggingface.co/nvidia/Nemotron-3.5-Content-Safety" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nemotron-3.5-Content-Safety&lt;/a&gt;, running Red Hat&amp;#8217;s custom policy, trailed Jev on content safety by 1.13 percentage points while responding faster.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The open source alternatives also weaken the case for Jev in particular.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The open source alternatives also weaken the case for Jev in particular. DiffusionGemma came within 0.67 percentage points of Jev on content safety and beat it on prompt injection, 87.72% to 86.35%. &lt;a href="https://huggingface.co/convaiinnovations/laya" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Laya&lt;/a&gt;, an open source decision model with about 421 million parameters that Red Hat ran on a laptop CPU, posted 85.44% on prompt injection, though its results on content-safety were heavily dependent on the way the policy was written.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-prompts-still-shape-accuracy" class="wp-block-heading"&gt;Prompts still shape accuracy&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nemotron&amp;#8217;s prompt-injection accuracy jumped from 69.37% to 84.84% when Red Hat replaced NVIDIA&amp;#8217;s default risk definitions with its own. Laya swung even further on content safety, scoring 57.87% under Red Hat&amp;#8217;s original policy and 75.20% after the team tuned a policy specifically for it. That same tuned policy lowered Jev&amp;#8217;s content-safety accuracy from 86.20% to 82.53%.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A policy that recovered nearly 18 points for one decision model cost another 3.67 points on the same benchmark. That makes any single position on the leaderboard hard to take at face value. Red Hat noted that its original risk definitions were adapted from prompts that had worked well for LLM judges and may not suit zero-shot classifiers. SkipLabs founder Julien Verlaguet told &lt;em&gt;The New Stack&lt;/em&gt; earlier this year that &lt;a href="https://thenewstack.io/skiplabs-ai-guardrails-skipper/" class="local-link"&gt;many AI guardrail claims amount to better prompting&lt;/a&gt;, and Red Hat&amp;#8217;s numbers suggest the prompt still does much of the work for decision models.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-latency-depends-on-deployment" class="wp-block-heading"&gt;Latency depends on deployment&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Red Hat&amp;#8217;s latency figures measure more than inference speed. The team ran its pretrained classifiers, Laya and BART-large-mnli, on a MacBook Pro M1 CPU. Qwen, Nemotron, Shieldstral and DiffusionGemma ran through vLLM on GPU nodes with 96 GB of VRAM in a U.S. East Red Hat OpenShift Service on AWS cluster, and Jev was called through TypeSafe&amp;#8217;s API. Because the benchmark ran from the United Kingdom, every hosted model absorbed a transatlantic network hop that Red Hat estimates added at least 56 milliseconds per request.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Subtracting that estimate from Qwen&amp;#8217;s median still leaves roughly 256 milliseconds, several times DeBERTa&amp;#8217;s result. DeBERTa got there on a laptop CPU while the larger models had dedicated GPUs, so the classifier&amp;#8217;s speed advantage holds up after accounting for the network.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a guardrail in an application&amp;#8217;s request path, every millisecond adds to the delay the user feels, whether it comes from inference or the network. Teams already &lt;a href="https://thenewstack.io/how-to-put-guardrails-around-containerized-llms-on-kubernetes/" class="local-link"&gt;running guardrails as a separate hop ahead of inference&lt;/a&gt; also have to account for where that guardrail runs. Remote GPUs or a third-party API add cost and failure points that a classifier running on commodity CPUs avoids.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-choosing-a-guardrail-model" class="wp-block-heading"&gt;Choosing a guardrail model&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Red Hat&amp;#8217;s results show where the tradeoff starts to shift. A small task-specific classifier remains the stronger default for a well-defined risk with plenty of labeled training data. A zero-shot decision model or LLM judge earns its overhead on broader policies where no strong classifier exists, which matches the conclusion Red Hat&amp;#8217;s authors reached.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;A zero-shot decision model or LLM judge earns its overhead on broader policies where no strong classifier exists, which matches the conclusion Red Hat&amp;#8217;s authors reached.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The benchmark also undercuts the idea that decision models have already become the new default for guardrails. Jev competed with both classifiers and LLM judges without consistently beating either.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Red Hat tested only English-language datasets, so the accuracy results may not carry over to multilingual guardrails.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/red-hat-guardrail-benchmark/"&gt;The AI safety check that runs on a laptop and nearly matched a 35B model&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Red Hat benchmarked AI guardrails. A 200M-parameter classifier nearly matched a 35B LLM judge on prompt injection, while Jev won on content safety.</content:encoded>
+    </item>
+    <item>
+      <title>XCOR launches to trace outages in minutes. It still pages engineers.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cortex-xcor-ai-observability/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Mon, 05 Oct 2026 15:04:53 +0000</pubDate>
+      <category>AI</category>
+      <category>DevOps</category>
+      <category>Observability</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839148</guid>
+      <description>&lt;img width="1024" height="696" src="https://cdn.thenewstack.io/media/2026/10/3e7b2848-masantocreative-varepj-lg38-unsplash-1024x696.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/3e7b2848-masantocreative-varepj-lg38-unsplash-scaled.jpg" /&gt;&lt;p&gt;Palo Alto Networks introduced a new approach to AI-driven observability last week, signaling a shift from dashboards and manual incident&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cortex-xcor-ai-observability/"&gt;XCOR launches to trace outages in minutes. It still pages engineers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="696" src="https://cdn.thenewstack.io/media/2026/10/3e7b2848-masantocreative-varepj-lg38-unsplash-1024x696.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/3e7b2848-masantocreative-varepj-lg38-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Palo Alto Networks introduced a new approach&lt;/strong&gt; to AI-driven observability last week, signaling a shift from dashboards and manual incident response toward AI agents that investigate issues and recommend fixes on their own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cortex XCOR is an AI-driven platform designed to deliver the holy grail of observability: automatically root-causing issues and recommending fixes, rather than simply pointing technical operatives to dashboards.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company has said the foundational scale and cost challenges of cloud-native architectures stood in the way of this happening before now, and pre-AI-boom automation was sluggish. Palo Alto Networks &lt;a href="https://www.paloaltonetworks.com/company/press/2025/palo-alto-networks-to-acquire-chronosphere--next-gen-observability-leader--for-the-ai-era" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;acquired&lt;/a&gt; cloud-native observability platform and telemetry pipeline company Chronosphere in January to develop real-time agentic remediation in this vein.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Built by the Chronosphere team inside Palo Alto Networks, Cortex XCOR is designed to transform observability from static dashboards and manual remediation to an AI-first experience that automates both routine and complex investigations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;SVP and GM of observability at Palo Alto Networks, &lt;a href="https://www.linkedin.com/in/martinmao/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Martin Mao&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that when an alert fires, Cortex XCOR automatically triggers a specialized agent that autonomously reasons through underlying issues and recommends actions and mitigations.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We don&amp;rsquo;t want to keep waking engineers up in the middle of the night to help them make sense of dashboards; to be clear&amp;hellip; we don&amp;rsquo;t want to wake them up at all,&amp;rdquo; Mao says. &amp;ldquo;While XCOR defaults to a human-in-the-loop model, engineering leaders can expand its autonomous permissions over time and finally get a full night&amp;rsquo;s sleep.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We don&amp;rsquo;t want to keep waking engineers up in the middle of the night to help them make sense of dashboards; to be clear&amp;hellip; we don&amp;rsquo;t want to wake them up at all.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-the-end-of-dashboard-donkey-work-amp-troublesome-troubleshooting" class="wp-block-heading"&gt;The end of dashboard donkey work &amp;amp; troublesome troubleshooting&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If technologies like XCOR blossom and proliferate, we might reasonably expect the role of the site reliability engineer (SRE) to evolve beyond dashboard donkey work. As the &lt;a href="https://thenewstack.io/ai-sre-root-cause-analysis/" class="local-link"&gt;AI SRE&lt;/a&gt; &amp;ldquo;role&amp;rdquo; now starts to emerge, automation will target routine root cause analysis and troubleshooting.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Right now we&amp;rsquo;re at the moment where SREs will operate like airline pilots; they can rely on autopilot for smooth flying, but you still need an experienced pilot in the cockpit when something goes wrong. By automating troubleshooting, it frees up time for SREs to focus on more strategic architectural work instead of firefighting,&amp;rdquo; underlines Mao.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A BairesDev &lt;a href="https://www.bairesdev.com/blog/dev-barometer-q3-2026-devs-answering-for-code/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dev Barometer&lt;/a&gt; analysis suggests that 42% of developers now report that AI writes at least half their code, up from 12% last year. Clearly, the code creation velocity enabled by this cadence needs to be matched with security-centric oversight.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;SREs will operate like airline pilots; they can rely on autopilot for smooth flying, but you still need an experienced pilot in the cockpit when something goes wrong.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Palo Alto Networks&amp;rsquo; latest offering includes XCOR Operator, an AI assistant claimed to help &amp;ldquo;operations teams match AI-coding velocity&amp;rdquo; with contextual relevance. Mao and team have said that what makes the XCOR Operator powerful is that it &amp;ldquo;understands the user intent&amp;rdquo; and serves as the conversational interface for specialized agents that execute behind the scenes.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-from-pre-defined-specs-to-giving-reasoning-models-access-amp-capabilities" class="wp-block-heading"&gt;From pre-defined specs to giving reasoning models access &amp;amp; capabilities&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I was blown away by XCOR Operator&amp;rsquo;s ability to solve tough problems that went far beyond my initial expectations,&amp;rdquo; recounts Mao. &amp;ldquo;It not only changed the way I interact with our platform and observability workflows, but it caused me to fundamentally rethink how we design products. We&amp;rsquo;re now moving from strong, pre-defined specs for features and workflows to giving the reasoning models the right access and capabilities and allowing them to discover the various paths to reach an answer.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It caused me to fundamentally rethink how we design products.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mao explained that, today, the typical user of an observability platform has to play many roles, depending on the total deployment environment. They will be busy investigating incidents, tuning alerts and dashboards, optimizing data volumes, and so on. With Cortex XCOR, each of these roles is mirrored by specialized AI agents optimized to complete those task-specific workflows end to end.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to &lt;a href="https://www.paloaltonetworks.com/blog/2026/10/observabilitys-ai-moment-introducing-cortex-xcor-ai-driven-observability-for-autonomous-response-with-ai-sre/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mao&amp;rsquo;s blog&lt;/a&gt; on this update, the AI SRE agent is triggered automatically when an alert fires and autonomously reasons through underlying issues and recommends actions and mitigations in under three minutes on average, with a 75% success rate of root cause analysis in complex production environments and a further 19% of incidents where the analysis was deemed useful.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-manual-responses-can-take-20-minutes-just-to-locate" class="wp-block-heading"&gt;Manual responses can take 20 minutes just to locate&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;By comparison, manual responses can take 20 minutes just to locate the relevant issues, gather initial context, and find the right on-call engineer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;re pleased with the current average response time of under three minutes as our customers become familiar with this new experience. For now, we start by paging the engineer when an incident occurs, and it typically takes a few minutes for them to log into the platform. In that time, XCOR has already completed the investigation, so three minutes fulfills our current needs,&amp;rdquo; confirms Mao.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As users build trust in the analysis and increasingly automate remediation, Palo Alto Networks will focus on reducing response time. Mao thinks that the team &amp;ldquo;already has a good grasp&amp;rdquo; on what it takes to get there and notes that &amp;ldquo;cost is an important factor&amp;rdquo;, along with the steady decline in token prices.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mao further explained that none of the platform&amp;#8217;s automated reasoning is possible without complete end-to-end visibility and context. Palo Alto Networks announced in July its intent to acquire high-fidelity Real User Monitoring firm Embrace, and plans to bring what it calls front-end RUM (XCOR RUM) together with its own in-house XCOR Synthetics and its backend and infrastructure observability to deliver a full-stack platform.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-firefighting-forgoes-future-proofing-amp-foresight" class="wp-block-heading"&gt;Firefighting forgoes future-proofing &amp;amp; foresight&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;How bad can things get if software engineering teams miss out on this observability advantage? Mao suggests the worst-case scenario is engineers spending 100% of their time firefighting instead of innovating or delivering for the business. Because troubleshooting is already the most stressful part of an engineer&amp;#8217;s job, he believes this could lead to &amp;ldquo;massive burnout&amp;rdquo;, a risk the increasing presence of AI-generated code only exacerbates.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Uncontrolled observability is like a hyperactive puppy. It&amp;rsquo;s full of promise, but destroys your budget if left unchecked. As cloud-native and AI workloads send telemetry volumes skyrocketing, organizations need built-in discipline. Chronosphere puts those costs on a leash, ensuring teams get total visibility without the runaway bill. This is why data optimization and cost effectiveness remain central to XCOR&amp;#8217;s mission,&amp;rdquo; Mao says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Underpinning this work towards full-stack visibility is the XCOR Fabric, technology that provides AI agents with real-time application, infrastructure and institutional context.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;XCOR Fabric draws its lifeblood from the organization&amp;rsquo;s knowledge graph (described as a real-time model incorporating infrastructure, applications and business logic), from operational memory (historical context captured from past incident investigations), from user behavior (users here being senior engineers running specific queries and accessing specific dashboards), as well as human knowledge derived from runbooks, documentation, and operational files.&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cortex-xcor-ai-observability/"&gt;XCOR launches to trace outages in minutes. It still pages engineers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Palo Alto Networks&amp;#039; Cortex XCOR uses AI SRE agents to root-cause incidents in under three minutes, the company says, so engineers aren&amp;#039;t woken at night.</content:encoded>
+    </item>
+    <item>
       <title>Agents have made CI the bottleneck. Faster pipelines are the wrong fix.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/ci-bottleneck-agent-verification/</link>
       <dc:creator>Arjun Iyer</dc:creator>
@@ -31,7 +694,7 @@
       <category>Sponsored</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839249</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled orange and pink chain links on purple, an image for interconnected services and the CI/CD verification bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-scaled.jpg" /&gt;&lt;p&gt;Three posts landed in September that I think engineering leaders should read together. Anthropic&amp;#8217;s engineering team wrote that their continuous&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled orange and pink chain links on purple, an image for interconnected services and the CI/CD verification bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-scaled.jpg" /&gt;&lt;p&gt;Three posts landed in September that I think engineering leaders should read together. Anthropic&amp;#8217;s engineering team wrote that their continuous&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ci-bottleneck-agent-verification/"&gt;Agents have made CI the bottleneck. Faster pipelines are the wrong fix.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Tangled orange and pink chain links on purple, an image for interconnected services and the CI/CD verification bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/800c97d2-zyanya-citlalli-b0hmmckjpro-unsplash-scaled.jpg" /&gt;
@@ -145,7 +808,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac38bde2fe50&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac38bde2fe50" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img decoding="async" width="1200" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/00644982-three-validation-loops.svg" alt="" class="wp-image-22839258"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac4da3d08b69&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac4da3d08b69" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1200" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/00644982-three-validation-loops.svg" alt="" class="wp-image-22839258"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -182,7 +845,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac38bde303dd&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac38bde303dd" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img decoding="async" width="1200" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/10a51f46-clone-vs-multiplex.svg" alt="" class="wp-image-22839259"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac4da3d09154&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac4da3d09154" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1200" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/10a51f46-clone-vs-multiplex.svg" alt="" class="wp-image-22839259"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2897,1629 +3560,6 @@ FROM GRAPH_TABLE (ops_graph
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/cohere-embed-pro-fast/"&gt;Cohere&amp;#8217;s faster query model barely dents retrieval quality in its tests&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Cohere&amp;#039;s Embed 5 lets developers index with the Pro model and query those vectors with the cheaper Fast model, so RAG and agent teams skip a second index.</content:encoded>
-    </item>
-    <item>
-      <title>CloudBees just committed to an AI-first pivot. Here’s why it matters for enterprise DevOps teams</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cloudbees-ceo-ai-transformation/</link>
-      <dc:creator>Chris J. Preimesberger</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 18:08:49 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>CI/CD</category>
-      <category>DevOps</category>
-      <category>Podcast</category>
-      <category>sponsor-cloudbees</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838917</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/65b70d5b-thumbnail-17-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Moritz Plassnig" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/65b70d5b-thumbnail-17.png" /&gt;&lt;p&gt;When new CloudBees CEO Mo Plassnig took the job earlier this year, his board of directors handed him a mandate&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudbees-ceo-ai-transformation/"&gt;CloudBees just committed to an AI-first pivot. Here&amp;#8217;s why it matters for enterprise DevOps teams&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/65b70d5b-thumbnail-17-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Moritz Plassnig" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/65b70d5b-thumbnail-17.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;When new CloudBees CEO Mo Plassnig took the job earlier this year&lt;/strong&gt;, his board of directors handed him a mandate that left little room for interpretation: Do &lt;em&gt;not&lt;/em&gt; stay the course.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In an era when generative AI is radically reshaping how software is written, deployed, and managed, keeping things business-as-usual for an enterprise continuous integration/delivery (CI/CD) stalwart like &lt;a href="https://www.cloudbees.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CloudBees&lt;/a&gt; would be a ticket to irrelevance. &lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/AezNGqwShzs?si=sPm1QeHzgO2jQCOP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Last week at the WeAreDevelopers Conference in San Jose, California, &lt;a href="http://linkedin.com/in/moritzplassnig/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Plassnig&lt;/a&gt; unpacked for &lt;em&gt;The New Stack&lt;/em&gt; podcast how he plans to steer the company through its biggest transformation yet: Pivoting CloudBees into an AI-first organization built to survive a world drowning in machine-generated code.&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/80eeaf4e-8aab-41e6-a812-9634bad63c94?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;h2 id="h-a-homecoming-driven-by-generative-ai" class="wp-block-heading"&gt;A homecoming driven by generative AI&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Plassnig first joined CloudBees eight years ago when the company acquired Codeship, the DevOps CI/CD startup he co-founded. After spending several post-acquisition years building CloudBees products, he took a hiatus to work in security.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;&amp;#8230;when generative AI emerged, it reignited my passion.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I didn&amp;#8217;t think much about DevOps or CI/CD for several years,&amp;#8221; Plassnig says. &amp;#8220;However, when generative AI emerged, it reignited my passion. I became extremely excited about what we could achieve in our domain, which ultimately brought me back to CloudBees.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That excitement stems from a stark reality: AI is creating an order-of-magnitude shift in code volume. While hype merchants on social media obsess over autonomous agents taking over software engineering jobs entirely, enterprise leaders face a more immediate problem: How on earth do you manage the deluge of software currently pouring out of AI models?&lt;/p&gt;
-
-
-
-&lt;h2 id="h-enterprise-reality-vs-social-media-hype" class="wp-block-heading"&gt;Enterprise reality vs. social media hype&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Having spent his first few months as CEO touring Fortune 500 enterprises, large public organizations, and global enterprises, Plassnig tells us in the interview that he saw a distinct mismatch between internet hot takes and ground-level enterprise execution.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;What they are doing on the ground differs significantly from conference hype or public commentary on social media,&amp;#8221; Plassnig says. &amp;#8220;While everyone recognizes that agentic coding represents the future, adopting these technologies within large enterprises requires extensive, hard work. It isn&amp;#8217;t strictly a technology problem; it demands process transformation, governance, and stringent security.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;How he plans to carry out his reinvention of CloudBees and its popular open-source Jenkins automation server is a story worth hearing. Invest 25 minutes here and learn about it.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudbees-ceo-ai-transformation/"&gt;CloudBees just committed to an AI-first pivot. Here&amp;#8217;s why it matters for enterprise DevOps teams&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>CloudBees&amp;#039; board told new CEO Mo Plassnig not to stay the course. His answer: an AI-first reinvention built for a flood of machine-generated code.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s Dots boundary problem rate doubled in longer tests</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-dots-agent-permissions/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 15:26:15 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838783</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/f85b2a8f-dots-vision-film-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f85b2a8f-dots-vision-film-scaled.png" /&gt;&lt;p&gt;OpenAI&amp;#8217;s new Dots are built to keep working after you step away. Launched at DevDay on Tuesday, the always-on agents&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-dots-agent-permissions/"&gt;OpenAI’s Dots boundary problem rate doubled in longer tests&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/f85b2a8f-dots-vision-film-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/f85b2a8f-dots-vision-film-scaled.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI&amp;rsquo;s new &lt;a href="https://thenewstack.io/openai-dots-gpt6-agents/" class="local-link"&gt;Dots&lt;/a&gt; are built to keep working&lt;/strong&gt; after you step away. Launched at DevDay on Tuesday, the always-on agents run on their own cloud computers, use &lt;a href="https://thenewstack.io/astra-arc-agi-benchmark/" class="local-link"&gt;GPT-6 Astra&lt;/a&gt;, and connect to thousands of apps. A Dot can monitor connected systems and move from one task to the next without waiting for you to prompt it again. But as the work changes, it has to keep figuring out where its permission to act on your behalf ends.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As we learned during the DevDay event, OpenAI measured that problem in its own testing. When it doubled the number of tasks in a chained sequence from five to ten, the share of samples flagged for boundary problems rose from 8.6% to 19.7%. The finding appears in the &lt;a href="https://deploymentsafety.openai.com/gpt-6-astra/maintaining-boundaries-across-chained-tasks" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dots appendix of the GPT-6 Astra system card&lt;/a&gt;, which OpenAI updated alongside the launch.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What a Dot can do can change as it moves from one task to the next, even when the user doesn&amp;#8217;t explicitly set new boundaries. That leaves the agent to figure out its limits from business records, earlier decisions, context, and OpenAI&amp;#8217;s confirmation policy. The evaluation found no high-severity breaches or data exfiltration, although OpenAI hasn&amp;#8217;t said what the flagged boundary problems actually involved.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;What a Dot is allowed to do can change as it moves from one task to the next, even when the user doesn&amp;#8217;t explicitly set new boundaries.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-reading-versus-acting-in-dots" class="wp-block-heading"&gt;Reading versus acting in Dots&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The first safeguard applies during what OpenAI calls proactive research, when a Dot looks for work on its own. During that phase, it can read connected apps but can&amp;#8217;t change them, send messages, or control the user&amp;#8217;s browser or computer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Each Dot also gets its own cloud computer and browser where it can build and test things, but OpenAI hasn&amp;#8217;t said whether those environments face the same restrictions during background work. That matters because a restriction only holds &lt;a href="https://thenewstack.io/openai-agents-security-bypasses/" class="local-link"&gt;if the agent can&amp;#8217;t find a way around it&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Once a Dot is ready to act, it moves into another layer of controls. Built-in rules decide when it needs permission, Custom Rules let users allow, gate, or block specific actions, and auto-review checks anything that could affect accounts or share information. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Auto-review comes from Codex, where a second model checks commands that run outside a predefined sandbox. The company adapted that system for Dots with its own review instructions and gave the confirmation policy more weight than it receives in the Codex harness.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-from-research-to-pull-requests" class="wp-block-heading"&gt;From research to pull requests&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A Dot doesn&amp;#8217;t stay read-only once it takes on a task; OpenAI gives the example of one that monitors customer feedback, identifies a small fix, then builds and tests it on its own machine. By the time it hands the developer a finished pull request, the Dot has already written to the repository before a human has reviewed the work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI&amp;#8217;s testing also shows what can happen when those permissions carry over into recurring work. In a &lt;a href="https://deploymentsafety.openai.com/gpt-6-astra/forecasting-misaligned-behavior-with-deployment-simulation-of-internal-codex-traffic" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;simulation of internal Codex traffic&lt;/a&gt;, a user asked Astra to create an hourly helper that would watch for failing checks, fix tests, open pull requests, request reviews, and merge once certain conditions were met. Astra enabled every available action across its chat, source-control, and task-system connections, turned off per-action approval, and then published and scheduled the helper. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The test involved Codex rather than Dots, but it describes the kind of long-running workflow Dots are built for, and in it the model gave the helper more access than the user asked for.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-prompt-injection-and-proactive-research" class="wp-block-heading"&gt;Prompt injection and proactive research&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Keeping proactive research read-only also limits indirect prompt injection, since an agent that finds malicious instructions hidden in a ticket or document has fewer ways to act on them right away. OpenAI reports a 99.79% defender success rate for Astra in its internal indirect-injection tests. In external testing, Gray Swan ran 1,810 curated attacks and estimated an 8.5% attack success rate over 15 attempts per scenario against Astra with safeguards enabled. The threat itself keeps evolving, and the company recently described &lt;a href="https://thenewstack.io/openai-self-replicating-injections/" class="local-link"&gt;a new variety of prompt injection that can spread like a computer worm&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Separating reading from writing doesn&amp;#8217;t remove the risk, because what a Dot reads during research can still shape what it does later. Outside information is supposed to guide its work, so customer feedback can influence the code a Dot writes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Because Dots can keep notes and learn from feedback over time, OpenAI tested whether misleading hints in the information they encounter could influence later work. Dots running on Astra recorded a 0% misalignment rate across 151 tasks, although that&amp;#8217;s a relatively small test for an agent designed to run continuously.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Dots running on Astra recorded a 0% misalignment rate across 151 tasks, a strong result from a relatively small test for an agent designed to run continuously.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-credentials-identity-and-audit-trails" class="wp-block-heading"&gt;Credentials, identity and audit trails&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When a Dot signs in to a supported website with a saved password, OpenAI says the credential isn&amp;#8217;t exposed to the model, keeping it out of the context window and away from malicious instructions the agent might encounter.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The system card offers some context for that separation, with credential-searching flags appearing more often for Astra than for GPT-5.6 Sol in OpenAI&amp;#8217;s Codex simulation. In another flagged case, Astra was asked to debug duplicate notifications but went further, retrieving a service&amp;#8217;s bot token from its settings and using it to read Slack messages as that service.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company has not said whether a primary Dot&amp;#8217;s actions inside services such as GitHub or Slack are logged under the user&amp;#8217;s identity or under one that marks them as coming from an agent. If they carry the user&amp;#8217;s identity, a security team investigating an incident will have a harder time separating what the person did from what the Dot did on their behalf. Specialist Dots, which OpenAI is previewing for enterprise pilots, are built around that problem. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Organizations provision each Specialist Dot with its own identity, credentials, and hardware, while OpenAI is working with Microsoft to bring them under Agent 365&amp;#8217;s governance and security controls.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;When a Dot signs in to a supported website with a saved password, OpenAI says the credential isn&amp;#8217;t exposed to the model, keeping it out of the context window, and away from malicious instructions the agent might encounter. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-what-can-developers-take-from-it" class="wp-block-heading"&gt;What can developers take from it?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For developers building long-running agents, the chained-task results suggest they should reconsider permissions as new work comes in, rather than set them once and carry them forward. That could mean restating the agent&amp;#8217;s scope between tasks, preserving where information gathered during research came from, keeping credentials outside the model, and giving the agent its own identity in downstream systems.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-dots-agent-permissions/"&gt;OpenAI’s Dots boundary problem rate doubled in longer tests&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenAI&amp;#039;s system card shows Dots agents get more boundary flags as tasks pile up. Here&amp;#039;s what that means for developers building long-running agents.</content:encoded>
-    </item>
-    <item>
-      <title>Your AI agent aced the demo. Your data may still derail it.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-production-data/</link>
-      <dc:creator>Kimberly Fessel</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 15:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Data</category>
-      <category>Databases</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838323</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/06/5a5a0078-ghariza-mahavira-oq_mjoayun0-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital illustration of intense neon red and purple glowing bars under compression against a dark black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/5a5a0078-ghariza-mahavira-oq_mjoayun0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Ahhh, demo AI agents. Don&amp;#8217;t you just love them? Cute and cuddly, solving all your company&amp;#8217;s problems without complaints, missteps,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-production-data/"&gt;Your AI agent aced the demo. Your data may still derail it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/06/5a5a0078-ghariza-mahavira-oq_mjoayun0-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital illustration of intense neon red and purple glowing bars under compression against a dark black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/5a5a0078-ghariza-mahavira-oq_mjoayun0-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Ahhh, demo AI agents.&lt;/strong&gt; Don&amp;rsquo;t you just &lt;em&gt;love&lt;/em&gt; them? Cute and cuddly, solving all your company&amp;rsquo;s problems without complaints, missteps, or even a stray hiccup. You&amp;rsquo;re feeling proud, accomplished, and ready to release your &amp;ldquo;baby&amp;rdquo; out to your eagerly waiting users.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;The only problem is that the adorable AI agent made a complete mess in the real world.&lt;/strong&gt; It couldn&amp;rsquo;t handle the disparate sources of information. Or it didn&amp;rsquo;t know what to do with data that changed daily, if not hourly. Or maybe it wasn&amp;rsquo;t prepared to manage system permissions. Whatever went wrong, building a convincing demo agent is increasingly straightforward. Launching one in production, however, is not.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Join the live conversation&lt;/strong&gt;: On October 14, &lt;a href="https://www.linkedin.com/in/ravi-marwaha/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Ravi Marwaha&lt;/strong&gt;&lt;/a&gt;, COO and Chief Product &amp;amp; Technology Officer at &lt;a href="https://arango.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Arango&lt;/strong&gt;&lt;/a&gt;, breaks down six data requirements to move your AI agent from the demo phase into production. He&amp;rsquo;ll share practical examples showing that a successful demo showcases your agent in a controlled environment, but doesn&amp;rsquo;t prove your surrounding data architecture can reliably support it in production.&lt;/p&gt;
-
-
-
-
-
-    &lt;div class="block--tns-airmeet-webinar"&gt;
-        &lt;div
-	id="tns-webinar-frame-content-block-airmeet"
-	class="webinar-content-block"
-	data-section="airmeet"
-&gt;
-	&lt;div class="section-heading"&gt;
-		REGISTER NOW FOR THIS WEBINAR
-	&lt;/div&gt;
-	&lt;div class="airmeet-container" data-event-id="68fa45e0-a2c7-11f1-a76d-e1c5acc966d4"&gt;
-		&lt;div class="airmeet-inner"&gt;
-
-			&lt;!-- Registration Form: package this  --&gt;
-			&lt;form class="airmeet-webinar-form airmeet-registration-form"&gt;
-				&lt;input type="hidden" name="event_id" value="68fa45e0-a2c7-11f1-a76d-e1c5acc966d4" /&gt;
-				&lt;input type="hidden" name="utm_source" value="" /&gt;
-				&lt;input type="hidden" name="utm_medium" value="" /&gt;
-				&lt;input type="hidden" name="utm_campaign" value="" /&gt;
-				&lt;input type="hidden" name="utm_term" value="" /&gt;
-				&lt;input type="hidden" name="utm_content" value="" /&gt;
-				&lt;div class="airmeet-questions"&gt;
-														&lt;label class="airmeet-question--choices"&gt;
-										&lt;p&gt;
-											Which of the following best describes where your team is with AI agents today?																							&lt;span class="airmeet-required"&gt;*&lt;/span&gt;
-																					&lt;/p&gt;
-										&lt;select data-question="Which of the following best describes where your team is with AI agents today?" name="airmeet-question-0" required&gt;
-											&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
-																							&lt;option value="Exploring / evaluating agent architectures"&gt;Exploring / evaluating agent architectures&lt;/option&gt;
-																							&lt;option value="Running pilots or proofs of concept"&gt;Running pilots or proofs of concept&lt;/option&gt;
-																							&lt;option value="Operating agents in production but hitting scaling challenges"&gt;Operating agents in production but hitting scaling challenges&lt;/option&gt;
-																							&lt;option value="Not currently working with AI agents"&gt;Not currently working with AI agents&lt;/option&gt;
-																					&lt;/select&gt;
-									&lt;/label&gt;
-													&lt;/div&gt;
-
-				&lt;div class="airmeet-questions airmeet-profile-fields" hidden&gt;
-					&lt;label&gt;
-						&lt;p&gt;Email &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-						&lt;input type="email" name="email" required /&gt;
-					&lt;/label&gt;
-					&lt;label&gt;
-						&lt;p&gt;First Name &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-						&lt;input type="text" name="first-name" required /&gt;
-					&lt;/label&gt;
-					&lt;label&gt;
-						&lt;p&gt;Last Name &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-						&lt;input type="text" name="last-name" required /&gt;
-					&lt;/label&gt;
-					&lt;label&gt;
-						&lt;p&gt;Job Role &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-						&lt;select name="job-role" required&gt;
-							&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
-							&lt;option value="ai-researcher"&gt;AI Researcher / Research Scientist&lt;/option&gt;
-							&lt;option value="architect"&gt;Architect&lt;/option&gt;
-							&lt;option value="business-development"&gt;Business Development/Marketing/Sales&lt;/option&gt;
-							&lt;option value="community-manager-devrel"&gt;Community Manager / Developer Advocate&lt;/option&gt;
-							&lt;option value="data-analyst"&gt;Data Analyst / Business Intelligence Analyst&lt;/option&gt;
-							&lt;option value="data-engineer"&gt;Data Engineer&lt;/option&gt;
-							&lt;option value="data-scientist"&gt;Data Scientist&lt;/option&gt;
-							&lt;option value="developer-engineer"&gt;Developer / Software Engineer&lt;/option&gt;
-							&lt;option value="devops-engineer"&gt;DevOps Engineer&lt;/option&gt;
-							&lt;option value="educator-instructor"&gt;Educator / Instructor&lt;/option&gt;
-							&lt;option value="enthusiast-hobbyist"&gt;Enthusiast/Hobbyist&lt;/option&gt;
-							&lt;option value="founder-investor-vc"&gt;Founder / Entrepreneur / Investor / VC&lt;/option&gt;
-							&lt;option value="it-management-cio-ciso-cto"&gt;IT management, including CIO/CISO/CTO/CDO&lt;/option&gt;
-							&lt;option value="machine-learning-engineer"&gt;Machine Learning Engineer&lt;/option&gt;
-							&lt;option value="ml-ops-engineer"&gt;MLOps Engineer / Infrastructure Engineer&lt;/option&gt;
-							&lt;option value="product-manager"&gt;Product Manager&lt;/option&gt;
-							&lt;option value="security-professional"&gt;Security / Privacy Professional&lt;/option&gt;
-							&lt;option value="statistician-quantitative-analyst"&gt;Statistician / Quantitative Analyst&lt;/option&gt;
-							&lt;option value="student"&gt;Student&lt;/option&gt;
-							&lt;option value="sysadmin-ops-sre"&gt;SysAdmin/Operations/SRE&lt;/option&gt;
-							&lt;option value="technical-writer"&gt;Technical Writer&lt;/option&gt;
-							&lt;option value="ui-ux-vis-designer"&gt;UX / UI Designer / Data Visualization Specialist&lt;/option&gt;
-						&lt;/select&gt;
-					&lt;/label&gt;
-
-					&lt;div class="airmeet-job-more-fields" hidden&gt;
-						&lt;label&gt;
-							&lt;p&gt;Job Level &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-							&lt;select name="job-level" required&gt;
-								&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
-								&lt;option value="C-Level"&gt;C-Level&lt;/option&gt;
-								&lt;option value="Founder/Owner"&gt;Founder/Owner&lt;/option&gt;
-								&lt;option value="VP/Director"&gt;VP/Director&lt;/option&gt;
-								&lt;option value="Manager/Supervisor"&gt;Manager/Supervisor&lt;/option&gt;
-								&lt;option value="Mid Level or Senior Non-Managerial Staff"&gt;Mid Level or Senior Individual Contributor&lt;/option&gt;
-								&lt;option value="Entry Level/Junior Staff"&gt;Entry Level or Junior Individual Contributor&lt;/option&gt;
-								&lt;option value="Freelancer/Contractor"&gt;Freelancer/Contractor&lt;/option&gt;
-								&lt;option value="Educator (Teacher, Instructor, Professor)"&gt;Educator (Teacher, Instructor, Professor)&lt;/option&gt;
-								&lt;option value="Student/Intern"&gt;Student/Intern&lt;/option&gt;
-								&lt;option value="Other"&gt;Other&lt;/option&gt;
-								&lt;option value="N/A"&gt;N/A&lt;/option&gt;
-							&lt;/select&gt;
-						&lt;/label&gt;
-						&lt;label&gt;
-							&lt;p&gt;Industry &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-							&lt;select name="industry" required&gt;
-								&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
-								&lt;option value="advertising-marketing"&gt;Advertising/Marketing&lt;/option&gt;
-								&lt;option value="aerospace-aviation"&gt;Aerospace/Aviation&lt;/option&gt;
-								&lt;option value="agriculture"&gt;Agriculture&lt;/option&gt;
-								&lt;option value="automotive"&gt;Automotive&lt;/option&gt;
-								&lt;option value="biotech-pharma"&gt;Biotech/Pharmaceutical&lt;/option&gt;
-								&lt;option value="business-services"&gt;Business Services (accounting, consulting, etc.)&lt;/option&gt;
-								&lt;option value="computers-it"&gt;Computers/Information Technology&lt;/option&gt;
-								&lt;option value="construction"&gt;Construction&lt;/option&gt;
-								&lt;option value="education"&gt;Education&lt;/option&gt;
-								&lt;option value="facilities"&gt;Facilities/Service Industry&lt;/option&gt;
-								&lt;option value="fintech"&gt;Finance/Financial Services (banking, insurance, etc.)&lt;/option&gt;
-								&lt;option value="government"&gt;Government&lt;/option&gt;
-								&lt;option value="healthcare"&gt;Healthcare&lt;/option&gt;
-								&lt;option value="human-resources"&gt;Human Resources&lt;/option&gt;
-								&lt;option value="legal"&gt;Legal&lt;/option&gt;
-								&lt;option value="life-sciences"&gt;Life sciences (biotech, pharmaceuticals, etc.)&lt;/option&gt;
-								&lt;option value="manufacturing"&gt;Manufacturing&lt;/option&gt;
-								&lt;option value="media"&gt;Media&lt;/option&gt;
-								&lt;option value="non-profit"&gt;Non-profit&lt;/option&gt;
-								&lt;option value="real-estate"&gt;Real Estate&lt;/option&gt;
-								&lt;option value="retail-consumer-goods"&gt;Retail/Consumer Goods&lt;/option&gt;
-								&lt;option value="telecommunications"&gt;Telecommunications&lt;/option&gt;
-								&lt;option value="transportation-logistics"&gt;Transportation/Logistics&lt;/option&gt;
-								&lt;option value="travel-hospitality-entertainment"&gt;Travel/Hospitality/Entertainment&lt;/option&gt;
-								&lt;option value="utilitiy-energy"&gt;Utility/Energy&lt;/option&gt;
-							&lt;/select&gt;
-						&lt;/label&gt;
-						&lt;label&gt;
-							&lt;p&gt;Organization &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-							&lt;input type="text" name="organization" required /&gt;
-						&lt;/label&gt;
-					&lt;/div&gt;
-
-					&lt;label&gt;
-						&lt;p&gt;Country &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-						&lt;select name="country" required&gt;
-							&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
-							&lt;option value="US"&gt;United States&lt;/option&gt;
-							&lt;option value="CA"&gt;Canada&lt;/option&gt;
-							&lt;option value="GB"&gt;United Kingdom&lt;/option&gt;
-							&lt;option value="AF"&gt;Afghanistan&lt;/option&gt;
-							&lt;option value="AL"&gt;Albania&lt;/option&gt;
-							&lt;option value="DZ"&gt;Algeria&lt;/option&gt;
-							&lt;option value="AD"&gt;Andorra&lt;/option&gt;
-							&lt;option value="AO"&gt;Angola&lt;/option&gt;
-							&lt;option value="AG"&gt;Antigua and Barbuda&lt;/option&gt;
-							&lt;option value="AR"&gt;Argentina&lt;/option&gt;
-							&lt;option value="AM"&gt;Armenia&lt;/option&gt;
-							&lt;option value="AU"&gt;Australia&lt;/option&gt;
-							&lt;option value="AT"&gt;Austria&lt;/option&gt;
-							&lt;option value="AZ"&gt;Azerbaijan&lt;/option&gt;
-							&lt;option value="BS"&gt;Bahamas&lt;/option&gt;
-							&lt;option value="BH"&gt;Bahrain&lt;/option&gt;
-							&lt;option value="BD"&gt;Bangladesh&lt;/option&gt;
-							&lt;option value="BB"&gt;Barbados&lt;/option&gt;
-							&lt;option value="BY"&gt;Belarus&lt;/option&gt;
-							&lt;option value="BE"&gt;Belgium&lt;/option&gt;
-							&lt;option value="BZ"&gt;Belize&lt;/option&gt;
-							&lt;option value="BJ"&gt;Benin&lt;/option&gt;
-							&lt;option value="BT"&gt;Bhutan&lt;/option&gt;
-							&lt;option value="BO"&gt;Bolivia&lt;/option&gt;
-							&lt;option value="BA"&gt;Bosnia and Herzegovina&lt;/option&gt;
-							&lt;option value="BW"&gt;Botswana&lt;/option&gt;
-							&lt;option value="BR"&gt;Brazil&lt;/option&gt;
-							&lt;option value="BN"&gt;Brunei&lt;/option&gt;
-							&lt;option value="BG"&gt;Bulgaria&lt;/option&gt;
-							&lt;option value="BF"&gt;Burkina Faso&lt;/option&gt;
-							&lt;option value="BI"&gt;Burundi&lt;/option&gt;
-							&lt;option value="CV"&gt;Cabo Verde&lt;/option&gt;
-							&lt;option value="KH"&gt;Cambodia&lt;/option&gt;
-							&lt;option value="CM"&gt;Cameroon&lt;/option&gt;
-							&lt;option value="CF"&gt;Central African Republic&lt;/option&gt;
-							&lt;option value="TD"&gt;Chad&lt;/option&gt;
-							&lt;option value="CL"&gt;Chile&lt;/option&gt;
-							&lt;option value="CN"&gt;China&lt;/option&gt;
-							&lt;option value="CO"&gt;Colombia&lt;/option&gt;
-							&lt;option value="KM"&gt;Comoros&lt;/option&gt;
-							&lt;option value="CG"&gt;Congo&lt;/option&gt;
-							&lt;option value="CD"&gt;Congo (Democratic Republic)&lt;/option&gt;
-							&lt;option value="CR"&gt;Costa Rica&lt;/option&gt;
-							&lt;option value="CI"&gt;Cote d&amp;#8217;Ivoire&lt;/option&gt;
-							&lt;option value="HR"&gt;Croatia&lt;/option&gt;
-							&lt;option value="CU"&gt;Cuba&lt;/option&gt;
-							&lt;option value="CY"&gt;Cyprus&lt;/option&gt;
-							&lt;option value="CZ"&gt;Czech Republic&lt;/option&gt;
-							&lt;option value="DK"&gt;Denmark&lt;/option&gt;
-							&lt;option value="DJ"&gt;Djibouti&lt;/option&gt;
-							&lt;option value="DM"&gt;Dominica&lt;/option&gt;
-							&lt;option value="DO"&gt;Dominican Republic&lt;/option&gt;
-							&lt;option value="EC"&gt;Ecuador&lt;/option&gt;
-							&lt;option value="EG"&gt;Egypt&lt;/option&gt;
-							&lt;option value="SV"&gt;El Salvador&lt;/option&gt;
-							&lt;option value="GQ"&gt;Equatorial Guinea&lt;/option&gt;
-							&lt;option value="ER"&gt;Eritrea&lt;/option&gt;
-							&lt;option value="EE"&gt;Estonia&lt;/option&gt;
-							&lt;option value="SZ"&gt;Eswatini&lt;/option&gt;
-							&lt;option value="ET"&gt;Ethiopia&lt;/option&gt;
-							&lt;option value="FJ"&gt;Fiji&lt;/option&gt;
-							&lt;option value="FI"&gt;Finland&lt;/option&gt;
-							&lt;option value="FR"&gt;France&lt;/option&gt;
-							&lt;option value="GA"&gt;Gabon&lt;/option&gt;
-							&lt;option value="GM"&gt;Gambia&lt;/option&gt;
-							&lt;option value="GE"&gt;Georgia&lt;/option&gt;
-							&lt;option value="DE"&gt;Germany&lt;/option&gt;
-							&lt;option value="GH"&gt;Ghana&lt;/option&gt;
-							&lt;option value="GR"&gt;Greece&lt;/option&gt;
-							&lt;option value="GD"&gt;Grenada&lt;/option&gt;
-							&lt;option value="GT"&gt;Guatemala&lt;/option&gt;
-							&lt;option value="GN"&gt;Guinea&lt;/option&gt;
-							&lt;option value="GW"&gt;Guinea-Bissau&lt;/option&gt;
-							&lt;option value="GY"&gt;Guyana&lt;/option&gt;
-							&lt;option value="HT"&gt;Haiti&lt;/option&gt;
-							&lt;option value="HN"&gt;Honduras&lt;/option&gt;
-							&lt;option value="HU"&gt;Hungary&lt;/option&gt;
-							&lt;option value="IS"&gt;Iceland&lt;/option&gt;
-							&lt;option value="IN"&gt;India&lt;/option&gt;
-							&lt;option value="ID"&gt;Indonesia&lt;/option&gt;
-							&lt;option value="IR"&gt;Iran&lt;/option&gt;
-							&lt;option value="IQ"&gt;Iraq&lt;/option&gt;
-							&lt;option value="IE"&gt;Ireland&lt;/option&gt;
-							&lt;option value="IL"&gt;Israel&lt;/option&gt;
-							&lt;option value="IT"&gt;Italy&lt;/option&gt;
-							&lt;option value="JM"&gt;Jamaica&lt;/option&gt;
-							&lt;option value="JP"&gt;Japan&lt;/option&gt;
-							&lt;option value="JO"&gt;Jordan&lt;/option&gt;
-							&lt;option value="KZ"&gt;Kazakhstan&lt;/option&gt;
-							&lt;option value="KE"&gt;Kenya&lt;/option&gt;
-							&lt;option value="KI"&gt;Kiribati&lt;/option&gt;
-							&lt;option value="KP"&gt;Korea (North)&lt;/option&gt;
-							&lt;option value="KR"&gt;Korea (South)&lt;/option&gt;
-							&lt;option value="KW"&gt;Kuwait&lt;/option&gt;
-							&lt;option value="KG"&gt;Kyrgyzstan&lt;/option&gt;
-							&lt;option value="LA"&gt;Laos&lt;/option&gt;
-							&lt;option value="LV"&gt;Latvia&lt;/option&gt;
-							&lt;option value="LB"&gt;Lebanon&lt;/option&gt;
-							&lt;option value="LS"&gt;Lesotho&lt;/option&gt;
-							&lt;option value="LR"&gt;Liberia&lt;/option&gt;
-							&lt;option value="LY"&gt;Libya&lt;/option&gt;
-							&lt;option value="LI"&gt;Liechtenstein&lt;/option&gt;
-							&lt;option value="LT"&gt;Lithuania&lt;/option&gt;
-							&lt;option value="LU"&gt;Luxembourg&lt;/option&gt;
-							&lt;option value="MG"&gt;Madagascar&lt;/option&gt;
-							&lt;option value="MW"&gt;Malawi&lt;/option&gt;
-							&lt;option value="MY"&gt;Malaysia&lt;/option&gt;
-							&lt;option value="MV"&gt;Maldives&lt;/option&gt;
-							&lt;option value="ML"&gt;Mali&lt;/option&gt;
-							&lt;option value="MT"&gt;Malta&lt;/option&gt;
-							&lt;option value="MH"&gt;Marshall Islands&lt;/option&gt;
-							&lt;option value="MR"&gt;Mauritania&lt;/option&gt;
-							&lt;option value="MU"&gt;Mauritius&lt;/option&gt;
-							&lt;option value="MX"&gt;Mexico&lt;/option&gt;
-							&lt;option value="FM"&gt;Micronesia&lt;/option&gt;
-							&lt;option value="MD"&gt;Moldova&lt;/option&gt;
-							&lt;option value="MC"&gt;Monaco&lt;/option&gt;
-							&lt;option value="MN"&gt;Mongolia&lt;/option&gt;
-							&lt;option value="ME"&gt;Montenegro&lt;/option&gt;
-							&lt;option value="MA"&gt;Morocco&lt;/option&gt;
-							&lt;option value="MZ"&gt;Mozambique&lt;/option&gt;
-							&lt;option value="MM"&gt;Myanmar&lt;/option&gt;
-							&lt;option value="NA"&gt;Namibia&lt;/option&gt;
-							&lt;option value="NR"&gt;Nauru&lt;/option&gt;
-							&lt;option value="NP"&gt;Nepal&lt;/option&gt;
-							&lt;option value="NL"&gt;Netherlands&lt;/option&gt;
-							&lt;option value="NZ"&gt;New Zealand&lt;/option&gt;
-							&lt;option value="NI"&gt;Nicaragua&lt;/option&gt;
-							&lt;option value="NE"&gt;Niger&lt;/option&gt;
-							&lt;option value="NG"&gt;Nigeria&lt;/option&gt;
-							&lt;option value="MK"&gt;North Macedonia&lt;/option&gt;
-							&lt;option value="NO"&gt;Norway&lt;/option&gt;
-							&lt;option value="OM"&gt;Oman&lt;/option&gt;
-							&lt;option value="PK"&gt;Pakistan&lt;/option&gt;
-							&lt;option value="PW"&gt;Palau&lt;/option&gt;
-							&lt;option value="PS"&gt;Palestine&lt;/option&gt;
-							&lt;option value="PA"&gt;Panama&lt;/option&gt;
-							&lt;option value="PG"&gt;Papua New Guinea&lt;/option&gt;
-							&lt;option value="PY"&gt;Paraguay&lt;/option&gt;
-							&lt;option value="PE"&gt;Peru&lt;/option&gt;
-							&lt;option value="PH"&gt;Philippines&lt;/option&gt;
-							&lt;option value="PL"&gt;Poland&lt;/option&gt;
-							&lt;option value="PT"&gt;Portugal&lt;/option&gt;
-							&lt;option value="QA"&gt;Qatar&lt;/option&gt;
-							&lt;option value="RO"&gt;Romania&lt;/option&gt;
-							&lt;option value="RU"&gt;Russia&lt;/option&gt;
-							&lt;option value="RW"&gt;Rwanda&lt;/option&gt;
-							&lt;option value="KN"&gt;Saint Kitts and Nevis&lt;/option&gt;
-							&lt;option value="LC"&gt;Saint Lucia&lt;/option&gt;
-							&lt;option value="VC"&gt;Saint Vincent and the Grenadines&lt;/option&gt;
-							&lt;option value="WS"&gt;Samoa&lt;/option&gt;
-							&lt;option value="SM"&gt;San Marino&lt;/option&gt;
-							&lt;option value="ST"&gt;Sao Tome and Principe&lt;/option&gt;
-							&lt;option value="SA"&gt;Saudi Arabia&lt;/option&gt;
-							&lt;option value="SN"&gt;Senegal&lt;/option&gt;
-							&lt;option value="RS"&gt;Serbia&lt;/option&gt;
-							&lt;option value="SC"&gt;Seychelles&lt;/option&gt;
-							&lt;option value="SL"&gt;Sierra Leone&lt;/option&gt;
-							&lt;option value="SG"&gt;Singapore&lt;/option&gt;
-							&lt;option value="SK"&gt;Slovakia&lt;/option&gt;
-							&lt;option value="SI"&gt;Slovenia&lt;/option&gt;
-							&lt;option value="SB"&gt;Solomon Islands&lt;/option&gt;
-							&lt;option value="SO"&gt;Somalia&lt;/option&gt;
-							&lt;option value="ZA"&gt;South Africa&lt;/option&gt;
-							&lt;option value="SS"&gt;South Sudan&lt;/option&gt;
-							&lt;option value="ES"&gt;Spain&lt;/option&gt;
-							&lt;option value="LK"&gt;Sri Lanka&lt;/option&gt;
-							&lt;option value="SD"&gt;Sudan&lt;/option&gt;
-							&lt;option value="SR"&gt;Suriname&lt;/option&gt;
-							&lt;option value="SE"&gt;Sweden&lt;/option&gt;
-							&lt;option value="CH"&gt;Switzerland&lt;/option&gt;
-							&lt;option value="SY"&gt;Syria&lt;/option&gt;
-							&lt;option value="TW"&gt;Taiwan&lt;/option&gt;
-							&lt;option value="TJ"&gt;Tajikistan&lt;/option&gt;
-							&lt;option value="TZ"&gt;Tanzania&lt;/option&gt;
-							&lt;option value="TH"&gt;Thailand&lt;/option&gt;
-							&lt;option value="TL"&gt;Timor-Leste&lt;/option&gt;
-							&lt;option value="TG"&gt;Togo&lt;/option&gt;
-							&lt;option value="TO"&gt;Tonga&lt;/option&gt;
-							&lt;option value="TT"&gt;Trinidad and Tobago&lt;/option&gt;
-							&lt;option value="TN"&gt;Tunisia&lt;/option&gt;
-							&lt;option value="TR"&gt;Turkey&lt;/option&gt;
-							&lt;option value="TM"&gt;Turkmenistan&lt;/option&gt;
-							&lt;option value="TV"&gt;Tuvalu&lt;/option&gt;
-							&lt;option value="UG"&gt;Uganda&lt;/option&gt;
-							&lt;option value="UA"&gt;Ukraine&lt;/option&gt;
-							&lt;option value="AE"&gt;United Arab Emirates&lt;/option&gt;
-							&lt;option value="UY"&gt;Uruguay&lt;/option&gt;
-							&lt;option value="UZ"&gt;Uzbekistan&lt;/option&gt;
-							&lt;option value="VU"&gt;Vanuatu&lt;/option&gt;
-							&lt;option value="VA"&gt;Vatican City&lt;/option&gt;
-							&lt;option value="VE"&gt;Venezuela&lt;/option&gt;
-							&lt;option value="VN"&gt;Vietnam&lt;/option&gt;
-							&lt;option value="YE"&gt;Yemen&lt;/option&gt;
-							&lt;option value="ZM"&gt;Zambia&lt;/option&gt;
-							&lt;option value="ZW"&gt;Zimbabwe&lt;/option&gt;
-						&lt;/select&gt;
-					&lt;/label&gt;
-
-					&lt;div class="airmeet-state-field" hidden&gt;
-						&lt;label&gt;
-							&lt;p&gt;State &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
-							&lt;input type="text" name="state" required /&gt;
-						&lt;/label&gt;
-					&lt;/div&gt;
-
-					&lt;label&gt;
-							&lt;p&gt;Phone Number&lt;/p&gt;
-							&lt;input type="text" name="phone-number" /&gt;
-						&lt;/label&gt;
-
-				&lt;/div&gt;
-
-				&lt;!-- Signup Button --&gt;
-				&lt;button type="submit"class="airmeet-register" disabled&gt;Register&lt;/button&gt;
-
-				&lt;div class="airmeet-disclaimer"&gt;
-					By registering, you consent to The New Stack&amp;#8217;s &lt;a href="https://thenewstack.io/privacy-policy/" target="_blank" rel="noopener" class="local-link"&gt;Privacy Policy&lt;/a&gt;, &lt;a href="https://thenewstack.io/terms-of-use/" target="_blank" rel="noopener" class="local-link"&gt;Terms of Use&lt;/a&gt;
-					and to receiving email communication from The New Stack and our event partner. You may opt out at any time.
-				&lt;/div&gt;
-			&lt;/form&gt;
-
-			&lt;!-- Success --&gt;
-			&lt;div class="airmeet-success" hidden&gt;
-				&lt;svg class="success-tick" xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true" focusable="false" viewBox="0 0 48 48" style="display:inline-block;vertical-align:middle;"&gt;
-					&lt;circle cx="24" cy="24" r="24" fill="white"/&gt;
-					&lt;path d="M19.6 30.5l-6.1-6.1c-.6-.6-.6-1.5 0-2.1s1.5-.6 2.1 0l4.1 4.1 10.7-10.7c.6-.6 1.5-.6 2.1 0s.6 1.5 0 2.1l-11.7 11.7c-.6.5-1.5.5-2.1 0z" fill="#22b573"/&gt;
-				&lt;/svg&gt;
-				&lt;p&gt;You have successfully registered for the webinar.&lt;/p&gt;
-			&lt;/div&gt;
-
-			
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-$(document).ready(function() {
-
-	// Get UTM parameters.
-	var utm_source = window.tns.getUTMParameterValue('utm_source');
-	var utm_medium = window.tns.getUTMParameterValue('utm_medium');
-	var utm_campaign = window.tns.getUTMParameterValue('utm_campaign');
-	var utm_term = window.tns.getUTMParameterValue('utm_term');
-	var utm_content = window.tns.getUTMParameterValue('utm_content');
-
-	if (utm_source) { $('input[name="utm_source"]').val(utm_source) }
-	if (utm_medium) { $('input[name="utm_medium"]').val(utm_medium) }
-	if (utm_campaign) { $('input[name="utm_campaign"]').val(utm_campaign) }
-	if (utm_term) { $('input[name="utm_term"]').val(utm_term) }
-	if (utm_content) { $('input[name="utm_content"]').val(utm_content) }
-
-	if ( $('.airmeet-container[data-event-id]').length ) {
-		initAirmeetRegistrationForm();
-	}
-
-	/*
-	window.dataLayer.push({
-		'event' : 'webinar_registration_started',
-		'object_id' : '22834861',
-		'object_type' : 'webinar',
-		'post_title' : 'Six Data Requirements to Get Your AI Agents from Demo to Production',
-	});
-	*/
-
-	function showFormStage( stage ){
-		if ( stage == 1 ) {
-			$('.airmeet-profile-fields').attr('hidden', true).hide();
-			$('.airmeet-register').prop('disabled', true);
-		} else if ( stage == 2 ) {
-			$('.airmeet-profile-fields').removeAttr('hidden').show();
-			$('.airmeet-register').prop('disabled', false);
-		}
-	}
-
-	function initAirmeetRegistrationForm() {
-		window.webinar_registration_started = false;
-
-		var $form = $('.airmeet-registration-form');
-		var $questionFields = $form.find('.airmeet-questions [data-question]');
-
-		if ( $questionFields.length === 0 ) {
-			showFormStage(2);
-		}
-
-		// Listen for question field values.
-		$questionFields.on('change input', function() {
-			var allFilled = $questionFields.filter(function() {
-				return $.trim($(this).val()) !== '';
-			}).length === $questionFields.length;
-
-			if ( allFilled ) {
-				showFormStage(2);
-			}
-
-			if ( ! window.webinar_registration_started ) {
-				window.dataLayer.push({
-					'event' : 'webinar_registration_started',
-					'object_id' : '22834861',
-					'object_type' : 'webinar',
-					'post_title' : 'Six Data Requirements to Get Your AI Agents from Demo to Production',
-				});
-			}
-			window.webinar_registration_started = true;
-		});
-
-		// Listen for job-role field, show additional fields if necessary.
-		$form.find('select[name="job-role"]').on('change', function() {
-			var val = $(this).val();
-			if ( val &amp;&amp; val !== 'student' &amp;&amp; val !== 'enthusiast-hobbyist' ) {
-				$('.airmeet-job-more-fields').removeAttr('hidden').show();
-				$('.airmeet-job-more-fields').find('select, input').prop('disabled', false);
-			} else {
-				$('.airmeet-job-more-fields').find('select, input').val('').prop('disabled', true);
-				$('.airmeet-job-more-fields').attr('hidden', true).hide();
-			}
-		});
-
-		// Listen for country field, show state field for US/CA.
-		$form.find('select[name="country"]').on('change', function() {
-			var val = $(this).val();
-			if ( val === 'US' || val === 'CA' ) {
-				$('.airmeet-state-field').removeAttr('hidden').show();
-				$('.airmeet-state-field').find('input').prop('disabled', false);
-			} else {
-				$('.airmeet-state-field').find('input').val('').prop('disabled', true);
-				$('.airmeet-state-field').attr('hidden', true).hide();
-			}
-		});
-
-		// Listen for changes on all non-question fields.
-		$form.find('input, select').not('[data-question]').not('[type="hidden"]').on('change input', function() {
-			window.dataLayer.push({
-				'event' : 'webinar_registration_form_interaction',
-				'object_id' : '22834861',
-				'object_type' : 'webinar',
-				'post_title' : 'Six Data Requirements to Get Your AI Agents from Demo to Production',
-			});
-		});
-
-		$form.on('submit', function(e) {
-			e.preventDefault();
-			handleSubmit();
-		});
-	}
-
-	function handleSubmit() {
-		var $form = $('.airmeet-registration-form');
-		var $btn = $form.find('.airmeet-register');
-		$btn.prop('disabled', true).text('Registering...');
-
-		// Collect CMS-configured questions
-		var questions = [];
-		$form.find('[data-question]').each(function() {
-			questions.push({
-				question: $(this).data('question'),
-				answer: $(this).val()
-			});
-		});
-
-		var data = {
-			event_id:     $form.find('input[name="event_id"]').val(),
-			utm_source:   $form.find('input[name="utm_source"]').val(),
-			utm_medium:   $form.find('input[name="utm_medium"]').val(),
-			utm_campaign: $form.find('input[name="utm_campaign"]').val(),
-			utm_term:     $form.find('input[name="utm_term"]').val(),
-			utm_content:  $form.find('input[name="utm_content"]').val(),
-			questions:    questions,
-			'email':        $form.find('input[name="email"]').val(),
-			'first-name':   $form.find('input[name="first-name"]').val(),
-			'last-name':    $form.find('input[name="last-name"]').val(),
-			'job-role':     $form.find('select[name="job-role"]').val(),
-			'job-level':    $form.find('select[name="job-level"]').val(),
-			'industry':     $form.find('select[name="industry"]').val(),
-			'organization': $form.find('input[name="organization"]').val(),
-			'country':      $form.find('select[name="country"]').val(),
-			'state':        $form.find('input[name="state"]').val(),
-			'phone-number': $form.find('input[name="phone-number"]').val()
-		};
-
-		$.ajax({
-			url: '/wp-json/airmeet/register-webinar',
-			method: 'POST',
-			contentType: 'application/json',
-			data: JSON.stringify(data),
-			success: function(response) {
-				var status = response &amp;&amp; response.status;
-				var eventName = status === 'already_registered'
-					? 'webinar_registration_already_registered'
-					: 'webinar_registration_completed';
-
-				window.dataLayer.push({
-					'event' : eventName,
-					'object_id' : '22834861',
-					'object_type' : 'webinar',
-					'post_title' : 'Six Data Requirements to Get Your AI Agents from Demo to Production',
-				});
-
-				showSuccess();
-			},
-			error: function(xhr) {
-				var msg = 'Registration failed. Please try again.';
-				if ( xhr.responseJSON &amp;&amp; xhr.responseJSON.error ) {
-					msg = xhr.responseJSON.error;
-				}
-				alert(msg);
-				$btn.prop('disabled', false).text('Register');
-			}
-		});
-	}
-
-	function showSuccess() {
-		var mastheadHeight = $('#tns-header-masthead').length ? $('#tns-header-masthead').outerHeight() : 0;
-		var adminBarHeight = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0;
-		var padding = $(window).width() &gt; 1024 ? 120 : 50;
-		$('html, body').animate({ scrollTop: $('.airmeet-container').offset().top - mastheadHeight - adminBarHeight - padding }, 300, function() {
-			$('.airmeet-registration-form').attr('hidden', true).hide();
-			
-			if ( $('.airmeet-video').length ) {
-				// Video embed, prepare the iframe and show.
-				$('.airmeet-video iframe').attr('src', $('.airmeet-video iframe').attr('data-src'));
-				$('.airmeet-video').show().removeAttr('hidden');
-			} else {
-				// Thank you screen.
-				$('.airmeet-success').removeAttr('hidden').hide().fadeIn();
-			}
-		});
-	}
-
-});
-&lt;/script&gt;
-
-
-    &lt;/div&gt;
-    
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;You might be thinking it&amp;rsquo;s a retrieval issue; it&amp;rsquo;s more than that.&lt;/strong&gt; You probably already tested your vector search or RAG in the demo, and they might have worked perfectly well. Your agent can have semantically relevant information and still not have the right context. &lt;a href="https://thenewstack.io/modus-enterprise-context-warehouse/" class="local-link"&gt;Production agents need business context&lt;/a&gt; to take informed actions that move your business forward. For example:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;What if a customer appears differently across multiple systems?&lt;/li&gt;
-
-
-
-&lt;li&gt;What if the retrieved information is relevant, but not current?&lt;/li&gt;
-
-
-
-&lt;li&gt;What if you need to know &lt;em&gt;why&lt;/em&gt; an agent made a particular decision?&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And if you think building the right business context for your agent initially is tough, try keeping that context accurate as your business changes over time. Agents can also magnify the problem as they repeatedly retrieve information, make a decision, take an action, and use that result in future steps. Stale information can easily pollute later steps.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If your business logic is spread across many different sources, your agent has to comb through multiple resources and reconstruct context on the fly for each task. This leads to inconsistency, increased latency, and higher costs, not to mention more manual work for your team. How will you enforce data governance when context is fragmented across so many systems?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;There&amp;#8217;s a better approach:&lt;/strong&gt; Build a persistent, unified business context instead of asking your agent to reconstruct it for every task. Your architecture needs a contextual data layer that your agent can rely on. Of course, this is only one aspect of preparing your system for production.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On October 14, you&amp;rsquo;ll learn which aspects of your data infrastructure deserve a closer look before deployment. &lt;a href="https://www.linkedin.com/in/ravi-marwaha/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ravi Marwaha&lt;/a&gt; from &lt;a href="https://arango.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Arango&lt;/a&gt; joins us live for &amp;ldquo;&lt;a href="https://thenewstack.io/webinar/six-data-requirements-to-get-your-ai-agents-from-demo-to-production/" class="local-link"&gt;Six Data Requirements to Get Your AI Agents from Demo to Production&lt;/a&gt;.&amp;rdquo; He&amp;rsquo;ll cover real production patterns from the financial services industry and clinical research.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/webinar/six-data-requirements-to-get-your-ai-agents-from-demo-to-production/" class="local-link"&gt;Register here&lt;/a&gt; to join us on October 14 and get an assessment framework&lt;/strong&gt; to test if your agentic system is ready to deploy.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-production-data/"&gt;Your AI agent aced the demo. Your data may still derail it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Your AI agent aced the demo. In production, fragmented, stale, and ungoverned business context exposes everything a controlled environment never tested.</content:encoded>
-    </item>
-    <item>
-      <title>Microsoft Fabric is where AI agents learn how the business works</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/microsoft-fabric-agent-context/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 14:46:32 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Infrastructure</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838865</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/5d43554a-img_5639-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5d43554a-img_5639-scaled.jpg" /&gt;&lt;p&gt;Microsoft is turning&amp;#160;Fabric, its integrated data platform, into the place enterprise agents go to learn how a company works, whether&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-fabric-agent-context/"&gt;Microsoft Fabric is where AI agents learn how the business works&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/5d43554a-img_5639-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/5d43554a-img_5639-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Microsoft is turning&amp;nbsp;Fabric&lt;/strong&gt;, its integrated data platform, into the place enterprise agents go to learn how a company works, whether that&amp;#8217;s what happened last quarter or what&amp;#8217;s happening on the factory floor right now.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Tuesday, at its FabCon and SQLCon data conference in Barcelona, Spain, Microsoft outlined the next step in its vision for how the products that make up Fabric can simplify all of this information gathering.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Microsoft, for example, described how&amp;nbsp;&lt;a href="https://learn.microsoft.com/en-us/fabric/iq/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Fabric IQ&lt;/strong&gt;&lt;/a&gt;, the context layer inside Fabric, now feeds Microsoft 365 Copilot by default. Outside agents can query it over MCP. Power BI will soon be able to turn the same definitions into apps. And ontologies, which add business rules to the mix, moved further into preview.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/09/af4a4c3c-img_5653-1024x768.jpg" alt="" class="wp-image-22838868"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: The New Stack&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Microsoft &lt;a href="https://www.microsoft.com/en-us/microsoft-fabric" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fabric&lt;/a&gt; CTO &lt;a href="https://www.linkedin.com/in/amirnetz/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amir Netz&lt;/a&gt; said in a press briefing after the keynote, &amp;#8220;Agents are a very, very strange animal, and I always like to say it&amp;#8217;s like Drew Barrymore from &lt;em&gt;50 First Dates&lt;/em&gt;. Every time they open their eyes, they forget everything that happened before. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;They don&amp;#8217;t know where they are, so the first thing we have to do is tell them where they are. You are now working for Microsoft. You are now working for Wells Fargo. You are now working for Emirates.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Agents are a very, very strange animal, and I always like to say it&amp;#8217;s like Drew Barrymore from &lt;em&gt;50 First Dates&lt;/em&gt;. Every time they open their eyes, they forget everything that happened before.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Customers tend to find this out the hard way. &lt;a href="https://www.linkedin.com/in/yitzhak-kesselman/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yitzhak Kesselman&lt;/a&gt;, the corporate vice president who runs Fabric IQ, tells&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;&amp;nbsp;that companies unify their data, run models on it, and then look at the answers.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Customers that are more advanced on their journey have their own evals for their agent,&amp;#8221; he says, adding that what they see sometimes isn&amp;#8217;t what they expected. &amp;#8220;Then [customers] will understand: &amp;#8216;Okay, now I need to create the context for my agents.'&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kesselman says he met with more than 320 companies last year, and the pressure to get there comes from the business side, which asks to &amp;#8220;&amp;#8216;show me the value of those agents,'&amp;#8221; he says, &amp;#8220;&amp;#8216;the before and after.'&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/arunulag/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Arun Ulag&lt;/a&gt;, Microsoft&amp;#8217;s executive vice president for &lt;a href="https://azure.microsoft.com/en-us/products/data-factory" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Azure Data&lt;/a&gt;, said in the keynote that coding agents work because they have &amp;#8220;the code, the repos, the change history, the specs, the tests.&amp;#8221; But outside of coding, most enterprises have nothing comparable, he argued.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Fabric IQ is one of four pieces of what Microsoft calls Microsoft IQ (this is Microsoft, after all, so there&amp;#8217;s always a lot of different names and products involved).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Work IQ covers email, Teams, and SharePoint. Foundry IQ covers documents and manuals. Web IQ covers the public internet.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Fabric IQ, Ulag said, &amp;#8220;focuses on the state of your business and how your business actually runs.&amp;#8221; His &lt;a href="https://azure.microsoft.com/en-us/blog/fabcon-and-sqlcon-2026-in-barcelona-building-the-data-foundation-for-microsoft-copilot-and-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announcement blog post&lt;/a&gt;&amp;nbsp;describes it as combining &amp;#8220;unified data from OneLake, trusted metrics from Power BI semantic models, and operational context from ontologies and real-time intelligence.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-getting-the-data-in" class="wp-block-heading"&gt;Getting the data in&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Everyone wants to jump to AI, but then they realize, &amp;#8216;Oh, I need data for it,'&amp;#8221; Kesselman says. &amp;#8220;They need data from their business applications, their structured data. They need to have real-time data.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OneLake&lt;/a&gt;, Fabric&amp;#8217;s storage layer, is at the core of all of this, and for the system to provide context, enterprises have to feed it data from across all the first-party and third-party services they use.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Fabric&amp;#8217;s shortcuts and mirroring, which connect or replicate external sources into OneLake, are free of charge, and Netz said storage under management in OneLake is growing 300% year over year.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-s-new-this-week-at-fabcon-and-sqlcon-barcelona-2026" class="wp-block-heading"&gt;What&amp;#8217;s new this week at FabCon and SQLCon Barcelona 2026&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Tuesday, the &lt;a href="https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/fabcon-and-sqlcon-barcelona-2026-what%E2%80%99s-new-in-microsoft-onelake-and-its-rapidly/5369146" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;company announced&lt;/a&gt; a two-way integration with Salesforce Data Cloud 360, mirroring from Google BigQuery in general availability, a ClickHouse workload that runs that engine directly against OneLake, and dbt&amp;#8217;s Fusion engine, due in Fabric in the next couple of weeks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Simply copying data won&amp;#8217;t satisfy security teams, though. Mirrored security roles, which reach public preview in the coming weeks, bring permissions along with the data. Access roles defined in Snowflake, for example, will show up in Fabric with the same members and the same table permissions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Microsoft&amp;#8217;s &lt;a href="https://linkedin.com/in/shireen-bahadur" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Shireen Bahadur&lt;/a&gt;, who demonstrated the feature in the keynote, put it, &amp;#8220;We&amp;#8217;re not just solely replicating security rules. We&amp;#8217;re actually actively enforcing and preserving those roles.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;We&amp;#8217;re not just solely replicating security rules. We&amp;#8217;re actually actively enforcing and preserving those roles.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OneLake isn&amp;#8217;t a one-way street. Enterprises can also pull data out and use it in other tools.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OneLake data, after all, is stored in open formats and has open APIs, and Netz said on stage that any engine that reads them can use it. &amp;#8220;If you want to use this data that we help people to get for free with our competitors&amp;#8217; tools, go for it. I&amp;#8217;m not happy about it, but go for it,&amp;#8221; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;IQ sharing, now in preview, lets an organization share governed tables, files, Markdown agent instructions, and RDF ontologies with another tenant without copying, with an expiration date. That&amp;#8217;s something Fabric users have wanted for a while, and the keynote announcement drew plenty of applause from the thousands of data professionals in attendance.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-past-present-and-future" class="wp-block-heading"&gt;Past, present, and future&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Not only what we have in the past, not only what&amp;#8217;s happening in the present. We also want the agents to understand what we want to happen in the future,&amp;#8221; Netz said in the keynote.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The past is semantic models. A semantic model is the layer under every Power BI report that defines how a metric like revenue is calculated, how entities relate, and which tables supply the numbers. Netz said Power BI users have already created 22 million, and Ulag called them &amp;#8220;the core of Fabric IQ.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The present is&amp;nbsp;&lt;a href="https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/trusted-ai-starts-with-microsoft-fabric-real-time-intelligence-and-iq/5369528" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;real-time intelligence&lt;/a&gt;, Fabric&amp;#8217;s streaming and event stack, which Kesselman also runs. He recalls two CIOs telling him the same thing that day in Paris. &amp;#8220;&amp;#8216;There is no AI without RTI;&amp;#8217; there&amp;#8217;s no AI without real-time intelligence,&amp;#8221; he says. &amp;#8220;If you don&amp;#8217;t have the streaming data&amp;#8230; data that is fresh, you will run your LLMs on data which is like hours or days old.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;&amp;#8216;There is no AI without RTI;&amp;#8217; there&amp;#8217;s no AI without real-time intelligence.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A signal on its own isn&amp;#8217;t enough, though: &amp;#8220;You want to take the signal that you get now&amp;#8230; the event that comes now, and look historically, okay, is it an anomaly or not?&amp;#8221; Kesselman says. That&amp;#8217;s why the keynote showed batch copy jobs and event streams feeding each other, so an agent can judge what just happened against what usually happens.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The future is&amp;nbsp;&lt;a href="https://learn.microsoft.com/en-us/fabric/iq/plan/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fabric Planning&lt;/a&gt;, which went generally available in July and got a performance and feature update this week. It&amp;#8217;s Microsoft&amp;#8217;s tool for budgets, forecasts, and targets, the numbers a business wants to hit rather than the ones it has already recorded.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A plan is a Fabric item like a lakehouse or a notebook, and it borrows its measures from the same semantic models the reports use, so revenue means the same thing in the forecast as it does in the dashboard. In the demo, a change to the inputs cascaded through a model of about 13 million cells.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What makes these work is&amp;nbsp;&lt;a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ontologies&lt;/a&gt;: Formal descriptions of the things a business deals with, how they relate, and the rules for handling them. Netz called them &amp;#8220;semantic models plus plus&amp;#8221; on stage, and in a later press briefing, he used an airline to explain the plus.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If you are an airline, you have planes, you have pilots, you have ground crews, you have airports, you have luggage,&amp;#8221; he said. Those are the entities.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The relationships between them &amp;#8220;are way more than data relationships,&amp;#8221; he said. &amp;#8220;It&amp;#8217;s not only to say, &amp;#8216;Oh, I have a match with a foreign key and a primary key between a pilot and a plane,&amp;#8217; but it could be a policy relationship. Which pilot can fly which plane based on their certification, or is the pilot allowed to fly this plane right now based on the rest hours in the last 24 hours?&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But ontologies don&amp;#8217;t only define nouns; they also define verbs. &amp;#8220;I can ground a plane. I can redirect the plane. I can assign a plane a gate.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Creating those ontologies, which have to map the various terms that a company might use for the same thing to a single entity, can be extremely time-consuming. But since they are so core to this project, and to allowing agents to reason over data, Microsoft built a tool to generate them automatically.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-putting-it-to-work" class="wp-block-heading"&gt;Putting it to work&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Fabric IQ in Microsoft 365 Copilot Chat and&amp;nbsp;&lt;a href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/30/copilot-cowork-now-available-in-frontier/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cowork&lt;/a&gt;, the mode for delegating multistep tasks that Microsoft built on the technology behind Anthropic&amp;#8217;s Claude Cowork, is generally available as of Tuesday. It answers business questions from Power BI semantic models and reports; it&amp;#8217;s on by default for Fabric and Power BI customers, and Microsoft says it doesn&amp;#8217;t consume additional AI tokens.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ac38bde69b2e&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ac38bde69b2e" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/09/7060ea0d-img_5661-1024x768.jpg" alt="" class="wp-image-22838869"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: The New Stack&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But business users don&amp;#8217;t just want to chat with these models. In this age of vibecoding, they also want to generate applications that use all of this data.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Power BI Desktop is getting an&amp;nbsp;&lt;a href="https://community.fabric.microsoft.com/blog/fbc_pbiupdatesblog/power-bi%E2%80%99s-next-chapter-the-evolution-of-business-intelligence/5369131" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;app-creation experience&lt;/a&gt;&amp;nbsp;in preview in the coming weeks. Users start from a semantic model, describe the app, and then have Copilot generate and publish it to Fabric.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Unlike with a report, Ulag wrote, these apps &amp;#8220;can accept inputs, write back data, preserve shared state, and support operational workflows.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;They&amp;#8217;re Fabric Apps built on&amp;nbsp;&lt;a href="https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/introducing-rayfin-a-new-ai-first-way-to-build-deploy-and-govern-application-bac/5191676" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Rayfin&lt;/a&gt;, the open-source SDK Microsoft introduced at Build. Power BI Pro and Premium Per User customers get them with a Fabric database of up to 1GB per app at no additional cost.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Netz confirmed in the briefing that &amp;#8220;there&amp;#8217;s no core difference&amp;#8221; between the two, and Ulag added, &amp;#8220;What gets created is a Fabric app, right? And that&amp;#8217;s it.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For agents outside Copilot,&amp;nbsp;&lt;a href="https://learn.microsoft.com/en-us/fabric/iq/connectors/fabric-iq-mcp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fabric IQ MCP&lt;/a&gt;&amp;nbsp;is generally available now, with six read-only tools for finding semantic models and reports, reading their schemas, and running DAX queries against them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ontology MCP tools, currently in preview, expose ontology definitions and queries. Fabric data agents can now, also in preview, use an ontology as their context source. And the context reaches Microsoft Foundry, Copilot Studio, and GitHub Copilot through the same layer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can drive the new data engineering agent from their own tools.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Built on the&amp;nbsp;&lt;a href="https://blogs.microsoft.com/blog/2026/01/05/microsoft-announces-acquisition-of-osmos-to-accelerate-autonomous-data-engineering-in-fabric/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Osmos technology Microsoft acquired in January&lt;/a&gt;, it takes on long-running work like migrations and ETL, and can be started and steered from GitHub Copilot, VS Code, Codex, and Claude Code.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Frontier models will write that code, Netz said on stage, and &amp;#8220;it won&amp;#8217;t fail,&amp;#8221; but you don&amp;#8217;t know whether the results are right.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-everyone-has-a-context-layer-now" class="wp-block-heading"&gt;Everyone has a context layer now&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This year, Databricks shipped&amp;nbsp;&lt;a href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Genie Ontology&lt;/a&gt;, Snowflake shipped a&amp;nbsp;&lt;a href="https://www.constellationr.com/insights/news/snowflake-summit-2026-context-custom-model-training-iceberg-v3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Horizon Context Layer&lt;/a&gt;, Google shipped a&amp;nbsp;&lt;a href="https://docs.cloud.google.com/dataplex/docs/introduction" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Knowledge Catalog&lt;/a&gt;, and Salesforce shipped a headless Data 360, which it describes as a context service. Databricks CEO Ali Ghodsi summed up the pitch at his own conference in June as AI having a context problem rather than an intelligence problem.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Microsoft&amp;#8217;s version turns on by default inside Microsoft 365 Copilot and starts from 22 million semantic models. Microsoft also said this week it will contribute to&amp;nbsp;&lt;a href="https://ossie.apache.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Apache Ossie&lt;/a&gt;, the vendor-neutral semantic metadata standard Snowflake started, and that it wants DAX, Power BI&amp;#8217;s formula language, recognized as an Ossie query language.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When Microsoft&amp;nbsp;&lt;a href="https://thenewstack.io/microsoft-build-2026-data-fabric-horizondb-ai-agents/" class="local-link"&gt;made the context argument at Build in June&lt;/a&gt;, the pieces that let an agent act on that context were mostly on a roadmap. Now the answers are generally available, and the actions are in preview.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Asked how Fabric copes when the user is no longer one person running a dashboard but a fleet of agents, Kesselman points to observability. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Fabric really allows you to have this kind of holy grail of combination of both kinds of system data, how the agent runs, but also the business data,&amp;#8221; he says, so a company can check whether an agent did what it was supposed to do and what that did to the business. &amp;#8220;There&amp;#8217;s more in this area that will come in the next few months.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-fabric-agent-context/"&gt;Microsoft Fabric is where AI agents learn how the business works&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Microsoft is turning Fabric into the context layer for AI agents, feeding Power BI semantic models into Copilot by default and adding ontologies with rules.</content:encoded>
-    </item>
-    <item>
-      <title>Kill the code review theater, keep the review</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kill-code-review-theater/</link>
-      <dc:creator>Ankit Jain</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 14:00:00 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <category>Software Development</category>
-      <category>sponsor-aviator</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838824</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/d93a3d3b-kamran-abdullayev-hgckiedgjd0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital art of multi-colored data streams converging, representing AI software engineering and code review workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d93a3d3b-kamran-abdullayev-hgckiedgjd0-unsplash.jpg" /&gt;&lt;p&gt;Six months ago I wrote about how to kill the code review, and I was wrong. I still think line-by-line&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kill-code-review-theater/"&gt;Kill the code review theater, keep the review&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/09/d93a3d3b-kamran-abdullayev-hgckiedgjd0-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital art of multi-colored data streams converging, representing AI software engineering and code review workflows." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/d93a3d3b-kamran-abdullayev-hgckiedgjd0-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;Six months ago I wrote about &lt;a href="https://www.latent.space/p/reviews-dead" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;how to kill the code review&lt;/a&gt;, and I was wrong. I still think line-by-line review is on its way out. I got the replacement wrong.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-i-proposed" class="wp-block-heading"&gt;What I proposed&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The original essay proposed a “Swiss cheese“ model of AI code verification with five layers of trust laid out so that humans are not drowning in reading AI-generated diffs:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Compare multiple options.&lt;/strong&gt; Several agents attempt the same change, and you rank the attempts by tests passed, diff size, and dependencies added.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Deterministic guardrails.&lt;/strong&gt; Linters, types, and contracts. These are facts, not opinions, and an agent can’t argue with a type error.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Human-defined acceptance criteria.&lt;/strong&gt; Someone writes down what “done” means before the code exists.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Permission systems.&lt;/strong&gt; Scope what an agent may touch without a human.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Adversarial verification.&lt;/strong&gt; A separate agent with no write access tries to break the implementation.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="566" src="https://cdn.thenewstack.io/media/2026/09/66e6846b-image-1024x566.png" alt="Diagram showing code review verify layers" class="wp-image-22838826"&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Stack enough imperfect filters, and the holes stop lining up. Six months is a decade in AI time, though, and watching teams try to put this into practice showed me what the list was missing.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-why-we-review-code" class="wp-block-heading"&gt;Why we review code&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ask engineers why they review code, and most will say they do it to find bugs. In 2013, Alberto Bacchelli and Christian Bird &lt;a href="https://ieeexplore.ieee.org/document/6606617/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;studied code review at Microsoft&lt;/a&gt; and classified 570 review comments. 44% of developers ranked finding defects as their top reason for reviewing. Only 14% of the actual comments were about defects. Five years later, Caitlin Sadowski and her colleagues &lt;a href="https://research.google/pubs/modern-code-review-a-case-study-at-google/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;looked at nine million reviewed changes&lt;/a&gt; at Google and reached the same conclusion.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Code review is how a team builds a mental model of its system. It’s how knowledge moves around a team. Catching defects was always the smaller job.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“We made writing cheap, and understanding stayed exactly as expensive as it has always been.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Addy Osmani put the cost of this well in June: “We made writing cheap, and understanding stayed exactly as expensive as it has always been.” Understanding is what the review was protecting, and it’s the one cost that never came down.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-we-already-stopped-reading" class="wp-block-heading"&gt;We already stopped reading&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.faros.ai/research/ai-acceleration-whiplash" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Faros AI’s 2026 engineering report&lt;/a&gt;, covering 22,000 developers across more than 4,000 teams, found incidents per PR up 242.7%, bugs per developer up 54%, and work restarts up 13.8%. PRs merged with no review at all, human or agentic, rose 31.3%. Nobody read those changes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://dora.dev/research/2025/dora-report/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DORA’s 2025 State of AI-assisted Software Development&lt;/a&gt; report describes the tension we’re living in. AI adoption raises delivery throughput and delivery instability at the same time. One person shows you a velocity chart; another shows you an incident chart, and both are right. Gergely &lt;a href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-concern-about" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Orosz described&lt;/a&gt; what this does to the engineers who are still trying:&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those devs who put the same effort and energy into code review as before feel &lt;a href="https://thenewstack.io/port-ai-builder-governance/" class="local-link"&gt;overloaded by AI slop&lt;/a&gt; PRs sent their way.” That’s a team health problem as much as a quality problem.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nobody held a meeting and voted to stop reviewing code. We just stopped. We were never that good at it either. A diff is a bad place for review. One reviewer reads it once, from memory, while context switching between five agents.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-review-theater" class="wp-block-heading"&gt;The review theater&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The obvious fix was to point AI at the diff. The agent writes, AI reviews, the agent revises, AI reviews again, and then a human skims and merges. The human is the only participant not doing the thing the loop is named after. I call that review theater.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AI code review has its place, though. It never gets tired or rushed. It reads every line, every time, and holds the same standard on every PR. It’s awake at 3 a.m. It also never saw what was decided. It was trained on the kind of code it’s reviewing. It will never tell you not to build the thing. And it can’t be held accountable.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“Build tools for what AI does well, and protect what it can’t do.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;None of those are model quality problems. They’re all the same problem: AI review looks at the wrong artifact, at the wrong time, with no access to what was decided. A diff can’t tell you what was decided.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The principle I’d work from is simple. Build tools for what AI does well, and protect what it can’t do. We’ve been doing the exact opposite. We pointed the machine at judgment, the one thing it can’t do, and left the mechanics to people. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-new-shape-of-review" class="wp-block-heading"&gt;The new shape of review&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Looking at my five layers again, four of them answered one question: Is it right? One answered another: Is it what we meant? None of them asked whether we were building the right thing. I missed human judgment entirely, and I missed the conversation where that judgment happens.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same concepts survive in a better order, with one addition. Each layer takes over one of the jobs code review used to do.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Layer&lt;/th&gt;&lt;th&gt;Where it came from&lt;/th&gt;&lt;th&gt;The review job it takes over&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;1. Argue&lt;/td&gt;&lt;td&gt;Adversarial verification, moved to the front. Comparing multiple options folds into it&lt;/td&gt;&lt;td&gt;Alternative solutions&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2. Capture&lt;/td&gt;&lt;td&gt;Human-defined acceptance criteria, widened to include intent&lt;/td&gt;&lt;td&gt;Knowledge transfer&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;3. Codify&lt;/td&gt;&lt;td&gt;Deterministic guardrails, built from an AI slop registry&lt;/td&gt;&lt;td&gt;Finding defects, consistency&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;4. Debate&lt;/td&gt;&lt;td&gt;New. The layer that wasn’t there&lt;/td&gt;&lt;td&gt;Are we building the right thing?&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;5. Own&lt;/td&gt;&lt;td&gt;Permission systems&lt;/td&gt;&lt;td&gt;Gatekeeping&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-argue-let-the-agents-disagree-before-the-pr-exists" class="wp-block-heading"&gt;Argue: let the agents disagree before the PR exists&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Why is there a UI for two machines talking to each other? If one AI writes the code and another reviews it, a PR comment thread is a strange place for them to meet. Let them argue before the PR is created, when changing course is cheapest.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The output of this layer is a record of decisions, with no verdict attached: what was proposed, what was rejected, and why. A human facing a 4,000-line diff has very little to hold onto. A human reading what two models disagreed about has exactly what a diff never contained, and that’s where judgment belongs. Whatever the agents couldn’t settle is what the team debates.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;You can do this today. Run two reviewers on different models, write a skill that captures where they disagree, and review that record as part of the PR.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Open-source tools already cover most of it:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://github.com/The-PR-Agent/pr-agent" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;PR-Agent&lt;/a&gt; (MIT) runs reviews on GPT, Claude, Gemini, DeepSeek or a local model through Ollama.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://aider.chat/docs/usage/modes.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aider’s architect mode&lt;/a&gt; (Apache 2.0) has one model propose and a different one edit, before the PR exists.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://github.com/microsoft/autogen" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AutoGen&lt;/a&gt; (MIT) handles multi-agent conversation and group orchestration.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://github.com/crewAIInc/crewAI" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CrewAI&lt;/a&gt; (MIT) gives you role-based agents if you want to define the arguing sides yourself.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 id="h-capture-record-intent-and-acceptance-criteria-as-you-work" class="wp-block-heading"&gt;Capture: record intent and acceptance criteria as you work&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The popular answer to agent-written code is to write the spec up front. Specs take time. They have no feedback loop, because they’re written before the work has taught anyone anything. The implementation drifts away from them almost immediately. We discarded that model 20 years ago and called it waterfall.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Two artifacts do the job a spec was trying to do. &lt;strong&gt;Intent&lt;/strong&gt; answers why we’re making this change. &lt;strong&gt;Acceptance criteria&lt;/strong&gt; answer how it should behave. You need both, since intent without criteria can’t be checked and criteria without intent can’t be judged. The pair works for a one-line bug fix and for a 1,000-line feature.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;They already exist in your coding sessions. Every time the agent stops to ask a question, and every time an engineer pushes back or corrects it, someone makes a decision. Those are your acceptance criteria, generated live.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Don’t throw them away when the session ends. Write an agent skill that writes decisions down as they’re made and publishes them on the pull request, so the reviewer reads what you decided. Nobody has to change how they work, which is why it sticks.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-codify-turn-repeated-comments-into-invariants" class="wp-block-heading"&gt;Codify: turn repeated comments into invariants&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Review comments come in two kinds. “Have you considered doing this differently?” needs human judgment. “Use the Money type, not float” doesn’t.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The second kind belongs in an &lt;a href="https://docs.aviator.co/verify/concepts/invariants" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AI slop registry,&lt;/a&gt; the running list of patterns your team keeps correcting. Once written down, those patterns become &lt;a href="https://docs.aviator.co/verify/concepts/invariants" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;invariants&lt;/a&gt; checked on every change.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Most teams already have them, scattered across PR comments, repeated endlessly and stored in engineers’ memory:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Money type for anything with a currency&lt;/li&gt;
-
-
-
-&lt;li&gt;No direct writes to the users table&lt;/li&gt;
-
-
-
-&lt;li&gt;Structured logger only, no print&lt;/li&gt;
-
-
-
-&lt;li&gt;Every error path emits a counter&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Every review comment your team repeats is a guardrail you haven’t written.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is the cheapest layer and the one to start with this week. Harvest your last 1,000 review comments and turn the top 20 into invariants. Your PR history already contains the registry.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-debate-humans-on-the-decisions" class="wp-block-heading"&gt;Debate: humans on the decisions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;None of my original five layers covered this one. It’s also the part &lt;a href="https://www.aviator.co/blog/ai-code-review-knowledge-sharing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;that worries me most&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Code review is the only scheduled moment when engineers talk about the system. Automating review costs you surprisingly little in bug-catching. It costs you that conversation, and nothing replaces it because nobody noticed it was a meeting. Automate code review carelessly and you delete shared understanding.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“Automating review costs you surprisingly little in bug-catching. It costs you that conversation. Knowledge sharing was the product of code reviews all along.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Peter Naur, the Turing Award winner, wrote about this in 1985 in “Programming as Theory Building”: “The death of a program happens when the programmer team possessing its theory is dissolved.” In today’s terms, that’s your reorg, attrition, and backfill. And if nobody built the understanding in the first place, you get there without a single resignation. &lt;a href="https://thenewstack.io/ai-code-review-cognitive-debt/" data-type="link" data-id="https://thenewstack.io/ai-code-review-cognitive-debt/" class="local-link"&gt;Knowledge sharing&lt;/a&gt; was the product of code reviews all along.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Debate layer keeps the same PR and the same tool and changes what the conversation is about. The team discusses the decisions the agents surfaced and couldn’t settle, and leaves the diff to the machines. This is the biggest behavioral change of the five, so start small.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-own-decide-who-signs" class="wp-block-heading"&gt;Own: decide who signs&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A model has no reputation. It has no liability. It can’t be asked why.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Responsibility has already moved twice. It used to sit with the author, who wrote the code and owned it. Then it moved to the reviewer, who read it and approved it. Now it sits with the team that writes the invariants that verify the change.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That changes what ownership means. Our job becomes owning the &lt;a href="https://docs.aviator.co/verify/concepts/invariants" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;invariants&lt;/a&gt; that govern the code and maintaining the mental model behind them, and line-by-line review drops out of it. Define who owns those invariants and what ownership now means, and name it before an incident names it for you.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-kill-the-theater" class="wp-block-heading"&gt;Kill the theater&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;My first essay told you to &lt;a href="https://thenewstack.io/killing-the-code-review/" class="local-link"&gt;kill the code review&lt;/a&gt;. Please don’t. &lt;a href="https://www.aviator.co/verify?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kill the line-by-line review theater.&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AI is good at finding bugs. Humans are good at judgment. Tools and culture have to move together: tooling that pushes decisions onto the same PR, guardrails strong enough to earn trust, and a conversation with your team about what review is for now.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kill-code-review-theater/"&gt;Kill the code review theater, keep the review&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Stop line-by-line review theater. Discover how to combine AI guardrails with human judgment to protect team-wide code understanding.</content:encoded>
-    </item>
-    <item>
-      <title>CRA readiness starts in the codebase</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cra-readiness-starts-codebase/</link>
-      <dc:creator>Ekaterina Okuneva</dc:creator>
-      <pubDate>Wed, 30 Sep 2026 13:00:00 +0000</pubDate>
-      <category>Compliance</category>
-      <category>Security</category>
-      <category>Software Development</category>
-      <category>sponsor-sonarsource</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22838836</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/17b59dc4-susan-wilkinson-qxjw5pjnik4-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark fluid swirl illustrating software security tension and CRA compliance." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/17b59dc4-susan-wilkinson-qxjw5pjnik4-unsplash.jpg" /&gt;&lt;p&gt;The Cyber Resilience Act (CRA) is often discussed as a policy or reporting challenge. But for organizations that build products&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cra-readiness-starts-codebase/"&gt;CRA readiness starts in the codebase&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/09/17b59dc4-susan-wilkinson-qxjw5pjnik4-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark fluid swirl illustrating software security tension and CRA compliance." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/09/17b59dc4-susan-wilkinson-qxjw5pjnik4-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;The Cyber Resilience Act (CRA) is often discussed as a policy or reporting challenge. But for organizations that build products with digital elements, its practical impact will be felt much earlier and much closer to the code: in pull requests, build pipelines, release approvals, dependency records, and test suites.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That is because an organization cannot credibly report on an &lt;a href="https://thenewstack.io/openai-agents-security-bypasses/" data-type="link" data-id="https://thenewstack.io/openai-agents-security-bypasses/" class="local-link"&gt;exploited vulnerability or severe incident&lt;/a&gt; if it cannot first answer basic engineering questions. Which versions are affected? Which component introduced the exposure? Was a security control changed? Can the release be reproduced? Did the fix actually work in the running product?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Manufacturers of products with digital elements in the scope of the CRA must report actively exploited vulnerabilities and severe incidents through the EU&amp;rsquo;s reporting process since September 11 of this year. Broader CRA obligations begin to apply in December 2027. These dates matter, but the more useful question for engineering leaders is not, &amp;ldquo;Are we compliant?&amp;rdquo; It is, &amp;ldquo;Can our software delivery system produce reliable security outcomes&amp;mdash;and prove it?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The answer is rarely found in a single security tool or a last-minute compliance exercise. It comes from repeatable controls embedded in the software lifecycle.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-move-from-policy-statements-to-observable-controls" class="wp-block-heading"&gt;Move from policy statements to observable controls&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Many organizations already have secure development policies. The gap is often between what the policy says and what the codebase, pipeline, and release evidence can demonstrate.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;High-risk failures should not depend on someone noticing them; the delivery system should prevent them from progressing.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A practical way to find that gap is to assess each control at one of four maturity levels:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Not evidenced:&lt;/strong&gt; The control is absent, or nobody can show that it exists.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Ad hoc:&lt;/strong&gt; It happens sometimes, often through individual effort or a manual process.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Standard:&lt;/strong&gt; The control is defined, consistently applied, and supported by evidence.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Enforced:&lt;/strong&gt; The control is automated &amp;amp; required where it should be and can stop unsafe work from progressing.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Standard&amp;rdquo; is an important threshold. A control that depends on a single knowledgeable engineer, a spreadsheet, or a pre-release scramble is not yet dependable at the speed of modern delivery. High-risk failures should not depend on someone noticing them; the delivery system should prevent them from progressing.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-seven-questions-that-expose-readiness-gaps" class="wp-block-heading"&gt;Seven questions that expose readiness gaps&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The following questions provide a codebase-focused starting point. They do not substitute for legal advice or a complete CRA program. They do, however, reveal whether the engineering system can prevent avoidable weaknesses and generate the evidence needed when something goes wrong.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-1-are-secure-defaults-built-into-the-product" class="wp-block-heading"&gt;1. Are secure defaults built into the product?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Security should not rely on a customer, operator, or deployment team remembering to disable unnecessary capabilities, tighten permissions, or turn on protection after installation. Secure-by-default behavior means the safer configuration is the initial configuration.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is particularly consequential for external-facing products. A feature that is exposed by default can turn a configuration oversight into a vulnerability with a much wider blast radius.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-2-can-you-identify-and-scrutinize-security-sensitive-changes" class="wp-block-heading"&gt;2. Can you identify and scrutinize security-sensitive changes?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Not every change needs the same review path. Changes to authentication, authorization, cryptography, secrets handling, update mechanisms, logging, and network exposure deserve additional attention.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams need a way to flag those changes, route them for the right review, and test them with risk in mind. During an incident, this discipline also creates a trail for investigators: what changed, who reviewed it, what evidence supported the decision, and which versions inherited the change?&lt;/p&gt;
-
-
-
-&lt;h3 id="h-3-can-every-release-be-traced-to-its-source-and-components" class="wp-block-heading"&gt;3. Can every release be traced to its source and components?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A release label alone is not enough. Organizations need to connect a released artifact to the exact source revision, build inputs, and dependencies that produced it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This traceability underpins effective impact analysis. When a vulnerability is disclosed, teams must quickly determine whether a component is present, in which versions, under what configuration, and in which customer-facing releases. &lt;a href="https://thenewstack.io/lineaje-unveils-sbom360-hub-for-software-bills-of-materials/" data-wpil-monitor-id="4115" class="local-link"&gt;Software bills of materials&lt;/a&gt; (SBOMs) are an essential part of that picture, but the operational goal is broader: mapping a finding to the actual product artifacts in the field.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-4-do-applicable-security-checks-run-before-code-merges" class="wp-block-heading"&gt;4. Do applicable security checks run before code merges?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Security checks that happen only before a major release find problems late, when the cost and disruption of remediation are greatest. A stronger model brings appropriate checks into the everyday development workflow, including pull requests and continuous integration.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The word &amp;ldquo;applicable&amp;rdquo; matters. A small documentation change should not be treated like a modification to access-control logic. But where a check applies, it should run reliably, not only when a developer remembers to request it. Tools like &lt;a href="https://www.sonarsource.com/products/sonarqube/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;SonarQube&lt;/strong&gt;&lt;/a&gt; that surface code quality and security findings directly in pull requests help developers address issues while the change is still small and contextual.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-5-can-serious-findings-block-a-build-or-release" class="wp-block-heading"&gt;5. Can serious findings block a build or release?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Visibility is valuable; enforcement changes outcomes. If a serious, unresolved finding only creates a dashboard alert, organizations depend on time, judgment, and competing delivery priorities to keep known risks out of a release.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Visibility is valuable; enforcement changes outcomes.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams should define release-blocking thresholds based on their product risk assessment, then make exceptions explicit, time-bound, and accountable. The goal is not to stop shipping indiscriminately. It is to make the organization&amp;rsquo;s risk decisions visible and intentional.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-6-do-tests-exercise-hostile-and-unexpected-behavior" class="wp-block-heading"&gt;6. Do tests exercise hostile and unexpected behavior?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/introduction-to-software-testing/" class="local-link"&gt;Functional tests typically prove&lt;/a&gt; that software works under expected conditions. Security testing must also ask how it behaves with malformed input, misuse, abuse attempts, and efforts to bypass controls.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That means treating negative testing as a first-class engineering activity, especially around security-critical flows. For example: Can authorization be bypassed? What happens when an update is interrupted? Does an API fail safely under malformed requests? Does rate limiting work under load? The answers help prevent exploitable conditions from reaching production and give teams a clearer view of severity when defects are found.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-7-do-release-tests-validate-security-behavior-at-runtime" class="wp-block-heading"&gt;7. Do release tests validate security behavior at runtime?&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A code review can establish intent, but it cannot fully prove runtime behavior. Products need release-level evidence that protections such as update integrity, rollback protection, isolation, secure deletion, and resilience under stress behave as designed in their real deployment context.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This matters after an incident, too. Teams must be able to test the proposed corrective measure, understand its effect on the product, and show that it does not introduce a new weakness.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-prioritize-by-exposure-not-by-checklist-order" class="wp-block-heading"&gt;Prioritize by exposure, not by checklist order&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A seven-question assessment should lead to a risk-weighted action plan. A missing secure default in an internet-facing product may deserve immediate attention. A gap in pre-merge automation for a low-risk internal component may be important but less urgent.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The practical prioritization factors are familiar: product exposure, criticality of affected functions, exploitability, data sensitivity, the availability of mitigations, and the number of released versions affected. What changes under the CRA is the value of having those facts available quickly and defensibly.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is also where organizations should resist treating evidence as paperwork. Evidence is operational capability. Build records, dependency inventories, review trails, test results, and exception decisions shorten the time between discovering a problem and understanding its scope. They help teams make better remediation decisions under pressure.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-make-resilience-part-of-the-delivery-system" class="wp-block-heading"&gt;Make resilience part of the delivery system&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The most durable response to the CRA is not a separate compliance workflow that developers visit occasionally. It&amp;#8217;s a delivery system that integrates secure defaults, traceability, testing, and release controls into the work teams already do.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That approach matters more as &lt;a href="https://thenewstack.io/coding-agents-developer-neglect/" class="local-link"&gt;agentic development&lt;/a&gt; accelerates code creation. In Sonar&amp;rsquo;s &lt;a href="https://www.sonarsource.com/blog/state-of-code-developer-survey-report-the-current-reality-of-ai-coding/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;State of Code Developer Survey&lt;/a&gt;, 96% of developers said they do not fully trust AI-generated code, yet only 48% said they always verify it before committing. This verification gap makes consistent controls essential: regardless of whether code originates with a developer or an agent, teams need automated checks that identify sensitive changes, validate security controls, and preserve release traceability.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The CRA is a regulatory obligation, but cyber resilience is an engineering discipline.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The immediate objective is straightforward: establish which controls are missing, inconsistent, or unenforced, then improve them based on product risk. Revisit the assessment on a regular cadence, because a control that is effective today can erode as systems, teams, and delivery practices change.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The CRA is a regulatory obligation, but cyber resilience is an engineering discipline. Organizations that build evidence-producing controls into their codebases will be better positioned not only to meet reporting obligations, but also to prevent the incidents that make those obligations necessary.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cra-readiness-starts-codebase/"&gt;CRA readiness starts in the codebase&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>CRA compliance starts in the codebase. Learn how to build repeatable, automated security controls into your software delivery system.</content:encoded>
     </item>
   </channel>
 </rss>
