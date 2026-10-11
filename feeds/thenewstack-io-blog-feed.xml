@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 10 Oct 2026 07:57:23 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 13:33:45 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,300 @@
       <height>32</height>
     </image>
     <item>
+      <title>How to turn AI production feedback into better agents</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-evaluation-loop/</link>
+      <dc:creator>Chen Goldberg</dc:creator>
+      <pubDate>Sat, 10 Oct 2026 16:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Operations</category>
+      <category>Observability</category>
+      <category>sponsor-coreweave</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839990</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A glass sphere bends a glowing blue, red, and yellow grid of light lines into a blurred circle, suggesting AI agent observability." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Your agent is live. The service is healthy. But are its answers getting better? By connecting production traces, curated data,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-evaluation-loop/"&gt;How to turn AI production feedback into better agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A glass sphere bends a glowing blue, red, and yellow grid of light lines into a blurred circle, suggesting AI agent observability." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Your agent is live. The service is healthy. But are its answers getting better?&lt;/strong&gt; By connecting production traces, curated data, and evaluations, your team can find failures, choose improvements, and prove the next version works before it reaches users.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A first deployment is still a milestone. Then the hard questions begin: How do we keep outputs accurate and customers happy? What will it cost us? After a few iterations, teams can spend more time maintaining tools and coordinating handoffs than improving the application itself.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-find-the-gaps-between-teams" class="wp-block-heading"&gt;Find the gaps between teams&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Consider what happens when the AI engineers who trained a model hand it off to an application or site reliability engineering (SRE) team. The engineers understand what &amp;ldquo;good&amp;rdquo; looks like; the production team owns the running service. From there, they may look at different systems.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Application traces land in a dashboard built for uptime. The on-call engineer sees a healthy service, while the research team learns little about answer quality or user sentiment. The evaluation suite drifts as user behavior changes, but no one owns refreshing it. Researchers, AI engineers, and business leads return to separate dashboards for the next release.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The on-call engineer sees a healthy service, while the research team learns little about answer quality or user sentiment.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Start by asking who can turn a production failure into an evaluation case, and who owns keeping that case current. If the answer requires copying context between teams, that&amp;rsquo;s where you&amp;rsquo;re lost in the handoffs..&lt;/p&gt;
+
+
+
+&lt;h2 id="h-connect-the-five-stages-of-improvement" class="wp-block-heading"&gt;Connect the five stages of improvement&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://www.coreweave.com/blog/the-ai-loop-launch-day-is-day-one?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AI loop&lt;/a&gt; follows a familiar cycle: run a model or agent, observe its behavior, curate the signal into data, improve the system, evaluate the result, and repeat. Each stage needs to carry enough context for the next team to act.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Run&lt;/strong&gt;. Choose the model and agent harness &amp;mdash; the code and tools around the model &amp;mdash; for the workload. Capture the signals you will need to investigate behavior after deployment.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Observe&lt;/strong&gt;. Look beyond availability. Capture traces, metrics, tool usage, and behavioral feedback so you can examine an agent&amp;rsquo;s decisions and identify where a run went wrong.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Curate&lt;/strong&gt;. Turn production examples into useful datasets and refreshed evaluation suites. Keep human review in the process, and preserve the lineage that explains where an example came from.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;A release should show what improved, rather than rely on a few promising answers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Improve&lt;/strong&gt;. Match the change to the failure. You might adjust the harness, switch models, or refine behavior through &lt;a href="https://www.coreweave.com/solutions/reinforcement-learning?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reinforcement learning&lt;/a&gt; (RL), &lt;a href="https://www.coreweave.com/products/coreweave-forge/serverless-sft?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;supervised fine-tuning&lt;/a&gt;, or model distillation. Define the quality, latency, or cost outcome you expect.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Evaluate&lt;/strong&gt;. Compare the candidate against repeatable standards before, during, and after deployment. A release should show what improved, rather than rely on a few promising answers.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-keep-the-record-with-the-work" class="wp-block-heading"&gt;Keep the record with the work&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;These handoffs shaped our approach to &lt;a href="https://www.coreweave.com/products/coreweave-forge?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Forge&lt;/a&gt;, which we announced last week at our &lt;a href="https://www.coreweave.com/fully-connected-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fully Connected 2026 conference&lt;/a&gt;. We designed it to connect running, observing, curating, improving, and evaluating in one development environment. &lt;a href="https://www.coreweave.com/news/coreweave-ai-cloud-platform-powers-masterclasss-ai-teaching-agents?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MasterClass&lt;/a&gt; and Canva are starting to use Forge to complete their AI loop.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The useful test for a connected environment is whether you can trace a deployment back to its model version, evaluation, dataset, and production examples. &lt;a href="https://coreweave.com/products/coreweave-forge/registry" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Registry&lt;/a&gt; manages models, agents, and datasets; &lt;a href="https://www.coreweave.com/products/coreweave-forge/weights-and-biases-models?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Weights &amp;amp; Biases Models&lt;/a&gt; tracks experiments, hyperparameter sweeps, analysis, and automated workflows. Together, those records help teams understand what changed and whether it improved results.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For observation, &lt;a href="https://www.coreweave.com/products/coreweave-forge/agent-lens?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Agent Lens&lt;/a&gt; traces steps, decisions, and tool calls, with conversation views and technical detail. Monitors score live traffic with human oversight and curation. Our &lt;a href="https://coreweave.com/blog/coreweave-forge-turn-ai-iteration-into-compounding-improvement" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launch post&lt;/a&gt; reports Agent Lens improves failure detection by 20% and fixes issues at half the cost; teams should assess those results against their own workloads.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.coreweave.com/products/coreweave-forge/notebooks?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Notebooks&lt;/a&gt; provides managed Python notebooks for shared evaluations and custom analytics. &lt;a href="https://www.coreweave.com/products/coreweave-forge/aria?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave ARIA&lt;/a&gt; analyzes runs, proposes experiments, and recommends code changes stored in GitHub. Its integration with Weights &amp;amp; Biases Models supports autoresearch based on detected signals. Keep the evaluation evidence alongside any proposed change so the team can judge the result.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.coreweave.com/products/coreweave-forge/sandboxes?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Sandboxes&lt;/a&gt; provides isolated central processing unit (CPU) or graphics processing unit (GPU) environments for agents, tool calls, RL, and evaluations. CoreWeave ARIA and CoreWeave Sandboxes are generally available; Agent Lens, Notebooks, and Model Distillation in preview and part of CoreWeave Training) are new in CoreWeave Forge.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-choose-the-improvement-your-workload-needs" class="wp-block-heading"&gt;Choose the improvement your workload needs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Post-Training uses production signals to improve model quality, latency, and cost without requiring a training cluster. &lt;a href="https://www.coreweave.com/products/coreweave-forge/serverless-sft?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Serverless SFT (supervised fine-tuning)&lt;/a&gt; and &lt;a href="https://www.coreweave.com/products/coreweave-forge/serverless-rl?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Serverless RL (reinforcement learning)&lt;/a&gt; let teams experiment with their own training recipes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a task already proven in production, &lt;a href="https://www.coreweave.com/products/coreweave-forge/model-distillation?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Model Distillation&lt;/a&gt; trains a smaller, open-weights model on the larger model&amp;rsquo;s outputs. It then scores the candidate head-to-head against the incumbent. That comparison gives you evidence for deciding whether to move traffic. A smaller model is useful only if it meets the task&amp;rsquo;s requirements.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-treat-inference-as-part-of-the-loop" class="wp-block-heading"&gt;Treat inference as part of the loop&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every stage depends on inference, but workloads need different levels of control. &lt;a href="https://www.coreweave.com/solutions/ai-inference?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Inference&lt;/a&gt; offers &lt;a href="https://www.coreweave.com/products/serverless-inference?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Serverless Inference&lt;/a&gt; for accessing open-weights models and &lt;a href="https://www.coreweave.com/products/dedicated-inference?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dedicated Inference&lt;/a&gt; for workloads on isolated infrastructure.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With &lt;a href="https://www.coreweave.com/solutions/ai-inference?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Serverless Inference&lt;/a&gt;, CoreWeave manages the infrastructure. With &lt;a href="https://www.coreweave.com/solutions/ai-inference?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dedicated Inference&lt;/a&gt;, teams control model weights, deployment settings, and GPU resources. Choose based on the workload&amp;rsquo;s requirements; teams can move between the approaches as those requirements evolve.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://cline.bot/?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cline&lt;/a&gt; uses open-source models in Serverless Inference for its open-source, open-choice coding agent, which our &lt;a href="https://coreweave.com/blog/coreweave-forge-turn-ai-iteration-into-compounding-improvement" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launch post&lt;/a&gt; describes as trusted by more than 11 million developers. &lt;a href="https://www.grammarly.com/?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grammarly&lt;/a&gt; uses Dedicated Inference with explicit GPU selection and fully managed operations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;RL adds another requirement. The policy generates rollouts &amp;mdash; examples of its behavior &amp;mdash; training produces updated weights, and those weights return to serving for the next round. Slow checkpoint loading slows the whole cycle.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Our new &lt;a href="https://docs.coreweave.com//products/inference/rl-rollouts?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RL rollouts&lt;/a&gt; feature in Dedicated Inference uses the NVIDIA Dynamo foundation to hot-load updated checkpoints with minimal downtime. We partnered with NVIDIA and you.com&amp;rsquo;s engineering team to post-train NVIDIA Nemotron 3.5 Lightning using RL Rollouts in NeMo gym with you.com&amp;rsquo;s web search application programming interface (API). Our &lt;a href="https://coreweave.com/blog/coreweave-forge-turn-ai-iteration-into-compounding-improvement" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launch post&lt;/a&gt; reports a 15-fold improvement in model reload latency against baseline.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-keep-the-loop-open-to-your-stack" class="wp-block-heading"&gt;Keep the loop open to your stack&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An improvement loop reaches into the observability platform, data warehouse, and security stack you already use. &lt;a href="https://www.coreweave.com/coreweave-partner-network?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The CoreWeave Partner Network&lt;/a&gt; includes infrastructure, data services, independent software vendors (ISVs), and models and inference, with solutions tested on CoreWeave under production conditions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That includes tools agents call. &lt;a href="https://exa.ai/?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Exa&lt;/a&gt;, &lt;a href="https://parallel.ai/?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Parallel Web Systems&lt;/a&gt;, and &lt;a href="http://you.com/?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;You.com&lt;/a&gt; provide a live web search layer through one integration. Search gives an agent access to information beyond its training data; you still need to observe and evaluate its tool calls and resulting answers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We built &lt;a href="http://forge.coreweave.com/?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Forge&lt;/a&gt; for teams with workloads on CoreWeave Cloud, other clouds, and private data centers. Improvement data stays portable, with open interfaces between stages, so curated datasets and evaluation suites can remain useful wherever you run.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-start-with-one-production-failure" class="wp-block-heading"&gt;Start with one production failure&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pick a failure your team understands. Follow it from trace to curated example, proposed fix, evaluation, and deployment. Record where context disappears and where ownership is unclear. That gives you a concrete starting point for connecting the loop.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To test that workflow, CoreWeave Forge offers a &lt;a href="https://id.coreweave.com/signup?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;30-day Pro free trial&lt;/a&gt; with credits across product lines. For those interested in proving production workloads with direct access to CoreWeave experts and infrastructure, try &lt;a href="https://www.coreweave.com/coreweave-arena?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave ARENA&lt;/a&gt;. The goal is to make each deployment feed what you build next, with evidence that the next version improves on the last.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-evaluation-loop/"&gt;How to turn AI production feedback into better agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>A healthy dashboard can hide an agent that’s getting worse. The fix starts with turning production failures into evaluations someone actually owns.</content:encoded>
+    </item>
+    <item>
+      <title>Microsoft skipped OpenAI’s decision model and built its own on Alibaba’s Qwen</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/microsoft-decision-model-foundry/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sat, 10 Oct 2026 13:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>AI Strategy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840068</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing pink neon wireframe of an inverted pyramid seen from above, forming a diamond-shaped grid on a dark gray background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Microsoft on Friday launched Microsoft-Decision-1 in Foundry, three days after OpenAI opened its Decisions API to every developer in public&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-decision-model-foundry/"&gt;Microsoft skipped OpenAI’s decision model and built its own on Alibaba’s Qwen&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing pink neon wireframe of an inverted pyramid seen from above, forming a diamond-shaped grid on a dark gray background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Microsoft on Friday&lt;/strong&gt; launched Microsoft-Decision-1 in Foundry, three days after OpenAI &lt;a href="https://thenewstack.io/openai-decision-models-deployment/" class="local-link"&gt;opened its Decisions API to every developer&lt;/a&gt; in public beta. Microsoft post-trained the decision model on Alibaba&amp;rsquo;s Qwen3.5-9B rather than anything its partner OpenAI built, though it plans to rebase it soon on its own MAI models as well as OpenAI&amp;rsquo;s.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://commandline.microsoft.com/microsoft-decision-1-model-foundry/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Decision-1&lt;/a&gt; costs $0.042 per million input tokens with free output, exactly what TypeSafe charges for &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;Jev&lt;/a&gt;, and it arrived the same day TypeSafe announced an $870 million Series A at a $7.5 billion valuation led by a16z.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Microsoft is about three and a half weeks behind the startup that started this category, and in that time OpenAI, Upstage, Perplexity, Cloudflare, and AWS have all &lt;a href="https://thenewstack.io/decision-models-system-one/" class="local-link"&gt;shipped decision models of their own&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;TypeSafe says nearly 30% of the Fortune 500 has tried Jev, though it hasn&amp;rsquo;t named any of them, and TypeSafe CEO &lt;a href="https://www.linkedin.com/in/diogomda" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Diogo Almeida&lt;/a&gt; posted on X that &amp;ldquo;29.4% of the Fortune 500 showed up&amp;rdquo; in the three weeks since launch. &lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;launched a model&lt;br&gt;&lt;br&gt;accidentally served trillions of tokens a day&lt;br&gt;&lt;br&gt;29.4% of the fortune 500 showed up&lt;br&gt;&lt;br&gt;raised a really big series A from &lt;a href="https://x.com/a16z?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;@a16z&lt;/a&gt; &lt;br&gt;&lt;br&gt;it&amp;#39;s been 3 weeks&lt;br&gt;&lt;br&gt;we would like to sleep now &lt;a href="https://t.co/skpaLPd2Bz" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/skpaLPd2Bz&lt;/a&gt;&lt;/p&gt;&amp;mdash; Diogo Almeida (@CompleteSkeptic) &lt;a href="https://x.com/CompleteSkeptic/status/2108594987177021737?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 9, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Those are the same companies Microsoft sells Azure to, which makes TypeSafe&amp;rsquo;s early traction hard for Microsoft to ignore.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-microsoft-s-first-customer-is-itself" class="wp-block-heading"&gt;Microsoft&amp;rsquo;s first customer is itself&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Microsoft Chairman and CEO&amp;nbsp;Satya Nadella&amp;nbsp;announced the model on&amp;nbsp;Friday on X, writing, &amp;ldquo;We&amp;rsquo;re already testing it across Microsoft,&amp;rdquo; and four internal teams back him up. &lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Introducing Microsoft-Decision-1, our new model for fast decision-making.&lt;br&gt;&lt;br&gt;It delivers top performance on structured decision tasks, outperforming both LLMs and other decision models in latency and quality.&lt;br&gt;&lt;br&gt;We&amp;rsquo;re already testing it across Microsoft for everything from incident&amp;hellip; &lt;a href="https://t.co/M3fAOD90r6" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/M3fAOD90r6&lt;/a&gt;&lt;/p&gt;&amp;mdash; Satya Nadella (@satyanadella) &lt;a href="https://x.com/satyanadella/status/2108627923888754862?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 9, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Xbox Research used it to sort more than 10,000 pieces of player feedback, the Copilot team graded chat and agent responses with it, on-call engineers used it to pull context during live incidents, and Microsoft Discovery used it to score experiments before an agent replans. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Microsoft&amp;rsquo;s numbers show it&amp;#8217;s more than 14 times as fast as GPT-6 Sol at a fraction of the cost for Xbox, and 46 times more consistent in Discovery.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But the model may have a bigger job in mind. On Wednesday, the company said GitHub Copilot will soon &lt;a href="https://thenewstack.io/https-thenewstack-io-copilot-local-inference-routing/" class="local-link"&gt;decide when to run a task on-device and when to send it to cloud-scale models&lt;/a&gt;, though it hasn&amp;rsquo;t disclosed what Copilot sends to the cloud. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Model routing is among the use cases Microsoft lists for Decision-1, but the company hasn&amp;rsquo;t said whether the model will make those calls for Copilot. With routing decisions to make across Copilot, GitHub, and Xbox, Microsoft has an incentive to handle them in-house.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;With routing decisions to make across Copilot, GitHub, and Xbox, Microsoft has an incentive to handle them in-house.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-decision-models-became-cheap" class="wp-block-heading"&gt;Decision models became cheap&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cognition&amp;rsquo;s vice president of engineering, &lt;a href="https://www.linkedin.com/in/jaredlpalmer/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jared Palmer&lt;/a&gt;, &lt;a href="https://runtimewire.com/article/jared-palmer-kev-qwen35-decision-models" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;spent about $95 in Modal H100 time&lt;/a&gt; porting his open-source Kev models to Qwen3.5, and Cloudflare &lt;a href="https://blog.cloudflare.com/clef-decision-models/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;built Clef-flash&lt;/a&gt; on the same Qwen3.5-9B base Microsoft picked.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Jev&amp;rsquo;s price is becoming the going rate: Palmer lists Kev-4B on OpenRouter at $0.042 per million input tokens, Perplexity&amp;nbsp;charges $0.02, and OpenAI charges more than double Jev&amp;rsquo;s rate. At those prices, revenue from individual decision calls is minimal, and Microsoft&amp;rsquo;s bigger opportunity is keeping agent traffic, including the generative calls around each decision, running through Foundry. Plus, the OpenRouter listing could bring developers who aren&amp;rsquo;t using Azure into that ecosystem.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/achint/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Achint Srivastava&lt;/a&gt;, vice president of software engineering in Microsoft&amp;#8217;s Office of the CTO, &lt;a href="https://commandline.microsoft.com/microsoft-decision-1-model-foundry/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;introduced Decision-1&lt;/a&gt; as a way to add decision-making to existing applications, agents and workflows &amp;ldquo;in a secure, trusted environment.&amp;rdquo; &lt;/p&gt;
+
+
+
+&lt;h2 id="h-text-only-no-weights" class="wp-block-heading"&gt;Text only, no weights&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This shows where Decision-1 falls short of its rivals. Its Foundry listing says it accepts up to 32,768 tokens of text and returns JSON, but it doesn&amp;rsquo;t support images, unlike OpenAI&amp;#8217;s Decisions API and Cloudflare&amp;#8217;s Clef, which uses a vision encoder.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;While Cloudflare &lt;a href="https://blog.cloudflare.com/clef-decision-models/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;released Clef under Apache 2.0&lt;/a&gt;, Microsoft has yet to announce open weights. AWS, Upstage, and Ollama have also &lt;a href="https://thenewstack.io/decision-models-system-one/" class="local-link"&gt;adopted TypeSafe&amp;#8217;s System One API&lt;/a&gt;, now a common interface across the category, but Microsoft hasn&amp;rsquo;t said whether Decision-1 is fully compatible, though its Foundry sample code calls a /systemone endpoint.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-calibration-under-adversarial-pressure" class="wp-block-heading"&gt;Calibration under adversarial pressure&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company says Decision-1&amp;rsquo;s probabilities are calibrated, meaning a 90% prediction should be right about nine times in 10 on representative cases, but research on Jev shows how far a confident score can drift when the input is written to mislead. Microsoft&amp;rsquo;s own Foundry documentation advises customers to validate calibration on their own data.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The company says Decision-1&amp;rsquo;s probabilities are calibrated, meaning a 90% prediction should be right about nine times in 10 on representative cases.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In the &lt;a href="https://arxiv.org/abs/2609.30243" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;JevOut preprint&lt;/a&gt;, USC computer science researcher Zixiang Xu and his co-authors found that short, natural-sounding additions to the context flipped 312 of Jev&amp;#8217;s 508 initially correct decisions. In 229 cases, Jev assigned at least 70% probability to the wrong answer. Three other scoring systems showed flip rates between 64.9% and 73.2% under the same testing approach.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Microsoft tested Decision-1 with eight kinds of perturbations, including reordered options and paraphrased descriptions, which changed 1.3% of its answers on average. JevOut didn&amp;#8217;t test Decision-1, so it&amp;#8217;s unclear how the model would hold up against similar attacks. Microsoft also hasn&amp;rsquo;t confirmed whether Decision-1 fully supports the System One API competitors adopted, leaving questions about interoperability and how much trust to place in its confidence scores.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-decision-model-foundry/"&gt;Microsoft skipped OpenAI’s decision model and built its own on Alibaba’s Qwen&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Microsoft’s Decision-1 matches Jev’s price and skips OpenAI’s model. Here’s who it’s built for and what it still leaves out for developers building agents.</content:encoded>
+    </item>
+    <item>
       <title>Elon Musk’s Grok Bot will pick Claude over Grok when it’s better. One-model loyalty is dead.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/musk-claude-model-triage/</link>
       <dc:creator>Matthew Burns</dc:creator>
@@ -28,10 +322,10 @@
       <category>Large Language Models</category>
       <category>Software Testing</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839967</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e7ecf2fd-gtok-claude-model-triage-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e7ecf2fd-gtok-claude-model-triage.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e7ecf2fd-gtok-claude-model-triage-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e7ecf2fd-gtok-claude-model-triage.png" /&gt;&lt;p&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/musk-claude-model-triage/"&gt;Elon Musk’s Grok Bot will pick Claude over Grok when it’s better. One-model loyalty is dead.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e7ecf2fd-gtok-claude-model-triage-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e7ecf2fd-gtok-claude-model-triage.png" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e7ecf2fd-gtok-claude-model-triage-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e7ecf2fd-gtok-claude-model-triage.png" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;I’m Matt Burns, Chief Content Officer at Insight Media Group. Each week, I round up the most important AI developments, explaining what they mean for people and organizations putting this technology to work. The thesis is simple: workers who learn to use AI will define the next era of their industries, and this newsletter is here to help you be one of them.&lt;/em&gt;&lt;/p&gt;
 
 
 
@@ -146,7 +440,7 @@
       <category>Sponsored</category>
       <category>sponsored-post</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840056</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/cc0dfb39-growtika-wlknzfskmxq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A 3D render of four beige blocks on a purple surface, each linked by a glowing tube to a central glass cube marked with an infinity symbol. Arrows on the tubes point in toward the cube’s ringed platform." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/cc0dfb39-growtika-wlknzfskmxq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome back to another edition of Road to KubeCon, where we&amp;#8217;re tracking the latest movements in the cloud-native ecosystem as&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/cc0dfb39-growtika-wlknzfskmxq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A 3D render of four beige blocks on a purple surface, each linked by a glowing tube to a central glass cube marked with an infinity symbol. Arrows on the tubes point in toward the cube’s ringed platform." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/cc0dfb39-growtika-wlknzfskmxq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome back to another edition of Road to KubeCon, where we&amp;#8217;re tracking the latest movements in the cloud-native ecosystem as&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-node-swap-ai/"&gt;Kubernetes on cgroup v1 is dead. Here’s what comes next.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/cc0dfb39-growtika-wlknzfskmxq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A 3D render of four beige blocks on a purple surface, each linked by a glowing tube to a central glass cube marked with an infinity symbol. Arrows on the tubes point in toward the cube’s ringed platform." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/cc0dfb39-growtika-wlknzfskmxq-unsplash-scaled.jpg" /&gt;
@@ -359,7 +653,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Deno made no secret of the inspiration. On the Celld website, the company explicitly credited Cloudflare distinguished engineer &lt;a href="https://www.linkedin.com/in/kenton-varda-5b96a2a4/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kenton Varda&lt;/a&gt; and the Workers team for the underlying design, describing its project as a tribute to their work.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Deno made no secret of the inspiration. On the Celld website, the company explicitly credited Cloudflare principal engineer &lt;a href="https://www.linkedin.com/in/kenton-varda-5b96a2a4/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kenton Varda&lt;/a&gt; and the Workers team for the underlying design, describing its project as a tribute to their work.&lt;/p&gt;
 
 
 
@@ -367,7 +661,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;The admiration, it seems, was mutual. In a &lt;a href="https://blog.cloudflare.com/deno-joins-cloudflare/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;joint blog post&lt;/a&gt; published on Friday, Varda praised Deno&amp;#8217;s expertise in an area where Cloudflare had perhaps struggled.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;The admiration, it seems, was mutual. In a &lt;a href="https://blog.cloudflare.com/deno-joins-cloudflare/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;joint blog post&lt;/a&gt; published on Friday, Varda praises Deno&amp;#8217;s expertise in an area where Cloudflare had perhaps struggled: making &lt;a href="https://blog.cloudflare.com/workerd-open-source-workers-runtime/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;its open-source Workers runtime&lt;/a&gt;, known as &lt;a href="https://github.com/cloudflare/workerd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Workerd&lt;/a&gt;, accessible to developers running applications on their own infrastructure.&lt;/p&gt;
 
 
 
@@ -393,7 +687,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Cloudflare now plans to merge Celld with &lt;a href="https://github.com/cloudflare/workerd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Workerd&lt;/a&gt;, its &lt;a href="https://blog.cloudflare.com/workerd-open-source-workers-runtime/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;existing open-source runtime&lt;/a&gt;, with Dahl and Deno co-founder &lt;a href="https://www.linkedin.com/in/bertbelder/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bert Belder&lt;/a&gt; leading the effort. The aim, ultimately, is to make it easier to build and operate distributed applications using Cloudflare&amp;#8217;s programming model on independently managed infrastructure.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Cloudflare now plans to merge Celld with Workerd, with Dahl and Deno co-founder &lt;a href="https://www.linkedin.com/in/bertbelder/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bert Belder&lt;/a&gt; leading the effort. The aim, ultimately, is to make it easier to build and operate distributed applications using Cloudflare&amp;#8217;s programming model on independently managed infrastructure.&lt;/p&gt;
 
 
 
@@ -583,7 +877,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aca16629ddce&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aca16629ddce" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="558" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image.png" alt="Diagram showing ECS's continuous monitor-and-repair loop " class="wp-image-22839704" style="aspect-ratio:1.565217391304348"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6acb6b963623f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6acb6b963623f" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="558" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image.png" alt="Diagram showing ECS's continuous monitor-and-repair loop " class="wp-image-22839704" style="aspect-ratio:1.565217391304348"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -624,7 +918,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aca16629e37d&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aca16629e37d" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="711" height="584" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image-1.png" alt="Diagram showing Availability Zone rebalancing" class="wp-image-22839705" style="aspect-ratio:1.21875;width:840px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6acb6b96367ab&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6acb6b96367ab" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="711" height="584" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image-1.png" alt="Diagram showing Availability Zone rebalancing" class="wp-image-22839705" style="aspect-ratio:1.21875;width:840px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -5173,375 +5467,6 @@ CREATE VECTOR INDEX ix_memory_vec ON agent_memory (embedding)
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-safety-release-cycle/"&gt;OpenAI’s former safety lead says it’s shipping &amp;#8220;new capability and risk every Tuesday&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Former OpenAI safety lead David Robinson tells Ezra Klein that reasoning updates, new tools and coding agents now let OpenAI ship new AI risk every week.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic launches Haiku 5.5 at a much lower price</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-haiku-5-5/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 18:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839616</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/04/88e49de1-img_0987-2-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Anthropic CEO Dario Amodei at Code with Claude 2025." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/88e49de1-img_0987-2-scaled.jpg" /&gt;&lt;p&gt;Anthropic on Wednesday launched Claude Haiku 5.5, the first new version of its smallest and most affordable model in nearly&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-haiku-5-5/"&gt;Anthropic launches Haiku 5.5 at a much lower price&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/04/88e49de1-img_0987-2-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Anthropic CEO Dario Amodei at Code with Claude 2025." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/04/88e49de1-img_0987-2-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic on Wednesday launched Claude Haiku 5.5&lt;/strong&gt;, the first new version of its smallest and most affordable model in nearly a year.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That’s Anthropic’s third 5.5 model in a month, though what’s still missing is Fable 5.5. That model, however, will likely go through a much longer review process, so it’s no surprise its launch is taking a bit longer.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-haiku-5-5-pricing-works" class="wp-block-heading"&gt;How Haiku 5.5 pricing works&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Like with previous iterations, the company describes &lt;a href="https://www.anthropic.com/claude/haiku" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Haiku 5.5&lt;/a&gt; as its “fastest and most efficient model,” but this time, it is also much cheaper. While Haiku 4.5 cost $1/$5 per million input/output tokens, Anthropic is bringing the price down to $0.10/$0.50 for requests under 100,000 tokens. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Anthropic describes Haiku 5.5 as its “fastest and most efficient model,” but this time, it is also much cheaper.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For larger requests, the new price is $0.50/$2.50 (Haiku 4.5 costs the same, no matter the number of tokens in a request), but Anthropic notes that about 90% of requests to Haiku 4.5 fell into the lower-priced category (which is likely a function of the kind of work that developers have sent to Haiku in the past).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those are 90% and 50% cuts to the per-token prices, respectively. Anthropic puts the average savings at around 75%. That accounts for a mix of requests and an updated tokenizer that uses slightly more tokens per task. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This new version is the first Haiku model with effort controls (the default is medium), giving developers control over how many tokens the model uses on a given task.&lt;/p&gt;
-
-
-
-&lt;div style="overflow-x:auto;"&gt;
-&lt;div class="table-scroll-wrap"&gt;&lt;table style="border-collapse:collapse;width:100%;font-size:15px;line-height:1.4;"&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th colspan="2" style="border:1px solid #333;padding:8px 10px;text-align:left;"&gt;&lt;/th&gt;
-      &lt;th style="border:1px solid #333;padding:8px 10px;text-align:left;font-weight:600;"&gt;Haiku 5.5&lt;/th&gt;
-      &lt;th style="border:1px solid #333;padding:8px 10px;text-align:left;font-weight:600;"&gt;Haiku 4.5&lt;/th&gt;
-      &lt;th style="border:1px solid #333;padding:8px 10px;text-align:left;font-weight:600;"&gt;GPT-6 Luna&lt;/th&gt;
-      &lt;th style="border:1px solid #333;padding:8px 10px;text-align:left;font-weight:600;color:#888;"&gt;Sonnet 5.5&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td colspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Knowledge work&lt;br&gt;&lt;em&gt;GDPval-AA v2.1&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;1620&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;735&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;1437&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;1840&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td colspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Knowledge work&lt;br&gt;&lt;em&gt;AA-Briefcase v1.1&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;1578&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;614&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;1336&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;1824&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td colspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Computer use&lt;br&gt;&lt;em&gt;OSWorld 2.1 (Offline subset)&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;72.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;15.7%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;48.9%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;83.9%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td rowspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Multidisciplinary reasoning&lt;br&gt;&lt;em&gt;Humanity’s Last Exam&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;No tools&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;45.9%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;10.2%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;–&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;56.9%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;With tools&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;57.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;18.7%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;–&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;64.5%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td colspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Agentic coding&lt;br&gt;&lt;em&gt;Terminal-Bench 4.0&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;39.2%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;0.0%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;16.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;70.6%&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td colspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Agentic coding&lt;br&gt;&lt;em&gt;FrontierCode 1.1 (Main)&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;46.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;–&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;42.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;52.1%&lt;br&gt;&lt;small&gt;(Xhigh)&lt;/small&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td colspan="2" style="border:1px solid #333;padding:8px 10px;"&gt;Visual reasoning&lt;br&gt;&lt;em&gt;Chartography (no tools)&lt;/em&gt;&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;46.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;6.4%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;"&gt;29.1%&lt;/td&gt;
-      &lt;td style="border:1px solid #333;padding:8px 10px;color:#888;"&gt;61.6%&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-
-
-&lt;h2 id="h-small-models-new-jobs" class="wp-block-heading"&gt;Small models, new jobs&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The use case for these small models has always been to handle high-volume tasks like summarization, classification, and routing.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That, of course, is also where &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;decision models like Jev&lt;/a&gt; are currently making a splash — and at an even lower price.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Going forward, that may not be where these small models like Haiku or OpenAI’s GPT-6 Luna will be most useful, so it’s probably no surprise that Anthropic also notes that the model can handle tasks like compaction and database queries, as well as agentic workloads where speed matters, including live customer support and browser use.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-haiku-5-5-benchmarks" class="wp-block-heading"&gt;Haiku 5.5 benchmarks&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic’s own evaluations show a clear improvement over Haiku 4.5. On the offline subset of OSWorld 2.1, which tests computer use, Haiku 5.5 scored 72.4%, up from 15.7% for its predecessor and ahead of GPT-6 Luna’s 48.9%. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On the GDPval-AA v2.1 knowledge-work benchmark, Haiku 5.5 scored 1,620, compared with 735 for Haiku 4.5 and 1,437 for GPT-6 Luna. Unsurprisingly, Sonnet 5.5 remains ahead on both benchmarks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Terminal-Bench 4.0, which tests complex, multi-step tasks in a command-line environment, Haiku 5.5 scored 39.2%, compared with 0% for Haiku 4.5, 16.4% for GPT-6 Luna and 70.6% for Sonnet 5.5. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-chinese-rivals-compare" class="wp-block-heading"&gt;How Chinese rivals compare&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic is only directly comparing Haiku 5.5 to its own models and OpenAI’s GPT-6 Luna. But when it comes to small models, many developers are also looking at competitors form Z.ai, Alibaba, and others.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Artificial Analysis currently gives Z.ai’s GLM-5.3-Flash a score of 1,647 on &lt;a href="https://artificialanalysis.ai/evaluations/gdpval-aa" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GDPval-AA v2.1&lt;/a&gt; and 1,454 on &lt;a href="https://artificialanalysis.ai/evaluations/aa-briefcase" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AA-Briefcase v1.1&lt;/a&gt;. Anthropic, in comparison, reports 1,620 and 1,578 for Haiku 5.5, respectively.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are still cheaper options, too. On Alibaba’s international service, Qwen3.7 Flash costs $0.03 per million input tokens and $0.13 per million output tokens for inputs of up to 32,000 tokens. For inputs above 32,000 and up to 256,000 tokens, those rates rise to $0.10 and $0.40, respectively.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Haiku 5.5 is available on the Claude Platform, Amazon Web Services, Google Cloud and Microsoft Azure. Developers using Anthropic’s platform can access it as claude-haiku-5-5. The company is also adding beta support for computer use and browser use to its Python and TypeScript SDKs.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-also-new-sonnet-5-5-cache-price-drop-api-credits-for-max-and-team-subscriptions" class="wp-block-heading"&gt;Also new: Sonnet 5.5 cache price drop, API credits for Max and Team subscriptions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Alongside the launch, Anthropic is cutting Sonnet 5.5’s cache-read price in half, from $0.20 to $0.10 per million tokens. The company says this should make most agentic tasks about 20% cheaper. The cut is rolling out across platforms on Wednesday, though some existing Azure and Google Cloud customers will have to wait a few days.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Anthropic is cutting Sonnet 5.5’s cache-read price in half&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic is also adding monthly API credits to its Max and Team subscriptions this week. Max 5x subscribers will get $100 per month and Max 20x subscribers will get $200. Team subscribers will receive up to $500, pooled across their users. You can use the credits with any model on the Claude Platform.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Haiku 5.5 also comes with tighter cybersecurity safeguards than Haiku 4.5, although Anthropic says these allow a wider range of defensive work than Sonnet 5.5’s safeguards. They still block penetration testing. Organizations that need broader access for cybersecurity or biology work can apply to Anthropic’s verification programs.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-haiku-5-5/"&gt;Anthropic launches Haiku 5.5 at a much lower price&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Haiku 5.5 adds effort controls and posts big gains on computer-use and command-line benchmarks as Anthropic pitches its smallest model for agentic work.</content:encoded>
-    </item>
-    <item>
-      <title>OpenSearch veterans launch Infino. Here’s why it matters for agent builders.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/infino-agent-retrieval-layer/</link>
-      <dc:creator>Adrian Bridgwater</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 14:25:54 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Data</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839279</guid>
-      <description>&lt;img width="1024" height="717" src="https://cdn.thenewstack.io/media/2026/10/bf87c960-simple-wallpapers-0vxzvdv_h8o-unsplash-1024x717.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf87c960-simple-wallpapers-0vxzvdv_h8o-unsplash-scaled.jpg" /&gt;&lt;p&gt;Software vendors like to claim unified systems that act as a so-called single pane of glass for any given coding&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/infino-agent-retrieval-layer/"&gt;OpenSearch veterans launch Infino. Here&amp;#8217;s why it matters for agent builders.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="717" src="https://cdn.thenewstack.io/media/2026/10/bf87c960-simple-wallpapers-0vxzvdv_h8o-unsplash-1024x717.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf87c960-simple-wallpapers-0vxzvdv_h8o-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Software vendors like to claim unified systems&lt;/strong&gt; that act as a so-called single pane of glass for any given coding task, data function, or broader workflow. Agentic data retrieval company&amp;nbsp;Infino&amp;nbsp;hints at that vibe, promising a single retrieval layer for all agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In this context, a single retrieval layer means a unified (there&amp;rsquo;s that word) database system that lets all AI agents query all data from one place.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-agents-have-changed-the-data-query-paradigm-nbsp" class="wp-block-heading"&gt;Agents have changed the data query paradigm&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Formally launching its agent retrieval platform on Wednesday, &lt;a href="https://infino.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Infino&lt;/a&gt; says it built the platform because agents have changed the data query paradigm and don&amp;#8217;t query like humans.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Infino CEO &lt;a href="https://www.linkedin.com/in/ekechi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ekechi Nwokah&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that agents are the &amp;ldquo;largest new consumer of data since the web browser&amp;rdquo;, but he laments that they are still &amp;ldquo;being served with a fragmented stack built for a different era,&amp;rdquo; i.e., &lt;a href="https://thenewstack.io/data-warehouses-and-customer-data-platforms-better-together/" class="local-link"&gt;data warehouses&lt;/a&gt; for SQL, search engines for keywords, &lt;a href="https://thenewstack.io/how-to-master-vector-databases/" class="local-link"&gt;vector databases&lt;/a&gt; for &lt;a href="https://thenewstack.io/superlinked-democratizes-real-time-semantic-search/" class="local-link"&gt;semantic search&lt;/a&gt;, and &lt;a href="https://thenewstack.io/from-etl-to-autonomy-data-engineering-in-2026/" class="local-link"&gt;ETL&lt;/a&gt; pipelines to keep them all in sync.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;re collapsing that stack for agents,&amp;rdquo; Nwokah says. &amp;ldquo;Our approach is to put the data in Parquet in object storage and let agents search, rank, filter, join, aggregate, and reason over it directly. The result is one copy of the data that all agents read.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As we know from database basics lesson #1, data stores have been traditionally optimized for a human or application that writes one query, waits, and reads the result.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;An agent behaves quite differently,&amp;rdquo; Nwokah says. &amp;ldquo;It issues many small questions to answer one large one, often at the same time, and every result it receives consumes context and can add cost and latency to subsequent model calls. That is a new kind of reader that existing data stores were not optimized for.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;An agent behaves quite differently. It issues many small questions to answer one large one, often at the same time, and every result it receives consumes context, and can add cost and latency to subsequent model calls.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nwokah explains that &lt;a href="https://thenewstack.io/the-grep-command-in-linux/" class="local-link"&gt;Grep&lt;/a&gt; (the command-line tool that searches plain text for line matches on a specific keyword or pattern) returns matches, and the agent goes on to read whole files. Further, he notes that a vector database will return a handful of chunks, and then the agent asks again with additional queries. Additionally, a data warehouse returns rows, and the agent combines them itself.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Infino is a retrieval layer designed for this data reader dynamic. It gives the agent one interface directly over object storage that combines structured and unstructured queries: ranked searches, exact counts, joins, filters and aggregates at low cost and large scale,&amp;rdquo; Nwokah clarifies.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;During the good old years of data search, query patterns were comparatively predictable. When humans or applications queried, search ran on a search database. Analytics ran in a warehouse. Vector databases enabled approximate queries and unlocked a new class of use cases, but they didn&amp;#8217;t fundamentally change those query patterns. Each query ran on its own system, with its own copy of the data, its own ingestion pipeline, and its own team to run it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Today, those operations can still span a database plus a search engine, a vector database, and a data warehouse. The agent has to call each one and then spend additional model turns combining the results. Infino&amp;rsquo;s answer is to embed retrieval functions directly in SQL, so the whole question can be expressed in one query.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-fewer-data-tasks-less-glue-code-centralized-policy-management" class="wp-block-heading"&gt;Fewer data tasks, less glue code, centralized policy management&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;For developers and data teams, it removes entire pipelines and the time it takes to manage them,&amp;rdquo; Nwokah enthuses. &amp;ldquo;That means fewer systems, fewer ingest paths, fewer ETL jobs, fewer schemas to keep aligned, fewer clients in the agent&amp;#8217;s tool list, and less glue code to combine their results. It also means one place to govern agents.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He underlines his organization&amp;rsquo;s method here and says that when an agent&amp;#8217;s data lives in a single copy, developers &amp;ldquo;can enforce hard policies centrally&amp;rdquo;, so that means governance over who can read what, which rows and columns an agent can see, and what gets logged.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Compare that with managing agent permissions across MCP gateways and SaaS tools,&amp;rdquo; urges Nwokah.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;For developers and data teams, it removes entire pipelines and the time it takes to manage them.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A developer can enter a single natural-language English question, and it becomes one query that completes in milliseconds, according to Infino. Infino has clarified that the important part isn&amp;#8217;t SQL itself; it&amp;#8217;s that keyword search, semantic search, filtering, aggregation, and grouping can happen together instead of forcing the agent to orchestrate several systems and reason over a pile of intermediate results.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As an additional challenge uncovered during the platform&amp;rsquo;s development, Infino noted that even when retrieval is fast, it found that agents spend a lot of time in retrieval loops, i.e., working to formulate a query, search, decide whether the results are good enough, try something else, validate the answer, and repeat. Infino says it integrates targeted inference models with the retrieval engine so these simpler tasks run faster and more cheaply than with frontier models.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-data-storage-challenge-apache-parquet" class="wp-block-heading"&gt;The data storage challenge: Apache Parquet&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The other challenge Infino tackled is how it stores the data. Instead of maintaining separate copies for search, vectors, and analytics, Infino keeps a single copy in &lt;a href="https://thenewstack.io/an-introduction-to-apache-parquet/" class="local-link"&gt;Apache Parquet&lt;/a&gt; (a column-oriented storage format) on object storage.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The core engine is open source, Apache-2.0, on GitHub, and we store all data as valid Parquet files with the search indexes embedded beside the Parquet footer, so any tool that reads Parquet can read the data with or without Infino. Infino Cloud, our hosted service, has some additional proprietary features, like being able to point at your existing Parquet data and make it searchable without building any infrastructure yourself,&amp;rdquo; adds Nwokah.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Infino stores indexes inside the Parquet files to speed retrieval, while the underlying data remains Parquet. Iceberg and Hudi can manage the same table, and Spark, DuckDB, warehouses, and other Parquet readers can still read it. One copy of the data can therefore serve the different ways an agent needs to query it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Infino also wanted the path from data to query to be simpler than with traditional data stores. Setting up clusters, nodes, shards, and headcount is a lot of complexity just to query data, the company argues. With Infino, developers can point at Parquet or JSON, ingest the data, then point their agent at Infino and start querying.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-who-benefits-from-this-technology" class="wp-block-heading"&gt;Who benefits from this technology?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nwokah lists four major software engineering practitioner groups who he promises can benefit from the approach outlined here:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Platform or data engineers looking to get their arms around the proliferation of agents, with a far simpler and far less expensive stack to manage. There is no data lock-in (claims Nwokah), as their data stays in their bucket and is readable by any Parquet reader. Agents can combine both structured and unstructured data through one interface.&lt;/li&gt;
-
-
-
-&lt;li&gt;Security engineers looking to put a proper governance layer around their agents. With a single copy of data, the auth policies an agent runs under are enforced centrally and deterministically rather than across a set of MCP gateways and SaaS connectors.&lt;/li&gt;
-
-
-
-&lt;li&gt;ML and data science teams doing feature exploration. Infino searches, filters, joins and aggregates over both structured and unstructured data, cutting the time between messy data and clean features.&lt;/li&gt;
-
-
-
-&lt;li&gt;Software developers building agent workflows across code, logs, CI output, issues and other engineering data. Instead of giving the agent a different retrieval system for each corpus, they can give it one query interface across all of them.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With its current architecture, Nwokah claims that Infino is designed to be roughly 10&amp;times; cheaper than traditional search or analytics infrastructures. Infino&amp;rsquo;s own published comparison puts it at about 10.5&amp;times; cheaper than Elasticsearch and 23&amp;times; cheaper than OpenSearch for the workload it tested.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-multi-billion-document-use-cases-nbsp" class="wp-block-heading"&gt;Multi-billion-document use cases&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nwokah confirms that the company is already supporting multi-billion-document use cases in people search, document processing, product analytics, and security.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We are particularly optimized for teams with agent use cases that are already on Parquet or considering migrating to Parquet, or alternatively who are looking to replace their search tool with something easier to manage and more scalable,&amp;rdquo; he concludes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One of the organization&amp;#8217;s customers, which Infino did not name, is putting petabytes of data from across their entire company on Infino, according to the company. The Parquet sits in their bucket and is still read by existing tools across different teams. Meanwhile, the product and engineering teams get the scalable agent infrastructure they need to launch AI-native solutions for their customers. Developers can then control their agents from a single interface.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Infino CEO &lt;a href="https://www.linkedin.com/in/ekechi/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nwokah&lt;/a&gt; formed the company alongside co-founder and head of engineering &lt;a href="https://www.linkedin.com/in/vinaykakade/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vinay Kakade&lt;/a&gt;, co-founder &lt;a href="https://www.linkedin.com/in/asifmakhani/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Asif Makhani&lt;/a&gt;, and chief architect &lt;a href="https://www.linkedin.com/in/muralikpbhat/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Murali Krishna&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The group spent years building and operating ML and search systems across Amazon, Google, and LinkedIn, including AWS OpenSearch. The changing nature of agentic data querying is their rationale for building Infino: to enable any agent to query data at scale, in one query, over one copy of the data.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/infino-agent-retrieval-layer/"&gt;OpenSearch veterans launch Infino. Here&amp;#8217;s why it matters for agent builders.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Infino emerges from stealth with an open source retrieval layer that lets AI agents query one Parquet copy of data, replacing a fragmented data stack.</content:encoded>
     </item>
   </channel>
 </rss>
