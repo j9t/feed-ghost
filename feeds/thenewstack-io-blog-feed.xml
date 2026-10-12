@@ -20,6 +20,226 @@
       <height>32</height>
     </image>
     <item>
+      <title>Claude Code found my app’s shared contract in two MCP calls. Then the records ran out.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-code-mcp-records/</link>
+      <dc:creator>Ignacio Aldama</dc:creator>
+      <pubDate>Sun, 11 Oct 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Model Context Protocol</category>
+      <category>contributed-bit</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22839963</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract thermal-style image of two hands reaching toward each other against a black background, rendered in vivid purple, orange and blue tones." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-scaled.jpg" /&gt;&lt;p&gt;Every Claude Code user has watched a new session start from zero. You open it on a system you built&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-mcp-records/"&gt;Claude Code found my app’s shared contract in two MCP calls. Then the records ran out.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract thermal-style image of two hands reaching toward each other against a black background, rendered in vivid purple, orange and blue tones." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Every Claude Code user has watched&lt;/strong&gt; a new session start from zero. You open it on a system you built last week, ask for a small feature, and the agent begins by rediscovering your own architecture: which service owns the data, which frontend calls it, which type the two of them share. The conversation that explained all of that is gone or compressed into a summary, and the source files show what exists without saying what depends on what.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So far, the main answer is memory. Claude Code loads CLAUDE.md instructions and its own auto-memory notes at the start of every session, and since September 17, the redesigned Projects, in beta in Claude Code cloud sessions, keep a shared memory across threads, so Claude can recall that &amp;#8220;the release moved to Friday&amp;#8221; or &amp;#8220;who to check in with before touching the billing service.&amp;#8221; I wanted to test a different source of context: the dependency records a build platform writes when it creates each version of a component.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Disclosure: I&amp;#8217;m an engineer at Bit Cloud, a platform that builds, hosts, and deploys even a single app from its first component, with coding agents working on it over MCP. I asked Claude to build on it to see what an agent can do when the platform records each part and its dependencies as they are versioned. The project and its build records are public.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-can-a-fresh-session-recover-without-memory" class="wp-block-heading"&gt;&lt;strong&gt;What can a fresh session recover without memory?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The system was a small support console I had built with Claude Code earlier, and I wrote up &lt;a href="https://dev.to/nachoaldamav/how-i-built-and-deployed-a-support-platform-with-claude-code-k" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;how I built and deployed it&lt;/a&gt; separately. The prompt that started that build mentioned tooling in two words, &amp;#8220;using Bit&amp;#8221;, and otherwise described the product. It has four components: a React app, an Express service backed by MongoDB, a shared ticket entity, and a &lt;a href="https://thenewstack.io/agent-runtime-application-server/"  data-wpil-monitor-id="4136" class="local-link"&gt;platform component that puts the app and the service behind&lt;/a&gt; one gateway. All four are versioned in &lt;a href="https://bit.cloud/bit-oss/support" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a public scope&lt;/a&gt;, bit-oss.support, and the console runs in production over HTTPS.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To test what the records alone could carry, I opened a fresh Claude Code session in an empty workspace, with no conversation history and no local code, and asked:&lt;/p&gt;
+
+
+
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;Add filtering by ticket status and assignee to the support console in bit-oss.support.&lt;/code&gt;&lt;/pre&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Claude checked the workspace and found no local components. Its next message was: &amp;#8220;The workspace is empty, so the support console lives remotely. Let me read the bit-oss.support scope through the MCP.&amp;#8221; It called `read_scope` for `bit-oss.support`. That returned the four components and their dependencies. It then called `read_components` for the app, service, and ticket entity, retrieving API references and file inventories before importing source or editing code.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The app and service both depended on the same version of the ticket entity. Its class documentation read, &amp;#8220;shared between the support service and the agent-facing app,&amp;#8221; and the API reference included that sentence. The project could supply this context without the original conversation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Claude imported all four components with `bit import`, inspected the source, and implemented client-side filtering within the app. Validation reported 41 passing tests, including nine new filtering tests. MCP helped it discover the system; source inspection and tests established how to change it. The change stayed inside the app, leaving the shared ticket entity and the service alone. Knowing what is shared also tells an agent what not to touch.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-where-did-the-records-run-out" class="wp-block-heading"&gt;&lt;strong&gt;Where did the records run out?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;They ran out at behavior. The app&amp;#8217;s API reference does list the routes it calls, `GET /tickets`, `POST /tickets`, `PATCH /tickets/:id` and `POST /tickets/:id/comments`, in the documentation for a fake service it uses in tests, but nothing checks that list against the real service. The records told Claude which components shared the ticket contract; whether the routes on each side still matched had to be read by hand and tested.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A green build also proves less than it seems to. The MongoDB integration tests skip when their temporary database cannot start on the CI runner, so a passing build doesn&amp;#8217;t show they ran. I checked persistence by hand: create a ticket, add a comment, restart the platform against the same database, and see that both are still there.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And this is a demo, with a predefined demo account and a public signing secret. Concurrency control, migrations, recovery procedures, and mandatory database tests are all still to do. That is ordinary engineering work, and it is where I want an engineer&amp;#8217;s time to go.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-memory-files-or-dependency-records" class="wp-block-heading"&gt;&lt;strong&gt;Memory files or dependency records?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Memory holds what someone chose to write down. In Claude Code, that means CLAUDE.md (or AGENTS.md) instructions a person writes, and auto-memory notes Claude writes from corrections and preferences, and the redesigned Projects add decisions, such as why an export was dropped, which no build system will ever record. Each note is accurate as of the moment it was written. Claude Code records each memory file&amp;#8217;s write time, and its documentation explains why: &amp;#8220;the timestamp shows how current the fact is.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The build system writes a dependency record when it creates a component version, and it is part of that version. When the support app was versioned, the build system recorded its dependency on one specific version of the ticket entity, without anyone deciding it was worth noting, and the record cannot drift from the version it describes. And because `read_scope` returns each component at its latest version, the records Claude read were current. A memory note carries the time it was written, but nothing ties it to a code version. In the test, the session had no conversation and no local code. The only memory in the workspace was the generic AGENTS.md that `bit new` writes, which tells the agent to look things up on the platform, and the records did the rest: they were enough to find the shared contract.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The two cover different ground and work best together: memory for intent, such as the release date, the person to ask, or why a feature was cut, and records for structure and meaning, which version of what depends on which. Nx serves its project graph to agents over MCP, and Sourcegraph serves code search and navigation across repositories; both do that well. For this test, I wanted something narrower: a record per component, written when its version was created, that still holds when the other side of a dependency lives somewhere the agent hasn&amp;#8217;t indexed.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-should-a-team-start" class="wp-block-heading"&gt;&lt;strong&gt;When should a team start?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At the first component. The records in this test cost nothing extra, because they were written as each version was made, starting on day one. I had created the workspace with `bit new`, which supplied the Bit Cloud MCP connection in `.mcp.json` and an AGENTS.md with instructions for the agent, and at the start of the original build Claude used that connection to look through &lt;a href="https://bit.cloud/bitdesign/sparks" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;an existing design-system scope&lt;/a&gt; for parts it could reuse; the four components now depend on 16 that already existed, ten of them from that design system. Rebuilding that map later, after one team renames a shared field and another finds out from its error logs, is the expensive version of the same work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;None of it requires our product; it just needs dependencies recorded wherever the work happens.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents can already reach production, and what they still lack, on every request after the first, is a view of the system they are about to change. That view is cheapest to build before the second component exists.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-mcp-records/"&gt;Claude Code found my app’s shared contract in two MCP calls. Then the records ran out.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Claude Code’s redesigned Projects give agents a shared memory of a project’s decisions. I tested what a brand-new session with no conversation history or local code could recover from versioning records, and where it hit a wall.</content:encoded>
+    </item>
+    <item>
+      <title>Claude found 29,000 possible bugs in open source. Only 516 have been fixed.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-oss-scanner-vulnerabilities/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sun, 11 Oct 2026 13:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Open Source</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840019</guid>
+      <description>&lt;img width="1024" height="612" src="https://cdn.thenewstack.io/media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-1024x612.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Code and glasses scrutiny" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic&amp;#8217;s new OSS Scanner, launched last week as part of its broader Cyber Mission, exposes a problem inside the company&amp;#8217;s&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-oss-scanner-vulnerabilities/"&gt;Claude found 29,000 possible bugs in open source. Only 516 have been fixed.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="612" src="https://cdn.thenewstack.io/media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-1024x612.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Code and glasses scrutiny" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic&amp;rsquo;s new OSS Scanner,&lt;/strong&gt; launched last week as part of its broader Cyber Mission, exposes a problem inside the company&amp;rsquo;s security research operation. Claude is finding potential vulnerabilities faster than human researchers can verify them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Over six months of scanning some of the world&amp;rsquo;s most widely used open source projects, Anthropic&amp;rsquo;s models surfaced &lt;a href="https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;more than 29,000 candidate vulnerabilities&lt;/a&gt;. Its human review pipeline, which relies on &lt;a href="https://red.anthropic.com/2026/cvd/about" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;six external security research firms&lt;/a&gt; to reproduce and triage findings, has worked through only about 6,000.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A &lt;a href="https://red.anthropic.com/2026/cvd/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;disclosure dashboard&lt;/a&gt; puts some numbers behind the problem. As of October 2, outside security firms had confirmed 5,674 of the 6,123 findings they reviewed as valid, but only 516 vulnerabilities had been patched upstream.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company sent 6,157 findings to maintainers, and 584 CVE and GitHub Security Advisory identifiers were issued, though some findings received both. Roughly 23,000 candidates remain unreviewed.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Claude is finding potential vulnerabilities faster than human researchers can verify them. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-how-the-fast-track-works" class="wp-block-heading"&gt;How the fast track works&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Instead of making maintainers wait for its researchers to work through the backlog, Anthropic is giving eligible projects free, periodic scans powered by its top models, including Claude Mythos. The findings go directly to maintainers, without anyone at Anthropic validating them first.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic says projects that received its first reports increasingly asked for everything else it had, and it has already sent nearly 5,000 unvalidated reports to maintainers who requested them. The company now calls the arrangement an &amp;ldquo;optional fast-track.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bypassing-the-backlog" class="wp-block-heading"&gt;Bypassing the backlog&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Expert penetration testers who vet its coordinated disclosures were asked to check 97 critical and high-severity findings that an early version of the scanner produced across 48 projects. Eighty-five cleared the bar for disclosure, while 11 of the remaining 12 were real bugs that duplicated known issues or other findings from the scan. Only one was a false positive.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Those figures describe the scanner&amp;rsquo;s early output, but not the 29,000 candidates from Anthropic&amp;rsquo;s separate disclosure program. The sample says little about lower-severity findings or how the scanner will perform at scale. In its &lt;a href="https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;technical announcement&lt;/a&gt;, Anthropic acknowledged that maintainers have reported inflated severity ratings and cases where the scanner misunderstood a project&amp;rsquo;s threat model.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-maintainers-are-reporting" class="wp-block-heading"&gt;What maintainers are reporting&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;What separates these reports from a SAST alert queue is how they are packaged. Anthropic says reports include a self-contained reproducer, an explanation that, when possible, identifies where the bug was introduced through bisection, and a candidate patch when the model can produce one. &lt;a href="https://www.linkedin.com/in/antonarapov/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anton Arapov&lt;/a&gt;, director of OpenSSL Corporation, &lt;a href="https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said the reports Anthropic sent&lt;/a&gt;, raw model output included, matched and sometimes beat what the project gets from human researchers. He added that a report with a working exploit attached is &amp;ldquo;basically job done for an engineer as you can verify it right away.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/todd-ouska-8090a6199/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Todd Ouska&lt;/a&gt;, founder of wolfSSL, reported that 72 of the 74 reports his team received were valid and five became CVEs. PostgreSQL committer Noah Misch said several reports arrived with fixes the project could use &amp;ldquo;nearly as-is.&amp;rdquo; Misch also credited fast-track access with letting PostgreSQL address the newest issues before they shipped in a GA release.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But the most pointed endorsement came from The cURL Project founder&lt;a href="https://www.linkedin.com/in/danielstenberg/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Daniel Stenberg,&lt;/a&gt; who spent last year publicly complaining about &lt;a href="https://daniel.haxx.se/blog/2025/07/14/death-by-a-thousand-slops/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the flood of AI-generated slop&lt;/a&gt; hitting his project&amp;rsquo;s bug bounty, which curl shut down in January. He now says OSS Scanner found multiple issues in curl, including one of the worst vulnerabilities the project has seen reported in the last few years.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic builds each project in an isolated VM and cuts off internet access before scanning begins. Reports go directly to maintainers by email, and they can pause or opt out at any time. The &lt;a href="https://github.com/anthropics/oss-scanner" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub repository&lt;/a&gt; contains the enrollment and configuration tools, but not the scanner itself.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-finding-bugs-versus-fixing-them" class="wp-block-heading"&gt;Finding bugs versus fixing them&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A reproducer and a proposed patch can save time, but maintainers still have to test the fix, handle backports, and ship it, sometimes knowing the change will break behavior users rely on, which is the tradeoff OpenSSH&amp;rsquo;s maintainers made when they &lt;a href="https://thenewstack.io/openssh-breaks-compression-usernames/" class="local-link"&gt;deliberately broke two features in the name of security&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Anthropic is restricting access to established open source projects that have the resources to handle more vulnerability reports. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic is restricting access to established open-source projects with the resources to handle more vulnerability reports. Projects must meet &lt;a href="https://red.anthropic.com/oss-scanner" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OSS-Fuzz-style eligibility criteria&lt;/a&gt;, and Anthropic checks that the person signing up is a core maintainer. The company also expects participating projects to be keeping up with the high- and critical-severity vulnerabilities already reported to them.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-who-gets-oss-scanner-access" class="wp-block-heading"&gt;Who gets OSS Scanner access?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The service targets projects equipped to handle that work. Eligibility follows OSS-Fuzz-style criteria for widely used, security-critical open source software. Anthropic verifies that applicants are core maintainers, and its FAQ says participating projects should already be keeping up with verified high- and critical-severity reports.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The disclosure terms give participating maintainers room to work at their own pace. Unvalidated scanner findings carry no 90-day clock. However, a report the company later validates through its standard program can be disclosed 90 days after maintainers learn a human has confirmed it. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic says it may eventually attach a disclosure period to some high-severity scanner findings after giving projects notice and a chance to opt out.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://red.anthropic.com/oss-scanner/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eligible maintainers&lt;/a&gt; can get free Claude Max 20x subscriptions through &lt;a href="https://claude.com/contact-sales/claude-for-oss" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude for OSS&lt;/a&gt;. The idea is to help projects keep up with the growing number of findings, but free access to Claude doesn&amp;#8217;t give maintainers more time to review and ship fixes. And as &lt;a href="https://thenewstack.io/canonical-c-rust-apparmor/" class="local-link"&gt;other AI-assisted coding efforts have shown&lt;/a&gt;, code that compiles cleanly can still contain problems that human reviewers need to catch.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-oss-scanner-vulnerabilities/"&gt;Claude found 29,000 possible bugs in open source. Only 516 have been fixed.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic’s OSS Scanner sends unreviewed Claude vulnerability reports to open source maintainers, but finding bugs is proving far easier than fixing them.</content:encoded>
+    </item>
+    <item>
       <title>How to turn AI production feedback into better agents</title>
       <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-evaluation-loop/</link>
       <dc:creator>Chen Goldberg</dc:creator>
@@ -30,10 +250,10 @@
       <category>sponsor-coreweave</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839990</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A glass sphere bends a glowing blue, red, and yellow grid of light lines into a blurred circle, suggesting AI agent observability." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Your agent is live. The service is healthy. But are its answers getting better? By connecting production traces, curated data,&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A glass sphere bends a glowing blue, red, and yellow grid of light lines into a blurred circle, suggesting AI agent observability." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Your agent is live. The service is healthy. But are its answers getting better? By connecting production traces, curated data,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-evaluation-loop/"&gt;How to turn AI production feedback into better agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A glass sphere bends a glowing blue, red, and yellow grid of light lines into a blurred circle, suggesting AI agent observability." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A glass sphere bends a glowing blue, red, and yellow grid of light lines into a blurred circle, suggesting AI agent observability." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2c857371-martin-neuhold-f-rtmmpucp8-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Your agent is live. The service is healthy. But are its answers getting better?&lt;/strong&gt; By connecting production traces, curated data, and evaluations, your team can find failures, choose improvements, and prove the next version works before it reaches users.&lt;/p&gt;
 
 
@@ -196,7 +416,7 @@
       <category>AI Models</category>
       <category>AI Strategy</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840068</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing pink neon wireframe of an inverted pyramid seen from above, forming a diamond-shaped grid on a dark gray background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Microsoft on Friday launched Microsoft-Decision-1 in Foundry, three days after OpenAI opened its Decisions API to every developer in public&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing pink neon wireframe of an inverted pyramid seen from above, forming a diamond-shaped grid on a dark gray background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Microsoft on Friday launched Microsoft-Decision-1 in Foundry, three days after OpenAI opened its Decisions API to every developer in public&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-decision-model-foundry/"&gt;Microsoft skipped OpenAI’s decision model and built its own on Alibaba’s Qwen&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing pink neon wireframe of an inverted pyramid seen from above, forming a diamond-shaped grid on a dark gray background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/57c94021-logan-voss-5kzn1icmroq-unsplash-1-scaled.jpg" /&gt;
@@ -877,7 +1097,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6acb6b963623f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6acb6b963623f" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="558" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image.png" alt="Diagram showing ECS's continuous monitor-and-repair loop " class="wp-image-22839704" style="aspect-ratio:1.565217391304348"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6accccf5da5a9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6accccf5da5a9" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="558" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image.png" alt="Diagram showing ECS's continuous monitor-and-repair loop " class="wp-image-22839704" style="aspect-ratio:1.565217391304348"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -918,7 +1138,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6acb6b96367ab&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6acb6b96367ab" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="711" height="584" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image-1.png" alt="Diagram showing Availability Zone rebalancing" class="wp-image-22839705" style="aspect-ratio:1.21875;width:840px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6accccf5daf1e&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6accccf5daf1e" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="711" height="584" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image-1.png" alt="Diagram showing Availability Zone rebalancing" class="wp-image-22839705" style="aspect-ratio:1.21875;width:840px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -5246,227 +5466,6 @@ CREATE VECTOR INDEX ix_memory_vec ON agent_memory (embedding)
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-decision-models-deployment/"&gt;Decision models are suddenly everywhere. OpenAI’s is now public.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Decisions API enters public beta with image inputs as Perplexity, Cloudflare, and Amazon push open-weight alternatives.</content:encoded>
-    </item>
-    <item>
-      <title>Kubernetes won the orchestration wars. Its teams are still fighting.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-teams-ai-automation/</link>
-      <dc:creator>Alex Wilhelm</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 19:57:34 +0000</pubDate>
-      <category>AI Operations</category>
-      <category>DevOps</category>
-      <category>Kubecon Cloudnativecon NA 2026</category>
-      <category>Kubernetes</category>
-      <category>Road to KubeCon</category>
-      <category>Podcast</category>
-      <category>sponsor-hpe</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839653</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/60f81a07-for-thumbnail-16-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/60f81a07-for-thumbnail-16.png" /&gt;&lt;p&gt;Kubernetes won the container orchestration wars. The CNCF reports that 82% of container users run Kubernetes in production. Despite its&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-teams-ai-automation/"&gt;Kubernetes won the orchestration wars. Its teams are still fighting.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/60f81a07-for-thumbnail-16-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/60f81a07-for-thumbnail-16.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Kubernetes won the container orchestration wars.&lt;/strong&gt; The CNCF &lt;a href="https://www.cncf.io/announcements/2026/01/20/kubernetes-established-as-the-de-facto-operating-system-for-ai-as-production-use-hits-82-in-2025-cncf-annual-cloud-native-survey/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reports&lt;/a&gt; that 82% of container users run Kubernetes in production. Despite its market dominance, Kubernetes teams aren&amp;#8217;t always happy. It turns out that keeping developers and operations teams happy takes more than agreeing on which technology to use.&lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/BpjdL5i7t9w?si=iiHWMjhqEeVbf32x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers appreciate Kubernetes self-service capabilities, which allow them to scale apps and tweak configurations without external approval. Operations teams often sweat the very same capabilities, or as our guest, HPE Fellow &lt;a href="https://linkedin.com/in/redwind" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;David Estes&lt;/a&gt; puts it, &amp;ldquo;operations teams have always wanted to slow things down,&amp;rdquo; as they favor stability, ticketing, and change requests. Developers, in contrast, &amp;ldquo;want to move fast.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At the same time, apps are spreading across hybrid and edge computing environments as AI inference workloads soar, further stressing Kubernetes-using teams. Estes also thinks many companies lean too heavily on microservices, leading to &amp;ldquo;architecture bloat.&amp;rdquo;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/dc56fca4-a3d8-4d0f-bb77-3863e6a6fd0d?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;So, what&amp;rsquo;s the fix? The good news is that while AI workloads are forcing companies to handle GPU scheduling and capacity scaling to handle demand spikes, AI automation may resolve some of the issues the technology is causing. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Estes reckons that developers will be able to use AI automation to monitor Kubernetes clusters, check logs, and perhaps &amp;ldquo;predict if there&amp;rsquo;s going to be an outage.&amp;rdquo; Operationally, using AI to automate some infra tasks could be &amp;ldquo;huge&amp;rdquo; for the Kubernetes landscape, the Fellow said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;HPE has created software to help resolve the Kubernetes issues we discuss &amp;ndash; HPE OpsRamp to help manage multi-cloud and on-prem computing environments, for example &amp;ndash; but beyond particular products, it&amp;rsquo;s encouraging to hear that AI itself may be able to remedy some of the new challenges its uptake has created. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That means that no matter what software the modern developer and their operations counterpart use, they should be able to untangle their containerization snarls.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Given how popular &amp;mdash; and I would add economy-critical &amp;mdash; Kubernetes is today, that&amp;rsquo;s good news for us all. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;HPE is heading to KubeCon + CloudNativeCon North America in Salt Lake City (Nov. 9&amp;ndash;12) and other events, and would love to say hi.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-teams-ai-automation/"&gt;Kubernetes won the orchestration wars. Its teams are still fighting.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Kubernetes won the orchestration wars, but dev and ops teams still pull in opposite directions. HPE&amp;#039;s David Estes thinks AI may ease the strain.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI’s former safety lead says it’s shipping “new capability and risk every Tuesday”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-safety-release-cycle/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 18:18:24 +0000</pubDate>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <category>Large Language Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839621</guid>
-      <description>&lt;img width="1024" height="749" src="https://cdn.thenewstack.io/media/2026/10/e3b22c35-istock-2219291934-1024x749.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Risky cliff jumping" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3b22c35-istock-2219291934.jpg" /&gt;&lt;p&gt;When David Robinson joined OpenAI in May 2023, the day after Sam Altman first testified before the Senate, the company&amp;#8217;s&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-safety-release-cycle/"&gt;OpenAI’s former safety lead says it’s shipping &amp;#8220;new capability and risk every Tuesday&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="749" src="https://cdn.thenewstack.io/media/2026/10/e3b22c35-istock-2219291934-1024x749.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Risky cliff jumping" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3b22c35-istock-2219291934.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;When David Robinson joined OpenAI in May 2023&lt;/strong&gt;, the day after Sam Altman first testified before the Senate, the company&amp;rsquo;s idea of shipping a new frontier model generally meant training one from scratch. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We were going to bake a fresh cake with a new pretraining run, do the whole thing from scratch,&amp;rdquo; Robinson told Ezra Klein on &lt;a href="https://podcasts.apple.com/vg/podcast/the-ezra-klein-show/id1548604447" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the latest episode of &lt;em&gt;The Ezra Klein Show,&lt;/em&gt;&lt;/a&gt; describing a process that took months and limited major releases to a few each year.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We were going to bake a fresh cake with a new pretraining run, do the whole thing from scratch,&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Robinson, who led the writing of the safety reports that accompany OpenAI&amp;rsquo;s frontier models, announced his resignation on Oct. 3 in an essay for &lt;a href="https://www.theatlantic.com/technology/2026/10/openai-safety-team-resignation/688881/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The Atlantic&lt;/em&gt;,&lt;/a&gt; and OpenAI responded with a statement from CEO Sam Altman posting on X, saying it is &lt;a href="https://x.com/sama/status/2089787807611195475?lang=en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;working to keep its models from outpacing its safety measures&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In his first interview since leaving, Robinson described a release cycle in which new capabilities no longer have to wait for a new pretraining run. Reasoning training layered onto existing base models, new tool integrations, and coding agents that accelerate OpenAI&amp;rsquo;s own research can all change what a system can do between major model releases.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-reasoning-training-resets-the-clock" class="wp-block-heading"&gt;Reasoning training resets the clock&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Back then, a new generation started with another massive pretraining run. Only after that came post-training and safety testing. Robinson recalled that OpenAI even made a point of talking about the &amp;ldquo;month or months&amp;rdquo; of safety work that went into GPT-4 after the model itself was finished.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That anchor has loosened because the base model is now only one layer of what ships. &amp;ldquo;You&amp;rsquo;ve got the pretraining; that&amp;rsquo;s the baking of the underlying model,&amp;rdquo; Robinson explained. &amp;ldquo;But then, in addition to post-training, you have reasoning training &amp;mdash; and those steps are easier to do quickly, so you can redo them.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That means OpenAI doesn&amp;#8217;t necessarily have to start over to get a more capable model. A better reasoning recipe can be layered onto the base model it already has. And the gaps between releases are getting remarkably short; &lt;a href="https://thenewstack.io/openai-gpt-6-1-sol/" class="local-link"&gt;GPT-6.1 Sol arrived at DevDay just a week after GPT-6 Sol&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-tuesday-is-the-new-launch-day" class="wp-block-heading"&gt;Tuesday is the new launch day&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The second accelerator sits outside training. &amp;ldquo;It&amp;rsquo;s not just a chat anymore,&amp;rdquo; Robinson said of the tools and affordances now wired into models, which can make a system more capable and change how it behaves, without any new training run beneath it. &amp;ldquo;All of those things are changing what the model can do and what the risks are, and we&amp;rsquo;re shipping new capability and risk every Tuesday,&amp;rdquo; he warned.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt; &amp;ldquo;All of those things are changing what the model can do and what the risks are, and we&amp;rsquo;re shipping new capability and risk every Tuesday,&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The pace also strains the format Robinson spent years writing. System cards made sense when a frontier model arrived every few months, he told Klein, but now &amp;ldquo;we&amp;rsquo;re burying people in PDFs or these long reports,&amp;rdquo; and he argued the ideal would be a live dashboard that tracks a system&amp;rsquo;s safety properties from predeployment testing through its behavior after release.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-coding-agents-accelerate-openai-research" class="wp-block-heading"&gt;Coding agents accelerate OpenAI research&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The third accelerator is AI itself. Robinson described the effect of coding agents inside OpenAI as &amp;ldquo;night and day,&amp;rdquo; with research teams now using more than 100 times as much agentic compute as they did at the start of the year.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI&amp;rsquo;s &lt;a href="https://openai.com/index/research-acceleration-view-inside-openai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;September report on research acceleration&lt;/a&gt; offers another measure of that shift: by mid-August, the median researcher was using more than $600 worth of inference a day at API prices, while the organization as a whole was running 3.1 eight-hour agent workdays for every human workday.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And some of that work is pretty mundane. OpenAI&amp;#8217;s research infrastructure is constantly changing and, in Robinson&amp;#8217;s words, can be &amp;ldquo;pretty janky.&amp;rdquo; Researchers used to turn to an internal Slack channel when an experiment broke, or a cluster stopped working. Now, they&amp;#8217;re asking Codex instead. OpenAI&amp;#8217;s own report shows traffic to that channel falling as agent use climbed.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-frontier-fever" class="wp-block-heading"&gt;Frontier fever&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Competition gives OpenAI another reason to use that newfound speed. Klein pointed to a much more crowded field than the one the company faced a few years ago, with Anthropic, xAI, Chinese labs and increasingly capable open-weight models all competing for attention and enterprise customers. &amp;ldquo;All of these things push toward speed,&amp;rdquo; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Slowing down comes with its own risk. Klein asked whether hitting the &amp;ldquo;fall-off-the-frontier button&amp;rdquo; could effectively become a &amp;ldquo;self-destruct button for the business&amp;rdquo; if rivals keep moving.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Robinson drew a line, though, between racing for national security and racing for market share. Building a potentially dangerous model because &amp;ldquo;Americans won&amp;rsquo;t be safe unless we do&amp;rdquo; is one argument, he said. Building it because &amp;ldquo;brand X will ship first&amp;rdquo; is &amp;ldquo;not the same kind of reason.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-safety-testing-can-t-keep-pace" class="wp-block-heading"&gt;Safety testing can&amp;#8217;t keep pace&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A new model used to be an obvious signal that it was time to run the tests again. That line is getting blurrier as reasoning updates and new tools change what a system can do between major releases. Robinson noted that models can differ in architecture, safety performance, and even the tests used to measure them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The stakes change once a model can take action. A slightly different summary is one thing; an agent that can call APIs, edit files, or execute code has a lot more room to go wrong. &lt;a href="https://thenewstack.io/openai-dots-agent-permissions/" class="local-link"&gt;Boundary issues in OpenAI&amp;rsquo;s Dots agent doubled in longer tests&lt;/a&gt;, while &lt;a href="https://thenewstack.io/claude-opus-agent-migration/" class="local-link"&gt;a cheaper Claude Opus 5.5 broke four things agents depended on&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The labs don&amp;rsquo;t have much time to adjust, either. When Klein asked whether safety testing could keep up with the faster release cycle, Robinson described it simply as asking how much time there is to kick the tires. &amp;ldquo;And the answer is not a ton,&amp;rdquo; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That testing has already surfaced problems. OpenAI &lt;a href="https://memeburn.com/openai-devday-2026-recap/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;shelved GPT-6.1 Astra the day before DevDay&lt;/a&gt; after internal testing reportedly found &lt;a href="https://dataconomy.com/2026/09/30/openai-launches-gpt-6-1-sol-at-devday/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;higher levels of deception and a tendency to continue tasks without user permission&lt;/a&gt;. Robinson also described models writing in their chains of thought that they wondered whether they were being evaluated. If a model knows it&amp;rsquo;s being tested, he said, &amp;ldquo;the tests we gave it early on before we deployed don&amp;rsquo;t actually tell us what it&amp;rsquo;s going to do out there in the world.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;the tests we gave it early on before we deployed don&amp;rsquo;t actually tell us what it&amp;rsquo;s going to do out there in the world.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-brakes-with-boundaries" class="wp-block-heading"&gt;Brakes, with boundaries&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Robinson took care not to cast OpenAI as a train without brakes. &amp;ldquo;There are brakes. Things have been stopped,&amp;rdquo; he said, pointing to the pulled 6.1 launch and to training runs halted after researchers reviewed the results.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He went on to describe OpenAI&amp;rsquo;s public accounts of its pauses as accurate but &amp;ldquo;very carefully scoped.&amp;rdquo; And he pushed back on the industry phrase &amp;ldquo;pace the frontier.&amp;rdquo; Slowing down isn&amp;#8217;t enough if the underlying safety bar hasn&amp;#8217;t been met. &amp;ldquo;Running off a cliff and walking slowly off a cliff are just not that different,&amp;rdquo; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;His criticism wasn&amp;#8217;t aimed at the people doing the safety work. Robinson described his former colleagues as deeply committed to getting it right. His concern is whether the systems around them can keep up with what they&amp;#8217;re building.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-lessons-from-the-challenger-launch" class="wp-block-heading"&gt;Lessons from the Challenger launch&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Robinson returned to the release cycle near the end of the interview while recommending &lt;em&gt;&lt;a href="https://press.uchicago.edu/ucp/books/book/chicago/C/bo22781921.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Challenger Launch Decision,&lt;/a&gt; &lt;/em&gt;social scientist Diane Vaughan&amp;rsquo;s book on the shuttle disaster, in which the O-ring risk was documented and accepted launch after launch, and calling one flight unsafe would have reopened questions about every flight before it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He worries AI is sliding into the same pattern as it moves from &amp;ldquo;a whole new world every few months&amp;rdquo; to &amp;ldquo;a little bit different every week,&amp;rdquo; warning that the industry could end up &amp;ldquo;going by shades into a level of risk that does not make sense.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-safety-release-cycle/"&gt;OpenAI’s former safety lead says it’s shipping &amp;#8220;new capability and risk every Tuesday&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Former OpenAI safety lead David Robinson tells Ezra Klein that reasoning updates, new tools and coding agents now let OpenAI ship new AI risk every week.</content:encoded>
     </item>
   </channel>
 </rss>
