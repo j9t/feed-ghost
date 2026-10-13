@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 10 Oct 2026 13:33:45 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 00:33:26 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,604 @@
       <height>32</height>
     </image>
     <item>
+      <title>“A major overhaul”: OpenCode 2.0 puts its terminal, desktop, and web apps on one shared service</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/opencode-2-shared-service/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 12 Oct 2026 21:11:33 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840157</guid>
+      <description>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/90780031-resource-database-okp1iau3ubg-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Computer monitor with code input text." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/90780031-resource-database-okp1iau3ubg-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenCode 2.0 is getting a formal unpacking today, some three months after its public beta launch. The sizable architectural upgrade&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/opencode-2-shared-service/"&gt;&amp;#8220;A major overhaul&amp;#8221;: OpenCode 2.0 puts its terminal, desktop, and web apps on one shared service&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/90780031-resource-database-okp1iau3ubg-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Computer monitor with code input text." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/90780031-resource-database-okp1iau3ubg-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://opencode.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenCode&lt;/a&gt; 2.0 is getting a formal unpacking today, some three months after its &lt;a href="https://web.archive.org/web/20260710181539/http://v2.opencode.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;public beta launch&lt;/a&gt;. The sizable architectural upgrade introduces a shared background service connecting its terminal, web and desktop interfaces, alongside a rebuilt API, a new embeddable SDK, and support for running subagents and shell commands in the background.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://anoma.ly/notes/opencode-2-0/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Monday, &lt;a href="https://anoma.ly/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anomaly&lt;/a&gt;, the company behind the open-source coding agent, calls the release a &amp;ldquo;major overhaul,&amp;rdquo; adding that it drew on the experiences of &amp;#8220;millions of daily users&amp;#8221; to build a more adaptable system capable of supporting an expanding range of agent capabilities.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anomaly has, in fact, been iterating on version 2.0 over the past few months, including &lt;a href="https://anoma.ly/notes/opencode-reloaded/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;publishing a detailed technical account&lt;/a&gt; of its revamped plugin architecture and hot-reloading capabilities in September. However, the drawn-out rollout has caused some confusion among developers, with &lt;a href="https://www.reddit.com/r/opencode/comments/1wppj69/is_opencode_v2_officially_in_a_stable_release/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;questions about whether version 2.0&lt;/a&gt; was officially stable yet, and &lt;a href="http://github.com/anomalyco/opencode/issues/52184" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;complaints about missing release notes&lt;/a&gt;, even as updates kept shipping.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Monday&amp;#8217;s announcement, alongside the official changelog&amp;#8217;s switch to the &lt;a href="https://opencode.ai/changelog" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2.x series&lt;/a&gt;, effectively signals that version 2 is now OpenCode&amp;#8217;s main release. In tandem, the company is also offering a broader explanation of the technical decisions behind the upgrade.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-opencode-s-story-so-far" class="wp-block-heading"&gt;OpenCode&amp;#8217;s story so far&lt;/h2&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/10/d69ae913-generalgif.gif" alt="OpenCode is an open-source coding agent." class="wp-image-22840160"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;OpenCode is an open-source coding agent.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;By way of a brief recap, OpenCode&amp;#8217;s origins lie in the world of serverless development. Anomaly founders &lt;a href="https://www.linkedin.com/in/jayair/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jay V&lt;/a&gt; and &lt;a href="https://www.linkedin.com/in/fanjiewang/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Frank Wang&lt;/a&gt; previously created Serverless Stack (&lt;a href="https://sst.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SST&lt;/a&gt;), an open-source framework for building and deploying applications on Amazon Web Services (AWS). &lt;a href="https://x.com/thdxr" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dax Raad&lt;/a&gt;, another prominent figure in OpenCode&amp;#8217;s development, was also part of the SST team. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Since its 2025 debut, OpenCode has gained a fervent following among developers looking for greater freedom over the AI models powering their coding tools. That became particularly pertinent in January when &lt;a href="https://venturebeat.com/technology/anthropic-cracks-down-on-unauthorized-claude-usage-by-third-party-harnesses" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic began preventing&lt;/a&gt; third-party agents from using Claude Pro and Max subscription credentials, forcing affected developers to find alternative ways of accessing Claude or switch providers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As Janakiram MSV &lt;a href="https://thenewstack.io/anthropic-claudecode-opencode-split/" class="local-link"&gt;reported&lt;/a&gt; for &lt;em&gt;The New Stack&lt;/em&gt; in May, these restrictions coincided with a surge of interest in OpenCode, which allows developers to switch between competing AI models. Today, the &lt;a href="https://github.com/anomalyco/opencode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenCode GitHub repository&lt;/a&gt; has accumulated north of 212,000 stars and almost 30,000 forks.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;More broadly, there are signs of &lt;a href="https://thenewstack.io/open-source-coding-agents-like-opencode-cline-and-aider-are-solving-a-huge-headache-for-developers/" class="local-link"&gt;growing commercial interest in this category&lt;/a&gt; of coding agents. In July, &lt;a href="https://thenewstack.io/anaconda-kilo-open-source-acquisition/" class="local-link"&gt;Anaconda acquired Kilo&lt;/a&gt;, another such open-source coding agent that allows developers to choose their preferred AI provider. Interestingly, Kilo had already rebuilt its command-line interface and VS Code extension using OpenCode, demonstrating how the latter was finding a role inside other developer tools.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With version 2.0, Anomaly has laid out &lt;em&gt;how &lt;/em&gt;it has reworked OpenCode&amp;#8217;s underlying architecture to accommodate a wider range of use cases. Arguably, the most significant change concerns how the coding agent runs, and how its different interfaces connect to it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-one-service-multiple-interfaces" class="wp-block-heading"&gt;One service, multiple interfaces&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anomaly says the plumbing for a client/server setup has been in OpenCode from the start, though few beyond power users went out of their way to use it. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With version 2.0, the server now starts automatically as a single background process on the developer&amp;#8217;s machine, allowing OpenCode&amp;#8217;s terminal, browser and desktop interfaces to communicate with the same underlying service.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This means developers can access and manage their coding sessions through different interfaces, while the service handles the underlying execution. Scripts built using OpenCode&amp;#8217;s programmatic client can also automatically discover and connect to the local service, making it useful for scheduled tasks, while developers can additionally expose the service to other machines and pair it with external applications.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Developers can now start a session in OpenCode&amp;#8217;s terminal interface, continue working on it through the desktop or web app, and have their own scripts connect to the same underlying service&amp;#8221;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The long and short of this is that developers can now start a session in OpenCode&amp;#8217;s terminal interface, continue working on it through the desktop or web app, and have their own scripts connect to the same underlying service.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img decoding="async" width="647" height="294" src="https://cdn.thenewstack.io/media/2026/10/0fd446f4-gif1.gif" alt="One service, multiple interfaces" class="wp-image-22840162"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;OpenCode&amp;#8217;s shared background service&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;These architectural changes are accompanied by a ground-up redesign of OpenCode&amp;rsquo;s API, which Anomaly concedes was built piecemeal while the industry was still figuring things out.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The old API grew haphazardly as we and the world collectively learned what agents are and should be,&amp;#8221; the company writes in its blog post. &amp;#8220;It was bad.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The old API grew haphazardly as we and the world collectively learned what agents are and should be. It was bad.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And so the new API gives the agent greater control over its own environment. For example, it can create a Git worktree for a new task, transfer an existing session into that worktree, or identify and interrupt another session that has become stuck. Developers can also access the API through a new &lt;code&gt;@opencode/client&lt;/code&gt; package, which supports standard JavaScript and Effect.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="513" src="https://cdn.thenewstack.io/media/2026/10/5a7dce35-gif2.gif" alt="Agents manage their own sessions" class="wp-image-22840163"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Agents manage their own sessions&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Another addition is an embeddable &lt;a href="https://opencode.ai/v2/docs/build/sdk" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SDK&lt;/a&gt;, distributed as &lt;code&gt;@opencode/sdk&lt;/code&gt;, that allows developers to incorporate OpenCode directly into their own applications. It uses the same underlying code as OpenCode&amp;#8217;s CLI, the company notes, enabling developers to create customized versions of the agent for servers or environments such as Cloudflare Durable Objects. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;These implementations can communicate with existing OpenCode clients through its standard server protocol, although Anomaly says the SDK remains under development.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-code-mode-and-background-execution" class="wp-block-heading"&gt;Code Mode and background execution&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenCode 2.0 also changes &lt;em&gt;how &lt;/em&gt;agents interact with external tools through the &lt;a href="https://thenewstack.io/model-context-protocol-roadmap-2026/" class="local-link"&gt;Model Context Protocol&lt;/a&gt; (MCP).&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A feature dubbed Code Mode allows agents to write JavaScript that calls multiple tools and processes their results within a single execution. Built around a lightweight JavaScript interpreter in the &lt;code&gt;@opencode/codemode&lt;/code&gt; package, it converts MCP servers and OpenAPI endpoints into functions that agents can invoke programmatically.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For example, an agent could retrieve bug reports from GitHub, extract the relevant information and create corresponding issues in Linear, without having to make a separate model round trip for each operation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The implications are particularly significant for developers connecting agents to large numbers of external services, where tool definitions can consume substantial portions of a model&amp;#8217;s available context. Anomaly is making Code Mode the default for all MCP servers in version 2.0, arguing that it makes extensive integrations more practical.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;This means you can add a thousand of them with minimal context bloat and your agent will discover and compose them to get things done,&amp;#8221; the company writes.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="310" src="https://cdn.thenewstack.io/media/2026/10/3bfce0e7-gif3.gif" alt="Code Mode connects MCP tools" class="wp-image-22840164"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Code Mode connects MCP tools&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Meanwhile, OpenCode is introducing background execution for both subagents and shell commands, allowing developers to continue interacting with the primary agent while other operations are underway.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A developer could, for instance, delegate a code review to a subagent running a different AI model while continuing to work on the main task. Similarly, lengthy shell operations, such as running tests or building an application, can execute asynchronously, with the primary agent receiving a notification when they finish.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers can also use a keyboard shortcut to move an existing foreground task into the background if it takes longer than expected.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="416" src="https://cdn.thenewstack.io/media/2026/10/c9bda033-gif4.gif" alt="Subagents and commands run concurrently" class="wp-image-22840165"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Subagents and commands run concurrently&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Rounding out the release are changes to OpenCode&amp;#8217;s plugin architecture. Anomaly says it has implemented more than 80 internal plugins, covering most of the functionality introduced in version 2.0, as part of an effort to improve the reliability and maintainability of its plugin API.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Terminal interface plugins have also been promoted from experimental to stable, while support for hot reloading means OpenCode can create and start using a new plugin during an active session, without requiring a restart.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There are, however, some compatibility implications for existing users. Plugins developed for OpenCode 1.0 won&amp;#8217;t work with version 2.0, while integrations built around the previous server API will need updating. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Existing OpenCode 1.x users can upgrade to version 2.0 by running &lt;code&gt;opencode upgrade --major&lt;/code&gt; from the command line or entering &lt;code&gt;/update&lt;/code&gt; in the terminal interface. According to the &lt;a href="https://github.com/anomalyco/opencode/releases/tag/v1.19.0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 11 release notes&lt;/a&gt;, updates are no longer installed automatically, meaning users must initiate the upgrade themselves.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/opencode-2-shared-service/"&gt;&amp;#8220;A major overhaul&amp;#8221;: OpenCode 2.0 puts its terminal, desktop, and web apps on one shared service&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>OpenCode 2.0 entered public beta in July. Now, Anomaly explains the architectural overhaul, including a rebuilt API, an embeddable SDK and Code Mode.</content:encoded>
+    </item>
+    <item>
+      <title>GPUs on Kubernetes are bring-your-own-everything, starting with the bill</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/gpus-on-kubernetes/</link>
+      <dc:creator>Yasmin Rajabi</dc:creator>
+      <pubDate>Mon, 12 Oct 2026 20:48:01 +0000</pubDate>
+      <category>Kubernetes</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840194</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/bf19af6b-article-image-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf19af6b-article-image.png" /&gt;&lt;p&gt;If you run a Kubernetes platform, you&amp;#8217;ve probably got at least one Grafana dashboard for resource visibility on your workloads.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpus-on-kubernetes/"&gt;GPUs on Kubernetes are bring-your-own-everything, starting with the bill&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/bf19af6b-article-image-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bf19af6b-article-image.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;If you run a Kubernetes platform, you&amp;#8217;ve probably got at least one Grafana dashboard for resource visibility on your workloads. It shows what a container asked for versus what it used, making it relatively easy to point at the deployment that requested four cores and is only using half of one. If you break it down by namespace you get a rough idea which team is consuming what, which is what teams have been doing for CPU and memory for years and it mostly works.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then people started putting workloads on GPUs and a lot of what we assumed would carry over didn&amp;#8217;t. Almost every piece of visibility you take for granted on CPU and memory, GPUs make you build yourself. Your own metrics, your own accuracy, your own rules for splitting the bill. Which is what stings the most, since the GPU is the most expensive line on the bill.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-metrics" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own metrics&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With CPU and memory, the kernel already tracks usage per container for you, so getting a per-pod number is basically free. GPUs on the other hand, don&amp;#8217;t give you that. The tool everybody starts with, NVIDIA&amp;#8217;s DCGM exporter, reports at the physical device level by default. This is fine when one pod has a GPU to itself, but the second you start sharing a GPU across pods, with time-slicing or MPS, DCGM gives every pod sharing that GPU the same value. So if three pods are sharing one GPU, all three look like they&amp;#8217;re using the whole thing, and when you add it up you get 300% of a GPU that doesn&amp;#8217;t exist. With time-slicing or MPS, the driver exposes a single set of counters for the whole GPU, so DCGM has no per-pod data to attribute and cannot distinguish which workload consumed what.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers still plot nicely on a graph, but teams build full dashboards and reports on values that are blatantly wrong but hard to notice.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-rightsizing-math" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own rightsizing math&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On the CPU side we&amp;#8217;re all used to millicores, overcommitting, bursting, a CPU limit that just throttles you, a memory limit that gets you OOM killed but GPUs throw most of that out. A GPU shows up as a whole-number resource, nvidia.com/gpu: 1. You ask for whole GPUs, your request and your limit have to match, and there&amp;#8217;s no overcommitting at the scheduler. The fractional sharing you need for inference happens underneath the scheduler through time-slicing or MIG, and Kubernetes requests don&amp;#8217;t fit in neatly.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So the basic rightsizing premise, comparing what a workload requested against what it&amp;#8217;s using and reclaiming the difference, barely exists for GPUs when you start. You end up having to work out how much of a GPU&amp;#8217;s capacity a workload got before you can even have the waste conversation.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-guardrails" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own guardrails&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The NVIDIA container runtime looks at an environment variable called &lt;code&gt;NVIDIA_VISIBLE_DEVICES&lt;/code&gt;, and the base CUDA container images ship with it set to all. In a normal setup the device plugin overrides that and injects only the GPUs a pod was actually allocated. But if nothing overrides it or the container runtime is configured to honor the env var from the container, a pod can end up seeing and grabbing every GPU on the box no matter what Kubernetes thinks it handed out. So what the scheduler recorded as allocated and what ran on the hardware can diverge significantly. If you want the real number, you have to look at what&amp;#8217;s happening at the process level and line it up against what Kubernetes thinks it did.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-definition-of-utilization" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own definition of utilization&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When a CPU graph says 80%, you pretty much know what you&amp;#8217;re looking at, but GPU utilization is squishier. The usual metric tells you a kernel was running on the GPU for some slice of the sample window. It won&amp;#8217;t tell you how much of the actual compute or memory bandwidth you burned. You can watch GPUs sit at 100% utilization while the compute is barely doing anything. And a lot of the time the thing that runs out first is memory, because frameworks like vLLM grab most of the GPU at startup whether they need it or not. Work out early which signal means something for your workloads, whether that&amp;#8217;s compute occupancy, memory footprint, bandwidth, or power. If you rely on that big headline number, you can reach the wrong conclusion.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-attribution" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own attribution&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;NVIDIA&amp;#8217;s NVML library will tell you, per process on a GPU, how much memory it&amp;#8217;s holding, and you can trace each process back to the pod and team that owns it. The numbers are dependable, with one asterisk: they won&amp;#8217;t quite add up to the card&amp;#8217;s total, because the driver reserves a slice of memory for itself that doesn&amp;#8217;t belong to any workload.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Compute is where it falls apart and it&amp;#8217;s worth understanding why. Picture a shared kitchen: memory is counter space, you can look and see what ingredients are sitting where. Compute is the stove and everyone&amp;#8217;s taking turns in bursts of milliseconds. What NVIDIA gives you isn&amp;#8217;t &amp;#8220;how much stove time did each cook get.&amp;#8221; It&amp;#8217;s closer to a flag that gets checked many times a second asking &amp;#8220;was this cook doing something right now?&amp;#8221; If two people are both working, both flags read yes almost all the time, so you get two jobs that each look 90% busy, which is true and also tells you nothing about who got more done.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That measurement is usable in one setup, when the GPU is strictly taking turns between jobs one at a time, where polling something like DCGM&amp;#8217;s accounting mode or nvidia-smi&amp;#8217;s PID-level sampling can approximate each job&amp;#8217;s share. It breaks in the setup where jobs genuinely run side by side, which is also the setup people pick when they want better utilization. If two teams share a GPU, nothing available today will tell you which one burned 70% and which one burned 30%.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So the practical decision is to bill on memory, where the data holds up, and treat compute as a signal, something to drive chargeback. The reality is, fairness through accuracy between teams actually matters when you want to move beyond showback and GPU memory is the most accurate way to attribute with existing tooling.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-sharing-paradigm" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own sharing paradigm&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sharing a GPU turns out to mean a handful of different things and each one changes the math underneath. There&amp;#8217;s time-slicing, which round-robins the GPU with no isolation and lets you oversubscribe it. Then MPS lets kernels from different processes run at the same time. MIG is quite popular and splits the GPU into fixed hardware partitions, though it&amp;#8217;s worth noting that most clouds still charge you for the whole physical GPU even when you&amp;#8217;re only using a slice, and on A100/H100-class GPUs you can only slice it up to 7 instances. And then there&amp;#8217;s DRA, Dynamic Resource Allocation, which has been maturing over the last few Kubernetes releases and is clearly where things are going, but the ecosystem around it, including autoscalers like Karpenter, is still catching up. Every one of these changes what &amp;#8220;allocated&amp;#8221; even means, so visibility depends on which mode a given node is in.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bring-your-own-splitting-rules-and-the-bill-is-brutal" class="wp-block-heading"&gt;&lt;strong&gt;Bring your own splitting rules (and the bill is brutal)&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;GPU costs run far higher per hour than CPU costs and are much harder to split per workload. The cloud provider bills a GPU node as one line item with the CPU, memory, and GPU all lumped together. To get to a real dollar number per workload, you have to break that line apart and weight the GPU piece by model, because a T4 and an H200 are nowhere near the same price. Then you split it across whatever workloads were sharing the GPU. On AWS, the cheapest MIG compatible A100 GPU is $22/hr, about ~$14/hr on spot, whereas a comparable CPU-only instance of that size runs about $5/hr. Even on spot that&amp;rsquo;s quite the difference.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-so-what-does-this-actually-cost-you" class="wp-block-heading"&gt;&lt;strong&gt;So what does this actually cost you?&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Add this all up and the real cost isn&amp;#8217;t just the GPU bill but the engineering time and toil you sink rebuilding visibility you used to get for free. The metrics, the expected accuracy, the guardrails, the attribution, the splitting rules, every layer is something you now have to own and maintain.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The upside here, is the space is moving quickly. DRA is maturing and adoption growing with it, hardware partitioning is getting easier, and the tooling gap narrows every release. So be deliberate about which layers you build now versus what you let the ecosystem catch up on, and definitely don&amp;rsquo;t go in expecting your CPU and memory playbook will carry straight over.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpus-on-kubernetes/"&gt;GPUs on Kubernetes are bring-your-own-everything, starting with the bill&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>CPU and memory come with per-pod metrics, rightsizing and cost splits built in. Shared GPUs come with none of it, so platform teams end up rebuilding visibility for the most expensive line on the bill.</content:encoded>
+    </item>
+    <item>
+      <title>Google paid $90,000 for this bug, then waited two months to fix it</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/google-devsite-rce-bounty/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 12 Oct 2026 20:47:17 +0000</pubDate>
+      <category>Developer tools</category>
+      <category>Python</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840197</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/a5a42df9-mariola-grobelska-gk3ancc-e3w-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract puzzle pieces" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/a5a42df9-mariola-grobelska-gk3ancc-e3w-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google took two months to patch an unauthenticated RCE vulnerability in its developer documentation infrastructure. The problem was a reused&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-devsite-rce-bounty/"&gt;Google paid $90,000 for this bug, then waited two months to fix it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/a5a42df9-mariola-grobelska-gk3ancc-e3w-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract puzzle pieces" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/a5a42df9-mariola-grobelska-gk3ancc-e3w-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph" id="h-google-s-developer-documentation-infrastructure-carried-an-unauthenticated-remote-code-execution-rce-flaw-that-the-company-took-two-months-to-patch-after-a-researcher-reported-it-an-oauth-client-secret-stored-in-a-flask-session-cookie-also-served-as-the-session-signing-key-letting-an-attacker-forge-a-valid-session-and-run-python-code-on-the-server"&gt;&lt;strong&gt;Google took two months to patch an unauthenticated RCE vulnerability &lt;/strong&gt;in its developer documentation infrastructure. The problem was a reused OAuth client secret, which DevSite stored in a Flask session cookie and also used to sign sessions. Anyone who recovered the secret could forge a valid cookie and execute Python code on the server.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/simonkoeck/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Simon K&amp;ouml;ck&lt;/a&gt;, a software engineer at Otark GmbH, &lt;a href="https://simonkoeck.com/writeups/google-devsite-flask-session-pickle-rce" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;discovered the flaw&lt;/a&gt; in Google&amp;rsquo;s &lt;a href="https://developers.google.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DevSite&lt;/a&gt; infrastructure, the shared platform behind developers.google.com and several sibling documentation sites. K&amp;ouml;ck tells &lt;em&gt;The New Stack &lt;/em&gt;that forged sessions were accepted on all seven affected domains, which relied on two different signing keys, and that he ran his code-execution proof on three of them, developers.google.com, docs.partner.android.com and web.dev.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;K&amp;ouml;ck tells &lt;em&gt;The New Stack &lt;/em&gt;that forged sessions were accepted on all seven affected domains, which relied on two different signing keys, and that he ran his code-execution proof on three of them&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Google rated the vulnerability S0, the top of its severity scale, and &lt;a href="https://simonkoeck.com/writeups/google-devsite-flask-session-pickle-rce" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;awarded K&amp;ouml;ck a $90,000 bounty&lt;/a&gt;. That figure reflects a $75,000 base payout for an S0 RCE in what Google classifies as a normal application tier, multiplied by 1.2 for exceptional report quality.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;K&amp;ouml;ck confirmed unauthenticated RCE with a Python sleep payload, measuring response delays that matched his payload, and deliberately stopped short of running commands or touching files, credentials, or internal services. &amp;ldquo;I&amp;rsquo;d call it an exceptionally serious RCE because anyone could reach it without an account or victim interaction,&amp;rdquo; he tells &lt;em&gt;The New Stack&lt;/em&gt;, adding that he doesn&amp;rsquo;t know whether the three hosts he tested shared the same backend machines.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I&amp;rsquo;d call it an exceptionally serious RCE because anyone could reach it without an account or victim interaction,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The more consequential unknown sits behind the server itself. K&amp;ouml;ck tells &lt;em&gt;The New Stack&lt;/em&gt;, &lt;a href="https://brutecat.com/about" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Arvin Shivram&lt;/a&gt;, a Singapore-based researcher who goes by @brutecat and has reported more than 130 Google vulnerabilities by his own count, has since pointed out that internal App Engine apps often have access to Stubby, Google&amp;rsquo;s internal service-to-service communication system. K&amp;ouml;ck acknowledges that access &amp;ldquo;could be a major part of the impact,&amp;rdquo; though he says he didn&amp;rsquo;t verify what this particular DevSite process could reach.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One concern is whether an attacker could have modified Google&amp;rsquo;s developer documentation, replacing installation commands or download links with malicious ones. That could have enabled a &lt;a href="https://thenewstack.io/attackers-up-their-game-with-latest-npm-package-compromise/" class="local-link"&gt;supply-chain attack&lt;/a&gt;, but K&amp;ouml;ck didn&amp;rsquo;t test for write access to the content systems, and Google hasn&amp;rsquo;t disclosed DevSite&amp;rsquo;s process permissions or backend access.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The exposed key also let K&amp;ouml;ck forge DevSite sessions, though he stopped short of checking whether those sessions could impersonate users or reach anyone&amp;rsquo;s data. By his own accounting, the demonstrated impact amounts to code execution on three hosts and accepted forged sessions on seven, while the full blast radius, including any path into Google&amp;rsquo;s internal services, remains unproven.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-one-oauth-secret-two-jobs" class="wp-block-heading"&gt;One OAuth secret, two jobs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DevSite stored a serialized OAuth2WebServerFlow object from Google&amp;rsquo;s oauth2client library, which Google has &lt;a href="https://google-auth.readthedocs.io/en/latest/oauth2client-deprecation.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;deprecated in favor of google-auth&lt;/a&gt;, inside a Flask session cookie, &lt;a href="https://thenewstack.io/best-practices-for-storing-access-tokens-in-the-browser/" class="local-link"&gt;exposing the OAuth client secret&lt;/a&gt; in the process. Google had also reused that same &lt;a href="https://thenewstack.io/the-different-token-types-and-formats-explained/" class="local-link"&gt;OAuth client secret&lt;/a&gt; as DevSite&amp;rsquo;s &lt;a href="https://flask.palletsprojects.com/en/stable/quickstart/#sessions" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Flask session-signing key&lt;/a&gt;, which K&amp;ouml;ck confirmed by reproducing the cookie&amp;rsquo;s signature offline, giving him the ability to forge sessions the server would accept.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-pickle-turns-forgery-into-rce" class="wp-block-heading"&gt;Pickle turns forgery into RCE&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The OAuth callback used &lt;a href="https://docs.python.org/3/library/pickle.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Python&amp;rsquo;s pickle&lt;/a&gt; to deserialize session data, so K&amp;ouml;ck swapped the flow object for a malicious pickle payload, signed the forged cookie and let the callback execute it. The chain depended on three mistakes lining up, a secret exposed in the cookie, that same secret doing double duty as a signing key, and unsafe deserialization of session data, and fixing any one of them would have broken it.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The chain depended on three mistakes lining up, a secret exposed in the cookie, that same secret doing double duty as a signing key, and unsafe deserialization of session data, and fixing any one of them would have broken it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-patch-pace-raises-questions" class="wp-block-heading"&gt;Patch pace raises questions&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;K&amp;ouml;ck reported the vulnerability on August 6, and Google accepted it the following day. The company approved the bounty on August 27 but &lt;a href="https://simonkoeck.com/writeups/google-devsite-flask-session-pickle-rce" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;didn&amp;rsquo;t deploy a fix until October 7&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Google hasn&amp;rsquo;t explained the two-month remediation window or whether it implemented interim mitigations, and questions also remain about the fix itself. K&amp;ouml;ck&amp;rsquo;s account of two separate signing keys explains why his recommendations mention two exposed OAuth client secrets, but Google hasn&amp;rsquo;t confirmed whether both were rotated or whether existing sessions were invalidated.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;K&amp;ouml;ck tells &lt;em&gt;The New Stack&lt;/em&gt;, he was never given a forensic conclusion and doesn&amp;rsquo;t know whether Google found evidence of exploitation before the patch, and the company hasn&amp;rsquo;t said either. Google had not responded to a request for comment as of this update.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;An earlier version of this story said a single signing secret worked across all seven affected domains. K&amp;ouml;ck says the domains used two different signing keys. This story has also been updated with comment from K&amp;ouml;ck.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-devsite-rce-bounty/"&gt;Google paid $90,000 for this bug, then waited two months to fix it&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>An OAuth secret doubled as a signing key on Google’s developer docs servers, enabling remote code execution. Google paid $90K but took two months to patch.</content:encoded>
+    </item>
+    <item>
+      <title>Coding agents made building easy. Platform teams that build from scratch are 3.5x more likely to lack a strategy.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/coding-agents-platform-teams/</link>
+      <dc:creator>Charlotte Fleming</dc:creator>
+      <pubDate>Mon, 12 Oct 2026 19:28:27 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Strategy</category>
+      <category>contributed-octopus-deploy</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840176</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e6bbd3b6-exec-167c6f32-2822-4484-8556-e0f1e4f10aab-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e6bbd3b6-exec-167c6f32-2822-4484-8556-e0f1e4f10aab.png" /&gt;&lt;p&gt;Build-or-buy is usually framed as an engineering trade-off, where developer time is weighed against integration and migration overhead, and control&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/coding-agents-platform-teams/"&gt;Coding agents made building easy. Platform teams that build from scratch are 3.5x more likely to lack a strategy.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/e6bbd3b6-exec-167c6f32-2822-4484-8556-e0f1e4f10aab-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e6bbd3b6-exec-167c6f32-2822-4484-8556-e0f1e4f10aab.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Build-or-buy is usually framed as an engineering trade-off, where developer time is weighed against integration and migration overhead, and control against the maintenance burden of a bespoke build. When we put together the &lt;a href="https://octopus.com/publications/future-of-platform-engineering-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2026 Future of Platform Engineering report&lt;/a&gt;, we weren&amp;#8217;t trying to settle the trade-off; we were trying to find out whether platform feature-sourcing decisions revealed anything about the platform team. It turns out it does. Across responses from 379 platform professionals, we found that teams predominantly building from scratch are less likely to have a clear strategy in place and to meet fewer of their platform goals.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This question has changed considerably with AI. Agents have made building easier than ever; an internal tool that once took months to build can now be put together in a day. But AI removes the effort of writing code, not the work of owning it. The maintenance, upgrades, and governance that come with a scratch-built feature remain, while the volume of change moving through the pipeline increases. That makes build-versus-buy a sharper strategic question than ever.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We asked platform teams how they support each feature they own: built from scratch, built on an existing template, or bought as an underlying tool. Teams whose dominant approach is building from scratch are far more likely to report that their platform lacks a clear strategy. The association is strong, but it is not as simple as &amp;#8220;build from scratch means you don&amp;#8217;t have a plan.&amp;#8221;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-most-teams-buy-and-choose-deliberately" class="wp-block-heading"&gt;&lt;strong&gt;Most Teams Buy And Choose Deliberately&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Across the features platform teams own, we found that using an underlying tool is the most common: 51.3% of respondents said this was their primary approach, ahead of building on an existing template (31.2%) and building from scratch (17.5%). High performers lean more heavily on tools (58.8%) than on building from a template (47.8%) or from scratch (33.3%). This could reflect a broader maturity pattern: as architectural choices in Platform Engineering settle, teams increasingly standardize on tools rather than maintain their own. &lt;a href="https://roadie.io/blog/platform-engineering-in-2026-why-diy-is-dead/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;David Tuite&lt;/a&gt; has described the alternative as the &amp;#8220;build-versus-buy trap,&amp;#8221; where teams stuck maintaining custom interfaces sink 6 to 18 months into upgrades and operational overhead instead of shipping value.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="686" src="https://cdn.thenewstack.io/media/2026/10/b4f3ff53-image-1-1024x686.png" alt="" class="wp-image-22840178" style="aspect-ratio:1.4975369458128078"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Build-versus-buy feature implementation approach by goals delivered (source:&lt;/em&gt; &lt;a href="https://octopus.com/publications/future-of-platform-engineering-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Octopus&lt;/em&gt;&lt;/a&gt;&lt;em&gt;).&lt;/em&gt;&amp;nbsp;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The exceptions are where it gets interesting. &lt;strong&gt;Local development&lt;/strong&gt; environments, &lt;strong&gt;one-click projects&lt;/strong&gt;, and &lt;strong&gt;ephemeral environments&lt;/strong&gt; skew toward templates rather than tools, because they&amp;#8217;re bound to a specific tech stack and golden paths that off-the-shelf tools rarely provide. &lt;strong&gt;Ephemeral environments&lt;/strong&gt; are worth pausing on because they also mark where AI is landing well. Teams whose platforms offer them were far more likely to report that AI has positively affected the speed and stability of software delivery; the same was true of &lt;strong&gt;code coverage&lt;/strong&gt; and &lt;strong&gt;cost control&lt;/strong&gt;. Among teams reporting an extremely positive effect, more than three-quarters had &lt;strong&gt;ephemeral environments.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This association also likely reflects the platform rather than the feature. Teams with &lt;strong&gt;ephemeral environments&lt;/strong&gt; tend to run on broad platforms with a range of automated delivery capabilities around them, and that breadth itself tracks with positive AI impact on delivery. &lt;strong&gt;Ephemeral environments&lt;/strong&gt;, then, could be a sign of a platform mature enough to absorb AI-generated volume and change, without losing stability. This is consistent with &lt;a href="https://dora.dev/research/2025/dora-report/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DORA&amp;#8217;s research&lt;/a&gt; finding that organizational gains from AI depend on platform quality: strong platforms amplify the effects, while weaker ones dampen them.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex"&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="399" data-id="22840177" src="https://cdn.thenewstack.io/media/2026/10/b4f3ff53-image-1024x399.png" alt="" class="wp-image-22840177"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Features ranked by AI impact on software delivery speed and stability (source:&lt;/em&gt; &lt;a href="https://octopus.com/publications/future-of-platform-engineering-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Octopus&lt;/em&gt;&lt;/a&gt;&lt;em&gt;).&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The features that break the pattern reflect fit rather than a reluctance to buy, and the reasoning behind these decisions supports this. When asked to explain their build-or-buy logic, the most common response was a cost-benefit analysis (29.6%), followed by a preference for open source (28.6%), a fit-and-requirements assessment (22.4%), a preference for commercial tools (b22.4%), and building for core differentiation (16.3%). As one respondent summarized it, &amp;#8220;Build what makes us unique, buy or adopt what&amp;#8217;s standard, and always consider long-term cost and lock-in.&amp;#8221; This is the same central idea presented in &lt;a href="https://octopus.com/blog/your-idp-needs-ddd" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;domain-driven design&lt;/a&gt;, which distinguishes the core domain, where custom work creates competitive advantage, from supporting and generic domains, where it mostly adds complexity and maintenance for something that could have been bought.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-2 is-layout-flex wp-block-gallery-is-layout-flex"&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="686" data-id="22840179" src="https://cdn.thenewstack.io/media/2026/10/56d98f89-image-1-1024x686.png" alt="" class="wp-image-22840179"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Reasons behind deciding to build versus buy (source:&lt;/em&gt; &lt;a href="https://octopus.com/publications/future-of-platform-engineering-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Octopus&lt;/em&gt;&lt;/a&gt;&lt;em&gt;).&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-the-build-from-scratch-pattern" class="wp-block-heading"&gt;&lt;strong&gt;The Build-from-Scratch Pattern&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Given how deliberately most teams choose, the strategy finding is more interesting. When classified by dominant build method, teams building from scratch are about 3.5x more likely to report a lack of clear strategy as an obstacle (57.9%) than teams building from a template (15.6%) or using an underlying tool (16.7%).&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AI clusters here, too, with predominantly build-from-scratch teams more likely to use AI moderately or extensively for legacy modernization and language migration. There is a clear pattern here: the teams building the most lean hardest on AI for maintenance. This isn&amp;#8217;t because they use AI more generally: their reported adoption, impact, and expected effects match those of everyone else. The difference is specific to the work that follows custom-built features.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large is-resized"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="542" src="https://cdn.thenewstack.io/media/2026/10/56d98f89-image-1024x542.png" alt="" class="wp-image-22840180" style="aspect-ratio:1.8851963746223566;width:624px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Build-versus-buy feature implementation due to a lack of a clear strategy and technical complexity. Heatmap showing the percentage of respondents selecting the obstacle by dominant build approach (source:&lt;/em&gt; &lt;a href="https://octopus.com/publications/future-of-platform-engineering-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Octopus&lt;/em&gt;&lt;/a&gt;&lt;em&gt;).&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-building-first-deciding-later" class="wp-block-heading"&gt;&lt;strong&gt;Building First, Deciding Later&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One interpretation is that strategy comes first, and the build-or-buy decision comes later: a team without clear direction has no basis for deciding what to buy, so it builds by default. Another is that building is the strategy rather than a sign of a missing strategy. Building can help identify the problem and show progress before the team has settled on the platform&amp;#8217;s purpose.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is an interesting take, and the one the data can&amp;#8217;t tell us which is right. &lt;a href="https://www.cio.com/article/196094/an-introduction-to-wardley-value-chain-mapping.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Simon Wardley&amp;#8217;s&lt;/a&gt; work on mapping describes a similar pattern: teams that can&amp;#8217;t see what tools already exist tend to build their own solutions to problems that have already been solved better elsewhere.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With AI, the gap between having an idea and having a working tool has almost closed. An agent can now build a custom incident-management tool before anyone has asked whether one is needed. Building has become easier, but maintaining what gets built hasn&amp;#8217;t. &lt;a href="https://dora.dev/research/2025/dora-report/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DORA&amp;#8217;s research&lt;/a&gt; suggests why this matters: good platforms provide capabilities and set boundaries on their use, and in AI-assisted development, those boundaries may currently matter more. Established tools come with those boundaries built in; a platform built piece by piece has only the ones someone thought to add.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In either case, the relationship holds. Building from scratch isn&amp;#8217;t the problem. Building from scratch by default, without a reason, is where the strategy gap appears.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-better-question-than-build-or-buy" class="wp-block-heading"&gt;&lt;strong&gt;A Better Question Than Build or Buy&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This isn&amp;#8217;t a case for buying everything, as we found that some features need to be built around their organization&amp;#8217;s own context. It is a case of buying deliberately. Where a team builds from scratch, there should be a reason. When teams buy a tool, the reason is usually already evident: nearly every team buys for the well-defined parts of the platform, and as agents write more code, the value of tools that solve those problems well only grows.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/coding-agents-platform-teams/"&gt;Coding agents made building easy. Platform teams that build from scratch are 3.5x more likely to lack a strategy.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Platform teams that build from scratch are far more likely to report a lack of a clear strategy. As AI makes building easier, the reason behind the choice matters more than ever.</content:encoded>
+    </item>
+    <item>
+      <title>Andrej Karpathy says only 5,000 people have seen what AI can really do</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/karpathy-levie-ai-capability-gap/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 12 Oct 2026 15:54:20 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Strategy</category>
+      <category>Large Language Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840150</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/9737c1d9-sarah-sheedy-t3y5gs-5wga-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract people" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9737c1d9-sarah-sheedy-t3y5gs-5wga-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI founding member Andrej Karpathy, who joined Anthropic in May, thinks most of the world has little idea of what&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/karpathy-levie-ai-capability-gap/"&gt;Andrej Karpathy says only 5,000 people have seen what AI can really do&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/9737c1d9-sarah-sheedy-t3y5gs-5wga-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract people" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9737c1d9-sarah-sheedy-t3y5gs-5wga-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI founding member &lt;a href="https://www.linkedin.com/in/andrej-karpathy-9a650716/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Andrej Karpathy&lt;/a&gt;, who &lt;a href="https://thenewstack.io/?p=22823949" class="local-link"&gt;joined Anthropic in May&lt;/a&gt;, &lt;/strong&gt;thinks most of the world has little idea of what AI can do, and in a Sunday &lt;a href="https://x.com/karpathy/status/2109361546505966046" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post on X&lt;/a&gt;, he said the gap is getting wider. By his own napkin math, roughly 6 billion people have barely used an LLM, 1 to 2 billion use chatbots casually, about 20 million use frontier models professionally in math and code, and around 5,000 have access to frontier systems inside the labs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Box CEO &lt;a href="https://www.linkedin.com/in/boxaaron/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aaron Levie&lt;/a&gt; sees an opportunity in that gap. &amp;#8220;This is a good way to understand how early we actually are in AI diffusion right now,&amp;#8221; he wrote in his &lt;a href="https://x.com/levie/status/2109467575025578330?s=46" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;response on X&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He argued that most people still think of AI as a chatbot or a next-generation search engine while barely exploring its more advanced opportunities.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-box-bets-on-agent-swarms" class="wp-block-heading"&gt;Box bets on agent swarms&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Agent swarms represent possibly the ultimate form factor of what agents will do inside of our workflows,&amp;#8221; Levie wrote, envisioning systems that divide complex work among agents running in parallel.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Agent swarms represent possibly the ultimate form factor of what agents will do inside of our workflows&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For now, &amp;#8220;less than a fraction of a fraction of the population uses AI in this way,&amp;#8221; Levie noted, and he identified the obstacles keeping it that way. We&amp;#8217;re still early. Models aren&amp;#8217;t equally capable across every kind of work, running them at scale is expensive, and tools to manage multiple agents are still catching up. Most people don&amp;#8217;t even have access to the most powerful models yet.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Rethinking how work gets done with AI is a fraction of what companies have to consider. Connecting their data and figuring out security and compliance are just a few other challenges. Levie expects &amp;#8220;a huge amount of change management&amp;#8221; before most industries outside software and AI research can take advantage of these agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That puts Box squarely in the conversation, since the company has been expanding its AI offerings with products such as &lt;a href="https://finance.yahoo.com/sectors/technology/articles/box-launch-box-automate-expedite-220451735.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Box Automate&lt;/a&gt;, which connects AI-powered automation to document-heavy business processes. Levie has also said Box &lt;a href="https://www.constellationr.com/blog-news/insights/boxs-q1-outlook-highlight-potential-ai-agent-ecosystem" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;doesn&amp;#8217;t intend to compete directly with model providers&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;A lot of this is where the applied layer of AI will really shine in the enterprise because of the domain specificity of this type of work,&amp;#8221; Levie wrote, placing the opportunity with the companies building industry-specific applications and infrastructure on top of frontier models.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-chatbots-versus-coding-agents" class="wp-block-heading"&gt;Chatbots versus coding agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Karpathy sees casual users and developers as looking at opposite ends of the same technology. In his original &lt;a href="https://x.com/karpathy/status/2042334451611693415" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;April post&lt;/a&gt;, he contrasted OpenAI&amp;#8217;s free voice mode, which he said &amp;#8220;will fumble the dumbest questions in your Instagram&amp;#8217;s reels,&amp;#8221; with the company&amp;#8217;s top-tier Codex model, which can spend an hour restructuring an entire codebase.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Karpathy wrote that less than a year ago he was still writing code by hand, occasionally relying on autocomplete. By April, he was describing agents that &amp;#8220;melt programming problems that you&amp;#8217;d normally expect to take days/weeks of work.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Back in February, Karpathy &lt;a href="https://thenewstack.io/vibe-coding-is-passe/" class="local-link"&gt;moved beyond vibe coding&lt;/a&gt; to &lt;a href="https://thenewstack.io/from-vibes-to-engineering-how-ai-agents-outgrew-their-own-terminology/" class="local-link"&gt;&amp;#8220;agentic engineering,&amp;#8221;&lt;/a&gt; with developers spending more time directing and reviewing agents than writing code. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-why-verifiable-work-wins" class="wp-block-heading"&gt;Why verifiable work wins&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Capability peaks in domains that are digital, verifiable and economically valuable,&amp;#8221; Karpathy wrote. Coding and math are well suited to reinforcement learning because results can be tested and improvements measured. Writing and advice are harder to evaluate, and there&amp;#8217;s more money to be made improving models for technical work. As Karpathy put it in April, &amp;#8220;The goldmines are elsewhere, and the focus comes along.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Capability peaks in domains that are digital, verifiable and economically valuable.&amp;#8221; &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Karpathy also thinks people aren&amp;#8217;t giving these systems enough to do. &amp;#8220;A question with a paragraph answer barely stresses the system,&amp;#8221; he wrote. The real gains become apparent when agents can spend hours working through a problem, testing changes and trying again.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In March, Karpathy&amp;#8217;s &lt;a href="https://thenewstack.io/karpathy-autonomous-experiment-loop/" class="local-link"&gt;AutoResearch project&lt;/a&gt; ran 50 experiments overnight on a single GPU, found a better learning rate and committed the change to Git. Each run produced a validation score, so the agent could tell whether a change was worth keeping and move on to the next experiment.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-from-capability-to-deployment" class="wp-block-heading"&gt;From capability to deployment&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Karpathy calls it &amp;#8220;the weirdness of the moment.&amp;#8221; Most people still judge AI by their experiences with chatbots, while a small group of developers watches capabilities improve at a staggering pace. Levie sees the same gap, but from the enterprise side. Companies still have to figure out how to make these systems affordable, secure, and reliable enough to use at scale. For Box, that&amp;#8217;s where the opportunity lies.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Most people still judge AI by their experiences with chatbots, while a small group of developers watches capabilities improve at a staggering pace.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/karpathy-levie-ai-capability-gap/"&gt;Andrej Karpathy says only 5,000 people have seen what AI can really do&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Andrej Karpathy says the AI capability gap is widening. Box CEO Aaron Levie says agent swarms are next, but most enterprises aren’t ready to use them yet.</content:encoded>
+    </item>
+    <item>
       <title>Claude Code found my app’s shared contract in two MCP calls. Then the records ran out.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/claude-code-mcp-records/</link>
       <dc:creator>Ignacio Aldama</dc:creator>
@@ -28,10 +626,10 @@
       <category>Model Context Protocol</category>
       <category>contributed-bit</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839963</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract thermal-style image of two hands reaching toward each other against a black background, rendered in vivid purple, orange and blue tones." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-scaled.jpg" /&gt;&lt;p&gt;Every Claude Code user has watched a new session start from zero. You open it on a system you built&lt;/p&gt;
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract thermal-style image of two hands reaching toward each other against a black background, rendered in vivid purple, orange and blue tones." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-scaled.jpg" /&gt;&lt;p&gt;Every Claude Code user has watched a new session start from zero. You open it on a system you built&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-mcp-records/"&gt;Claude Code found my app’s shared contract in two MCP calls. Then the records ran out.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract thermal-style image of two hands reaching toward each other against a black background, rendered in vivid purple, orange and blue tones." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract thermal-style image of two hands reaching toward each other against a black background, rendered in vivid purple, orange and blue tones." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea9f3fe0-ubaid-e-alyafizi-vnm6xar3ygm-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Every Claude Code user has watched&lt;/strong&gt; a new session start from zero. You open it on a system you built last week, ask for a small feature, and the agent begins by rediscovering your own architecture: which service owns the data, which frontend calls it, which type the two of them share. The conversation that explained all of that is gone or compressed into a summary, and the source files show what exists without saying what depends on what.&amp;nbsp;&lt;/p&gt;
 
 
@@ -130,7 +728,7 @@
       <category>Open Source</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840019</guid>
-      <description>&lt;img width="1024" height="612" src="https://cdn.thenewstack.io/media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-1024x612.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Code and glasses scrutiny" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic&amp;#8217;s new OSS Scanner, launched last week as part of its broader Cyber Mission, exposes a problem inside the company&amp;#8217;s&lt;/p&gt;
+      <description>&lt;img width="1024" height="612" src="https://cdn.thenewstack.io/media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-1024x612.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Code and glasses scrutiny" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic&amp;#8217;s new OSS Scanner, launched last week as part of its broader Cyber Mission, exposes a problem inside the company&amp;#8217;s&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-oss-scanner-vulnerabilities/"&gt;Claude found 29,000 possible bugs in open source. Only 516 have been fixed.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="612" src="https://cdn.thenewstack.io/media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-1024x612.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Code and glasses scrutiny" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d54a7713-oleksandr-chumak-zguburggmdy-unsplash-scaled.jpg" /&gt;
@@ -1097,7 +1695,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6accccf5da5a9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6accccf5da5a9" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="558" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image.png" alt="Diagram showing ECS's continuous monitor-and-repair loop " class="wp-image-22839704" style="aspect-ratio:1.565217391304348"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ace1c187d2b0&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ace1c187d2b0" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="872" height="558" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image.png" alt="Diagram showing ECS's continuous monitor-and-repair loop " class="wp-image-22839704" style="aspect-ratio:1.565217391304348"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1138,7 +1736,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6accccf5daf1e&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6accccf5daf1e" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="711" height="584" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image-1.png" alt="Diagram showing Availability Zone rebalancing" class="wp-image-22839705" style="aspect-ratio:1.21875;width:840px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ace1c187d991&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ace1c187d991" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="711" height="584" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/aa30578a-image-1.png" alt="Diagram showing Availability Zone rebalancing" class="wp-image-22839705" style="aspect-ratio:1.21875;width:840px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1575,7 +2173,7 @@
       <content:encoded>Peter Farkas warns of the threat of &amp;quot;open washing&amp;quot;. And he thinks the AI industry could set a damaging precedent for software more broadly.</content:encoded>
     </item>
     <item>
-      <title>Harness bought Augment’s coding agents. The best feature hasn’t shipped yet.</title>
+      <title>Harness bought Augment’s coding agents to show them what happens after the merge</title>
       <link>https://web.archive.org/web/https://thenewstack.io/harness-augment-cosmos-acquisition/</link>
       <dc:creator>Amanda Caswell</dc:creator>
       <pubDate>Thu, 08 Oct 2026 21:38:41 +0000</pubDate>
@@ -1584,14 +2182,14 @@
       <category>DevOps</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22839931</guid>
       <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/891fb9c6-resource-database-kpe8qijxbjc-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="pattern of empty containers" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/891fb9c6-resource-database-kpe8qijxbjc-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Harness announced Thursday that it acquired Augment Code&amp;#8217;s Cosmos software factory, Auggie CLI and Code Context Engine, along with the&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-augment-cosmos-acquisition/"&gt;Harness bought Augment’s coding agents. The best feature hasn’t shipped yet.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-augment-cosmos-acquisition/"&gt;Harness bought Augment’s coding agents to show them what happens after the merge&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/891fb9c6-resource-database-kpe8qijxbjc-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="pattern of empty containers" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/891fb9c6-resource-database-kpe8qijxbjc-unsplash-1-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;Harness announced Thursday that it acquired Augment Code&amp;rsquo;s Cosmos software factory, Auggie CLI and Code Context Engine, along with the team behind them, for an undisclosed amount. The deal adds autonomous coding agents to Harness&amp;rsquo;s existing software delivery platform, which already handles testing and deployment.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;According to &lt;a href="https://www.harness.io/press-and-news/harness-acquires-augment-code" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Harness&lt;/a&gt;, Cosmos will become the Harness Cosmos Software Factory Agent, with plans to connect Augment&amp;rsquo;s codebase understanding to Harness&amp;rsquo;s delivery history. The integration would allow coding agents to use previous deployment failures when making changes and receive feedback from downstream systems when those changes fail validation. Cosmos is available today, but those capabilities have not shipped.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;According to &lt;a href="https://www.harness.io/press-and-news/harness-acquires-augment-code" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Harness&lt;/a&gt;, Cosmos will become the Harness Cosmos Software Factory Agent, and the company says the connection between Augment&amp;rsquo;s codebase understanding and Harness&amp;rsquo;s delivery history is already live. Cosmos, the Code Context Engine and the Software Delivery Knowledge Graph are linked to Harness through the Model Context Protocol (MCP), so teams writing code in Cosmos today have context from across the software development lifecycle available to the agent as it works.&lt;/p&gt;
 
 
 
@@ -1631,7 +2229,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Developers still approve and merge changes, although &lt;a href="https://www.harness.io/blog/harness-acquires-augment-code-cosmos" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bansal wrote&lt;/a&gt; that teams can decide which work agents handle on their own and where a person has to review or approve it. Cosmos remains accessible through Augment&amp;rsquo;s existing site while Harness works on bringing it into the broader platform.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Developers still approve and merge changes, although &lt;a href="https://www.harness.io/blog/harness-acquires-augment-code-cosmos" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bansal wrote&lt;/a&gt; that teams can decide which work agents handle on their own and where a person has to review or approve it. Cosmos is still reached through Augment&amp;rsquo;s existing site, but it&amp;rsquo;s already connected to Harness&amp;rsquo;s delivery platform over MCP, which means the agent has Harness&amp;rsquo;s deployment history and security findings in hand no matter where developers open it.&lt;/p&gt;
 
 
 
@@ -1639,21 +2237,15 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Harness plans to connect Augment&amp;rsquo;s Code Context Engine to its Software Delivery Knowledge Graph, which would give Cosmos access to deployment history and security findings when working on code changes. The integration would also let Harness&amp;rsquo;s downstream agents use repository context to investigate failures and determine what needs fixing.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Harness has connected Augment&amp;rsquo;s Code Context Engine to its Software Delivery Knowledge Graph over MCP, which gives Cosmos access to deployment history and security findings when it works on code changes. A Harness spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt;, the division of labor in terms of what each system knows, with code context telling the agent what the code does and the delivery graph telling it what happens once that code ships, so the agent can write changes that are safe to deploy rather than ones that are only correct in isolation.&lt;/p&gt;
 
 
 
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When Harness downstream agents identify an issue while testing, securing, or deploying code, they send it back to Cosmos with the context to fix it.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When Harness downstream agents identify an issue while testing, securing, or deploying code, they send it back to Cosmos with the context to fix it,&amp;rdquo; Bansal said. A failed deployment goes back to Cosmos for another revision, carrying the failure context to the coding agent instead of leaving a developer to diagnose the issue and open a separate task.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When Harness downstream agents identify an issue while testing, securing, or deploying code, they send it back to Cosmos with the context to fix it,&amp;rdquo; Bansal said. A failed deployment could then be sent back to Cosmos for another revision, with the failure context passed to the coding agent rather than requiring a developer to diagnose the issue and create a separate task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company has not set a release date for the integration or explained how context will be exchanged between the Code Context Engine and the delivery graph, including how agents will retrieve relevant information from each system.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Harness hasn&amp;rsquo;t detailed how agents decide which deployment records or security findings to pull from the graph for a given change, a question that matters for teams weighing how much production history an agent should see before it touches their code.&lt;/p&gt;
 
 
 
@@ -1661,12 +2253,16 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Harness &lt;a href="https://www.harness.io/blog/harness-acquires-augment-code-cosmos" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;plans to bring&lt;/a&gt; Cosmos under the identity and policy controls of its Agent Harness but has not explained how permissions will work across the two systems, a gap that stands out as the industry moves toward agent identity, with Microsoft &lt;a href="https://thenewstack.io/copilot-agents-identity-runtime/" class="local-link"&gt;giving its Copilot agents identities of their own&lt;/a&gt;.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Harness &lt;a href="https://www.harness.io/blog/harness-acquires-augment-code-cosmos" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;plans to bring&lt;/a&gt; Cosmos under the identity and policy controls of its Agent Harness but has not explained how permissions work across the two systems, a gap that stands out as the industry moves toward agent identity, with Microsoft &lt;a href="https://thenewstack.io/copilot-agents-identity-runtime/" class="local-link"&gt;giving its Copilot agents identities of their own&lt;/a&gt;.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Cosmos already runs agents in isolated VMs with configurable review checkpoints, although it&amp;rsquo;s unclear what production data they will be allowed to access or which downstream actions they can take. Those limits deserve scrutiny, particularly after &lt;a href="https://thenewstack.io/coding-agents-leaked-screenshots/" class="local-link"&gt;coding agents exposed more than 13,000 screenshots&lt;/a&gt; through routine workflows without an attacker ever gaining access.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-augment-cosmos-acquisition/"&gt;Harness bought Augment’s coding agents. The best feature hasn’t shipped yet.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Cosmos runs agents in isolated VMs with configurable review checkpoints, although it&amp;rsquo;s unclear what production data they can access through the delivery graph or which downstream actions they can take once a failure is handed back to them. Those limits deserve scrutiny, particularly after &lt;a href="https://thenewstack.io/coding-agents-leaked-screenshots/" class="local-link"&gt;coding agents exposed more than 13,000 screenshots&lt;/a&gt; through routine workflows without an attacker ever gaining access.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Update, Oct. 12, 2026: This story has been updated to reflect that Harness says the integration between Cosmos and its Software Delivery Knowledge Graph is already live via MCP; an earlier version said the integration had not shipped.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-augment-cosmos-acquisition/"&gt;Harness bought Augment’s coding agents to show them what happens after the merge&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Harness bought Augment Code’s Cosmos to link AI coding agents to its delivery platform, but the part that learns from failed deployments hasn’t shipped.</content:encoded>
     </item>
@@ -4564,908 +5160,6 @@ SELECT name, is_state_enabled FROM sys.database_audit_specifications;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-sonnet-5-5-vs-opus-5-5/"&gt;Claude Sonnet 5.5 vs. Opus 5.5: 42% cheaper and perfect on every run&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Anthropic launched Claude Sonnet 5.5 shortly after launching Opus 5.5. With Opus 5.5 crowned the “budget” model last week, I tested Sonnet 5.5 to see if it had a place in the frontier market. Surprisingly, Sonnet outperformed Opus on 2 out of 3 tasks.</content:encoded>
-    </item>
-    <item>
-      <title>Building scalable, agent-friendly APIs for AI applications</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/building-agent-friendly-apis/</link>
-      <dc:creator>Nacho Martínez</dc:creator>
-      <pubDate>Thu, 08 Oct 2026 11:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>API Management</category>
-      <category>Microservices</category>
-      <category>sponsor-oracle</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839728</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/ee1a9e41-resource-database-joz4ohpe8f4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital visual with vertical structural bulkheads and dynamic light streams for scalable AI agent architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ee1a9e41-resource-database-joz4ohpe8f4-unsplash.jpg" /&gt;&lt;p&gt;Nowadays, most of us interact with frontier AI models in a structured way, even if we do not always think&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/building-agent-friendly-apis/"&gt;Building scalable, agent-friendly APIs for AI applications&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/ee1a9e41-resource-database-joz4ohpe8f4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract dark digital visual with vertical structural bulkheads and dynamic light streams for scalable AI agent architecture." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ee1a9e41-resource-database-joz4ohpe8f4-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;Nowadays, most of us interact with frontier AI models in a structured way, even if we do not always think about it that way. Most systems already sit on top of a protocol, often created by the model providers themselves. &lt;a href="https://thenewstack.io/ai-agent-harness-pricing-split/" data-wpil-monitor-id="4125" class="local-link"&gt;OpenAI and Anthropic&lt;/a&gt;, for example, each provide APIs to communicate with their inference systems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In practice, one approach is to use an OpenAI-compatible API that can serve a multi-turn agent. We can point the official OpenAI SDK at a compatible inference endpoint, hold a conversation with the agent, and use the same interface across turns.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These systems are built in a specific, clever way that lets them scale. When traffic grows or subagents spawn, these systems need to be scaled so that we, as engineers, can make necessary adjustments without users noticing. For example, we may scale a single-replica system to three replicas behind a load balancer when we need additional traffic support, while still retaining the proper conversation context and previous turns.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“The microservices principles everyone stopped talking about five years ago turn out to be exactly what agent traffic needs.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We will look at what happens under bursts of AI traffic.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Many of the questions we need to ask ourselves before developing these systems were already addressed by the 2010s-era microservices literature. We will show how to rebuild an agent-friendly API from those principles, backing it with &lt;a href="https://www.oracle.com/database/free/?source=:ex:pw:::::TNS_SAFA_A&amp;amp;SC=:ex:pw:::::TNS_SAFA_A&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oracle AI Database Free&lt;/a&gt;, and measure what changes.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-why-agent-traffic-is-different-from-web-traffic" class="wp-block-heading"&gt;Why agent traffic is different from web traffic&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Key insight:&lt;/strong&gt; The load shape is different, and that difference is exactly what a stateful design struggles to absorb.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Four properties separate an agent client from a browser:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Conversations are long and stateful, but requests are not.&lt;/strong&gt; A 40-turn agent loop results in 40 independent HTTP requests. Nothing in the protocol ties them to one server. Each tool call is stateless at the HTTP layer: the endpoint receives individual requests and responses over time, so the application needs to determine which conversation a request belongs to and where its state lives.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Tool calls fan out unpredictably.&lt;/strong&gt; One chat request may trigger zero downstream calls, or six, one of which hits a vector index and takes 400 milliseconds. Because model outputs and tool-section paths can vary, even the same input may trigger a different sequence and number of tool calls.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Agents retry aggressively.&lt;/strong&gt; AI agents are usually wrapped in an agent harness with its own control loop, error handling, and retry policy. When a timeout or error occurs, the system may receive a rapid sequence of retries from the same workload. This is useful for resilience, but it can also amplify pressure on a dependency that is already struggling.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Load is bursty and machine-paced.&lt;/strong&gt; There is little or no think time between turns. While an AI agent is operating, it can generate a continuous burst of work, constrained mainly by the hardware and concurrency limits around it.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Point 1 is the one that people usually understand: a browser session survives on one server thanks to stickiness and human think time. An agent can issue many requests in rapid succession, and without durable shared state, requests distributed across replicas can lose the context they need, creating friction for the user.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-first-version-everyone-builds" class="wp-block-heading"&gt;The first version everyone builds&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Here is the whole failure, in one endpoint:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-SESSIONS: dict[str, list] = {}
-SLOTS = asyncio.Semaphore(int(os.environ.get("CONCURRENCY", "32")))  # one pool
-
-@app.post("/v1/chat/completions")
-async def chat(req: Request):
-    body = await req.json()
-    sid = req.headers.get("x-session-id") or body.get("user")
-    async with SLOTS:                                 # everything shares it
-        history = SESSIONS.setdefault(sid, [])
-        history.append({"role": "user", "content": body["messages"][-1]["content"]})
-        if body.get("tools"):
-            await TOOLS[body["tools"][0]["function"]["name"]]()   # inline, in-path
-        ...
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;This is a correct, working, minimal OpenAI-compatible API. The decorator establishes that the following function runs asynchronously when the endpoint is invoked.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This minimal endpoint passes all tests but has a fundamental flaw. Can you spot it?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In our POC benchmark, we drove 200 conversations of four turns each, sending every turn to the next available replica in rotation—the kind of distribution you can see when the stickiness parameter is not configured appropriately:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;Deployment&lt;/td&gt;&lt;td&gt;Turns&lt;/td&gt;&lt;td&gt;Context lost&lt;/td&gt;&lt;td&gt;Loss rate&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Monolithic, &lt;strong&gt;1 machine&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;800&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;&lt;strong&gt;0.0%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Monolithic, &lt;strong&gt;3 machines&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;800&lt;/td&gt;&lt;td&gt;600&lt;/td&gt;&lt;td&gt;&lt;strong&gt;75.0%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Decomposed, 1 machine&lt;/td&gt;&lt;td&gt;800&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;0.0%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Decomposed, 3 machines&lt;/td&gt;&lt;td&gt;800&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;&lt;strong&gt;0.0%&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Take a look at the monolithic deployment with one machine versus three. The design is not broken; it is conditionally correct.  The condition is that every turn reaches the same machine, which is exactly the condition you give up when you scale.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“The failure is silent. The model still answers, but it may answer without the right context because the request landed on another machine that does not have the previous chat history.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The failure is silent. The model still answers, but it may answer without the right context because the request landed on another machine that does not have the previous chat history. Observability may still show HTTP 200 responses, yet the system is not behaving correctly from the user’s perspective. That is the difference we need to account for &lt;a href="https://thenewstack.io/why-databases-need-apis/" class="local-link"&gt;when designing APIs&lt;/a&gt; for AI applications.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-returning-to-the-principles" class="wp-block-heading"&gt;Returning to the principles&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Key insight:&lt;/strong&gt; Nothing in the fix is new. It is Lewis and Fowler’s &lt;a href="https://martinfowler.com/articles/microservices.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;microservices characteristics&lt;/a&gt; (2014) and Michael Nygard’s bulkhead pattern from &lt;em&gt;Release It!&lt;/em&gt;, applied to a request shape that did not exist when they were written.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are three principles that do the heavy lifting:&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Statelessness:&lt;/strong&gt; Conversation state moves out of the process and into a shared store. Any replica can serve any turn of any conversation. This single change lets the previous endpoint scale across replicas without relying on process-local conversation state: we don’t need to send the full chat history back and forth on every request if the agent can retrieve what it needs from a centralized place.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Bulkheads (a.k.a. isolation):&lt;/strong&gt; The idea is to isolate different parts of the &lt;a href="https://thenewstack.io/acm-vibe-coding-ai-agent/" data-wpil-monitor-id="4126" class="local-link"&gt;system to prevent cascading failures&lt;/a&gt;. In this case, we isolate by &lt;em&gt;dependency&lt;/em&gt;, not globally.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Smart endpoints, dumb pipes:&lt;/strong&gt; The OpenAI chat-completions protocol is an unusually useful transport layer: relatively small, stable, already supported by many agent frameworks, and familiar to AI developers. We put the intelligence—routing, budgeting, memory engineering, context engineering, tool-calling policies—on top of it, rather than inside it. Keep the pipe simple.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-poc-four-services-one-protocol" class="wp-block-heading"&gt;The POC: four services, one protocol&lt;/h2&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="420" height="221" src="https://cdn.thenewstack.io/media/2026/10/e309ac0a-image.png" alt="Image showing the architecture of monoliths and gateways + services" class="wp-image-22839772"&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Architecture&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The decomposed stack splits along failure-domain lines, not along nouns:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;gateway&lt;/strong&gt; — speaks the OpenAI protocol, holds nothing, and scales horizontally&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;memory&lt;/strong&gt; — owns conversation state and the tool audit trail; nothing else may hold a message list&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;tools&lt;/strong&gt; — executes tools in its own process, with its own concurrency budget and timeout&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Oracle AI Database Free&lt;/strong&gt; — the shared substrate under all of it&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As the architecture shows, the point is to isolate as much as possible while keeping each component focused on one job. That can make the components easier to evolve independently. It also gives us room to set separate concurrency budgets, timeouts, and other configuration parameters for each dependency.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;You can implement this with semaphores: they let us control access to shared resources, which is exactly what we need.&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-CHAT_SLOTS = asyncio.Semaphore(int(os.environ.get("CHAT_CONCURRENCY", "24")))
-TOOL_SLOTS = asyncio.Semaphore(int(os.environ.get("GW_TOOL_CONCURRENCY", "8")))
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;And because the protocol is unchanged, the official SDK can communicate with this OpenAI-compatible endpoint without changes to the SDK itself:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-from openai import OpenAI
-c = OpenAI(base_url="http://127.0.0.1:8110/v1", api_key="")
-
-c.models.list()          # ['agent-gateway/router-v1']
-r1 = c.chat.completions.create(model="agent-gateway/router-v1",
-        messages=[{"role": "user", "content": "hello"}], user="demo-1")
-r2 = c.chat.completions.create(model="agent-gateway/router-v1",
-        messages=[{"role": "user", "content": "and again"}], user="demo-1")
-# r1 -&amp;gt; "turn 1"   r2 -&amp;gt; "turn 3"   (state survived, on a different replica)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;As the gateway writes to the memory component independently—and with concurrency controlled by the semaphores—the design avoids relying on local file system state across replicas.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-are-bulkheads-worth-it" class="wp-block-heading"&gt;Are bulkheads worth it?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A bulkhead isolates different components of our application to prevent failures from propagating across them. For example, we can separate the tool-calling path from the standard chat-completion path.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Imagine we have a system that correctly partitions components and separates tool-calling requests from standard chat completions, as shown here:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="420" height="152" src="https://cdn.thenewstack.io/media/2026/10/b9d9bc85-image.png" alt="Image comparing bulkhead request times" class="wp-image-22839773"&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Bulkhead comparison from our POC&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Both stacks get 32 admission slots per replica. The monolithic approach spends them from one request pool. The gateway splits them: 24 for plain chat, eight for tool-bearing requests. The benchmark drives 120 chat requests per second while 300 concurrent callers hammer a 400-millisecond tool.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“Without bulkheads, a user making a standard chat request can end up waiting behind slow tool calls because every request is competing for the same pool.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Without bulkheads, a user making a standard chat request can end up waiting behind slow tool calls because every request is competing for the same pool. With isolation, tool pressure remains can be isolated from the standard chat pool, helping preserve capacity for standard chat traffic.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-where-oracle-ai-database-free-fits-in" class="wp-block-heading"&gt;Where Oracle AI Database Free fits in&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Key insight:&lt;/strong&gt; “Database per service” is the one microservices principle you may not want to apply uniformly in an AI application.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The advice that was prevalent in 2014 was to give every service its own datastore, because the coupling cost of a shared schema exceeded the coordination cost of eventual consistency.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For agents, that calculus can invert, because a single agent turn writes four things that must agree:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;the conversation state&lt;/li&gt;
-
-
-
-&lt;li&gt;the tool invocation record (and order)&lt;/li&gt;
-
-
-
-&lt;li&gt;the semantic, episodic and workflow memory facts extracted from the turn&lt;/li&gt;
-
-
-
-&lt;li&gt;the idempotency ledger entry that stops a retry re-executing a paid tool&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If you decide to split these across data stores—one in Postgres, one in a vector store, and another in Redis—you get a consistency problem that the application now has to manage. Databases have been solving transactional consistency for decades, so this architecture can use database transaction capabilities to manage these related writes together.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Keeping them in one database makes it one transaction commit:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-CREATE TABLE agent_sessions (
-  session_id   VARCHAR2(64) PRIMARY KEY,
-  messages     JSON NOT NULL,                 -- native JSON, not a CLOB you parse
-  version      NUMBER DEFAULT 1 NOT NULL,     -- optimistic concurrency
-  updated_at   TIMESTAMP WITH TIME ZONE DEFAULT SYSTIMESTAMP NOT NULL
-);
-
-CREATE TABLE agent_memory (
-  memory_id    VARCHAR2(64) PRIMARY KEY,
-  session_id   VARCHAR2(64),
-  content      CLOB NOT NULL,
-  embedding    VECTOR(1024, FLOAT32)          -- same row, same transaction
-);
-
-CREATE VECTOR INDEX ix_memory_vec ON agent_memory (embedding)
-  ORGANIZATION NEIGHBOR PARTITIONS DISTANCE COSINE WITH TARGET ACCURACY 95;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Relational, JSON and vector data in one engine, one transaction, one backup, one set of credentials. &lt;a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/vecse/understand-hybrid-vector-indexes.html?source=:ex:pw:::::TNS_SAFA_B&amp;amp;SC=:ex:pw:::::TNS_SAFA_B&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oracle AI Database Hybrid Vector Search&lt;/a&gt; lets a retrieval query retrieve what it needs, join the tool history and rank by cosine distance in a single statement—instead of joining in Python across three systems, which may otherwise require application-level coordination across multiple systems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Another thing the database does for horizontally scaled APIs is help coordinate concurrent turns. Two replicas serving turns of the same conversation is normal, not exceptional. SELECT … FOR UPDATE plus a version column can serialize conflicting updates and implement retry handling, rather than letting competing updates overwrite conversation state.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-counterintuitive-part-decompose-compute-converge-data" class="wp-block-heading"&gt;The counterintuitive part: decompose compute, converge data&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Everyone reaches for microservices to scale AI applications, but applying the principle uniformly can create consistency challenges across the agent’s memory, audit log, and vector index.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“The useful split is asymmetric: decompose the compute, converge the data.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The useful split is asymmetric: decompose the compute, converge the data.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The 2014 principles still hold. We just need to adapt them to the new era of AI agents&lt;a&gt;.&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a&gt;&lt;em&gt;Ready to try the architecture? Download&lt;/em&gt;&lt;/a&gt; &lt;a href="https://www.oracle.com/database/free/?source=:ex:pw:::::TNS_SAFA_A&amp;amp;SC=:ex:pw:::::TNS_SAFA_A&amp;amp;pcode=" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Oracle AI Database Free&lt;/em&gt;&lt;/a&gt;&lt;em&gt;, install the&lt;/em&gt; &lt;a href="https://pypi.org/project/oracleagentmemory/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;&lt;u&gt;Oracle AI Agent Memory Python package&lt;/u&gt;&lt;/em&gt;&lt;/a&gt;&lt;em&gt;, and follow the local quickstart to add persistent state and durable memory to your agent API. For more examples, visit the&lt;/em&gt; &lt;a href="https://github.com/oracle-devrel/oracle-ai-developer-hub" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;&lt;u&gt;Oracle AI Developer Hub&lt;/u&gt;&lt;/em&gt;&lt;/a&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/building-agent-friendly-apis/"&gt;Building scalable, agent-friendly APIs for AI applications&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Apply microservices principles like bulkheads to scale agent-friendly APIs, handle bursty AI traffic, and prevent lost conversation context.</content:encoded>
-    </item>
-    <item>
-      <title>Redis by proxy: Percona targets the last major hurdle to Valkey adoption</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/valkey-proxy-redis-percona/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Thu, 08 Oct 2026 06:54:15 +0000</pubDate>
-      <category>AI</category>
-      <category>Databases</category>
-      <category>Open Source</category>
-      <category>Operations</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839542</guid>
-      <description>&lt;img width="1024" height="674" src="https://cdn.thenewstack.io/media/2026/10/ca3e5d09-neon-percona-stickers-on-keyboard-1024x674.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Percona stickers placed on laptop keyboard" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ca3e5d09-neon-percona-stickers-on-keyboard.jpg" /&gt;&lt;p&gt;When Redis changed its licensing in 2024, replacing its permissive BSD license with proprietary, source-available alternatives, it prompted a major&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/valkey-proxy-redis-percona/"&gt;Redis by proxy: Percona targets the last major hurdle to Valkey adoption&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="674" src="https://cdn.thenewstack.io/media/2026/10/ca3e5d09-neon-percona-stickers-on-keyboard-1024x674.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Percona stickers placed on laptop keyboard" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ca3e5d09-neon-percona-stickers-on-keyboard.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;When Redis &lt;a href="https://redis.io/blog/redis-adopts-dual-source-available-licensing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;changed its licensing&lt;/a&gt; in 2024, replacing its permissive &lt;a href="https://en.wikipedia.org/wiki/BSD_licenses" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;BSD&lt;/a&gt; license with proprietary, source-available alternatives, it prompted a major split in the community. Within days, the Linux Foundation &lt;a href="https://www.linuxfoundation.org/press/linux-foundation-launches-open-source-valkey-community" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched Valkey&lt;/a&gt;, an open source fork.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While Redis did &lt;a href="https://thenewstack.io/redis-is-open-source-again/" class="local-link"&gt;subsequently change course again&lt;/a&gt;, adding the copyleft &lt;a href="https://www.fsf.org/bulletin/2021/fall/the-fundamentals-of-the-agplv3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AGPLv3&lt;/a&gt; open source license as an option in 2025, &lt;a href="https://valkey.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Valkey&lt;/a&gt; was already forging its own path for organizations that wanted a permissively licensed project with independent governance.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Much has happened in the intervening months, with Valkey moving to &lt;a href="https://thenewstack.io/valkey-91-cuts-memory/" class="local-link"&gt;reduce its memory requirements&lt;/a&gt;, introducing new cluster management and access-control features, and more recently starting to &lt;a href="https://thenewstack.io/valkey-ai-backporting-agents/" class="local-link"&gt;use AI agents to help&lt;/a&gt; with maintenance work such as backporting fixes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But for some Redis users, at least one major migration hurdle remains.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-proxy-access" class="wp-block-heading"&gt;Proxy access&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Redis, for the uninitiated, is an in-memory data store widely used for caching and other workloads where fast access is an imperative. Many applications were built to interact with Redis as though it were a single instance, and moving those applications to a distributed &lt;a href="https://valkey.io/topics/cluster-tutorial/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Valkey Cluster&lt;/a&gt; can mean changing code so it can deal with multiple nodes, routing, and differences in how certain commands behave. Commercial Redis products and some cloud services get around this with proxy layers that sit between the application and the underlying cluster, but companies that want to run &lt;a class="wpil_keyword_link local-link" href="https://thenewstack.io/valkey-a-redis-fork-with-a-future/" title="Valkey" data-wpil-keyword-link="linked" data-wpil-monitor-id="4132"&gt;Valkey&lt;/a&gt; themselves have lacked an equivalent option.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And so &lt;a href="https://www.percona.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Percona&lt;/a&gt; is now looking to fill that gap with Valkey-proxy, an open source proxy that allows existing applications to connect to a Valkey Cluster without having to be rewritten.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Percona is an open source database software and services company that supports technologies including MySQL, PostgreSQL, and MongoDB. It&amp;#8217;s also one of the companies backing the Valkey project, alongside cloud heavyweights including AWS, Google Cloud, and Oracle.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In an interview at the Linux Foundation&amp;#8217;s &lt;a href="https://events.linuxfoundation.org/open-source-summit-europe/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Open Source Summit Europe&lt;/a&gt; conference in Prague, &lt;a href="https://www.linkedin.com/in/kyle-davis-linux/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kyle Davis&lt;/a&gt;, general manager for the Redis/Valkey ecosystem at Percona, says that having to rewrite applications before they can move to clustered Valkey deployments is one of the last big blockers to wider adoption.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Right now there&amp;#8217;s not really any good open source solution for this.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Right now there&amp;#8217;s not really any good open source solution for this, and so there&amp;#8217;s been this gap,&amp;#8221; Davis tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For what it&amp;#8217;s worth, there are other proxies out there. Davis points to &lt;a href="https://www.envoyproxy.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Envoy&lt;/a&gt; as one example, but says it doesn&amp;#8217;t fully understand the Valkey protocol and handles connections in a way that means it can&amp;#8217;t support everything Valkey can do.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That leaves some companies caught between older applications built around a single Redis instance, and the clustered Valkey deployments they would need as they grow. Valkey-proxy is designed to bridge that divide.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Now we can address a whole different layer of applications that really didn&amp;#8217;t have a good option,&amp;rdquo; Davis added.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Now we can address a whole different layer of applications that really didn&amp;#8217;t have a good option.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-the-case-for-valkey-proxy" class="wp-block-heading"&gt;The case for Valkey-proxy&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Percona has developed the first version of Valkey-proxy internally, but the plan is to move it into the Valkey project before opening development up to the wider community.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;From there, we&amp;#8217;re going to get a lot of contributions from Percona&amp;#8217;s customers, customers from other places, and independent developers,&amp;#8221; Davis says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Asked whether hyperscalers like AWS might also contribute, Davis says &amp;ldquo;potentially,&amp;rdquo; but adds that it&amp;#8217;s difficult to predict because they often have their own tools tied directly to their services.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That makes Valkey-proxy particularly relevant to organizations that manage their own infrastructure, including those running on premises. Davis says the potential user base ranges from smaller companies with limited resources, to large financial services organizations with strict compliance requirements &amp;#8212; businesses that may need greater control over where and how their data infrastructure runs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Moreover, the proxy could also give the Valkey project somewhere to add other capabilities over time.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Filling that missing gap allows us to have more flexibility, and now we can start doing things in a different way.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It provides a decoupling layer that in the future we can build other components into,&amp;rdquo; Davis continues. &amp;ldquo;Filling that missing gap allows us to have more flexibility, and now we can start doing things in a different way.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For now, however, the focus is on getting the project into users&amp;#8217; hands. Percona received approval in late September for Valkey-proxy to become part of the Valkey project, and is now moving the code from private repositories into the public project.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The aim is to have all of the source code publicly available by the end of October, followed by a release candidate in December and general availability by early 2027.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Davis says the intervening period will be important for finding edge cases as users begin testing the proxy against their own applications. &lt;a href="https://www.freshworks.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Freshworks&lt;/a&gt; will be among the first to do so, and Davis says the company is already working with Percona on Valkey-proxy as an early user and design partner, helping uncover issues as development continues.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;That&amp;#8217;s going to be a great test case for it,&amp;#8221; he adds.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/valkey-proxy-redis-percona/"&gt;Redis by proxy: Percona targets the last major hurdle to Valkey adoption&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Valkey-proxy lets companies stuck on Redis migrate without having to rewrite their apps. The code is set to go public this month.</content:encoded>
-    </item>
-    <item>
-      <title>OpenSSH 10.6 deliberately breaks two features in the name of security</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openssh-breaks-compression-usernames/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 21:27:33 +0000</pubDate>
-      <category>DevOps</category>
-      <category>Open Source</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839647</guid>
-      <description>&lt;img width="1024" height="580" src="https://cdn.thenewstack.io/media/2026/10/ed1f90f1-heather-green-nndxjya1kyi-unsplash-scaled-e1791412532533-1024x580.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="security" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ed1f90f1-heather-green-nndxjya1kyi-unsplash-scaled-e1791412532533.jpg" /&gt;&lt;p&gt;OpenSSH 10.6, released Tuesday, makes compression less effective and rejects some usernames that previously worked, and the maintainers knew both&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openssh-breaks-compression-usernames/"&gt;OpenSSH 10.6 deliberately breaks two features in the name of security&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="580" src="https://cdn.thenewstack.io/media/2026/10/ed1f90f1-heather-green-nndxjya1kyi-unsplash-scaled-e1791412532533-1024x580.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="security" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ed1f90f1-heather-green-nndxjya1kyi-unsplash-scaled-e1791412532533.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenSSH 10.6, released Tuesday, makes compression less effective and rejects some usernames &lt;/strong&gt;that previously worked, and the maintainers knew both changes would break things when they shipped them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One change disables the LZ77 dictionary coder used for SSH compression after researchers found that sharing compression state across multiple channels could expose plaintext. The other blocks &lt;code&gt;$ &lt;/code&gt;and &lt;code&gt;\&lt;/code&gt; in command-line usernames to prevent them from being interpreted by the shell through directives such as ProxyCommand and Match exec.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://www.openssh.org/txt/release-10.6" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;release&lt;/a&gt; comes as OpenSSH sees more security research conducted with AI models, while &lt;a href="https://thenewstack.io/claude-exploits-openai-forum/" class="local-link"&gt;those models get better at finding exploitable flaws&lt;/a&gt;. Other researchers later found some of those bugs independently. OpenSSH warned that adversaries who don&amp;#8217;t report what they find &amp;ldquo;are likely to be able to discover these bugs too,&amp;rdquo; and for now, the project plans to release fixes more often rather than wait for its usual release schedule.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;OpenSSH warned that adversaries who don&amp;#8217;t report what they find &amp;ldquo;are likely to be able to discover these bugs too,&amp;rdquo; and for now, the project plans to release fixes more often rather than wait for its usual release schedule.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-compression-context-leaks-plaintext" class="wp-block-heading"&gt;Compression context leaks plaintext&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;SSH can carry several things over one encrypted connection, including an interactive shell, port forwarding, or a dynamic SOCKS proxy. When compression is enabled, those channels share the same compression state, although &lt;a href="https://man.openbsd.org/ssh_config" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenSSH leaves compression off by default&lt;/a&gt;, so the attack only works when someone has turned it on.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ruhr University Bochum security researchers &lt;a href="https://www.linkedin.com/in/fabian-baumer/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fabian B&amp;auml;umer&lt;/a&gt; and &lt;a href="https://www.linkedin.com/in/marcus-brinkmann-57b39a1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Marcus Brinkmann&lt;/a&gt; demonstrated the problem in their paper, &lt;a href="https://arxiv.org/abs/2609.07709" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;ldquo;Crossing the Streams: SSH Plaintext Recovery via a Common Compression Context in Multiplexed Channels.&amp;rdquo;&lt;/a&gt; An attacker who can feed chosen plaintext into one channel and watch the resulting encrypted traffic can use the compression to recover secrets moving through another channel in the same session.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;An attacker who can feed chosen plaintext into one channel and watch the resulting encrypted traffic can use the compression to recover secrets moving through another channel in the same session.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The leak comes from LZ77&amp;rsquo;s memory. Instead of encoding the same sequence of bytes again, it can point back to a matching sequence it has already seen. OpenSSH shared that history across channels, so data controlled by an attacker could change how a secret elsewhere in the session was compressed. When a guess matched part of that secret, the resulting traffic could get slightly shorter, giving the attacker another piece of information.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That puts the attack in the same family as CRIME and BREACH against HTTP over TLS, although pulling it off here requires a fairly specific setup. The attacker-controlled traffic and the secret have to share the same multiplexed SSH session. In their lowest-noise tests, B&amp;auml;umer and Brinkmann recovered an eight-character secret from a 26-character alphabet in a median of 276 guesses across 100 trials. In their noisier browser-based scenario, that jumped to about 27,600.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The two researchers built the proof-of-concept implementations for all three attack scenarios with Claude Code, and they weren&amp;#8217;t the only ones using AI tooling against OpenSSH, since the 10.6 release also credits &lt;a href="https://www.linkedin.com/in/chrisrohlf/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Chris Rohlf&lt;/a&gt;, working with Claude and Anthropic Research, with finding two other bugs fixed in the release.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-huffman-stays-lz77-goes" class="wp-block-heading"&gt;Huffman stays, LZ77 goes&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenSSH went with the straightforward fix and removed the shared dictionary entirely. Deflate uses LZ77 to find repeated chunks of previously seen data, then Huffman coding to represent frequently used values with fewer bits. OpenSSH 10.6 disables the LZ77 part in both &lt;code&gt;ssh&lt;/code&gt; and &lt;code&gt;sshd&lt;/code&gt;, while keeping Huffman coding.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Compression still works, just not as well. OpenSSH warns that the &lt;code&gt;Compression&lt;/code&gt; option will be less effective and recommends handling compression at the application layer instead, where it says it will usually perform better without being vulnerable to this attack.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Most interactive SSH sessions probably won&amp;#8217;t notice the difference, although automated jobs moving large amounts of compressible data over constrained connections could. Those workloads may need to move compression out of SSH and into the application after upgrading.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Most interactive SSH sessions probably won&amp;#8217;t notice the difference, although automated jobs moving large amounts of compressible data over constrained connections could.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-shell-metacharacters-in-usernames" class="wp-block-heading"&gt;Shell metacharacters in usernames&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The username change is aimed at commands built from outside input. An internal tool, CI job or agent might run something like &lt;code&gt;ssh "$INPUT_USER@host"&lt;/code&gt;, and that username can later end up inside &lt;code&gt;ProxyCommand&lt;/code&gt;, &lt;code&gt;Match exec&lt;/code&gt; or another command passed to the shell, where characters such as &lt;code&gt;$&lt;/code&gt; and &lt;code&gt;\&lt;/code&gt; can suddenly become shell syntax instead of just part of the username.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This isn&amp;#8217;t the first time the project has tightened this path. &lt;a href="https://www.openssh.org/txt/release-10.3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Version 10.3&lt;/a&gt; fixed a related bug where command-line usernames were checked for shell metacharacters too late, after they could already be expanded through &lt;code&gt;ssh_config&lt;/code&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With 10.6, &lt;code&gt;$&lt;/code&gt; and &lt;code&gt;\&lt;/code&gt; are rejected in usernames passed on the command line, but the restriction doesn&amp;#8217;t apply when the username is set with the &lt;code&gt;User&lt;/code&gt; directive in an SSH configuration file. Legitimate accounts containing either character can still work that way, although scripts and agent tooling that pass those usernames directly will have to change.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-post-quantum-keys-deprecated-scp" class="wp-block-heading"&gt;Post-quantum keys, deprecated scp&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are a few other changes in OpenSSH 10.6 that could trip up automated workflows. The hybrid post-quantum &lt;code&gt;ssh-mldsa44-ed25519&lt;/code&gt; signature algorithm loses its experimental &lt;code&gt;@openssh.com&lt;/code&gt; suffix, which means keys created with the earlier implementation need to be regenerated or removed. The release also begins phasing out &lt;code&gt;scp -R&lt;/code&gt; for remote-to-remote copies; it still works in 10.6, but now produces a warning and will eventually be ignored.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openssh-breaks-compression-usernames/"&gt;OpenSSH 10.6 deliberately breaks two features in the name of security&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>OpenSSH 10.6 weakens SSH compression and rejects $ and \ in command-line usernames to close a plaintext leak and a shell injection risk in automation.</content:encoded>
-    </item>
-    <item>
-      <title>Claude’s cyber safeguards are getting more flexible — but not for everyone.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-cyber-access-tiers/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 21:25:06 +0000</pubDate>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839610</guid>
-      <description>&lt;img width="1024" height="678" src="https://cdn.thenewstack.io/media/2026/10/e7909094-alex-tuchilu-l_wvlktgily-unsplash-1024x678.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e7909094-alex-tuchilu-l_wvlktgily-unsplash-scaled.jpg" /&gt;&lt;p&gt;This week, Anthropic announced an expansion of its Cyber Verification Program (CVP), breaking access into three use case&amp;#8211;based tiers and&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-cyber-access-tiers/"&gt;Claude’s cyber safeguards are getting more flexible &amp;#8212; but not for everyone.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="678" src="https://cdn.thenewstack.io/media/2026/10/e7909094-alex-tuchilu-l_wvlktgily-unsplash-1024x678.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e7909094-alex-tuchilu-l_wvlktgily-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;This week, Anthropic announced an expansion&lt;/strong&gt; of its Cyber Verification Program (CVP), breaking access into three use case&amp;ndash;based tiers and folding Project Glasswing into the least restricted tier.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The frontier lab &lt;a href="https://www.anthropic.com/news/cyber-verification-program" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;states&lt;/a&gt; the change will &amp;ldquo;extend the impact of our Project Glasswing to a much larger number of cyber defenders.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But that number may be smaller than you think. Anthropic&amp;rsquo;s own tests show that the Defense Access tier &amp;mdash; where it expects many organizations conducting defensive cyber work to land &amp;mdash; blocked Claude Opus 5.5 in 46 out of 50 offensive-security benchmark trials.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-many-defenders-will-still-face-significant-restrictions" class="wp-block-heading"&gt;Many defenders will still face significant restrictions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per Anthropic, the revamped CVP is intended to let security teams access model capabilities that best fit their scope of cyber work, with each tier tied to different verification requirements and security controls.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But it seems the AI company still considers many security teams ineligible for its most powerful cyber capabilities.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per Anthropic, many security teams &amp;mdash; particularly those defending self-owned or -maintained systems &amp;mdash; will This week, Anthropic &lt;a href="https://www.anthropic.com/news/cyber-verification-program" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; an expansion to its Cyber Verification Program (CVP), breaking up access into three use case&amp;ndash;based tiers and folding in &lt;a href="https://thenewstack.io/anthropic-claude-mythos-cybersecurity" class="local-link"&gt;Project Glasswing&lt;/a&gt; to the least restricted.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per the AI company, the change-up is a move to &amp;ldquo;extend the impact of Project Glasswing to a much larger number of cyber defenders.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But that number may be smaller than you think. Anthropic&amp;rsquo;s own tests show that the Defense Access tier &amp;mdash; where it expects many organizations conducting defensive cyber work to land &amp;mdash; blocked Claude Opus 5.5 in 46 out of 50 offensive-security benchmark trials.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-most-defenders-will-still-face-significant-restrictions" class="wp-block-heading"&gt;Most defenders will still face significant restrictions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per Anthropic, the revamped CVP is intended to let security teams access model capabilities that best fit their scope of cyber work, with each tier tied to different verification requirements and security controls.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But it seems the AI company still considers many security teams ineligible for its most powerful cyber capabilities.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per Anthropic, many security teams &amp;mdash; particularly those defending self-owned or -maintained systems &amp;mdash; will likely qualify for the &amp;ldquo;Defense Access&amp;rdquo; tier. That&amp;rsquo;s the most restricted CVP tier, designed for defensive work like incident response and vulnerability analysis. It is also the broadest in who can apply, including smaller security firms, open-source maintainers, and individual researchers with a track record of reported vulnerabilities.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In other words, many qualifying security teams can still expect strict safeguards blocking higher-risk cyber activity.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;But without a comparable defensive-focused benchmark, developers and security teams can&amp;rsquo;t yet know how these safeguards will interfere with defensive work.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When Anthropic tested the new three CVP tiers against CyScenario Bench, its evaluation for planning and executing multi-stage cyber operations, Claude Opus 5.5 with Defense Access safeguards blocked 46 of 50 trials, letting only four succeed. That&amp;rsquo;s not far off from what happened when Claude Opus 5.5 ran without CVP access; there, every task was blocked on the first prompt.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Still, Anthropic says these evaluations involve &amp;ldquo;complex, interactive offensive scenarios,&amp;rdquo; so it expected the Defense Access tier to face significant blocks.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To be clear, these results don&amp;rsquo;t mean that Defense Access blocks 92% of the defensive work the tier is designed for. But without a comparable defensive-focused benchmark, developers and security teams can&amp;rsquo;t yet know how these safeguards will interfere with defensive work.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-fewest-restrictions-require-government-review" class="wp-block-heading"&gt;The fewest restrictions require government review&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The other two tiers give security teams much more room to operate &amp;mdash; but they also require more intense review.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;CVP&amp;rsquo;s new mid tier, aptly named &amp;ldquo;Red Team Access,&amp;rdquo; Anthropic says is best suited for red teams and penetration-testing firms. Individual researchers are, by default, barred from access. This tier covers all Defense Access use cases, plus authorized penetration testing and red-teaming.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The difference between Defense Access and Red Team Access is stark: Red Team Access&amp;#8217;s 34 of 50 is effectively equivalent to the model&amp;#8217;s 67.6% success rate with no safeguards applied. No trials were blocked for Opus 5.5 under Red Team Access safeguards, and the model successfully completed 34 out of 50 tasks.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;No trials were blocked for Opus 5.5 under Red Team Access safeguards, and the model successfully completed 34 out of 50 tasks.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Only a select few will be granted &amp;ldquo;Specialized Access,&amp;rdquo; the least restricted tier that Anthropic says &amp;ldquo;is reserved for a limited set of verified organizations&amp;rdquo; authorized to test safety-critical systems, e.g., power grids or telecom networks. All members of Project Glasswing are grandfathered into the Specialized Access tier, but any new security teams hoping to join will have to pass a review jointly conducted by Anthropic and the U.S. government.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Regardless of the tier, Anthropic says all teams get access to its most capable models (e.g., Claude Opus 5.5, Sonnet 5.5, and &lt;a href="https://thenewstack.io/anthropic-mythos-claude-security/" class="local-link"&gt;Mythos 5.1&lt;/a&gt;), plus new models coming later.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-and-there-s-a-data-trade-off" class="wp-block-heading"&gt;And there&amp;rsquo;s a data trade-off&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;No matter the tier, Anthropic says all organizations enrolled in CVP must accept data retention. But there are a few workarounds.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.anthropic.com/news/enterprise-frontier-safeguards" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Enterprise Frontier Safeguards (EFS)&lt;/a&gt;, Anthropic says, is coming later this fall and will allow eligible organizations to store data in self-controlled cloud infrastructure. Until then, organizations with access to Claude Fable 5.1 or Claude Mythos 5.1 with zero data retention are exempt from CVP&amp;rsquo;s data-retention requirement.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Also, Anthropic says it is continuing &amp;ldquo;efforts to help secure open-source software and critical infrastructure.&amp;rdquo; It&amp;rsquo;s mum on any more details, but developers and security teams can expect more information in the coming weeks.&amp;nbsp; pushed to the &amp;ldquo;Defense Access&amp;rdquo; tier. That&amp;rsquo;s the most restricted CVP tier, designed for defensive work like incident response and vulnerability analysis.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In other words, many qualifying security teams can still expect strict safeguards blocking higher-risk cyber activity.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;But without a comparable defensive-focused benchmark, developers and security teams can&amp;rsquo;t yet know how these safeguards will interfere with defensive work.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When Anthropic tested the new CVP tiers against CyScenarioBench, its evaluation for planning and executing multi-stage cyber operations, Claude Opus 5.5 with Defense Access safeguards blocked 46 of 50 trials, letting only four succeed. That&amp;rsquo;s not far off from what happened when Claude Opus 5.5 ran without CVP access; there, every task was blocked on the first prompt, whereas the Defense Access count includes any trial blocked at some point.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Still, these evaluations involve &amp;ldquo;complex, interactive offensive scenarios,&amp;rdquo; so it&amp;#8217;s expected that the Defense Access tier would face significant blocks.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To be clear, these results don&amp;rsquo;t mean that Defense Access blocks 92% of the defensive work the tier is designed for. But without a comparable defensive-focused benchmark, developers and security teams can&amp;rsquo;t yet know how these safeguards will interfere with defensive work.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-fewest-restrictions-require-government-review" class="wp-block-heading"&gt;The fewest restrictions require government review&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The other two tiers give security teams much more room to operate &amp;mdash; but they also require more intense review.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;CVP&amp;rsquo;s new mid tier, aptly named &amp;ldquo;Red Team Access,&amp;rdquo; Anthropic says is best suited for red teams and penetration-testing firms. Individual researchers are, for now, barred from access. This tier covers all Defense Access use cases, plus authorized penetration testing and red-teaming.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The difference between Defense Access and Red Team Access is stark. No trials were blocked for Opus 5.5 under Red Team Access safeguards, and the model completed 34 out of 50 tasks.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;No trials were blocked for Opus 5.5 under Red Team Access safeguards, and the model successfully completed 34 out of 50 tasks.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Only a special few will be granted &amp;ldquo;Specialized Access,&amp;rdquo; the least restricted tier that Anthropic says &amp;ldquo;is reserved for a limited set of verified organizations that are authorized to test safety systems that could impact people&amp;rsquo;s lives or disrupt markets,&amp;rdquo; e.g., power grids or telecom networks. All members of Project Glasswing are grandfathered into the Specialized Access tier for current models, but new security teams will currently have to pass a review jointly conducted by Anthropic and the U.S. government.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Regardless of the tier, Anthropic says all teams get access to its most capable models (e.g., Claude Opus 5.5, Sonnet 5.5, and &lt;a href="https://thenewstack.io/anthropic-mythos-claude-security/" class="local-link"&gt;Mythos 5.1&lt;/a&gt;), plus new models coming later.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-and-there-s-a-data-trade-off" class="wp-block-heading"&gt;And there&amp;rsquo;s a data trade-off&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;No matter the tier, Anthropic says all organizations enrolled in CVP must accept data retention. But there are a few workarounds.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.anthropic.com/news/enterprise-frontier-safeguards" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Enterprise Frontier Safeguards (EFS)&lt;/a&gt;, Anthropic says, is coming later in the fall, allowing eligible organizations to store data in self-controlled cloud infrastructure. Until then, organizations with access to Claude Fable 5.1 or Claude Mythos 5.1 with zero data retention are exempt from CVP&amp;rsquo;s data-retention requirement.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Also down the pike, Anthropic teases &amp;ldquo;efforts to help secure open-source software and critical infrastructure.&amp;rdquo; It&amp;rsquo;s mum on any more details, but developers and security teams can expect more information in the coming weeks.&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-cyber-access-tiers/"&gt;Claude’s cyber safeguards are getting more flexible &amp;#8212; but not for everyone.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic expands verified cyber access, but fewer safeguards require deeper review. Offensive tests leave the impact on everyday defensive work unclear.</content:encoded>
-    </item>
-    <item>
-      <title>Decision models are suddenly everywhere. OpenAI’s is now public.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-decision-models-deployment/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Wed, 07 Oct 2026 21:11:26 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Infrastructure</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22839563</guid>
-      <description>&lt;img width="1024" height="567" src="https://cdn.thenewstack.io/media/2026/10/65af25c3-openai-decisions-api-1024x567.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/65af25c3-openai-decisions-api.png" /&gt;&lt;p&gt;This week, OpenAI opened its Decisions API to public beta and added image inputs to make fast decisions from visual&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-decision-models-deployment/"&gt;Decision models are suddenly everywhere. OpenAI’s is now public.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="567" src="https://cdn.thenewstack.io/media/2026/10/65af25c3-openai-decisions-api-1024x567.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/65af25c3-openai-decisions-api.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;This week, OpenAI opened its Decisions API to public beta and added image inputs to make fast decisions from visual content.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;First &lt;a href="https://thenewstack.io/openai-decision-api-luna/" class="local-link"&gt;announced&lt;/a&gt; last week as a likely response to &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;TypeSafe&amp;rsquo;s Jev&lt;/a&gt;, OpenAI is now billing its decision model at $0.10 per 1M input tokens. There are no output-token charges, nor charges for cache reads or writes.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Running on GPT-6 Luna, the public beta version gives all developers the ability to turn text or images into three types of structured outputs: predicates (i.e., how likely something is to be true), choices (i.e., which predefined option is the best fit), and scores (i.e., where an input falls on a numeric range).&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But OpenAI&amp;rsquo;s Decisions API may be but one fish in a sea of decision models. Perplexity, Cloudflare, and Amazon also dropped their own versions this month, opting for open-weight models that developers can download and run on their own infrastructure.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-decisions-api-can-do-with-image-input" class="wp-block-heading"&gt;What Decisions API can do with image input&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a new &lt;a href="https://www.youtube.com/watch?v=FB6oCmrIj-Y&amp;amp;t=21s" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;video&lt;/a&gt;, OpenAI shows how image inputs can help applications take quick action based on visual understanding.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="574" src="https://cdn.thenewstack.io/media/2026/10/b60c58e9-decisions-api-game-1024x574.png" alt="" class="wp-image-22839565"/&gt;&lt;figcaption class="wp-element-caption"&gt;Source: &lt;a href="https://www.youtube.com/watch?v=FB6oCmrIj-Y&amp;amp;t=21s" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI YouTube&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It offers the example of a video game with a car moving through traffic. Using frames of the road and obstacles, Decisions API can choose whether the car should switch lanes or keep driving.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI claims its API can make those decisions in a fraction of the time a reasoning model would take to do the same.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Zooming out, the AI company hints at what this visual understanding could enable if developers pair the API with basic computer-use tasks, like taking screenshots and quickly choosing the next action.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="570" src="https://cdn.thenewstack.io/media/2026/10/e91abc84-decisions-api-hugging-face-robot-1024x570.png" alt="" class="wp-image-22839566"/&gt;&lt;figcaption class="wp-element-caption"&gt;Source: &lt;a href="https://www.youtube.com/watch?v=FB6oCmrIj-Y&amp;amp;t=21s" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI YouTube&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same video also shows OpenAI received a preview unit of &lt;a href="https://thenewstack.io/hugging-face-microduck-robot" class="local-link"&gt;Hugging Face&amp;rsquo;s upcoming programmable Microduck robot&lt;/a&gt;, an open-source bipedal developer robot.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;By integrating the robot with &lt;a href="https://developers.openai.com/api/docs/models/gpt-live-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GPT-Live&lt;/a&gt;, OpenAI&amp;rsquo;s real-time voice model, and the Decisions API, OpenAI says its decision model can analyze the robot&amp;rsquo;s camera frames to make fast decisions about where it should look.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the given example, the Decisions API responds to a request to &amp;ldquo;follow the apple&amp;rdquo; by first identifying the fruit and then directing the robot to turn toward it. OpenAI adds that the GPT-Live and Decisions API pairing can go further and respond to more ambiguous commands, like &amp;ldquo;follow the fruit.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="571" src="https://cdn.thenewstack.io/media/2026/10/902912a9-decisions-api-animated-character-1024x571.png" alt="" class="wp-image-22839567"/&gt;&lt;figcaption class="wp-element-caption"&gt;Source: &lt;a href="https://www.youtube.com/watch?v=FB6oCmrIj-Y&amp;amp;t=21s" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI YouTube&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI also promises its new API can bring more dimension to voice conversations.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It shows GPT-Live and Decisions API paired with an animated character; the former handles the voice and the latter steps in to choose which expression the character should use.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-decision-models-are-suddenly-everywhere-how-do-you-decide-which-one-to-use" class="wp-block-heading"&gt;Decision models are suddenly everywhere. How do you decide which one to use?&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;TypeSafe kicked up quite a storm when it released Jev last month. But its time in the spotlight seems to be coming to a quick end. In addition to OpenAI&amp;rsquo;s foray into decision models, Perplexity, Cloudflare, and Amazon have all stepped onto the scene &amp;mdash;&amp;nbsp;but they&amp;rsquo;re letting developers download the model weights and run them themselves.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Perplexity, Cloudflare, and Amazon have all stepped onto the scene &amp;mdash;&amp;nbsp;but they&amp;rsquo;re letting developers download the model weights and run them themselves.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://huggingface.co/perplexity-ai/pplx-decider-v1-27b" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Released on Hugging Face&lt;/a&gt; this month, Perplexity&amp;rsquo;s pplx-decider-v1-27b is an open-weight decision model fine-tuned from Qwen3.8-27B, released under Apache 2.0. Per its model card, it supports a similar decision pattern to TypeSafe and OpenAI: selecting among predefined choices and returning yes/no probabilities.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Unlike OpenAI, Perplexity showed its benchmark results, reporting its decision model beats Jev overall across 11 benchmarks at 85.71% to TypeSafe&amp;rsquo;s 84.51%. But that overall score comes from a mixed bag; Jev takes the cake on six out of 11 benchmarks, including WinoGrande, BBH, and TruthfulQA binary.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/aws-strands-decider-model/" class="local-link"&gt;Amazon&amp;rsquo;s local answer to Jev&lt;/a&gt;, Strands Decider 2B, is also a downloadable model &amp;mdash; this time, built on Qwen3.5-2B. Amazon says it ranks second among public models with roughly 2 billion parameters on JevBench&amp;#8217;s public set.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Like OpenAI&amp;rsquo;s and Perplexity&amp;rsquo;s models, Clef has a vision encoder to accept images as well as text. Jev and Strands Decider are currently text only.&amp;nbsp;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cloudflare, meanwhile, has given developers &lt;a href="https://blog.cloudflare.com/clef-decision-models" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;two decision models&lt;/a&gt;, Clef and Clef-flash, both available as Apache 2.0 open weights, as well as through its own hosted Workers AI service. Like OpenAI&amp;rsquo;s and Perplexity&amp;rsquo;s models, Clef has a vision encoder to accept images as well as text. Jev and Strands Decider are currently text-only.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;More consequential than image or text inputs is OpenAI&amp;rsquo;s decision to keep its model behind a hosted API, even as many contemporaries are opening up their versions so developers can download and run them themselves. As decision models become the new norm, where and how they can be deployed may become the deciding factor in which model developers let decide.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-decision-models-deployment/"&gt;Decision models are suddenly everywhere. OpenAI’s is now public.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Decisions API enters public beta with image inputs as Perplexity, Cloudflare, and Amazon push open-weight alternatives.</content:encoded>
     </item>
   </channel>
 </rss>
