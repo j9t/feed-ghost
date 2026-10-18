@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 16 Oct 2026 20:43:46 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 23:29:53 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,588 @@
       <height>32</height>
     </image>
     <item>
+      <title>Here are the engineering lessons we learned when live-streaming sports to 32 million people</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/live-streaming-engineering-lessons/</link>
+      <dc:creator>Cynthia Dunlop</dc:creator>
+      <pubDate>Sat, 17 Oct 2026 16:00:00 +0000</pubDate>
+      <category>Backend development</category>
+      <category>Data Streaming</category>
+      <category>Software Testing</category>
+      <category>sponsor-scylladb</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840882</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital light trails in motion blur illustrating backend streaming scale and latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash.jpg" /&gt;&lt;p&gt;Live sports involve myriad unknowns, but one thing is certain: the live video feed must play flawlessly, and simultaneously, for&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/live-streaming-engineering-lessons/"&gt;Here are the engineering lessons we learned when live-streaming sports to 32 million people&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital light trails in motion blur illustrating backend streaming scale and latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Live sports involve myriad unknowns, but one thing is certain: the live video feed must play flawlessly, and simultaneously, for all the fans tuning in. If some hear their neighbors cheering or groaning 5 seconds before each score, they won&amp;#8217;t have kind words for their streaming platform.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In 2023, Ashutosh Agrawal and his JioHotstar (then JioCinema) engineering teammates prepared for the Indian Premier League (IPL) cricket finals as intensely as the athletes. While the players ran on the pitch, the engineers ran their own training simulations and drills to ensure every fan could celebrate (or commiserate) in sync.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A year ago, he joined us at P99 CONF to share how they built and tested the system behind that record-setting game, plus lessons learned that can help anyone preparing for high-uncertainty events (Black Friday, anyone?).&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Watch the complete talk, or read the highlights below. And if you enjoy these types of engineering case studies, join 30K of your peers for P99 CONF 2026, which is free and virtual. Grab&lt;/em&gt; &lt;a href="https://www.p99conf.io/?latest_sfdc_campaign=701Rb00000qrLWi&amp;amp;campaign_status=Submitted&amp;amp;utm_campaign=smo%20new%20stack%202026-10-21%20p99%20conf&amp;amp;utm_medium=social%20media%20-%20organic&amp;amp;utm_source=the%20new%20stack&amp;amp;lead_source_type=the%20new%20stack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;a complimentary pass&lt;/em&gt;&lt;/a&gt; &lt;em&gt;and join us October 21 and 22!&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="P99 CONF 2025 | P99 Latency at 32 Million Concurrent Streams by Ashutosh Agrawal and Tim Koopmans" width="500" height="281" src="https://www.youtube.com/embed/ylWdbrTbhrQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-pre-game" class="wp-block-heading"&gt;Pre-game&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The IPL is the premier cricket tournament and one of the world&amp;#8217;s most-watched sports. And Ashutosh is an IPL pro, from the engineering perspective at least. After working on the backend streaming platform since 2018, he&amp;rsquo;s learned that &amp;ldquo;with cricket, you never know what will happen.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In 2023, the final ended up drawing a then-record-breaking 32M concurrent viewers. But they were ready for even more. Just to be safe, the team builds and tests for roughly double the capacity they expect: &amp;#8220;a scary number that scares the hell out of everyone on the team,&amp;#8221; as Ashutosh put it. That year, they prepped for 50M to 75M. Aiming that high provides the headroom needed to absorb traffic spikes without requests piling up.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Keeping the video feed flawless is their top priority. He explained, &amp;ldquo;You can sacrifice every other system and component in the line, but anything in the line of video delivery has to be a golden path &amp;mdash; it cannot fail. Because if that fails, the entire promise of the platform goes away.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You can sacrifice every other system and component in the line, but anything in the line of video delivery has to be a golden path &amp;mdash; it cannot fail. Because if that fails, the entire promise of the platform goes away.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first step in safeguarding that stream is identifying all the systems and components in that critical path. Although the actual video feed stems from CDNs, one of the biggest potential bottlenecks occurs before the final video delivery URL. Ashutosh explained:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The user has to be logged in and authenticated; we use SMS and OTP authentication. Sending out that many SMSs across the country in a short span of time is a problem statement of its own. And the key thing: the real peak on some of these systems isn&amp;#8217;t during the final; it&amp;#8217;s actually on the first day. That&amp;#8217;s when a massive number of new users, or users who haven&amp;#8217;t logged in for the last 360 days, show up, and they all try to log in within the first five or ten minutes. That&amp;#8217;s where you see peak concurrency.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To handle the surges, they preemptively scale critical systems like authentication. Partners undergo rigorous load testing, and any who aren&amp;rsquo;t meeting the latency SLAs will be cut off during the event. Whenever one partner&amp;rsquo;s latency degrades, traffic is instantly redirected to the next partner in the hierarchy.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A 200-point checklist&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The pre-game prep also includes an extensive system audit with a 200-point checklist. For example, for the database, they look at whether they&amp;rsquo;re running the latest version and check if there&amp;rsquo;s a maintenance window during game time. For other partners, they look at their key dependencies, redundancy, and timeout configurations. Timeouts between load balancers and services, services and application servers, application servers and the database, all the way up through the CDN are covered.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most of these checkpoints stem from lessons learned. &amp;ldquo;There was one incident where a service didn&amp;#8217;t have keep-alive timeouts configured properly,&amp;rdquo; Ashutosh recalled. &amp;ldquo;During peak traffic, it was discarding connections instead of reusing them &amp;ndash; so the load balancer started to crash because it couldn&amp;#8217;t handle the request load.&amp;rdquo; That became a checkpoint for the next season.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If all your SMS partners die, what does your system do? It can&amp;#8217;t just block traffic and lock users out; it has to let users in. We go to that extent to identify every point of failure.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every developer or service owner uses the checklist exercise to identify the key points of failure, then they&amp;rsquo;re tasked with documenting their mitigation strategy. For example, &amp;ldquo;If all your SMS partners die, what does your system do? It can&amp;#8217;t just block traffic and lock users out; it has to let users in, maybe in a non-authenticated way. That might require going back to Product to design something like a five- or ten-minute free viewing session without authentication, or a temporary token, deferring authentication to later. We go to that extent to identify every point of failure.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Testing, testing&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Next up: testing, lots of testing. They perform:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Vertical testing&lt;/strong&gt;, which is initially run on individual systems and services to ensure that each system can scale in isolation. Then, it&amp;rsquo;s performed on each partner (SMS partner, email partner, ad provider &amp;ndash; anyone integrated into the critical path or surrounding paths).&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Multi-system load testing&lt;/strong&gt; ensures clusters of systems work together properly. As Ashutosh explained, &amp;ldquo;A service might scale beautifully in isolation but reveal its true colors once you add dependencies.&amp;rdquo; For example, testing playback might involve testing a cluster with content systems, analytics, load-balancing systems for CDNs, and so on.&amp;nbsp;&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Full user-like simulation&lt;/strong&gt;, which simulates user behavior on the mobile app or website and looks at how that impacts all the associated systems.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A service might scale beautifully in isolation but reveal its true colors once you add dependencies.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That realistic end-user simulation is critical, according to Ashutosh: &amp;ldquo;It has actually helped us identify some critical system issues. For example, content systems get called from multiple places (the listing page, the details page, somewhere getting playback metadata). If a team forgets to account for that fan-in, those budget and scaling issues only show up in a full simulation. It stresses the system at a different level than a vertical load test does.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Latency budgeting&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When asked about their budget for end-to-end latency, Ashutosh shared their rule of thumb: Any system that&amp;#8217;s entirely in-house (not talking to a third party) must operate within a budget of about 10 to 15 ms &amp;ndash; purely server-side, no network involved &amp;ndash; for a simple O(1) lookup and downstream response.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In more complex cases (for example, with multiple database calls or a downstream third-party call), 40-50 ms is allowed. If anything in the critical path crosses 50 ms, they start thinking about what can be &lt;a href="https://thenewstack.io/async-processing-hides-latency/" data-type="link" data-id="https://thenewstack.io/async-processing-hides-latency/" class="local-link"&gt;handled asynchronously&lt;/a&gt;.&amp;nbsp; With client, network, CDN-to-origin, and last-mile latencies factored in, the user experiences 60-100 ms latencies.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The strictest latency budget is reserved for the API that sits between a viewer tapping a video tile and the video actually playing. If something fails there, users end up hitting retry, or closing/reopening the app&amp;hellip;and that hits the API even harder. That API response is difficult to cache since every call has to run CDN load balancing and check authentication in real time. &amp;ldquo;Even when a third-party call is unavoidable in that path, it runs under a strict circuit-breaking time budget &amp;ndash; 5 or 10 ms &amp;ndash; because it&amp;#8217;s okay to fail fast and recover rather than wait to be correct,&amp;rdquo; Ashutosh said.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Ashutosh summed up their thinking on latency budgets:&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;These response budgets help us question and challenge service owners: what can you optimize, how can you reduce load on the live system, &lt;a href="https://thenewstack.io/redis-vector-caching-tradeoffs/" data-type="link" data-id="https://thenewstack.io/redis-vector-caching-tradeoffs/" class="local-link"&gt;how much more can you cache&lt;/a&gt;, how much can you pre-prep. Login obviously can&amp;#8217;t be cached, but the moment you land on the homepage, we try to response-cache as much of the page as possible. With personalization, that gets tricky. So, we cache bits and components of the page separately, with the layout configuration cached separately from the content. That combination keeps page response times quick.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;3 tips for engineers preparing for big events&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Ashutosh closed by offering 3 recommendations for engineers prepping for high-uncertainty events, like Black Friday sales, other live events, and so on:&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;First: set your principles correctly. Get org-wide alignment with leadership and your team on what your priorities are. That alignment is critical because it drives decision-making before, during, and after the event. If you have a conflict of principles, you end up in a decision-making bottleneck, and that leads to a bad situation. So that&amp;#8217;s number one.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Second: challenge your systems. Don&amp;#8217;t settle &amp;mdash; don&amp;#8217;t accept that 100ms response times are just okay. The technology has evolved massively, computing power has improved massively, and there&amp;#8217;s no reason for &lt;a href="https://thenewstack.io/agentic-ai-latency-infrastructure/" data-type="link" data-id="https://thenewstack.io/agentic-ai-latency-infrastructure/" class="local-link"&gt;server-side latencies&lt;/a&gt; to sit in the hundreds of milliseconds. Client-side latency, I understand that&amp;#8217;s a different story &amp;mdash; but server-side latency is very much within your control.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Don&amp;#8217;t settle &amp;mdash; don&amp;#8217;t accept that 100ms response times are just okay. Server-side latency is very much within your control.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Third: identify your critical path and make sure it&amp;#8217;s solid. Critical path identification is a genuinely tricky problem &amp;mdash; it doesn&amp;#8217;t just mean looking at the high-level systems. I mean things like: if there&amp;#8217;s a synchronous call to send analytics data, that call should not be synchronous &amp;mdash; it shouldn&amp;#8217;t be anywhere in the critical path at all. Nothing that isn&amp;#8217;t a true P1 or P2 dependency should sit in that synchronous critical path to the experience you&amp;#8217;re trying to deliver. Optimize for that. It might mean saying no to things, or it might force you to re-architect some pieces. But that&amp;#8217;s the most important piece, in my opinion.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Bonus round:&lt;/strong&gt; Hear more from Ashutosh in this chat with Gergely Orosz on &lt;a href="https://newsletter.pragmaticengineer.com/p/live-streaming-at-world-record-scale" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Pragmatic Engineer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/live-streaming-engineering-lessons/"&gt;Here are the engineering lessons we learned when live-streaming sports to 32 million people&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>See how JioHotstar engineered their streaming architecture to deliver flawless live video to 32 million concurrent viewers during the IPL.</content:encoded>
+    </item>
+    <item>
+      <title>AI has lowered the barrier to building. Here’s what that means for engineers.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-lowering-building-barrier/</link>
+      <dc:creator>Matt Waxman</dc:creator>
+      <pubDate>Sat, 17 Oct 2026 15:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Platform Engineering</category>
+      <category>Software Development</category>
+      <category>sponsor-precisely</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840830</guid>
+      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/0597722b-ubaid-e-alyafizi-chwybz9m-qk-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital mesh bending under tension, symbolizing modern platform infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/0597722b-ubaid-e-alyafizi-chwybz9m-qk-unsplash.jpg" /&gt;&lt;p&gt;For most of software&amp;#8217;s history, building meant writing code. Not just understanding it, but producing it. The entry point was&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-lowering-building-barrier/"&gt;AI has lowered the barrier to building. Here&amp;#8217;s what that means for engineers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/0597722b-ubaid-e-alyafizi-chwybz9m-qk-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital mesh bending under tension, symbolizing modern platform infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/0597722b-ubaid-e-alyafizi-chwybz9m-qk-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;For most of software&amp;#8217;s history, building meant writing code. Not just understanding it, but producing it. The entry point was steep by design: fluency in at least one language, working knowledge of system architecture, enough production scar tissue to know what questions to ask before writing the first line. The barrier was real, and both sides of it understood why it existed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/ai-coding-tools-in-2025-welcome-to-the-agentic-cli-era/" data-type="link" data-id="https://thenewstack.io/ai-coding-tools-in-2025-welcome-to-the-agentic-cli-era/" class="local-link"&gt;AI coding tools&lt;/a&gt;, natural language interfaces, and agentic workflows have started shifting what it takes to go from an idea to working software. A product manager can now prototype a functional application without writing a single line of code. A data engineer can spin up a pipeline in hours that would have taken a team a week to scope and test. Domain expertise that used to be locked inside someone&amp;#8217;s head is becoming portable in a way it never was before.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The constraint wasn&amp;#8217;t the knowledge. It was the translation layer between knowing something and being able to build something. AI is removing that layer.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The constraint wasn&amp;#8217;t the knowledge. It was the translation layer between knowing something and being able to build something. AI is removing that layer.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-actually-changed" class="wp-block-heading"&gt;What actually changed&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The fundamentals of good software haven&amp;#8217;t moved. Clean architecture still matters. Sound data practices still matter. Understanding how a system behaves under load, or what happens when a third-party dependency changes unexpectedly, still requires genuine technical depth. What AI removes is the gatekeeping, the parts of the process that required specific syntax knowledge not because the problem was conceptually hard, but because the tooling demanded it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The practical effect is that domain expertise is becoming portable. A logistics engineer who understands her company&amp;#8217;s routing problem better than anyone in the building can now build a prototype that captures that understanding directly. A security analyst who knows exactly what anomaly pattern to look for can now build the monitoring tool to find it. The knowledge was always there. What changed is the path from knowing to building.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;What AI removes is the gatekeeping, the parts of the process that required specific syntax knowledge not because the problem was conceptually hard, but because the tooling demanded it.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For platform and infrastructure engineers, this creates a new class of stakeholder. The person requesting access to your &lt;a href="https://thenewstack.io/in-2026-ai-is-merging-with-platform-engineering-are-you-ready/" data-type="link" data-id="https://thenewstack.io/in-2026-ai-is-merging-with-platform-engineering-are-you-ready/" class="local-link"&gt;internal developer platform&lt;/a&gt; may not know what a Kubernetes namespace is, but they may be building something that genuinely serves a real business need. How your platform is designed, documented, and made accessible will increasingly determine how much value your organization can extract from this expanded builder population.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-two-problems-that-don-t-solve-themselves" class="wp-block-heading"&gt;Two problems that don&amp;#8217;t solve themselves&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first is quality. Lowering the barrier to building doesn&amp;#8217;t automatically raise the quality of what gets built. Code produced by someone who doesn&amp;#8217;t fully understand what the model generated is still code that someone has to maintain, debug, and eventually deprecate. The engineering teams already seeing this in their queues know the response isn&amp;#8217;t to lock the gates. It&amp;#8217;s to build better scaffolding: sensible defaults, guardrails that catch common failure modes, documentation written for people who are not career engineers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The second is ownership. When more people can build, more people do. That&amp;#8217;s good for velocity, but it also creates sprawl. Who owns the service the business analyst deployed six months ago? What happens when it breaks at 2am? The engineering organizations that figure out how to extend ownership models and support structures to non-traditional builders will capture the most value from this shift without inheriting the &lt;a href="https://thenewstack.io/survey-engineers-want-to-code-but-spend-all-day-on-tech-debt/" data-type="link" data-id="https://thenewstack.io/survey-engineers-want-to-code-but-spend-all-day-on-tech-debt/" class="local-link"&gt;most technical debt&lt;/a&gt;. There isn&amp;#8217;t a settled answer here yet. The teams working on it are the ones worth watching.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-role-isn-t-shrinking-it-s-changing-shape" class="wp-block-heading"&gt;The role isn&amp;#8217;t shrinking; it&amp;#8217;s changing shape&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s a real concern in the engineering community about what it means for the craft when so much of the mechanical work is automated. Some engineers see it as a threat, not to their job exactly, but to something harder to name: the expertise, the identity, the years it took to build the fluency. That concern deserves a serious response, not dismissal.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The engineer as craftsperson is giving way, in part, to the engineer as infrastructure provider for a much larger building population.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The evidence so far points in a different direction than most people fear. The engineer&amp;#8217;s role is becoming more leveraged, not smaller. When more people can build, the person who understands how to build well becomes a multiplier rather than a bottleneck. More time on architecture, review, and platform design. More time setting standards that others can follow without needing to understand why each one exists. The engineer as craftsperson is giving way, in part, to the engineer as infrastructure provider for a much larger building population.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The demand for people who can build things well, and who understand deeply how systems work, is not going down. The problems are getting more complex, even as some of the steps to address them are getting faster. That&amp;#8217;s a different job than the one most engineers are trained for. It isn&amp;#8217;t a lesser one.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-lowering-building-barrier/"&gt;AI has lowered the barrier to building. Here&amp;#8217;s what that means for engineers.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI has lowered the barrier to building software. Here&amp;#039;s how engineers shift from gatekeepers to multipliers in the new development era.</content:encoded>
+    </item>
+    <item>
+      <title>His scanner wouldn’t work on Linux — so he let Claude study the Windows driver</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-code-linux-driver/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sat, 17 Oct 2026 14:30:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Hardware</category>
+      <category>Linux</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840777</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/f00f8fad-eric-terrade-hcdi6sptjry-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Photo negatives" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/f00f8fad-eric-terrade-hcdi6sptjry-unsplash-scaled.jpg" /&gt;&lt;p&gt;Christian Schaller, a Red Hat engineering director and longtime GNOME and Fedora contributor, had a box of old family negatives&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-linux-driver/"&gt;His scanner wouldn’t work on Linux — so he let Claude study the Windows driver&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/f00f8fad-eric-terrade-hcdi6sptjry-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Photo negatives" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/f00f8fad-eric-terrade-hcdi6sptjry-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Christian Schaller, a Red Hat engineering director and longtime GNOME and Fedora contributor, had a box of old family negatives to digitize and a scanner that wouldn&amp;rsquo;t talk to Linux. He&amp;rsquo;d bought the Plustek OpticFilm 8200i because it was listed as supported, then discovered that the manufacturer had swapped in a chipset no Linux driver recognized. He tried getting Claude Code to produce a working driver and got nowhere for a long time, so he eventually set the project aside for a few months.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When he returned to the project, &lt;a href="https://www.linkedin.com/in/cschalle/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Schaller&lt;/a&gt; tried a different approach. Within hours, he had his first recognizable scan. A few days later, the driver supported infrared scanning, too.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Schaller has since &lt;a href="https://github.com/cschalle/hw-harness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;released the underlying approach as an open-source project called hw-harness&lt;/a&gt; under an MIT license. It bundles the tooling for capturing how a device behaves, comparing a working implementation against a broken one, and giving a coding agent the information it needs to work on hardware that Linux doesn&amp;rsquo;t support yet.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-reverse-engineering-the-scanner-driver" class="wp-block-heading"&gt;Reverse-engineering the scanner driver&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Schaller got the idea from a &lt;a href="https://x.com/GloriousEggroll/status/2103816580966830314" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post&lt;/a&gt; on X by Tom Crider, better known as Glorious Eggroll, who had used an AI agent to fix a mouse driver by giving it access to a Windows machine. Schaller fed the post to Claude and asked it to build a similar setup for his scanner.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In his &lt;a href="https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;account on Wednesday&lt;/a&gt;, Schaller described the painstaking process of piecing together undocumented device protocols from USB captures, register values, and control transfers. Although the work isn&amp;rsquo;t very complicated, he said, it &amp;ldquo;takes a lot of patience and skills.&amp;rdquo; His earlier attempts to build a SANE backend with Claude had stalled because the agent had no working driver to compare against.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With the new setup, Claude could run the manufacturer&amp;rsquo;s Windows software, capture the USB traffic, and compare it with what his Linux driver was sending. It used the Windows driver as a reference to find where the Linux implementation went wrong and make changes accordingly.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;As Schaller put it, Claude &amp;ldquo;doesn&amp;rsquo;t get bored.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Schaller thinks improvements to Claude Code itself may also have helped. Better yet, as Schaller put it, Claude &amp;ldquo;doesn&amp;rsquo;t get bored.&amp;rdquo; He still had to test the changes on the scanner, since a working driver is a different challenge from generating code that looks correct.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;By the time Schaller finished, his driver was no longer the only option. Support for the newer OpticFilm 8200i had landed in SANE back in September, courtesy of another developer. &amp;ldquo;It happens sometimes,&amp;rdquo; he wrote. Schaller isn&amp;#8217;t planning to maintain a competing driver, saying he&amp;#8217;ll switch to the upstream version when it has the features he wants and keep his own as a proof of concept.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-faster-sane-scanner-driver" class="wp-block-heading"&gt;A faster SANE scanner driver&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His implementation does have a few advantages. It supports infrared dust removal and exposure adjustments for dense negatives, plus color and grayscale scanning at 300 to 7,200 dpi. The hardware difference that started the whole project was a chipset swap: newer 8200i scanners use a Genesys GL128, replacing the GL845 already supported by SANE.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Schaller also &lt;a href="https://htmlpreview.github.io/?https://github.com/cschalle/OpticFilm8200i-sane/blob/main/docs/comparison/drivers-comparison.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;put the two drivers through a single-frame test&lt;/a&gt;. His finished a full-resolution scan in 34.6 seconds; the upstream version took 54.4 seconds. Both resolved the same detail at 3,600 dpi, though SANE supports more resolution options. It&amp;rsquo;s a limited comparison, but Schaller came away with a working driver and a method he could apply to other hardware.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The scanner project also gave Schaller a reason to build an app of his own. He called it &lt;a href="https://github.com/cschalle/negative-vibes" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Negative Vibes&lt;/a&gt;, written in Rust with Claude&amp;#8217;s help, the GNOME app keeps the original 16-bit scan data intact, including the infrared channel. From there, users can remove dust, adjust images without altering the originals, calibrate colors with ArgyllCMS and export the results as TIFF, JPEG, PNG or DNG files.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;He called it Negative Vibes, written in Rust with Claude&amp;#8217;s help, the GNOME app keeps the original 16-bit scan data intact, including the infrared channel. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-fixing-the-thinkpad-camera" class="wp-block-heading"&gt;Fixing the ThinkPad camera&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Schaller also had a problem with the camera on his Lenovo ThinkPad X1 Carbon Gen 14 Aura Edition. Under Linux, images came out too dark, with noticeably darker corners and a yellow-green tint. The laptop uses a Sony IMX471 sensor and Intel&amp;rsquo;s IPU7 imaging system, but unlike the scanner, its internal MIPI camera didn&amp;rsquo;t have USB traffic for Claude to examine.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He worked around that by feeding Claude the Windows driver&amp;rsquo;s configuration files, registry entries, ACPI tables, and device properties. He also hooked up a USB webcam to give it a working camera to compare against. That turned out to be the key. By the end of the day, he had patches for the Linux kernel and libcamera.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://cschalle.github.io/mipi-fixes-x1-aura/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;kernel fixes&lt;/a&gt; addressed three problems: a crop-selection bug that made libcamera use the wrong pixel area, an incorrectly defined test-pattern register, and an analog gain limit that was costing the camera roughly 1.8 stops of sensitivity. Claude also found problems in libcamera&amp;rsquo;s image processing. Missing lens-shading correction left the corners about 2.7 stops darker than the center, while a mismatch in how sensor data and black levels were calculated threw off the white balance.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The difference was measurable. In Schaller&amp;rsquo;s low-light test, frame brightness rose from 31.1 to 90.9, and the color ratios moved much closer to the reference webcam.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There&amp;rsquo;s still work to do. In low light, the blue channel remains about 17% below the reference, and neither set of patches has been merged. AI developer technology engineer at Nvidia, &lt;a href="https://www.linkedin.com/in/kate-cheng-26051420b/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kate Hsuan&lt;/a&gt;, is reviewing the kernel changes, while principal software engineer at Red Hat, &lt;a href="https://www.linkedin.com/in/wim-taymans-6a4a099/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Wim Taymans&lt;/a&gt; is handling the libcamera work. A separate Claude-generated Linux page-cache fix &lt;a href="https://thenewstack.io/torvalds-claude-code-kernel/" class="local-link"&gt;recently ran into a race condition during review&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-inside-the-hw-harness-toolkit" class="wp-block-heading"&gt;Inside the hw-harness toolkit&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Schaller has since &lt;a href="https://github.com/cschalle/hw-harness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;published hw-harness on GitHub&lt;/a&gt;. He notes that the released version isn&amp;#8217;t the exact tooling he used for the scanner and camera projects. Instead, the setup runs the manufacturer&amp;#8217;s Windows driver in a KVM virtual machine, with the physical device passed through to the guest. Claude operates the Windows session remotely while &lt;code&gt;usbmon&lt;/code&gt; captures traffic on the Linux host. The developer then switches the device back to Linux, repeats the operation with the experimental driver and has Claude compare the traces.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The repository includes &lt;code&gt;winctl&lt;/code&gt; for controlling the Windows VM, &lt;code&gt;usbcap&lt;/code&gt; for capturing traffic, &lt;code&gt;hostdev&lt;/code&gt; for switching devices between host and guest, and &lt;code&gt;hwdbg&lt;/code&gt; for Linux-side debugging. PowerShell scripts collect device descriptors, registry entries, ACPI tables, and INF files.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He says the approach can produce a driver that &amp;ldquo;a maintainer can actually merge.&amp;rdquo; Licensing questions remain, and the generalized harness hasn&amp;#8217;t yet been tested across a broad range of hardware.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;He says the approach can produce a driver that &amp;ldquo;a maintainer can actually merge.&amp;rdquo; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-linux-driver/"&gt;His scanner wouldn’t work on Linux — so he let Claude study the Windows driver&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>He gave Claude Code the manufacturer’s Windows driver to study, got a working Linux scanner in hours, then released a harness so others can do the same.</content:encoded>
+    </item>
+    <item>
+      <title>AI agents vs. Kubernetes: where each belongs in the control loop</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-kubernetes-control/</link>
+      <dc:creator>Vikram Seshadri</dc:creator>
+      <pubDate>Sat, 17 Oct 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Kubernetes</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840818</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7d96e1b7-sara-canonici-ztnx3xxzyvc-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Moody abstract slate blue texture illustrating the architectural boundary between AI agents and Kubernetes operators." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7d96e1b7-sara-canonici-ztnx3xxzyvc-unsplash.jpg" /&gt;&lt;p&gt;Kubernetes has always relied on agents, just not the kind dominating today&amp;#8217;s AI conversations. A controller watches the current state,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-kubernetes-control/"&gt;AI agents vs. Kubernetes: where each belongs in the control loop&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/7d96e1b7-sara-canonici-ztnx3xxzyvc-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Moody abstract slate blue texture illustrating the architectural boundary between AI agents and Kubernetes operators." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/7d96e1b7-sara-canonici-ztnx3xxzyvc-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Kubernetes has always relied on agents&lt;/strong&gt;, just not the kind dominating today&amp;#8217;s AI conversations. A controller watches the current state, compares it with a declared desired state, and takes action to close the gap. That resemblance makes &lt;a href="https://thenewstack.io/agentic-ai-kubernetes-management/" data-type="link" data-id="https://thenewstack.io/agentic-ai-kubernetes-management/" class="local-link"&gt;AI agents and Kubernetes&lt;/a&gt; operators sound interchangeable. They are not.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This question is no longer theoretical. Over the past 18 months, agent tooling has moved from a side project to part of the cloud-native stack. CNCF has accepted agent frameworks into its Sandbox, and Kubernetes SIG Apps has taken on Agent Sandbox as a subproject for &lt;a href="https://thenewstack.io/securing-kubernetes-ai-agents/" data-type="link" data-id="https://thenewstack.io/securing-kubernetes-ai-agents/" class="local-link"&gt;running agent workloads safely&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Platform teams are already deciding what an agent can change in a live cluster, usually one pull request at a time and without a written policy. By default, the boundary between reasoning and execution is set by convention rather than design.&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;KubeCon + CloudNativeCon takes place in Salt Lake City, Utah, November 9 to 12.&lt;/em&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Register now&lt;/a&gt;&lt;em&gt;!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A Kubernetes operator is designed to be predictable. It reconciles resources according to encoded rules, retries failed operations, and converges on declared state. An AI agent is useful when the desired outcome is clear but the path isn&amp;#8217;t. It can investigate an unfamiliar situation, gather context from several systems, weigh tradeoffs, and propose a course of action.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A safer architectural pattern combines these strengths. The agent supplies reasoning and context. Operators, policy engines, and other deterministic systems retain control of execution.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-reasoning-layer-for-kubernetes" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;A reasoning layer for Kubernetes&lt;/h2&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488ccb14cd&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488ccb14cd" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/8319c569-figure1-shelby-brittain.png" alt="Workflow diagram illustrating how agents add reasoning while Kubernetes operators keep control out of the cluster." class="wp-image-22840826" style="aspect-ratio:1.7773109243697478;width:648px;height:auto"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge graphic.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://kagent.dev/docs/kagent/introduction/what-is-kagent/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;kagent, an open source CNCF Sandbox project&lt;/a&gt;, provides a concrete example of this pattern. It runs AI agents as Kubernetes resources and connects them to Kubernetes, Helm, observability, and custom tools. An agent can inspect resources, retrieve logs and events, query metrics, consult documentation, and coordinate specialized agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That does not mean every tool should be freely executable. Non-sensitive read operations can run automatically, while changes such as applying, patching, or deleting resources can &lt;a href="https://kagent.dev/docs/kagent/examples/human-in-the-loop/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;require explicit approval&lt;/a&gt;. This separation lets the agent conduct a broad investigation without giving an uncertain reasoning process unrestricted authority over the cluster.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;This separation lets the agent conduct a broad investigation without giving an uncertain reasoning process unrestricted authority over the cluster.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The resulting operational loop looks like this: observe, diagnose, propose, approve, reconcile, and verify. The first three steps benefit from agentic reasoning. Kubernetes and its operators handle the reconciliation step. Verification closes the loop without assuming that a successfully accepted change produced the intended result.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-karpenter-shows-the-difference" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Karpenter shows the difference&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Consider a cluster where &lt;a href="https://thenewstack.io/self-healing-gpu-nodes/" data-type="link" data-id="https://thenewstack.io/self-healing-gpu-nodes/" class="local-link"&gt;Karpenter provisions capacity&lt;/a&gt; successfully, but the platform team still sees underutilized nodes, slow consolidation, Spot churn, or pending pods. Karpenter itself is already an operator. It evaluates scheduling constraints and reconciles NodePools and NodeClaims. Replacing that logic with an LLM would make a reliable control loop less predictable.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A kagent-based operations agent should work above Karpenter instead. It can inspect NodePool and EC2NodeClass (for EKS clusters) configuration, pending pods, Kubernetes events, Pod Disruption Budgets, Karpenter logs, and relevant Prometheus metrics. It can then ask why the observed behavior differs from the team&amp;#8217;s goal.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488ccb1b23&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488ccb1b23" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/57718106-figure2-shelby-brittain.png" alt="Diagram illustrating a bounded Karpenter improvement loop." class="wp-image-22840825" style="aspect-ratio:1.7080291970802919;width:648px;height:auto"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge graphic.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The investigation might find that a &lt;a href="https://karpenter.sh/docs/concepts/disruption/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Pod Disruption Budget is blocking consolidation&lt;/a&gt;, a do-not-disrupt annotation is keeping a node in place, or a disruption budget is preventing eviction. It might find that consolidateAfter is too aggressive for a bursty workload, producing avoidable churn. It could also identify instance constraints that leave Karpenter with too little flexibility when selecting Spot capacity.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Karpenter itself is already an operator. Replacing that logic with an LLM would make a reliable control loop less predictable.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The agent&amp;#8217;s output should not be a vague recommendation such as &amp;#8220;optimize the NodePool.&amp;#8221; It should present the evidence, identify the tradeoff, and produce a narrow configuration patch. A change to a NodePool disruption budget should explain the maximum number of nodes that could be affected. A consolidation change should state how long the team will observe workload stability. An expansion of instance choices should preserve architectural, availability-zone, and workload constraints.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The patch then passes through an approval or policy gate. Once approved, Karpenter reconciles using its existing scheduling and disruption logic. The agent watches the result over a defined period and checks whether consolidation improved without increasing pending-pod latency or harmful disruption. If it doesn&amp;#8217;t meet the acceptance criteria, the system can recommend or initiate a rollback through the same controlled path.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-argo-cd-applies-the-upgrade-the-agent-builds-the-case" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Argo CD applies the upgrade. The agent builds the case.&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Consider a platform team upgrading a Helm chart managed by Argo CD. Changing the chart version in Git is straightforward. Understanding how that change will affect a running application takes more work. Argo CD can show which resources differ; an agent can help explain what those differences mean for the workload.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For example, a new chart version might rename a value that the team uses to configure its readiness probe. The agent can compare release notes, existing values, and rendered manifests to identify whether the upgrade would silently fall back to a default. It should turn that finding into a focused pull request that updates the chart version and affected values, explains the operational risk, and defines the checks required before rollout.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Once the pull request passes review and is merged, Argo CD renders the chart and synchronizes the resulting manifests under the application&amp;rsquo;s configured sync policy. The agent then checks Argo CD&amp;rsquo;s sync and health status alongside application metrics. A successful sync alone does not establish that the upgrade preserved latency, error rates, or availability.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If those checks fail, the agent can propose a Git revert or a recovery plan through the same approval process, accounting for any data or schema changes that a revert cannot undo. The division of responsibility stays clear: the agent investigates, proposes, and verifies; Argo CD reconciles the approved desired state.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-autonomy-should-be-earned" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Autonomy should be earned&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Teams can introduce this model progressively. Start with a read-only investigator. Next, allow the agent to generate patches or pull requests. Then permit approved, low-risk changes with explicit scope and rollback conditions. Only well-understood actions with measurable outcomes should become autonomous.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The important boundary is not whether an agent can call kubectl, Helm, or a cloud API. It is whether every action is authorized, bounded, observable, and reversible.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The important boundary is not whether an agent can call kubectl, Helm, or a cloud API. It is whether every action is authorized, bounded, observable, and reversible.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kubernetes can run agents that help manage Kubernetes, but only when each component keeps the job it is best equipped to perform. Agents reason about uncertain situations, operators reconcile declared state, and policy sets limits on both. Humans remain accountable for how quickly the system can move from recommendation to autonomy.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-kubernetes-control/"&gt;AI agents vs. Kubernetes: where each belongs in the control loop&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI agents reason, but Kubernetes operators execute. Learn how to combine cognition and deterministic control loops for safer clusters.</content:encoded>
+    </item>
+    <item>
       <title>AI agents turn one request into about 20. Kubernetes is evolving to handle it.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/kagent-kubernetes-ai-agents/</link>
       <dc:creator>Bill Doerrfeld</dc:creator>
@@ -32,10 +614,10 @@
       <category>Sponsored</category>
       <category>sponsored-post</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840796</guid>
-      <description>&lt;img width="1024" height="695" src="https://cdn.thenewstack.io/media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-1024x695.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred neon light trails in blue and purple, suggesting fast data traffic for AI workloads on Kubernetes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, where we&amp;#8217;re tracking interesting movements in the cloud-native and Kubernetes ecosystem as&lt;/p&gt;
+      <description>&lt;img width="1024" height="695" src="https://cdn.thenewstack.io/media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-1024x695.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred neon light trails in blue and purple, suggesting fast data traffic for AI workloads on Kubernetes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon, where we&amp;#8217;re tracking interesting movements in the cloud-native and Kubernetes ecosystem as&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kagent-kubernetes-ai-agents/"&gt;AI agents turn one request into about 20. Kubernetes is evolving to handle it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="695" src="https://cdn.thenewstack.io/media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-1024x695.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred neon light trails in blue and purple, suggesting fast data traffic for AI workloads on Kubernetes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="695" src="https://cdn.thenewstack.io/media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-1024x695.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Motion-blurred neon light trails in blue and purple, suggesting fast data traffic for AI workloads on Kubernetes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9a261836-getty-images-u0axzkvx1qg-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Welcome to another edition of&lt;/strong&gt; &lt;a href="https://thenewstack.io/kubecon-cloudnativecon-na-2026/road-to-kubecon/" class="local-link"&gt;&lt;strong&gt;Road to KubeCon&lt;/strong&gt;&lt;/a&gt;, where we&amp;#8217;re tracking interesting movements in the cloud-native and Kubernetes ecosystem as we count down the days to &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeCon + CloudNativeCon NA 2026&lt;/a&gt;, to be held in Salt Lake City, Utah, November 9-12.&lt;/p&gt;
 
 
@@ -208,7 +790,7 @@
       <category>sponsor-perforce</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840454</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2aee3ec0-kirsten-frank-wovzqv7ly6e-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Swirling abstract landscape photograph representing disruption and data integrity challenges." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2aee3ec0-kirsten-frank-wovzqv7ly6e-unsplash.jpg" /&gt;&lt;p&gt;While enterprise leaders overwhelmingly believe in the promise of synthetic data, adoption lags. As a result, synthetic data has great,&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2aee3ec0-kirsten-frank-wovzqv7ly6e-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Swirling abstract landscape photograph representing disruption and data integrity challenges." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2aee3ec0-kirsten-frank-wovzqv7ly6e-unsplash.jpg" /&gt;&lt;p&gt;While enterprise leaders overwhelmingly believe in the promise of synthetic data, adoption lags. As a result, synthetic data has great,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/synthetic-data-referential-integrity/"&gt;Only 34% trust synthetic data&amp;#8217;s referential integrity — and it’s holding adoption back&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/2aee3ec0-kirsten-frank-wovzqv7ly6e-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Swirling abstract landscape photograph representing disruption and data integrity challenges." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2aee3ec0-kirsten-frank-wovzqv7ly6e-unsplash.jpg" /&gt;
@@ -1643,7 +2225,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad334ab84946&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad334ab84946" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="426" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/bc11fd18-nemotron-super-vl-figure-1-updated-1024x426.webp" alt="" class="wp-image-22840571"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488ccce60b&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488ccce60b" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="426" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/bc11fd18-nemotron-super-vl-figure-1-updated-1024x426.webp" alt="" class="wp-image-22840571"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1700,7 +2282,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad334ab84fc2&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad334ab84fc2" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="495" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/401bdf3f-accuracy-1024x495.png" alt="" class="wp-image-22840570"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488cccec47&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488cccec47" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="495" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/401bdf3f-accuracy-1024x495.png" alt="" class="wp-image-22840570"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3847,712 +4429,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-prototypes-database-replatforming/"&gt;Your database decision could come back to haunt you&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>AI prototypes built on the wrong database often stall before production. pgEdge’s CEO argues enterprises can skip the costly re-platform entirely.</content:encoded>
-    </item>
-    <item>
-      <title>Why 88% of AI pilots never make it to production</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agentic-ai-production-readiness/</link>
-      <dc:creator>Venus Kohli</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 14:38:57 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Operations</category>
-      <category>AI Strategy</category>
-      <category>sponsor-dedicatted</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840335</guid>
-      <description>&lt;img width="1024" height="666" src="https://cdn.thenewstack.io/media/2026/10/e173499b-imkara-visual-c_g8xn_tpqw-unsplash-1024x666.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Iridescent 3D chain links interlocking on a black background, glowing with rainbow chrome reflections" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e173499b-imkara-visual-c_g8xn_tpqw-unsplash-scaled.jpg" /&gt;&lt;p&gt;A joint IDC and Lenovo study&amp;#160;reports that 88% of AI proof-of-concept (POC) projects fail to reach production because of unclear&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-production-readiness/"&gt;Why 88% of AI pilots never make it to production&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="666" src="https://cdn.thenewstack.io/media/2026/10/e173499b-imkara-visual-c_g8xn_tpqw-unsplash-1024x666.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Iridescent 3D chain links interlocking on a black background, glowing with rainbow chrome reflections" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e173499b-imkara-visual-c_g8xn_tpqw-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;A joint IDC and Lenovo &lt;a href="https://www.cio.com/article/3850763/88-of-ai-pilots-fail-to-reach-production-but-thats-not-all-on-it.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;study&lt;/a&gt;&amp;nbsp;reports that 88%&lt;/strong&gt; of AI proof-of-concept (POC) projects fail to reach production because of unclear objectives, unprepared data, and a lack of in-house agentic AI expertise. These result in a build-vs.-run split, where the team that designed and deployed AI agents, often an agentic AI partner, doesn&amp;#8217;t get to run them over the business processes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When the operating team, often experienced on demo, uses the agentic system without any external help, errors arise. Operational gaps can cause cascading failures and business catastrophes if a single agent deviates from normal behavior beyond the permissible range.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked about estimating whether an agentic AI system is production-ready or limited to demos, Serhii Semenchenko, the CTO of &lt;a href="https://dedicatted.com/?utm_campaign=367253726-The%20New%20Stack&amp;amp;utm_source=the%20new%20stack&amp;amp;utm_medium=The%20New%20Stack%20Article" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dedicatted&lt;/a&gt;, a Toronto-based AWS Premier Tier Partner for Agentic AI Specialization, tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;#8220;The demo is a clean environment where we have clean, prepared data. No edge cases, so everything is defined &amp;mdash; input and output. &amp;#8220;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;Need agentic AI that runs in production, not just in demos? &lt;a href="https://aws.amazon.com/marketplace/pp/prodview-4ftsk5yecz4qa" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Explore Dedicatted&amp;#8217;s Custom Agentic AI Solutions&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He means the demo data is scripted with clean prompts, while the production environment is unpredictable. &amp;#8220;Every single step should include the logging, tracing, monitoring, breakers, all the checks, and validation,&amp;#8221; he adds. All these steps ensure failure preparedness.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko shares a basic production checklist: &amp;ldquo;every single agent should have a timeout and every single step that agents, like, generate some output should be logged for traceability.&amp;rdquo; Broadly, he believes agentic AI systems should self-assess in production, decide whether to continue after a particular event or reschedule tasks.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-agent-as-a-service" class="wp-block-heading"&gt;&lt;strong&gt;Agent as a service&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko then compares agentic AI systems to microservices architecture, where each agent has its own permissions rather than static or long-term broad access keys/tokens/credentials. He explains, &amp;ldquo;Agents use a specific set of permissions and the short-lived key that actually grants access to specific tools, which could be some other services or databases that act as a tool.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to Semenchenko, preventing an agent from calling tools that it shouldn&amp;#8217;t call prevents data leaks, unintended use, and prompt injection attacks. He adds, &amp;ldquo;Every single agent should be treated as a separate service.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To explain multi-agent orchestration, Semenchenko describes a handoff and offers this use case: &amp;ldquo;A router that gathers the inputs from the user, the system, and the platform &amp;mdash; and decides what to do with the input data.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He further explains that the router can decide what to do with input data, such as escalating to specialist agents for documentation, analysis, video, audio, livestream, etc., each with its own tools, such as third-party APIs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He talks about the final agent, &amp;ldquo;that composes the outputs from all these tools and previous agents to provide the required output&amp;rdquo;. If the final step fails, the composer doesn&amp;rsquo;t invent the missing piece; it either retries or marks failure. This means that there&amp;rsquo;s a clean definition of who receives the work, what state survives a step, and what happens if it dies.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-persists-beyond-poc" class="wp-block-heading"&gt;&lt;strong&gt;What persists beyond POC?&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Between all of this, if something corrupts an agent&amp;rsquo;s memory &amp;mdash; known as memory poisoning &amp;mdash; he talks about &amp;ldquo;guardrails&amp;rdquo;. All documents and data undergo deterministic checks to ensure data validity or trace inconsistencies to records, databases, and duplicates.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko looks back on the multi-agent system they built for &lt;a href="https://dedicatted.com/insights/smarter-science-how-dedicatted-brought-agentic-ai-to-chemical-reporting-at-cassen-laboratories" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CASSEN Testing Laboratories&lt;/a&gt;, an established chemical environmental testing and occupational health laboratory in Canada, which faced multi-day turnaround times for their reliable reports due to manual regulatory testing and lengthy processing.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The project had clear input and output expectations, but human-related edge cases emerged. He shared that the chemist group had a personal view of how the report and chemical compounds from their error-sample investigations should be presented. Things got even tougher in production when the report style was more in-house than domain-specific.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To solve this problem, Semenchenko reveals, &amp;ldquo;We adjusted our flow, adjusted the agent that composed this report. So, everything in the final, after these adjustments, reports look the same as if chemists had manually prepared them.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agentic AI projects must succeed in migration projects. Zivian Health, a U.S.-based compliance infrastructure for organizations managing NP/PA workforces across multiple states, migrated from &lt;a href="https://dedicatted.com/insights/building-a-compliance-ready-cloud-zivian-health-aws-to-azure-migration" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AWS to Azure&lt;/a&gt;, a re-platforming under regulatory stakes. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko tells&amp;nbsp;The New Stack&amp;nbsp;how AWS and Azure use completely different access systems and where least-privilege permissions matter. &amp;ldquo;So, everything should be mapped, adjusted, and validated first&amp;rdquo;, he says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The second thing is monitoring.&amp;rdquo; He reveals they &amp;ldquo;use cloud-agnostic tools to monitor and trace everything that happens on the agentic AI platform.&amp;rdquo; He also discusses models that are unavailable on both platforms during migration.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko adds, &amp;ldquo;We should go through a validation suite. You need a data set covering all cases the platform should handle and all requirements. After the migration, you could validate every single agent, use case, and user flow.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko concludes the final stages of agentic AI projects: &amp;ldquo;Check if you achieve the same success rate, latency, and token cost.&amp;rdquo; If agentic AI projects succeed, they extend beyond the bubble to business use cases, as &lt;a href="https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-agent-survey.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;PwC&amp;rsquo;s AI survey&lt;/a&gt; found: about two-thirds (66%) of AI agents deliver value and improve productivity.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-unexpected-3-a-m-call" class="wp-block-heading"&gt;&lt;strong&gt;Unexpected 3 a.m. call&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An agent misbehaves at 3 a.m. in a pipeline and does something outside its scope. Semenchenko describes a common scenario where, &amp;ldquo;An agent could use different tools, and at some moment it could decide that the output of one tool is not enough, and will try to call it, like, 2, 3, 5 more times. Every single time it will decide that it&amp;#8217;s not enough; it should call again, maybe some new data will appear.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to Semenchenko, certain breakers flag agent misbehavior. They use advanced monitoring to track anomalies; as he explains, &amp;ldquo;It will throw the error into the monitoring system.&amp;rdquo; The operator, based on the managed services contract &amp;mdash; either the agentic AI partner or the client&amp;rsquo;s team &amp;mdash; receives the alert.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When the operator is an agentic AI partner, Semenchenko shares, &amp;ldquo;We have dashboards, alerts, and then it depends on the client and depends on our responsibility.&amp;rdquo; He adds, &amp;ldquo;We actively monitor the system, and we could actively react to such cases that appear during the night.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If the operator is the client team, he shares, &amp;ldquo;In other cases, the client will receive some error messages that we detected some anomalies, and something went wrong.&amp;rdquo; As a solution, the clients would use runbooks provided by the [partner] developers to tackle the 3 a.m. misbehavior themselves.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The benefit of having a partner operate agentic projects is continuous monitoring, handling unexpected events, and reporting. The partner takes full recovery responsibility and reduces the burden on the in-house team by immediately stopping the agent or revoking access &amp;mdash; without waiting for morning. Furthermore, partners investigate edge cases to prevent future issues.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-commercial-reality-of-agentic-ai" class="wp-block-heading"&gt;&lt;strong&gt;Commercial reality of agentic AI&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://linkedin.com/in/denys-ddcttd?originalSubdomain=ca" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Denys Yermakov&lt;/a&gt;, the CEO of &lt;a href="https://dedicatted.com/?utm_campaign=367253726-The%20New%20Stack&amp;amp;utm_source=the%20new%20stack&amp;amp;utm_medium=The%20New%20Stack%20Article" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dedicatted&lt;/a&gt;, believes agent failure is often quieter on the commercial side. &amp;ldquo;You will have to have in place a lot of monitors, regression tests, other tests, different prompts, and different behavior of the agents,&amp;rdquo; he says. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to Yermakov, how the company ships fixes matters as much as detection. He then points to outages caused by infrastructure issues or bad deployments. &amp;ldquo;The price of failure is going to be much higher compared to other platforms,&amp;rdquo; he says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For change management, Yermakov emphasizes &amp;ldquo;Flexibility for the [Agentic AI] solution and adaptability for all the future change requests you might have.&amp;rdquo; He then talks about questioning the agentic AI partner about the project scope and discussing ownership of the code and platform. This matters because the team will eventually have to handle incident response and maintenance.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The demo is a clean environment where we have clean, prepared data. No edge cases, so everything is defined &amp;mdash; input and output.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yermakov then opens some cards for verifying the right agentic AI partner&amp;#8217;s expertise: &amp;ldquo;You can always start with some small piece of the POC concept or with a small piece of the demo environment, and the way the partner delivers that, that is crucial.&amp;rdquo; That would draw a fine line between a red flag service reseller and a green flag &amp;mdash; real service provider.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Because this part has to be delivered on real data, with a real workflow and with real challenges you face in your business. Not based on some mock data,&amp;rdquo; as he believes a predefined demo scenario irrelevant to the client&amp;#8217;s business case is usually a reseller.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yermakov gives a thumbs up to a partner who faces challenges on the client data layer during demos. &amp;ldquo;If the [agentic AI] partner comes with the right questions and approach, the right partner is here,&amp;rdquo; he adds.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-security-stones-for-agentic-ai-success" class="wp-block-heading"&gt;&lt;strong&gt;Security stones for agentic AI success&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to a &lt;a href="https://itbrief.news/story/ai-agents-outpace-trust-in-enterprise-data-survey-finds" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Modern Data Company&lt;/a&gt; survey, 75.9% of enterprise data leaders and practitioners across 66 nations cite data quality and trust as barriers to AI systems reaching production.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked about sensitive data shared among partners, Yermakov shares the business perspective, &amp;ldquo;It&amp;#8217;s so important that your data stay within your perimeter and not leave your secure perimeter, which you already have in your platform.&amp;rdquo; He explains that traditional businesses with large-scale on-premises data face a challenge in adopting agentic AI because providers might use their data to train public models.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Semenchenko shows a technical picture of how they delivered a couple of healthcare projects where personally identifiable information (PII) around health is critical. He says, &amp;ldquo;The problem was that this PII shouldn&amp;#8217;t be stored anywhere.&amp;rdquo; He explained how every agent would need this data to extract or process outputs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Solving this problem, he adds, &amp;ldquo;We have an additional layer that actually cleans all the PII data from the output of agents. The traceable data goes to the observability platform. So no PII data in logs and monitoring.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-build-vs-hiring-partners" class="wp-block-heading"&gt;&lt;strong&gt;Build vs. hiring partners&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yermakov emphasizes how new agentic AI is to enterprise systems. He tells TNS that enterprises are stuck on basic questions, like: &amp;ldquo;How do you have to set up everything? What should the platform look like? What are the benefits? What is the cost of users for this platform?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AI partners have experience shipping systems after overcoming challenges. &amp;ldquo;They know how to solve problems and how to build some of the platforms efficiently with pretty predictable scenarios&amp;rdquo;, he adds.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It&amp;#8217;s quite important to build and architect all the platforms from the very beginning in the very right way, to not redo what you&amp;#8217;ve implemented into the business processes.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The operational reality hits during platform maintenance, which, according to Yermakov, must be adaptable and adjustable. He believes it&amp;rsquo;s critical to avoid early failures in every agentic AI project. &amp;ldquo;It&amp;rsquo;s so important to build your team, to build your knowledge in-house,&amp;rdquo; he says, talking about future platform maturity.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Further explaining whether to go in-house or outsource agentic AI projects, Yermakov says, &amp;ldquo;Once you figure out the area where you benefit the most from the AI, you have to think about this process from two different perspectives. From the business process of how the company operates on the business side and from the technical challenges you face.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yermakov shares the key to agentic AI project success &amp;mdash; staffing &amp;mdash; &amp;ldquo;Always the team effort of the in-house resources and the outsourcing resources.&amp;rdquo; He warns enterprises, &amp;ldquo;Outsourcing everything is not going to work for you because the outsourcing partner can&amp;#8217;t understand your business in a very detailed way.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yermakov says SMEs and partners must engage from the start to achieve optimal knowledge transfer. The in-house team should own and safeguard the business process, while the partner architects and operates the core runtime.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-production-readiness/"&gt;Why 88% of AI pilots never make it to production&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>It’s 3 a.m. and your AI agent keeps calling the same tool. Now what? Dedicatted&amp;#039;s CTO unpacks the problem with TNS.</content:encoded>
-    </item>
-    <item>
-      <title>“Take work away from frontier LLMs”: Subquadratic’s decision model claims 12x Jev’s context window</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/subquadratic-snap-jev-decision-model/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 13:35:15 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840286</guid>
-      <description>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/10/58f3c5d5-ayush-kumar-8fmoxutzltk-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a brain wired to a tablet, keypads, buttons, a monitor and a scrolling document on a teal grid background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/58f3c5d5-ayush-kumar-8fmoxutzltk-unsplash-scaled.jpg" /&gt;&lt;p&gt;Jev has a lot to answer for. Ever since AI startup TypeSafe unveiled the decision model in mid-September, the industry&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/subquadratic-snap-jev-decision-model/"&gt;“Take work away from frontier LLMs”: Subquadratic’s decision model claims 12x Jev’s context window&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/10/58f3c5d5-ayush-kumar-8fmoxutzltk-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a brain wired to a tablet, keypads, buttons, a monitor and a scrolling document on a teal grid background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/58f3c5d5-ayush-kumar-8fmoxutzltk-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://jevtypesafeai.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jev&lt;/a&gt; has a lot to answer for. Ever since AI startup &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;TypeSafe unveiled the decision model&lt;/a&gt; in mid-September, the industry has been &lt;a href="https://thenewstack.io/openai-decision-models-deployment/" class="local-link"&gt;awash with alternatives&lt;/a&gt;, with OpenAI, Perplexity, Cloudflare, &lt;a href="https://thenewstack.io/decision-models-system-one/" class="local-link"&gt;Amazon&lt;/a&gt; and, most recently, &lt;a href="https://thenewstack.io/microsoft-decision-model-foundry/" class="local-link"&gt;Microsoft all getting involved&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Decision models, it&amp;#8217;s safe to say, are hot.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Now, San Francisco-based foundation-model startup &lt;a href="http://subquadratic.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Subquadratic&lt;/a&gt; has joined the rush with &lt;a href="https://subq.ai/introducing-subq-snap" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SubQ Snap&lt;/a&gt;, a decision model that it claims can process up to 384,000 tokens of text and images in a single request &amp;#8212; 12 times Jev&amp;#8217;s 32K-token per-decision context limit.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://subq.ai/introducing-subq-snap" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Monday, the company says Snap can process 100K tokens and return a decision in approximately one second, potentially allowing AI agents to make decisions across large codebases, documents, and interaction histories without having to break information into smaller chunks.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-why-a-bigger-context-window-matters" class="wp-block-heading"&gt;Why a bigger context window matters&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Unlike traditional large language models (LLMs), which generate text and code, decision models specialize in selecting from predefined answers. That could mean choosing which tool an AI agent should use next, identifying relevant files, or determining whether a test has passed. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Tuesday, &lt;em&gt;The New Stack&lt;/em&gt; reported on &lt;a href="https://thenewstack.io/workday-is-using-typesafes-jev-to-build-user-interfaces-on-the-fly/" class="local-link"&gt;how Workday is using Jev&lt;/a&gt; to build user interfaces on the fly for its Sana AI assistant, selecting prebuilt components such as paycheck cards and date pickers based on what an employee asks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The attraction, ultimately, is speed and cost. These decisions occur frequently during an agent&amp;#8217;s execution, and delegating them to smaller, specialized models reduces reliance on expensive frontier LLMs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In an email Q&amp;amp;A, Subquadratic CEO and co-founder &lt;a href="https://www.linkedin.com/in/alexander-whedon/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alex Whedon&lt;/a&gt; acknowledges that Jev&amp;#8217;s arrival helped shape Subquadratic&amp;#8217;s own entry into the market.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Snap was developed with inspiration from Jev, because decision models are highly thesis-aligned.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Snap was developed with inspiration from Jev, because decision models are highly thesis-aligned,&amp;rdquo; Whedon tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;Decision models remove the need for decoding for some problems.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, Whedon believes the technology has much greater potential than the supporting roles decision models currently perform, such as evaluating LLM outputs or selecting which model should handle a task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We see a vacuum of vision for decision models,&amp;rdquo; Whedon says. &amp;ldquo;Decision models become exciting when they actually take work away from frontier LLMs.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Decision models become exciting when they actually take work away from frontier LLMs.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While the space is somewhat crowded, Subquadratic argues that existing decision models struggle when the information needed to make a choice exceeds their context limits.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Consider a coding agent trying to fix a bug in a large repository. The problem might originate in a different module from the one producing the error, while important clues could be buried in test files or documentation. With a 32K-token window, the agent may have to discard potentially relevant information or turn to a larger LLM. Snap&amp;#8217;s 384K-token window, Whedon argues, allows it to examine more of the codebase, logs and previous actions together before deciding what to do next.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Snap addresses this through Subquadratic Sparse Attention (&lt;a href="https://subq.ai/how-ssa-makes-long-context-practical?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SSA&lt;/a&gt;), the architecture the company first introduced in May to reduce the computational cost of processing long inputs. According to Subquadratic, its attention requirements grow linearly with context length, rather than quadratically as in conventional transformers. Whedon argues that improving the underlying algorithms matters regardless of how much the big labs spend on compute; otherwise, he says, &amp;ldquo;we are inevitably leaving intelligence gains on the table.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Subquadratic&amp;#8217;s own long-context benchmarks suggest Snap can maintain accuracy even as the amount of information it processes increases. On an adapted version of the RULER retrieval benchmark, Snap scored between 96.3 and 99.8 across inputs ranging from 32K to one million tokens. On Decision LCR, which tests reasoning across multiple documents, it scored 74.0 against Jev&amp;#8217;s 48.0, with Jev processing the documents in chunks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Whedon clarified that Snap&amp;#8217;s advertised 384K-token context limit is a temporary restriction imposed for the public preview because of available computing capacity. The company tested the model at one million tokens but says supporting that length publicly would require approximately 2.6 times more compute.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="990" height="822" src="https://cdn.thenewstack.io/media/2026/10/e8da6ec0-a.png" alt="Long-context decisions" class="wp-image-22840326"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Long-context decisions&lt;/em&gt; (&lt;em&gt;credit: Subquadratic)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;On shorter tasks, Subquadratic reports that Snap scored 61.7 against Jev&amp;#8217;s 57.9 on Decision Index 0.2.1. It also led on Bespoke Labs&amp;#8217; Nimble benchmark, achieving 82.9% accuracy compared with Jev&amp;#8217;s 76.0%.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="604" height="826" src="https://cdn.thenewstack.io/media/2026/10/88ba63d7-b.png" alt="Short-context decisions" class="wp-image-22840327"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Short-context decisions (credit: Subquadratic)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Across 16 enterprise-oriented benchmarks, Snap outperformed Jev on 13, according to Subquadratic&amp;#8217;s testing, with an average score of 67.6 versus 61.6. However, Jev performed better on three tests, including When2Call, which assesses whether an agent should invoke a tool, ask for clarification, answer directly or decline.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="501" src="https://cdn.thenewstack.io/media/2026/10/8407b562-c-1024x501.png" alt="Enterprise benchmarks" class="wp-image-22840328"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Enterprise benchmarks (credit: Subquadratic)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Whedon confirms that all the published Snap results were produced internally, although Subquadratic has &lt;a href="https://github.com/subquadratic-ai/decision-longctx-evals" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;released the code&lt;/a&gt; for its adapted long-context evaluations so others can reproduce them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Snap is also absent from the latest &lt;a href="https://huggingface.co/spaces/multimodalart/jev-decision-index" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Decision Index leaderboard&lt;/a&gt;. Whedon says the benchmark&amp;#8217;s authors told him that its current version focuses on open-weight models, with Jev an exception. The latest index, now at version 0.3.2, also incorporates private tests, meaning Snap&amp;#8217;s published 0.2.1 score can&amp;#8217;t be directly compared with the newer results.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As for why the company focused its comparisons on Jev, Whedon says it remains the model most relevant to Subquadratic&amp;#8217;s enterprise design partners, followed by &lt;a href="https://thenewstack.io/openai-decision-api-luna/" class="local-link"&gt;OpenAI&amp;#8217;s Decisions API&lt;/a&gt;. Comparisons with newer rivals are planned.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Jev still seems like the model to compare against in this category.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Jev still seems like the model to compare against in this category, so being able to outperform it in a largely generalizable way has been the frontier signal we were looking for,&amp;rdquo; Whedon explains.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-less-plumbing-more-context" class="wp-block-heading"&gt;Less plumbing, more context&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Beyond the benchmarks, Subquadratic argues that a larger context window could simplify how developers build AI agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Currently, developers often rely on retrieval, summarization, and chunking to squeeze large documents or codebases into smaller context windows. Each step involves deciding which information to preserve, potentially omitting details that later prove important.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Whedon says Snap &lt;em&gt;could &lt;/em&gt;eliminate some of those intermediate steps when the material fits within its 384K-token limit, allowing agents to examine entire documents or collections of related files in a single request.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, he acknowledges that retrieval will remain necessary when dealing with much larger collections of information.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Retrieval won&amp;#8217;t disappear &amp;#8212; enterprises have corpora far larger than 384K tokens, and you still need a way to bring the right material into the window,&amp;rdquo; Whedon notes. &amp;ldquo;But the window is now big enough that retrieval can be coarse, pulling in whole documents or modules instead of carefully trimmed snippets. That removes a lot of the fragile parts.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Snap is available &lt;a href="https://console.subq.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in public preview&lt;/a&gt;, priced at $0.05 per million input tokens, with no charge for outputs. That means processing 100K tokens costs approximately half a cent, while a request using the full 384K-token window costs around two cents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Whedon explains that the pricing reflects the computational demands of a model designed to select answers, as opposed to generating lengthy responses.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We priced it where the cost actually is.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We priced it where the cost actually is,&amp;rdquo; Whedon says. &amp;ldquo;A decision model doesn&amp;#8217;t generate text. It reads the input and returns a probability for each allowed answer, so nearly all of the compute goes into reading, and producing the output costs us almost nothing.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-subquadratic-story-so-far" class="wp-block-heading"&gt;The (Subquadratic) story so far&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Subquadratic emerged from stealth in May with &lt;a href="https://app.dealroom.co/news/note/subquadratic-launches-with-29m-to-build-ai-with-12m-token-context-windows" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;$29 million&lt;/a&gt; in seed funding, at a reported $500 million valuation. &lt;a href="https://www.linkedin.com/posts/saulramirez_ai-share-7431887568121585664-I-kR/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Previously known as Aldea&lt;/a&gt;, the startup was co-founded by &lt;a href="https://www.linkedin.com/in/justin-dangel-b45aa01/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Justin Dangel&lt;/a&gt; and Whedon, a former Meta engineer and head of generative AI at Tribe AI. Whedon succeeded Dangel as CEO a few months ago, having previously served as CTO. Dangel is now chairman.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As &lt;em&gt;The New Stack &lt;/em&gt;&lt;a href="https://thenewstack.io/subquadratic-12-million-context-window/" class="local-link"&gt;reported at launch&lt;/a&gt;, Subquadratic&amp;#8217;s debut model, SubQ, attracted attention for its claimed 12-million-token context window, alongside substantial improvements in computational efficiency.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In June, the &lt;a href="https://subq.ai/subq-1-1-small-technical-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;company published&lt;/a&gt; more detailed benchmarks for its earlier SubQ 1.1 Small model, with certain results independently verified by data firm Appen. And in a &lt;a href="https://thenewstack.io/subquadratic-sparse-attention-no-attention/" class="local-link"&gt;July interview&lt;/a&gt; with&lt;em&gt; The New Stack&lt;/em&gt;, Whedon revealed that Subquadratic was already investigating architectures that dispense with attention altogether.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And so Snap builds on the company&amp;#8217;s existing sparse-attention research, bringing its long-context ambitions into the increasingly crowded decision-model market.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For now, Snap&amp;rsquo;s claimed performance advantage rests on Subquadratic&amp;rsquo;s own benchmark results. Independent testing will show whether its larger context window really leads to better decisions.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/subquadratic-snap-jev-decision-model/"&gt;“Take work away from frontier LLMs”: Subquadratic’s decision model claims 12x Jev’s context window&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Jev sparked a rush of decision models. Subquadratic’s CEO says they’re mostly doing LLMs’ admin -- and wants them tackling bigger jobs.</content:encoded>
-    </item>
-    <item>
-      <title>66% of billion-dollar companies leave critical bugs unpatched — the part the AI bug-hunting hype leaves out</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/chainguard-mythos-security-harness/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 05:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>CI/CD</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840329</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/bed61db0-ivan-vranic-j9-2liz2_rc-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract cracks" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bed61db0-ivan-vranic-j9-2liz2_rc-unsplash.jpg" /&gt;&lt;p&gt;Chainguard has launched an AI-powered security harness that uses frontier models, including Anthropic&amp;#8217;s restricted Claude Mythos 5.1, to find and&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/chainguard-mythos-security-harness/"&gt;66% of billion-dollar companies leave critical bugs unpatched — the part the AI bug-hunting hype leaves out&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/bed61db0-ivan-vranic-j9-2liz2_rc-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract cracks" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/bed61db0-ivan-vranic-j9-2liz2_rc-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Chainguard has launched an AI-powered security harness that uses frontier models&lt;/strong&gt;, including Anthropic&amp;rsquo;s restricted Claude Mythos 5.1, to find and fix exploitable vulnerabilities in application code that conventional scanners miss.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can use Chainguard Harness without direct access to Mythos because Chainguard originally built the tool for its own work with the model as part of Project Glasswing, and the company plans to open Harness up to other frontier models over time rather than keep it tied to a single one.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company tells&lt;em&gt; The New Stack&lt;/em&gt; that Harness has found serious vulnerabilities in codebases that had already undergone extensive security scanning, including software used in critical infrastructure. The first of those findings to go public is a now-patched flaw in vLLM, the open source inference engine, while the critical infrastructure bugs remain under wraps as Chainguard coordinates fixes with upstream maintainers.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Announced Wednesday, Harness leads a four-product launch alongside Workspaces, Checks, and expanded Libraries protections, extending Chainguard&amp;rsquo;s reach beyond hardened container images and dependencies into agent execution environments and CI verification.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-mythos-access-without-glasswing" class="wp-block-heading"&gt;Mythos access without Glasswing&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic has restricted Claude Mythos 5.1 access to organizations participating in &lt;a href="https://www.anthropic.com/glasswing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Project Glasswing&lt;/a&gt;, which puts Chainguard in the position of running Mythos-powered vulnerability research for customers who couldn&amp;rsquo;t otherwise touch the model.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We first built Chainguard Harness for our own use of Claude Mythos as part of Project Glasswing,&amp;rdquo; Chainguard tells &lt;em&gt;The New Stack&lt;/em&gt;, adding that Harness &amp;ldquo;runs on Claude Mythos 5.1 to start, but our goal is for Harness to be model-agnostic, always aligned with frontier AI.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Harness will also be available through Anthropic&amp;rsquo;s Claude Marketplace, allowing teams to use existing Anthropic spending commitments rather than secure a separate budget.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We first built Chainguard Harness for our own use of Claude Mythos as part of Project Glasswing.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-validating-vulnerabilities-in-vllm" class="wp-block-heading"&gt;Validating vulnerabilities in vLLM&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Chainguard&amp;rsquo;s &lt;a href="https://www.chainguard.dev/unchained/the-first-disclosure-from-our-mythos-harness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;first public disclosure from Harness&lt;/a&gt; targets vLLM, an open source engine that many teams rely on to serve large language models. In versions before v0.31.0, one client could force the output returned to other clients sharing the same engine, and the tampered response came back looking like a normal, successful completion with nothing written to the logs, a particularly quiet failure mode for anyone running multi-tenant inference.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Our harness independently found the issue and reproduced it on a clean build,&amp;rdquo; Chainguard tells &lt;em&gt;The New Stack&lt;/em&gt;, noting that the bug is fixed in v0.31.0 and tracked under advisory GHSA-6cxc-2vcg-w5qc. The company added that &amp;ldquo;a number of other findings, including some in critical infrastructure software, are now being coordinated for disclosure,&amp;rdquo; and that Chainguard will share details once fixes are in place upstream.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt; &amp;ldquo;A number of other findings, including some in critical infrastructure software, are now being coordinated for disclosure,&amp;rdquo; &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-proof-before-patches" class="wp-block-heading"&gt;Proof before patches&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For a tool that leans on an AI model to hunt for flaws, the bigger question is whether those findings hold up, given how much noise AI-generated vulnerability reports can create for maintainers. &amp;ldquo;Harness proves a vulnerability is exploitable before it counts by reproducing potential exploits in fresh, isolated environments,&amp;rdquo; Chainguard tells &lt;em&gt;The New Stack&lt;/em&gt;, and anything that doesn&amp;rsquo;t reproduce consistently gets excluded from the report.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Proposed fixes go through the same proof of concept, so the exploit has to succeed against the original code and fail against the patched version before the fix moves forward. A Chainguard engineer then approves every fix and report before it reaches a customer, keeping a human in the loop on what ultimately ships.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Harness proves a vulnerability is exploitable before it counts by reproducing potential exploits in fresh, isolated environments.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-the-ai-exploit-gap" class="wp-block-heading"&gt;The AI exploit gap&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The launches come alongside &lt;a href="https://www.chainguard.dev/unchained" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The AI Exploit Gap&lt;/em&gt;&lt;/a&gt;, a Chainguard-commissioned Wakefield Research survey of 1,300 security leaders across nine markets. More than half said their organizations knowingly leave high or critical vulnerabilities unpatched at least sometimes, with the figure reaching 66% at companies with $1 billion or more in revenue, compared with 27% at companies below $250 million.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI can find and chain flaws in minutes, while fixing them still moves at human speed and competes with product deadlines and uptime,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/quincy-castro/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Quincy Castro&lt;/a&gt;, Chainguard&amp;rsquo;s chief information security officer, said in a statement. &amp;ldquo;Patching faster isn&amp;rsquo;t viable for most folks, and it will consume increasing amounts of resources just to keep pace.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-isolated-microvms-for-agents" class="wp-block-heading"&gt;Isolated microVMs for agents&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Each developer and coding agent gets a hardware-isolated microVM with network policies that restrict access to internal systems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Credentials stay outside the agent&amp;rsquo;s environment, limiting what a compromised agent or malicious dependency can reach. Signed activity logs record what each agent did so teams can keep an audit trail across multiple autonomous sessions.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-ci-inside-the-agent-loop" class="wp-block-heading"&gt;CI inside the agent loop&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Chainguard Checks lets coding agents run CI checks directly during development and receive signed results in seconds. Agents can run tests, inspect failures, and revise code before opening a pull request, avoiding the CI queues that become harder to manage as vendors like Cognition, Microsoft, and Augment Code &lt;a href="https://thenewstack.io/coding-agents-team-infrastructure/" class="local-link"&gt;turn coding agents into shared team infrastructure&lt;/a&gt; running multiple sessions in parallel.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To avoid rebuilding environments on every run, Checks uses warm snapshots with dependencies already installed and refreshes them in the background when the lockfile changes. Each workflow step runs in a separate hardware-isolated microVM built from Chainguard OS packages, including FIPS-compliant toolchains. With Workspaces, agent sessions pause during verification and resume with structured failure logs in context.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Runners never hold long-lived credentials. Instead, a host-side proxy injects short-lived credentials into outbound requests, while declarative egress policies restrict network access and can terminate a microVM if it attempts an unauthorized connection. Successful runs produce signed attestations tied to the execution environment, test results, and commit, which merge gates can verify without rerunning the suite. Checks is available now in beta.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-libraries-lock-down-late-breaking-bugs" class="wp-block-heading"&gt;Libraries Lock Down Late-Breaking Bugs&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Chainguard Libraries is adding secure package endpoints for Go and .NET, along with CVE remediation for JavaScript and Go, while Java and Python support will expand to cover newly disclosed vulnerabilities discovered through AI-assisted research, including flaws in dependencies that coding agents may have already pulled into a project.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Harness findings will feed directly into that pipeline. When Harness turns up a validated vulnerability in open source software, Chainguard sends it through coordinated disclosure, builds and reviews a patch, and distributes the fixed artifact through Chainguard Repository. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s Athena members get private, hardened patched builds before public disclosure, Chainguard tells &lt;em&gt;The New Stack&lt;/em&gt;, while other Libraries customers receive them once the embargo lifts, meaning companies &amp;ldquo;can stay protected against AI-discovered vulnerabilities immediately upon disclosure.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The changes build on &lt;a href="https://thenewstack.io/chainguard-repository-ai-agents/" class="local-link"&gt;Chainguard Repository&lt;/a&gt;, a policy-enforced endpoint for open source dependencies, and its &lt;a href="https://thenewstack.io/cursor-chainguard-agentic-ai-secure/" class="local-link"&gt;partnership with Cursor&lt;/a&gt;, allowing coding agents to resolve packages through Chainguard&amp;rsquo;s catalog instead of pulling directly from public registries.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/chainguard-mythos-security-harness/"&gt;66% of billion-dollar companies leave critical bugs unpatched — the part the AI bug-hunting hype leaves out&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Chainguard’s new Harness points frontier models like Claude Mythos 5.1 at your code, alongside new tools to isolate coding agents and verify their work.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic’s red team ran AI on 15 cheap TV boxes. Then the math got unsettling.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/self-replicating-ai-worms/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 13 Oct 2026 16:40:24 +0000</pubDate>
-      <category>AI Models</category>
-      <category>Edge Computing</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840269</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/05385b7f-steve-a-johnson-bjwdjszsqz4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract tangled blue cables forming a chaotic vortex representing complex AI security systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/05385b7f-steve-a-johnson-bjwdjszsqz4-unsplash.jpg" /&gt;&lt;p&gt;For roughly $825, Anthropic&amp;#8217;s Frontier Red Team built a cluster of 15 off-brand Android TV boxes that runs an AI&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/self-replicating-ai-worms/"&gt;Anthropic’s red team ran AI on 15 cheap TV boxes. Then the math got unsettling.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/05385b7f-steve-a-johnson-bjwdjszsqz4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract tangled blue cables forming a chaotic vortex representing complex AI security systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/05385b7f-steve-a-johnson-bjwdjszsqz4-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;For roughly $825, Anthropic&amp;rsquo;s Frontier Red Team built a cluster of 15 off-brand Android TV boxes &lt;/strong&gt;that runs an AI model at 0.39 tokens per second, painfully slow for a chatbot but fine for software with nowhere to be and nobody waiting on it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That experiment anchors &lt;a href="https://www.anthropic.com/research/self-replicating-ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;new research&lt;/a&gt; from Anthropic researchers &lt;a href="https://www.linkedin.com/in/williamchou/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;William Zhou&lt;/a&gt; and &lt;a href="https://www.linkedin.com/in/daniel-freeman-6952136/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Daniel Freeman&lt;/a&gt;, published Monday, suggesting small open-weight models may be only months away from copying themselves across cheap, internet-connected hardware without relying on a datacenter.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers haven&amp;rsquo;t built an AI worm that can spread across the public internet on its own, and their experiments took place inside controlled environments with shortcuts that made replication easier. But the results suggest several of the remaining technical barriers may be temporary.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The researchers haven&amp;rsquo;t built an AI worm that can spread across the public internet on its own, and their experiments took place inside controlled environments with shortcuts that made replication easier.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-inference-is-the-real-hurdle" class="wp-block-heading"&gt;Inference is the real hurdle&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Zhou and Freeman identify four steps an AI needs to take to replicate itself, which are finding a target, gaining access, getting inference running, and moving on to the next machine.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Previous benchmarks such as &lt;a href="https://arxiv.org/abs/2506.02548" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CyberGym&lt;/a&gt; and &lt;a href="https://arxiv.org/abs/2605.14153" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ExploitBench&lt;/a&gt; suggest smaller models can already handle some of the exploitation work, and frontier agents &lt;a href="https://thenewstack.io/securing-ai-agent-sandboxes/" class="local-link"&gt;escaped their test sandboxes using basic exploits&lt;/a&gt; earlier this year. The bigger challenge may be getting a model running on unfamiliar hardware, where it has to sort out whatever operating system, dependencies, and installation problems it runs into.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Anthropic&amp;rsquo;s tests, Qwen3.5-9B deployed a working Llama3.1-8B inference server on eight of nine hardware types, including Jetson Nanos, Macs, and RTX 4090 machines, while the larger GLM-5.2 handled the same work more reliably and with higher throughput.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The team then built a firewalled Google Cloud environment with eight nodes running Android emulators, and starting from a single worm instance, the system had to reach the other nodes and establish a working inference server on each one. A fresh copy of the worm was spawned whenever a node&amp;rsquo;s server passed correctness and anti-cheating checks, and GLM-5.2 reached all eight nodes in four of five trials and seven nodes in the fifth.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GLM-5.2 ran on a separate inference server because the target machines couldn&amp;rsquo;t hold it, so the worm installed a smaller 8B model in its place, and the researchers made exploitation easy by leaving an unauthenticated Android Debug Bridge port open.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt; A fresh copy of the worm was spawned whenever a node&amp;rsquo;s server passed correctness and anti-cheating checks, and GLM-5.2 reached all eight nodes in four of five trials and seven nodes in the fifth.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-worms-that-take-notes" class="wp-block-heading"&gt;Worms that take notes&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The agents got better at setting up inference on unfamiliar hardware when they could read notes left by earlier attempts. The researchers ran Qwen3.5-9B through 20 separate lineages, each lasting six generations, and success climbed from 45% in the first generation to between 61% and 84% in later ones.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers call this Lamarckian inheritance, where one agent passes what it learned to the next without any retraining of the model. It&amp;rsquo;s a mechanism familiar to developers using persistent agent runtimes such as &lt;a href="https://thenewstack.io/persistent-ai-agents-compared/" class="local-link"&gt;OpenClaw and Hermes Agent&lt;/a&gt;, but here that memory helps successive copies work through installation failures on hardware they&amp;rsquo;ve never seen.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The researchers call this Lamarckian inheritance, where one agent passes what it learned to the next without any retraining of the model&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The team also tried giving Qwen3.5-9B access to the much more capable Opus 4.8 model for advice, and it produced no statistically significant improvement because the small model tended not to know the right questions to ask.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-end-of-2026-trend-line" class="wp-block-heading"&gt;The end-of-2026 trend line&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The paper identifies two constraints that have kept this scenario theoretical. A model needs to be capable enough to replicate reliably and small enough to run on compromised hardware, and right now those requirements don&amp;rsquo;t overlap. GLM-5.2 showed the necessary competence in the simplified test but is too large for the cheap devices the researchers have in mind, while smaller models can fit on those devices, particularly when inference is distributed across several machines, but can&amp;rsquo;t yet complete the entire process consistently.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Using the &lt;a href="https://epoch.ai/eci" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Epoch Capabilities Index&lt;/a&gt;, the researchers tracked open-weight models with 30 billion parameters or fewer and found that, by the end of 2026, the trend line puts the strongest of them at GLM-5.2&amp;rsquo;s general capability level. It&amp;rsquo;s a rough estimate, since general capability scores don&amp;rsquo;t necessarily predict replication performance, and the team&amp;rsquo;s end-to-end experiment used favorable conditions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;By the researchers&amp;rsquo; calculations, typical 4GB TV boxes running 4-bit weights can host a 9B model across four or more devices, and a 26B model across ten or more, which is how their own 15-box cluster runs Gemma4-26B-A4B.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A single inference setup on this class of hardware could take roughly 28 to 150 hours depending on the model, and the researchers argue that lightweight agents may be far more willing than human attackers to grind through that kind of effort across huge numbers of devices. They compare the possibility to a digital slime mold, spreading slowly through whatever resources it can reach.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-cheap-boxes-borrowed-compute" class="wp-block-heading"&gt;Cheap boxes, borrowed compute&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://synthient.com/blog/a-broken-system-fueling-botnets" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kimwolf botnet&lt;/a&gt; infected more than two million devices, most of them cheap Android TV boxes, and the researchers used that figure to calculate what an AI replicator could do with a network of equivalent size. Dividing those devices into clusters of 15 running Gemma4-26B-A4B would yield roughly 133,000 copies of the model generating a combined 80,000 tokens per second.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That&amp;rsquo;s equivalent to no more than about 40 Nvidia H100 GPUs, which is modest by datacenter standards, but the hardware and operating costs would belong to someone else.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers also examined edge accelerators such as Nvidia Jetsons, which are used in everything from security cameras and conference room equipment to robots and drones. Those devices are generally harder to reach because they communicate through outbound cloud-management connections.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-stopping-software-that-copies-itself" class="wp-block-heading"&gt;Stopping software that copies itself&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers aren&amp;rsquo;t suggesting there&amp;rsquo;s no way to stop a self-replicating AI worm, and some of its traits could make it easier to detect. Moving multi-gigabyte models between devices creates network traffic that ISPs can monitor, and a worm that spreads aggressively won&amp;#8217;t go unnoticed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;During the Mirai botnet cleanup, one ISP&amp;rsquo;s quarantine of infected subscribers &lt;a href="https://www.ndss-symposium.org/ndss-paper/cleaning-up-the-internet-of-evil-things-real-world-evidence-on-isp-and-consumer-efforts-to-remove-mirai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;cleared 92% of infections within 14 days&lt;/a&gt;, and the researchers expect a similar approach to work as a first line of defense. Eliminating a replicator completely, however, would mean coordinating every ISP with infected customers.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/self-replicating-ai-worms/"&gt;Anthropic’s red team ran AI on 15 cheap TV boxes. Then the math got unsettling.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic ran an AI model on 15 cheap Android TV boxes, and its research suggests small open-weight models could soon self-replicate across IoT devices.</content:encoded>
     </item>
   </channel>
 </rss>
