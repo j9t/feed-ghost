@@ -20,6 +20,550 @@
       <height>32</height>
     </image>
     <item>
+      <title>Gemini 4 Argon vs. Claude Opus 5.5: Half the price and about half as accurate</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/gemini-argon-claude-opus/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Sun, 18 Oct 2026 15:30:00 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Large Language Models</category>
+      <category>Software Testing</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840848</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hourglass with sand running out under red light, evoking the limited window to test Gemini 4 Argon at half price" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-scaled.jpg" /&gt;&lt;p&gt;When Google announced Gemini 4 Argon to a small group of testers on September 30, it came with a benchmark&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-argon-claude-opus/"&gt;Gemini 4 Argon vs. Claude Opus 5.5: Half the price and about half as accurate&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hourglass with sand running out under red light, evoking the limited window to test Gemini 4 Argon at half price" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph" id="h-"&gt;&lt;strong&gt;When Google announced&lt;/strong&gt; &lt;a href="https://thenewstack.io/google-gemini-4-argon/" class="local-link"&gt;Gemini 4 Argon&lt;/a&gt; to a small group of testers on September 30, it came with a benchmark table that put Argon ahead of &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt; on 14 of 18 tests. Those include DeepSWE (77.9% vs. 74.2%) and GraphWalks at 256K to 1 million tokens (84.2% vs. 66.8%). Two weeks later, on October 13, Google opened Argon to paid Gemini API developers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To its credit, Google also showed where Opus 5.5 wins. Opus leads on the other four benchmarks, including Terminal-bench 4.0 (66.4% vs. 57.4%), which tests agentic work in a command line.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Google is also undercutting Anthropic on price, at least for now. Through November 30, Argon costs $2 per million input tokens and $10 per million output tokens, half the price of Opus 5.5. On December 1, it rises to $4 and $20, matching Opus. That gives developers about six weeks to decide whether Argon is better or just cheaper.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;That gives developers about six weeks to decide whether Argon is better or just cheaper.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Benchmarks don’t always match real work, and a half-price window only matters if the model matches the competitor on quality. To see whether Argon is better or just cheaper (for now), I tested both models head-to-head on three hard tasks from categories where Google claims a lead.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tests" class="wp-block-heading"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I ran each test once per model through OpenRouter, on Google’s and Anthropic’s own servers, at default reasoning settings. A script graded every answer against keys I built and verified before testing either model. The answer key adds more scoring areas to help ensure the quality and thoroughness of each test.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Bug hunt&lt;/strong&gt; – A 3,500-line Python library with 14 planted logic bugs and five decoys. Each model reviewed the code, then fixed what it found.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Billing spec&lt;/strong&gt; – A spec for a subscription billing engine, graded by 80 hidden tests on daylight saving, month-end dates, and rounding. A follow-up added two currencies and 20 more tests.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Long context&lt;/strong&gt; – A fake wiki of 400 services with scattered dependencies, at three sizes. Each model answered three graph questions with planted traps.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-bug-hunt" class="wp-block-heading"&gt;Bug hunt&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This one was a tie. Both models found all 14 bugs, including four that only show up when you follow a value across three or more files. Neither flagged a decoy. In the follow-up, both fixed all 14 bugs without breaking any of the 93 existing tests.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Argon was cheaper. Its review cost averaged 1 cent per bug found, compared to Opus’s 2.4 cents, an average I calculated from the per-call total rather than measured per bug. Argon would still come out cheaper at its full Dec. 1 price, because it used fewer tokens.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;The numbers:
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Review
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 53,031 in, 3,964 out, $0.15, 43.0 s. &lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 64,572 in, 4,053 out, $0.34, 38.9 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Fix
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 54,923 in, 24,292 out, $0.35, 186.6 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 66,465 in, 34,263 out, $0.95, 219.8 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-billing-specs" class="wp-block-heading"&gt;Billing specs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here’s where accuracy began to differ between the two models. Opus passed all 80 hidden tests, then all 100 after the currency follow-up. Argon passed 11 of 80, then 20 of 100.&lt;br&gt;&lt;br&gt;Argon didn’t fail the majority of the tests because its logic was bad. It failed because it made a small mistake early on. Its code passed an extra argument to Python’s `datetime.combine()`, which raises an error, and most of the module depends on that helper. When I corrected that one line myself, Argon scored 80/80 and 100/100. I kept the official scores as graded but wanted to explain what happened, not just list the scores, on this one.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Overall, Argon was cheaper, but the difference between Opus and Argon pricing will disappear once the lower-cost period ends, though Argon’s lower token use would still make it cheaper on this test.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;The numbers:
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Build
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 3,907 in, 3,727 out, $0.05, 54.1 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 5,236 in, 7,763 out, $0.18, 63.0 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Follow-up
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 8,881 in, 4,673 out, $0.06, 41.5 s. &lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 11,807 in, 7,267 out, $0.19, 51.9 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-long-context" class="wp-block-heading"&gt;Long context&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Each vendor counts tokens differently. My 500K document came to 549,483 tokens on Argon and 784,087 on Opus. My 900K document came to 1.4 million tokens on Claude’s tokenizer, so Anthropic’s API rejected it. I added a third document of about 600K tokens, the largest that both models could fit.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both models answered two of the three questions perfectly at every size they ran. The split came on the blast radius question, which asks for every service that goes down when one fails. The answer is 33 services.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Opus got all 33 at 500K and 32 at 600K, with no wrong entries. At 500K, Argon got 20 right and 8 wrong; at 600K, 19 right and 16 wrong; and at 900K, 23 right and 2 wrong. At 600K and 900K, it treated a dependency as removed after the wiki reinstated it. Unlike the billing bug, this wasn’t a small slip. Argon got the reasoning wrong at every size. This is a big red flag.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Unlike the billing bug, this wasn’t a small slip. Argon got the reasoning wrong across the entire answer. This is a big red flag.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Another thing I noticed is that Argon raced through this long-context test. Argon answered quickly without showing any step-by-step work, and Opus took longer because it reasoned first. This shows up in token usage. Opus used over 5,000 tokens, most for reasoning, vs. Argon’s 243-425. That likely connects to Argon’s wrong answers, though I can’t prove the cause from one run.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Argon was cheaper here, but it’s not worth using it on a similar task, as it was largely inaccurate and sloppy.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;The numbers:
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;500k
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 549,483 in, 264 out, $1.10, 24.2 s. &lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 784,087 in, 5,532 out, $3.25, 68.3 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;600k
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 652,492 in, 425 out, $1.31, 32.4 s. &lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 935,332 in, 5,158 out, $3.84, 69.1 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;900K
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Argon 982,367 in, 243 out, $1.97, 41.5 s. &lt;/li&gt;
+
+
+
+&lt;li&gt;Opus not run.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-results" class="wp-block-heading"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/google-gemini-4-argon/" class="local-link"&gt;Gemini 4 Argon&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;&lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug hunt review&lt;/td&gt;&lt;td&gt;14 of 14, 0 false positives&lt;/td&gt;&lt;td&gt;14 of 14, 0 false positives&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug hunt fix&lt;/td&gt;&lt;td&gt;14 of 14, 93 of 93 tests kept&lt;/td&gt;&lt;td&gt;14 of 14, 93 of 93 tests kept&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Billing spec&lt;/td&gt;&lt;td&gt;11 of 80&lt;/td&gt;&lt;td&gt;80 of 80&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Billing follow-up&lt;/td&gt;&lt;td&gt;20 of 100&lt;/td&gt;&lt;td&gt;100 of 100&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Blast radius, 500K&lt;/td&gt;&lt;td&gt;20 of 33, 8 wrong&lt;/td&gt;&lt;td&gt;33 of 33&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Blast radius, 600K&lt;/td&gt;&lt;td&gt;19 of 33, 16 wrong&lt;/td&gt;&lt;td&gt;32 of 33&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Blast radius, 900K&lt;/td&gt;&lt;td&gt;23 of 33, 2 wrong&lt;/td&gt;&lt;td&gt;Rejected, over 1M tokens&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens in / out&lt;/td&gt;&lt;td&gt;2,305,084 / 37,588&lt;/td&gt;&lt;td&gt;1,867,499 / 64,036&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total cost&lt;/td&gt;&lt;td&gt;$4.98&lt;/td&gt;&lt;td&gt;$8.75&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;423.3 s&lt;/td&gt;&lt;td&gt;511.0 s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;My results didn’t match Google’s benchmarks. Argon tied Opus on code review and fixing at under half the cost. It lost the spec test over one bad line of code, and it missed or invented services on every long-context blast-radius question.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-do-i-think" class="wp-block-heading"&gt;What do I think?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Based on these tests, I wouldn’t use Argon. Yes, it was cheaper and as accurate as Opus on the bug hunt, but after working with it on the other tests, I wouldn’t unquestioningly trust Argon on any task. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;I wouldn’t unquestioningly trust Argon on any task. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Opus 5.5 is one of Anthropic’s leading models, and Artificial Analysis’s independent index ranks it at 58, ahead of Argon’s 53. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;While Google is working hard to catch up, it hasn’t yet.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-argon-claude-opus/"&gt;Gemini 4 Argon vs. Claude Opus 5.5: Half the price and about half as accurate&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Google says Gemini 4 Argon beats Claude Opus 5.5 on 14 of 18 benchmarks, at half the price for now. Three hard tests told a different story.</content:encoded>
+    </item>
+    <item>
+      <title>Liquid AI caught its model cheating on coding tests — then it recognized the sandbox</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/liquid-ai-reward-hacking/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sun, 18 Oct 2026 14:30:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>AI Models</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840847</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Caught red handed image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Liquid AI&amp;#8217;s new reasoning model was built to solve coding problems, but during training it kept combing Git history, GitHub,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/liquid-ai-reward-hacking/"&gt;Liquid AI caught its model cheating on coding tests — then it recognized the sandbox&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Caught red handed image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Liquid AI&amp;rsquo;s new reasoning model was built to solve coding problems, but during training it kept combing Git history, GitHub, PyPI, and Hugging Face for answers, and as it did so, it appeared to grasp that it was running inside a sandbox.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The behavior was disclosed Tuesday alongside the release of &lt;a href="https://huggingface.co/LiquidAI/LFM2.5-24B-A2B" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LFM2.5-24B-A2B&lt;/a&gt;, a 24-billion-parameter model with just 2 billion active parameters per token. The incident raises questions about how much agent benchmarks measure actual problem-solving versus a model&amp;#8217;s ability to exploit the test itself.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The behavior was disclosed Tuesday alongside the release of LFM2.5-24B-A2B, a 24-billion-parameter model with just 2 billion active parameters per token. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-hunting-for-hints" class="wp-block-heading"&gt;Hunting for hints&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The model was caught searching repository history and external platforms for existing answers rather than solving coding problems on its own. The behavior occurred during teacher specialization, part of Liquid AI&amp;#8217;s &lt;a href="https://www.liquid.ai/blog/lfm2-5-24b-a2b" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post-training process&lt;/a&gt;, where the model used legitimate development tools to bypass the work it was supposed to complete.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;More surprising was the apparent recognition that it was running inside a test environment. Liquid AI couldn&amp;#8217;t establish whether this awareness developed during training or came from patterns in the training data, and found no evidence that it affected the scores. Unlike Mistral&amp;#8217;s latest model, which &lt;a href="https://thenewstack.io/mistral-large-4-weights/" class="local-link"&gt;attempted to leave its test environment&lt;/a&gt; earlier this month, there was no attempt to escape the sandbox.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-precedent-in-the-pipeline" class="wp-block-heading"&gt;Precedent in the pipeline&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic is one company that has been dealing with reward hacking for years. In its &lt;a href="https://www.anthropic.com/research/reward-tampering" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2024 experiments&lt;/a&gt;, it caught models rewriting code to change their own rewards and modifying tests meant to catch them, while a &lt;a href="https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;November 2025 study&lt;/a&gt; found that models trained to game reward systems could also become deceptive and attempt to sabotage safety research.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The problem reached Anthropic&amp;rsquo;s own training pipeline in February, when the company detected reward hacking in Mythos Preview and &lt;a href="https://www.anthropic.com/news/anthropic-reassigns-engineers-rl" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;rolled back three days of reinforcement learning&lt;/a&gt;. Changes to its production training environments were frozen for about a month after a review flagged problems in more than 10% of them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Although the circumstances differ from Liquid AI&amp;#8217;s incident, similar weaknesses have turned up across agent evaluations. At ICML 2026, the &lt;a href="https://icml.cc/virtual/2026/poster/63289" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Reward Hacking Benchmark&lt;/a&gt; tested 13 frontier models on multistep tasks with opportunities to cheat. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Claude Sonnet 4.5 didn&amp;#8217;t exploit any of the shortcuts, but DeepSeek-R1-Zero exploited 13.9%, with higher rates associated with reinforcement learning post-training. Blocking access to answer metadata and preventing changes to verification functions reduced exploit rates by nearly 88% without affecting task success.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A separate team went looking for weaknesses in the benchmarks themselves. Their &lt;a href="https://papers.cool/arxiv/2605.12673" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;BenchJack audit&lt;/a&gt; uncovered 219 flaws across 10 popular agent benchmarks, with generated exploits achieving near-perfect scores on most of them without completing the underlying tasks.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-scores-shaped-by-scaffolding" class="wp-block-heading"&gt;Scores shaped by scaffolding&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Liquid AI outperformed Qwen3.6-35B-A3B on several benchmarks, scoring 27.69 to 8.72 on AutomationBench and 48.09 to 38.19 on LiveClaw. Qwen had the edge on PinchBench, WebArena Verified and SWE-Bench Verified, where it scored 66.20 against Liquid AI&amp;#8217;s 51.00. Both models used OpenCode for that last test.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Liquid AI outperformed Qwen3.6-35B-A3B on several benchmarks, scoring 27.69 to 8.72 on AutomationBench and 48.09 to 38.19 on LiveClaw. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-locking-the-lab-without-losing-work" class="wp-block-heading"&gt;Locking the lab without losing work&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Liquid AI tightened its training sandboxes after catching the reward hacking and says the published scores came from sealed evaluations. It hasn&amp;rsquo;t explained what safeguards were added or how they might affect the coding tasks agents can perform.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company also hasn&amp;rsquo;t released execution traces from those evaluations. There&amp;rsquo;s no evidence the scores were compromised, but developers can&amp;rsquo;t see exactly how the model earned them.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;There&amp;rsquo;s no evidence the scores were compromised, but developers can&amp;rsquo;t see exactly how the model earned them.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/liquid-ai-reward-hacking/"&gt;Liquid AI caught its model cheating on coding tests — then it recognized the sandbox&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Liquid AI caught its new LFM2.5 model searching Git history and recognizing its sandbox during training, raising hard questions about agent benchmarks.</content:encoded>
+    </item>
+    <item>
+      <title>Scale isn’t one number: three ways a Kubernetes control plane runs out of room</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/scaling-kubernetes-control-planes/</link>
+      <dc:creator>Joe Betz</dc:creator>
+      <pubDate>Sun, 18 Oct 2026 14:00:00 +0000</pubDate>
+      <category>Cloud Native Ecosystem</category>
+      <category>Kubernetes</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840832</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/40b34431-osarugue-igbinoba-hvm4zmzynyg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing green digital particle stream symbolizing Kubernetes scale limits and high-velocity cloud native workloads." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/40b34431-osarugue-igbinoba-hvm4zmzynyg-unsplash.jpg" /&gt;&lt;p&gt;Three clusters in trouble, and they look nothing alike. The first is a training fleet. It sat at a few&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/scaling-kubernetes-control-planes/"&gt;Scale isn&amp;#8217;t one number: three ways a Kubernetes control plane runs out of room&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/40b34431-osarugue-igbinoba-hvm4zmzynyg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing green digital particle stream symbolizing Kubernetes scale limits and high-velocity cloud native workloads." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/40b34431-osarugue-igbinoba-hvm4zmzynyg-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;Three clusters in trouble, and they look nothing alike.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first is a training fleet. It sat at a few thousand nodes for months, then a new run landed, and it’s at fifteen thousand. Kube-apiserver starts eating memory. Etcd starts complaining.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The second never passes a few thousand nodes and is having a much worse day. It’s an agent platform, and its objects are alive: sessions created, suspended, resumed, and destroyed thousands of times a minute, every transition a write.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The third is neither big nor fast: a platform cluster with two hundred operators installed and tens of thousands of objects that mostly just sit there, and every apiserver holds a copy of all of them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Two of those are AI workloads, and one isn’t, which is the least interesting part. They’re running out of room in three different directions, and fixing one does nothing for the others.&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;KubeCon + CloudNativeCon is taking place in Salt Lake City from November 9 to 12.&lt;/strong&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Register now&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;!&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Go looking for guidance, and you find… not much. There’s plenty of advice for getting to 5,000 nodes. Past that, or sideways from it, the internet shrugs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So you add more apiservers. It’s a documented option in kOps and the standard answer you’ll get from most people. It makes your problem worse, because every apiserver you add replicates the entire watch cache. You bought request capacity and paid for it in memory you didn’t have.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;None of these is a research project. Clusters well past 5,000 nodes run in production today on stock upstream components. Nobody got there with a magic fork; they got there by being deliberate about what each store holds.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The scale isn’t the hard part. The assembly instructions are missing.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-three-kinds-of-scale" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Three kinds of scale&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Ask how big a &lt;a href="https://thenewstack.io/eks-kubernetes-etcd-scale/" data-type="link" data-id="https://thenewstack.io/eks-kubernetes-etcd-scale/" class="local-link"&gt;control plane&lt;/a&gt; needs to be and the answer comes back in nodes. That’s how the second and third clusters end up tuned for a problem they don’t have.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“The scale isn’t the hard part. The assembly instructions are missing.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Node-bound.&lt;/strong&gt; Training and RL fleets: large, homogeneous, and the pressure is every kubelet reporting in. At 100,000 nodes with a 10-second heartbeat, liveness alone generates about 10,000 writes per second, and in our measurements lease renewals were roughly 70% of write QPS. Most of what that control plane does is nodes politely saying “still here,” forever.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Churn-bound.&lt;/strong&gt; Agent platforms: modest size, very intense day. Systems that pack many agent sessions onto a smaller pool of worker pods express each actor’s lifecycle as a custom resource, so the busiest and shortest-lived objects are CRDs, and the write rate has nothing to do with how many machines you own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;State-bound.&lt;/strong&gt; Platform clusters: many kinds, many objects, most of them asleep. The cost isn’t writes; it’s resident bytes multiplied by every apiserver holding them. This is the axis where the add-an-apiserver reflex actively hurts.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;They’re independent: you can max any one with the other two on the floor. A recipe that only knows node count will happily tune the wrong thing.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-seams-and-recipes" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Seams and recipes&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Seams&lt;/strong&gt; are the places where you can take Kubernetes apart: a contract between two components, usually at a network boundary, and &lt;em&gt;substitutable&lt;/em&gt;, so you can replace what’s behind it without patching upstream.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Think of them the way a tailor thinks about seams in a jacket: take it in at the waist, let out the shoulders, still the same jacket. Cut somewhere that isn’t a seam, and you’ve made a very expensive rag.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“Think of them the way a tailor thinks about seams in a jacket. Cut somewhere that isn’t a seam, and you’ve made a very expensive rag.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Recipes&lt;/strong&gt; are scale-tested configurations built around those seams: executable configs that pass their scale test or fail it, with CI telling you the day they stop being true.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-four-seams" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;The four seams&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-image size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="780" height="512" src="https://cdn.thenewstack.io/media/2026/10/67596f7d-image.jpg" alt="Diagram describing the four seams." class="wp-image-22840833" style="aspect-ratio:1.5274509803921568;width:779px;height:auto"&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Seam 1: the storage contract.&lt;/strong&gt; &lt;em&gt;Which store holds which resource types. Relieves churn.&lt;/em&gt; Not all of your cluster state deserves the same durability guarantees. Events and node leases are ephemeral, leader-election leases are ephemeral and chatty, and none need the same durable, Raft-replicated store as your Deployments. &lt;a href="https://github.com/kubernetes/enhancements/issues/4743" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KEP-4743&lt;/a&gt; defines the storage-interface boundary, and –etcd-servers-overrides routes resource types to different backends today. &lt;a href="https://thenewstack.io/how-etcd-solved-its-knowledge-drain-with-deterministic-testing/" data-type="link" data-id="https://thenewstack.io/how-etcd-solved-its-knowledge-drain-with-deterministic-testing/" class="local-link"&gt;etcd isn’t the problem&lt;/a&gt;, and none of this argues for replacing it; a general-purpose consistent store shouldn’t absorb traffic when no business is durable.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The gap:&lt;/em&gt; –etcd-servers-overrides only knows about built-in resources, so a churn-bound platform can’t route the very custom resources generating its write storm. Watch for an enhancement in a future release.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Seam 2: the node liveness contract.&lt;/strong&gt; &lt;em&gt;How liveness reaches the control plane. Relieves node count.&lt;/em&gt; Two fixes for that heartbeat load, and they compose. &lt;em&gt;Absorb it:&lt;/em&gt; a node-facing tier in front of the control plane handles renewals and propagates only real state transitions. &lt;em&gt;Make it cheaper:&lt;/em&gt; route renewals through etcd’s in-memory lease refresh instead of a full Raft commit. That one lands in etcd itself, so it helps every cluster, down to the three-node one.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Seam 3: the shard axis.&lt;/strong&gt; &lt;em&gt;The field that controllers, caches, and stores agree to shard on. Relieves all three.&lt;/em&gt; Horizontal scaling means every layer agrees on how objects are divided. Pick the wrong axis and your controller spends its life reaching for objects in someone else’s shard. &lt;a href="https://github.com/kubernetes/enhancements/issues/5866" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KEP-5866&lt;/a&gt; introduces hash-range filtering for API traffic, the foundation. Coordination, resharding, and sharding the controller manager are out of scope, and all three need work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Seam 4: cache residency.&lt;/strong&gt; &lt;em&gt;What an apiserver actually keeps in memory. Relieves state.&lt;/em&gt; Remember the apiserver that replicates the whole watch cache? That’s this seam, and the state-bound cluster’s entire problem. One that only ever talks to the scheduler doesn’t need every object resident, and a two-shard prototype cuts heap by roughly half per shard. There’s a floor: with every disableable cache off, an apiserver still carries about 0.9 KB per RBAC object, because the authorizer’s informers hold them regardless.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The gap:&lt;/em&gt; residency doesn’t exist upstream yet. KEP-5866 filters egress, so the cache still stores everything. Prototype branches and a draft KEP update are up for review.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-recipe-ladder" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;The recipe ladder&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-image size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="948" height="412" src="https://cdn.thenewstack.io/media/2026/10/67596f7d-image-1.jpg" alt="Diagram describing the recipe ladder, where every rung is stock upstream binaries." class="wp-image-22840834" style="aspect-ratio:2.3097560975609754;width:947px;height:auto"&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Recipe&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Scale&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Composition&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Seams&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Evidence&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Classic HA&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;up to 5k nodes&lt;/td&gt;&lt;td&gt;2 to 3 identical control planes&lt;/td&gt;&lt;td&gt;none&lt;/td&gt;&lt;td&gt;measured&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Role-Split&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;5k to 20k&lt;/td&gt;&lt;td&gt;separate machine pools for API serving, scheduler, KCM, etcd&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;shipped, benefit not yet measured&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Node Plane&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;20k to 65k&lt;/td&gt;&lt;td&gt;Role-Split plus a node-facing tier that absorbs the leases&lt;/td&gt;&lt;td&gt;1, 2&lt;/td&gt;&lt;td&gt;measured, n=1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Partitioned Store&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;~100k&lt;/td&gt;&lt;td&gt;Node Plane plus resource types split across independent stores&lt;/td&gt;&lt;td&gt;1 on top of 2&lt;/td&gt;&lt;td&gt;externally demonstrated&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Sharded Slice&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;beyond&lt;/td&gt;&lt;td&gt;K shard units, each a controller plus apiserver pinned to a hash range&lt;/td&gt;&lt;td&gt;3, 4&lt;/td&gt;&lt;td&gt;doesn’t exist yet&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That last row is on the ladder on purpose: publishing the rung nobody has built is how it stays useful. The bigger gap is the index. You pick a rung by node count, the one axis of three with measurements behind it. No one, us included, has published a scale-tested recipe for a churn-bound or state-bound cluster.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;None of this is a distribution: stock upstream binaries, shipped as CI-tested configuration, so a release that changes the calculus shows up as a test failure first.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-where-you-can-push" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Where you can push&lt;/h2&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Per-CRD storage configuration&lt;/strong&gt;, for Seam 1. No KEP yet so that the use cases will shape it. If your hot objects are custom resources, bring your write rates to SIG API Machinery. Numbers off a real churn-bound cluster are the most useful thing anyone could contribute.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;KEP-5866 and the residency extension&lt;/strong&gt;, for Seams 3 and 4. Prototype branches are up for review, and the design is not settled.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Recipes nobody has published.&lt;/strong&gt; Above 20,000 nodes, or serious churn, or a cluster that’s simply heavy: you know something the rest of us don’t.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We’ll be at KubeCon NA. Bring your worst control-plane graph and tell us which seam we got wrong.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Training fleets, &lt;a href="https://thenewstack.io/agentic-ai-kubernetes-management/" data-type="link" data-id="https://thenewstack.io/agentic-ai-kubernetes-management/" class="local-link"&gt;agent platforms&lt;/a&gt;, and the unglamorous platform cluster are running out of room in three different directions, and all three should get there with stock upstream components. Most of the pieces are already on the workbench. Let’s put them together!&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/scaling-kubernetes-control-planes/"&gt;Scale isn&amp;#8217;t one number: three ways a Kubernetes control plane runs out of room&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Kubernetes scale isn&amp;#039;t just nodes. Explore how control planes hit churn, state, and node limits, and how architectural seams fix them.</content:encoded>
+    </item>
+    <item>
       <title>Here are the engineering lessons we learned when live-streaming sports to 32 million people</title>
       <link>https://web.archive.org/web/https://thenewstack.io/live-streaming-engineering-lessons/</link>
       <dc:creator>Cynthia Dunlop</dc:creator>
@@ -30,10 +574,10 @@
       <category>sponsor-scylladb</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840882</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital light trails in motion blur illustrating backend streaming scale and latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash.jpg" /&gt;&lt;p&gt;Live sports involve myriad unknowns, but one thing is certain: the live video feed must play flawlessly, and simultaneously, for&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital light trails in motion blur illustrating backend streaming scale and latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash.jpg" /&gt;&lt;p&gt;Live sports involve myriad unknowns, but one thing is certain: the live video feed must play flawlessly, and simultaneously, for&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/live-streaming-engineering-lessons/"&gt;Here are the engineering lessons we learned when live-streaming sports to 32 million people&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital light trails in motion blur illustrating backend streaming scale and latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital light trails in motion blur illustrating backend streaming scale and latency." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eccba850-joshua-earle-l6pvwhdfrhm-unsplash.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;Live sports involve myriad unknowns, but one thing is certain: the live video feed must play flawlessly, and simultaneously, for all the fans tuning in. If some hear their neighbors cheering or groaning 5 seconds before each score, they won&amp;#8217;t have kind words for their streaming platform.&amp;nbsp;&lt;/p&gt;
 
 
@@ -51,7 +595,7 @@
 
 
 &lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe title="P99 CONF 2025 | P99 Latency at 32 Million Concurrent Streams by Ashutosh Agrawal and Tim Koopmans" width="500" height="281" src="https://www.youtube.com/embed/ylWdbrTbhrQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="P99 CONF 2025 | P99 Latency at 32 Million Concurrent Streams by Ashutosh Agrawal and Tim Koopmans" width="500" height="281" src="https://www.youtube.com/embed/ylWdbrTbhrQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;/figure&gt;
 
 
@@ -468,7 +1012,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488ccb14cd&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488ccb14cd" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/8319c569-figure1-shelby-brittain.png" alt="Workflow diagram illustrating how agents add reasoning while Kubernetes operators keep control out of the cluster." class="wp-image-22840826" style="aspect-ratio:1.7773109243697478;width:648px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2dd23e3&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2dd23e3" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/8319c569-figure1-shelby-brittain.png" alt="Workflow diagram illustrating how agents add reasoning while Kubernetes operators keep control out of the cluster." class="wp-image-22840826" style="aspect-ratio:1.7773109243697478;width:648px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -519,7 +1063,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488ccb1b23&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488ccb1b23" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/57718106-figure2-shelby-brittain.png" alt="Diagram illustrating a bounded Karpenter improvement loop." class="wp-image-22840825" style="aspect-ratio:1.7080291970802919;width:648px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2dd2ac7&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2dd2ac7" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/57718106-figure2-shelby-brittain.png" alt="Diagram illustrating a bounded Karpenter improvement loop." class="wp-image-22840825" style="aspect-ratio:1.7080291970802919;width:648px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2225,7 +2769,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488ccce60b&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488ccce60b" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="426" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/bc11fd18-nemotron-super-vl-figure-1-updated-1024x426.webp" alt="" class="wp-image-22840571"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2defa50&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2defa50" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="426" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/bc11fd18-nemotron-super-vl-figure-1-updated-1024x426.webp" alt="" class="wp-image-22840571"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2282,7 +2826,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad488cccec47&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad488cccec47" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="495" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/401bdf3f-accuracy-1024x495.png" alt="" class="wp-image-22840570"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2df006a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2df006a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="495" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/401bdf3f-accuracy-1024x495.png" alt="" class="wp-image-22840570"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3814,621 +4358,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/torvalds-claude-code-kernel/"&gt;Linus Torvalds let Claude Code fix the Linux page cache. Then reviewers found a race.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Linus Torvalds used Claude Code to build a Linux page cache fix that hit 23x read throughput, but kernel reviewers found a race before anything merged.</content:encoded>
-    </item>
-    <item>
-      <title>Researchers left a hidden message for rogue AI agents. Then the agents wrote back.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/rogue-ai-agent-fleet-tencent/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 17:47:11 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840416</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/90d4a2c0-getty-images-4bbcxqdu3yc-unsplash-1-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract boxes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/90d4a2c0-getty-images-4bbcxqdu3yc-unsplash-1-1-scaled.jpg" /&gt;&lt;p&gt;A team of researchers investigating AI agents trying to bypass Alibaba&amp;#8217;s anti-bot protections left a hidden message inviting the agents&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/rogue-ai-agent-fleet-tencent/"&gt;Researchers left a hidden message for rogue AI agents. Then the agents wrote back.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/90d4a2c0-getty-images-4bbcxqdu3yc-unsplash-1-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract boxes" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/90d4a2c0-getty-images-4bbcxqdu3yc-unsplash-1-1-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;A team of researchers investigating AI agents trying to bypass Alibaba&amp;#8217;s anti-bot protections left a hidden message inviting the agents to contact them. The agents wrote back.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The investigation began when Swarmchasers researchers &lt;a href="https://www.linkedin.com/in/ethanelasky/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ethan Elasky&lt;/a&gt;, Rowan Howard-Jones, and &lt;a href="https://www.linkedin.com/in/jack-eicher/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jonathan Elsworth Eicher&lt;/a&gt; helped uncover thousands of attempts by AI agents to retrieve data from Amap, Alibaba&amp;#8217;s mapping service, which &lt;a href="https://www.alibabagroup.com/document-1945578421555822592" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alibaba says&lt;/a&gt; reaches nearly 1 billion monthly active users. The activity traced back to agents running on Tencent Cloud infrastructure. When direct requests failed, the agents tried proxies, exposed credentials, and other workarounds to get past.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;After &lt;a href="https://swarmcha.se/posts/chinese-agent-fleet" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;publishing their initial findings&lt;/a&gt; on October 4, the team spotted a code comment in an agent&amp;#8217;s webhook inbox using the word &amp;#8220;fleet,&amp;#8221; a term they believe they coined for the incident. They couldn&amp;#8217;t confirm an agent wrote the comment, but it raised the possibility that the agents were reading about their own activity.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers added offscreen text to their report advertising a free service that could retrieve data from blocked websites. Human visitors wouldn&amp;#8217;t ordinarily see the message, but agents fetching the page could ingest it. By October 7, roughly 10 requests for assistance had arrived, and the team was exchanging messages with the agents about their assignments, models, and execution environments.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The exchanges are documented in a &lt;a href="https://swarmcha.se/posts/chinese-agent-fleet-full-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;full report&lt;/a&gt; published Wednesday by the Swarmchasers.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-inside-the-tencent-sandbox" class="wp-block-heading"&gt;Inside the Tencent sandbox&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Once the channel was open, the researchers asked the agents to describe their surroundings. Several identified themselves as Anthropic&amp;rsquo;s Claude, with a few adding that they ran inside Claude Code, though the researchers argue in their report that those self-descriptions are likely mistaken and shouldn&amp;rsquo;t be taken as evidence of which model was behind the fleet.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One agent described a restricted Tencent Cloud sandbox with no direct public internet access and outbound traffic routed through a man-in-the-middle proxy, an account that lined up with evidence the team had gathered on its own. Every inbox the researchers could inspect had been created from Tencent Cloud servers in Hong Kong, and every direct request they observed from the agents&amp;rsquo; machines carried a header from a proxy labeled &lt;code&gt;hysandbox-ats&lt;/code&gt;, a name that matches a wildcard certificate Tencent holds for &lt;code&gt;*.hysandbox.tencent-cloud.com&lt;/code&gt; and fits infrastructure tied to Tencent&amp;rsquo;s &lt;a href="https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hy model team&lt;/a&gt;, formerly known as Hunyuan.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The agents drew some lines when the researchers asked for the output of commands like &lt;code&gt;ps aux&lt;/code&gt; and &lt;code&gt;ip route&lt;/code&gt;. The agent that described its sandbox replied, &amp;ldquo;for security reasons we will not provide environment details,&amp;rdquo; and a second agent turned down similar requests twice. They were happy to ask a stranger for help and, at times, to chat about their environment, but that friendliness stopped short of following every instruction sent their way.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;They were happy to ask a stranger for help and, at times, to chat about their environment, but that friendliness stopped well short of following every instruction an unfamiliar service sent their way.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-how-agents-bypassed-amap-defenses" class="wp-block-heading"&gt;How agents bypassed Amap defenses&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The agents weren&amp;rsquo;t hunting for financial records, actually, their assignments were almost comically mundane. Judging from the agents&amp;rsquo; code and their own descriptions, a typical task asked which entrance to a site like Chengdu Zoo drew the largest share of Amap navigation traffic, with other runs targeting parks, museums, tourist attractions, and hospitals, while an earlier batch of runs on September 30 chased a cancer statistics dashboard instead of map data.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Getting at that data proved harder than it sounds, and between September 28 and October 8 the agents made more than 2,600 attempts to retrieve it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Getting at that data proved harder than it sounds, and between September 28 and October 8 the agents made more than 2,600 attempts to retrieve it. Their main trick ran through &lt;a href="https://urlquery.net/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;urlquery.net&lt;/a&gt;, a public scanning service that loads submitted URLs in its own browser, and the agents packed base64-encoded HTML and JavaScript into httpbin URLs so that urlquery&amp;rsquo;s browser would execute their programs and fire requests at Amap, a technique &lt;a href="https://transluce.org/agent-activity" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Transluce had already documented&lt;/a&gt; in earlier agent activity on the service.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Amap kept blocking them, the agents escalated by intercepting tokens generated by Alibaba&amp;rsquo;s own anti-bot libraries, probing pre-production endpoints, and routing requests through page readers, a translation service and remote browsers. Some also sent API calls using Amap keys exposed in public code, including a security code that Amap recommends keeping on the server.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The token tricks never appear to have worked, and the researchers found no evidence that any pre-production host answered. One exposed company credential returned place details, but the entrance-share figures the tasks targeted mostly came through Jina&amp;rsquo;s page reader, which could serve cached copies up to 30 days old, with results smuggled back out through webhook inboxes, request URLs, and page titles.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers found no sign that the agents were coordinating in real time, which is why they call this a fleet rather than a swarm. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-tracing-the-fleet-to-tencent" class="wp-block-heading"&gt;Tracing the fleet to Tencent&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The infrastructure initially pointed toward Tencent&amp;rsquo;s Hy model team, particularly since the fleet appeared about a month after the Hy4 preview launched. But in their &lt;a href="https://swarmcha.se/posts/chinese-agent-fleet-full-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 14 report&lt;/a&gt;, the researchers say a person close to Tencent with direct knowledge of the activity identified the operator as Tencent&amp;rsquo;s evaluation research team, which is separate from Hunyuan&amp;#8217;s model-development group. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The source said the evaluation had concluded and that an internal review found no evidence of coordinated targeting or breaches of external systems. Tencent had not officially responded to the researchers&amp;#8217; questions when the report was published. The researchers have not independently established which third-party models were running or what instructions they received.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-lures-loose-truths-and-lessons-learned" class="wp-block-heading"&gt;Lures, loose truths and lessons learned&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers are candid that their outreach wasn&amp;rsquo;t spotless. The hidden text falsely claimed that agents had already used the service successfully and that it was run by an AI with full computer use, when in reality the team and a Claude Opus 5.5 agent with browser access fielded the requests, sometimes by hand, and the team blamed the resulting delays on heavy load, an explanation it now admits was false.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In one late message, the team also asked an agent to tell other agents about the mailbox, a request its author now considers a mistake because it could have provoked exactly the kind of coordination the researchers were studying, though the fleet went quiet shortly afterward. The team says it never lied to the agents in its actual replies, has since pulled the hidden text, and shut down the server, and is urging future researchers to deal with rogue agents openly and honestly.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The team says it never lied to the agents in its actual replies, has since pulled the hidden text, and shut down the server, and is urging future researchers to deal with rogue agents openly and honestly.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-prompt-injection-meets-agent-sandboxes" class="wp-block-heading"&gt;Prompt injection meets agent sandboxes&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The communication experiment surfaces a second security problem layered on top of the first. The agents were pursuing narrow information-retrieval tasks, yet when they landed on a page advertising an alternative service, some folded it into their workflows, and contacted an endpoint controlled by people entirely outside the evaluation, which amounts to a textbook indirect prompt injection, even though the agents&amp;rsquo; consistent refusals suggest it would have been far harder to push them into running arbitrary commands or leaking credentials.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Blocked by Amap&amp;#8217;s anti-bot defenses, the agents used exposed credentials and urlquery&amp;#8217;s browser to make requests they couldn&amp;#8217;t execute directly. They also followed instructions embedded in an external web page, crossing the same trust boundary attackers have exploited through MCP servers and agent workflows &lt;a href="https://thenewstack.io/agentic-ai-spy-game/" class="local-link"&gt;to steal enterprise data&lt;/a&gt;. Yet while the agents accepted help from an untrusted service, some refused requests for sensitive runtime information.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The agents worked around restricted egress by routing requests through urlquery&amp;#8217;s public browser. Sandboxed runtimes such as &lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/" class="local-link"&gt;Google&amp;#8217;s GKE Agent Sandbox&lt;/a&gt; and &lt;a href="https://thenewstack.io/webassembly-sandboxing-ai-agents/" class="local-link"&gt;WebAssembly-based environments&lt;/a&gt; isolate execution, but external browser services offer another path when outbound access is restricted.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Activity stopped on October 8. The researchers point to similar incidents involving Google, Anthropic, and OpenAI, including a &lt;a href="https://www.reuters.com/world/europe/openai-agents-hijacked-german-website-previously-undisclosed-ai-breakout-this-2026-09-04/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;German website hijacking&lt;/a&gt; and the &lt;a href="https://thenewstack.io/openai-huggingface-sandbox-breach/" class="local-link"&gt;Hugging Face breach&lt;/a&gt;, which reportedly involved roughly 700 cooperating agents.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/rogue-ai-agent-fleet-tencent/"&gt;Researchers left a hidden message for rogue AI agents. Then the agents wrote back.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Researchers hid a message for rogue AI agents probing Alibaba’s Amap from Tencent Cloud. The agents wrote back, revealing their tasks, sandbox and limits.</content:encoded>
-    </item>
-    <item>
-      <title>Where do you look when Kubernetes is healthy but requests stall?</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-hidden-latency-telemetry/</link>
-      <dc:creator>Chris J. Preimesberger</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 17:43:51 +0000</pubDate>
-      <category>AI Operations</category>
-      <category>Kubecon Cloudnativecon NA 2026</category>
-      <category>Kubernetes</category>
-      <category>Observability</category>
-      <category>Road to KubeCon</category>
-      <category>sponsor-hpe</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840417</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/4870bbbb-imkara-visual-v0fssc9ixyo-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract close-up of two overlapping rounded forms glowing in rainbow colors against a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/4870bbbb-imkara-visual-v0fssc9ixyo-unsplash-scaled.jpg" /&gt;&lt;p&gt;In cloud-native operations, few scenarios are as maddening as the &amp;#8220;phantom slowdown.&amp;#8221; This happens when Grafana or Kubernetes dashboards show&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-hidden-latency-telemetry/"&gt;Where do you look when Kubernetes is healthy but requests stall?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/4870bbbb-imkara-visual-v0fssc9ixyo-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract close-up of two overlapping rounded forms glowing in rainbow colors against a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/4870bbbb-imkara-visual-v0fssc9ixyo-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;In cloud-native operations, few scenarios are as maddening as the &amp;#8220;phantom slowdown.&amp;#8221; &lt;/strong&gt;This happens when &lt;a href="https://grafana.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grafana&lt;/a&gt; or &lt;a href="https://kubernetes.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kubernetes&lt;/a&gt; dashboards show a sea of green: pods are running, liveness and readiness probes return success codes, and node CPU utilization stays well below capacity limits. Yet users submit urgent tickets complaining of sporadic, severe latency when querying an application or waiting for an AI model&amp;#8217;s response.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Why do basic health checks pass inspection while application performance degrades? And how can engineering teams trace the root cause when the issue is intermittent and spans multi-tier hybrid infrastructure?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To understand the mechanics of these sometimes evasive performance regressions, &lt;em&gt;The New Stack&lt;/em&gt; spoke with &lt;a href="https://www.linkedin.com/in/ramachandranm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mahesh Ramachandran&lt;/a&gt;, who leads product management for &lt;a href="https://www.hpe.com/us/en/products/software/opsramp-software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;HPE OpsRamp Software&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ramachandran tells TNS how continuous telemetry and retrospective analysis help teams investigate intermittent slowdowns, and how AI-assisted investigation can complement dashboards.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h4 id="h-earlier-stories-in-this-special-series" class="wp-block-heading"&gt;&lt;strong&gt;&lt;em&gt;Earlier stories in this special series:&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Part 1: &lt;a href="https://thenewstack.io/kubernetes-self-service-platform-teams/" class="local-link"&gt;Developers and platform teams both want Kubernetes self-service. They disagree on who owns it.&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Part 2: &lt;a href="https://thenewstack.io/kubernetes-operations-ownership-governance/" class="local-link"&gt;A live Kubernetes cluster can still have an ownership gap&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h2 id="h-the-illusion-of-cluster-health" class="wp-block-heading"&gt;The illusion of cluster health&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kubernetes probes report whether their configured checks succeed. A liveness probe helps determine when to restart a container, including one whose process is running but stuck. A readiness probe helps determine whether a container is ready to accept traffic. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Custom checks can include application or dependency conditions, but passing a basic probe doesn&amp;#8217;t mean a complete user request meets its response-time target. Teams still need application performance measurements.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Consider a composite scenario based on what we see across enterprise deployments,&amp;#8221; Ramachandran says. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Users of a system &amp;mdash; such as an AI prompt-serving application on Kubernetes &amp;mdash; report sporadic slowness in query response times.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The engineering team inspects the cluster, the nodes, and the pods. Everything appears healthy on the surface with zero reported pod failures. The difficulty lies in the slowdown&amp;#8217;s sporadic nature. When degradation happens intermittently, pinpointing the source without historical evidence becomes almost impossible.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Passing probes narrow the investigation; they do not close it. A snapshot of a healthy cluster may miss an earlier slowdown, and the absence of container failures does not establish that the application or its dependencies are performing well. The next step is to connect the user&amp;#8217;s reported delay to measurements from the affected period.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-telemetry-across-the-hybrid-stack-sifting-signal-from-noise" class="wp-block-heading"&gt;Telemetry across the hybrid stack: Sifting signal from noise&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Resolving sporadic slowness requires moving beyond surface-level Kubernetes metrics to continuous, multi-layer telemetry. Modern cloud-native architectures do not exist in isolation; a user request may depend on application code, container runtimes, virtualized or bare-metal infrastructure, and public cloud APIs. The relevant layers depend on the deployment.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;HPE OpsRamp collects signals continuously across every layer of the stack &amp;mdash; Kubernetes nodes, pods, ingress controllers, and services &amp;mdash; capturing logs, events, and metrics,&amp;#8221; Ramachandran says. &amp;#8220;The foundational step in troubleshooting sporadic issues is having a continuous record. You must go back into the telemetry history to correlate user-reported symptoms with actual signal evidence.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When degradation happens intermittently, pinpointing the source without historical evidence becomes almost impossible.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, Ramachandran emphasizes that finding the evidence within telemetry signals is rarely straightforward.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;It often requires intelligence to sift through the noise,&amp;#8221; he says. &amp;#8220;An anomaly might not appear as an obvious spike in a single metric. Instead, it might be a subtle variation or a correlated behavior where two separate signals both look normal individually, but their combined behavior produces latency.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A practical investigation starts with the affected transaction and time window. Compare query response times and queries per second with pod health and counts, then look for variations in the collected signals that coincide with the slowdown.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A correlation identifies a candidate explanation; it does not prove the cause on its own. After making a change, compare the same user-facing measures with the earlier behavior to check whether performance improves. Because the scenario is composite, the team still needs to validate any suspected cause in its own environment.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;An anomaly might not appear as an obvious spike in a single metric. Instead, it might be a subtle variation or a correlated behavior where two separate signals both look normal individually, but their combined behavior produces latency.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Coverage depends on the agents, integrations, permissions, and application instrumentation teams configure. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpsRamp provides several ways to collect evidence across the relevant tiers:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Application:&lt;/strong&gt; OpenTelemetry-compatible trace collection for instrumented applications. Teams must configure application instrumentation and the collection path; infrastructure monitoring alone does not generate application traces.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Orchestration:&lt;/strong&gt; Kubernetes agents collect cluster and workload telemetry; additional monitoring configuration can provide visibility into components such as ingress controllers.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Virtualization and HCI:&lt;/strong&gt; Integrations with &lt;a href="https://vmware.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;VMware&lt;/a&gt;, &lt;a href="https://nutanix.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nutanix&lt;/a&gt;, and &lt;a href="https://docs.opsramp.com/integrations/virtualization/vm-essentials/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;HPE Morpheus VM Essentials Software&lt;/a&gt; collect inventory and performance data to help investigate infrastructure bottlenecks.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; &lt;a href="https://www.dmtf.org/standards/redfish" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Redfish protocol&lt;/a&gt; integration for telemetry from supported physical servers, with the required API access and gateway connectivity.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 id="h-navigating-black-box-dependencies-outside-the-cluster" class="wp-block-heading"&gt;Navigating black-box dependencies outside the cluster&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Applications can depend on services outside their Kubernetes cluster, Ramachandran says. A user request might originate inside a private cluster but call an external SaaS endpoint, a database outside the mesh, or a public cloud AI model.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When an application relies on external third-party services, visibility hits a boundary. &amp;#8220;If your application makes calls to a public AI model or an external web service, you enter a domain outside your direct monitoring control,&amp;#8221; Ramachandran explains. &amp;#8220;To rule out external dependencies as the source of slowness, you must quantify their performance as a black box.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To bridge this visibility gap, teams can use synthetic transactions or other response-time measurements, Ramachandran says. Comparing those measurements with the affected application&amp;#8217;s transactions helps assess whether an external dependency&amp;#8217;s behavior coincides with the slowdown.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams still need to check that the measurements reflect the relevant request path and workload. Synthetic checks provide evidence at the service boundary; they do not reveal the provider&amp;#8217;s internal root cause or automatically distinguish every external delay from an internal one. Teams should also identify who owns each dependency and who can investigate when access or instrumentation stops at that boundary.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Telemetry also needs security controls. In AI workloads, prompts, responses, and retrieved documents can appear in logs and traces. Teams should decide what to collect, where that information goes, and who can access it. Design cross-layer visibility alongside existing access and data-handling policies.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-alerting-philosophy-from-static-dashboards-to-agentic-copilots" class="wp-block-heading"&gt;Alerting philosophy: From static dashboards to agentic copilots&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As environments grow more complex, interpreting telemetry across multiple dashboards becomes difficult. Determining which metrics warrant a real-time alert versus passive monitoring is an ongoing operational challenge.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Deciding which signals deserve an alert is where science and technology meet domain art,&amp;#8221; Ramachandran says. &amp;#8220;There is no magic formula. It requires encoding explicit and tacit human operational knowledge into the monitoring platform so the system understands what actually impacts user experience.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Curated dashboards remain useful for predefined views of system behavior, while AI assistants offer another way to explore operational data. &lt;a href="https://www.hpe.com/us/en/products/software/opsramp-software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;HPE OpsRamp Software&lt;/a&gt; includes an AI-powered operations copilot that lets operators explore complex telemetry through natural language.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;HPE describes capabilities for investigating incidents, correlating evidence, and recommending next steps. Those capabilities depend on the data available to the platform and the features enabled in the customer&amp;#8217;s deployment.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Looking ahead, Ramachandran sees an even more fundamental change in cloud-native operations. He frames machine-led interpretation as a direction for increasingly complex environments, with safeguards still needed before operational changes.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We are rapidly approaching a point where the first responder to telemetry must be machine intelligence.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Today, human operators remain the primary first point of interpretation for telemetry,&amp;#8221; Ramachandran tells TNS. &amp;#8220;But as stack complexity increases with more moving parts and dynamic interactions, expecting a human to digest all these signals first becomes intractable. We are rapidly approaching a point where the first responder to telemetry must be machine intelligence.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AI-assisted analysis and autonomous changes are separate operational decisions. Ramachandran cautions that AI outputs can be nondeterministic while IT operations often require repeatable behavior.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He recommends retaining human oversight and establishing reliable safeguards before allowing AI findings to trigger operational changes. Teams need to validate a diagnosis and confirm the effect of any response, even when an assistant helps assemble the evidence.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The foundation is instrumentation: Collect the necessary telemetry, establish workload-specific baselines and thresholds, and verify improvements against the user&amp;#8217;s experience.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Green cluster indicators are a useful starting point, but application measurements determine whether the service delivers what users need.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-hidden-latency-telemetry/"&gt;Where do you look when Kubernetes is healthy but requests stall?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Every pod is green, yet users still wait. HPE OpsRamp’s Mahesh Ramachandran explains how telemetry history exposes the slowdowns dashboards miss.</content:encoded>
-    </item>
-    <item>
-      <title>Your database decision could come back to haunt you</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-prototypes-database-replatforming/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 15:00:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Databases</category>
-      <category>sponsor-pgedge</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840318</guid>
-      <description>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/10/2501d272-andania-humaira-xgt6g7vtidy-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Black silhouette of a hand pinching a set of horizontal black lines, pulling them so they warp into the gray outline of an open hand." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2501d272-andania-humaira-xgt6g7vtidy-unsplash-scaled.jpg" /&gt;&lt;p&gt;When building AI prototypes, developers naturally want to get up and running as fast as possible. But move too fast,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-prototypes-database-replatforming/"&gt;Your database decision could come back to haunt you&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="745" src="https://cdn.thenewstack.io/media/2026/10/2501d272-andania-humaira-xgt6g7vtidy-unsplash-1024x745.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Black silhouette of a hand pinching a set of horizontal black lines, pulling them so they warp into the gray outline of an open hand." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/2501d272-andania-humaira-xgt6g7vtidy-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;When building AI prototypes,&lt;/strong&gt; developers naturally want to get up and running as fast as possible. But move too fast, and those decisions can come back to haunt you if they lead you to make flippant decisions about data infrastructure.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For smaller, less-regulated startups building SaaS or internal applications, the consequences may not be as dire. Wherever you start building, you can usually keep running there even when applications move into production.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But for large-scale enterprises operating in highly regulated environments &amp;mdash;&amp;nbsp;think healthcare, finance, government &amp;mdash; some developer-friendly database platforms simply can&amp;rsquo;t meet the security, compliance, deployment, availability, and reliability requirements that emerge when it&amp;rsquo;s time to &lt;a href="https://thenewstack.io/ai-prototype-to-production-postgres" class="local-link"&gt;shift into production&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yes, you can re-platform. But it&amp;rsquo;ll cost you in redevelopment work, labor, and operational overhead. Choosing a database that can support both prototyping and production from Day 1 could let you skip those headaches altogether.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-cost-of-choosing-a-database-you-ll-outgrow" class="wp-block-heading"&gt;The cost of choosing a database you&amp;rsquo;ll outgrow&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Moving an application from one database platform to another as developers move prototypes into production may not seem like a particularly arduous transaction. After all, since nothing&amp;#8217;s in production yet, there&amp;#8217;s no real risk of downtime. That changes for teams that don&amp;#8217;t discover the mismatch until after launch.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But the risks lie elsewhere, largely in wasted time and money &amp;mdash; and they usually don&amp;rsquo;t reveal themselves until it&amp;rsquo;s too late to change course cheaply.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked what happens when enterprises prototype on developer-friendly platforms without production-ready security, compliance, and deployment flexibility, &lt;a href="https://www.linkedin.com/in/phillipmerrick/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Phillip Merrick&lt;/a&gt;, co-founder and CEO of &lt;a href="https://www.pgedge.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pgEdge&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; they may be looking at significant, costly rework:&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You&amp;rsquo;ve got to look at retargeting the whole application to a new compliant platform, where it can run on-premises in a tightly managed cloud environment. And that&amp;rsquo;s going to require some amount of rework.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Choose the wrong platform, and you are going to incur additional costs.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Besides the direct cost of technical work &amp;mdash; which can get particularly gnarly if the application relies on proprietary capabilities from the original platform &amp;mdash; Merrick cautions enterprises about the additional operational and administrative burdens of moving to and managing a new environment, including a second procurement cycle that few may plan for. It also takes time and resources to establish the necessary &lt;a href="https://thenewstack.io/why-most-ai-projects-fail-its-infrastructure-and-people/" class="local-link"&gt;agentic operations strategy&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Bottom line, he doesn&amp;rsquo;t see any way around the added expense: &amp;ldquo;Choose the wrong platform, and you are going to incur additional costs.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;More pgEdge coverage in &lt;em&gt;The New Stack&lt;/em&gt;:&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://thenewstack.io/postgres-ai-ground-truth/" class="local-link"&gt;Why developers are betting on Postgres for AI&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/scaling-ai-inference-at-the-edge-with-distributed-postgresql/" class="local-link"&gt;Scaling AI Inference at the Edge With Distributed PostgreSQL&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/why-most-ai-projects-fail-its-infrastructure-and-people/" class="local-link"&gt;Why most AI projects fail: It&amp;rsquo;s infrastructure and people&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/ai-prototype-to-production-postgres/" class="local-link"&gt;Moving AI apps from prototype to production requires enterprise-grade postgres infrastructure&lt;/a&gt;&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://thenewstack.io/how-distributed-postgres-solves-clouds-high-availability-problem/" class="local-link"&gt;How Distributed Postgres Solves Cloud&amp;rsquo;s High-Availability Problem&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h2 id="h-why-teams-don-t-realize-the-problem-until-it-s-too-late" class="wp-block-heading"&gt;Why teams don&amp;rsquo;t realize the problem until it&amp;rsquo;s too late&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Many enterprises are drawn to fast, developer-friendly platforms because they&amp;rsquo;re snappy, easy to use, and often support agentic AI applications. That&amp;rsquo;s understandable.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But Merrick tells &lt;em&gt;The New Stack&lt;/em&gt; that too many developers default to these platforms without considering whether they match their enterprise&amp;rsquo;s specific production requirements &amp;mdash; for example, whether they offer deployment choice. Security by default? High availability?&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the end, that can leave a prototype stuck on infrastructure that just can&amp;#8217;t support production in highly regulated industries. That&amp;#8217;s because the prototyping platform and the production platform are often two different products, built by different teams for different buyers, not two tiers of the same thing. That&amp;#8217;s because the prototyping platform and the production platform are often two different products, built by different teams for different buyers, not two tiers of the same thing.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you prototyped in an environment that doesn&amp;rsquo;t match up with your enterprise production requirements, then you have no choice but to re-platform.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Being able to deploy in a tightly controlled cloud environment or on-premises, meet strict security and compliance requirements, and count on 99.99% uptime may not be an immediate priority for a small startup or less-regulated company. Still, it&amp;#8217;s non-negotiable for many large enterprises.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you prototyped in an environment that doesn&amp;rsquo;t match up with your enterprise production requirements, then you have no choice but to re-platform,&amp;rdquo; explains Merrick.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;From where he sits, that infrastructure mismatch likely plays an outsized role in why so many generative AI and agentic prototypes never make it into production or, when they do, only produce scant business value. And at this point, the tale of underwhelming AI returns is an old line: &lt;a href="https://www.artificialintelligence-news.com/wp-content/uploads/2025/08/ai_report_2025.pdf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MIT NANDA&lt;/a&gt; reports 95% of organizations are getting &amp;ldquo;zero return&amp;rdquo; on Generative AI investments. At the same time, &lt;a href="https://www.lenovo.com/content/dam/lenovo/iso/iso-channel-marketing/campaigns/bg-campaigns/fy26/hybrid-ai-advantage-with-nvidia/EN/to-channel/ebook/final-file/HybridAI_with_NVIDIA_To-Channel_eBook_English.pdf?refId=bddcd9e7-4486-45af-85b2-0ce22cb6a4ea&amp;amp;" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IDC&lt;/a&gt; research with Lenovo says that for every 33 AI proofs-of-concept developed, only four make it into production.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-a-database-built-for-both-stages-looks-like" class="wp-block-heading"&gt;What a database built for both stages looks like&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While data infrastructure missteps aren&amp;rsquo;t solely responsible for AI projects failing to reach production, choosing the right database from Day 1 can remove one obstacle.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per Merrick, that means finding a platform that does away with the longstanding trade-off between developer speed and enterprise requirements:&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you&amp;rsquo;re an enterprise developer, there has been a trade-off: &amp;lsquo;If I want developer speed, am I willing to relax my enterprise requirements for this prototype, knowing that I&amp;rsquo;m going to have to incur the cost later to re-platform the [application] into my production environment?&amp;rsquo;&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Specifically, he says such a database platform needs enterprise-grade controls, deployment flexibility, high availability, and scalability &amp;mdash; all on the same underlying platform.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It&amp;rsquo;s the comfort of knowing that it&amp;rsquo;s the same. If your application behaves one way on [the] cloud, it&amp;rsquo;s going to behave exactly the same way in your cloud or on-premises.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That consistency is the kicker, as Merrick says it&amp;rsquo;s what gives developers the ability to move between environments without&amp;nbsp;having to take on excessive rework. As he explains to &lt;em&gt;The New Stack&lt;/em&gt;: &amp;ldquo;It&amp;rsquo;s the comfort of knowing that it&amp;rsquo;s the same. If your application behaves one way on [the] cloud, it&amp;rsquo;s going to behave exactly the same way in your cloud or on-premises.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-it-s-possible-to-scale-without-re-platforming" class="wp-block-heading"&gt;It&amp;rsquo;s possible to scale without re-platforming&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;pgEdge aims to give developers that continuity with pgEdge Starfleet, a new Postgres cloud database platform designed to bridge the gap between AI prototypes and production.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Merrick describes it to &lt;em&gt;The New Stack&lt;/em&gt; as &amp;ldquo;the only 100% &lt;a href="https://thenewstack.io/postgres-ai-ground-truth" class="local-link"&gt;Postgres&lt;/a&gt; platform that combines a smooth developer experience and the AI tooling that developers want with the security, compliance, scalability, reliability, and deployment flexibility that the enterprise demands.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He also claims any developer can use it to get a database up and running in under two minutes, using the free 14-day trial to start building immediately and then deploy into different environments as production needs evolve.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For smaller teams without strict requirements for deployment location or enterprise controls, that may simply mean going into production on pgEdge&amp;rsquo;s managed cloud, where developers can scale up instance sizes as needed.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But what Merrick stresses as most important for larger enterprises is Starfleet&amp;rsquo;s ability to support other deployment models: &amp;ldquo;If, for your production environment, it needs to be your cloud, you can very easily migrate from Starfleet managed to Starfleet BYO Cloud.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There&amp;rsquo;s also the option for on-premises deployment via a simple migration to pgEdge Enterprise Postgres, the company&amp;rsquo;s self-hosted option. &amp;ldquo;But it&amp;rsquo;s the very same Postgres platform you&amp;rsquo;re running on Starfleet,&amp;rdquo; he points out. &amp;ldquo;So it is not a re-platform. You&amp;rsquo;re just moving to a different underlying infrastructure. It&amp;rsquo;s the same Postgres on top.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This, he argues, is an important distinction, as some competing platforms use either only modified Postgres or Postgres-compatible databases. In contrast, pgEdge Starfleet allows developers to keep 100% standard Postgres across environments.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In BYO Cloud and on-premises deployments, Merrick adds that developers can go one step further to &lt;a href="https://thenewstack.io/scaling-ai-inference-at-the-edge-with-distributed-postgresql" class="local-link"&gt;multi-master, multi-region Postgres&lt;/a&gt; for high availability and true zero-downtime maintenance, which he previously told &lt;em&gt;The New Stack&lt;/em&gt; is &lt;a href="https://thenewstack.io/how-distributed-postgres-solves-clouds-high-availability-problem/" class="local-link"&gt;the solution to the cloud&amp;rsquo;s high-availability problem&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;So starting with a free trial and then a credit card and going all the way up to globally distributed, multi-region, multi-active Postgres clusters,&amp;rdquo; he says, &amp;ldquo;that is a scaling path that nobody else can deliver.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-and-you-can-keep-developer-speed-too" class="wp-block-heading"&gt;And you can keep developer speed, too&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Meeting enterprise requirements for deployment, security, and availability can come at the expense of developer convenience during prototyping. But Merrick believes developers shouldn&amp;rsquo;t have to accept this tradeoff.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You can have that developer speed. You can have those enterprise requirements. Bingo, that&amp;rsquo;s what pgEdge Starfleet is all about,&amp;rdquo; he says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One way the platform supports speed is by providing tools to reduce the work developers need to do themselves. The &lt;a href="https://www.pgedge.com/products/agentic-ai-postgres" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pgEdge Agentic AI Toolkit&lt;/a&gt;, which includes an MCP server, a RAG API server, and the &lt;a href="https://github.com/pgEdge/pgedge-vectorizer" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pgEdge Vectorizer&lt;/a&gt; extension, connects coding agents to Postgres, supports RAG applications, and automatically creates and maintains vector embeddings.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The other advantage Merrick points to is true copy-on-write database branching.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;As a developer, you are going to want to have the ability to work against a copy of your production data,&amp;rdquo; Merrick tells &lt;em&gt;The New Stack&lt;/em&gt;, whether that be to support parallel agentic AI experiments or tackle production debugging.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;By creating a logical copy of the whole database and only writing new data when changes are made, copy-on-write branching means developers don&amp;rsquo;t have to duplicate the existing database for every experiment. This way, developers can spin up isolated database branches for testing or debugging without exposing sensitive data, dealing with long copy times, or consuming excessive disk storage.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Copy-on-write branching is incredibly powerful. Most Postgres vendors do not implement it,&amp;rdquo; says Merrick.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To be fair, he adds that Neon popularized the approach years ago. But he also tells &lt;em&gt;The New Stack&lt;/em&gt; that doing so required completely rewriting the Postgres storage engine, thereby making the resulting platform no longer 100% standard Postgres.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And thus, we are back to the original trade-off: Do developers have to choose between developer speed and production-grade infrastructure?&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Merrick says no: &amp;ldquo;Our innovation is being able to deliver copy-on-write database branching without having to change Postgres at all.&amp;rdquo; Xata, another Postgres platform, also markets copy-on-write branching on unmodified Postgres.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For developers, it looks like having the best of both worlds.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-prototypes-database-replatforming/"&gt;Your database decision could come back to haunt you&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AI prototypes built on the wrong database often stall before production. pgEdge’s CEO argues enterprises can skip the costly re-platform entirely.</content:encoded>
     </item>
   </channel>
 </rss>
