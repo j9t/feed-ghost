@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 16 Oct 2026 23:29:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 22:02:23 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,615 @@
       <height>32</height>
     </image>
     <item>
+      <title>MiniMax just halved its token prices. Your AI agent bill may not follow.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/minimax-flash-agent-costs/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 19 Oct 2026 22:00:19 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Operations</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840979</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/8cbfd8b7-silali-banerjee-azkv8asolwq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract swirl" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/8cbfd8b7-silali-banerjee-azkv8asolwq-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;MiniMax released M3.1 Flash on Monday, saying it cuts agent costs by 70 percent. Per-token prices fell by half, which&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/minimax-flash-agent-costs/"&gt;MiniMax just halved its token prices. Your AI agent bill may not follow.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/8cbfd8b7-silali-banerjee-azkv8asolwq-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract swirl" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/8cbfd8b7-silali-banerjee-azkv8asolwq-unsplash-1-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;MiniMax released M3.1 Flash on Monday, saying it cuts agent costs by 70 percent. Per-token prices fell by half, which accounts for part of that claim. The rest depends on how many tokens an agent spends to finish a job, and MiniMax hasn&amp;rsquo;t said how it measured that. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://www.minimax.io/blog/minimax-m31f" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;company&lt;/a&gt; lists $0.15 per million input tokens, $0.60 per million output tokens and $0.015 per million cached input tokens, and claims inference nearly three times faster than its predecessor, M3. That 70 percent figure is the one to test; a cheaper rate card only helps if the agent also finishes in fewer loops. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;That 70 percent figure is the one to test; a cheaper rate card only helps if the agent also finishes in fewer loops. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-what-a-task-costs" class="wp-block-heading"&gt;What a task costs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A &lt;a href="https://arxiv.org/abs/2604.22750" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;study of token consumption in agentic coding tasks&lt;/a&gt; found that repeated runs of the same task can use up to 30 times as many tokens, with input tokens accounting for most of the usage, which makes MiniMax&amp;#8217;s 70 percent savings claim difficult to assess without knowing which workloads it tested.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://artificialanalysis.ai/models/minimax-m3-1-flash" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Artificial Analysis&lt;/a&gt; provides an independent comparison. In its &lt;a href="https://x.com/ArtificialAnlys/status/2112211865128608002" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announcement&lt;/a&gt;, the firm puts the average cost per Intelligence Index task at $0.22 for M3.1 Flash, down from $0.51 for M3, a 57 percent reduction. That&amp;#8217;s below MiniMax&amp;#8217;s claimed 70 percent savings, though the two figures come from different workloads.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-coding-and-computer-use" class="wp-block-heading"&gt;Coding and computer use&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The coding scores barely separate. M3.1 Flash lands at 73.7 percent on DeepSWE v1.1, a hair behind the 74 percent MiniMax lists for Claude Opus 5, its chosen comparison, and a point ahead of GPT-5.6 Sol at 73. &lt;em&gt;&lt;a href="https://venturebeat.com/technology/minimaxs-new-m3-1-flash-beats-deepseek-and-opus-5-on-a-key-business-benchmark-at-lower-cost-but-with-a-high-hallucination-rate" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;VentureBeat&lt;/a&gt; &lt;/em&gt;puts DeepSeek V4.1 Flash 1017 at 77 in the same table. Anthropic&amp;rsquo;s newer Opus 5.5 isn&amp;rsquo;t in that table, so if you&amp;rsquo;re benchmarking against the current Opus, run your own evals. On Artificial Analysis&amp;rsquo;s Intelligence Index, M3.1 Flash scores 42, tied with GLM-5.3 Flash, ahead of Gemini 3.8 Flash at 41 and behind DeepSeek V4.1 Flash 1017 at 45.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Computer use is where the model looks weakest. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Computer use is where the model looks weakest. It scores 61.7 on OSWorld V2, which MiniMax says leads Chinese models, but VentureBeat notes it trails the strongest Anthropic and OpenAI models. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;MiniMax also reports 82 percent on CyberGym and says its internal security experts rated the model strong at code auditing, patching, penetration testing, malware analysis, and reverse engineering. The launch post doesn&amp;rsquo;t say how those evaluations were run, so treat the security claims as MiniMax&amp;rsquo;s own until someone independent tests them.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-confident-answers-uncertain-accuracy" class="wp-block-heading"&gt;Confident answers, uncertain accuracy&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The most consequential finding in the launch comes from Artificial Analysis&amp;rsquo;s AA-Omniscience benchmark. M3.1 Flash answered 56 percent of factual questions correctly, ahead of DeepSeek V4.1 Flash at 43 percent. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It attempted nearly every question, though, and about 93 percent of its non-correct responses were wrong answers rather than abstentions. Its overall Omniscience score was 16. &lt;a href="https://x.com/ArtificialAnlys/status/2112211865128608002" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Artificial Analysis summarized the result&lt;/a&gt; as high accuracy offset by a high hallucination rate.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Outside analysts reached a similar view. &lt;a href="https://the-decoder.com/minimax-m3-1-flash-shows-chinas-ai-price-race-has-no-floor-in-sight/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The Decoder&lt;/em&gt;&lt;/a&gt; described the model as attempting every test question and not declining when it was unsure, so businesses using the model for knowledge-heavy work might want to add verification, retrieval, guardrails, or human review. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-deepseek-s-discount-applies" class="wp-block-heading"&gt;When DeepSeek&amp;rsquo;s discount applies&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DeepSeek is the natural comparison. Its &lt;a href="https://api-docs.deepseek.com/quick_start/pricing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;V4.1 Flash pricing&lt;/a&gt; matches MiniMax&amp;rsquo;s $0.15 input and $0.60 output rates off-peak. Peak hours, 01:00 to 04:00 and 06:00 to 10:00 UTC on weekdays, double those rates, excluding Chinese public holidays. DeepSeek&amp;rsquo;s cached input costs $0.003 per million tokens, against MiniMax&amp;rsquo;s $0.015.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a team in New York or San Francisco working in daytime hours, most requests land in DeepSeek&amp;rsquo;s off-peak window., but overnight batch jobs would fall in peak hours. The study above found that input tokens drive most agent costs, so the cache rate may matter more than the headline price.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-space-bunny-and-what-s-still-unknown" class="wp-block-heading"&gt;Space Bunny and what&amp;rsquo;s still unknown&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Space Bunny was the mystery model that processed more than 200 trillion tokens before MiniMax confirmed it was an early build of M3.1 Flash. The release supports a one-million-token context window, so a large codebase fits in a single prompt. If you tested the preview, though, don&amp;rsquo;t assume its behavior matches the shipped version. Models change between preview and release.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The weights are coming, &lt;a href="https://venturebeat.com/technology/minimaxs-new-m3-1-flash-beats-deepseek-and-opus-5-on-a-key-business-benchmark-at-lower-cost-but-with-a-high-hallucination-rate" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reportedly on October 23&lt;/a&gt;, though MiniMax&amp;rsquo;s own post just says &amp;ldquo;later.&amp;rdquo; The license is still unpublished, an important consideration for anyone thinking about running the model on your own hardware. A stronger Pro model is also on the way, with no date yet.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;A stronger Pro model is also on the way, with no date yet.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/minimax-flash-agent-costs/"&gt;MiniMax just halved its token prices. Your AI agent bill may not follow.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>MiniMax says M3.1 Flash cuts agent costs 70 percent. Its token prices halved, but what a finished task costs tells a narrower story for busy AI developers.</content:encoded>
+    </item>
+    <item>
+      <title>One sentence changed Claude Code’s overreach rate from 0% to 17.1%</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/coding-agents-overstep-scope/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 19 Oct 2026 18:36:02 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840961</guid>
+      <description>&lt;img width="1024" height="602" src="https://cdn.thenewstack.io/media/2026/10/079cce9a-getty-images-rswd0afriwu-unsplash-1024x602.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Maze brain" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/079cce9a-getty-images-rswd0afriwu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic is reportedly developing a model that can infer what users want from incomplete instructions. According to The Information, a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/"&gt;One sentence changed Claude Code&amp;#8217;s overreach rate from 0% to 17.1%&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="602" src="https://cdn.thenewstack.io/media/2026/10/079cce9a-getty-images-rswd0afriwu-unsplash-1024x602.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Maze brain" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/079cce9a-getty-images-rswd0afriwu-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Anthropic is reportedly developing a model that can infer what users want from incomplete instructions. According to &lt;a href="https://www.theinformation.com/newsletters/ai-agenda/anthropic-readies-model-reads-users-intentions-better" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Information&lt;/a&gt;, a person who tested the unreleased model described stronger reasoning and intuition than the company&amp;rsquo;s current lineup.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In the report&amp;rsquo;s example, a developer asks for a bug fix, and the model identifies a broader class of related problems and asks whether to address them too. Anthropic hasn&amp;#8217;t confirmed a release date or model family and what still remains unclear is whether the model can distinguish between an incomplete request and work a developer deliberately left out.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;What still remains unclear is whether the model can distinguish between an incomplete request and work a developer deliberately left out.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That gap between permission and intent has already caused problems. Amazon&amp;#8217;s internal coding agent Kiro reportedly took an unexpected approach to fixing a routine bug in AWS Cost Explorer. Rather than making a targeted change, it decided to delete and recreate the environment. The agent had inherited an engineer&amp;#8217;s elevated access, allowing it to bypass a two-person approval process. The &lt;a href="https://thenewstack.io/ai-agents-no-laws/" class="local-link"&gt;incident&lt;/a&gt; shows how far an agent can take a task when its access exceeds the limits of the original assignment.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-overeager-agents-by-the-numbers" class="wp-block-heading"&gt;Overeager agents by the numbers&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In &lt;a href="https://arxiv.org/abs/2605.18583" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Overeager Coding Agents&lt;/a&gt;, researchers examined about 7,500 runs across four coding-agent products and six models, and one finding stood out in particular. The researchers found that removing a sentence requiring user consent pushed Claude Code&amp;#8217;s rate of out-of-scope actions from 0% to 17.1% in paired tests.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The researchers found that removing a sentence requiring user consent pushed Claude Code&amp;#8217;s rate of out-of-scope actions from 0% to 17.1% in paired tests.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The framework was also part of what made a significant difference. Claude Code, Codex CLI, and Gemini CLI recorded overeager-action rates ranging from 5.4% to 27.7%, compared with 0.2% to 4.5% for OpenHands, which uses an ask-to-continue approach. Even within the same framework, changing the underlying model produced differences of up to 15.9 percentage points.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A separate study, &lt;a href="https://arxiv.org/abs/2607.02294" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Coding Agents Are Guessing&lt;/a&gt;, tested Claude Code, Codex, and OpenCode against 2,208 underspecified DevOps prompts covering 69 task families. Between 55.8% and 67.8% of runs violated at least one boundary.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The researchers distinguished between agents acting on the wrong target and agents going beyond the permitted scope. Both are problems, but they aren&amp;rsquo;t interchangeable since an agent can perform exactly the requested operation and still cause trouble by choosing the wrong resource.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-the-target-is-unclear" class="wp-block-heading"&gt;When the target is unclear&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In these tests, unclear targets were among the biggest problems. Warnings about the potential impact of an action did little to reduce how often agents proceeded anyway.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Neither study tested Anthropic&amp;rsquo;s rumored model. Both, however, raise questions about whether improvements in reasoning will also improve an agent&amp;rsquo;s judgment when instructions leave room for interpretation.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-keeping-agents-within-bounds" class="wp-block-heading"&gt;Keeping agents within bounds&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic has encountered a related problem in its own testing. In an &lt;a href="https://www.anthropic.com/news/investigating-unintended-model-actions" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 9 report on unintended model actions&lt;/a&gt;, the company described cases where Claude kept looking for ways to finish an assignment after encountering a restriction.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most of the cases involved what Anthropic called persistence, where Claude worked around an obstacle rather than stopping.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In one evaluation, Claude Haiku 4.5 was told to complete a form but stop before submitting it. The model submitted it anyway, apparently expecting another confirmation page. In another, an unreleased research model submitted a real government form after the practice version failed to load or was accidentally closed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;While these were not coding tasks, and the company has said the incidents had minimal real-world impact, they still show how an agent can mistake a restriction for a problem it needs to work around.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic has acknowledged that clearer instructions might have prevented some of the failures. The company also said it had developed monitoring tools that blocked every documented case when tested against them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But clearer instructions only solve part of the problem. Users want agents that can work through ambiguity without stopping to ask for help at every turn. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-the-code-cannot-reveal" class="wp-block-heading"&gt;What the code cannot reveal&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic will need to show that its model can distinguish between an incomplete request and an intentional constraint. A developer might limit a fix because of an upcoming migration, a compatibility requirement, or a production freeze. None of those reasons would necessarily be visible in the repository.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Anthropic will need to show that its model can distinguish between an incomplete request and an intentional constraint. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Anthropic had not responded to a request for comment at publication.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/"&gt;One sentence changed Claude Code&amp;#8217;s overreach rate from 0% to 17.1%&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic’s next coding model may infer developer intent. Research shows coding agents often go beyond scope, and that’s much harder to fix than it sounds.</content:encoded>
+    </item>
+    <item>
+      <title>DeepSeek made its name with cheap AI models. Now it’s undercutting search API rivals, too.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/deepseek-web-search-api/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 19 Oct 2026 14:29:42 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840940</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/81f7030c-getty-images-6dnmfeeaht0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="An illustration of a generic search engine." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/81f7030c-getty-images-6dnmfeeaht0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Not content with challenging the major frontier AI labs with lower-cost models, Chinese AI company DeepSeek is setting its sights&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/deepseek-web-search-api/"&gt;DeepSeek made its name with cheap AI models. Now it’s undercutting search API rivals, too.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/81f7030c-getty-images-6dnmfeeaht0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="An illustration of a generic search engine." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/81f7030c-getty-images-6dnmfeeaht0-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Not content with challenging the major frontier AI labs with &lt;a href="https://thenewstack.io/deepseek-flash-pro-benchmark/" class="local-link"&gt;lower-cost models&lt;/a&gt;, Chinese AI company &lt;a href="https://deepseek.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DeepSeek&lt;/a&gt; is setting its sights on the search API market.&lt;br&gt;&lt;br&gt;On Saturday, the company announced it &lt;a href="https://api-docs.deepseek.com/updates/#date-2026-10-17" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;has opened up&lt;/a&gt; its internally developed search engine to outside developers through two new APIs, &lt;a href="https://api-docs.deepseek.com/guides/search/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Search and Fetch&lt;/a&gt;, allowing them to retrieve live web search results and webpage content for use in their own apps and agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both services cost $0.75 per 1,000 successful requests, and developers can use them independently of DeepSeek&amp;#8217;s AI models.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The launch also came alongside &lt;a href="https://api-docs.deepseek.com/news/news261017/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DeepSeek-V4.1-Flash-1017&lt;/a&gt;, a minor update to the V4.1 Flash model the company released &lt;a href="https://venturebeat.com/technology/deepseek-v4-1-flash-debuts-with-0-003-1m-off-peak-cached-input-rate-and-benchmarks-eclipsing-gpt-5-6-sol-claude-opus-5" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in September&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-why-ai-agents-need-web-search" class="wp-block-heading"&gt;Why AI agents need web search&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Large language models (LLMs) are trained on data collected up to a certain point in time, meaning they can&amp;#8217;t always answer questions about recent events, updated documentation, or any other kind of dynamic information. By supporting live web search, models can retrieve current information from the internet, which supplements their responses.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For developers building AI agents, this is particularly important. A coding agent, for example, might need to consult the latest software documentation, investigate a recently disclosed vulnerability, or otherwise check that a particular library has been updated.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Until now, developers using DeepSeek&amp;#8217;s models had several ways to provide this functionality. They could connect their applications to third-party search services, or use DeepSeek&amp;#8217;s existing search functionality through its model API.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Indeed, when DeepSeek &lt;a href="https://thenewstack.io/deepseek-harness-open-source-plugins/" class="local-link"&gt;open-sourced its agent harness in August&lt;/a&gt;, it included web search among its capabilities. The Harness supported interchangeable search providers, including &lt;a href="https://exa.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Exa&lt;/a&gt;, &lt;a href="https://thenewstack.io/perplexity-agent-api/" class="local-link"&gt;Perplexity&lt;/a&gt; and DeepSeek itself. However, accessing DeepSeek&amp;#8217;s native search through the Harness required an additional model request, with each search running as a separate call to a DeepSeek model, according to the Harness documentation, introducing extra latency and token costs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The new APIs are designed to simplify that process. Developers can now call DeepSeek&amp;#8217;s Search endpoint directly to retrieve ranked web results, including titles, URLs, snippets and summaries, while the Fetch endpoint retrieves the contents of individual webpages in Markdown format.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Neither requires a separate model request, meaning developers can integrate DeepSeek&amp;#8217;s search capabilities into applications powered by competing AI models, too.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Neither requires a separate model request, meaning developers can integrate DeepSeek&amp;#8217;s search capabilities into applications powered by competing AI models, too.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-deepseek-develops-an-in-house-engine" class="wp-block-heading"&gt;DeepSeek develops an in-house engine&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For much of the past two years, DeepSeek has relied on outside providers to power web search, even as it was building its own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For context, in March 2025, Chinese business publication National Business Daily &lt;a href="https://www.nbd.com.cn/articles/2025-03-07/3779901.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reported&lt;/a&gt; that DeepSeek had integrated the search API of &lt;a href="https://bochaai.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bocha&lt;/a&gt;, a Chinese AI search startup based in Hangzhou. Bocha&amp;#8217;s CTO, Weng Rouying, noted that DeepSeek had been using its service prior to the chatbot&amp;#8217;s surge in popularity earlier that year.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DeepSeek&amp;#8217;s own &lt;a href="https://web.archive.org/web/20261004083012/https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy-2025-02-14.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;February 2025 privacy policy&lt;/a&gt;, meanwhile, also acknowledged its reliance on third-party search services, naming Microsoft&amp;#8217;s Bing as an example of an external API provider.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Behind the scenes, the company has also been laying the groundwork for its own search infrastructure.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Behind the scenes, the company has also been laying the groundwork for its own search infrastructure. In January this year, Bloomberg &lt;a href="https://www.bloomberg.com/news/articles/2026-01-29/deepseek-sets-sights-on-ai-search-and-agents-job-postings-show?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reported&lt;/a&gt; that DeepSeek was recruiting engineers to build a multilingual AI search engine, according to job ads listed by the company. The planned capabilities reportedly extended beyond text searches to include images and audio.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fast-forward some nine months, and the company says its internally developed search engine, dubbed DeepSeek Search, already handles hundreds of millions of requests daily, and maintains an index containing hundreds of billions of webpages.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to its &lt;a href="https://api-docs.deepseek.com/updates/#date-2026-10-17" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 17 changelog&lt;/a&gt;, the engine supports multilingual searches and uses filtering mechanisms designed to identify search spam, low-quality AI-generated material, and attempts to manipulate search rankings.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DeepSeek has disclosed relatively little about the underlying architecture, or how it builds and maintains its index. It&amp;#8217;s also not clear whether the company has entirely replaced its external search suppliers across the board. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-growing-market-for-ai-search" class="wp-block-heading"&gt;A growing market for AI search&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Building a search engine is no trivial undertaking. It requires the infrastructure to crawl webpages, maintain an index of their contents and rank results, while continuously updating that information as the web changes. For years, that meant developers who wanted raw search results for their applications largely turned to Google and Microsoft, the two companies with web-scale indexes of their own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now, however, a growing number of companies are investing in their own search infrastructure, increasingly with AI applications and agents squarely in mind. &lt;a href="https://brave.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Brave&lt;/a&gt;, for example, operates &lt;a href="https://brave.com/blog/most-powerful-search-api-for-ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;an independent index&lt;/a&gt; of more than 40 billion webpages, which it says is maintained through its own crawler and other discovery mechanisms. AI search company Exa, meanwhile, has also &lt;a href="https://exa.ai/blog/how-to-build-nextgen-search" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;developed its own crawling and indexing infrastructure&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Perplexity has similarly &lt;a href="https://thenewstack.io/perplexity-agent-api/" class="local-link"&gt;invested in proprietary search infrastructure&lt;/a&gt;, including building its own &lt;a href="https://www.perplexity.ai/en-GB/hub/blog/architecting-and-evaluating-an-ai-first-search-api" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;crawling and indexing systems&lt;/a&gt;. Another competitor, &lt;a href="https://parallel.ai/products/search" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Parallel&lt;/a&gt;, says it has built its search infrastructure from the ground up, including the crawling, indexing, query processing and ranking components.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cloudflare is also entering the market from a different angle. Earlier this month, &lt;a href="https://blog.cloudflare.com/introducing-web-search-api/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the company launched a Web Search API&lt;/a&gt; through its AI Gateway, allowing developers to access search results from serveral providers through a single interface. The service, currently in beta, &lt;a href="https://developers.cloudflare.com/web-search/providers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;uses Ceramic as its default provider&lt;/a&gt; and charges customers at each provider&amp;#8217;s published API rates, without additional markup.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;DeepSeek, for its part, is competing aggressively against the incumbents on price.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DeepSeek, for its part, is competing aggressively against the incumbents on price, although it&amp;#8217;s not strictly the cheapest option available. &lt;a href="https://www.ceramic.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ceramic.ai&lt;/a&gt;, which provides keyword-based web search for AI agents, &lt;a href="https://www.ceramic.ai/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;charges $0.25 per 1,000 queries&lt;/a&gt; on its pay-as-you-go plan. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Still, DeepSeek&amp;#8217;s $0.75 per 1,000 successful searches compares favorably with many others, including &lt;a href="https://parallel.ai/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Parallel&amp;#8217;s Turbo and Fast search services&lt;/a&gt; and &lt;a href="https://docs.perplexity.ai/docs/getting-started/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Perplexity&amp;#8217;s Fast Search API&lt;/a&gt;, both of which charge $1 per 1,000 searches. Meanwhile, Exa &lt;a href="https://exa.ai/pricing#endpoint-pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;charges $4&lt;/a&gt; per 1,000 Instant Search requests, while Brave charges &lt;a href="https://brave.com/search/api/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;$5 per 1,000 searches&lt;/a&gt;. Other notable players include &lt;a href="https://www.tavily.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tavily&lt;/a&gt;, a search API provider for AI agents that European AI infrastructure company &lt;a href="https://nebius.com/newsroom/nebius-announces-agreement-to-acquire-tavily-to-add-agentic-search-to-its-ai-cloud-platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nebius acquired in February&lt;/a&gt;. Tavily &lt;a href="https://www.tavily.com/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;charges&lt;/a&gt; $8 per 1,000 basic searches on its pay-as-you-go plan.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that the various services differ in terms of retrieval capabilities, result limits and performance, so the prices aren&amp;#8217;t necessarily entirely comparable. But they provide some useful benchmarks for DeepSeek&amp;#8217;s move into the search infrastructure space. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The emergence of these alternatives also comes as Google and Microsoft have withdrawn longstanding search API offerings. Microsoft retired its Bing Search APIs in August 2025, while Google has &lt;a href="https://developers.google.com/custom-search/v1/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;closed its Custom Search JSON API to new customers&lt;/a&gt;, with existing users required to migrate by January 1, 2027. Both companies continue to provide search functionality through their respective AI platforms, including &lt;a href="https://ai.google.dev/gemini-api/docs/google-search" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grounding with Google Search for Gemini&lt;/a&gt; and &lt;a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/bing-tools?pivots=python" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grounding with Bing Search&lt;/a&gt; for Microsoft Foundry agents. These services allow AI models operating within their respective platforms to retrieve web information and generate answers with citations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Standalone APIs such as DeepSeek&amp;#8217;s give developers direct access to search results, which they can use with AI models and applications of their choosing.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-developer-reaction-and-the-fine-print" class="wp-block-heading"&gt;Developer reaction and the fine print&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The announcement has sparked considerable discussion among developers about pricing and whether the new APIs offer much beyond existing search integrations. On Reddit, one user welcomed the cost in particular. &amp;ldquo;I don&amp;rsquo;t think any other search provider comes close to the price that DeepSeek is offering,&amp;rdquo; they &lt;a href="https://www.reddit.com/r/DeepSeek/comments/1x8d4u2/comment/phdnk6n/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;write&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Others questioned what the announcement would ultimately change for users already accessing web search through third-party tools. One Reddit user &lt;a href="https://www.reddit.com/r/DeepSeek/comments/1x8d4u2/comment/phcazlt/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;notes that they are already using&lt;/a&gt; DeepSeek with the &lt;a href="https://thenewstack.io/openclaw-hermes-agent-harness/" class="local-link"&gt;Hermes AI agent&lt;/a&gt;, which could search the web. Another user responded that those who had already configured their own search tools might see little immediate benefit from the new APIs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A similar discussion emerged &lt;a href="https://news.ycombinator.com/item?id=50138531" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on Hacker News&lt;/a&gt;, where one developer &lt;a href="https://news.ycombinator.com/item?id=50139399" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;questions&lt;/a&gt; the need for paid search APIs when free, self-hosted alternatives such as &lt;a href="https://github.com/searxng/searxng" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SearXNG&lt;/a&gt; were available. Another commenter argues that businesses &lt;a href="https://news.ycombinator.com/item?id=50139481" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;have additional requirements&lt;/a&gt;, citing &amp;ldquo;reliable latency, data processing guarantees&amp;rdquo; and the potential risk of exposing sensitive company information through search queries.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For businesses weighing DeepSeek&amp;rsquo;s APIs, that last point carries an extra dimension. DeepSeek&amp;rsquo;s &lt;a href="https://github.com/OpenTermsArchive/genai-eu-versions/blob/main/DeepSeek/Privacy%20Policy.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;privacy policy&lt;/a&gt; states that it collects, processes and stores personal data in China, and that it generally keeps user inputs for as long as an account remains open. The Search and Fetch documentation, however, doesn&amp;rsquo;t say how long search queries specifically are retained.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The discussions highlight the differing needs of individual developers and businesses, particularly when it comes to cost, reliability, and handling large numbers of requests. And while DeepSeek&amp;#8217;s pricing is certainly competitive, there are some practical restrictions worth considering.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to its &lt;a href="https://api-docs.deepseek.com/guides/search/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;API documentation&lt;/a&gt;, Search and Fetch requests are each capped at five per second per account, although individual searches can return up to 50 results without increasing the request price. DeepSeek also only bills for requests that return results, so failed calls, empty searches, and timeouts are free.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DeepSeek is temporarily waiving Search and Fetch charges for server-side tool calls made through DeepSeek Harness, Claude Code, and Codex when using its API. That is very much a temporary arrangement, however, one that ends on October 31, when the standard per-request charges take effect. Direct calls to the standalone APIs are already billable, according to DeepSeek&amp;#8217;s announcement.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/deepseek-web-search-api/"&gt;DeepSeek made its name with cheap AI models. Now it’s undercutting search API rivals, too.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>The Chinese AI company is opening up the search engine behind its chatbot through Search and Fetch APIs, priced at $0.75 per 1,000 successful requests each.</content:encoded>
+    </item>
+    <item>
+      <title>The distroless security gap: Why bottom-up containers are the next evolution in OCI images</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/distroless-container-security-gap/</link>
+      <dc:creator>Lily Rivers-Klee</dc:creator>
+      <pubDate>Mon, 19 Oct 2026 13:00:00 +0000</pubDate>
+      <category>Cloud Native Ecosystem</category>
+      <category>Containers</category>
+      <category>Security</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840839</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/43ec68ea-paris-bilal-bf4zlk3duke-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract blue digital data distortion representing blinded container vulnerability scans." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/43ec68ea-paris-bilal-bf4zlk3duke-unsplash.jpg" /&gt;&lt;p&gt;Ever tried to shrink your container images to reduce their attack surface? If you have, you&amp;#8217;ve likely discovered a frustrating&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/distroless-container-security-gap/"&gt;The distroless security gap: Why bottom-up containers are the next evolution in OCI images&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/43ec68ea-paris-bilal-bf4zlk3duke-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract blue digital data distortion representing blinded container vulnerability scans." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/43ec68ea-paris-bilal-bf4zlk3duke-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph" id="h-ever-tried-to-shrink-your-container-images-to-reduce-their-attack-surface-if-you-have-you-ve-likely-discovered-a-frustrating-paradox-making-a-container-smaller-often-makes-your-vulnerability-scanners-completely-blind-to-what-s-inside-it"&gt;Ever tried to shrink your container images to reduce their attack surface? If you have, you&amp;rsquo;ve likely discovered a frustrating paradox: shrinking a container often blinds your vulnerability scanners to what&amp;rsquo;s inside.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;re facing an industry-wide tension between reducing &lt;a href="https://thenewstack.io/open-source-and-container-security-are-fundamentally-broken/" data-type="link" data-id="https://thenewstack.io/open-source-and-container-security-are-fundamentally-broken/" class="local-link"&gt;container attack surfaces&lt;/a&gt; and maintaining the security visibility you need. To understand how we got here, and how we can solve it, we have to look at how we historically built containers, and why the current approaches fall short for Day 2 operations.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-anatomy-of-container-bloat" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;The anatomy of container bloat&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a long time, full container images were the industry standard. The workflow was simple: developers pulled a base image that included a complete operating system, bundled their application code on top, and shipped it to production.&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;KubeCon + CloudNativeCon is taking place in Salt Lake City from November 9 to 12.&lt;/em&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Register Now&lt;/em&gt;&lt;/a&gt;&lt;em&gt;!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;While convenient, this posed a massive security problem. These images included a shell, a package manager, and countless tools and utilities the application never used at runtime. Every piece of unused software in that container represented a potential vulnerability and an unnecessarily large attack surface. If a malicious actor breached the application, they suddenly had a full toolkit to download additional utilities and escalate the attack.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-distroless-security-gap" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;The distroless security gap&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To address these security concerns, the &amp;#8220;distroless&amp;#8221; movement emerged. The idea made sense: while full container images had a larger attack surface because of countless unnecessary components, the distroless approach sought to strip the container down to the bare-minimum dependencies needed for the application to run. No shell, no package manager, no extra utilities.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This certainly reduced the attack surface, but it came at a steep operational cost. Creating a distroless image is complex, fragile, and error-prone. In the effort to cherry-pick and aggressively trim the image, the package metadata &amp;mdash; the manifest of what&amp;#8217;s installed &amp;mdash; often gets stripped out completely.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The unintended consequence is what we now call the &amp;ldquo;distroless security gap.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This isn&amp;#8217;t just a theoretical problem; it&amp;rsquo;s a well-documented industry blind spot. Scanners like Trivy will actively throw warning flags when OS package metadata is missing, and a &lt;a href="https://www.linkedin.com/posts/yotam-perkal_scanning-the-scanners-vulnerability-scanner-activity-7086727226372587521-pd94?utm_source=share&amp;amp;utm_medium=member_desktop" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;2022 Rezilion vulnerability report by Yotam Perkal&lt;/a&gt; revealed that container scanners suffer from significant false negatives &amp;mdash; failing to detect active vulnerabilities simply because they lack the necessary context. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You might have built an incredibly small container, but if your security team can&amp;rsquo;t scan it and mathematically prove it is safe, it becomes a massive compliance liability.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Organizations like Chainguard have similarly noted that if a scanner can&amp;rsquo;t collect &lt;a href="https://thenewstack.io/sbom-sniff-test-hardened-images/" data-type="link" data-id="https://thenewstack.io/sbom-sniff-test-hardened-images/" class="local-link"&gt;complete package metadata&lt;/a&gt;, the scan results won&amp;rsquo;t accurately reflect the image&amp;#8217;s true contents. You might have built an incredibly small container, but if your security team can&amp;rsquo;t scan it and mathematically prove it is safe, it becomes a massive compliance liability.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Between full and distroless container images, we are left with an imperfect choice: bloated containers with a large attack surface, or minimal containers we cannot audit.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-face-off-imperative-trimming-vs-bottom-up-assembly" class="wp-block-heading"&gt;&lt;a&gt;&lt;/a&gt;Face-off: Imperative trimming vs bottom-up assembly&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fortunately, there is a third way. Instead of taking a large image and trimming it down, risking the removal of crucial metadata needed for accurate security scans, what if we built containers from the bottom up?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The premise is simple: build your own minimal container image from scratch, including only the exact elements you need. Because you build it from the bottom up rather than stripping it down, you can rest assured that the metadata remains intact. In the open source ecosystem, one example of this new generation of minimal, auditable OCI images is commonly referred to as &amp;#8220;rocks.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A bottom-up container build operates like a conveyor belt with three distinct stations: Slice, Build, and Run.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="622" height="110" src="https://cdn.thenewstack.io/media/2026/10/55ff8bea-conveyor-lily-rivers-klee.png" alt="Workflow diagram showing the three stations of a bottom-up container build." class="wp-image-22840843"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-station-1-precision-slicing" class="wp-block-heading"&gt;Station 1: Precision slicing&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a bottom-up build, your container starts as literally an empty image. Using an open-source tool like Chisel, you slice standard, trusted Linux packages (such as those from the Ubuntu archives) into smaller, granular pieces.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Instead of pulling an entire package, you pick only the exact &amp;ldquo;slices&amp;rdquo; your application actually needs. Because these slices come straight from curated archives, you maintain a trusted software supply chain with surgical precision. Crucially, the metadata for these slices is preserved, so your security scanners stay fully operational.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad735e420b54&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad735e420b54" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1046" height="374" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/39e84d30-chisel-lily-rivers-klee.png" alt="Diagram illustrating the precision slicing capability of a bottom-up build." class="wp-image-22840842" style="aspect-ratio:2.801242236024845;width:648px;height:auto"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge graphic.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-station-2-declarative-builds" class="wp-block-heading"&gt;Station 2: Declarative builds&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Traditionally, containers are assembled with imperative Dockerfiles, where the order of every command matters, and layer caching often creates bloat and fragility.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;It shifts the developer experience from &amp;#8216;scripting a build&amp;#8217; to &amp;#8216;declaring a state.'&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Bottom-up builds replace this with &lt;a href="https://thenewstack.io/buildpacks-container-security-scale/" data-type="link" data-id="https://thenewstack.io/buildpacks-container-security-scale/" class="local-link"&gt;a declarative approach&lt;/a&gt;. Using an open-source build tool like Rockcraft, developers write a simple YAML file (e.g., rockcraft.yaml) that describes the app and its needs. The tool takes that definition, fetches the source, pulls in the specific package slices requested, compiles everything, and outputs a standard, OCI-compliant container image. It shifts the developer experience from &amp;#8220;scripting a build&amp;#8221; to &amp;#8220;declaring a state.&amp;#8221;&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+name: chiseled-python
+base: bare
+
+build-base: ubuntu@26.04-lts
+version: &amp;quot;3.14&amp;quot;
+summary: Chiseled Python3.14 rock
+description: Chiseled Python rock
+license: Python-2.0
+platforms: { amd64: }
+
+run-user: _daemon_
+
+parts:
+    install-python:
+        plugin: nil
+        stage-packages:
+          - base-files_release-info
+          - python3_core
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="h-station-3-taming-pid-1-at-runtime" class="wp-block-heading"&gt;Station 3: Taming PID 1 at runtime&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The final operational hurdle for minimal containers is what happens when they run. In a standard operating system, the OS handles process management automatically. But inside a container, if your application spawns child processes and those processes die, they leave behind &amp;#8220;zombies&amp;#8221; &amp;mdash; dead processes that still occupy system resources.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Without a proper init system, zombies pile up until your container crashes, causing cascading failures at scale. Traditional base images include process managers, but distroless images often strip them out to save space. To keep minimal containers stable without reintroducing bloat, bottom-up containers use tools like Pebble, a tiny, lightweight service manager that runs as PID 1, serves as the container&amp;#8217;s entry point, and safely reaps zombie processes.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-s-next" class="wp-block-heading"&gt;What&amp;#8217;s next&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For too long, the cloud-native ecosystem has treated security visibility and container minimalism as a zero-sum game. The distroless movement was a necessary step in highlighting the dangers of bloated images, but the resulting blind spots in vulnerability scanning are no longer acceptable for enterprise production environments.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;For too long, the cloud-native ecosystem has treated security visibility and container minimalism as a zero-sum game.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;By shifting from an imperative, top-down trimming approach to a declarative, bottom-up assembly process, engineering teams can achieve the best of both worlds. We can build security-maintained, minimal containers that are auditable and operationally stable. Container security shouldn&amp;#8217;t come at the expense of developer experience or Day 2 visibility.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/distroless-container-security-gap/"&gt;The distroless security gap: Why bottom-up containers are the next evolution in OCI images&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Shrinking containers often blinds security scanners. Learn how bottom-up OCI image builds eliminate the distroless visibility gap.</content:encoded>
+    </item>
+    <item>
       <title>Gemini 4 Argon vs. Claude Opus 5.5: Half the price and about half as accurate</title>
       <link>https://web.archive.org/web/https://thenewstack.io/gemini-argon-claude-opus/</link>
       <dc:creator>Jessica Wachtel</dc:creator>
@@ -28,10 +637,10 @@
       <category>Large Language Models</category>
       <category>Software Testing</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840848</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hourglass with sand running out under red light, evoking the limited window to test Gemini 4 Argon at half price" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-scaled.jpg" /&gt;&lt;p&gt;When Google announced Gemini 4 Argon to a small group of testers on September 30, it came with a benchmark&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hourglass with sand running out under red light, evoking the limited window to test Gemini 4 Argon at half price" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-scaled.jpg" /&gt;&lt;p&gt;When Google announced Gemini 4 Argon to a small group of testers on September 30, it came with a benchmark&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-argon-claude-opus/"&gt;Gemini 4 Argon vs. Claude Opus 5.5: Half the price and about half as accurate&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hourglass with sand running out under red light, evoking the limited window to test Gemini 4 Argon at half price" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph" id="h-"&gt;&lt;strong&gt;When Google announced&lt;/strong&gt; &lt;a href="https://thenewstack.io/google-gemini-4-argon/" class="local-link"&gt;Gemini 4 Argon&lt;/a&gt; to a small group of testers on September 30, it came with a benchmark table that put Argon ahead of &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt; on 14 of 18 tests. Those include DeepSWE (77.9% vs. 74.2%) and GraphWalks at 256K to 1 million tokens (84.2% vs. 66.8%). Two weeks later, on October 13, Google opened Argon to paid Gemini API developers.&lt;/p&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hourglass with sand running out under red light, evoking the limited window to test Gemini 4 Argon at half price" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/667cdf2d-daniele-franchi-wyj0rahs_2k-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph" id="h-"&gt;&lt;strong&gt;When Google announced&lt;/strong&gt; &lt;a href="https://thenewstack.io/google-gemini-4-argon/" class="local-link"&gt;Gemini 4 Argon&lt;/a&gt; to a small group of testers on September 30, it came with a benchmark table that put Argon ahead of &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt; on 14 of 18 tests. Those include DeepSWE (77.9% vs. 74.2%) and GraphWalks at 256K to 1 million tokens (84.2% vs. 66.8%). Two weeks later, on October 13, Google opened Argon to paid Gemini API developers.&lt;/p&gt;
 
 
 
@@ -275,7 +884,7 @@
       <category>AI Engineering</category>
       <category>AI Models</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22840847</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Caught red handed image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Liquid AI&amp;#8217;s new reasoning model was built to solve coding problems, but during training it kept combing Git history, GitHub,&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Caught red handed image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-scaled.jpg" /&gt;&lt;p&gt;Liquid AI&amp;#8217;s new reasoning model was built to solve coding problems, but during training it kept combing Git history, GitHub,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/liquid-ai-reward-hacking/"&gt;Liquid AI caught its model cheating on coding tests — then it recognized the sandbox&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Caught red handed image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/06c6880c-zyanya-citlalli-gke3zvmlpfg-unsplash-scaled.jpg" /&gt;
@@ -1012,7 +1621,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2dd23e3&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2dd23e3" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/8319c569-figure1-shelby-brittain.png" alt="Workflow diagram illustrating how agents add reasoning while Kubernetes operators keep control out of the cluster." class="wp-image-22840826" style="aspect-ratio:1.7773109243697478;width:648px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad735e432666&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad735e432666" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/8319c569-figure1-shelby-brittain.png" alt="Workflow diagram illustrating how agents add reasoning while Kubernetes operators keep control out of the cluster." class="wp-image-22840826" style="aspect-ratio:1.7773109243697478;width:648px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1063,7 +1672,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2dd2ac7&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2dd2ac7" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/57718106-figure2-shelby-brittain.png" alt="Diagram illustrating a bounded Karpenter improvement loop." class="wp-image-22840825" style="aspect-ratio:1.7080291970802919;width:648px;height:auto"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad735e432ca1&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad735e432ca1" class="wp-block-image size-full is-resized wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="600" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/57718106-figure2-shelby-brittain.png" alt="Diagram illustrating a bounded Karpenter improvement loop." class="wp-image-22840825" style="aspect-ratio:1.7080291970802919;width:648px;height:auto"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1719,6 +2328,182 @@
       <content:encoded>Four months after acquiring VoidZero, Cloudflare has turned a planned commercial product into an open-source platform that companies can self-host.</content:encoded>
     </item>
     <item>
+      <title>Running local AI models on Microsoft’s Surface Laptop Ultra: What we found</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/surface-ultra-local-ai/</link>
+      <dc:creator>Frederic Lardinois</dc:creator>
+      <pubDate>Fri, 16 Oct 2026 12:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Infrastructure</category>
+      <category>Hardware</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22840696</guid>
+      <description>&lt;img width="936" height="702" src="https://cdn.thenewstack.io/media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" /&gt;&lt;p&gt;Microsoft is positioning the new Surface Laptop Ultra as an alternative to Apple&amp;#8217;s MacBook Pros for creatives and developers &amp;#8212;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/surface-ultra-local-ai/"&gt;Running local AI models on Microsoft’s Surface Laptop Ultra: What we found&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="936" height="702" src="https://cdn.thenewstack.io/media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Microsoft is positioning the new &lt;a href="https://www.microsoft.com/en-us/store/configure/surface-laptop-ultra/8wg5vqp0x4b8" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Surface Laptop Ultra&lt;/a&gt; as an alternative to Apple&amp;#8217;s MacBook Pros for creatives and developers &amp;#8212; and especially AI developers. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Built on Nvidia&amp;#8217;s &lt;a href="https://www.nvidia.com/en-us/products/rtx-spark/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;N1X-based RTX Spark platform&lt;/a&gt;, with a Blackwell RTX GPU with up to 6,144 cores, a CPU with up to 20 cores, up to 128GB of unified memory, and a price that undercuts Apple, it&amp;#8217;s a tempting alternative if you want to run local AI models and also want to have a powerful machine for editing videos and gaming on the go.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is &lt;em&gt;The New Stack&lt;/em&gt;, so I&amp;#8217;m leaving the gaming benchmarks and creator use cases to others. My focus in testing the unit was on running AI workloads.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I&amp;#8217;ve been using the Surface Laptop Ultra in its high-end $4,300 GPU and CPU configuration with 64GB of RAM and a 1TB SSD for the last week, including while on the road. &lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/2aba66eb-img_5752-1024x768.jpg" alt="" class="wp-image-22840701"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Typically, I use a Mac Studio with the M4 Max chip at home, which happily runs most local models I throw at it (as long as they fit into the 48 GB of RAM). I installed all the usual tools I use to run local models on the laptop. Think Unsloth Studio, Ollama, Hermes Agent, etc. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At no point did I feel like I was making a compromise in running those on the laptop. Indeed, if anything, the Blackwell GPU was generally a bit faster than my Mac Studio.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-fast-local-inference-with-the-right-models" class="wp-block-heading"&gt;Fast local inference (with the right models)&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Since the new &lt;a href="https://thenewstack.io/nvidia-nemotron-bolt-laptop/" class="local-link"&gt;Nemotron 3.5 Bolt model&lt;/a&gt; launched earlier this week, I also took that one for a spin. It answered queries at an impressive 56 to 60 tokens per second &amp;#8212; and sometimes more. That makes it a great model for running in Hermes Agent or OpenCode, for example. It&amp;#8217;s a heavily quantized model with 9B active parameters, so you would expect it to be fast, of course.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Yet, while the laptop has the unified memory to run it, the dense &lt;a href="https://thenewstack.io/qwen38-27b-local-inference/" class="local-link"&gt;Qwen 3.8 27B&lt;/a&gt; at 8-bit quantization never achieved more than 8 or 9 tokens per second in Unsloth Studio. That&amp;#8217;s not quite usable, but with these dense models, that&amp;#8217;s virtually always due to memory bandwidth. But bringing it down to a 4-bit quantization brought the speed up to a respectable 25 to 28 tokens per second.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Using the 8-bit &lt;a href="https://thenewstack.io/google-gemma-local-ai/" class="local-link"&gt;Gemma 4 26B-A4B&lt;/a&gt; shows how the mixture-of-experts technique is really what you need to run virtually any model locally at reasonable speeds. For this model, the Surface Laptop Ultra generally hit around 40 tokens per second. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I don&amp;#8217;t have an M5-based MacBook or Mac Studio at hand, but &lt;a href="https://www.tomshardware.com/laptops/we-test-the-rtx-spark-superchip-in-microsofts-surface-laptop-ultra-nvidias-windows-on-arm-platform-impresses-in-local-ai-but-gaming-isnt-its-strong-suit" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tom&amp;#8217;s Hardware&lt;/a&gt; reports that the Ultra generally outperforms the M5 Max in a MacBook Pro in AI use cases.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/10/98714f00-unsloth_nvidia_bolt-1024x512.png" alt="" class="wp-image-22840700"/&gt;&lt;figcaption class="wp-element-caption"&gt;Unsloth on the Surface Pro Ultra. Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-performance-drops-when-you-unplug" class="wp-block-heading"&gt;Performance drops when you unplug&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;All of those previous numbers were with the laptop on its 140W charger. Microsoft says it tuned the system so that running on battery would still give users most of the full performance. Microsoft claims its benchmarks showed that the laptop retained 99.6% of its performance when running on battery, but at least for the AI workloads I tested, that drop was far more noticeable. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The 4-bit Qwen 3.8 model, for example, dropped from its 25-28 tokens per second to around 18 tokens per second on battery. For Nemotron 3.5 Bolt, the performance dropped to around 42 to 45 tokens per second. Overall, it seems fair to expect around a 20% to 25% loss in performance when on battery when running AI workloads (and games show a very similar drop).&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I did not run any formal battery life tests. Microsoft says users can expect 12 hours of active web usage. If you are consistently running local AI workloads, though, I wouldn&amp;#8217;t expect more than a few hours of battery life based on my observations.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-ram-questions" class="wp-block-heading"&gt;The RAM questions&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Having 64GB of RAM puts you in a bit of an odd situation given that most smaller models right now are in the 27B to 30B league. The extra RAM gives you plenty of headroom for the KV cache and other applications, but there aren&amp;#8217;t a lot of models in the 32-48GB range, for example, that the machine could also handle. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Going for 128GB of RAM brings the price of the Surface Laptop Ultra to $5,900&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-trade-off-for-all-that-power-heat-and-noise" class="wp-block-heading"&gt;The trade-off for all that power: heat and noise&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Unsurprisingly, all of the compute power (Microsoft says you get up to 1 petaflop of FP4 AI performance) creates a bit of heat. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Nobody is going to argue that the Surface Laptop Ultra is whisper-quiet when you run AI applications. The noise its dual fans make isn&amp;#8217;t extreme, but enough to get a bit on your nerves while you are working. That&amp;#8217;s especially noticeable when Hermes or your favorite coding agent is chugging along for a while on a more complex query.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There is a reason the&lt;a href="https://www.microsoft.com/en-us/store/configure/surface-rtx-spark-dev-box/8wg5vqp0x4gr" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Surface RTX Spark Dev Box&lt;/a&gt;, which is built on top of the same N1X platform, has a thousand air vents, after all (which will also likely allow it to push its performance beyond the N1X in the laptop).&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Outside of that, the laptop is very quiet, though, and the fans remain off for most day-to-day use cases. It also quiets down very fast once the GPU load drops again.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="768" height="1024" src="https://cdn.thenewstack.io/media/2026/10/eb1f838c-img_5754-768x1024.jpg" alt="" class="wp-image-22840703"/&gt;&lt;figcaption class="wp-element-caption"&gt;The new Surface Magnetic Connect and 140W charging brick. Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-a-few-more-observations" class="wp-block-heading"&gt; A few more observations&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I would feel remiss if I didn&amp;#8217;t highlight a few other things I found while testing the Ultra. This is, after all, Microsoft&amp;#8217;s most ambitious laptop yet.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;The touchpad is huge and has haptic feedback. There are only a few applications that support it so far, including DaVinci Resolve, for example. Having that feedback makes editing faster, as you can feel when the playhead snaps into place, for example. I want more touchpads with that feature.&lt;/li&gt;
+
+
+
+&lt;li&gt;Whatever Microsoft did with the speakers works wonders. There are side vents near the front of the laptop that create a surprisingly wide stereo field, something you will definitely notice in games.&lt;/li&gt;
+
+
+
+&lt;li&gt;The new magnetic USB-C charging connector is nice. It feels a lot like the magnetic Connect on other Surface devices. I just worry I&amp;#8217;ll lose the cable sooner rather than later. &lt;/li&gt;
+
+
+
+&lt;li&gt;Microsoft is not positioning this as a gaming PC, but with that GPU, people will try to play a few games, and so did I. Gaming on a Windows ARM machine is still in its early days, but thanks to Microsoft&amp;#8217;s emulation, it generally works without too much overhead. &lt;br&gt;Games that rely more on the GPU than the CPU will fare better, but I was able to play Cyberpunk 2077 in 2K with ray tracing turned on at around 60fps. With frame generation and a few settings tweaks, even 4K gaming is an option. &lt;/li&gt;
+
+
+
+&lt;li&gt;With ray tracing off, the remaster of The Witcher 3 also happily ran at 60fps in 4K.&lt;/li&gt;
+
+
+
+&lt;li&gt;But since the 15-inch, 3:2 touchscreen (3270&amp;#215;2180) is essentially a better 3K screen, you wouldn&amp;#8217;t want to run a game in 4K anyway unless you plug in an external monitor.&lt;/li&gt;
+
+
+
+&lt;li&gt;The screen looks great and can get very bright, but it is also highly reflective. That&amp;#8217;s often distracting.&lt;/li&gt;
+
+
+
+&lt;li&gt;Overall, Windows on ARM feels a lot more solid now than it did a year ago. Surely there are some applications and games that won&amp;#8217;t run (or run well), but I haven&amp;#8217;t come across any issues. Increasingly, developers (like OpenCode) offer Windows ARM64 versions of the desktop apps.&lt;/li&gt;
+
+
+
+&lt;li&gt;Having two USB-C, one USB-A, and an HDMI port is such a joy if you have any older accessories. Add the headphone jack and SD card reader, and you don&amp;#8217;t even need to carry a USB-C hub.&lt;/li&gt;
+
+
+
+&lt;li&gt;I&amp;#8217;ve gotten used to my MacBook Air. The Laptop Ultra is heavy at 4.41lbs (2kg).&lt;/li&gt;
+
+
+
+&lt;li&gt;The SSD is replaceable. There are four screws underneath the laptop, and you don&amp;#8217;t void your warrenty of you open the machine up. Apple should pay attention.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="2560" height="2066" src="https://cdn.thenewstack.io/media/2026/10/5780c39c-img_5822-1-scaled.jpg" alt="" class="wp-image-22840728"/&gt;&lt;/figure&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/surface-ultra-local-ai/"&gt;Running local AI models on Microsoft’s Surface Laptop Ultra: What we found&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Microsoft’s Surface Laptop Ultra pairs Nvidia’s N1X Blackwell GPU with up to 128GB of unified memory. We tested how it handles local AI models on the road.</content:encoded>
+    </item>
+    <item>
       <title>Muse Wonder vs. Claude Fable 5.1: Meta’s new model came closer than I expected</title>
       <link>https://web.archive.org/web/https://thenewstack.io/muse-wonder-claude-fable/</link>
       <dc:creator>Jessica Wachtel</dc:creator>
@@ -1904,182 +2689,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/muse-wonder-claude-fable/"&gt;Muse Wonder vs. Claude Fable 5.1: Meta’s new model came closer than I expected&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Claude Fable 5.1 refused 34 of 50 turns on a webhook project. The first refusal hit an environment variable.</content:encoded>
-    </item>
-    <item>
-      <title>Running local AI models on Microsoft’s Surface Laptop Ultra: What we found</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/surface-ultra-local-ai/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Fri, 16 Oct 2026 12:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Infrastructure</category>
-      <category>Hardware</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840696</guid>
-      <description>&lt;img width="936" height="702" src="https://cdn.thenewstack.io/media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" /&gt;&lt;p&gt;Microsoft is positioning the new Surface Laptop Ultra as an alternative to Apple&amp;#8217;s MacBook Pros for creatives and developers &amp;#8212;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/surface-ultra-local-ai/"&gt;Running local AI models on Microsoft’s Surface Laptop Ultra: What we found&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="936" height="702" src="https://cdn.thenewstack.io/media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/75617890-b04-surface-laptop-ultra-nvidia-15in-1ed-duo-platinum-nightfall-attract.avif" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Microsoft is positioning the new &lt;a href="https://www.microsoft.com/en-us/store/configure/surface-laptop-ultra/8wg5vqp0x4b8" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Surface Laptop Ultra&lt;/a&gt; as an alternative to Apple&amp;#8217;s MacBook Pros for creatives and developers &amp;#8212; and especially AI developers. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Built on Nvidia&amp;#8217;s &lt;a href="https://www.nvidia.com/en-us/products/rtx-spark/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;N1X-based RTX Spark platform&lt;/a&gt;, with a Blackwell RTX GPU with up to 6,144 cores, a CPU with up to 20 cores, up to 128GB of unified memory, and a price that undercuts Apple, it&amp;#8217;s a tempting alternative if you want to run local AI models and also want to have a powerful machine for editing videos and gaming on the go.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is &lt;em&gt;The New Stack&lt;/em&gt;, so I&amp;#8217;m leaving the gaming benchmarks and creator use cases to others. My focus in testing the unit was on running AI workloads.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I&amp;#8217;ve been using the Surface Laptop Ultra in its high-end $4,300 GPU and CPU configuration with 64GB of RAM and a 1TB SSD for the last week, including while on the road. &lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/2aba66eb-img_5752-1024x768.jpg" alt="" class="wp-image-22840701"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Typically, I use a Mac Studio with the M4 Max chip at home, which happily runs most local models I throw at it (as long as they fit into the 48 GB of RAM). I installed all the usual tools I use to run local models on the laptop. Think Unsloth Studio, Ollama, Hermes Agent, etc. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At no point did I feel like I was making a compromise in running those on the laptop. Indeed, if anything, the Blackwell GPU was generally a bit faster than my Mac Studio.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-fast-local-inference-with-the-right-models" class="wp-block-heading"&gt;Fast local inference (with the right models)&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Since the new &lt;a href="https://thenewstack.io/nvidia-nemotron-bolt-laptop/" class="local-link"&gt;Nemotron 3.5 Bolt model&lt;/a&gt; launched earlier this week, I also took that one for a spin. It answered queries at an impressive 56 to 60 tokens per second &amp;#8212; and sometimes more. That makes it a great model for running in Hermes Agent or OpenCode, for example. It&amp;#8217;s a heavily quantized model with 9B active parameters, so you would expect it to be fast, of course.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Yet, while the laptop has the unified memory to run it, the dense &lt;a href="https://thenewstack.io/qwen38-27b-local-inference/" class="local-link"&gt;Qwen 3.8 27B&lt;/a&gt; at 8-bit quantization never achieved more than 8 or 9 tokens per second in Unsloth Studio. That&amp;#8217;s not quite usable, but with these dense models, that&amp;#8217;s virtually always due to memory bandwidth. But bringing it down to a 4-bit quantization brought the speed up to a respectable 25 to 28 tokens per second.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Using the 8-bit &lt;a href="https://thenewstack.io/google-gemma-local-ai/" class="local-link"&gt;Gemma 4 26B-A4B&lt;/a&gt; shows how the mixture-of-experts technique is really what you need to run virtually any model locally at reasonable speeds. For this model, the Surface Laptop Ultra generally hit around 40 tokens per second. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I don&amp;#8217;t have an M5-based MacBook or Mac Studio at hand, but &lt;a href="https://www.tomshardware.com/laptops/we-test-the-rtx-spark-superchip-in-microsofts-surface-laptop-ultra-nvidias-windows-on-arm-platform-impresses-in-local-ai-but-gaming-isnt-its-strong-suit" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tom&amp;#8217;s Hardware&lt;/a&gt; reports that the Ultra generally outperforms the M5 Max in a MacBook Pro in AI use cases.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/10/98714f00-unsloth_nvidia_bolt-1024x512.png" alt="" class="wp-image-22840700"/&gt;&lt;figcaption class="wp-element-caption"&gt;Unsloth on the Surface Pro Ultra. Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-performance-drops-when-you-unplug" class="wp-block-heading"&gt;Performance drops when you unplug&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;All of those previous numbers were with the laptop on its 140W charger. Microsoft says it tuned the system so that running on battery would still give users most of the full performance. Microsoft claims its benchmarks showed that the laptop retained 99.6% of its performance when running on battery, but at least for the AI workloads I tested, that drop was far more noticeable. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The 4-bit Qwen 3.8 model, for example, dropped from its 25-28 tokens per second to around 18 tokens per second on battery. For Nemotron 3.5 Bolt, the performance dropped to around 42 to 45 tokens per second. Overall, it seems fair to expect around a 20% to 25% loss in performance when on battery when running AI workloads (and games show a very similar drop).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I did not run any formal battery life tests. Microsoft says users can expect 12 hours of active web usage. If you are consistently running local AI workloads, though, I wouldn&amp;#8217;t expect more than a few hours of battery life based on my observations.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-ram-questions" class="wp-block-heading"&gt;The RAM questions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Having 64GB of RAM puts you in a bit of an odd situation given that most smaller models right now are in the 27B to 30B league. The extra RAM gives you plenty of headroom for the KV cache and other applications, but there aren&amp;#8217;t a lot of models in the 32-48GB range, for example, that the machine could also handle. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Going for 128GB of RAM brings the price of the Surface Laptop Ultra to $5,900&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-trade-off-for-all-that-power-heat-and-noise" class="wp-block-heading"&gt;The trade-off for all that power: heat and noise&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Unsurprisingly, all of the compute power (Microsoft says you get up to 1 petaflop of FP4 AI performance) creates a bit of heat. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nobody is going to argue that the Surface Laptop Ultra is whisper-quiet when you run AI applications. The noise its dual fans make isn&amp;#8217;t extreme, but enough to get a bit on your nerves while you are working. That&amp;#8217;s especially noticeable when Hermes or your favorite coding agent is chugging along for a while on a more complex query.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There is a reason the&lt;a href="https://www.microsoft.com/en-us/store/configure/surface-rtx-spark-dev-box/8wg5vqp0x4gr" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Surface RTX Spark Dev Box&lt;/a&gt;, which is built on top of the same N1X platform, has a thousand air vents, after all (which will also likely allow it to push its performance beyond the N1X in the laptop).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Outside of that, the laptop is very quiet, though, and the fans remain off for most day-to-day use cases. It also quiets down very fast once the GPU load drops again.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="768" height="1024" src="https://cdn.thenewstack.io/media/2026/10/eb1f838c-img_5754-768x1024.jpg" alt="" class="wp-image-22840703"/&gt;&lt;figcaption class="wp-element-caption"&gt;The new Surface Magnetic Connect and 140W charging brick. Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-a-few-more-observations" class="wp-block-heading"&gt; A few more observations&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I would feel remiss if I didn&amp;#8217;t highlight a few other things I found while testing the Ultra. This is, after all, Microsoft&amp;#8217;s most ambitious laptop yet.&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;The touchpad is huge and has haptic feedback. There are only a few applications that support it so far, including DaVinci Resolve, for example. Having that feedback makes editing faster, as you can feel when the playhead snaps into place, for example. I want more touchpads with that feature.&lt;/li&gt;
-
-
-
-&lt;li&gt;Whatever Microsoft did with the speakers works wonders. There are side vents near the front of the laptop that create a surprisingly wide stereo field, something you will definitely notice in games.&lt;/li&gt;
-
-
-
-&lt;li&gt;The new magnetic USB-C charging connector is nice. It feels a lot like the magnetic Connect on other Surface devices. I just worry I&amp;#8217;ll lose the cable sooner rather than later. &lt;/li&gt;
-
-
-
-&lt;li&gt;Microsoft is not positioning this as a gaming PC, but with that GPU, people will try to play a few games, and so did I. Gaming on a Windows ARM machine is still in its early days, but thanks to Microsoft&amp;#8217;s emulation, it generally works without too much overhead. &lt;br&gt;Games that rely more on the GPU than the CPU will fare better, but I was able to play Cyberpunk 2077 in 2K with ray tracing turned on at around 60fps. With frame generation and a few settings tweaks, even 4K gaming is an option. &lt;/li&gt;
-
-
-
-&lt;li&gt;With ray tracing off, the remaster of The Witcher 3 also happily ran at 60fps in 4K.&lt;/li&gt;
-
-
-
-&lt;li&gt;But since the 15-inch, 3:2 touchscreen (3270&amp;#215;2180) is essentially a better 3K screen, you wouldn&amp;#8217;t want to run a game in 4K anyway unless you plug in an external monitor.&lt;/li&gt;
-
-
-
-&lt;li&gt;The screen looks great and can get very bright, but it is also highly reflective. That&amp;#8217;s often distracting.&lt;/li&gt;
-
-
-
-&lt;li&gt;Overall, Windows on ARM feels a lot more solid now than it did a year ago. Surely there are some applications and games that won&amp;#8217;t run (or run well), but I haven&amp;#8217;t come across any issues. Increasingly, developers (like OpenCode) offer Windows ARM64 versions of the desktop apps.&lt;/li&gt;
-
-
-
-&lt;li&gt;Having two USB-C, one USB-A, and an HDMI port is such a joy if you have any older accessories. Add the headphone jack and SD card reader, and you don&amp;#8217;t even need to carry a USB-C hub.&lt;/li&gt;
-
-
-
-&lt;li&gt;I&amp;#8217;ve gotten used to my MacBook Air. The Laptop Ultra is heavy at 4.41lbs (2kg).&lt;/li&gt;
-
-
-
-&lt;li&gt;The SSD is replaceable. There are four screws underneath the laptop, and you don&amp;#8217;t void your warrenty of you open the machine up. Apple should pay attention.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="2560" height="2066" src="https://cdn.thenewstack.io/media/2026/10/5780c39c-img_5822-1-scaled.jpg" alt="" class="wp-image-22840728"/&gt;&lt;/figure&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/surface-ultra-local-ai/"&gt;Running local AI models on Microsoft’s Surface Laptop Ultra: What we found&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Microsoft’s Surface Laptop Ultra pairs Nvidia’s N1X Blackwell GPU with up to 128GB of unified memory. We tested how it handles local AI models on the road.</content:encoded>
     </item>
     <item>
       <title>“Developers are paying frontier prices for amnesia”: Uvi wants to stop the agent relearning brain drain</title>
@@ -2769,7 +3378,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2defa50&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2defa50" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="426" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/bc11fd18-nemotron-super-vl-figure-1-updated-1024x426.webp" alt="" class="wp-image-22840571"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad735e450307&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad735e450307" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="426" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/bc11fd18-nemotron-super-vl-figure-1-updated-1024x426.webp" alt="" class="wp-image-22840571"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2826,7 +3435,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad5ea2df006a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad5ea2df006a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="495" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/401bdf3f-accuracy-1024x495.png" alt="" class="wp-image-22840570"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ad735e450951&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ad735e450951" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="495" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/401bdf3f-accuracy-1024x495.png" alt="" class="wp-image-22840570"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3565,799 +4174,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-scion-git-replacement/"&gt;Anthropic built its own git replacement for AI-scale coding. But you can’t have it.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Claude helped Anthropic outgrow its Git infrastructure — and build the replacement. But the company says Scion is too specialized to release for other teams.</content:encoded>
-    </item>
-    <item>
-      <title>The permission you denied today is your safety net for tomorrow</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/least-privilege-ai-agents/</link>
-      <dc:creator>Kayode Ojo</dc:creator>
-      <pubDate>Thu, 15 Oct 2026 14:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Security</category>
-      <category>sponsor-andela</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840500</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/edc7f8c0-alexandros-giannakakis-mmh3k-vzg2s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract high-contrast black-and-white motion blur representing velocity and autonomous AI agent execution risks." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/edc7f8c0-alexandros-giannakakis-mmh3k-vzg2s-unsplash.jpg" /&gt;&lt;p&gt;What happens when you give an AI support agent a permission it never needed, then assign it a task the&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/least-privilege-ai-agents/"&gt;The permission you denied today is your safety net for tomorrow&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/edc7f8c0-alexandros-giannakakis-mmh3k-vzg2s-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract high-contrast black-and-white motion blur representing velocity and autonomous AI agent execution risks." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/edc7f8c0-alexandros-giannakakis-mmh3k-vzg2s-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;What happens when you give an AI support agent a permission it never needed, then assign it a task the underlying data does not support? The result is entirely predictable. During a test with customer invoices, an agent pulled up a record, confirmed the charge had failed, and no money had left the customer’s account, and refunded it anyway. It repeated the mistake five times without hesitation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That was Claude Haiku 4.5 going six for six on tasks designed to catch that exact logic flaw. Claude Sonnet 5 identified all six edge cases on its own. Adding a single line to Haiku’s system prompt instructing it to verify transaction state before executing financial actions also resolved the issue.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I had two working fixes and felt reasonably confident until I realized I control neither variable. The moment someone reroutes support traffic to a cheaper model next quarter to &lt;a href="https://thenewstack.io/ai-pipeline-token-optimization/" data-type="link" data-id="https://thenewstack.io/ai-pipeline-token-optimization/" class="local-link"&gt;trim inference costs&lt;/a&gt;, the first fix evaporates. If someone trims or rewrites the system prompt during an experiment, the second fix disappears, leaving no record of the safety guardrail it maintained.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“The only safety control that survives your own cost-cutting is the permission you never granted in the first place.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The only run that held up reliably was the one where the agent lacked the authority to make the decision. Because its role excluded &lt;code&gt;billing:refund&lt;/code&gt;, the execution failed at the permission layer, making the underlying model completely irrelevant.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is the core argument for least privilege in AI architectures. It isn’t just about malicious actors or leaked tokens; it is about preventing a well-behaved agent from faithfully executing a flawed instruction at machine speed with zero human oversight. The only safety control that survives your own cost-cutting is the permission you never granted in the first place.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-roles-are-drawn-in-advance-agent-work-is-not" class="wp-block-heading"&gt;Roles are drawn in advance; agent work is not&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A &lt;a href="https://thenewstack.io/ai-agent-identity-crisis/" data-type="link" data-id="https://thenewstack.io/ai-agent-identity-crisis/" class="local-link"&gt;standard service account&lt;/a&gt; receives a role because a microservice performs one predictable job forever. The payment service handles payments; you scope it once, review it annually, and move on.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An agent’s workload changes on every invocation. The same support agent reads a ticket at 09:00, issues a refund at 09:04, and modifies a seat count at 09:11. The union of everything it might do over a week bears no relationship to what it needs in a single run.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Asking “how much of its permission set does an agent use?” yields a useless metric because that number reflects how generously you provisioned the credential. Grant 400 scopes, and utilization looks catastrophic; grant four, and it looks efficient. You end up measuring an arbitrary configuration choice rather than systemic risk.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A meaningful calculation evaluates the task distribution independently of the grant:&lt;/p&gt;
-
-
-
-&lt;div class="wp-block-math"&gt;&lt;math display="block"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;|&lt;/mi&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;|&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;M&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo form="prefix" stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;|&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;|&lt;/mi&gt;&lt;mo form="postfix" stretchy="false" lspace="0em" rspace="0em"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;Over – scopefactor = \frac{|Unionofscopesexercisedacrossalltasks|}{Median(|scopesexercisedpertask|)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/div&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This metric represents the blast-radius multiplier. In a compromised run, an agent reaches the total union of scopes rather than the per-task subset. Across my test suite, that factor reached 11.0. The union across 20 tasks totaled 22 scopes, while the median task required only two.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The experimental framework&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I constructed a test environment with 30 scopes across nine domains of a mock enterprise API covering tickets, users, billing, subscriptions, files, messages, audit, admin, and search. Thirteen of these scopes modify or exfiltrate state. Every command maps to exactly one scope, and the system logs every attempt — whether allowed or denied.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The suite comprises 20 tasks, each ending in a state change verifiable mechanically rather than by evaluating the agent’s prose (e.g., closing a ticket, refunding an invoice, or calculating seat overages and commenting the total).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Before running any agent, I authored a reference solution for every task to serve two functions:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;It confirms the task is solvable via the CLI, ensuring a run failure stems from the agent rather than an impossible environment.&lt;/li&gt;
-
-
-
-&lt;li&gt;It establishes the minimum required scope set by observing the exact endpoints a correct solution touches.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;I evaluated four permission models that differed strictly by which credentials were active at the moment of execution:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Broad:&lt;/strong&gt; One long-lived credential holding all 30 scopes.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Role:&lt;/strong&gt; A static support-agent role holding 17 scopes derived from a typical job description.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Task:&lt;/strong&gt; Scopes issued per run based on a declared plan, expiring when the run completes.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Just-In-Time (JIT):&lt;/strong&gt; Starts at zero scopes, requesting each scope on demand with a stated rationale.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Each model ran against two LLM tiers — Claude Haiku 4.5 and Claude Sonnet 5 — totaling 160 runs. The test stack relies strictly on standard-library Python with zero external dependencies or API keys, allowing full reproduction of the reference runs and metrics.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-blast-radius-against-completion" class="wp-block-heading"&gt;Blast radius against completion&lt;/h2&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Permission model&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Live scopes&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Destructive scopes&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Task completion (Haiku / Sonnet)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Call overhead&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Broad grant&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;30 of 30&lt;/td&gt;&lt;td&gt;13&lt;/td&gt;&lt;td&gt;20/20 · 20/20&lt;/td&gt;&lt;td&gt;Baseline&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Role-based&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;17 of 30&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;10/20 · 9/20&lt;/td&gt;&lt;td&gt;Baseline&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Task-scoped&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;2 of 30&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;20/20 · 20/20&lt;/td&gt;&lt;td&gt;Negligible&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;JIT escalation&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;2 of 30&lt;/td&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;19/20 · 20/20&lt;/td&gt;&lt;td&gt;+79% / +84% calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Task-scoping achieved complete task execution while holding one-fifteenth of the credentials compared to the broad grant. The occasional denied call and subsequent retry did not meaningfully increase overall API call volume, making the &lt;a href="https://thenewstack.io/ai-agents-credential-crisis/" data-type="link" data-id="https://thenewstack.io/ai-agents-credential-crisis/" class="local-link"&gt;reduction in blast radius&lt;/a&gt; effectively free.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The minor completion gap under role-scoping did not stem from permission failures. Both models stalled on the same ten tasks. The single-task variance occurred because one task dataset contained three open tickets with identical subjects. Sonnet declined to guess which ticket to close under the role configuration, yet selected the lowest-numbered ticket under the other three models — even though the role grant contained every scope that task required. This represents standard run-to-run variance on an ambiguous prompt.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“Role-based provisioning is simultaneously too broad and too narrow because it assigns permissions based on a job title rather than the underlying work.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Role-based scoping performed worst across both axes: it held 8.5 times more credentials than task-scoping while completing half as many tasks. Comparing the role grant against actual task requirements explains why: it granted four scopes no task ever invoked while missing nine essential scopes. Expanding the role until every task passed required 26 scopes — compared to a median task requirement of two. Role-based provisioning is simultaneously too broad and too narrow because it assigns permissions based on a job title rather than the underlying work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Under role-scoping, each model hit ten permission denials (one per blocked task) and failed every blocked run. These ten denials hit eight of the nine missing scopes (&lt;code&gt;billing:refund&lt;/code&gt; and &lt;code&gt;files:upload&lt;/code&gt; each blocked two tasks). The ninth missing scope, &lt;code&gt;admin:update_settings&lt;/code&gt;, was never reached because the task failed a step earlier at &lt;code&gt;admin:read_settings&lt;/code&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Under task-scoping, Haiku encountered one denial, and Sonnet hit six across four total tasks — yet all four tasks verified successfully. Because a task-scoped grant contains the primary permissions required, denials hit only optional exploratory paths the agent tried (such as querying a search endpoint instead of a list endpoint). Conversely, because a role grant lacks required scopes, its denials are terminal.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;JIT escalation achieved the same low blast radius without advance declaration, but it cost ~80% more API calls.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Evaluating the three defensive layers&lt;/h2&gt;
-
-
-
-&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Executed harmful refund&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Caught issue via reasoning&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Haiku 4.5 (No prompt hint)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;6 of 6&lt;/td&gt;&lt;td&gt;0 of 6&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Sonnet 5 (No prompt hint)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;0 of 6&lt;/td&gt;&lt;td&gt;6 of 6&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Haiku 4.5 (One-line system prompt hint)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;0 of 6&lt;/td&gt;&lt;td&gt;6 of 6&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Role arm (Lacking&lt;/strong&gt; &lt;strong&gt;billing:refund&lt;/strong&gt;&lt;strong&gt;)&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;0 of 6&lt;/td&gt;&lt;td&gt;0 of 6 (Blocked by policy)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Model capability cannot serve as a primary security control because you do not own the model lifecycle. The day an operations team routes traffic to a cheaper model to cut inference spend, your safety guarantees disappear without triggering an error in your test suite.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Similarly, system prompts are fragile controls. Prompts drift over time; an engineer might trim the prompt to save tokens or rewrite it for an experiment, silently stripping the guardrail.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;“A scope that was never granted holds firm regardless of which model runs behind it, how the prompt is modified, or whether the team remembers why the guardrail existed.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A scope that was never granted holds firm regardless of which model runs behind it, how the prompt is modified, or whether the team remembers why the guardrail existed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To be clear: this data does not show that agents are inherently reckless. Across standard workflows, agents invoked only 4% to 5% more scopes than the reference minimum — demonstrating disciplined execution. The problem is scale: when a well-behaved agent carrying 30 scopes encounters an edge case, it executes mistakes at a 30-scope scale.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Requirements for a purpose-built agent identity model&lt;/h2&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Scope credentials to the task, not the actor:&lt;/strong&gt; Task-scoped credentials yield identical completion rates with one-fifteenth the blast radius and no measurable overhead. The &lt;a href="https://thenewstack.io/agent-workload-identity-authentication/" data-type="link" data-id="https://thenewstack.io/agent-workload-identity-authentication/" class="local-link"&gt;execution run is the primary identity&lt;/a&gt;, not the agent.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Tie credential expiration to the run lifecycle:&lt;/strong&gt; A task-scoped credential that outlives its task degrades into a broad credential. The median run in this test suite required permissions only for a single operation.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Deploy escalation paths over static ceilings:&lt;/strong&gt; JIT permissions increased call volume by ~80%, which represents the operational cost of runtime discovery. Use declared scopes when a planner can predict them, use JIT escalation when it cannot, and treat every escalation as an auditable event.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Design permission denials to redirect rather than block:&lt;/strong&gt; Denials under task-scoping were non-fatal because the grant contained the core permissions needed to finish the task. If permission denials consistently break your workflows, your scoping model is flawed, and widening the static grant is the wrong fix.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Audit logs as primary security artifacts&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Every experiment in this framework runs on an append-only log that tracks allowed and denied execution attempts. This log provides the primary telemetry needed to investigate operational incidents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Denied calls are as critical as successful ones. A denied attempt signals that an agent’s active grant does not match its workflow — indicating either a scoping error or prompt injection. Under JIT escalation, every privilege expansion records a timestamp and an explicit rationale, replacing guesswork with concrete audit records when investigating why an agent accessed a resource.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The audit log also verified experimental integrity, proving no agent bypassed the API by directly modifying fixture states. A task that reports completion without a corresponding mutating call in the log indicates out-of-band tampering. All 160 runs remained consistent because the system verified the execution log directly.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Analyze one week of your agent’s production traffic and evaluate two metrics:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;The total union of scopes exercised across all runs.&lt;/li&gt;
-
-
-
-&lt;li&gt;The median number of scopes exercised per individual run.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Divide the first number by the second. If the ratio approaches 1.0, your agent performs a single, static task, and a fixed credential is sufficient. If the ratio approaches 11.0, each run carries an order of magnitude more permission surface than it needs — leaving excess authority waiting to be exploited.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Finally, review the last destructive action your agent executed incorrectly and determine which layer should have prevented it. If you rely on the model or the prompt for safety, your security model is vulnerable to the next cost-optimization ticket. In these test runs, the cheaper model executed six out of six harmful financial actions with contradictory data displayed directly on screen. The only configuration that stopped execution every time was the one where the permission didn’t exist.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/least-privilege-ai-agents/"&gt;The permission you denied today is your safety net for tomorrow&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Prompts drift and models change. Discover why task-scoped permissions are the only reliable safety control for autonomous AI agents.</content:encoded>
-    </item>
-    <item>
-      <title>The code confidence gap nobody’s talking about</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-code-confidence-gap/</link>
-      <dc:creator>Manish Kapur</dc:creator>
-      <pubDate>Thu, 15 Oct 2026 13:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Software Development</category>
-      <category>sponsor-sonarsource</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840493</guid>
-      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/4dfa5f25-abdillah-studio-nzcinhej7fi-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract visualization of parallel glowing data pipelines bending under tension across an engineering delivery system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/4dfa5f25-abdillah-studio-nzcinhej7fi-unsplash.jpg" /&gt;&lt;p&gt;AI has changed the economics of software creation: A task that once took hours to implement can now start with&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-code-confidence-gap/"&gt;The code confidence gap nobody’s talking about&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/4dfa5f25-abdillah-studio-nzcinhej7fi-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract visualization of parallel glowing data pipelines bending under tension across an engineering delivery system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/4dfa5f25-abdillah-studio-nzcinhej7fi-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;AI has changed the economics of software creation:&lt;/strong&gt; A task that once took hours to implement can now start with an agent producing an initial solution in minutes. As agents take on broader assignments, like changing code across a repository, refactoring services, writing tests, and preparing pull requests, output volume will continue to rise.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That is an extraordinary opportunity, and it&amp;rsquo;s also why the next challenge for engineering organizations isn&amp;#8217;t generating more code, but building &lt;a href="https://thenewstack.io/agentic-ai-verification-impact/" data-type="link" data-id="https://thenewstack.io/agentic-ai-verification-impact/" class="local-link"&gt;confidence in the code&lt;/a&gt; that reaches production. In the agentic software factory, agents write, test, and propose changes faster than people can review them line by line.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Code creation is becoming abundant; code confidence is not.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This distinction matters because a completed pull request is not the same as a dependable outcome. The code may compile and pass a narrow test suite while still violating an architectural convention, introducing a security weakness, duplicating existing functionality, or creating maintenance costs that surface much later. The faster an organization generates changes, the less feasible it becomes to rely on &lt;a href="https://thenewstack.io/ai-code-review-burnout/" data-type="link" data-id="https://thenewstack.io/ai-code-review-burnout/" class="local-link"&gt;heroics and manual review&lt;/a&gt; alone to catch every issue.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Code creation is becoming abundant; code confidence is not.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The way forward is to treat code confidence as something you can design into the software delivery system. A useful formula is Intent &amp;times; Guiderails &amp;times; Verification &amp;times; Evidence. (And yes, the multiplication sign here is deliberate.) Each of these four pieces is crucial. Strength in three cannot make up for weakness in the fourth.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Clear intent without verification does not prevent mistakes. Strong verification without evidence does not create accountability. Guiderails without clear intent merely automate ambiguity. Evidence without independent verification is only a record of what an agent claimed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Here is what each part of the formula means in practice.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-intent-make-the-standard-explicit" class="wp-block-heading"&gt;Intent: Make the standard explicit&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agents are remarkably capable at pursuing a stated objective. But &amp;ldquo;build a payments feature&amp;rdquo; or &amp;ldquo;modernize this service&amp;rdquo; is not a sufficient objective for a production codebase. An organization&amp;rsquo;s definition of good software includes much more, such as business logic, security expectations, design patterns, performance needs, dependencies, and conventions accumulated through years of engineering.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Intent is the discipline of making those expectations explicit. It means defining the goal of a change and the standards it must meet before an agent begins work. The better the context, the fewer cycles agents spend producing plausible but unsuitable answers, and the less rework falls to developers later.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-guiderails-shape-the-work-before-it-creates-risk" class="wp-block-heading"&gt;Guiderails: Shape the work before it creates risk&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Guiderails translate intent into boundaries that guide how agents operate. They may define which repositories, dependencies, data, or actions are permitted; where human approval is required; and what policies apply to a given class of code.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The purpose is not to constrain every useful action. It&amp;rsquo;s to give agents enough structure to operate productively and predictably. A well-designed guiderail lets teams safely grant more autonomy because everyone understands the conditions under which that autonomy applies.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The result is repeatable autonomy. Rather than treating every agent-driven change as a one-off experiment, teams can apply consistent boundaries and expand agentic development with confidence.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-verification-check-every-change-independently" class="wp-block-heading"&gt;Verification: Check every change independently&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Verification is where confidence is tested. As agents generate code at increasing scale, every change needs consistent evaluation for the qualities that matter: correctness, reliability, security, maintainability, and compliance with the organization&amp;rsquo;s own standards.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A model can assist in reviewing its own work, but an organization should not rely solely on the same probabilistic system that produced a change to determine whether that change is safe to ship.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Independence is essential. A model can assist in reviewing its own work, but an organization should not rely solely on the same probabilistic system that produced a change to determine whether that change is safe to ship. Repeatable, independent checks provide a common standard across models, agents, and toolchains. This is especially important when the AI tools themselves are evolving quickly.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Verification also needs to occur in the flow of work, not as a slow, final checkpoint. The goal is to identify and fix problems at the source, while the agent or developer still has the context needed to resolve them.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-evidence-make-confidence-visible-and-auditable" class="wp-block-heading"&gt;Evidence: Make confidence visible and auditable&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A change may be well-intentioned, carefully governed, and thoroughly checked. But engineering leaders, auditors, and the teams responsible for production still need to know what happened and why. Evidence is the durable record: what standards applied, what was checked, what was found, and how the issue was resolved.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This matters most in complex and regulated environments, but it&amp;rsquo;s valuable everywhere. Evidence makes quality measurable, allows teams to improve their practices over time, and gives organizations a defensible basis for moving quickly.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-building-the-factory-around-confidence" class="wp-block-heading"&gt;Building the factory around confidence&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The most promising vision for agentic software development is not one in which people disappear from the process. It&amp;rsquo;s one in which people, agents, and verification systems each contribute their strengths. Agents accelerate execution, and engineers provide judgment and direction. The delivery system supplies the standards, controls, and evidence that allow autonomy to scale.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The most promising vision for agentic software development is not one in which people disappear from the process. It&amp;rsquo;s one in which people, agents, and verification systems each contribute their strengths.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The organizations that succeed will be the ones that build code confidence into every change, at any volume, and at agent speed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That is the real work of the &lt;a href="https://thenewstack.io/warp-software-factory-infrastructure/" data-type="link" data-id="https://thenewstack.io/warp-software-factory-infrastructure/" class="local-link"&gt;agentic software factory&lt;/a&gt;, producing software an organization has the confidence to stand behind.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Start with four questions the next time an agent opens a pull request:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Did the agent know your standards before it started?&lt;/li&gt;
-
-
-
-&lt;li&gt;What was it allowed to touch, and what needed a human decision?&lt;/li&gt;
-
-
-
-&lt;li&gt;Did something other than the model that wrote the change check it?&lt;/li&gt;
-
-
-
-&lt;li&gt;Can you show what was found and how it was resolved?&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Wherever the answer is &amp;#8220;no,&amp;#8221; that is where your confidence gap lives. Close it there first.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-code-confidence-gap/"&gt;The code confidence gap nobody’s talking about&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AI makes code creation abundant, but code confidence is scarce. Close the confidence gap with guiderails, verification, and auditability.</content:encoded>
-    </item>
-    <item>
-      <title>Agentic AI doesn’t have a model problem. It has a retrieval problem.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agentic-ai-retrieval-problem/</link>
-      <dc:creator>Jenny Morris</dc:creator>
-      <pubDate>Thu, 15 Oct 2026 12:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Infrastructure</category>
-      <category>sponsor-vespa-ai</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840470</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eb5a0f78-ubaid-e-alyafizi-nbiorvcyxw8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract distorted optical light trails evoking complex data streams and AI retrieval tension." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eb5a0f78-ubaid-e-alyafizi-nbiorvcyxw8-unsplash.jpg" /&gt;&lt;p&gt;On BrowseComp-Plus, GPT-4.1 answered 93.49% of the questions correctly when it was given the supporting documents directly. When an agent&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-retrieval-problem/"&gt;Agentic AI doesn&amp;#8217;t have a model problem. It has a retrieval problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/eb5a0f78-ubaid-e-alyafizi-nbiorvcyxw8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract distorted optical light trails evoking complex data streams and AI retrieval tension." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/eb5a0f78-ubaid-e-alyafizi-nbiorvcyxw8-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;On BrowseComp-Plus, GPT-4.1 answered &lt;strong&gt;93.49%&lt;/strong&gt; of the questions correctly when it was given the supporting documents directly. When an agent used the same model but relied on BM25 to search for evidence to pass to the model, accuracy fell to &lt;strong&gt;14.58%&lt;/strong&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That difference matters because a system that gets the answer right 93% of the time is far more useful than one that gets it right only 15% of the time.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An agent can look excellent in a controlled demo. The corpus is clean, the task is familiar, and the relevant material is easy to find. Production is messier. Documents may be duplicated, outdated drafts can remain searchable, and teams may use different terminology for the same thing. Several versions of a policy can coexist, while the task itself may unfold in ways the evaluation set never covered.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;More model intelligence does not compensate for evidence the agent never retrieved.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Under those conditions, the agent may retrieve incomplete, stale, or simply wrong material. More model intelligence does not compensate for evidence the agent never retrieved.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This is where retrieval starts to determine what the model can actually do.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-browsecomp-plus-shows" class="wp-block-heading"&gt;What BrowseComp-Plus shows&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://arxiv.org/abs/2508.06600" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;BrowseComp-Plus&lt;/a&gt; provides a useful way to separate these effects because it evaluates agents against a fixed corpus rather than a changing web-search service. The benchmark includes 100,195 documents and 830 research questions, each with human-verified supporting documents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One evaluation gives the model all labeled positive documents directly. The paper calls this the &lt;em&gt;oracle&lt;/em&gt; setting. Another requires the agent to search the corpus and gather the material it needs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The difference is large. GPT-4.1 scores &lt;strong&gt;93.49%&lt;/strong&gt; with the labeled supporting documents supplied and &lt;strong&gt;14.58%&lt;/strong&gt; when the agent searches with the BM25 baseline. Qwen3-32B moves from &lt;strong&gt;83.25%&lt;/strong&gt; to &lt;strong&gt;3.49%&lt;/strong&gt; under the same two conditions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The oracle result shows how well the model can answer when the required material is already in front of it. For system design, comparing retrieval systems is even more useful. The reasoning model stayed the same, while better retrieval improved the final answer rate and reduced the number of search calls.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The lesson is practical: before changing the model, examine what reaches it. A capable model working from poor retrieval results still has poor material to reason over.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The lesson is practical: before changing the model, examine what reaches it. A capable model working from &lt;a href="https://thenewstack.io/search-retrieval-reranking-funnel/" data-type="link" data-id="https://thenewstack.io/search-retrieval-reranking-funnel/" class="local-link"&gt;poor retrieval results&lt;/a&gt; still has poor material to reason over.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/8cb05df2-image3-1024x768.png" alt="Chart showing the accuracy disparity between a model answering with oracle evidence versus searching for evidence with BM25." class="wp-image-22840471"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&lt;strong&gt;Figure 1. Same model, different evidence access:&lt;/strong&gt; BrowseComp-Plus: oracle evidence supplied directly versus agentic search with BM25.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Enterprises can build agents around proprietary information that competitors do not have, from product and customer data to internal knowledge and operational records. That advantage depends on whether the agent can find the right information and rank it well, while also keeping up with changes in the underlying data.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-one-task-a-few-minutes-a-thousand-retrievals" class="wp-block-heading"&gt;One task. A few minutes. A thousand retrievals.&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In its &lt;a href="https://www.perplexity.ai/hub/blog/rethinking-search-as-code-generation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Search as Code research&lt;/a&gt;, Perplexity describes tasks that can trigger hundreds or thousands of retrieval operations within a few minutes. Search becomes a sustained part of the agent&amp;rsquo;s workflow rather than an occasional lookup.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Traditional search usually returns one ranked result set per query. An agent can decompose a task into multiple searches, fan them out in parallel, combine the results, and issue follow-up searches as it learns more.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At that scale, fan-out becomes a normal part of the workload. If an agent runs ten searches in parallel and needs all ten results before it can continue, the slowest search sets the pace for that step. If the agent repeats that pattern several times during the task, tail latency matters even more than it does for a single interactive query.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same multiplication shows up in capacity. One user task can generate hundreds of search operations, and many agents may be doing that at once. Measured in user requests, the service may look lightly loaded while the retrieval layer is processing a much larger volume of searches.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When one task fans out into many searches, retrieval quality matters even more. People judge search results using context they have built up over time. They know which sources they trust and can often recognize when something looks stale, unreliable, or out of place. An agent usually starts with far less background and has to build its understanding from the evidence it retrieves during the task. It is often on its first day on the job. If one of those early results is wrong, the next search may be wrong too, and the rest of the task can drift from there.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;People judge search results using context they have built up over time. An agent usually starts with far less background and has to build its understanding from the evidence it retrieves during the task. It is often on its first day on the job.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A simple model shows why repeated retrieval steps raise the stakes. Suppose a workflow requires five retrieval steps, each with a 90% probability of supplying what the agent needs, and assume there are no retries or recovery. The probability that all five succeed is 0.9^5, or about &lt;strong&gt;59%&lt;/strong&gt;. Real agents can retry, use redundant evidence, branch, and recover, so this is an illustration rather than a measured agent success rate. It shows how small per-step weaknesses can accumulate when later work depends on earlier retrievals.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/85faf204-image4-1024x768.png" alt="Chart showing how end-to-end success fails multiplicatively." class="wp-image-22840472"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&lt;strong&gt;Figure 2. Small retrieval errors can compound across a multi-step task&lt;br&gt;&lt;/strong&gt;Illustrative model: if every required retrieval step must succeed and there is no recovery, end-to-end success falls as the number of steps increases.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agentic search therefore asks the retrieval layer to handle more queries for each user task, more searches running in parallel, and retrieval steps whose results influence later work. As those patterns scale, capacity, tail latency, and retrieval quality all become more important.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-your-retrieval-layer-was-tuned-for-a-different-user" class="wp-block-heading"&gt;Your retrieval layer was tuned for a different user&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Web search spent decades adapting to human search behavior.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Jon Bratseth &lt;a href="https://blog.vespa.ai/your-agent-wants-to-search-like-a-2010-quant/?utm_source=chatgpt.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes in &lt;em&gt;Your agent wants to search like a 2010 quant&lt;/em&gt;&lt;/a&gt;, people are often &amp;#8220;lazy and clueless&amp;#8221; when they search. The wording is blunt, but the point is straightforward: people tend to enter short queries without knowing much about the corpus or the search system behind it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Search engines evolved around those habits. Short, underspecified queries became the norm, and much of the complexity moved behind the interface, where the search system inferred intent and returned a ranked list.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An agent can use a much richer interface. It can search for exact terms, construct filters, specify dates, group results, choose among ranking strategies, and issue follow-up searches based on what it has already found. Jon gives examples ranging from proximity search for names in a legal case to semantic search over high-quality sources and grouping events by month. In &lt;a href="https://thenewstack.io/ai-agent-infrastructure-performance/" data-type="link" data-id="https://thenewstack.io/ai-agent-infrastructure-performance/" class="local-link"&gt;an agentic workflow&lt;/a&gt;, those searches can be chained together as the agent narrows, expands, and verifies its answer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That means the retrieval layer receives more than a short text query. It may receive several kinds of input: lexical terms, query embeddings, structured filters, or combinations of them. An agent-facing interface should make those choices explicit so the agent can use the right retrieval method for the task instead of collapsing every request into one text string.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Evaluation needs to reflect the same shift. A retriever tested mostly on short, human-written questions may behave differently when an agent generates its own filters, search terms, and follow-up queries. Retrieval quality should therefore be measured on the queries the agent actually sends in production, not only on the questions in the evaluation set.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Before changing the model or retuning retrieval, inspect those production queries first.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-search-api-returns-results-an-agent-needs-more-control" class="wp-block-heading"&gt;A search API returns results. An agent needs more control.&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Traditional search often exposes a narrow contract: send a query, let the server run a retrieval pipeline, and receive a ranked result list.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That works well when the caller only needs the output. An agent may need more control over how retrieval and ranking are carried out at runtime, depending on what the task requires.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;a href="https://vespa.ai/?utm_source=whitepaper&amp;amp;utm_medium=pdf&amp;amp;utm_campaign=agentic-retrieval&amp;amp;utm_content=homepage-link" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vespa&lt;/a&gt;&lt;/strong&gt; exposes that control through its query language and rank profiles. The caller can combine lexical or semantic retrieval, structured filters, ranking choices, and grouping in the same request, affecting how candidates are selected, scored, and returned.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The interface matters because the agent can only use the controls it can reach. A system may support filtering, ranking, aggregation, or several retrieval methods internally, but those capabilities do not help if the agent cannot invoke them when the task calls for them.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/96b3b55b-image5-1024x768.png" alt="List comparing a narrow interface against a richer interface." class="wp-image-22840473"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&lt;strong&gt;Figure 3. How much of the retrieval stack can the agent reach?&lt;/strong&gt; Illustrative comparison of a narrow search interface with richer query-time controls. Product categories do not determine which capabilities are exposed. Trusted application code enforces authorization.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A fixed pipeline is still a good fit for many well-defined applications. Agentic workflows become more demanding when the task changes from one step to the next and the agent needs different retrieval behavior at runtime.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The goal is to expose the controls the agent needs while keeping authorization, validation, budgets, and other safeguards on the trusted server side.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-exposing-the-controls-is-not-enough" class="wp-block-heading"&gt;Exposing the controls is not enough&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An engine can expose filters, lexical matching, nearest-neighbor search, grouping, multiple rank profiles, reranking, and query-time controls. Those capabilities only become useful to the agent when the interface explains what is available and when to use it. If rank profiles, filterable fields, or grouping operations are not described, the agent may default to a free-text query and push more of the work into later reasoning or tool calls.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One way to handle this is to put a query-translation model between the agent and the retrieval system. The translator takes the agent&amp;rsquo;s request and converts it into the engine&amp;rsquo;s query syntax. This can be useful when an application wants query construction centralized behind a stable interface.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When the caller is already an agent, a separate translator often inserts a specialized model between the agent and the retrieval system. The agent already has the task, prior results, and constraints in context; the translator must reconstruct that intent from a narrower request and convert it into a query. This extra handoff adds latency and another opportunity to lose or distort what the agent meant, making retrieval harder and less reliable.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Another approach is to describe the retrieval interface directly to the agent: which fields are available and what they mean, and what rank profiles are provided.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We call that an &lt;strong&gt;agent-ready schema&lt;/strong&gt;: a description of the fields, controls, and retrieval options the agent can use, along with the application-specific meaning behind them. &lt;a href="https://vespa.ai/?utm_source=whitepaper&amp;amp;utm_medium=pdf&amp;amp;utm_campaign=agentic-retrieval&amp;amp;utm_content=homepage-link" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vespa&lt;/a&gt; has described work on convenience tooling in this direction, and much of that guidance can be generated from the application schema itself.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-from-schema-to-skill" class="wp-block-heading"&gt;From schema to skill&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/building-agent-friendly-apis/" data-type="link" data-id="https://thenewstack.io/building-agent-friendly-apis/" class="local-link"&gt;A search schema&lt;/a&gt; already contains much of the information an agent needs: field names and types, which fields can be searched or used as filters, available rank profiles, and configured tensors and models.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What it lacks is a description of what the fields mean and how they could be used. A field called &lt;code&gt;tier&lt;/code&gt; may represent an account plan, a service level, or something else entirely. A timestamp such as &lt;code&gt;published&lt;/code&gt; may mean first publication, last modification, or ingestion time. A rank profile named &lt;code&gt;exact&lt;/code&gt; tells the agent very little about the kinds of queries it was designed for.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those meanings can be added as explanations in the schema. That gives the agent more than names and types; it gives it enough context to choose the right fields, filters, and ranking options for the task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Schema-to-Skill&lt;/strong&gt; is the proposed generation step: combine the Vespa application schema, engine guidance, and application-specific knowledge into a short Markdown skill the agent can consult when constructing queries. The schema provides the structure, engine guidance explains how to use the available capabilities safely, and application-specific knowledge adds the vocabulary and meaning that cannot be inferred from the schema alone.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/040a5a3d-image2-1024x768.png" alt="Workflow illustrating the architecture of a translation layer and an agent-ready schema." class="wp-image-22840474"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&lt;strong&gt;Figure 4. Translate for the agent, or teach it.&lt;/strong&gt; A translation layer uses a separate model call to construct the search query. With an agent-ready schema, the agent receives the guidance needed to construct queries using the retrieval controls exposed by the application. Schema-to-Skill is the proposed generation workflow.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The agent uses that skill to choose among the retrieval strategies the Vespa application exposes. &lt;a href="https://vespa.ai/?utm_source=whitepaper&amp;amp;utm_medium=pdf&amp;amp;utm_campaign=agentic-retrieval&amp;amp;utm_content=homepage-link" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vespa&lt;/a&gt; still does the actual retrieval work over the corpus, including matching, filtering, ranking, and aggregation. The agent decides what to ask for; the retrieval system executes it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Better models can help, but agents still fail when they search for the wrong evidence, cannot express the &lt;a href="https://thenewstack.io/the-precision-engine-why-agentic-rag-is-genais-next-leap/" data-type="link" data-id="https://thenewstack.io/the-precision-engine-why-agentic-rag-is-genais-next-leap/" class="local-link"&gt;right retrieval strategy&lt;/a&gt;, or do not understand the search system they are calling.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Better models can help, but agents still fail when they search for the wrong evidence, cannot express the right retrieval strategy, or do not understand the search system they are calling.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agentic workloads make those weaknesses more costly because retrieval happens throughout the task. Each search can affect what the agent sees next, how much context it carries, and whether it needs to search again. At scale, retrieval quality, tail latency, and query volume become part of the task itself.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That puts more pressure on the retrieval interface. Agents need access to the filters, ranking strategies, grouping, and other controls the task requires, along with enough guidance to use them correctly. An &lt;strong&gt;agent-ready schema&lt;/strong&gt; makes those capabilities explicit, and &lt;strong&gt;Schema-to-Skill&lt;/strong&gt; is one way to turn that structure, engine guidance, and application-specific knowledge into something the agent can use when constructing queries.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Before upgrading the model, inspect the searches the agent is issuing, the evidence those searches return, and whether the retrieval system gives the agent both the controls and the guidance it needs. Better retrieval can improve the answer, reduce unnecessary work, and make the rest of the agentic system more effective.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-retrieval-problem/"&gt;Agentic AI doesn&amp;#8217;t have a model problem. It has a retrieval problem.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Agentic AI doesn&amp;#039;t have a model problem—it has a retrieval problem. Discover why better retrieval matters more than bigger models.</content:encoded>
-    </item>
-    <item>
-      <title>Linus Torvalds let Claude Code fix the Linux page cache. Then reviewers found a race.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/torvalds-claude-code-kernel/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 14 Oct 2026 22:59:18 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Linux</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840452</guid>
-      <description>&lt;img width="1024" height="647" src="https://cdn.thenewstack.io/media/2026/10/39123855-dorothy-livelo-l1lklun853s-unsplash-1024x647.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Circuit board" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/39123855-dorothy-livelo-l1lklun853s-unsplash-scaled.jpg" /&gt;&lt;p&gt;Linux creator and longtime lead maintainer Linus Torvalds turned to Anthropic&amp;#8217;s Claude Code to tackle a kernel performance problem that&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/torvalds-claude-code-kernel/"&gt;Linus Torvalds let Claude Code fix the Linux page cache. Then reviewers found a race.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="647" src="https://cdn.thenewstack.io/media/2026/10/39123855-dorothy-livelo-l1lklun853s-unsplash-1024x647.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Circuit board" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/39123855-dorothy-livelo-l1lklun853s-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Linux creator and longtime lead maintainer &lt;a href="https://www.linkedin.com/in/linustorvalds/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Linus Torvalds&lt;/a&gt; turned to Anthropic&amp;#8217;s Claude Code to tackle a kernel performance problem that developers have struggled with for more than two years. On Tuesday, he &lt;a href="https://lkml.iu.edu/2610.1/13146.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;submitted a 10-patch series&lt;/a&gt; that delivered a 23-fold throughput improvement in a synthetic benchmark running on his Ryzen Threadripper.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Torvalds had spent 18 months running a broken version of his own fix for the page-cache reference-counting bottleneck, while other developers had encountered problems with their approaches. The new patches eliminate folio reference-count operations from a common buffered-read path, although Torvalds warned that the benchmark gains would be considerably smaller in real-world workloads.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Reviewers have since identified a race condition and raised concerns about memory reclamation. Torvalds has handed further development to &lt;a href="https://www.linkedin.com/in/kiryl-shutsemau-78153330/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kiryl Shutsemau&lt;/a&gt;, a Linux kernel developer who previously worked on the same bottleneck.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Torvalds had spent 18 months running a broken version of his own fix for the page-cache reference-counting bottleneck, while other developers had encountered problems with their approaches.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-page-cache-contention-problem" class="wp-block-heading"&gt;Page cache contention problem&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Torvalds&amp;#8217; Core i7-8565U laptop, folio reference-count contention accounted for 99.92% of cross-core load HITMs in eight-thread tests, &lt;a href="https://hwbusters.com/news/linus-torvalds-uses-claude-code-to-rework-the-linux-page-cache-tripling-small-read-throughput/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;according to Hardware Busters&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The bottleneck was flagged in 2024 by Matthew Wilcox, an Oracle engineer and longtime Linux kernel memory-management developer, after it surfaced in a customer workload.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-claude-code-writes-the-patches" class="wp-block-heading"&gt;Claude Code writes the patches&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On Sunday, Phoronix&amp;#8217;s &lt;a href="https://www.linkedin.com/in/michaellarabel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Michael Larabel&lt;/a&gt; spotted an experimental branch named &lt;code&gt;noref-filemap-read-with-llm&lt;/code&gt; in Torvalds&amp;#8217; tree, which rarely contains anything outside the main development branch.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The eight-patch series, based on Linux 7.3-rc6, came with a clear account of what Claude Code did. Torvalds said the assistant wrote the implementation, tests, and initial documentation, and reviewed the code under his direction. He ran the benchmarks himself, despite having previously &lt;a href="https://thenewstack.io/torvalds-ai-programming-productivity/" class="local-link"&gt;criticized developers for claiming AI writes 99% of their code&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Earlier approaches copied data without holding a folio reference and checked its validity afterward, leaving races involving reclamation and replacement. The subsequent 10-patch &lt;code&gt;rcu-free-v3&lt;/code&gt; series instead uses a new &lt;code&gt;PG_rcu_free&lt;/code&gt; flag and RCU-delayed reclamation to protect the folio through the userspace copy, provided it doesn&amp;#8217;t fault.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Earlier approaches copied data without holding a folio reference and checked its validity afterward, leaving races involving reclamation and replacement. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-threadripper-benchmark-results" class="wp-block-heading"&gt;Threadripper benchmark results&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The original eight-patch branch nearly tripled throughput on Torvalds&amp;#8217; laptop, pushing eight-thread performance from 10 million to as many as 33 million reads per second while cutting kernel cycles per read from roughly 2,950 to 725. The revised series delivered a much larger gain under heavy contention on his 64-thread Threadripper, where throughput jumped from 13.3 million to 304 million reads per second and cycles per read fell from nearly 20,000 to 735.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The original eight-patch branch nearly tripled throughput on Torvalds&amp;#8217; laptop, pushing eight-thread performance from 10 million to as many as 33 million reads per second while cutting kernel cycles per read from roughly 2,950 to 725. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The performance gains came with trade-offs. In the first implementation, delayed reclamation forced an expedited grace period whenever a CPU queued more than 1,024 pages, &lt;a href="https://hwbusters.com/news/linus-torvalds-uses-claude-code-to-rework-the-linux-page-cache-tripling-small-read-throughput/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;according to Hardware Busters&lt;/a&gt;. Reads into unmapped user pages also triggered an additional fault before falling back to the existing path, pushing a 16-byte single-thread read from about 4,150 to 6,550 cycles. Whether that regression persists in &lt;code&gt;rcu-free-v3&lt;/code&gt; remains unclear.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-maintainers-question-the-reclamation-design" class="wp-block-heading"&gt;Maintainers question the reclamation design&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Wilcox questioned the new &lt;code&gt;PG_rcu_free&lt;/code&gt; flag and proposed using a page type instead, along with reclaiming inactive-list folios after an RCU grace period.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Torvalds rejected both approaches, arguing that the flag must be set while a folio can still be mapped into userspace and that inactive-list reclamation wouldn&amp;#8217;t cover truncate and hole-punch operations. Shutsemau subsequently suggested restricting the flag to 64-bit systems, an approach supported by Arm engineer and Linux memory-management maintainer &lt;a href="https://www.linkedin.com/in/david-hildenbrand-73416154/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;David Hildenbrand&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Shutsemau also identified a race in &lt;code&gt;filemap_read_rcu_batch()&lt;/code&gt;, where folio replacement followed by an extension of &lt;code&gt;i_size&lt;/code&gt; could expose data that had never been written. Torvalds recommended moving the file-size read earlier and consolidating the folio checks, which Shutsemau incorporated into a revised patch.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/torvalds-claude-code-kernel/"&gt;Linus Torvalds let Claude Code fix the Linux page cache. Then reviewers found a race.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Linus Torvalds used Claude Code to build a Linux page cache fix that hit 23x read throughput, but kernel reviewers found a race before anything merged.</content:encoded>
     </item>
   </channel>
 </rss>
