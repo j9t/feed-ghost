@@ -20,6 +20,638 @@
       <height>32</height>
     </image>
     <item>
+      <title>AWS says its AI security agent fixes 89% of bugs — but there’s a catch</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/aws-says-its-ai-security-agent-fixes-89-of-bugs-but-theres-a-catch/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sat, 24 Oct 2026 14:30:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22841546</guid>
+      <description>&lt;img width="1024" height="660" src="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-1024x660.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI scanning code" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg" /&gt;&lt;p&gt;AWS made Continuum for code vulnerabilities generally available on Thursday. The service finds and validates bugs in your repositories, checks&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-says-its-ai-security-agent-fixes-89-of-bugs-but-theres-a-catch/"&gt;AWS says its AI security agent fixes 89% of bugs — but there&amp;#8217;s a catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="660" src="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-1024x660.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI scanning code" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;AWS made Continuum for code vulnerabilities generally available&lt;/strong&gt; on Thursday. The service finds and validates bugs in your repositories, checks them against your AWS environment, and opens pull requests with proposed fixes.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-89-benchmark-claim" class="wp-block-heading"&gt;The 89% benchmark claim&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company published its headline benchmark on &lt;a href="https://aws.amazon.com/blogs/security/aws-continuum-sets-a-new-standard-in-autonomous-code-security/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 5&lt;/a&gt;, more than two weeks before launch. In that run, Continuum passed 819 of 920 tasks on CyberGym-E2E, an 89.0% end-to-end success rate, against a previous public high of 65.9%. &lt;a href="https://www.linkedin.com/in/mattgarman/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Matt Garman&lt;/a&gt;, CEO of AWS, &lt;a href="https://x.com/mattsgarman/status/2113393140543738237" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes on X&lt;/a&gt; that AI is &amp;ldquo;genuinely transformative for defenders&amp;rdquo; and that Continuum scored higher than any other AI agent on the test.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/coquinn/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Corey Quinn&lt;/a&gt;, chief cloud economist and co-founder of Duckbill, replies &lt;a href="https://x.com/QuinnyPig/status/2113398845883478110" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;to the post,&lt;/a&gt; wondering whether the release started as a re:Invent announcement and was pushed out early, given the state of the internet. Quinn offered no evidence that AWS had moved up the announcement.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The recent PHP2Shell case shows how AI is making it easier to find vulnerabilities but fixing them is another story.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The recent &lt;a href="https://thenewstack.io/ai-php2shell-disclosure-framework/" class="local-link"&gt;PHP2Shell case&lt;/a&gt; shows how AI is making it easier to find vulnerabilities but fixing them is another story.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-cybergym-e2e-works" class="wp-block-heading"&gt;How CyberGym-E2E works&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;CyberGym-E2E gives an agent 90 minutes to find and fix a vulnerability in one of 139 open-source projects, without a bug description, proof of concept, crash log, or existing patch to work from. The agent must identify the flaw, trigger it, and produce a fix that stops the crash without breaking existing tests. All tasks involve memory-safety bugs in C or C++, leaving out many other languages and vulnerability types, as AWS acknowledges.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Grading runs in four cumulative stages. Continuum found and reproduced a bug in 92.5% of tasks, stopped the crash in 89.6%, and kept the project&amp;rsquo;s tests passing in 89.0%. The fourth stage checks whether the patch also fixes the historical vulnerability the benchmark selected. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The agent never learns which vulnerability that is; it only has to find and repair a real flaw in the codebase. Continuum&amp;rsquo;s patch also fixed that historical bug in 37.8% of tasks, against a previous public high of 26.2%.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Continuum&amp;rsquo;s patch also fixed that historical bug in 37.8% of tasks, against a previous public high of 26.2%.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-the-historical-bug-score-gap" class="wp-block-heading"&gt;The historical-bug score gap&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company does have a point about that last stage. A repository can have several vulnerabilities, and fixing a different one doesn&amp;#8217;t make the work worthless, which helps explain the gap between the two scores. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Continuum completed 89% of the tasks by finding and patching a real vulnerability without breaking existing tests, but only 37.8% of those patches also addressed the the historical bug the benchmark was checking for. The agent wasn&amp;#8217;t told which bug that was, so it&amp;#8217;s not quite a fair comparison. What we still don&amp;#8217;t know is how well Continuum performs when a team gives it a specific vulnerability to fix.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt; A repository can have several vulnerabilities, and fixing a different one doesn&amp;#8217;t make the work worthless, which helps explain the gap between the two scores.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-who-graded-the-benchmark" class="wp-block-heading"&gt;Who graded the benchmark&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS ran the tests itself and says Continuum followed the benchmark&amp;#8217;s rules, including limits on internet access. The company also checked that the agent wasn&amp;#8217;t simply looking up fixes that were already public. Continuum passed 89% of tasks within the 90-minute time limit. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Give it more time, AWS says, and that rises to 93.7%. The benchmark and testing tools are public, but so far, those results are AWS&amp;#8217;s alone.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-says-its-ai-security-agent-fixes-89-of-bugs-but-theres-a-catch/"&gt;AWS says its AI security agent fixes 89% of bugs — but there&amp;#8217;s a catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AWS made Continuum generally available after it scored 89% on the CyberGym-E2E code security benchmark. A closer look at what that number really shows.</content:encoded>
+    </item>
+    <item>
+      <title>Building an agentic software factory? Start with the sensor.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/agentic-software-factory-sensor/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 24 Oct 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Platform Engineering</category>
+      <category>Software Testing</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22841529</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract rendering of tiered dark geometric blocks with amber accents illustrating AI delivery system scale." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash.jpg" /&gt;&lt;p&gt;A gap has long existed between the shipping velocity of the best engineering teams and the rest of the bell&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-software-factory-sensor/"&gt;Building an agentic software factory? Start with the sensor.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract rendering of tiered dark geometric blocks with amber accents illustrating AI delivery system scale." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;A gap has long existed between the shipping velocity of the best engineering teams and the rest of the bell curve. For most of the industry&amp;#8217;s history, it was a multiple measured in deploys per week. Agents are turning that multiple into an exponent, and the dividing line is no longer tooling or talent. It is whether a team has rebuilt its delivery system into what the industry now calls a &amp;#8220;software factory,&amp;rdquo; a largely autonomous system where intent goes in, agents plan, write, test, and ship the changes. People own the specifications and the gates.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic put a number on the gap this month. &lt;a href="https://www.anthropic.com/engineering/redesigning-source-control" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;In May the company merged around 2,500 code changes a day, and by September it merged more than 30,000&lt;/a&gt;. Coding stopped being the bottleneck, they write. The bottleneck became the developer infrastructure built for human scale, and they now ask what &lt;a href="https://thenewstack.io/ci-bottleneck-agent-verification/" data-type="link" data-id="https://thenewstack.io/ci-bottleneck-agent-verification/" class="local-link"&gt;continuous integration&lt;/a&gt; (CI) even means when thousands of changes merge while the tests are still running.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Agents are turning that multiple into an exponent, and the dividing line is no longer tooling or talent. It is whether a team has rebuilt its delivery system into what the industry now calls a &amp;#8216;software factory.'&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Getting there means rethinking the delivery lifecycle around one question: how does the factory know a change works before the next thousand land on top of it? Read as a control loop, intent is the setpoint, agents are the controller, and verification is the sensor. A controller that outruns its sensor does not go faster. It retries on stale information and ships the failures the sensor would have caught. The sensor decides how much of the factory can run on its own.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-an-agentic-software-factory-is-made-of" class="wp-block-heading"&gt;What an agentic software factory is made of&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Addy Osmani&amp;#8217;s definition is the one most people use: a software factory is &lt;a href="https://addyosmani.com/blog/software-factories/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;many harnessed loops running at once, fed by a work queue and drained through a review gate into production&lt;/a&gt;, with humans owning the whole thing from above.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Intent is the specs, tickets, and scenarios that say what done means. A queue holds the backlog. A harness constrains each agent with tools, context, and rules. &lt;a href="https://thenewstack.io/5-key-trends-shaping-agentic-development-in-2026/" data-type="link" data-id="https://thenewstack.io/5-key-trends-shaping-agentic-development-in-2026/" class="local-link"&gt;Generation is the coding agents&lt;/a&gt;. Verification is the tests, scenario runs, and runtime checks that report whether a change works before it merges. A review gate is where a person or a policy lets a change merge. Integration and deploy move it to production, and production feedback carries telemetry and incidents back into the queue.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Agents changed the controller, and the sensor has to change with it&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents change the lifecycle in two places. They add a generation step, so later stages receive changes at the rate agents write them, and they turn verification from a stage people wait at into a service agents call from inside their own loop.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;A controller that outruns its sensor does not go faster. It retries on stale information and ships the failures the sensor would have caught.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Control engineers mount the sensor on the running system for a reason: it is the only reading that reflects what the system does. The traditional lifecycle got by with cheaper stand-ins at every stage, unit tests at commit, integration tests in CI, a shared staging environment before release and telemetry after, because reading the real system for every change was slow and expensive. Each stage traded fidelity for speed, and the trade held while people set the pace.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A developer who spent two days on a change barely noticed that staging took four hours to report. An agent that writes the change in four minutes either waits, which wastes the speed, or keeps going with whatever it can see. What it can see depends on the environments and tests it can access, and for many teams that is unit tests and mocks.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Dan Shapiro&amp;#8217;s five levels of AI coding, read by what verifies the code at each one, are a ladder of sensors. At level 3, the agent writes, and &lt;a href="https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;you review diffs all day, which is where almost everyone tops out&lt;/a&gt;. At level 4, the tests are the sensor, and whether that is safe depends on what they run against.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;StrongDM&amp;#8217;s &lt;a href="https://factory.strongdm.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;two rules&lt;/a&gt; &amp;mdash; that code must not be written by humans and must not be reviewed by humans &amp;mdash; certainly received attention. What made them workable was its Digital Twin Universe, behavioral clones of its third-party dependencies that agents run thousands of scenarios against. That is the line between adding agents to a pipeline and running a factory. The rules are free to copy, but the sensor is the expensive part, and it is what gives people their place: on the intent and the slow loops like architecture, not as the per-change check for a controller a hundred times faster than they read.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/10/e7103469-image-1024x546.png" alt="Flow diagram of the software factory control loop." class="wp-image-22841530"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A sensor has three properties, and the factory needs all three&lt;/h2&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Latency&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Latency is how long the sensor takes to report, and delay destabilizes the loop. Every action between a change and its signal rests on a state that no longer exists, so the agent retries on an unverified change and other agents build on that. Track time to signal: the minutes from a change being ready to a verified result in a production-like environment.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Fidelity&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fidelity is how closely the reading matches the real system, and it matters more than latency, because the loop trusts a biased sensor. Unit tests and mocks report what a change does against a model of its dependencies, and agents optimize for whatever the sensor rewards. StrongDM saw its agents return true to pass narrow tests, so it moved its scenarios outside the codebase as a holdout set. The number to track is escape rate, the share of failures found after merge.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;Bandwidth&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Bandwidth is how many readings the sensor can take at once, and it is the property agents strain first. Shared staging takes one reading at a time, so with fifty agents&amp;#8217; readings queued or mixed, failures stop being attributable to a change. The number is concurrent verification capacity.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Autonomy follows the sensor, so measure the sensor&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A factory can run as much autonomy as its sensor can verify and no more, which Osmani calls back pressure. With only compilers and unit tests, the agent proposes, and a person verifies everything. With per-change checks in a production-like environment, the agent iterates in a loop until the change is verified, and a person reviews the intent and evidence. Anthropic&amp;#8217;s engineers still review every major change to their codebase, but they examine evidence that the change does what was intended rather than reading every line. With held-out scenarios and fast rollback, defined classes of change can merge without review.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;A factory can run as much autonomy as its sensor can verify and no more. The sensor, not the model, sets the level.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The sensor, not the model, sets the level. A better controller on a biased sensor reaches the wrong answer faster, and reviewing every change is also a sensor, with latency in hours and bandwidth of a few changes per reviewer per day.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So measure the sensor, not the agents&amp;#8217; effort. Pull requests and tokens per engineer count how hard the agents work. Time to signal, escape rate, and concurrent verification capacity tell you which property is weak, and change failure rate and rework rate tell you whether the loop is stable. Start with the first three.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Cloud-native systems make the sensor harder&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a distributed system, behavior breaks across service boundaries. A field renamed in one service that another team&amp;#8217;s service still reads. A consumer that assumes an ordering its topic does not guarantee. Each change is correct at its own boundary and wrong in combination, so a faithful sensor has to include the real services around a change. That is what makes all three properties hard to get at once: fidelity means real neighbors, and latency and bandwidth mean an environment with those neighbors for every change, in minutes. Most teams get two of the three.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Verifying a batch of pull requests on a shared environment gets fidelity and nothing else. The environment is real, but it takes one reading at a time and reports hours after the change, outside any agent&amp;#8217;s loop. Testing several changes in one run to save time makes a failure impossible to attribute, so the agent cannot act on a red result.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Duplicating the full stack, or a large part of it, per change improves fidelity and isolation but adds latency and bandwidth costs. Provisioning takes tens of minutes, far longer than an agent&amp;#8217;s attempt, and cost grows with every concurrent agent, so teams ration it to the changes that justify it. Behavioral twins work for third-party services with stable public behavior. Still, for 150 internal services, a clone is a second implementation that drifts while the real services already run in a cluster.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At scale, a factory needs a way to give each agent, and each change, a realistic environment where the real services answer its calls, without the cost or latency of duplicating the stack. That sensor satisfies all three properties, and it is the model we built &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=paid_sponsorship&amp;amp;utm_campaign=q4_26_sponsored_content&amp;amp;utm_content=software-factory" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Signadot&lt;/a&gt; to enable.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/10/be35d653-image-1024x512.png" alt="A diagram showing the various software factory sensor approaches." class="wp-image-22841531"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Rethinking the SDLC for agents starts with the sensor&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The gap between the teams merging 30,000 changes a day and the rest is not the agents, which everyone now has. It is a delivery system rebuilt around a sensor that reports in minutes, matches the real system, and runs for every change at once.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On &lt;a href="https://thenewstack.io/agent-loops-cloud-native-verification/" data-type="link" data-id="https://thenewstack.io/agent-loops-cloud-native-verification/" class="local-link"&gt;cloud-native systems&lt;/a&gt;, that sensor is the hardest part to build, and it decides whether more agents ship more software or only break more of it. For the full architecture, see our &lt;a href="https://www.signadot.com/software-factory/?utm_source=tns&amp;amp;utm_medium=paid_sponsorship&amp;amp;utm_campaign=q4_26_sponsored_content&amp;amp;utm_content=software-factory" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;complete guide to software factories for cloud-native systems&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-software-factory-sensor/"&gt;Building an agentic software factory? Start with the sensor.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>In an agentic software factory, verification is the sensor. Learn how latency, fidelity, and bandwidth define your AI delivery system.</content:encoded>
+    </item>
+    <item>
+      <title>Why Kubernetes autoscalers keep fighting each other (and why the solution must be autonomous)</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/why-kubernetes-autoscalers-fight/</link>
+      <dc:creator>Nikhil Kurup</dc:creator>
+      <pubDate>Sat, 24 Oct 2026 13:00:00 +0000</pubDate>
+      <category>Cloud Native Ecosystem</category>
+      <category>Kubernetes</category>
+      <category>Platform Engineering</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22841583</guid>
+      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/74e58168-ubaid-e-alyafizi-hmtbfonxza8-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Digital abstract neon wave interference pattern on black, symbolizing algorithmic control loops and infrastructure scaling metrics." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/74e58168-ubaid-e-alyafizi-hmtbfonxza8-unsplash.jpg" /&gt;&lt;p&gt;Ask an SRE a deceptively simple question: What is the right size for checkout-api, and how many replicas should it&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/why-kubernetes-autoscalers-fight/"&gt;Why Kubernetes autoscalers keep fighting each other (and why the solution must be autonomous)&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/74e58168-ubaid-e-alyafizi-hmtbfonxza8-unsplash-1024x640.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Digital abstract neon wave interference pattern on black, symbolizing algorithmic control loops and infrastructure scaling metrics." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/74e58168-ubaid-e-alyafizi-hmtbfonxza8-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Ask an SRE&lt;/strong&gt; a deceptively simple question: &lt;em&gt;What is the right size for&lt;/em&gt; &lt;em&gt;&lt;code&gt;checkout-api&lt;/code&gt;, and how many replicas should it run right now?&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Their Helm values specify &lt;code&gt;replicas: 3, cpu: 1000m&lt;/code&gt;, and &lt;code&gt;memory: 2Gi&lt;/code&gt;. But the live cluster tells a different story: HPA has scaled the app to 11 replicas on CPU load; VPA insists it is over-provisioned, recommending &lt;code&gt;cpu: 350m&lt;/code&gt; and &lt;code&gt;memory: 3.1Gi&lt;/code&gt;; KEDA demands 24 replicas due to an upstream Kafka lag spike; and Karpenter has provisioned two new nodes, sizing physical capacity strictly against declared requests rather than actual usage.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Five sources yield five contradictory answers. Each controller acts logically in isolation, but none sees the complete picture.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Five sources yield five contradictory answers. Each controller acts logically in isolation, but none sees the complete picture. This gap between isolated observations and actual workload needs represents a core architectural failure in modern Kubernetes operations.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-breakdown-of-the-unix-philosophy-in-elastic-systems" class="wp-block-heading"&gt;The breakdown of the Unix philosophy in elastic systems&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kubernetes and its components were built on the Unix philosophy: &lt;em&gt;build small, modular tools that do one thing well.&lt;/em&gt; For container orchestration, this principle seemed intuitive:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;HPA&lt;/strong&gt; handles horizontal elasticity based on runtime resource utilization.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;VPA&lt;/strong&gt; handles vertical container sizing based on historical consumption.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;KEDA&lt;/strong&gt; bridges event sources to replica counts based on external queue lag.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Karpenter and Cluster Autoscaler manage&lt;/strong&gt; node capacity when pods are Pending.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;GitOps (Argo CD / Flux)&lt;/strong&gt; &lt;a href="https://thenewstack.io/make-your-kubernetes-apps-self-heal-with-argo-cd-and-gitops/" data-type="link" data-id="https://thenewstack.io/make-your-kubernetes-apps-self-heal-with-argo-cd-and-gitops/" class="local-link"&gt;enforces baseline cluster state&lt;/a&gt; from version control.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In standard Unix environments, tools like grep and awk compose cleanly because they process immutable streams of text sequentially. One tool finishes and hands its output to the next.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Autoscaling controllers do not operate sequentially. They execute concurrently, acting on the same target workload and mutating the same API fields: &lt;code&gt;.spec.replicas, .resources.requests&lt;/code&gt;, and the underlying node pool. Each runs in an &lt;a href="https://thenewstack.io/ai-agents-kubernetes-control/" data-type="link" data-id="https://thenewstack.io/ai-agents-kubernetes-control/" class="local-link"&gt;independent reconciliation loop&lt;/a&gt;, assuming exclusive control over workload sizing without visibility into adjacent tools.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Determining workload capacity is a single, coupled mathematical equation. Splitting it across decoupled controllers creates thrashing instead of modular efficiency.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Determining workload capacity is a single, coupled mathematical equation. Splitting it across decoupled controllers creates thrashing instead of modular efficiency.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The four collisions: how autoscalers fight&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When independent control loops manipulate interdependent variables, feedback loops destabilize into four common failure modes.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;1. The denominator collapse: HPA vs. VPA&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;HPA calculates target replicas using pod CPU utilization as a percentage of declared requests:&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;code&gt;current metric = total actual usage / total declared requests&lt;/code&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Declared resource requests serve as the denominator. When VPA operates concurrently, it lowers CPU requests to eliminate waste. This shrinks the denominator. A minor traffic increase now pushes percentage utilization past HPA&amp;#8217;s threshold, triggering an aggressive horizontal scale-out. As more pods split the traffic, per-pod usage drops, prompting VPA to shrink requests even further. The workload enters a death spiral: VPA continuously shrinks pod size while HPA creates an unmanageable fleet of microscopic containers.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;2. Multi-writer race condition: native HPA vs. KEDA&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When teams combine queue-based scaling via KEDA with standard CPU-based HPA, two controllers target the same deployment&amp;#8217;s &lt;code&gt;/scale&lt;/code&gt; sub-resource. If an event queue spikes, KEDA scales the deployment up to drain the backlog. However, if those worker pods are I/O-heavy with low CPU usage, the standalone HPA evaluates the low utilization, concludes the app is over-provisioned, and scales it back down. The API server records alternating rescale events while actual processing throughput stalls.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;3. GitOps drift ping-pong: declarative IaC vs. dynamic runtime&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;GitOps engines enforce Git repositories as the source of truth. When HPA scales a deployment during a traffic spike, Argo CD flags the application as &lt;code&gt;OutOfSync&lt;/code&gt;. If auto-sync is enabled, GitOps resets the live deployment back to its baseline, starving the application of capacity during peak demand. While engineers often configure GitOps to ignore replica differences, this breaks declarative infrastructure: Git no longer reflects production reality, and future rollouts risk quietly restoring outdated baselines.&lt;/p&gt;
+
+
+
+&lt;h3 class="wp-block-heading"&gt;4. The multiplier effect at the node layer&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/how-amazon-eks-auto-mode-simplifies-kubernetes-cluster-management-part-1/" data-type="link" data-id="https://thenewstack.io/how-amazon-eks-auto-mode-simplifies-kubernetes-cluster-management-part-1/" class="local-link"&gt;Node autoscalers like Karpenter&lt;/a&gt; make placement decisions based strictly on declared container &lt;em&gt;requests&lt;/em&gt;, not actual consumption. If a container requests &lt;code&gt;1000m&lt;/code&gt; CPU but consumes only 150m, the scheduler still reserves the entire core. Karpenter provisions physical instances to satisfy phantom demand, multiplying upstream sizing inefficiencies into massive cloud bills. Across production fleets, average cluster CPU utilization hovers around 8% despite heavy node provisioning.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The path to a better autoscaler&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every traditional autoscaler answers a narrow question: &lt;em&gt;&amp;#8220;What should my individual setting be?&amp;#8221;&lt;/em&gt; But the real operational requirement is broader: &lt;em&gt;What combination of replicas, resource requests, limits, and scaling thresholds satisfies latency SLOs at the lowest cost, and when should that configuration change?&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Horizontal and vertical sizing are interlinked variables of a single optimization problem. A true autoscaler cannot rely on reactive, single-metric heuristics. It must function as a unified control plane defined by five core capabilities:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Unified signal ingestion: Evaluating&lt;/strong&gt; CPU/memory metrics, queue depth, transaction rates, latency SLO compliance, node pricing, and IaC manifests simultaneously.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Joint decision-making: Computing&lt;/strong&gt; a single action vector that defines horizontal limits and vertical resource requests in tandem, rather than delegating replicas to one tool and pod sizing to another.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Continuous GitOps synchronization: Submitting&lt;/strong&gt; automated, reasoned pull requests against application repositories instead of forcing GitOps engines to ignore live cluster state, keeping version control aligned with real-world needs.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Predictive and proactive capacity planning: Reactive&lt;/strong&gt; scaling is inherently flawed because initializing new compute resources takes time. Traditional reactive controllers wait for load to breach arbitrary thresholds, causing latency spikes during sudden demand surges. A true autoscaler incorporates predictive algorithms to analyze historical consumption, detect daily or weekly seasonality, and forecast workload demand. It pre-warms application capacity and resizes resources &lt;em&gt;before&lt;/em&gt; traffic arrives, transforming scaling from a panicked reflex into a smooth, scheduled operation.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Explainable auditing: Providing&lt;/strong&gt; clear operational rationale for every adjustment, giving SREs full transparency into trade-offs between cost savings, predicted demand, and latency boundaries.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;From reactive reflexes to true autonomy&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The cloud-native ecosystem routinely conflates &amp;#8220;&lt;em&gt;automated&amp;#8221;&lt;/em&gt; and &amp;#8220;&lt;em&gt;autonomous&lt;/em&gt;.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Today&amp;rsquo;s autoscalers are &lt;em&gt;automated&lt;/em&gt;: they act like biological reflexes, measure an isolated telemetry signal, and fire a predefined response. When an event occurs, HPA triggers, KEDA scales, or Karpenter provisions. But reflexes lack a central nervous system. When five independent reflexes fire simultaneously on the same limb, the system thrashes.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Today&amp;rsquo;s autoscalers are automated: they act like biological reflexes. But reflexes lack a central nervous system. When five independent reflexes fire simultaneously on the same limb, the system thrashes.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;Autonomy&lt;/em&gt; requires a closed loop that observes the entire operating environment, understands the tradeoffs between performance and cost, and assumes end-to-end accountability for the outcome.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The Unix philosophy remains the right blueprint for the execution layer: HPA, VPA, KEDA, and Karpenter should continue executing the specific API mutations they were designed to handle. What Kubernetes fundamentally lacks is the central intelligence layer that decides what those actuators should do.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The next time your platform team debates whether to implement HPA or VPA, step back and ask a broader question: &lt;em&gt;Who decides this workload&amp;#8217;s size, and do they have the full picture?&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In modern clusters, nobody does. Solving Kubernetes rightsizing requires building a system that finally does.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/why-kubernetes-autoscalers-fight/"&gt;Why Kubernetes autoscalers keep fighting each other (and why the solution must be autonomous)&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Kubernetes autoscalers often fight each other. Learn why decoupled control loops fail and why clusters need unified, autonomous sizing.</content:encoded>
+    </item>
+    <item>
+      <title>Before you expand your GPU pool, measure the outcome</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/optimize-kubernetes-gpu-pools/</link>
+      <dc:creator>Danielle Zeis</dc:creator>
+      <pubDate>Sat, 24 Oct 2026 12:00:00 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>FinOps</category>
+      <category>Kubernetes</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22841601</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/b5688e82-getty-images-nepgabvtsk4-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Monolithic concrete tunnel with circular arches and high-contrast shadows representing scalable AI compute infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b5688e82-getty-images-nepgabvtsk4-unsplash.jpg" /&gt;&lt;p&gt;For teams running AI workloads on Kubernetes, a fully allocated GPU pool and a growing batch-job queue might make expanding&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/optimize-kubernetes-gpu-pools/"&gt;Before you expand your GPU pool, measure the outcome&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/b5688e82-getty-images-nepgabvtsk4-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Monolithic concrete tunnel with circular arches and high-contrast shadows representing scalable AI compute infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b5688e82-getty-images-nepgabvtsk4-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;For teams running AI workloads&lt;/strong&gt; on Kubernetes, a fully allocated GPU pool and a growing batch-job queue might make expanding the pool seem like the obvious next step. But a growing queue could point to timing, serving capacity, or the choice of model and hardware. Before expanding a GPU pool, teams should define what success looks like, when it must finish, and what it costs to deliver.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;An allocated GPU, a busy GPU, and a workload producing valuable results are not the same thing.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That starts with a distinction: an allocated GPU, a busy GPU, and a workload producing valuable results are not the same thing. Understanding how they relate can help teams use existing capacity more effectively before provisioning additional capacity they genuinely need.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-start-with-the-outcome-and-deadline" class="wp-block-heading"&gt;Start with the outcome and deadline&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Look at the workloads and the underlying use cases they support. A customer service chatbot may need around-the-clock inference capacity, while results from a model evaluation job might only be needed before the next internal release sync. Classifying workloads into broad categories like &amp;ldquo;inference&amp;rdquo; and &amp;ldquo;training&amp;rdquo; does not determine urgency. Some batch inference can wait, while a training job may have a firm deadline.&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;KubeCon + CloudNativeCon is taking place in Salt Lake City from November 9 to 12.&lt;/em&gt;&lt;/strong&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Register now&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For each workload, document its deadline, expected runtime, resource requirements, and whether interruption is acceptable. Also define what counts as a valuable output. An inference service should have a task-specific quality threshold and a latency objective. A completed request or valid JSON response alone does not show whether the workload met its objective.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Keep start-time flexibility separate from interruption tolerance. A job that can wait to start may still need to run without interruption.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Use scheduling flexibility before expanding the pool&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Suppose four compatible GPUs are available for batch work from noon until 5 p.m. Four independent evaluation jobs are ready at noon. Each needs two GPUs for one hour, and all results are due at 5 p.m.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Starting all four jobs immediately requires eight GPUs. But running two at noon and two at 1 p.m. completes all four jobs by 2 p.m. using the four GPUs already available. Assuming runtimes and supporting resources remain unchanged, both schedules consume eight GPU-hours, excluding startup overhead.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Staggering reduces peak demand. The jobs still finish on time without expanding the pool.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Staggering reduces peak demand. The jobs still finish on time without expanding the pool. Before provisioning more GPUs to clear a queue, consider how much flexibility exists in start times.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Tools like &lt;a href="https://kueue.sigs.k8s.io/docs/overview/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kueue&lt;/a&gt; provide an admission control point, using configured quotas and policies to determine when work is admitted. Teams still need to decide how to represent and enforce deadlines and workload requirements. Flexible queueing can support capacity planning and reduce the need to start jobs early, only to preempt them later.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Measure how much useful work the deployment can sustain&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Flexible scheduling can ease capacity constraints. But inference teams must also examine how well the model and serving configuration match that work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;High GPU activity does not establish how much additional throughput is available. &lt;a href="https://docs.nvidia.com/datacenter/dcgm/latest/learn/modules/profiling.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nvidia&amp;#8217;s profiling documentation&lt;/a&gt; explains that streaming multiprocessor activity can include warps waiting on memory. Serving metrics like running requests, waiting requests, and cache occupancy add context, while preemption counts help explain behavior. In vLLM, &lt;a href="https://docs.vllm.ai/en/latest/usage/metrics/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KV-cache usage measures the fraction of occupied cache blocks&lt;/a&gt;, but it doesn&amp;#8217;t directly measure total serving capacity.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;High GPU activity does not establish how much additional throughput is available.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Measure sustainable capacity with a representative load test. Keep the model, hardware, serving settings, and request mix constant. Then, increase the arrival rate and observe throughput, quality, and latency. The highest sustained rate that still meets the workload&amp;#8217;s requirements, including error limits and selected latency percentiles, provides a useful capacity estimate. For interactive generation, include time to first token and subsequent token delivery, not just average completion time. &lt;a href="https://arxiv.org/abs/2401.09670" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DistServe&lt;/a&gt; shows why you should evaluate serving capacity against application-level objectives like latency.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Compare production traffic with that tested capacity. Low cache occupancy may warrant further investigation, but claiming ten times more throughput requires a throughput test. Brief queues can represent temporary bursts, while persistent queues might require diagnosis. Neither on its own identifies the limiting resource.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Connect OpenCost data to verified outcomes&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The FinOps community frames AI efficiency around &lt;a href="https://www.finops.org/insights/token-economics-the-atomic-unit-of-ai-value/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;cost and useful outcomes&lt;/a&gt;. For &lt;a href="https://thenewstack.io/agentic-ai-kubernetes-management/" data-type="link" data-id="https://thenewstack.io/agentic-ai-kubernetes-management/" class="local-link"&gt;AI workloads&lt;/a&gt;, cost becomes more useful when it connects to the outcomes the infrastructure helps deliver. Kubernetes teams can make that relationship concrete by combining workload cost, serving behavior, and application results.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Use &lt;a href="https://opencost.io/docs/integrations/api/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenCost&amp;#8217;s allocation API&lt;/a&gt; for workload costs at defined intervals, then join that data with serving telemetry and outcome records using workload identities and timestamps. OpenCost also provides opt-in &lt;a href="https://github.com/opencost/opencost/blob/v1.121.3/docs/inference-cost-tracking.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;inference cost tracking&lt;/a&gt;, including cost per million tokens. When calculating cost per outcome, include applicable GPU, CPU, memory, and other infrastructure costs, and document how shared and idle costs are assigned. Add relevant costs outside OpenCost separately without counting them twice.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One useful metric is &lt;a href="https://thenewstack.io/greenops-and-finops-a-dual-strategy-for-sustainable-ai/" data-type="link" data-id="https://thenewstack.io/greenops-and-finops-a-dual-strategy-for-sustainable-ai/" class="local-link"&gt;cost per verified outcome&lt;/a&gt;: total attributable cost divided by the number of results that meet the defined quality requirements and are delivered within the required time. Account for retries, failures, startup, and idle periods where they contribute to total cost. Count the final business result once. When correctness is estimated from sampled reviews, document the sampling method and uncertainty.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenCost supplies the cost allocation details; the application supplies the outcome definition and evaluation evidence. Capacity still requires a separate measurement. &lt;a href="https://github.com/opencost/opencost/pull/3915" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenCost proposal 3915&lt;/a&gt; explores bringing serving-engine telemetry into the cost model. The proposal remains a draft, rather than a released saturation or correctness score.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Test whether the spare capacity earns its cost&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Consider an illustrative service receiving 1,000 tasks per hour with a 98% correctness requirement. A small model that achieves 90% is unsuitable, even if its GPU is cheap and fully occupied.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A stronger model might produce 990 correct and timely results for $2 per hour while using only a fraction of its tested serving capacity. Its cost is about $2.02 per 1,000 qualifying outcomes, and that spare capacity may be an acceptable price for meeting quality requirements and absorbing bursty activity.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The next test is whether a smaller GPU, fewer replicas, or a different batching setting can preserve those outcomes and the required reliability. If a tested configuration produces the same 990 qualifying results for $1.50, the cost falls to about $1.52 per 1,000 qualifying outcomes. Savings come from using fewer resources to deliver the same outcome. Increasing utilization on the original GPU without improving the outcome would provide no comparable value.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The target is a deployment that delivers the required outcomes at a defensible cost, with enough headroom to meet its requirements.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When two models both meet the minimum requirements, an additional quality improvement may justify a higher cost if it provides fewer consequential errors or requires less human review. Compare that value with actual demand. Cost per correct outcome is most useful when the outcomes being compared have similar value and error consequences.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Change one major variable at a time, then compare the cost, verified outcomes, latency, and deadline attainment under representative demand. Preserve capacity for bursts and failures, and confirm that low activity corresponds to usable capacity. A GPU allocated exclusively to one Pod cannot be reassigned to another until it is released.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Teams can then choose the change the evidence supports: delay flexible jobs, improve batching, resize a deployment, select a different model, or &lt;a href="https://thenewstack.io/kubernetes-gpu-management-just-got-a-major-upgrade/" data-type="link" data-id="https://thenewstack.io/kubernetes-gpu-management-just-got-a-major-upgrade/" class="local-link"&gt;provision additional GPUs&lt;/a&gt;. The target is a deployment that delivers the required outcomes at a defensible cost, with enough headroom to meet its requirements.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/optimize-kubernetes-gpu-pools/"&gt;Before you expand your GPU pool, measure the outcome&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Before buying more GPUs, optimize Kubernetes AI scheduling, measure real serving capacity, and link cloud costs to verified outcomes.</content:encoded>
+    </item>
+    <item>
       <title>Vercel moved to kill static credentials. Then developers spotted its own deployment token.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/vercel-oidc-static-credentials/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +660,10 @@
       <category>CI/CD</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22841666</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Vercel wants to eliminate long-lived API keys from its ecosystem, and it is giving Marketplace vendors until January 2027 to&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Vercel wants to eliminate long-lived API keys from its ecosystem, and it is giving Marketplace vendors until January 2027 to&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/"&gt;Vercel moved to kill static credentials. Then developers spotted its own deployment token.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;Vercel wants to eliminate long-lived API keys from its ecosystem, and it is giving Marketplace vendors until January 2027 to comply or risk being delisted, a push that lands as a run of credential-stealing supply chain attacks &amp;mdash; including a &lt;a href="https://thenewstack.io/npm-supply-chain-worm-attack/" class="local-link"&gt;recent npm worm that scraped tokens straight out of CI pipelines&lt;/a&gt; &amp;mdash; keeps proving how much damage a single leaked secret can do.&lt;/p&gt;
 
 
@@ -133,7 +765,7 @@
       <category>Sponsored</category>
       <category>sponsored-post</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22841606</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/9d675f70-daniele-franchi-2mlookvpdts-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract waves of green, blue, purple and red light ripple across a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9d675f70-daniele-franchi-2mlookvpdts-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon! We&amp;#8217;re tracking movements in the Kubernetes and cloud-native ecosystem as we count&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/9d675f70-daniele-franchi-2mlookvpdts-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract waves of green, blue, purple and red light ripple across a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9d675f70-daniele-franchi-2mlookvpdts-unsplash-scaled.jpg" /&gt;&lt;p&gt;Welcome to another edition of Road to KubeCon! We&amp;#8217;re tracking movements in the Kubernetes and cloud-native ecosystem as we count&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-agentic-ai-inference/"&gt;AI jobs are waiting while GPUs sit idle. Kubernetes has a new plan.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/9d675f70-daniele-franchi-2mlookvpdts-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract waves of green, blue, purple and red light ripple across a black background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9d675f70-daniele-franchi-2mlookvpdts-unsplash-scaled.jpg" /&gt;
@@ -392,6 +1024,163 @@
 </content:encoded>
     </item>
     <item>
+      <title>A few engineers asked IT for Linux. Then it spread to 200 machines.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/linux-developer-device-management/</link>
+      <dc:creator>David Eastman</dc:creator>
+      <pubDate>Fri, 23 Oct 2026 14:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Compliance</category>
+      <category>Linux</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22841502</guid>
+      <description>&lt;img width="1024" height="762" src="https://cdn.thenewstack.io/media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-1024x762.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Rows of people in bright clothes cheering against a gray backdrop, evoking a growing crowd of Linux users at work" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-scaled.jpg" /&gt;&lt;p&gt;Linux is already part of the AI developer&amp;#8217;s desktop toolkit. Nvidia&amp;#8217;s DGX Spark, which became available to order on October&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/linux-developer-device-management/"&gt;A few engineers asked IT for Linux. Then it spread to 200 machines.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="762" src="https://cdn.thenewstack.io/media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-1024x762.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Rows of people in bright clothes cheering against a gray backdrop, evoking a growing crowd of Linux users at work" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Linux is already part of the AI developer&amp;rsquo;s desktop toolkit.&lt;/strong&gt; &lt;a href="https://nvidianews.nvidia.com/news/nvidia-dgx-spark-arrives-for-worlds-ai-developers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nvidia&amp;rsquo;s DGX Spark&lt;/a&gt;, which became available to order on October 15, 2025, runs the &lt;a href="https://docs.nvidia.com/dgx/dgx-spark/dgx-os.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ubuntu-based DGX OS&lt;/a&gt;. OpenAI&amp;rsquo;s &lt;a href="https://learn.chatgpt.com/docs/codex/cli" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Codex CLI&lt;/a&gt; already supports Linux, another example of AI tools meeting developers where they work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s just one problem. Developers can fall in love with Linux at home. Getting enterprise IT to let them use it at work is another matter.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/angelokh" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Angelo Huang&lt;/a&gt;, founder and CEO of &lt;a href="http://swif.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Swif.ai&lt;/a&gt;, a platform that manages and secures employee devices, wants to change that. Huang tells &lt;em&gt;The New Stack&lt;/em&gt; that giving developers Linux machines starts with giving IT teams the controls to manage and secure them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Huang says that starting this past week, Swif began expanding its Linux device management and compliance capabilities, adding &lt;a href="https://omarchy.us/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Omarchy&lt;/a&gt; and &lt;a href="https://linuxmint.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Linux Mint&lt;/a&gt; support to its roster. Swif is also optimizing the onboarding process across supported Mac, Windows, Linux, iOS, and Android environments. They claim that it now takes under 10 minutes to set up device compliance standards such as SOC 2, ISO 27001, and HIPAA.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Linux already runs much of the infrastructure behind AI,&amp;rdquo; Huang says. &amp;ldquo;Increasingly, developers want it on their desks too. The problem isn&amp;#8217;t that Linux can&amp;#8217;t be secure. It&amp;#8217;s that enterprise IT needs to be able to manage it, enforce controls, and prove those controls are working for their compliance requirements. That&amp;#8217;s the gap we&amp;#8217;re closing.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The problem isn&amp;rsquo;t that Linux can&amp;rsquo;t be secure. It&amp;rsquo;s that enterprise IT needs to be able to manage it, enforce controls, and prove those controls are working&amp;hellip;&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Swif lists support for &lt;a href="https://help.swif.ai/en/articles/9903836-enroll-linux-devices" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Linux distributions&lt;/a&gt; including Debian, Ubuntu, Fedora, openSUSE, Arch Linux, Manjaro, MX Linux, Pop!_OS, Red Hat Enterprise Linux, NixOS, and Universal Blue.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to Swif&amp;rsquo;s &lt;a href="https://help.swif.ai/en/articles/16777543-manage-omarchy-os-devices-with-swif-linux-mdm" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Omarchy guide&lt;/a&gt;, the tested configuration (version 4.0.2) for x86_64 machines supports device enrollment, inventory tracking, application blocking, and selected OpenClaw logging and tool policies. (The guide flags limitations around login, home encryption, remote desktop, and updates.)&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Linux Mint&amp;rsquo;s status is less straightforward, though.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Linux Mint works today because it&amp;rsquo;s built on Ubuntu, and we have customers running it,&amp;rdquo; Huang says, &amp;ldquo;but it isn&amp;rsquo;t on our officially supported list yet. Requests for new distributions come in through support tickets and our customer success team. A customer with a real deployment, the number of seats involved, and how far it diverges from a distribution we already support move a distribution up the priority list. For an Ubuntu- or Fedora-based distribution, initial support typically takes one to two weeks.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Swif&amp;rsquo;s &lt;a href="https://help.swif.ai/en/articles/15384672-installing-and-managing-software-on-windows-and-linux-with-swif" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;software-management guide&lt;/a&gt; lists Mint for APT-based application installation, although its Linux enrollment list does not name Mint. That documents a specific capability, rather than full validation of every management policy.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mint also offers a Debian-based edition, LMDE; shared ancestry alone does not establish compatibility across editions and versions.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-making-linux-manageable-for-enterprise-it" class="wp-block-heading"&gt;Making Linux manageable for enterprise IT&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Swif&amp;rsquo;s Linux management capabilities cover familiar IT needs: policy enforcement, &lt;a href="https://help.swif.ai/en/articles/16000356-linux-encryption-recovery-policy" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LUKS encryption recovery&lt;/a&gt;, and automated remediation. Support varies by distribution and policy; the recovery policy manages access to an already encrypted disk rather than encrypting an unencrypted one.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Swif sends Linux device evidence to the governance, risk, and compliance (GRC) platform &lt;a href="https://help.swif.ai/en/articles/7940111-set-up-swif-integration-with-vanta" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vanta&lt;/a&gt; hourly.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It also offers a Drata integration with hourly syncing. Still, &lt;a href="https://help.swif.ai/en/articles/7232168-set-up-swif-integration-with-drata" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Swif&amp;rsquo;s Drata guide&lt;/a&gt; is inconsistent on Linux: it lists Linux evidence fields, but its device eligibility list names only macOS and Windows. Linux teams should confirm Drata coverage with Swif before relying on it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;These records support compliance assessments; they do not, by themselves, establish compliance.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; asks how a developer might, for example, run &lt;a href="https://wayland.freedesktop.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Wayland&lt;/a&gt; on a &lt;a href="https://frame.work/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Framework&lt;/a&gt; laptop, and how this leaves IT to determine which management functions work with that setup.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Our agent runs in user space and relies mainly on systemd, the package manager, and standard kernel interfaces, so hardware like a Framework laptop is rarely the issue,&amp;rdquo; Huang says. &amp;ldquo;The display server is where it gets interesting. Wayland support through PipeWire and xdg-desktop-portal is in development. Our rule of thumb: if it affects whether our agent can enforce policy, report inventory, or prove compliance, it&amp;rsquo;s ours to fix.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;User space does not mean unprivileged: Swif&amp;rsquo;s Linux management commands can &lt;a href="https://help.swif.ai/en/articles/6860941-how-does-the-swif-agent-work" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;run as root&lt;/a&gt;. PipeWire and desktop portals handle functions like screen sharing; this is distinct from basic device inventory or policy enforcement. Swif&amp;rsquo;s &lt;a href="https://help.swif.ai/en/articles/16777543-manage-omarchy-os-devices-with-swif-linux-mdm" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Omarchy guide&lt;/a&gt; flags its RustDesk-based remote desktop policy as having experimental Wayland support.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-let-the-developers-have-linux" class="wp-block-heading"&gt;Let the developers have Linux&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The argument inside companies doesn&amp;#8217;t need to be Mac versus Windows versus Linux,&amp;rdquo; says Huang. &amp;ldquo;If your AI team wants Linux, the answer from IT shouldn&amp;#8217;t automatically be no. Give developers the tools they want to get the job done. Give security the controls it needs.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If your AI team wants Linux, the answer from IT shouldn&amp;rsquo;t automatically be no.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Swif focuses on enterprise IT, but developers also have a stake in how IT manages their machines. &lt;em&gt;The New Stack&lt;/em&gt; asked if it ran a Linux development community.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The usual story is that a few engineers ask IT to get off Windows, and it grows to 50, 100, sometimes 200. IT then needs a way to manage those machines that a GRC platform will accept as evidence, and that&amp;rsquo;s when they come to us. We also hear from developers directly, through shared Slack channels with customers, onboarding calls during rollouts, and support tickets filed by end users. We don&amp;rsquo;t run a community for Linux developers today, but it&amp;rsquo;s a good idea.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-ai-oversight-documented-features-and-roadmap" class="wp-block-heading"&gt;AI oversight: Documented features and roadmap&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Right now,&amp;rdquo; Huang says, &amp;ldquo;we have MCP server management, agentic security, Claude Compliance integration, and Data loss prevention in beta. On the roadmap is integration with OpenAI&amp;rsquo;s compliance API and agentic compliance.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;After enrolling a Linux machine, Swif&amp;rsquo;s MDM agent is installed for device management, while installing the &lt;a href="https://help.swif.ai/en/articles/15610184-getting-started-with-swif-s-agentic-security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agentic Security agent&lt;/a&gt; provides visibility into supported AI-agent activity.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Its &lt;a href="https://help.swif.ai/en/articles/17073552-integrating-anthropic-claude-compliance-with-swif-agentic-security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude compliance integration&lt;/a&gt; collects organization-level audit events, while its documented &lt;a href="https://help.swif.ai/en/articles/16007631-data-loss-prevention-dlp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DLP beta&lt;/a&gt; uses a browser extension and requires organization-level beta opt-in.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Its email documentation covers Gmail and Outlook on the web, excluding native desktop mail clients. Those features have a different scope than monitoring local agent activity.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It&amp;rsquo;s bringing oversight of AI agents on employee endpoints into the device management layer. The problem is simple. Agents run on employee endpoints with access to code, credentials, and customer data, and almost nobody oversees them.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Agents run on employee endpoints with access to code, credentials, and customer data, and almost nobody oversees them.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When OpenClaw first launched, many customers asked us to block it outright. As more people use agents at work, companies have too much to lose from a data breach or IP theft to leave that unmanaged,&amp;rdquo; Huang says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenClaw&amp;rsquo;s own security documentation warns that untrusted content can carry &lt;a href="https://docs.openclaw.ai/gateway/security/prompt-injection" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prompt injections&lt;/a&gt;. The risk depends on the agent&amp;rsquo;s permissions, tools, and isolation.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/linux-developer-device-management/"&gt;A few engineers asked IT for Linux. Then it spread to 200 machines.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Swif.ai is expanding Linux device management so IT can say yes to developers. The pitch: AI teams get Linux, and security gets proof of control.</content:encoded>
+    </item>
+    <item>
       <title>PHP2Shell was only the beginning: AI is accelerating the patch race</title>
       <link>https://web.archive.org/web/https://thenewstack.io/php2shell-ai-patch-race/</link>
       <dc:creator>Matthew Weier O’Phinney</dc:creator>
@@ -558,163 +1347,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/php2shell-ai-patch-race/"&gt;PHP2Shell was only the beginning: AI is accelerating the patch race&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>AI is accelerating vulnerability discovery. PHP2Shell proves that legacy runtimes can no longer survive without a proactive patch strategy.</content:encoded>
-    </item>
-    <item>
-      <title>A few engineers asked IT for Linux. Then it spread to 200 machines.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/linux-developer-device-management/</link>
-      <dc:creator>David Eastman</dc:creator>
-      <pubDate>Fri, 23 Oct 2026 14:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>Compliance</category>
-      <category>Linux</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22841502</guid>
-      <description>&lt;img width="1024" height="762" src="https://cdn.thenewstack.io/media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-1024x762.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Rows of people in bright clothes cheering against a gray backdrop, evoking a growing crowd of Linux users at work" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-scaled.jpg" /&gt;&lt;p&gt;Linux is already part of the AI developer&amp;#8217;s desktop toolkit. Nvidia&amp;#8217;s DGX Spark, which became available to order on October&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/linux-developer-device-management/"&gt;A few engineers asked IT for Linux. Then it spread to 200 machines.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="762" src="https://cdn.thenewstack.io/media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-1024x762.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Rows of people in bright clothes cheering against a gray backdrop, evoking a growing crowd of Linux users at work" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/60d245a1-curated-lifestyle-tkuj9o0ieyi-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Linux is already part of the AI developer&amp;rsquo;s desktop toolkit.&lt;/strong&gt; &lt;a href="https://nvidianews.nvidia.com/news/nvidia-dgx-spark-arrives-for-worlds-ai-developers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nvidia&amp;rsquo;s DGX Spark&lt;/a&gt;, which became available to order on October 15, 2025, runs the &lt;a href="https://docs.nvidia.com/dgx/dgx-spark/dgx-os.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ubuntu-based DGX OS&lt;/a&gt;. OpenAI&amp;rsquo;s &lt;a href="https://learn.chatgpt.com/docs/codex/cli" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Codex CLI&lt;/a&gt; already supports Linux, another example of AI tools meeting developers where they work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s just one problem. Developers can fall in love with Linux at home. Getting enterprise IT to let them use it at work is another matter.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/angelokh" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Angelo Huang&lt;/a&gt;, founder and CEO of &lt;a href="http://swif.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Swif.ai&lt;/a&gt;, a platform that manages and secures employee devices, wants to change that. Huang tells &lt;em&gt;The New Stack&lt;/em&gt; that giving developers Linux machines starts with giving IT teams the controls to manage and secure them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Huang says that starting this past week, Swif began expanding its Linux device management and compliance capabilities, adding &lt;a href="https://omarchy.us/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Omarchy&lt;/a&gt; and &lt;a href="https://linuxmint.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Linux Mint&lt;/a&gt; support to its roster. Swif is also optimizing the onboarding process across supported Mac, Windows, Linux, iOS, and Android environments. They claim that it now takes under 10 minutes to set up device compliance standards such as SOC 2, ISO 27001, and HIPAA.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Linux already runs much of the infrastructure behind AI,&amp;rdquo; Huang says. &amp;ldquo;Increasingly, developers want it on their desks too. The problem isn&amp;#8217;t that Linux can&amp;#8217;t be secure. It&amp;#8217;s that enterprise IT needs to be able to manage it, enforce controls, and prove those controls are working for their compliance requirements. That&amp;#8217;s the gap we&amp;#8217;re closing.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The problem isn&amp;rsquo;t that Linux can&amp;rsquo;t be secure. It&amp;rsquo;s that enterprise IT needs to be able to manage it, enforce controls, and prove those controls are working&amp;hellip;&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Swif lists support for &lt;a href="https://help.swif.ai/en/articles/9903836-enroll-linux-devices" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Linux distributions&lt;/a&gt; including Debian, Ubuntu, Fedora, openSUSE, Arch Linux, Manjaro, MX Linux, Pop!_OS, Red Hat Enterprise Linux, NixOS, and Universal Blue.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to Swif&amp;rsquo;s &lt;a href="https://help.swif.ai/en/articles/16777543-manage-omarchy-os-devices-with-swif-linux-mdm" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Omarchy guide&lt;/a&gt;, the tested configuration (version 4.0.2) for x86_64 machines supports device enrollment, inventory tracking, application blocking, and selected OpenClaw logging and tool policies. (The guide flags limitations around login, home encryption, remote desktop, and updates.)&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Linux Mint&amp;rsquo;s status is less straightforward, though.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Linux Mint works today because it&amp;rsquo;s built on Ubuntu, and we have customers running it,&amp;rdquo; Huang says, &amp;ldquo;but it isn&amp;rsquo;t on our officially supported list yet. Requests for new distributions come in through support tickets and our customer success team. A customer with a real deployment, the number of seats involved, and how far it diverges from a distribution we already support move a distribution up the priority list. For an Ubuntu- or Fedora-based distribution, initial support typically takes one to two weeks.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Swif&amp;rsquo;s &lt;a href="https://help.swif.ai/en/articles/15384672-installing-and-managing-software-on-windows-and-linux-with-swif" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;software-management guide&lt;/a&gt; lists Mint for APT-based application installation, although its Linux enrollment list does not name Mint. That documents a specific capability, rather than full validation of every management policy.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Mint also offers a Debian-based edition, LMDE; shared ancestry alone does not establish compatibility across editions and versions.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-making-linux-manageable-for-enterprise-it" class="wp-block-heading"&gt;Making Linux manageable for enterprise IT&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Swif&amp;rsquo;s Linux management capabilities cover familiar IT needs: policy enforcement, &lt;a href="https://help.swif.ai/en/articles/16000356-linux-encryption-recovery-policy" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;LUKS encryption recovery&lt;/a&gt;, and automated remediation. Support varies by distribution and policy; the recovery policy manages access to an already encrypted disk rather than encrypting an unencrypted one.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Swif sends Linux device evidence to the governance, risk, and compliance (GRC) platform &lt;a href="https://help.swif.ai/en/articles/7940111-set-up-swif-integration-with-vanta" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vanta&lt;/a&gt; hourly.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It also offers a Drata integration with hourly syncing. Still, &lt;a href="https://help.swif.ai/en/articles/7232168-set-up-swif-integration-with-drata" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Swif&amp;rsquo;s Drata guide&lt;/a&gt; is inconsistent on Linux: it lists Linux evidence fields, but its device eligibility list names only macOS and Windows. Linux teams should confirm Drata coverage with Swif before relying on it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These records support compliance assessments; they do not, by themselves, establish compliance.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; asks how a developer might, for example, run &lt;a href="https://wayland.freedesktop.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Wayland&lt;/a&gt; on a &lt;a href="https://frame.work/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Framework&lt;/a&gt; laptop, and how this leaves IT to determine which management functions work with that setup.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Our agent runs in user space and relies mainly on systemd, the package manager, and standard kernel interfaces, so hardware like a Framework laptop is rarely the issue,&amp;rdquo; Huang says. &amp;ldquo;The display server is where it gets interesting. Wayland support through PipeWire and xdg-desktop-portal is in development. Our rule of thumb: if it affects whether our agent can enforce policy, report inventory, or prove compliance, it&amp;rsquo;s ours to fix.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;User space does not mean unprivileged: Swif&amp;rsquo;s Linux management commands can &lt;a href="https://help.swif.ai/en/articles/6860941-how-does-the-swif-agent-work" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;run as root&lt;/a&gt;. PipeWire and desktop portals handle functions like screen sharing; this is distinct from basic device inventory or policy enforcement. Swif&amp;rsquo;s &lt;a href="https://help.swif.ai/en/articles/16777543-manage-omarchy-os-devices-with-swif-linux-mdm" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Omarchy guide&lt;/a&gt; flags its RustDesk-based remote desktop policy as having experimental Wayland support.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-let-the-developers-have-linux" class="wp-block-heading"&gt;Let the developers have Linux&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The argument inside companies doesn&amp;#8217;t need to be Mac versus Windows versus Linux,&amp;rdquo; says Huang. &amp;ldquo;If your AI team wants Linux, the answer from IT shouldn&amp;#8217;t automatically be no. Give developers the tools they want to get the job done. Give security the controls it needs.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If your AI team wants Linux, the answer from IT shouldn&amp;rsquo;t automatically be no.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Swif focuses on enterprise IT, but developers also have a stake in how IT manages their machines. &lt;em&gt;The New Stack&lt;/em&gt; asked if it ran a Linux development community.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The usual story is that a few engineers ask IT to get off Windows, and it grows to 50, 100, sometimes 200. IT then needs a way to manage those machines that a GRC platform will accept as evidence, and that&amp;rsquo;s when they come to us. We also hear from developers directly, through shared Slack channels with customers, onboarding calls during rollouts, and support tickets filed by end users. We don&amp;rsquo;t run a community for Linux developers today, but it&amp;rsquo;s a good idea.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-ai-oversight-documented-features-and-roadmap" class="wp-block-heading"&gt;AI oversight: Documented features and roadmap&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Right now,&amp;rdquo; Huang says, &amp;ldquo;we have MCP server management, agentic security, Claude Compliance integration, and Data loss prevention in beta. On the roadmap is integration with OpenAI&amp;rsquo;s compliance API and agentic compliance.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;After enrolling a Linux machine, Swif&amp;rsquo;s MDM agent is installed for device management, while installing the &lt;a href="https://help.swif.ai/en/articles/15610184-getting-started-with-swif-s-agentic-security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agentic Security agent&lt;/a&gt; provides visibility into supported AI-agent activity.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Its &lt;a href="https://help.swif.ai/en/articles/17073552-integrating-anthropic-claude-compliance-with-swif-agentic-security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude compliance integration&lt;/a&gt; collects organization-level audit events, while its documented &lt;a href="https://help.swif.ai/en/articles/16007631-data-loss-prevention-dlp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DLP beta&lt;/a&gt; uses a browser extension and requires organization-level beta opt-in.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Its email documentation covers Gmail and Outlook on the web, excluding native desktop mail clients. Those features have a different scope than monitoring local agent activity.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It&amp;rsquo;s bringing oversight of AI agents on employee endpoints into the device management layer. The problem is simple. Agents run on employee endpoints with access to code, credentials, and customer data, and almost nobody oversees them.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Agents run on employee endpoints with access to code, credentials, and customer data, and almost nobody oversees them.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When OpenClaw first launched, many customers asked us to block it outright. As more people use agents at work, companies have too much to lose from a data breach or IP theft to leave that unmanaged,&amp;rdquo; Huang says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenClaw&amp;rsquo;s own security documentation warns that untrusted content can carry &lt;a href="https://docs.openclaw.ai/gateway/security/prompt-injection" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prompt injections&lt;/a&gt;. The risk depends on the agent&amp;rsquo;s permissions, tools, and isolation.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/linux-developer-device-management/"&gt;A few engineers asked IT for Linux. Then it spread to 200 machines.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Swif.ai is expanding Linux device management so IT can say yes to developers. The pitch: AI teams get Linux, and security gets proof of control.</content:encoded>
     </item>
     <item>
       <title>Microsoft’s new voice AI can start working out what you want before you finish speaking</title>
@@ -4219,649 +4851,6 @@ Human engineer continues investigation
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-dsx-pod-containers/"&gt;Nvidia wants AI factories built in real factories&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Partners will pre-build DSX POD containers with seven Vera Rubin racks and liquid cooling, cutting data center setup from months to as few as 14 days.</content:encoded>
-    </item>
-    <item>
-      <title>Respan spent two years building on LiteLLM. One upgrade made it start over.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/respan-rust-ai-gateway/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 20 Oct 2026 22:13:08 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>Open Source</category>
-      <category>Rust</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22841154</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/ea6fbc72-getty-images-fe0tqrcfti8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Domino" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea6fbc72-getty-images-fe0tqrcfti8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Respan released an open-source AI gateway written in Rust on Tuesday, after spending two years building more than 100,000 lines&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/respan-rust-ai-gateway/"&gt;Respan spent two years building on LiteLLM. One upgrade made it start over.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/ea6fbc72-getty-images-fe0tqrcfti8-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Domino" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/ea6fbc72-getty-images-fe0tqrcfti8-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Respan released an open-source AI gateway written in Rust &lt;/strong&gt;on Tuesday, after spending two years building more than 100,000 lines of wrapper code around LiteLLM. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://github.com/respanai/respan-gateway" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The new gateway&lt;/a&gt; replaces that system with a small core and plugins that handle model providers, routing, MCP tools, realtime voice, and security controls.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-litellm-upgrade-breaks" class="wp-block-heading"&gt;A LiteLLM upgrade breaks&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The breaking point came in January 2026, when a routine LiteLLM upgrade caused intermittent connection failures. Respan rolled back the update but never figured out the problem.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;We still haven&amp;#8217;t figured out the cause,&amp;#8221; the company said in its &lt;a href="https://news.ycombinator.com/item?id=50167583&amp;amp;" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hacker News launch post&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Since then, its engineers have stopped upgrading LiteLLM directly, instead pulling in upstream fixes one at a time.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-small-plugin-core" class="wp-block-heading"&gt;A small plugin core&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To avoid another maintenance headache, the company borrowed an idea from Nginx, keeping the gateway&amp;#8217;s core small and moving features like routing, model providers, and security into plugins. Developers can build their own using the same interfaces, without having to change the underlying code.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Developers can build their own using the same interfaces, without having to change the underlying code.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Some of those integrations are surprisingly small. Respan says its Mistral provider takes just 22 lines of code, while quirks like Groq reporting token usage in a different field can be handled separately. This makes it easier when updating one provider while avoiding the need to change how the rest of the gateway works.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When a request comes in over HTTP or WebSocket, the gateway runs it through the plugins in order. They can decide which model handles it, change the response, make additional calls, or stop the request before it reaches a provider.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;When both sides use the same format, the gateway can leave the original request and its provider-specific fields intact.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The gateway can also translate between protocols. An application built for OpenAI&amp;#8217;s Realtime API, for example, can connect to Gemini Live without changes to the client, according to Respan, although some features may not carry over. When both sides use the same format, the gateway can leave the original request and its provider-specific fields intact.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-plugins-you-must-compile" class="wp-block-heading"&gt;Plugins you must compile&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://github.com/respanai/respan-gateway/blob/main/docs/plugins.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Custom plugins are compiled into the gateway&lt;/a&gt;, so adding one means maintaining the code and rebuilding the binary. There&amp;rsquo;s also a security concern. Plugins run inside the gateway process, where they can access model requests and other sensitive data. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Rust helps prevent memory-safety bugs, but it can&amp;rsquo;t protect against malicious dependencies, or flawed application logic, which is probably why the concern came up following the launch in a &lt;a href="https://news.ycombinator.com/item?id=50167583" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hacker News discussion&lt;/a&gt;. One commenter questioned whether compiled crates should even be called plugins, arguing that they force developers to maintain a build pipeline and introduce supply-chain risks. Respan&amp;rsquo;s founder acknowledged the concern, pointing out that developers can at least inspect the source code they&amp;rsquo;re compiling.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Plugin order is important, too, which is why Respan processes plugins in the order they&amp;rsquo;re registered, and one can answer or reject a request before the others run. Put a cache ahead of a security check, for example, and a cached response could bypass that check entirely. Developers need to account for that when configuring the gateway.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-litellm-s-slower-rust-road" class="wp-block-heading"&gt;LiteLLM&amp;rsquo;s slower Rust road&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Respan isn&amp;rsquo;t alone in deciding that Rust belongs under an AI gateway. LiteLLM is &lt;a href="https://docs.litellm.ai/docs/proxy/rust_gateway" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;porting its own gateway to Rust&lt;/a&gt;, but where Respan rebuilt from the core out, LiteLLM is moving one route at a time, with the Rust core switched off by default and any request it can&amp;rsquo;t yet handle falling back to the existing Python path, so turning it on can&amp;rsquo;t break something Python already served. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company &lt;a href="https://docs.litellm.ai/blog/tags/rust-migration" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;laid out the plan in June&lt;/a&gt; and has said its goal is a pure Rust server that runs every hot path, auth, and rate limiting included, which the current beta doesn&amp;rsquo;t reach yet.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Respan isn&amp;rsquo;t alone in deciding that Rust belongs under an AI gateway.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;LiteLLM has also published &lt;a href="https://docs.litellm.ai/blog/rust-ai-gateway-benchmarks" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;benchmarks&lt;/a&gt; claiming its Rust gateway has about seven times less overhead and uses nine times less memory than Bifrost. But those numbers come from LiteLLM&amp;#8217;s own tests, using a benchmark harness the company developed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Respan&amp;#8217;s gateway is still pre-alpha, although developers can download a &lt;a href="https://github.com/respanai/respan-gateway/releases" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prebuilt binary from GitHub&lt;/a&gt; and run it without the company&amp;#8217;s paid platform. Custom plugins still require compiling their own build.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/respan-rust-ai-gateway/"&gt;Respan spent two years building on LiteLLM. One upgrade made it start over.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Respan rebuilt its AI gateway in Rust around a small plugin core after 100,000 lines of LiteLLM patches. Custom plugins still mean compiling your own.</content:encoded>
-    </item>
-    <item>
-      <title>“We are not forking TypeScript”: Cloudflare spearheads Rust port written by agents, for agents</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cloudflare-rust-typescript-tsrs/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 20 Oct 2026 21:36:25 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Rust</category>
-      <category>TypeScript</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22841065</guid>
-      <description>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/10/409955f2-ekaterina-bogdan-awl6ao7puu0-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a purple typewriter printing a long sheet of text, surrounded by robotic arms with orange mechanical claws against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/409955f2-ekaterina-bogdan-awl6ao7puu0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Cloudflare is going all-out to ensure that AI coding agents can check their work without exhausting available computing resources, leading&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudflare-rust-typescript-tsrs/"&gt;“We are not forking TypeScript”: Cloudflare spearheads Rust port written by agents, for agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="731" src="https://cdn.thenewstack.io/media/2026/10/409955f2-ekaterina-bogdan-awl6ao7puu0-unsplash-1024x731.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a purple typewriter printing a long sheet of text, surrounded by robotic arms with orange mechanical claws against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/409955f2-ekaterina-bogdan-awl6ao7puu0-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Cloudflare is going all-out to ensure that AI coding agents can check their work without exhausting available computing resources, leading a new effort to bring Microsoft&amp;#8217;s TypeScript compiler to Rust.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But whatever you do, don&amp;#8217;t call it a fork.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Taking to X, Cloudflare&amp;#8217;s director of engineering &lt;a href="https://www.linkedin.com/in/cnakazawa/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Christoph Nakazawa&lt;/a&gt; confirmed that the company is taking ownership of &lt;a href="https://github.com/oxc-project/tsrs" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;tsrs&lt;/a&gt;, a Rust port of TypeScript that it claims is up to eight times faster, and uses 70% less memory than TypeScript 7.0.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Microsoft&amp;#8217;s own TypeScript compiler is reaping the benefits, too, with the teams sharing optimizations as they work to keep the two implementations in sync.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We are not forking TypeScript &amp;#8212; we are working with the TypeScript team and as a result 7.1 is already ~2.5x faster, too,&amp;rdquo; Nakazawa &lt;a href="https://x.com/cnakazawa/status/2112531228981366863?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Cloudflare is taking ownership of tsrs, a port of TypeScript to Rust. It&amp;#39;s 8x faster and uses 70% less memory than TypeScript 7.0.&lt;br&gt;&lt;br&gt;We are not forking TypeScript &amp;ndash; we are working with the TypeScript team and as a result 7.1 is already ~2.5x faster, too.&lt;a href="https://t.co/ycBvdUSDcs" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;https://t.co/ycBvdUSDcs&lt;/a&gt;&lt;/p&gt;&amp;mdash; Christoph Nakazawa (@cnakazawa) &lt;a href="https://x.com/cnakazawa/status/2112531228981366863?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 20, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That &amp;#8220;port vs fork&amp;#8221; message runs throughout the &lt;a href="https://blog.cloudflare.com/typescript-rust-port/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;accompanying blog post&lt;/a&gt;, co-authored by Nakazawa and fellow Cloudflare engineers Boshen Chen and Dimitri Mitropoulos, who go to great lengths to explain that they very much see TypeScript as Microsoft&amp;#8217;s to continue steering. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;To be clear, we are not forking TypeScript. We believe the TypeScript team should remain in full control of the language&amp;rsquo;s design and direction.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;To be clear, we are not forking TypeScript,&amp;rdquo; they write. &amp;ldquo;We believe the TypeScript team should remain in full control of the language&amp;rsquo;s design and direction. They have maintained a long-term vision while guiding TypeScript&amp;rsquo;s adoption across the JavaScript community. We do not want to change that.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-why-rust-when-microsoft-already-has-go" class="wp-block-heading"&gt;Why Rust, when Microsoft already has Go?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developed and released by Microsoft back &lt;a href="https://devblogs.microsoft.com/typescript/announcing-typescript-0-8-1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in 2012&lt;/a&gt;, TypeScript extends JavaScript with a type system that helps developers catch errors before their applications run. However, checking those types can consume considerable computing resources, particularly in large projects where multiple AI agents may be writing and validating code simultaneously.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Microsoft addressed some of those performance problems in July &lt;a href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;with TypeScript 7.0&lt;/a&gt;, replacing its JavaScript-based compiler with one written in Go and delivering roughly tenfold speed improvements.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As &lt;em&gt;The New Stack&lt;/em&gt; previously reported, Microsoft &lt;a href="https://thenewstack.io/microsoft-typescript-devs-explain-why-they-chose-go-over-rust-c/" class="local-link"&gt;had considered Rust&lt;/a&gt; for the rewrite, but concluded that reproducing TypeScript&amp;#8217;s existing architecture in Rust would introduce significant complications around memory management and compatibility.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The performance gains reported for tsrs make for an interesting comparison with Microsoft&amp;#8217;s own Go implementation. Commenting in a &lt;a href="https://news.ycombinator.com/item?id=50165953" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hacker News discussion&lt;/a&gt; about the Rust port, &lt;a href="https://www.linkedin.com/in/daniel-rosenwasser-b56b7837/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Daniel Rosenwasser&lt;/a&gt;, Microsoft&amp;#8217;s principal product manager for TypeScript, &lt;a href="https://news.ycombinator.com/item?id=50167925" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;notes&lt;/a&gt; that &amp;ldquo;a lot of the speed does not just come down to language choice,&amp;rdquo; adding that &amp;ldquo;some of what is going to make TS 7.1 faster and leaner&amp;hellip; actually comes from optimizations discovered in tsrs.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Some of what is going to make TS 7.1 faster and leaner&amp;hellip; actually comes from optimizations discovered in tsrs.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Separately, Rosenwasser announced &lt;a href="https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TypeScript 7.1 beta earlier today&lt;/a&gt;, detailing substantial speed and memory optimizations.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cloudflare, for its part, sees advantages in Rust that extend beyond compiler performance, particularly its suitability for WebAssembly (&lt;a href="https://webassembly.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Wasm&lt;/a&gt;), which allows compiled code to run in browsers and other supported environments. Go can also compile to Wasm, but it has to bring its garbage collector along. Rust gives developers more direct control over memory, making it attractive for resource-constrained environments such as &lt;a href="https://www.cloudflare.com/products/workers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cloudflare Workers&lt;/a&gt;, where AI agents can write, check and build applications inside isolated sandboxes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And even as Microsoft&amp;#8217;s Go compiler gets faster, Nakazawa maintains that Rust offers lasting advantages, including closer integration with the wider ecosystem of Rust-based JavaScript tools, such as &lt;a href="https://oxc.rs/docs/guide/usage/linter" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oxlint&lt;/a&gt;, a linter that can use TypeScript&amp;#8217;s type information to detect potential problems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Overall, a Rust port of TypeScript is more portable and easier to integrate into various environments,&amp;rdquo; Nakazawa tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The move also fits into Cloudflare&amp;#8217;s growing JavaScript ecosystem. As &lt;em&gt;The New Stack &lt;/em&gt;&lt;a href="https://thenewstack.io/cloudflare-voidzero-void-vibe-coding/" class="local-link"&gt;reported last week&lt;/a&gt;, the company has been assembling an extensive collection of JavaScript tools and expertise, including through its &lt;a href="https://thenewstack.io/cloudflare-voidzero-acquisition-vite/" class="local-link"&gt;acquisition of VoidZero in June&lt;/a&gt; and the recent release of Void, an open-source platform for deploying and managing AI-built applications.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With that in mind, it&amp;#8217;s the Cloudflare and VoidZero teams who are now developing tsrs as part of &lt;a href="https://oxc.rs/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Oxc&lt;/a&gt;, VoidZero&amp;#8217;s Rust-based JavaScript toolchain, with plans to integrate it into other developer tools.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-owner-and-operator-a-tsrs-origin-story" class="wp-block-heading"&gt;Owner and operator: A tsrs origin story&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that the tsrs project began just last month at restaurant software company &lt;a href="https://www.owner.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Owner.com&lt;/a&gt;, where head of AI developer experience &lt;a href="https://www.linkedin.com/in/max-schwenk-106a1a28/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Max Schwenk&lt;/a&gt; says he faced a 37,000-file TypeScript backend. Writing in a &lt;a href="https://building.owner.com/tsrs" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Monday, he notes that Microsoft&amp;#8217;s Go compiler consumed 19 GiB of memory and took 80 seconds for a single-threaded check, restricting how many coding agents could work concurrently.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With multiple agents generating code simultaneously, the resource demands made it difficult for each to check its changes independently, forcing Owner.com to experiment with cloud-based development environments and other compromises.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;For a coding agent to be maximally productive, it needs to be able to validate its work in the tightest possible loop,&amp;rdquo; Schwenk writes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;After running into limits while trying to improve the Go compiler&amp;#8217;s memory usage, Schwenk tried something somewhat more ambitious: use Anthropic&amp;#8217;s Claude Opus 5.5 to recreate the compiler in Rust. He would direct the experiment and evaluate the results, leaving the implementation entirely to AI agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I wrote zero code,&amp;#8221; Schwenk writes. &amp;#8220;Not &amp;lsquo;barely any&amp;rsquo;. Zero.&amp;rdquo; &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I wrote zero code. Not &amp;lsquo;barely any&amp;rsquo;. Zero.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And the results came remarkably quickly. Schwenk says he deployed more than 20 AI subagents in parallel, waking the following morning to a functioning typechecker. Further optimizations brought Owner.com&amp;#8217;s typechecking time down to roughly seven seconds in CI, and across more than a dozen public projects, Schwenk reports tsrs running 2.5 to five times faster than Microsoft&amp;#8217;s newer Go compiler nightly, while using about a third as much memory.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-agentic-rewrites-in-rust" class="wp-block-heading"&gt;Agentic rewrites in Rust&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In truth, the tsrs project is just the latest example of AI agents being enlisted for substantial Rust migrations. As &lt;em&gt;The New Stack&lt;/em&gt; &lt;a href="https://thenewstack.io/github-copilot-anthropic-rust-migration/" class="local-link"&gt;reported last month&lt;/a&gt;, GitHub used its own Copilot agents to rewrite its coding-agent runtime in Rust, while &lt;a href="https://bun.com/blog/bun-in-rust" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic had previously used Claude agents&lt;/a&gt; to help migrate its Bun JavaScript runtime from Zig to Rust.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Elsewhere, Meta &lt;a href="https://github.com/react/react/pull/36173" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;has also used AI&lt;/a&gt; to help port the React Compiler to Rust, while in September &lt;a href="https://openai.com/index/scaling-storage-one-billion-users-part-one/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAI revealed&lt;/a&gt; two engineers used Codex and GPT-5.5 to rebuild its Habitat storage service in Rust.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But such rapid, AI-assisted rewrites raise questions about how developers verify that the resulting software behaves as intended. For a TypeScript compiler, that means ensuring it catches the same errors as Microsoft&amp;#8217;s implementation. Schwenk says the project uses TypeScript&amp;#8217;s conformance tests, deliberately introduces errors into real projects and runs Miri, a tool for detecting memory-safety problems in Rust. Those checks have already uncovered a memory bug that appeared only in an optimized build.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A faster compiler that finds fewer errors is a broken compiler with good marketing.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A faster compiler that finds fewer errors is a broken compiler with good marketing,&amp;rdquo; Schwenk writes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For Cloudflare, ensuring the reliability of the largely AI-generated code remains a significant engineering undertaking. Nakazawa says the team is spending considerable time reviewing the implementation, testing it against Microsoft&amp;#8217;s extensive test suite and running it against large open-source projects, including VS Code.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, TypeScript&amp;#8217;s extensive use of circular types, where type definitions can refer back to one another, presents additional complications when applying Rust&amp;#8217;s usual memory-safety protections. Nakazawa acknowledges that the team has more work to do in this area before tsrs can be considered ready for a stable release.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is an active area of improvement for tsrs that we are addressing before a stable release,&amp;rdquo; he adds.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And beyond verifying the code itself, Cloudflare faces the ongoing task of keeping tsrs compatible with Microsoft&amp;#8217;s official compiler. The company plans to adapt the AI-assisted approach it already uses to keep its &lt;a href="https://vinext.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vinext&lt;/a&gt; project aligned with Next.js, with agents monitoring upstream changes, checking for differences and proposing fixes. Some discrepancies remain in tsrs, including the order in which diagnostic messages are displayed.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Microsoft&amp;rsquo;s TypeScript team remains the authority on the language.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But who gets the final say when the two implementations disagree? According to Boshen Chen, Cloudflare&amp;#8217;s senior engineering manager, the expectation is that tsrs must follow Microsoft&amp;#8217;s implementation. AI agents can help identify inconsistencies and suggest corrections, while the maintainers remain responsible for the engineering work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If tsrs behaves differently from Microsoft&amp;rsquo;s compiler, the starting assumption should be that tsrs has a compatibility gap that needs to be investigated and fixed,&amp;rdquo; Chen tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;Microsoft&amp;rsquo;s TypeScript team remains the authority on the language.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cloudflare-rust-typescript-tsrs/"&gt;“We are not forking TypeScript”: Cloudflare spearheads Rust port written by agents, for agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Started at Owner.com last month, tsrs is now in Cloudflare’s hands, and the tricks it uncovered are making Microsoft’s own compiler faster too.</content:encoded>
-    </item>
-    <item>
-      <title>Assess the entire inference stack — not just open model benchmarks</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/open-model-benchmarks-production/</link>
-      <dc:creator>Mark Chillingworth</dc:creator>
-      <pubDate>Tue, 20 Oct 2026 20:44:17 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>AI Infrastructure</category>
-      <category>AI Models</category>
-      <category>sponsor-nebius</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840966</guid>
-      <description>&lt;img width="1024" height="765" src="https://cdn.thenewstack.io/media/2026/10/0ed60334-getty-images-87hn3jt9vuo-unsplash-1024x765.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A businessperson steps from two unlit light bulbs onto a glowing bulb, symbolizing the leap from ideas to innovation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/0ed60334-getty-images-87hn3jt9vuo-unsplash-scaled.png" /&gt;&lt;p&gt;Impressive benchmark results should make it easy for engineers to select the right open model for the outcome they are&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/open-model-benchmarks-production/"&gt;Assess the entire inference stack — not just open model benchmarks&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="765" src="https://cdn.thenewstack.io/media/2026/10/0ed60334-getty-images-87hn3jt9vuo-unsplash-1024x765.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A businessperson steps from two unlit light bulbs onto a glowing bulb, symbolizing the leap from ideas to innovation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/0ed60334-getty-images-87hn3jt9vuo-unsplash-scaled.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Impressive benchmark results should make it easy&lt;/strong&gt; for engineers to select the right open model for the outcome they are tasked with developing. However, that is not the case.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Benchmarks indicate an open model&amp;#8217;s optimal performance, but in production, a model must work repeatedly. The challenge is that in production, other factors matter, such as the information provided to the model and its accuracy. So benchmarks can&amp;#8217;t tell an engineer whether the AI they are developing will complete the task accurately, or even at all. This is especially important for long-horizon AI tasks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="http://linkedin.com/in/ryan-hanrui-wang-34458217a" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Ryan Hanrui Wang&lt;/strong&gt;&lt;/a&gt;, SVP of Applied AI at AI cloud provider &lt;a href="https://nebius.com?utm_source=newstack&amp;amp;utm_medium=article&amp;amp;utm_campaign=26Q4_DM-FM_NB_PSO_AWR_MB_EMEA_GTC-Berlin-2026&amp;amp;utm_content=multi-phase_thoughtleadership_all_thoughtleadership_v1_1of3" target="_blank" rel="noreferrer noopener external nofollow" class="ext-link" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Nebius&lt;/strong&gt;&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; it is important to measure an open model by the industry benchmarks in conjunction with internal benchmarks and harnesses to ensure you get the inference outcomes the organization requires, something he says the Amsterdam, Netherlands-based company always does in partnership with its clients.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Wang joined Nebius when it acquired &lt;a href="https://nebius.com/newsroom/nebius-agrees-to-acquire-eigen-ai-strengthening-nebius-token-factory-as-a-frontier-inference-platform?utm_source=newstack&amp;amp;utm_medium=article&amp;amp;utm_campaign=26Q4_DM-FM_NB_PSO_AWR_MB_EMEA_GTC-Berlin-2026&amp;amp;utm_content=multi-phase_thoughtleadership_all_thoughtleadership_v1_1of3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eigen AI&lt;/a&gt;, the inference-optimization startup he co-founded and led as CEO, in a roughly $643 million deal announced in May; Nebius sells inference through its &lt;a href="https://nebius.com/services/token-factory?utm_source=newstack&amp;amp;utm_medium=article&amp;amp;utm_campaign=26Q4_DM-FM_NB_PSO_AWR_MB_EMEA_GTC-Berlin-2026&amp;amp;utm_content=multi-phase_thoughtleadership_all_thoughtleadership_v1_1of3" target="_blank" rel="noreferrer noopener external nofollow" class="ext-link" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Token Factory platform&lt;/a&gt;.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Customers often have their own benchmarks, so we can use their agent workflow and its traces to see the level of success we can work with. We always work closely with them to define the benchmarks.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Wang goes on to add: &amp;ldquo;The public benchmark may not cover the multi-domain tasks that an engineer wants inference to do in the actual production environment.&amp;rdquo; He says this can misalign agent tasks with the true cost of inference calls. &amp;ldquo;The workflow is not tested by the benchmark design. There needs to be in-context learning.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Engineers and organizations should therefore not spend too much time selecting the open model; they should look at the entire inference stack. Model selection should depend on whether the engineer needs a lower-cost, flexible open-model stack or a frontier model for inference.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For those who need lower cost, Wang says Nebius evaluates open models such as Kimi and DeepSeek, as well as lighter &amp;ldquo;flash&amp;rdquo; models, to see whether they can meet inference accuracy needs and whether fine-tuning is required.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those who want superior accuracy and quality usually narrow it down to two or three large open models and then fine-tune them to improve accuracy. Wang says open model selection is only the first step; after selection, they need to ensure long-context tasks and cached inputs deliver the expected outcome.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-inference-and-post-training" class="wp-block-heading"&gt;Inference and post-training&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In post-training, Wang says the organization uses its data to improve accuracy and task fit, while the serving layer, quantization, batching, caching, and kernel optimization drive inference speed. In addition, engineers should develop the cache system for production traffic, ensuring the hit rate is maximized for the workload so repeated inputs hit the cache rather than being recomputed.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The other important thing is throughput, the measure of how many tokens are generated in a certain time span, as they are a major trade-off against interactivity,&amp;rdquo; Wang adds. Engineers need to balance better utilization and cheaper tokens with acceptable interactivity&amp;ndash; per-user speed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Getting concurrency right ensures the organization uses the open model effectively; it is a fine balancing act for engineers. If compute isn&amp;#8217;t fully utilized, token cost is high. But high utilization with increased concurrency can reduce end-user token-per-second speed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Engineers also need to watch tail latency, not just averages. &amp;ldquo;P95 and P99 are important metrics for the per-user token speed and time to first token (TTFT); the time they need to wait needs to be below five seconds for some of our customers,&amp;#8221; Wang says. A system can post a great average response time and still be unusable if one request in twenty stalls.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-modeling-for-accuracy" class="wp-block-heading"&gt;Modeling for accuracy&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Engineers need to be careful when considering benchmark results and accuracy. Benchmarks may test reasoning on a mathematical problem, which isn&amp;#8217;t very useful if the engineer is developing an AI agent for customer support, where high emotional intelligence (EQ) matters more. &amp;ldquo;So there is a misalignment between the different benchmarks and actual production,&amp;rdquo; Wang says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On cost per successful task, Wang says engineers must remember that cheap tokens are useless if the model is inaccurate.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Engineers need to consider the end-to-end process the AI will perform. This lets engineers select the right-sized open model for the AI task. Wang gives the example of a specialized assistant agent where Nebius gathered 6,000 traces to refine a small model and improved accuracy by 11% while executing 22% fewer tool calls.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He raises this point because it counters the tendency to think bigger is better, but accuracy gains from increasing model size diminish. &amp;ldquo;There is typically a tipping point for this kind of task,&amp;rdquo; Wang says. For a task like customer support, he says, 10 billion parameters could be enough, while 100 billion or even a trillion parameters yields only minimal accuracy gains. &amp;ldquo;What we want to do is find the sweet spot.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Engineers can use large models as a reference point, then tune the reasoning with their organizational data to find an open model with the right accuracy and size for the task.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We typically do a sweep of several models, using the largest model as a reference to know where the sweet spot for model size is,&amp;rdquo; Wang says. &amp;ldquo;For a complicated task, we can dissect the complex task into smaller subtasks, working with the customer, which connects workflows and can then use smaller models.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Wang describes this process as a division of labor, referencing the famous economist Adam Smith.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This approach shows the course of AI engineering maturity. Like every sector in technological and engineering history, the initial gold rush targets bigger-is-better. As the engineering matures, it focuses on outcomes and engineering excellence, and therefore on working with partners who understand how to achieve them.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Sometimes that is a bigger model; other times a small niche development is best.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/open-model-benchmarks-production/"&gt;Assess the entire inference stack — not just open model benchmarks&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Benchmarks show an open model at its best. Production needs it to work every time, and Nebius says the fix is the inference stack, not a bigger model.</content:encoded>
-    </item>
-    <item>
-      <title>Your Kubernetes dashboard is green. Your users are seeing red.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-hidden-latency-telemetry/</link>
-      <dc:creator>Chris J. Preimesberger</dc:creator>
-      <pubDate>Tue, 20 Oct 2026 19:02:00 +0000</pubDate>
-      <category>AI Operations</category>
-      <category>Kubecon Cloudnativecon NA 2026</category>
-      <category>Kubernetes</category>
-      <category>Observability</category>
-      <category>Road to KubeCon</category>
-      <category>sponsor-hpe</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22840417</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/d4dbde9a-logan-voss-kuipl-vrzcq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch pattern with jagged white and yellow streaks across a vivid pink and red background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d4dbde9a-logan-voss-kuipl-vrzcq-unsplash-scaled.jpg" /&gt;&lt;p&gt;In cloud-native operations, few scenarios are as maddening as the &amp;#8220;phantom slowdown.&amp;#8221; This happens when Grafana or Kubernetes dashboards show&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-hidden-latency-telemetry/"&gt;Your Kubernetes dashboard is green. Your users are seeing red.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/d4dbde9a-logan-voss-kuipl-vrzcq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital glitch pattern with jagged white and yellow streaks across a vivid pink and red background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d4dbde9a-logan-voss-kuipl-vrzcq-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;In cloud-native operations, few scenarios are as maddening as the &amp;#8220;phantom slowdown.&amp;#8221; &lt;/strong&gt;This happens when &lt;a href="https://grafana.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grafana&lt;/a&gt; or &lt;a href="https://kubernetes.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kubernetes&lt;/a&gt; dashboards show a sea of green: pods are running, liveness and readiness probes return success codes, and node CPU utilization stays well below capacity limits. Yet users submit urgent tickets complaining of sporadic, severe latency when querying an application or waiting for an AI model&amp;#8217;s response.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Why do basic health checks pass inspection while application performance degrades? And how can engineering teams trace the root cause when the issue is intermittent and spans multi-tier hybrid infrastructure?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To understand the mechanics of these sometimes evasive performance regressions, &lt;em&gt;The New Stack&lt;/em&gt; spoke with &lt;a href="https://www.linkedin.com/in/ramachandranm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mahesh Ramachandran&lt;/a&gt;, who leads product management for &lt;a href="https://www.hpe.com/us/en/products/software/opsramp-software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;HPE OpsRamp Software&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ramachandran tells TNS how continuous telemetry and retrospective analysis help teams investigate intermittent slowdowns, and how AI-assisted investigation can complement dashboards.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h4 id="h-earlier-stories-in-this-special-series" class="wp-block-heading"&gt;&lt;strong&gt;&lt;em&gt;Earlier stories in this special series:&lt;/em&gt;&lt;/strong&gt;&lt;/h4&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Part 1: &lt;a href="https://thenewstack.io/kubernetes-self-service-platform-teams/" class="local-link"&gt;Developers and platform teams both want Kubernetes self-service. They disagree on who owns it.&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Part 2: &lt;a href="https://thenewstack.io/kubernetes-operations-ownership-governance/" class="local-link"&gt;A live Kubernetes cluster can still have an ownership gap&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;h2 id="h-the-illusion-of-cluster-health" class="wp-block-heading"&gt;The illusion of cluster health&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kubernetes probes report whether their configured checks succeed. A liveness probe helps determine when to restart a container, including one whose process is running but stuck. A readiness probe helps determine whether a container is ready to accept traffic. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Custom checks can include application or dependency conditions, but passing a basic probe doesn&amp;#8217;t mean a complete user request meets its response-time target. Teams still need application performance measurements.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Consider a composite scenario based on what we see across enterprise deployments,&amp;#8221; Ramachandran says. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Users of a system &amp;mdash; such as an AI prompt-serving application on Kubernetes &amp;mdash; report sporadic slowness in query response times.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The engineering team inspects the cluster, the nodes, and the pods. Everything appears healthy on the surface with zero reported pod failures. The difficulty lies in the slowdown&amp;#8217;s sporadic nature. When degradation happens intermittently, pinpointing the source without historical evidence becomes almost impossible.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Passing probes narrow the investigation; they do not close it. A snapshot of a healthy cluster may miss an earlier slowdown, and the absence of container failures does not establish that the application or its dependencies are performing well. The next step is to connect the user&amp;#8217;s reported delay to measurements from the affected period.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-telemetry-across-the-hybrid-stack-sifting-signal-from-noise" class="wp-block-heading"&gt;Telemetry across the hybrid stack: Sifting signal from noise&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Resolving sporadic slowness requires moving beyond surface-level Kubernetes metrics to continuous, multi-layer telemetry. Modern cloud-native architectures do not exist in isolation; a user request may depend on application code, container runtimes, virtualized or bare-metal infrastructure, and public cloud APIs. The relevant layers depend on the deployment.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;HPE OpsRamp collects signals continuously across every layer of the stack &amp;mdash; Kubernetes nodes, pods, ingress controllers, and services &amp;mdash; capturing logs, events, and metrics,&amp;#8221; Ramachandran says. &amp;#8220;The foundational step in troubleshooting sporadic issues is having a continuous record. You must go back into the telemetry history to correlate user-reported symptoms with actual signal evidence.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When degradation happens intermittently, pinpointing the source without historical evidence becomes almost impossible.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, Ramachandran emphasizes that finding the evidence within telemetry signals is rarely straightforward.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;It often requires intelligence to sift through the noise,&amp;#8221; he says. &amp;#8220;An anomaly might not appear as an obvious spike in a single metric. Instead, it might be a subtle variation or a correlated behavior where two separate signals both look normal individually, but their combined behavior produces latency.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A practical investigation starts with the affected transaction and time window. Compare query response times and queries per second with pod health and counts, then look for variations in the collected signals that coincide with the slowdown.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A correlation identifies a candidate explanation; it does not prove the cause on its own. After making a change, compare the same user-facing measures with the earlier behavior to check whether performance improves. Because the scenario is composite, the team still needs to validate any suspected cause in its own environment.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;An anomaly might not appear as an obvious spike in a single metric. Instead, it might be a subtle variation or a correlated behavior where two separate signals both look normal individually, but their combined behavior produces latency.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Coverage depends on the agents, integrations, permissions, and application instrumentation teams configure. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpsRamp provides several ways to collect evidence across the relevant tiers:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Application:&lt;/strong&gt; OpenTelemetry-compatible trace collection for instrumented applications. Teams must configure application instrumentation and the collection path; infrastructure monitoring alone does not generate application traces.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Orchestration:&lt;/strong&gt; Kubernetes agents collect cluster and workload telemetry; additional monitoring configuration can provide visibility into components such as ingress controllers.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Virtualization and HCI:&lt;/strong&gt; Integrations with &lt;a href="https://vmware.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;VMware&lt;/a&gt;, &lt;a href="https://nutanix.com" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nutanix&lt;/a&gt;, and &lt;a href="https://docs.opsramp.com/integrations/virtualization/vm-essentials/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;HPE Morpheus VM Essentials Software&lt;/a&gt; collect inventory and performance data to help investigate infrastructure bottlenecks.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Hardware:&lt;/strong&gt; &lt;a href="https://www.dmtf.org/standards/redfish" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Redfish protocol&lt;/a&gt; integration for telemetry from supported physical servers, with the required API access and gateway connectivity.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 id="h-navigating-black-box-dependencies-outside-the-cluster" class="wp-block-heading"&gt;Navigating black-box dependencies outside the cluster&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Applications can depend on services outside their Kubernetes cluster, Ramachandran says. A user request might originate inside a private cluster but call an external SaaS endpoint, a database outside the mesh, or a public cloud AI model.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When an application relies on external third-party services, visibility hits a boundary. &amp;#8220;If your application makes calls to a public AI model or an external web service, you enter a domain outside your direct monitoring control,&amp;#8221; Ramachandran explains. &amp;#8220;To rule out external dependencies as the source of slowness, you must quantify their performance as a black box.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To bridge this visibility gap, teams can use synthetic transactions or other response-time measurements, Ramachandran says. Comparing those measurements with the affected application&amp;#8217;s transactions helps assess whether an external dependency&amp;#8217;s behavior coincides with the slowdown.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams still need to check that the measurements reflect the relevant request path and workload. Synthetic checks provide evidence at the service boundary; they do not reveal the provider&amp;#8217;s internal root cause or automatically distinguish every external delay from an internal one. Teams should also identify who owns each dependency and who can investigate when access or instrumentation stops at that boundary.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Telemetry also needs security controls. In AI workloads, prompts, responses, and retrieved documents can appear in logs and traces. Teams should decide what to collect, where that information goes, and who can access it. Design cross-layer visibility alongside existing access and data-handling policies.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-alerting-philosophy-from-static-dashboards-to-agentic-copilots" class="wp-block-heading"&gt;Alerting philosophy: From static dashboards to agentic copilots&lt;strong&gt;&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As environments grow more complex, interpreting telemetry across multiple dashboards becomes difficult. Determining which metrics warrant a real-time alert versus passive monitoring is an ongoing operational challenge.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Deciding which signals deserve an alert is where science and technology meet domain art,&amp;#8221; Ramachandran says. &amp;#8220;There is no magic formula. It requires encoding explicit and tacit human operational knowledge into the monitoring platform so the system understands what actually impacts user experience.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Curated dashboards remain useful for predefined views of system behavior, while AI assistants offer another way to explore operational data. &lt;a href="https://www.hpe.com/us/en/products/software/opsramp-software.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;HPE OpsRamp Software&lt;/a&gt; includes an AI-powered operations copilot that lets operators explore complex telemetry through natural language.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;HPE describes capabilities for investigating incidents, correlating evidence, and recommending next steps. Those capabilities depend on the data available to the platform and the features enabled in the customer&amp;#8217;s deployment.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Looking ahead, Ramachandran sees an even more fundamental change in cloud-native operations. He frames machine-led interpretation as a direction for increasingly complex environments, with safeguards still needed before operational changes.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We are rapidly approaching a point where the first responder to telemetry must be machine intelligence.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Today, human operators remain the primary first point of interpretation for telemetry,&amp;#8221; Ramachandran tells TNS. &amp;#8220;But as stack complexity increases with more moving parts and dynamic interactions, expecting a human to digest all these signals first becomes intractable. We are rapidly approaching a point where the first responder to telemetry must be machine intelligence.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AI-assisted analysis and autonomous changes are separate operational decisions. Ramachandran cautions that AI outputs can be nondeterministic while IT operations often require repeatable behavior.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He recommends retaining human oversight and establishing reliable safeguards before allowing AI findings to trigger operational changes. Teams need to validate a diagnosis and confirm the effect of any response, even when an assistant helps assemble the evidence.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The foundation is instrumentation: Collect the necessary telemetry, establish workload-specific baselines and thresholds, and verify improvements against the user&amp;#8217;s experience.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Green cluster indicators are a useful starting point, but application measurements determine whether the service delivers what users need.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-hidden-latency-telemetry/"&gt;Your Kubernetes dashboard is green. Your users are seeing red.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Every pod is green, yet users still wait. HPE OpsRamp’s Mahesh Ramachandran explains how telemetry history exposes the slowdowns dashboards miss.</content:encoded>
     </item>
   </channel>
 </rss>
