@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 23 Oct 2026 20:04:18 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 01:13:46 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,124 @@
       <height>32</height>
     </image>
     <item>
+      <title>Is Kubernetes ready for AI agents?</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-ready-ai-agents/</link>
+      <dc:creator>Dan Ciruli</dc:creator>
+      <pubDate>Sun, 25 Oct 2026 14:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Kubernetes</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22841541</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/040396f0-rohit-choudhari-qbftawsipsq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High-contrast abstract black cables straining under tension, representing the strain of agentic workloads on cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/040396f0-rohit-choudhari-qbftawsipsq-unsplash.jpg" /&gt;&lt;p&gt;Kubernetes was built around a fairly simple assumption. It&amp;#8217;s that software does what its developers told it to do. AI&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-ready-ai-agents/"&gt;Is Kubernetes ready for AI agents?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/040396f0-rohit-choudhari-qbftawsipsq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="High-contrast abstract black cables straining under tension, representing the strain of agentic workloads on cloud infrastructure." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/040396f0-rohit-choudhari-qbftawsipsq-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Kubernetes was built around a fairly simple assumption.&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;rsquo;s that software does what its developers told it to do. AI Agents complicate that assumption. An agent can reason about a problem, choose a course of action, call tools, write code, interact with other systems, and keep working toward a goal. That is precisely what makes agents useful. But it is also what makes running them in production different from running a conventional application.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And increasingly, enterprises want to run them on Kubernetes. A recent &lt;a href="https://www.cncf.io/announcements/2026/01/20/kubernetes-established-as-the-de-facto-operating-system-for-ai-as-production-use-hits-82-in-2025-cncf-annual-cloud-native-survey/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;survey&lt;/a&gt; by the Cloud Native Computing Foundation (CNCF) found that two-thirds of organizations running &lt;a href="https://thenewstack.io/cncf-kubernetes-is-foundational-infrastructure-for-ai/" data-type="link" data-id="https://thenewstack.io/cncf-kubernetes-is-foundational-infrastructure-for-ai/" class="local-link"&gt;AI inference workloads&lt;/a&gt; run them on Kubernetes. This makes sense, as Kubernetes has become the standard way enterprises deploy and operate distributed applications over the past decade. It already knows how to schedule workloads, allocate resources, recover from failures, and scale applications up and down.&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;KubeCon + CloudNativeCon is taking place in Salt Lake City from November 9 to 12.&lt;/em&gt;&lt;/strong&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Register now&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+
+
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Inference demand can arrive in bursts, requiring customers to rapidly scale up underlying hardware and software resources to meet surging demand. In that regard, Kubernetes is an excellent fit. Similarly, as AI workloads wind down, Kubernetes can gracefully scale down the underlying infrastructure, ensuring economical operation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As good as the fit between AI inference and Kubernetes is, the combination still has gaps, starting with security. Recent incidents at frontier AI labs, in which AI agents escaped test environments and launched malicious cyberattacks across the internet, highlight the need for strong guardrails to keep AI workloads from misbehaving.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Unfortunately, the probabilistic nature of AI leads to situations where it&amp;rsquo;s impossible to predict exactly what resources an AI workload will seek to use, which increases the likelihood that agents will eventually cross the line. Therefore, the ideal AI platform should make it easy to enforce clear guardrails and keep agentic workloads safely contained within well-defined sandboxes.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The ideal AI platform should make it easy to enforce clear guardrails and keep agentic workloads safely contained within well-defined sandboxes.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;By confining agentic AI workloads to a sandbox logically separate from other Kubernetes workloads, an enterprise can better ensure that if an AI workload does run off the rails, the ensuing damage stays within that sandbox.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Instead of letting agents access whatever resources they want, agentic platforms should use an &lt;a href="https://thenewstack.io/securing-kubernetes-ai-agents/" data-type="link" data-id="https://thenewstack.io/securing-kubernetes-ai-agents/" class="local-link"&gt;explicit permissioning framework&lt;/a&gt; that grants or denies access to files, tools, and network and system resources. Agents should be fully restricted from executing code unless they have been given explicit permission.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The good news is that the Kubernetes community is moving toward adopting sandboxing as an architectural element for constraining AI agents. The CNCF is working to address Kubernetes&amp;#8217;s security and isolation gaps. However, the open-source project&amp;#8217;s functionality is not yet fully there.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Proper AI sandboxing requires looking beyond the container and into virtual machines or the host operating system to ensure agentic workloads can&amp;#8217;t affect other applications running in the same environment. Enterprises looking to deploy AI into production today can turn to commercial Kubernetes distributions that already include these sandboxing capabilities.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Monitoring of AI workloads is another concern that keeps CIOs up at night. While frontier AI labs may not have adequately monitored what their AI models were doing, or even whether they had internet access, enterprises generally don&amp;#8217;t have the luxury of asking for forgiveness when their agents misbehave.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Security may be the most obvious challenge, but it is not the only one. Agents are also changing how compute is consumed. A normal service might run continuously for months, while an agent may exist for only seconds.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;A normal service might run continuously for months, while an agent may exist for only seconds.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A user asks a question -&amp;gt; an agent starts -&amp;gt; it performs some work, possibly creates other agents, calls several tools, and then disappears.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now multiply that pattern across thousands of users and the infrastructure begins to look very different from a conventional Kubernetes environment.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On top of that, starting a Kubernetes workload from scratch can take seconds. For many applications, that is perfectly acceptable. But for an interactive agent, those seconds can feel painfully slow. That creates an interesting infrastructure problem: How do you get the isolation of a fresh environment without paying the startup cost of creating one every time?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Hence, the sporadic nature of agentic workloads, and the need for agents to spin up rapidly, is testing even Kubernetes&amp;#8217; flexibility. Just as first-generation Kubernetes didn&amp;rsquo;t support stateful applications, the community is still searching for the best abstraction layer for running the new generation of agentic workloads.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Agents stay in a state of suspended animation in a warm pool, allowing them to reanimate in milliseconds rather than the seconds it would take to fully wake from deep sleep.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One answer that is gaining attention in the community is &lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/" data-type="link" data-id="https://thenewstack.io/kubernetes-ai-agent-runtime/" class="local-link"&gt;an agent substrate&lt;/a&gt; for rapidly scaling Kubernetes-based agentic workloads. With agent substrate, Kubernetes pods containing AI agents aren&amp;#8217;t fully spun down when they&amp;rsquo;re not needed, because spinning them up from a sleep state would introduce too much latency from the user&amp;rsquo;s point of view.&amp;nbsp; Instead, agents stay in a state of suspended animation in a warm pool, allowing them to reanimate in milliseconds rather than the seconds it would take to fully wake from deep sleep.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When deploying AI workloads at scale in the real world, the details matter. Not every Kubernetes distribution provides the full raft of capabilities that enterprises demand. As the open-source Kubernetes community adapts to changing requirements, forward-looking platform providers are building the guardrails, sandboxing, monitoring, and agentic substrate that will let enterprise deploy AI now.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-ready-ai-agents/"&gt;Is Kubernetes ready for AI agents?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Is Kubernetes ready for AI agents? Discover how sandboxing, security guardrails, and agent substrates address unpredictable AI workloads.</content:encoded>
+    </item>
+    <item>
       <title>AWS says its AI security agent fixes 89% of bugs — but there’s a catch</title>
       <link>https://web.archive.org/web/https://thenewstack.io/aws-says-its-ai-security-agent-fixes-89-of-bugs-but-theres-a-catch/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +146,10 @@
       <category>Developer tools</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22841546</guid>
-      <description>&lt;img width="1024" height="660" src="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-1024x660.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI scanning code" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg" /&gt;&lt;p&gt;AWS made Continuum for code vulnerabilities generally available on Thursday. The service finds and validates bugs in your repositories, checks&lt;/p&gt;
+      <description>&lt;img width="1024" height="660" src="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-1024x660.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI scanning code" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg" /&gt;&lt;p&gt;AWS made Continuum for code vulnerabilities generally available on Thursday. The service finds and validates bugs in your repositories, checks&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-says-its-ai-security-agent-fixes-89-of-bugs-but-theres-a-catch/"&gt;AWS says its AI security agent fixes 89% of bugs — but there&amp;#8217;s a catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="660" src="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-1024x660.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI scanning code" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="660" src="https://cdn.thenewstack.io/media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-1024x660.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI scanning code" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/e3fae552-getty-images-f0awab_rn2c-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;AWS made Continuum for code vulnerabilities generally available&lt;/strong&gt; on Thursday. The service finds and validates bugs in your repositories, checks them against your AWS environment, and opens pull requests with proposed fixes.&lt;/p&gt;
 
 
@@ -126,7 +244,7 @@
       <category>sponsor-signadot</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22841529</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract rendering of tiered dark geometric blocks with amber accents illustrating AI delivery system scale." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash.jpg" /&gt;&lt;p&gt;A gap has long existed between the shipping velocity of the best engineering teams and the rest of the bell&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract rendering of tiered dark geometric blocks with amber accents illustrating AI delivery system scale." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash.jpg" /&gt;&lt;p&gt;A gap has long existed between the shipping velocity of the best engineering teams and the rest of the bell&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-software-factory-sensor/"&gt;Building an agentic software factory? Start with the sensor.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract rendering of tiered dark geometric blocks with amber accents illustrating AI delivery system scale." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b129c079-steve-a-johnson-5zsu_gecgp4-unsplash.jpg" /&gt;
@@ -652,7 +770,7 @@
       <content:encoded>Before buying more GPUs, optimize Kubernetes AI scheduling, measure real serving capacity, and link cloud costs to verified outcomes.</content:encoded>
     </item>
     <item>
-      <title>Vercel moved to kill static credentials. Then developers spotted its own deployment token.</title>
+      <title>Vercel sets a deadline for vendors to move beyond long-lived keys</title>
       <link>https://web.archive.org/web/https://thenewstack.io/vercel-oidc-static-credentials/</link>
       <dc:creator>Amanda Caswell</dc:creator>
       <pubDate>Fri, 23 Oct 2026 20:04:16 +0000</pubDate>
@@ -660,45 +778,57 @@
       <category>CI/CD</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22841666</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Vercel wants to eliminate long-lived API keys from its ecosystem, and it is giving Marketplace vendors until January 2027 to&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/"&gt;Vercel moved to kill static credentials. Then developers spotted its own deployment token.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;&lt;p&gt;Vercel wants to eliminate long-lived API keys from its ecosystem. It is giving Marketplace vendors until January 2027 to offer&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/"&gt;Vercel sets a deadline for vendors to move beyond long-lived keys&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glitches and screens" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c50406cc-ubaid-e-alyafizi-rkqae711uuw-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Vercel wants to eliminate long-lived API keys from its ecosystem, and it is giving Marketplace vendors until January 2027 to comply or risk being delisted, a push that lands as a run of credential-stealing supply chain attacks &amp;mdash; including a &lt;a href="https://thenewstack.io/npm-supply-chain-worm-attack/" class="local-link"&gt;recent npm worm that scraped tokens straight out of CI pipelines&lt;/a&gt; &amp;mdash; keeps proving how much damage a single leaked secret can do.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Vercel wants to eliminate long-lived API keys&lt;/strong&gt; from its ecosystem. It is giving Marketplace vendors until January 2027 to offer more secure authentication or risk being delisted.&lt;/p&gt;
 
 
 
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Vercel&amp;rsquo;s own GitHub Actions deployment workflow still relies on the kind of persistent credential the company now wants gone.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class="wp-block-paragraph"&gt;The push comes as credential-stealing supply chain attacks &amp;mdash; including a &lt;a href="https://thenewstack.io/npm-supply-chain-worm-attack/" class="local-link"&gt;recent npm worm that scraped tokens straight out of CI pipelines&lt;/a&gt; &amp;mdash; keep proving how much damage a single leaked secret can do.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Developers have already pointed out a complication, though: Vercel&amp;rsquo;s own GitHub Actions deployment workflow still relies on the kind of persistent credential the company now wants gone.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;In an &lt;a href="https://vercel.com/blog/death-to-long-lived-static-credentials" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 22 announcement&lt;/a&gt;, Vercel CTO &lt;a href="https://www.linkedin.com/in/malteubl/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Malte Ubl&lt;/a&gt; said the company surveyed more than 1,000 SaaS vendors and found that only 8.4% supported what Vercel considers secure authentication methods. Vercel is pushing OpenID Connect (OIDC) and short-lived, identity-based tokens as alternatives to static API keys that can stay valid indefinitely.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://vercel.com/blog/death-to-long-lived-static-credentials" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Thursday announcement&lt;/a&gt;, Vercel CTO &lt;a href="https://www.linkedin.com/in/malteubl/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Malte Ubl&lt;/a&gt; says the company surveyed more than 1,000 SaaS vendors and found that only 8.4% supported what Vercel considers secure authentication methods, and it is now pushing OpenID Connect (OIDC) and short-lived, identity-based tokens as the alternative to static API keys that can stay valid indefinitely.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Vercel CEO &lt;a href="https://www.linkedin.com/in/rauchg/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Guillermo Rauch&lt;/a&gt; amplified the message on X, &lt;a href="https://x.com/rauchg/status/2113399539227136084" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writing&lt;/a&gt; that it is &amp;ldquo;time to kill &amp;lsquo;static credentials.&amp;rsquo;&amp;rdquo; Attacks and breaches can still happen, he argued, but stolen credentials should behave more like &amp;ldquo;self-destructing keys,&amp;rdquo; limiting how long an attacker can use them.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Vercel CEO &lt;a href="https://www.linkedin.com/in/rauchg/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Guillermo Rauch&lt;/a&gt; amplifies the message on X, &lt;a href="https://x.com/rauchg/status/2113399539227136084" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writing&lt;/a&gt; that it is &amp;ldquo;time to kill &amp;lsquo;static credentials&amp;rsquo;&amp;rdquo; and arguing that while attacks and breaches can still happen, stolen credentials should behave more like &amp;ldquo;self-destructing keys&amp;rdquo; that expire before an attacker can keep using them.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;The first deadline arrives November 30, 2026, when Marketplace vendors that still rely on long-lived secrets without supporting OIDC authentication will receive a &amp;ldquo;Not secure&amp;rdquo; warning on their listings. Vendors that do not offer secure authentication by January 2027 will be delisted. Vercel says it is holding its own API and native integrations to the same standard.&lt;/p&gt;
 
 
 
-&lt;h2 id="h-vercel-s-deployment-double-standard" class="wp-block-heading"&gt;Vercel&amp;rsquo;s deployment double standard&lt;/h2&gt;
+&lt;p class="wp-block-paragraph"&gt;The announcement does not include the survey methodology, identify the surveyed companies, or say how many existing Marketplace partners need to change their authentication systems.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Developer and senior software engineer at Fanatics, &lt;a href="https://www.linkedin.com/in/yordisprieto/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yordis Prieto&lt;/a&gt; sharpens that point, &lt;a href="https://x.com/yordisprieto/status/2113532901614661789" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writing in reply&lt;/a&gt; that Vercel had &amp;ldquo;invented&amp;rdquo; OIDC federation yet still left him leaning on &amp;ldquo;a long-lived access token&amp;rdquo; in his CI pipeline, and he presses the company to drop the token requirement from GitHub CI while criticizing its non-expiring token option.&lt;/p&gt;
+&lt;h2 id="h-vercel-s-oidc-rollout-for-deployments" class="wp-block-heading"&gt;Vercel&amp;rsquo;s OIDC rollout for deployments&lt;/h2&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Vercel&amp;rsquo;s &lt;a href="https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub Actions deployment guide&lt;/a&gt; still instructs developers to authenticate deployments with a VERCEL_TOKEN secret, and in Thursday&amp;rsquo;s announcement Ubl says the company is extending OIDC support across its API and CLI to retire long-lived tokens from deployment workflows, which for now leaves Vercel asking Marketplace vendors to adopt a standard its own deployment tooling has not fully implemented.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;That transition is still underway for customers deploying to Vercel through GitHub Actions. Vercel&amp;rsquo;s &lt;a href="https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;deployment guide&lt;/a&gt; still tells them to authenticate with a &lt;code&gt;VERCEL_TOKEN&lt;/code&gt; secret.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;By November 30, Marketplace integrations that fall short of Vercel&amp;rsquo;s authentication requirements will carry a &amp;ldquo;Not secure&amp;rdquo; warning on their listing, and the company has not published its survey methodology, named the companies it surveyed, or disclosed how many existing Marketplace partners will have to change their authentication systems.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;On October 23, &lt;a href="https://www.linkedin.com/in/yordisprieto/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Yordis Prieto&lt;/a&gt;, a senior software engineer at Fanatics, &lt;a href="https://x.com/yordisprieto/status/2113532901614661789" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;asked Vercel to remove that requirement&lt;/a&gt;, saying he still needed &amp;ldquo;a long-lived access token&amp;rdquo; in his CI pipeline. He also criticized the dashboard&amp;rsquo;s non-expiring token option.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Vercel had already addressed deployment authentication in its October 22 announcement, saying it was extending OIDC support across its API and CLI. &lt;a href="https://x.com/cramforce/status/2113751016885928329" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Replying to Prieto on October 23&lt;/a&gt;, Ubl said the company was &amp;ldquo;mid rollout&amp;rdquo; and would also allow finer control over which actions a credential can perform. His reply did not give a completion date.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;We definitely didn&amp;#39;t invent it, but we will ship OIDC auth for deployments.&lt;br&gt;&lt;br&gt;We are mid rollout and will not just swap the auth mechanism but also allow fine-grained targeting of actions.&lt;br&gt;&lt;br&gt;Happy to flag you in ASAP when it lands.&lt;/p&gt;&amp;mdash; Malte Ubl (@cramforce) &lt;a href="https://x.com/cramforce/status/2113751016885928329?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 23, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An earlier step came on September 25, when Vercel &lt;a href="https://vercel.com/changelog/vcr-login-github-action" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;added GitHub OIDC authentication for its Container Registry&lt;/a&gt;. That lets customers push container images without storing long-lived registry credentials. The GitHub Actions workflow documented for deploying applications to Vercel still uses &lt;code&gt;VERCEL_TOKEN&lt;/code&gt;.&lt;/p&gt;
 
 
 
@@ -710,17 +840,11 @@
 
 
 
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;As AI agents gain access to more external services, credential management is becoming a greater consideration for agent harnesses.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p class="wp-block-paragraph"&gt;Vercel&amp;rsquo;s &lt;a href="https://vercel.com/connect" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Connect service&lt;/a&gt; addresses part of that problem by letting applications and agents use their deployment identity to request provider credentials at runtime rather than storing them in application environments. For supported OAuth services, Connect handles token exchange and renewal.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Vercel&amp;rsquo;s &lt;a href="https://vercel.com/connect" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Connect service&lt;/a&gt; addresses part of that problem by letting applications and agents request scoped credentials at runtime using their deployment identity rather than storing secrets in application environments. Connect also handles token exchange and renewal. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An &lt;a href="https://vercel.com/changelog/vercel-connect-adds-enterprise-managed-authorization" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 15 update&lt;/a&gt; added enterprise-managed authorization in public beta, allowing administrators to control access to supported services through identity providers such as Okta.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Earlier, on &lt;a href="https://vercel.com/changelog/vercel-connect-adds-enterprise-managed-authorization" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 15&lt;/a&gt;, Vercel added enterprise-managed authorization to Connect in public beta, allowing administrators to control access to supported services through identity providers such as Okta.&lt;/p&gt;
 
 
 
@@ -728,11 +852,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Even so, Vercel Connect still supports static API keys for providers that lack OAuth or another identity-based option, and its &lt;a href="https://vercel.com/connect/api-key" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt; describes storing those credentials centrally and pulling them at runtime, while the underlying keys can still live indefinitely. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company also &lt;a href="https://vercel.com/changelog/vcr-login-github-action" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;introduced GitHub OIDC authentication for its Container Registry&lt;/a&gt; in late September, though that work does nothing to remove the VERCEL_TOKEN requirement from its documented GitHub Actions deployment flow.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Connect also supports services that authenticate with static API keys. Its &lt;a href="https://vercel.com/connect/api-key" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;documentation&lt;/a&gt; describes storing a key centrally and retrieving it when an application needs it. That changes where the key is stored and how applications access it; it does not, by itself, make the underlying key short-lived.&lt;/p&gt;
 
 
 
@@ -740,16 +860,18 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;For now, Vercel faces the same job it is handing its Marketplace vendors: replacing long-lived credentials across infrastructure it already runs, and until OIDC support reaches workflows like GitHub Actions deployments, developers will keep needing the very tokens Vercel is urging the rest of the industry to give up.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;For developers, the practical question is which parts of their workflow can already run without a long-lived secret. Vercel offers that option for pushing container images and accessing supported services. Customers following its documented GitHub Actions deployment guide still need a &lt;code&gt;VERCEL_TOKEN&lt;/code&gt;, with the company saying a replacement is underway.&lt;/p&gt;
 
 
 
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8230;until OIDC support reaches workflows like GitHub Actions deployments, developers will keep needing the very tokens Vercel is urging the rest of the industry to give up.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/"&gt;Vercel moved to kill static credentials. Then developers spotted its own deployment token.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Correction, October 25, 2026:&lt;/strong&gt; An earlier version of this article described a documented GitHub Actions workflow for Vercel customers as Vercel&amp;rsquo;s own workflow and characterized its token requirement as a &amp;ldquo;double standard.&amp;rdquo; Vercel&amp;rsquo;s October 22 announcement said it was extending OIDC support to deployments and holding its own API and native integrations to the same authentication standard as Marketplace vendors. CTO Malte Ubl said on October 23 that OIDC authentication for deployments was in rollout. We have revised the headline and article to clarify this context and added his response.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/"&gt;Vercel sets a deadline for vendors to move beyond long-lived keys&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
-      <content:encoded>Vercel is pushing Marketplace vendors off long-lived API keys toward OIDC by 2027 — but its own GitHub Actions deploys still rely on a static token.</content:encoded>
+      <content:encoded>Vercel has given Marketplace vendors until January 2027 to offer safer authentication and says OIDC support for deployments is rolling out.</content:encoded>
     </item>
     <item>
       <title>AI jobs are waiting while GPUs sit idle. Kubernetes has a new plan.</title>
@@ -1075,7 +1197,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Linux Mint works today because it&amp;rsquo;s built on Ubuntu, and we have customers running it,&amp;rdquo; Huang says, &amp;ldquo;but it isn&amp;rsquo;t on our officially supported list yet. Requests for new distributions come in through support tickets and our customer success team. A customer with a real deployment, the number of seats involved, and how far it diverges from a distribution we already support move a distribution up the priority list. For an Ubuntu- or Fedora-based distribution, initial support typically takes one to two weeks.&amp;rdquo;&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Linux Mint works today because it&amp;rsquo;s built on Ubuntu, and we have customers running it,&amp;rdquo; Huang says. Requests for new distributions come in through support tickets and our customer success team. A customer with a real deployment, the number of seats involved, and how far it diverges from a distribution we already support move a distribution up the priority list. For an Ubuntu- or Fedora-based distribution, initial support typically takes one to two weeks.&amp;rdquo;&lt;/p&gt;
 
 
 
@@ -1099,7 +1221,7 @@
 
 
 
-&lt;p class="wp-block-paragraph"&gt;It also offers a Drata integration with hourly syncing. Still, &lt;a href="https://help.swif.ai/en/articles/7232168-set-up-swif-integration-with-drata" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Swif&amp;rsquo;s Drata guide&lt;/a&gt; is inconsistent on Linux: it lists Linux evidence fields, but its device eligibility list names only macOS and Windows. Linux teams should confirm Drata coverage with Swif before relying on it.&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;It also offers a Drata integration with hourly syncing. &amp;#8220;Linux is fully supported for automatic device evidence retrieval, with daily syncing,&amp;#8221; a Swif spokesperson tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;We&amp;#8217;ve also updated our public documentation to clarify this, as the previous guide was inconsistent.&amp;#8221;&lt;/p&gt;
 
 
 
@@ -4648,132 +4770,6 @@ Human engineer continues investigation
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-verification-loops/"&gt;AI sped up coding. Sonar instills confidence with verification.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>AI coding tools give teams a burst of speed, then a pile of technical debt. Sonar’s fix: verify inside the agent’s loop, not after the pull request.</content:encoded>
-    </item>
-    <item>
-      <title>Nvidia bets open models can give enterprise AI agents the context they’re missing</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/nvidia-agent-knowledge-foundation/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 21 Oct 2026 11:30:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22841182</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2025/12/ac9a49ad-img_0477-edit-scaled-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="The crowd leaving Nvidia&amp;#039;s GTC 2025 event in San Jose, CA." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2025/12/ac9a49ad-img_0477-edit-scaled.jpg" /&gt;&lt;p&gt;Every enterprise company is currently trying to figure out how to have its AI tools work with its data. Meanwhile,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-agent-knowledge-foundation/"&gt;Nvidia bets open models can give enterprise AI agents the context they’re missing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2025/12/ac9a49ad-img_0477-edit-scaled-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="The crowd leaving Nvidia&amp;#039;s GTC 2025 event in San Jose, CA." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2025/12/ac9a49ad-img_0477-edit-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph" id="h-every-enterprise-company-is-currently-trying-to-figure-out-how-to-have-its-ai-tools-work-with-its-data-meanwhile-every-major-enterprise-vendor-that-works-with-those-enterprises-think-sap-microsoft-salesforce-workday-etc-is-making-a-claim-on-becoming-the-central-hub-for-that-managing-and-securing-that-data"&gt;Every enterprise company is currently trying to figure out how to have its AI tools work with its data. Meanwhile, every major enterprise vendor that works with those enterprises (think SAP, Microsoft, Salesforce, Workday, etc.) is making a claim on becoming the central hub for managing and securing that data.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But what about the companies that want to do it themselves?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia, on Wednesday, &lt;a href="https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced&lt;/a&gt; how it wants to provide enterprise AI agents with the data they need to make sense of company data &amp;#8212; all without competing with the data platforms that already store it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At its GTC Berlin conference Wednesday, the company added Agent Knowledge Foundation to its &lt;a href="https://thenewstack.io/nvidia-openshell-agent-runtime/" target="_blank" rel="noopener" class="local-link"&gt;Agent Toolkit&lt;/a&gt;. This new collection of open-source components bundles the company&amp;#8217;s Nemotron Retriever models, a new Auto-Ontology library, the Kumo family of models for structured data, and its CUDA-X data processing libraries.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With this system, Nvidia says, the data can stay where it is and remain managed under the access rules these companies already have in place.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Today, as Adel El Hallak, Nvidia&amp;#8217;s vice president of product for agentic AI, tells &lt;em&gt;The New Stack&lt;/em&gt;, enterprises may be able to connect an agent to a vendor like Snowflake, but that doesn&amp;#8217;t help the agent understand the overall enterprise context.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I wish it was as easy as connected to my Snowflake system, connected to my email exchange, connected to my knowledge base, and then all of a sudden, magically, the AI understands all the data. But the reality is different,&amp;#8221; he says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Large language models are &amp;#8220;great at predicting next tokens,&amp;#8221; El Hallak argues, but when presented with a single spreadsheet that has &amp;#8220;a whole bunch of tabs,&amp;#8221; the agent will have a hard time finding something specific. &amp;#8220;It&amp;#8217;s gonna struggle,&amp;#8221; he says.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-better-retrieval-fewer-lookups" class="wp-block-heading"&gt;Better retrieval, fewer lookups&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;In the world of agents, you want the most accurate embedding models or reranking models,&amp;#8221; El Hallak says, even if that adds a bit of latency to each lookup. The agent then gets &amp;#8220;much more pertinent information. So the number of lookups at the end, the overall latency actually goes down.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia says its Nemotron Retriever embedding model raised search relevance by 65% in tests on an open source OpenSearch setup, needing fewer search steps and adding hardly any latency. SAP&amp;#8217;s fine-tuned version of the reranker ran nearly three times faster, Nvidia says, and ServiceNow got better reranking quality with close to 25% less latency.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-from-rag-to-ontologies" class="wp-block-heading"&gt;From RAG to ontologies&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;RAG was awesome, but is it good enough?&amp;#8221; El Hallak asks. Knowledge graphs, he says, represent concepts and the relationships between them better than retrieval-augmented generation, which pulls in chunks of text based on similarity.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia&amp;#8217;s &lt;a target="_blank" rel="noopener external nofollow" href="https://catalog.ngc.nvidia.com/orgs/nvidia/-/containers/auto-ontology/-" class="ext-link" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Auto-Ontology library&lt;/a&gt; builds those graphs from a company&amp;#8217;s own tables and maps raw data to business concepts like customers, products, and orders. Its listing in Nvidia&amp;#8217;s NGC software catalog shows a REST API and a Model Context Protocol (MCP) server that agents can use to query it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You and I, it&amp;#8217;s easy for us to understand. A tier is the same thing as a plan when you&amp;#8217;re looking at a mobile carrier,&amp;#8221; El Hallak says, but LLMs &amp;#8220;mess those up.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia bought Illumex, an Israeli startup that automated the creation of semantic layers and ontologies for enterprise data, for a reported $75 million in February. At the time, an Nvidia spokesperson told &lt;a target="_blank" rel="noopener external nofollow" href="https://en.globes.co.il/en/article-1001535871" class="ext-link" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Globes&lt;/a&gt; that the team&amp;#8217;s ontology expertise would help it build &amp;#8220;libraries and models that will enable the adoption of Agentic AI in organizations.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-predictions-from-tables" class="wp-block-heading"&gt;Predictions from tables&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kumo, the startup Nvidia bought in June in a deal The Information valued at more than $400 million, built &lt;a target="_blank" rel="noopener" href="https://thenewstack.io/kumo-ai-foundation-models/" class="local-link"&gt;foundation models for relational data&lt;/a&gt;. Nvidia has since released several Kumo models as open weights on Hugging Face, including Kumo Tabular in September.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;El Hallak says those models replace the per-task pipelines data teams used to build &amp;#8220;for every classification, for every churn, for every sentiment analysis.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The whole point of the ontology &amp;hellip; is to bring harmonization as you create those knowledge graphs, so there&amp;#8217;s [consistency] across the tables, and then you could use Kumo to drive predictive analytics,&amp;#8221; he says.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-partners-not-rivals" class="wp-block-heading"&gt;Partners, not rivals&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I&amp;#8217;m not looking to compete with, for example, a Snowflake. On the contrary, I want to partner with them,&amp;#8221; El Hallak says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia&amp;#8217;s own supply chain team uses Agent Knowledge Foundation through Palantir&amp;#8217;s Foundry platform, &lt;a target="_blank" rel="noopener" href="https://thenewstack.io/ai-factories-are-among-the-most-complex-systems-ever-built-nvidia-and-palantir-turn-nvidias-supply-chain-into-a-proving-ground-for-sovereign-ai/" class="local-link"&gt;building on earlier work&lt;/a&gt; between the two companies. Databricks is pairing a Kumo anomaly detection model with Genie Ontology, the context layer it introduced in June, and Snowflake customers can run Kumo models in Snowflake Notebooks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I&amp;#8217;m not thinking about ACLs and data access and all those things. That&amp;#8217;s why I need the partners,&amp;#8221; El Hallak says, referring to access control lists and other security features that its enterprise partners offer.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-owning-the-stack" class="wp-block-heading"&gt;Owning the stack&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Not every vendor is taking that route. SAP closed its acquisition of Prior Labs, the company behind the TabPFN tabular models, in July and committed more than &amp;euro;1 billion to it over four years. It now offers TabPFN-3.5 Plus in SAP AI Core alongside &lt;a target="_blank" rel="noopener" href="https://thenewstack.io/sap-expands-its-ai-stack-for-developers/" class="local-link"&gt;its own RPT models&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia, meanwhile, distributes its models through Hugging Face, which it agreed to buy for $12.9 billion in September. &amp;#8220;We just build little weights and models, and we publish them on Hugging Face,&amp;#8221; El Hallak says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That leaves Nvidia building the models, while the likes of Snowflake and Databricks keep control over the data and the permissions around it.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-agent-knowledge-foundation/"&gt;Nvidia bets open models can give enterprise AI agents the context they’re missing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Agent Knowledge Foundation bundles retrieval, ontology, and prediction models for enterprise agents. Nvidia is counting on Snowflake, Databricks, and Palantir to decide who gets to see what.</content:encoded>
     </item>
     <item>
       <title>Nvidia wants AI factories built in real factories</title>
