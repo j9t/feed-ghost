@@ -4,9 +4,15 @@ on:
   # Limited to code changes, so that daily feed updates in forks don’t trigger runs
   push:
     branches: main
-    paths: ["**.py", "requirements.txt", ".github/workflows/tests.yml"]
+    paths:
+      - "**.py"
+      - "requirements.txt"
+      - ".github/workflows/tests.yml"
   pull_request:
-    paths: ["**.py", "requirements.txt", ".github/workflows/tests.yml"]
+    paths:
+      - "**.py"
+      - "requirements.txt"
+      - ".github/workflows/tests.yml"
 
 permissions:
   contents: read
