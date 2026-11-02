@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 31 Oct 2026 16:13:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 17:10:30 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,512 @@
       <height>32</height>
     </image>
     <item>
+      <title>Open-source security in the AI exploit era: Patch without changing a thing</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/patchmageddon-open-source-security22842502/</link>
+      <dc:creator>Oren Penso</dc:creator>
+      <pubDate>Sun, 01 Nov 2026 16:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Open Source</category>
+      <category>Security</category>
+      <category>sponsor-broadcom</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842502</guid>
+      <description>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A vibrant digital illustration of an open combination padlock against a dark navy background. The lock features a colorful purple-to-green gradient and five tumblers displaying bright green asterisks, symbolizing an unlocked or compromised security system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled.jpg" /&gt;&lt;p&gt;Here&amp;#8217;s how a vulnerability in a popular open-source library plays out in 2026: A maintainer merges a fix and publishes&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/patchmageddon-open-source-security22842502/"&gt;Open-source security in the AI exploit era: Patch without changing a thing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A vibrant digital illustration of an open combination padlock against a dark navy background. The lock features a colorful purple-to-green gradient and five tumblers displaying bright green asterisks, symbolizing an unlocked or compromised security system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Here&amp;rsquo;s how a vulnerability in a popular open-source library plays out in 2026:&lt;/strong&gt; A maintainer merges a fix and publishes an advisory. Within hours, someone points a model at the diff between the old and new versions and gets a working exploit back. Your scanner flags the CVE the next morning, a ticket gets filed, and the fix is scheduled into next week&amp;rsquo;s change window. By then the exploit has been circulating for days.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That was a fine enterprise lifestyle choice last year, but it&amp;rsquo;s considered out of fashion nowadays.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And for good reason, as Michael Cembalest goes over in his &amp;ldquo;&lt;a href="https://am.jpmorgan.com/wr/en/asset-management/liq/insights/market-insights/eye-on-the-market/patchmageddon/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Patchmageddon&lt;/a&gt;&amp;rdquo; report from July 2026, which includes input from J.P. Morgan Asset Management&amp;rsquo;s cybersecurity leadership. Models such as Anthropic&amp;rsquo;s Mythos and OpenAI&amp;rsquo;s GPT&amp;ndash;5.5 now find previously unknown vulnerabilities at a scale no human research team can match. Anthropic and its Project Glasswing partners found more than 10,000 new high- and critical-severity zero-days in the first month alone.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At the same time, the exploitation clock shrank. The note puts the median time from disclosure to first exploitation at roughly a year in 2021. Now it&amp;rsquo;s down to &lt;em&gt;one day&lt;/em&gt; in 2026, and projected to be &lt;em&gt;one minute&lt;/em&gt; by 2027. Almost 80% of exploitations now land on or before their public disclosure. Models can find vulnerabilities, and hackers can exploit them just as fast, if not faster.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-open-source-takes-the-first-hit" class="wp-block-heading"&gt;&lt;strong&gt;Open source takes the first hit&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That pressure lands on open source first, because open source is what modern software is made of and because the source is, well, open for all to see. This is fantastic, and as it should be: it just means it&amp;rsquo;s the low-hanging fruit for hackers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The people expected to absorb this flood of AI-driven vulnerabilities are mostly volunteers. Of 530 high- and critical-severity findings Anthropic reported to open source maintainers by May 2026, only 75 had been patched. This past summer was filled with open source maintainers closing down bug bounty programs and putting up the gone fishing sign to de-stress.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-your-new-security-strategy" class="wp-block-heading"&gt;&lt;strong&gt;Your new security strategy&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Like it or not, corporate mindsets about security tend to shift when there&amp;rsquo;s urgency and a touch of, well, worry. Here&amp;rsquo;s some more freak-out fuel:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;More models are getting better &amp;#8211; Cembalest&amp;rsquo;s note expects capabilities now confined to a handful of nation-state units to be reproducible in freely available open-weight models within 12 to 24 months. Hamish Low at the Institute for AI Policy and Strategy &lt;a href="https://www.the-substrate.net/p/china-will-likely-have-its-own-mythos" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gives a Chinese Mythos-class model a 40% chance by February 2027&lt;/a&gt; and near-certainty by the end of that year.&lt;/li&gt;
+
+
+
+&lt;li&gt;You&amp;rsquo;re already running vulnerable code, probably &amp;#8211; most of what you run was pulled from public registries months ago, if not years. Datadog&amp;rsquo;s February 2026 numbers put TK{spell this out in plainer language // the median dependency 278 days behind its latest major version}. That&amp;rsquo;s old code waiting for a one-day exploit.&lt;/li&gt;
+
+
+
+&lt;li&gt;The yardstick has changed &amp;#8211; Cembalest is blunt that organizations will have to judge themselves on patching speed, not just accuracy. Programs built around 90-day disclosure windows are now measured against a clock that runs in hours.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you own a platform, run application security, or sign off on technology risk in a regulated industry, this problem is circling you whether you act or not. Urgency without a plan is like listening to your seatmate on a five-hour-late flight rapidly text back and forth, with that duck quack at max volume for each message they receive. Annoying and a bit of a vibe killer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To de-quackify, let us share the plan Oren has been sharing with platform and security leaders across financial services.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-stop-building-your-security-strategy-around-free-beer" class="wp-block-heading"&gt;&lt;strong&gt;Stop building your security strategy around free beer&lt;/strong&gt;&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Not enough people work on open source to patch it fast enough.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cembalest spends serious time on maintainer concentration. In a Linux Foundation and Harvard study of the top 50 open source projects, 23% had a single developer responsible for more than 80% of lines added, and 94% had fewer than ten developers writing more than 90% of the code. At registry level, Anchore counted more than 18 million npm packages listing a single maintainer.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Enterprises have enjoyed decades of free beer &amp;#8211; open source software &amp;#8211; while being told it was sort of irresponsible of them.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most communities that write and support open source are doing the best they can, and many have burned out doing even more. But the promise of &amp;ldquo;free as in beer&amp;rdquo; was never that they&amp;rsquo;d keep you perfectly secure and deliver day-zero patches. The promise was, well, free beer. Enterprises have enjoyed decades of free beer &amp;#8211; open source software &amp;#8211; while being told it was sort of irresponsible of them. Now we&amp;rsquo;re seeing proof of that, in an entirely self-inflicted way. It&amp;rsquo;s time to pay for the beer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is where professional open source comes in. Yes, it means &amp;#8211; take a deep breath and close your spreadsheets &amp;#8211; paying to use freely downloadable software.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Professional open source is backed by a vendor with skin in the game, or a foundation with staffed security response, funded maintainers, and a release process that survives burnout. The team that creates and knows the code owns the fix and works under an SLA.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you can&amp;rsquo;t name who maintains a package, you can&amp;rsquo;t count on anyone to fix it.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;J.P. Morgan&amp;rsquo;s own technology leadership, summarized in Cembalest&amp;rsquo;s note, is explicit: run current versions, and move off dependencies where you can&amp;rsquo;t identify who maintains them, where the maintainer looks like a one-person shop, or where the package appears abandoned. If you can&amp;rsquo;t name who maintains a package, you can&amp;rsquo;t count on anyone to fix it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-applying-security-patches-is-keeping-the-business-running" class="wp-block-heading"&gt;&lt;strong&gt;Applying security patches&lt;/strong&gt; &lt;strong&gt;&lt;em&gt;is&lt;/em&gt;&lt;/strong&gt; &lt;strong&gt;keeping the business running&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Erik Scales, who leads platform engineering for Tanzu Platform at Charles Schwab, put it bluntly in &lt;a href="https://www.vmware.com/explore/video/6403821830112" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a VMware Explore talk this year&lt;/a&gt;:&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you&amp;rsquo;ve ever tried to patch a server, no one wants to patch anything. No one wants to do anything. Now, everybody&amp;rsquo;s worried about being on the news and being fired.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The usual reason for putting off a patch is that the business has to keep running. A patch might break something, so it waits for the next change window, or the one after that. The J.P. Morgan note cites research finding that over 80% of security professionals have skipped a patch to avoid disrupting the business.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Now that they show up within a day of disclosure, the unpatched system is the bigger threat to keeping the business running.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When exploits took months to show up, that trade was defensible. Now that they show up within a day of disclosure, the unpatched system is the bigger threat to keeping the business running.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That still leaves the disruption problem. Any fix that adds a second disruption on top of the risk will get deferred too, and deferral is exactly what a one-day clock punishes. Attackers are counting on waiting.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-make-the-right-thing-the-easiest-thing" class="wp-block-heading"&gt;&lt;strong&gt;Make the right thing the easiest thing&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Control where your open source comes from, even more tightly than you do now.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We&amp;rsquo;re long past the days when enterprise developers could download anything from the internet and use it. A lot of hard work went into changing that habit. Most large companies now send every dependency download through an internal artifact proxy, like JFrog Artifactory or Sonatype Nexus. Developers point their builds at the proxy, and the proxy fetches from Maven Central, npm, or PyPI. Going through the slog of getting developers to change their habits again is not a good idea, nor, you know, fun.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;You don&amp;rsquo;t have to. To change where your open source comes from, you change where the proxy fetches from, and nothing else. Point it at a supported source like &lt;a href="https://www.broadcom.com/products/software/truesource" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TrueSource&lt;/a&gt;, and the build files, URLs, and pipelines all stay the same. Developers won&amp;rsquo;t notice a difference. What&amp;rsquo;s different is that the Spring libraries coming through now include fixes that often ship before the CVE is public.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The proxy can also do some of the patching for you. Set it to block known-vulnerable versions and serve the nearest patched one instead, and builds keep working without anyone filing a ticket. The patched package becomes the default, the one developers get without asking for it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is critical for how you address Patchmageddon. Changing developer habits is difficult once they are set in their ways. Because you can simply point the repositories at a proxy, you don&amp;#8217;t have to change developer habits.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Oren has worked with large financial services platform teams that already run their dependencies through a proxy like this. For them, the conversation isn&amp;rsquo;t about pushing a new supply chain platform through the organization. It&amp;rsquo;s about pointing the proxy somewhere new, and that&amp;rsquo;s easy to do.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is why we say the only acceptable change is no change.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-rest-of-the-plan" class="wp-block-heading"&gt;&lt;strong&gt;The rest of the plan&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Those are the big ones, and for some, the most difficult. There are three more items to consider as well:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Measure how fast fixes reach production.&lt;/strong&gt; Track the time from disclosure to a deployed fix for your top 50 dependencies. That&amp;rsquo;s the number the J.P. Morgan note says you&amp;rsquo;ll be judged on.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Know who maintains your critical dependencies.&lt;/strong&gt; For each one, write down the organization behind it. Single-maintainer and abandoned packages go on their own list.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Use AI to find and propose fixes, and keep people on the merge.&lt;/strong&gt; Ideally, those people are the code&amp;#8217;s maintainers.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Security is different now, in a big, new way. Pay attention to it and adapt your organization&amp;rsquo;s security strategy. This is especially true if, like most large organizations and especially financial institutions, you develop and run a lot of your own software. We&amp;rsquo;ve shared what we think is a good plan to follow. Whether you like our plan or not, make sure you &lt;em&gt;do&lt;/em&gt; something. And tell us how it goes.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/patchmageddon-open-source-security22842502/"&gt;Open-source security in the AI exploit era: Patch without changing a thing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AI can now turn a security patch into a working exploit in hours. Waiting for next week’s change window is now the bigger risk to the business.</content:encoded>
+    </item>
+    <item>
+      <title>A step-by-step guide for how to kill the line-by-line code review</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-code-review-invariants/</link>
+      <dc:creator>Ankit Jain</dc:creator>
+      <pubDate>Sun, 01 Nov 2026 15:00:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <category>Software Testing</category>
+      <category>sponsor-aviator</category>
+      <category>Sponsored</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842479</guid>
+      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustrated computer monitor with lines of text, reaching hands, an atom, and an eye, evoking AI code review" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-scaled.png" /&gt;&lt;p&gt;Agents verify; people decide. Most teams running AI code review today have it the other way around. They point a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-code-review-invariants/"&gt;A step-by-step guide for how to kill the line-by-line code review&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustrated computer monitor with lines of text, reaching hands, an atom, and an eye, evoking AI code review" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-scaled.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Agents verify; people decide.&lt;/strong&gt; Most teams running AI code review today have it the other way around. They point a model at the diff, ask it whether the change is good, and leave a human to skim the result and click approve.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The model reads every line, never gets tired, and holds the same standard on every PR. What it doesn&amp;#8217;t have is your codebase&amp;#8217;s standards. It doesn&amp;#8217;t know them, and no matter how well you instruct it, it doesn&amp;#8217;t always follow the ones you write down. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Judgment needs intent, and accountability needs a person.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It never saw what was decided, has no context for previous decisions, can&amp;#8217;t tell you not to build the thing, and can&amp;#8217;t be held accountable. A diff can&amp;#8217;t give it any of that. Judgment needs intent, and accountability needs a person.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So what does a &lt;a href="https://docs.aviator.co/verify/concepts/why-intent-driven-verification" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;code review look like&lt;/a&gt; when verification goes to agents and judgment stays with people? At Aviator, we&amp;#8217;ve been building that review into &lt;a href="https://www.aviator.co/verify?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aviator Verify&lt;/a&gt;. Below are its seven parts, in order.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-anatomy-of-an-intent-driven-review" class="wp-block-heading"&gt;The anatomy of an intent-driven review&lt;/h2&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819e59f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819e59f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge image.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every change gets &lt;a href="https://docs.aviator.co/verify/concepts/verification-layers" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;checked against two layers&lt;/a&gt;. Acceptance criteria describe what this change should do. &lt;a href="https://docs.aviator.co/verify/concepts/invariants" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Invariants&lt;/a&gt; are the codified rules of your engineering org or team: the standards that are always true, whatever the change.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Criteria without invariants leave your standards to memory. Every engineer has to remember every standard, or someone has to catch the obvious agent mistakes in code review. Invariants without criteria give you code that follows the rules but doesn&amp;rsquo;t consider what the result should be, so the agent strays, overengineers, or solves the wrong problem.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The seven parts build both layers, verify the change against them, and hand the decision to a person:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Invariants&lt;/strong&gt; (defined before any change): the team&amp;#8217;s standing rules, drawn from its own code reviews.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Intent and acceptance criteria&lt;/strong&gt; (captured from the coding session): why the change exists and how it should behave.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Core decisions&lt;/strong&gt; (captured from the coding session): the choices made along the way, and who made them.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A test plan&lt;/strong&gt; (built at submit): the criteria plus the invariants that apply, turned into scenarios.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Evidence&lt;/strong&gt; (gathered at submit): proof from a running environment behind every verdict.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A review&lt;/strong&gt; (decided by a person): intent, decisions, and evidence, approved or pushed back on. Not code.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Invariants refreshed&lt;/strong&gt; (updated after merge): waivers and recurring comments that sharpen the invariants.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;h2 id="h-1-invariants" class="wp-block-heading"&gt;1. Invariants&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every review checks a change against something. In most teams, that something lives in senior engineers&amp;#8217; heads and comes out as review comments. Use the Money type for anything with a currency. No direct writes to the users table. Every error path emits a counter. Each of those has been typed more than once, and coding agents keep making the same mistakes because the rule was never written down anywhere an agent or a verifier could use it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An invariant is that rule, written once and checked on every matching change. Together, your invariants become an &lt;a href="https://www.aviator.co/blog/how-an-anti-slop-registry-stops-ai-generated-code-from-violating-your-engineering-standards/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AI slop registry&lt;/a&gt;, the running list of patterns your team keeps correcting.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agent instruction files like CLAUDE.md help, but they&amp;#8217;re an input to generation. The same non-deterministic agent that wrote the code is asked to follow them, and nothing proves it did. Invariants sit on the verification side, checked by a deterministic script or at least a different agent that returns a verdict for each rule.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Your PR history already holds most of them. Verify reads the comments your team posts in GitHub and drafts invariants from the patterns it finds. It also drafts them from CONTRIBUTING.md and agent instruction files or on the spot when someone tags &lt;code&gt;@aviator&lt;/code&gt; invariant in a PR comment or a Slack thread. Generate your team&amp;#8217;s invariants with the &lt;a href="https://www.aviator.co/code-review?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aviator Verify free account&lt;/a&gt; and keep them even if you decide not to continue with Verify.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Three things determine whether an invariant helps or becomes noise.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Ownership.&lt;/strong&gt; Every draft goes to the team it belongs to, with the reason it was proposed, and goes live only once that team approves it. Nothing AI-drafted becomes a standing check without a human saying yes.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Wording.&lt;/strong&gt; Assert the outcome and leave the implementation open, so the rule survives renames and file moves.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Scope.&lt;/strong&gt; A rule should only run where it can break. A frontend invariant has no business checking database migrations.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-2-intent-and-acceptance-criteria" class="wp-block-heading"&gt;2. Intent and acceptance criteria&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The obvious way to give a reviewer intent is to write a spec up front or capture as a detailed JIRA ticket. Specs take time, get written before the work teaches anyone anything, and drift the moment implementation starts.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The most accurate intent already exists in the coding session. Every time the agent stops to ask a question and the engineer makes a call, acceptance criteria get defined in real time. There is no reason to throw all of that away when the session ends!&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The intent says why the change was made. The acceptance criteria say how it should behave.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Verify captures both from the session the engineer already had. An agent skill and a hook run &lt;em&gt;verify submit&lt;/em&gt; before the agent opens a pull request. The agent extracts the intent and the criteria from everything it saw in the session, and the engineer reviews and corrects them before anything is submitted.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819ee3a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819ee3a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge image.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-3-core-decisions" class="wp-block-heading"&gt;3. Core decisions&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A decision is any point where the change could have gone another way. Where state lives, what happens when a dependency fails, whether to reuse an existing helper or write a new one. An AI-written PR is full of calls like these, and almost none of them show up in the diff.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;An AI-written PR is full of calls like these, and almost none of them show up in the diff.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Verify records the decisions next to the intent, with humans and agents labeled separately, so the reviewer knows who made which call and can argue with it. I wrote more about why decisions are the thing people should review in &lt;a href="https://thenewstack.io/review-decisions-not-code/" class="local-link"&gt;How to review AI code without reading the code&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-4-a-test-plan" class="wp-block-heading"&gt;4. A test plan&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When a change is submitted, Verify reads the intent and the criteria and uses the diff to identify the invariants to apply. Both layers merge into one list of scenarios: the steps an agent takes to validate behavior, derived from the requirements rather than the code.&lt;br&gt;&lt;br&gt;That&amp;#8217;s where the two layers pay off. The engineer stays focused on the change, and the registry covers the standards.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-5-evidence" class="wp-block-heading"&gt;5. Evidence&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When the same model writes and reviews the code, they share the same blind spots. Verification must be structurally separate from generation, and it must produce more than an opinion.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When the same model writes and reviews the code, they share the same blind spots.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Verify spins up a preview environment and dispatches verifier agents to run the scenarios. They capture screenshots, database state, server logs, and console logs, and every verdict, for a criterion or an invariant, points at that evidence. For a UI change, the verifier actually clicks through the interface and confirms the result.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;You don&amp;#8217;t need a preview on day one. Code scans handle structural checks straight from the diff, with no infrastructure, and many invariants are converted to deterministic scripts. A preview earns its place once your criteria start asking about behavior the diff can&amp;#8217;t show.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-6-a-review" class="wp-block-heading"&gt;6. A review&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is where people come back in, and the work looks different. As a reviewer, you&amp;#8217;re looking at evidence rather than reading code line by line. You read the intent, look at the hot spots where the core changes are, go through the decisions and the verdict on each criterion and invariant, and open the live preview if you want to see the change for yourself.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819f619&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819f619" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge image.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The pull request workflow barely changes. Verify adds a link to the review, the diff stays where it was, and the results are reported as a status check similar to the CI behavior.&lt;br&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The reviewer answers one question: does the evidence match what the team agreed to build? They approve, push back on a decision, ask for another scenario, or waive a failed invariant with a reason. That&amp;#8217;s judgment, and someone owns it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-7-invariants-refreshed" class="wp-block-heading"&gt;7. Invariants refreshed&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most reviews end at merge, and everything they learned leaves with them. The next PR makes the same mistake, and the same comment shows up again.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Invariants keep what each review learned. When an invariant fails on a PR, the author can waive it with a reason: maybe it doesn&amp;#8217;t apply, maybe the invariant is incorrect, or maybe it gets fixed separately. The team that owns the Invariants sees every waiver.&lt;/p&gt;
+
+
+
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819fb52&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819fb52" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
+			class="lightbox-trigger"
+			type="button"
+			aria-haspopup="dialog"
+			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
+			data-wp-init="callbacks.initTriggerButton"
+			data-wp-on--click="actions.showLightbox"
+			data-wp-style--right="state.thisImage.buttonRight"
+			data-wp-style--top="state.thisImage.buttonTop"
+		&gt;
+			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
+				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
+			&lt;/svg&gt;
+		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Click to enlarge image.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Insights show which invariants apply most, how often each one fails, and why people waive them. An invariant that keeps getting waived is wrong, so the team rewrites or narrows it. A comment reviewers keep typing becomes the next draft. That way invariants become a set of rules that are continuously maintained over time and guard every code change.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-where-to-start" class="wp-block-heading"&gt;Where to start&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Don&amp;#8217;t switch it all on at once. Start with the invariants, because they&amp;#8217;re the cheapest part and your PR history already holds them. Month one will feel like double work, with the team still reviewing code while the registry fills up. In month two, invariants catch enough that reviews shrink. By month three, reviewers read intent, decisions, and evidence, and open the diff only when something doesn&amp;#8217;t add up.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The review your team already does is full of rules waiting to be written down. &lt;a href="https://docs.aviator.co/verify" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aviator Verify&lt;/a&gt; turns them into invariants, verifies every change against them, and leaves the decisions to people.&lt;br&gt;&lt;br&gt;&lt;strong&gt;&lt;em&gt;Generate your team&amp;#8217;s invariants with the &lt;a href="https://www.aviator.co/code-review?utm_source=tns&amp;amp;utm_medium=content&amp;amp;utm_campaign=q3-2026-tns-verify&amp;amp;utm_term=net-new&amp;amp;utm_content=awareness" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aviator Verify free account&lt;/a&gt; and keep them even if you decide not to continue with Verify.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-code-review-invariants/"&gt;A step-by-step guide for how to kill the line-by-line code review&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Most teams ask an AI model if a code change is good, then let a human skim and approve. That’s backwards: agents should verify, and people should decide.</content:encoded>
+    </item>
+    <item>
       <title>The context problem: How Docusign built agents that understand the business behind contracts</title>
       <link>https://web.archive.org/web/https://thenewstack.io/docusign-contract-ai-agents/</link>
       <dc:creator>Carly Page</dc:creator>
@@ -31,10 +537,10 @@
       <category>Sponsored</category>
       <category>sponsored-post</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842467</guid>
-      <description>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D blue and orange folder icons stacked in rows with a cursor over one, evoking scattered contract files for AI agents" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Ask a general-purpose language model to summarize a contract, and it will probably do a reasonable job. Ask it to&lt;/p&gt;
+      <description>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D blue and orange folder icons stacked in rows with a cursor over one, evoking scattered contract files for AI agents" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Ask a general-purpose language model to summarize a contract, and it will probably do a reasonable job. Ask it to&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/docusign-contract-ai-agents/"&gt;The context problem: How Docusign built agents that understand the business behind contracts&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D blue and orange folder icons stacked in rows with a cursor over one, evoking scattered contract files for AI agents" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D blue and orange folder icons stacked in rows with a cursor over one, evoking scattered contract files for AI agents" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/d397f77f-resource-database-wd6omi7u3tq-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Ask a general-purpose language model to summarize a contract,&lt;/strong&gt; and it will probably do a reasonable job. Ask it to calculate what a company owes a supplier, accounting for three amendments, a revised pricing schedule, and an internal procurement policy, and it&amp;#8217;s a different story.&lt;/p&gt;
 
 
@@ -47,7 +553,7 @@
 
 
 &lt;div class="wp-block-image"&gt;
-&lt;figure class="alignright size-full is-resized"&gt;&lt;img decoding="async" width="800" height="800" src="https://cdn.thenewstack.io/media/2026/10/5e11eb07-docusign-cto.jpeg" alt="" class="wp-image-22842471" style="width:244px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Docusign CTO Sagnik Nandy&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="alignright size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="800" height="800" src="https://cdn.thenewstack.io/media/2026/10/5e11eb07-docusign-cto.jpeg" alt="" class="wp-image-22842471" style="width:244px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Docusign CTO Sagnik Nandy&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
 
@@ -2585,7 +3091,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae720b6a42b7&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae720b6a42b7" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="798" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1353f6a4-cybergym-e2e.png" alt="" class="wp-image-22842242"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381cafe8&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381cafe8" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="798" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1353f6a4-cybergym-e2e.png" alt="" class="wp-image-22842242"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2618,7 +3124,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae720b6a478b&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae720b6a478b" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="801" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/e3dafb41-terminal-bench-4.0.png" alt="" class="wp-image-22842243"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381cb4a4&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381cb4a4" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="801" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/e3dafb41-terminal-bench-4.0.png" alt="" class="wp-image-22842243"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -2933,7 +3439,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae720b6aace8&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae720b6aace8" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1973762f-img_5949-edit-1024x768.jpg" alt="" class="wp-image-22842149"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381d1602&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381d1602" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1973762f-img_5949-edit-1024x768.jpg" alt="" class="wp-image-22842149"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3016,7 +3522,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae720b6ab602&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae720b6ab602" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/91c580ab-img_5947-1024x768.jpg" alt="" class="wp-image-22842150"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381d1e3a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381d1e3a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/91c580ab-img_5947-1024x768.jpg" alt="" class="wp-image-22842150"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3798,7 +4304,7 @@ spec:
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae720b6ba521&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae720b6ba521" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/c44d441c-img_5934-1024x768.jpg" alt="" class="wp-image-22842074"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381deda9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381deda9" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/c44d441c-img_5934-1024x768.jpg" alt="" class="wp-image-22842074"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3863,7 +4369,7 @@ spec:
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae720b6bac88&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae720b6bac88" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="417" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/c0749e77-screenshot-2026-10-28-at-12.23.25-1024x417.png" alt="" class="wp-image-22842084"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381df4a4&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381df4a4" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="417" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/c0749e77-screenshot-2026-10-28-at-12.23.25-1024x417.png" alt="" class="wp-image-22842084"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3912,150 +4418,6 @@ spec:
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/github-copilot-fusion/"&gt;GitHub debuts Copilot Fusion, a new model selection &amp;amp; orchestration system that beats Claude Code for half the API cost&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Developers pick the effort level. Copilot Fusion picks the models. An AT&amp;amp;T engineer say it&amp;#039;s &amp;quot;improved token efficiency.&amp;quot;</content:encoded>
-    </item>
-    <item>
-      <title>GitHub saw 7.4B commits in September, adding 4M CPU cores and 160 PB of storage to keep up</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/github-7-4b-commits-september/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 28 Oct 2026 16:10:00 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22841892</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/9b7c9d43-img_5916-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9b7c9d43-img_5916-scaled.jpg" /&gt;&lt;p&gt;GitHub is seeing unprecedented demand and is updating its core infrastructure to keep pace. In August, GitHub said it was&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-7-4b-commits-september/"&gt;GitHub saw 7.4B commits in September, adding 4M CPU cores and 160 PB of storage to keep up&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/9b7c9d43-img_5916-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/9b7c9d43-img_5916-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;GitHub is seeing unprecedented demand&lt;/strong&gt; and is updating its core infrastructure to keep pace.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In August, GitHub said it was seeing &lt;a href="https://thenewstack.io/github-2-9b-monthly-commits/" class="local-link"&gt;2.9 billion commits per month&lt;/a&gt;, up from 1.4 billion in April. At its GitHub Universe conference on Wednesday, the company announced that it is now seeing 7.4 billion commits per month. To put that into perspective, developers pushed 65 million monthly commits to the platform in 2024.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That kind of growth is a great problem to have, but the company&amp;#8217;s outages have become something of a recurring theme. The reason is rapid usage growth, driven mostly by &amp;#8220;agentic demand,&amp;#8221; as the company puts it.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex"&gt;
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-id="22842061" src="https://cdn.thenewstack.io/media/2026/10/8f101727-4b45d5f0-b92b-4755-b373-6b362896c7c2-1024x768.jpg" alt="" class="wp-image-22842061"/&gt;&lt;/figure&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-id="22842060" src="https://cdn.thenewstack.io/media/2026/10/4e1d09f9-8164d2e8-c37a-4d22-a677-5cc616708570-1024x768.jpg" alt="" class="wp-image-22842060"/&gt;&lt;/figure&gt;
-&lt;figcaption class="blocks-gallery-caption wp-element-caption"&gt;Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-4-million-more-cpu-cores" class="wp-block-heading"&gt;4 million more CPU cores&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In August, GitHub CTO Vlad Fedorov announced that the platform had added 3 million CPU cores &amp;#8212; mostly on Azure &amp;#8212; to support this growth. Now, GitHub says it has added 4 million CPU cores, plus 160 petabytes of high-speed storage and more compute power for GitHub Actions so far this year&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company also added 50 Tb/s of network capacity to keep all of this data flowing.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-new-github-architecture-is-coming" class="wp-block-heading"&gt;A new GitHub architecture is coming&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GitHub also used this announcement to reiterate its commitment to rearchitecting its platform to separate compute and storage. It first talked about this &lt;a href="https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;earlier this month&lt;/a&gt;. At that time, the company noted that its internal benchmarks show that this new architecture can deliver up to 35x higher write throughput, for example. &lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/32be13e4-6237ca0d-dc3d-42c3-8f06-e849405f9bbf-1024x768.jpg" alt="" class="wp-image-22842095"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Agents are changing the volume and shape of software development. Adding capacity matters, but capacity alone won&amp;rsquo;t get us there. We&amp;rsquo;ve also had to change the architecture,&amp;#8221; Jay Parikh, the EVP for Core AI at Microsoft, writes in the announcement.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Separating compute and storage isn&amp;#8217;t exactly radical in 2026, but it shows GitHub was trying to scale on a legacy foundation. Moving to Azure and its services was essentially the only option, especially as the company&amp;#8217;s own data center was out of capacity.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/3b378e17-cc8853ad-695d-4f07-880b-62b6524629c1-1024x768.jpg" alt="" class="wp-image-22842096"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: The New Stack.&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-7-4b-commits-september/"&gt;GitHub saw 7.4B commits in September, adding 4M CPU cores and 160 PB of storage to keep up&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>GitHub now sees 7.4 billion commits a month, driven largely by AI agents, and is adding 4 million CPU cores and rearchitecting its platform to keep up.</content:encoded>
-    </item>
-    <item>
-      <title>Nvidia launches a promptable transcription model</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/nvidia-nemotron-promptable-transcription/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 28 Oct 2026 15:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Models</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22841900</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/3f644518-img_5875-edit-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Nvidia HQ. San Jose. October 2026." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/3f644518-img_5875-edit-scaled.jpg" /&gt;&lt;p&gt;Nvidia on Wednesday launched Nemotron 3.5 Transcribe, its latest multilingual transcription model. The new open-weight model, the company says, ranks&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-nemotron-promptable-transcription/"&gt;Nvidia launches a promptable transcription model&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/10/3f644518-img_5875-edit-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Nvidia HQ. San Jose. October 2026." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/3f644518-img_5875-edit-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Nvidia on Wednesday launched Nemotron 3.5 Transcribe, its latest multilingual transcription model. The new open-weight model, the company says, ranks first on Hugging Face&amp;#8217;s Open ASR open model leaderboard for English, with an average word error rate of 5.33%, and also sits at the top of two speaker-attribution benchmarks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But what&amp;#8217;s maybe even more interesting is that this is a &lt;em&gt;promptable&lt;/em&gt; transcription model. Being promptable here means that the user can give the model specific instructions before it listens. Typically, that means setting the context for the transcription by telling the model that a given audio file is a medical discussion in English, for example, and giving it a list of medical terms.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Users can also tell the model to label each speaker or ask it questions about the audio. They can request a verbatim transcript or a cleaned-up version, and tell it how to format numbers, for example. &lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="522" src="https://cdn.thenewstack.io/media/2026/10/c0e04146-transcribe-35-nvidia-1024x522.png" alt="Bar chart from VoiceArena&amp;rsquo;s Diarization-Bench v1 ranking 14 diarization-plus-ASR systems on English full sessions with overlapping speech by concatenated minimum-permutation word error rate (cpWER), where lower is better. NVIDIA Nemotron 3.5 Transcribe ranks first at 32.4%, followed by NVIDIA Multitalker Parakeet + N3D at 34.2%; the remaining systems range from 34.7% to 71.9%." class="wp-image-22841903"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Nvidia.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia bundles these capabilities, along with translation, into a single checkpoint, which could simplify the work of building applications around them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ideally, setting this context reduces the error rate. The trade-off is that these models are much larger than traditional transcription models, which are often under a billion parameters in size. Nemotron 3.5 Transcribe is a 30B mixture-of-experts model with 4 billion active parameters.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This isn&amp;#8217;t a completely new concept, though. We&amp;#8217;ve recently seen some other promptable speech-to-text models like Mistral&amp;#8217;s Voxtral models and AssemblyAI&amp;#8217;s &lt;a href="https://www.assemblyai.com/universal-3-pro" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Universal 3 Pro&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia, though, is able to rival Voxtral&amp;#8217;s error rate with far fewer active parameters. On Artificial Analysis&amp;#8217;s benchmark, Nemotron scores a 2.81% word error rate, compared with Voxtral Small&amp;#8217;s 2.77%, while using about 4 billion active parameters versus 24 billion. That comparison measures accuracy against active parameter counts, though, rather than runtime or memory requirements.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The model can transcribe 40 languages &amp;#8212; and translate 31 of those to or from English. Speaker attribution works for 13 of those languages, and it can distinguish between up to eight speaker voices. Audio Q&amp;amp;A was trained in English.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The model handles recordings up to an hour long. It&amp;#8217;s built for recorded audio, though, and doesn&amp;#8217;t support live streaming.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="621" src="https://cdn.thenewstack.io/media/2026/10/2f5127e7-screenshot-2026-10-27-094551-1024x621.png" alt="" class="wp-image-22841902"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Nvidia.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can serve the model with &lt;a href="https://github.com/NVIDIA-NeMo/Speech/blob/main/docs/source/speechlm2/vllm_serving.rst" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;vLLM&lt;/a&gt; or run it locally with &lt;a href="https://github.com/NVIDIA/NeMo-Speech.cpp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;NeMo-Speech.cpp&lt;/a&gt;. Nvidia says it runs on a single GPU, with supported hardware ranging from Jetson AGX Thor and DGX Spark to Blackwell data-center GPUs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Since this is an open-weight model (under the &amp;nbsp;OpenMDW-1.1 license), users can fine-tune it to their needs in order to reduce the error rate by using NeMo Speech&amp;#8217;s fine-tuning tools, among other tools.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a medical transcription case study, Nvidia says fine-tuning reduced word error rate on held-out speakers from 22.44% with its best prompt to 12.17%, a 45.8% relative reduction. The complete adaptation workflow took about 14 GPU-hours on a single GB300.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia is also releasing Granary v2, a reusable data curation pipeline built with NeMo Curator, along with public manifests covering roughly 463,062 hours across 48 languages and 16 source corpora. Developers can run the pipeline on their own recordings to prepare their data for customization. These figures describe the dataset release, not Transcribe&amp;rsquo;s full training mixture or its sampling weights.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/nvidia-nemotron-promptable-transcription/"&gt;Nvidia launches a promptable transcription model&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Nvidia’s new open-weight Nemotron 3.5 Transcribe takes instructions before it listens and tops Hugging Face’s English speech recognition leaderboard.</content:encoded>
     </item>
   </channel>
 </rss>
