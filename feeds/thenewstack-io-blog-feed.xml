@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 31 Oct 2026 17:10:30 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 23:16:36 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,686 @@
       <height>32</height>
     </image>
     <item>
+      <title>OpenAI built itself a new Git backend, too</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-pando-git-backend/</link>
+      <dc:creator>Frederic Lardinois</dc:creator>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842572</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;&lt;p&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-pando-git-backend/"&gt;OpenAI built itself a new Git backend, too&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of commits its developers and their agents now create.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pando, as the team calls the new backend, cut push latency by nearly 5x, the company says, and it currently serves close to a petabyte of Git data per day at OpenAI.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI is obviously an early adopter of agentic coding tools. Compared to the first quarter of 2024, the quarterly commits to its monorepo will have increased by over 2,400% by the end of this year, the company says. But the issues it is facing are similar to what many other enterprises and Git forges like GitHub are now seeing.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With the pace of development increasing, Git itself is becoming a bottleneck. GitHub, for example, spent much of its recent&amp;nbsp;&lt;a href="https://thenewstack.io/?p=22842113" class="local-link"&gt;Universe keynote&lt;/a&gt;&amp;nbsp;on how it is&amp;nbsp;&lt;a href="https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;improving its infrastructure&lt;/a&gt;&amp;nbsp;to become faster and more reliable, all while serving billions of pull requests every month.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That has given rise to startups like&amp;nbsp;&lt;a href="https://thenewstack.io/entire-git-for-agents/" class="local-link"&gt;Entire&lt;/a&gt;&amp;nbsp;(from former GitHub CEO Thomas Dohmke) and projects like &lt;a href="https://thenewstack.io/cursor-origin-github-alternative/" class="local-link"&gt;Origin from Cursor&lt;/a&gt;. Like OpenAI&amp;#8217;s work, those are based on Git, but others, like&amp;nbsp;&lt;a href="https://thenewstack.io/anthropic-scion-git-replacement/" class="local-link"&gt;Anthropic&lt;/a&gt;, basically start from scratch with a new client and architecture.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-why-openai-stayed-with-git" class="wp-block-heading"&gt;Why OpenAI stayed with Git&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The OpenAI team explicitly notes that it wanted to retain compatibility with Git. The team was seeing the reliability of its Git backend fall below 90%, with slow fetches and failed merges, but decided to stay within the Git ecosystem.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As OpenAI&amp;#8217;s Aaron Friel, Taylor Blau, and Ted Nyman ask in the announcement, the question the team asked itself was if it had &amp;#8220;reached a limit of Git itself, or of the way we served our monorepo?&amp;#8221; The answer for OpenAI was that the Git client and protocol weren&amp;#8217;t really the problem (though the team is also making some tweaks there), but the way conventional Git servers are built.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;For more than two decades, developers have adapted their tools around Git as the way they build software has changed,&amp;#8221; they write. &amp;#8220;When we started to feel friction in our own monorepo, it mattered to us that we could keep building on that work.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-pando-works" class="wp-block-heading"&gt;How Pando works&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pando drops two things most Git servers treat as requirements. The first is keeping every branch in the repository in a consistent state at once. The second is building a custom packfile, Git&amp;#8217;s format for bundling compressed objects, for every client that fetches code.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In Git, a branch is  simply a pointer to that latest commit. Moving that pointer is the only part of a push that requires coordination. Conventional Git servers order those updates across the entire repository, so when there are many developers working in parallel, a push to one agent&amp;#8217;s branch can end up waiting on another&amp;#8217;s.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pando, on the other hands, doesn&amp;#8217;t coordinate every write across the whole repository. Instead, it handles each branch on its own. Because of this, pushes to unrelated branches then don&amp;#8217;t have to wait on each other.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s a tradeoff here, the team acknowledges. When a client is looking at several branches at once, it may see them at slightly different points in time. In practice, however, users and agents only care about the order of updates to a single branch, OpenAI argues.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When a client pushes, Pando validates the incoming packfile as it streams it into blob storage, without unpacking it into a local repository. It records the new branch tip, the packfile&amp;rsquo;s location, and its dependencies in a metadata store. By default, Pando advertises only the trunk branch as a base for feature-branch pushes. That makes each pack reusable by other clients that already have the advertised trunk history.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then, when another client fetches the branch, Pando selects the stored packs it needs based on the history it already has. It then returns download links through packfile-uri, a Git protocol feature that lets clients download packs separately.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="457" src="https://cdn.thenewstack.io/media/2026/11/da899961-screenshot-2026-11-02-at-2.23.37-pm-1024x457.png" alt="" class="wp-image-22842573"/&gt;&lt;figcaption class="wp-element-caption"&gt;Pando stores the writer&amp;#8217;s packfile in blob storage and records the ref version in a shared key-value store. On fetch, Pando selects the packs the reader needs, and Express serves them. Credit: OpenAI.&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A caching service called Express then serves those packs from regional caches, with a hit rate above 99%, the company says. On standard cloud VMs, clones and fetches can max out a 10 Gbps network link.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A busy monorepo would otherwise leave clients downloading tens of thousands of small packs a day, so background workers merge them into larger ones over time, much like a log-structured database compacts its data. That also lets Pando work out which packs a client needs in logarithmic time.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-pando-vs-standard-git-servers" class="wp-block-heading"&gt;Pando vs. standard Git servers&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On a standard Git server, every fetch means working out which objects the client is missing and compressing a fresh packfile just for that client. Those packs are expensive to generate and hard to cache, OpenAI says. Pando mostly hands out bytes it already has.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Before a push, a regular Git server also lists every branch it holds so the client can skip objects the server already has. With millions of branches, that list alone can grow past 100 MiB, according to OpenAI. Advertising only trunk keeps it small, but it means repeat pushes to the same branch resend everything that isn&amp;#8217;t on trunk. The team says that&amp;#8217;s a fair trade, since the median pack in its monorepo is still under 20 KiB.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Regular Git servers also have to repack and garbage-collect repositories to keep them fast, which eats up compute and disk I/O. Pando never throws a pack away. It keeps packs at every compaction level and serves from all of them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For developers, little of this is visible. They keep using standard Git commands, though OpenAI now ships its own Git build to developer machines and inside the ChatGPT desktop app.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI built Pando in Rust in 10 weeks, with one engineer designing the core and teams of Codex agents implementing it. It went into production in April.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-goes-back-into-open-source-git" class="wp-block-heading"&gt;What goes back into open source Git?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Building on Git also meant running into some of Git&amp;#8217;s own rough edges, and OpenAI says it&amp;#8217;s sending many of its fixes back to the project. Because Pando leans so heavily on packfile-uri, which a Google engineer&amp;nbsp;&lt;a href="https://lore.kernel.org/all/871s1stlf4.fsf@evledraar.gmail.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;first proposed in 2019&lt;/a&gt;, the team had to fix how the Git client handles concurrent pack downloads, cleans up after interrupted transfers, and resumes downloads that had already finished. It also added tracing for those downloads, which makes it easier to tell whether a slow fetch is spending its time generating packs or transferring them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Not all of that work has landed in Git yet. OpenAI says several of its changes are already upstream, while many others for now only live in the company&amp;#8217;s public Git repository. Those include support for downloading and indexing packs in parallel and a new &amp;#8220;explicit haves&amp;#8221; feature, which lets a server tell a pushing client where a branch currently points without letting the client leave that history out of its pack. The company is tracking all of this in a public patch tracker.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pando itself isn&amp;#8217;t part of that, though. OpenAI isn&amp;#8217;t open sourcing the backend, and as of now, it only says that it&amp;#8217;s looking into ways to share the underlying technology with its users. Anthropic, too, has said it has no plans to release Scion, either.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-pando-git-backend/"&gt;OpenAI built itself a new Git backend, too&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Unlike Anthropic, OpenAI kept Git. Its new backend, Pando, cut push latency nearly 5x and serves close to a petabyte of Git data a day.</content:encoded>
+    </item>
+    <item>
+      <title>Developers are downgrading their AI on purpose — and it’s working</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-code-developer-refusals/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 02 Nov 2026 21:03:31 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Developer tools</category>
+      <category>Software Development</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842560</guid>
+      <description>&lt;img width="1024" height="698" src="https://cdn.thenewstack.io/media/2026/11/2b66602e-risky-ming-2k9rzbhzaem-unsplash-1024x698.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="downgrade abstract image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2b66602e-risky-ming-2k9rzbhzaem-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic has confirmed that it added new restrictions to Claude Code to prevent users from recreating existing video games. But&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-developer-refusals/"&gt;Developers are downgrading their AI on purpose — and it&amp;#8217;s working&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="698" src="https://cdn.thenewstack.io/media/2026/11/2b66602e-risky-ming-2k9rzbhzaem-unsplash-1024x698.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="downgrade abstract image" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2b66602e-risky-ming-2k9rzbhzaem-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic has confirmed that it added new restrictions to Claude Code &lt;/strong&gt;to prevent users from recreating existing video games. But developers say Claude Opus 5.5 is also refusing reverse-engineering and software-analysis tasks it previously handled, raising questions about what else Anthropic may have changed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For some developers, the refusals are already affecting their work. One developer &lt;a href="https://github.com/anthropics/claude-code/issues/106167" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;says paid client projects have stalled&lt;/a&gt; because Claude Code won&amp;#8217;t work on existing games, &lt;a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-confirms-new-claude-code-limits-to-prevent-game-cloning-users-report-opus-5-5-is-also-actively-blocking-reverse-engineering-tasks" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;while others say the model is refusing&lt;/a&gt; to analyze software. At least one developer got back to work by switching to an older Claude model.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On Friday, &lt;a href="https://www.linkedin.com/in/addyosmani/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Addy Osmani&lt;/a&gt;, a member of Anthropic&amp;rsquo;s technical team, confirmed &lt;a href="https://x.com/addyosmani/status/2116213240363729013" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on X&lt;/a&gt; that the company had deliberately modified Claude Code&amp;rsquo;s instructions.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We added two sentences to Claude Code&amp;rsquo;s prompt on Opus 5.5 to steer it away from recreating someone else&amp;rsquo;s specific game because using Claude to infringe IP is against our usage policy.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We added two sentences to Claude Code&amp;rsquo;s prompt on Opus 5.5 to steer it away from recreating someone else&amp;rsquo;s specific game because using Claude to infringe IP is against our usage policy,&amp;rdquo; Osmani writes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He clarifies that developers should still be able to create original games, build within established genres and work with their own designs and assets.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;ll continue to iterate to ensure we&amp;rsquo;re striking the right balance,&amp;rdquo; he adds, inviting developers to contact him if Claude refuses work involving their own creations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic has not publicly confirmed whether the reverse engineering refusals are tied to the new instructions or to separate cybersecurity restrictions.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-reverse-engineering-hits-a-wall" class="wp-block-heading"&gt;Reverse engineering hits a wall&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The complaints extend beyond game development. Developers say Opus 5.5 is refusing software-analysis tasks that previously worked. Technical writer for Phison Electronics USA, &lt;a href="https://www.linkedin.com/in/jarred-walton-6290a72/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jarred Walton&lt;/a&gt; encountered &lt;a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-confirms-new-claude-code-limits-to-prevent-game-cloning-users-report-opus-5-5-is-also-actively-blocking-reverse-engineering-tasks" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;refusals while testing software&lt;/a&gt; he was developing, but switching to Opus 4.8 allowed him to continue.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;While Anthropic is trying to prevent misuse without blocking legitimate development work, developers are left unable to do tasks as Claude Code suddenly refuses what it once handled, with little explanation for the change.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;developers are left unable to do tasks as Claude Code suddenly refuses what it once handled, with little explanation for the change.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-paid-client-work-stalls-out" class="wp-block-heading"&gt;Paid client work stalls out&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On October 30, &lt;a href="https://www.linkedin.com/in/ray-weiss-992777125/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ray Weiss&lt;/a&gt;, founder and CEO of Conflict Simulations LLC, &lt;a href="https://github.com/anthropics/claude-code/issues/106167" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reported on GitHub&lt;/a&gt; that Claude Code had stopped working on paid client projects it had supported for months.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His company creates custom digital versions of board wargames for clients who own the physical games. Weiss says the projects use original code and client-supplied materials, but Claude Code now refuses to continue the work because of its restrictions on recreating existing games.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Weiss wants Anthropic to distinguish between infringement and commissioned development, offer a verification process, and document major changes to Claude Code&amp;rsquo;s instructions.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-hosted-agent-risk" class="wp-block-heading"&gt;The hosted agent risk&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The complaint highlights a larger problem with hosted coding agents. Anthropic can change what Claude Code will or won&amp;rsquo;t do without developers changing their code, tools, or prompts. Work that was possible one day may suddenly be blocked the next.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Work that was possible one day may suddenly be blocked the next.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On October 6, Anthropic &lt;a href="https://www.anthropic.com/news/cyber-verification-program" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;expanded its Cyber Verification Program&lt;/a&gt;, giving vetted security researchers access to fewer restrictions after acknowledging that its safeguards can block legitimate cybersecurity work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s still unclear whether those safeguards are behind the latest refusals, especially since developers say they can complete some of the same tasks using older Claude models.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-developers-are-left-guessing" class="wp-block-heading"&gt;Developers are left guessing&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Reverse engineering has legitimate uses well beyond security research. In October, Red Hat engineering director &lt;a href="https://www.linkedin.com/in/cschalle/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Christian Schaller&lt;/a&gt; used Claude Code to help reverse &lt;a href="https://thenewstack.io/claude-code-linux-driver/" class="local-link"&gt;engineer a scanner driver&lt;/a&gt;, bringing Linux support to hardware whose manufacturer had changed its chipset.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic has acknowledged that its game-cloning restrictions need refinement, but developers still don&amp;#8217;t know why Claude Code is refusing some reverse-engineering tasks that previously worked, or which workflows could be affected next.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; reached out to Anthropic regarding whether the refusals are tied to its new game-cloning restrictions or other safeguards. The company did not respond before publication.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-code-developer-refusals/"&gt;Developers are downgrading their AI on purpose — and it&amp;#8217;s working&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic added game-cloning limits to Claude Code, but developers say Opus 5.5 is now refusing reverse-engineering and software work it once handled.</content:encoded>
+    </item>
+    <item>
+      <title>Your AI coding agent now runs on a budget — and it can cut you off mid-task</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/22842541cognition-devin-hierarchical-budgets/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 02 Nov 2026 19:03:38 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>FinOps</category>
+      <category>Operations</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842541</guid>
+      <description>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/11/349bc6a4-getty-images-um5wntq2sf0-unsplash-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Scissors cutting a cord" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/349bc6a4-getty-images-um5wntq2sf0-unsplash-scaled.jpg" /&gt;&lt;p&gt;The days of pointing an AI agent at a backlog and letting it burn through compute without much oversight may&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/22842541cognition-devin-hierarchical-budgets/"&gt;Your AI coding agent now runs on a budget — and it can cut you off mid-task&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/11/349bc6a4-getty-images-um5wntq2sf0-unsplash-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Scissors cutting a cord" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/349bc6a4-getty-images-um5wntq2sf0-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;The days of pointing an AI agent at a backlog and letting it burn through compute&lt;/strong&gt; without much oversight may be coming to an end. Cognition is introducing hierarchical budgets for Devin so enterprises can manage AI coding agent spending across departments, projects, and individual engineers. Administrators can assign budgets to different teams, track how much each one spends, and approve more capacity based on engineering efficiency. There&amp;rsquo;s a catch for developers, though; if a budget runs out while Devin is working on a task, the session stops.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;If a budget runs out while Devin is working on a task, the session stops.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The feature grew out of conversations with customers, according to &lt;a href="https://www.linkedin.com/in/lukas-burger/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lukas Burger,&lt;/a&gt; who works across go-to-market and engineering at Cognition. &amp;ldquo;Most of what we build starts with our forward deployed engineers (FDEs), who work on-site with customers. Budgets came straight out of those conversations,&amp;rdquo; Burger tells &lt;em&gt;The New Stack&lt;/em&gt;. Once Devin moved past pilots and into broader deployments across organizations, he explains, the blunt controls that had worked for a single team &amp;mdash; org limits, per-user tiers, and separate Devin Desktop settings &amp;mdash; stopped holding up.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-from-pilots-to-the-p-amp-l" class="wp-block-heading"&gt;From Pilots to the P&amp;amp;L&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The problem Budgets sets out to solve is one of scale and sprawl rather than raw price. &amp;ldquo;That&amp;rsquo;s fine for one team. It doesn&amp;rsquo;t hold up when a bank is dividing a large ACU commitment across hundreds of groups,&amp;rdquo; Burger tells &lt;em&gt;The New Stack&lt;/em&gt; of the older spending controls. Some of those customers had started building and maintaining their own internal tools just to parcel out capacity to the leaders of each business line, a workaround that mapped the exact gap Cognition set out to close.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cognition built the feature with some of the world&amp;#8217;s largest enterprises as design partners, testing the model with customers managing millions of &lt;a href="https://docs.devin.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Compute Units&lt;/a&gt;, the consumption-based units used to measure the work Devin performs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Burger is keeping quiet on individual customer spending figures, but he is clear about what changes as deployments widen. &amp;ldquo;Devin stops belonging to one team,&amp;rdquo; he says. &amp;ldquo;A pilot might sit with a single platform group. A broad rollout means many departments, each with its own priorities and its own budget owner.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-budgets-follow-the-org-chart" class="wp-block-heading"&gt;Budgets follow the org chart&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Budgets is designed to work with the way enterprises already manage spending, meaning, an administrator starts with one overall budget, divides it among business units, and from there, those leaders can distribute funds to their own teams and projects, with budgets extending up to three levels deep. Central IT can still see where the money is going and set limits without approving every request. &amp;ldquo;The enterprise keeps guardrails and visibility across all of it,&amp;rdquo; Burger says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Companies can also set aside budgets for specific projects rather than tying all spending to individual teams. A major legacy modernization effort, for example, could have its own budget even if engineers from several departments are working on it. Separate controls apply to Devin running in the cloud and on engineers&amp;rsquo; desktops, so companies can track and limit spending in both environments.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-a-budget-runs-out" class="wp-block-heading"&gt;When a budget runs out&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The promise is that none of this should intrude on the work. &amp;ldquo;We designed Budgets so engineers can do their work without thinking about them,&amp;rdquo; Burger says, and the mechanics warn engineers before spending limits interrupt their sessions. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Engineers see alerts on their homepage when they are on track to exceed a limit, and they can request more ACUs from the budget owner without leaving the product. Each budget&amp;rsquo;s administrators decide whether to review those requests manually or clear them automatically.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-grading-engineers-on-efficiency" class="wp-block-heading"&gt;Grading engineers on efficiency&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That automation is where the feature turns pointed. Admins can enable &lt;a href="https://devin.ai/blog/efficiency-based-cost-controls" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;efficiency-based approvals&lt;/a&gt;, which automatically lift an engineer&amp;rsquo;s limit when their Efficiency Score is strong, up to a ceiling the admin sets. Cognition introduced the scoring system in October to estimate productive engineering hours relative to Devin consumption, which permits administrators to allocate more capacity to engineers who appear to get more useful work from their usage. The score estimates efficiency, however, and does not directly measure code quality or business outcomes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When a budget does empty, the session stops, which is why Burger frames the alerts and in-product requests as the first line of defense rather than the last.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;re also working on letting teams switch to lower-cost models after a soft limit, so important work can finish,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;re also working on letting teams switch to lower-cost models after a soft limit, so important work can finish,&amp;rdquo; Burger tells &lt;em&gt;The New Stack&lt;/em&gt;. That option is still in development, so for now, budget increases and advance warnings are the most effective ways to avoid interruptions to date.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cognition is just as wary of the opposite failure, the controls drawn so tight they strangle the productivity they were meant to protect. &amp;ldquo;We also don&amp;rsquo;t want controls so tight that customers stop being productive with Devin,&amp;rdquo; Burger tells &lt;em&gt;The New Stack&lt;/em&gt;, which is why the company suggests defaults with enough headroom to keep productive users from being blocked unnecessarily. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Much of the surprise in agent spending, he notes, &amp;ldquo;comes from not knowing where usage lands,&amp;rdquo; a gap that cheaper tokens alone may not close when agents run complex, multi-step tasks and &lt;a href="https://thenewstack.io/minimax-flash-agent-costs/" class="local-link"&gt;a round of price cuts doesn&amp;rsquo;t necessarily translate into a smaller bill&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-proof-in-the-pull-requests" class="wp-block-heading"&gt;Proof in the Pull Requests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/openai-token-pricing-reversal/" class="local-link"&gt;Consumption pricing&lt;/a&gt; cuts both ways, and Cognition knows it. &amp;ldquo;With consumption pricing, customers who can&amp;rsquo;t see value stop using the product, so we&amp;rsquo;ve put a lot of work into cost control and measurement,&amp;rdquo; Burger tells &lt;em&gt;The New Stack. &lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;With consumption pricing, customers who can&amp;rsquo;t see value stop using the product, so we&amp;rsquo;ve put a lot of work into cost control and measurement,&amp;rdquo; &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Each Devin session is tied to a specific budget, so companies can see exactly how much individual teams, projects or business units are spending. Instead of looking at one company-wide total, leaders can track the cost of a particular initiative. Some customers also link that spending to internal billing codes or charge it back to individual departments.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Measuring consumption is the easy half of the equation. For the harder question of whether the money is well spent, Burger says most customers fall back on the metrics they already trust, tracking merged pull requests, productive engineering hours, and DORA metrics. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Burger says the teams getting the most out of Devin look at business results, citing &amp;ldquo;how much faster the roadmap moves, how much unplanned work goes away, and how much less they spend on engineering toil.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-finops-for-ai-agents" class="wp-block-heading"&gt;FinOps for AI agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Burger doesn&amp;#8217;t hesitate when asked whether agent budgeting is becoming a discipline of its own, much like FinOps did for cloud infrastructure. &amp;ldquo;Yes, and it&amp;rsquo;s already starting,&amp;rdquo; he tells &lt;em&gt;The New Stack&lt;/em&gt;. Because agents are billed by consumption, finance teams are asking familiar questions about who is spending, where the money is going and whether it&amp;#8217;s worth it. Burger says the shift is happening faster than it did with cloud computing because companies already have processes in place to manage those costs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The FinOps Foundation&amp;rsquo;s 2026 &lt;a href="https://www.linuxfoundation.org/press/state-of-finops-survey-ai-value-and-skills-top-priorities-as-finops-matures-across-technology-value-98-manage-ai-90-saas-64-licensing-48-data-center-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;ldquo;State of FinOps&amp;rdquo;&lt;/a&gt; report quantifies how far that has spread, finding that 98% of its 1,192 survey respondents now manage AI spending, up from 31% two years ago. Companies are still working out how to connect that spending with measurable returns. What makes Cognition&amp;rsquo;s approach different is that companies can manage budgets, assign spending limits and track costs directly in Devin instead of relying on separate tools.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Burger expects the responsibility to land squarely on finance teams. &amp;ldquo;I see this becoming a major new responsibility for strategic finance and FP&amp;amp;A teams,&amp;rdquo; he tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;On top of their day jobs, they&amp;rsquo;re now managing massive AI budgets and making sure that spend shows up as real impact on the P&amp;amp;L.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/22842541cognition-devin-hierarchical-budgets/"&gt;Your AI coding agent now runs on a budget — and it can cut you off mid-task&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Cognition’s hierarchical budgets let enterprises govern Devin’s AI agent spend across teams and projects, and stop sessions when a budget runs out.</content:encoded>
+    </item>
+    <item>
+      <title>Canva’s new design model doesn’t generate images. It writes code to edit them.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/canva-brush-design-editing/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Mon, 02 Nov 2026 18:06:26 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Emerging technologies</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842460</guid>
+      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/11/dd3198a3-handonmouse-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="8-bit pixel art of 100 hands resting on computer mice, arranged in five rows of 20 against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dd3198a3-handonmouse.png" /&gt;&lt;p&gt;Australian graphic design software company Canva took the wraps off Canva Brush last week, its new vision-language model for designers.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/canva-brush-design-editing/"&gt;Canva’s new design model doesn’t generate images. It writes code to edit them.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/11/dd3198a3-handonmouse-1024x614.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="8-bit pixel art of 100 hands resting on computer mice, arranged in five rows of 20 against a dark background." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dd3198a3-handonmouse.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Australian graphic design software company &lt;a href="https://www.canva.com/en_gb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Canva&lt;/a&gt; took the wraps off &lt;a href="https://www.canva.com/newsroom/news/canva-brush/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Canva Brush&lt;/a&gt; last week, its new vision-language model for designers. Brush is an editing model rather than an image generator: &lt;a href="https://thenewstack.io/a-developers-guide-to-vision-language-models/" class="local-link"&gt;a vision-language model&lt;/a&gt; that understands the intent behind a designer&amp;rsquo;s project and interprets design change requests.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Available to Canva Pro users, Canva says Brush reads a design&amp;rsquo;s content and structure, writes and executes small pieces of code to make changes, then checks its own result. Canva Brush arrived a week after Canva&amp;rsquo;s first in-house image-generation model, &lt;a href="https://www.canva.com/newsroom/news/canva-craft/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Canva Craft&lt;/a&gt;, which launched on October 22.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-design-is-complex-design-editing-is-even-more-complex" class="wp-block-heading"&gt;Design is complex; design editing is even more complex&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to a Canva launch blog, generating high-quality designs is one of the biggest challenges for AI models, but &amp;ldquo;editing them is even more complex&amp;rdquo; today. This is because the model needs to understand what a designer wants to change, how the design is structured, and importantly, what needs to stay exactly as it is. Otherwise, a simple edit request can result in a &amp;ldquo;whole bunch of changes&amp;rdquo; nobody asked for.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a prompt such as, &amp;#8220;Make me a 3-page pitch deck for my bakery with Art Nouveau visuals and backgrounds,&amp;rdquo; an agent has to make a long chain of decisions. It needs to plan a narrative across pages, generate and place text, select imagery, and keep typography, color, and spacing consistent from the first page to the last. Each decision connects to the next, and small missteps can add up to a design that&amp;rsquo;s off-brand or feels out of kilter.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;That&amp;rsquo;s exactly the challenge we&amp;rsquo;ve built Brush to solve. Rather than treating design as a series of isolated decisions, Brush can continually evaluate and improve its work, helping [users] take an idea from a rough sketch to a polished design that&amp;#8217;s ready to share. Behind the scenes, it uses an agentic loop that writes and runs code to adjust design elements, and can then inspect what&amp;rsquo;s happening on the page to guide its next step,&amp;rdquo; stated Canva.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Bounded problems &amp;#8211; for well-defined, specific tasks &amp;#8211; are where small specialized models have been quietly beating large general ones for years.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-this-is-not-a-frontier-lab-challenge-it-s-smarter-than-that" class="wp-block-heading"&gt;This is not a frontier lab challenge; it&amp;rsquo;s smarter than that&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The question then is: can an art- and design-focused AI model lab from down under Australia challenge the frontier model behemoths on complex image design editing tasks over the long term?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Enterprise AI architect &amp;amp; founder of &lt;a href="https://besk.tech/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Besk Tech&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/vladimirbesk/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vladimir Beskorovainyi&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that this question is &amp;ldquo;posed in the wrong frame&amp;rdquo; both metaphorically and literally.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Canva is not challenging frontier models; it is in fact declining to compete with them,&amp;rdquo; Beskorovainyi says. &amp;ldquo;A model that reads how a design is assembled (and edits it) is solving a bounded problem (one with well-defined specific tasks with clear parameters and limited scope), and bounded problems are where small specialized models have been quietly beating large general ones for years.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Urging us to look beyond the capabilities of the Canva Brush model and focus more directly on the cost per edit, Beskorovainyi thinks that &amp;ldquo;&lt;a href="https://en.wikipedia.org/wiki/Economic_moat" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the moat here&lt;/a&gt; is the artifact, not the weights&amp;rdquo;, primarily, Canva can train on how real designs are actually put together.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A frontier lab can match the base processing capability of a tool like Canva Brush; the training signal is the harder thing to match, because it comes from holding the designs,&amp;rdquo; asserts Beskorovainyi. &amp;ldquo;Verticalization wins wherever the data is a by-product of the product rather than something you have to go and buy. That is the part most model developers still underestimate.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-design-expertise-plus-anonymized-insights-nbsp" class="wp-block-heading"&gt;Design expertise, plus anonymized insights&amp;nbsp;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Brush started by drawing from an unspecified open-weights model, which Canva then post-trained on real design and editing tasks, using a combination of design expertise and anonymized insights from people who opted in to help improve Canva AI. As a result, it understands not only what a finished result looks like, but also the steps needed to get there.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We combined post-training with large-scale reinforcement learning, giving the model opportunities to work through complete design and editing tasks, learn from what worked, and continually shape its future behavior,&amp;rdquo; the company notes in its announcement.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A beautiful edit can still be an expensive proofreading assignment.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sensitive to designers&amp;#8217; real-world needs as they&amp;#8217;re urged to put down their&amp;nbsp;Rotring pens&amp;nbsp;and Pantone color guides and adopt agentically driven toolsets, many in the marcoms industry have opinions on these new services.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Founder of &lt;a href="https://www.drrissyswriting.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dr. Rissy&amp;rsquo;s&lt;/a&gt; Writing &amp;amp; Marketing, &lt;a href="https://www.linkedin.com/in/morissaschwartz/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dr. Morissa Schwartz&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that she has used many automation tools over the years, hasn&amp;rsquo;t yet used Canva Brush, but knows what she would do if she did.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Here is the marketing and publishing test I would put it through. An AI design editor earns its keep when a &amp;lsquo;change this headline&amp;rsquo; command still leaves the price, disclaimer, and layout intact,&amp;rdquo; Schwartz explains. &amp;ldquo;Canva&amp;rsquo;s opportunity is to make those small, frequent revisions dependable enough that a marketing team spends less time checking what else moved.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;She notes that she would further test Brush against a general-purpose model on the same approved design and measure unintended changes, legibility and time to human approval, rather than image-generation rankings.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A beautiful edit can still be an expensive proofreading assignment,&amp;rdquo; adds Schwartz.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Frontier models know the Internet; Canva knows what hundreds of millions of people actually do with a slide deck. In a vertical, taste and distribution beat parameter count.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-canva-is-out-niching-the-frontier-labs" class="wp-block-heading"&gt;Canva is &amp;ldquo;out-niching&amp;rdquo; the frontier labs&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Co-founder and CTO of deep-tech venture studio &lt;a href="https://thecapitalindex.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Capital Index&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/rodion-sorokin-1a4bb2178/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Rodion Sorokin&lt;/a&gt;, tells &lt;em&gt;The New Stack&lt;/em&gt; that he agrees with the sentiment expressed thus far and says &amp;ldquo;Canva isn&amp;#8217;t trying to out-muscle the frontier labs; it&amp;#8217;s out-niching them&amp;rdquo; in real terms.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Brush started from an open-weights model and was trained with reinforcement learning against what Canva&amp;#8217;s own designers call &lt;em&gt;good design&lt;/em&gt;, a playbook any well-funded vertical player can now copy,&amp;rdquo; Sorokin says. &amp;ldquo;Frontier models know the Internet; Canva knows what hundreds of millions of people actually do with a slide deck. In a vertical, taste and distribution beat parameter count.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The clever bit is that Brush doesn&amp;#8217;t paint pixels: it reads the layers, writes small pieces of code to change them and checks its own work, which is how a designer edits, not how an image generator guesses. Canva says that makes it up to 69% faster than its previous design agent at 46% lower cost per task. If that holds up outside a launch blog, specialized models will win on unit economics, not just quality: generation becomes the commodity, and editing becomes the business,&amp;#8221; adds Sorokin.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-ai-model-benchmarking-platform-ranking" class="wp-block-heading"&gt;AI model benchmarking platform ranking&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to Canva, Craft (not Brush) debuted as the fourth-ranked model on crowdsourced benchmarking platform &lt;a href="https://www.designarena.ai/leaderboard?tab=image" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Design Arena&lt;/a&gt;, behind OpenAI&amp;rsquo;s precision-focused image generation and editing model &lt;a href="https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GPT Image 2.5 Sunburst&lt;/a&gt;, the speed-focused image generation model &lt;a href="https://developers.openai.com/api/docs/models/gpt-image-2.5-flare" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GPT Image 2.5 Flare&lt;/a&gt;, and &lt;a href="https://developers.openai.com/api/docs/models/gpt-image-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GPT Image 2&lt;/a&gt;. Canva Research&amp;rsquo;s in-house 160-person AI lab developed both Canva Craft and the new Canva Brush models. Canva&amp;rsquo;s speed and cost figures for Brush are self-reported and compare it with the company&amp;rsquo;s previous design agent, not with frontier models.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Canva has stated that everything Canva Brush creates is fully editable. Every element, from the text and imagery to the colors, layouts, and finer details, remains available for designers to edit, manipulate, and rearrange however they like.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The organization also confirmed that this release represents the first version of Brush, and &amp;ldquo;there&amp;rsquo;s plenty more to come,&amp;rdquo; as the company is already working on the ability to reference attachments, improvements to how Brush handles image-heavy layouts, and Brand Kit support in the future.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/canva-brush-design-editing/"&gt;Canva’s new design model doesn’t generate images. It writes code to edit them.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Canva’s new Brush model edits designs by writing code, not painting pixels. Experts say that’s how a vertical player sidesteps the frontier labs.</content:encoded>
+    </item>
+    <item>
+      <title>OpenAI’s new shared usage limit pits ChatGPT against Codex</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-chatgpt-codex-shared-limits/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 02 Nov 2026 16:45:19 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Strategy</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842524</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/0293c587-codexgpt-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of a generative AI machine processing prompts to generate code and digital content, with glowing screens and a connected processing chamber." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/0293c587-codexgpt.jpg" /&gt;&lt;p&gt;OpenAI has revealed plans to combine usage allowances across ChatGPT and Codex, as part of a broader effort to integrate&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-chatgpt-codex-shared-limits/"&gt;OpenAI’s new shared usage limit pits ChatGPT against Codex&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/0293c587-codexgpt-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="3D illustration of a generative AI machine processing prompts to generate code and digital content, with glowing screens and a connected processing chamber." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/0293c587-codexgpt.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenAI has revealed plans to combine usage allowances across ChatGPT and Codex, as part of a broader effort to integrate its conversational AI and agentic capabilities into a single experience.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;help article&lt;/a&gt; quietly published over the weekend, the company confirmed the changes will take effect &amp;#8220;starting in December,&amp;#8221; affecting Plus, Pro and Business subscribers. Under the new system, ChatGPT conversations and Codex tasks will draw from a common pool of tokens, with more demanding models and complex tasks consuming a greater share &amp;#8212; though OpenAI has yet to disclose how generous the combined allowance will be.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Instant chat, ChatGPT&amp;#8217;s faster-response mode for everyday questions and tasks, will be exempt.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-openai-s-products-come-together" class="wp-block-heading"&gt;OpenAI&amp;#8217;s products come together&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The changes are the latest step in OpenAI&amp;#8217;s efforts to bring its growing collection of AI products under one roof.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In July, the company &lt;a href="https://openai.com/index/chatgpt-for-your-most-ambitious-work/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched ChatGPT Work&lt;/a&gt;, an agentic tool built on its Codex coding technology that allows users to delegate complex tasks, such as researching topics, analysing data and producing documents, presentations and spreadsheets. The idea was to extend the capabilities of Codex beyond software development, allowing knowledge workers to use AI agents for everyday business tasks.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As &lt;em&gt;The New Stack&lt;/em&gt; &lt;a href="https://thenewstack.io/openai-codex-work-atlas/" class="local-link"&gt;reported at the time&lt;/a&gt;, the launch also saw OpenAI consolidate ChatGPT and Codex into a single desktop application, with dedicated interfaces for conversations, agentic tasks and coding.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;ChatGPT Work joined an expanding collection of specialised tools, including ChatGPT for Excel, &lt;a href="https://openai.com/index/chatgpt-for-excel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;which debuted in March&lt;/a&gt;, which later extended &lt;a href="http://help.openai.com/en/articles/20001063-chatgpt-for-excel-and-google-sheets" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;to Google Sheets&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that these products already have overlapping usage arrangements. Currently, Codex, ChatGPT Work, ChatGPT for Excel, and &lt;a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Workspace Agents&lt;/a&gt; draw &lt;a href="https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;from a shared agentic allowance&lt;/a&gt;, while regular ChatGPT conversations have separate usage limits.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And it&amp;#8217;s that very separation that&amp;#8217;s set to change from December, putting developers in a position where intensive Codex sessions eat into the allowance available for ChatGPT conversations, and vice versa.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-chatgpt-and-codex-serve-different-purposes" class="wp-block-heading"&gt;&amp;#8216;ChatGPT and Codex serve different purposes&amp;#8217;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI isn&amp;#8217;t alone in bringing its conversational and agentic products closer together. In September, &lt;a href="https://thenewstack.io/anthropic-claude-unified-interface/" class="local-link"&gt;Anthropic merged Claude Chat and Cowork&lt;/a&gt; into a single interface, &lt;a href="https://thenewstack.io/claude-cowork-vs-chatgpt-work-benchmark/" class="local-link"&gt;allowing users to move&lt;/a&gt; from asking questions to delegating more involved tasks within the same conversation. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This shows how two of the biggest frontier AI labs are pursuing a similar goal: making it easier for users to switch between asking questions, and carrying out more substantial tasks, without having to navigate separate products. However, OpenAI&amp;#8217;s decision to combine usage allowances has prompted objections from subscribers concerned that the change could leave them with less access to the tools they already pay for.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;ChatGPT and Codex serve different purposes, and their usage limits should remain separate.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://community.openai.com/t/please-keep-chatgpt-and-codex-usage-limits-separate-in-december-2026/1411466" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;discussion kickstarted on OpenAI&amp;#8217;s developer forum&lt;/a&gt; on Saturday, users called on the company to abandon the proposed consolidation, or guarantee that subscribers won&amp;#8217;t end up with less usable capacity under the new system. The forum member who started the discussion, going under the moniker Smalikou, argues that the two products should retain independent allowances and called for greater transparency over how usage will be calculated.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;ChatGPT and Codex serve different purposes, and their usage limits should remain separate,&amp;#8221; they write.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Another user, going by the name of PZA, calls for more detailed usage reporting, including a breakdown of consumption by product, model and task.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If OpenAI decides to combine them anyway, a real-time usage dashboard must be available before the change takes effect,&amp;#8221; they &lt;a href="https://community.openai.com/t/please-keep-chatgpt-and-codex-usage-limits-separate-in-december-2026/1411466/2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;write&lt;/a&gt;. &amp;#8220;It should show the remaining allowance, reset time, and consumption by product, model, and task. Without that transparency, I will consider the change a downgrade to my paid plan and reconsider renewing.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Without that transparency, I will consider the change a downgrade to my paid plan and reconsider renewing.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As it happens, OpenAI has confirmed that subscribers will be able to see their combined remaining allowance and reset times in ChatGPT&amp;#8217;s settings, but hasn&amp;#8217;t specified what level of detail it will include. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The concerns come just days after OpenAI reversed a &lt;a href="https://thenewstack.io/openai-halves-200-plan/" class="local-link"&gt;controversial decision to halve usage limits for its $200 Pro subscription&lt;/a&gt;. On October 29, the company confirmed it was cancelling the Pro 200 reduction, restoring the higher Work and Codex allowances for subscribers already moved to the lower limits, while doubling allowances for Pro 100, Pro 500 and Business Premium subscribers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/thibault-sottiaux-27195366" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Tibo Sottiaux&lt;/a&gt;, OpenAI&amp;#8217;s head of ChatGPT and Codex, acknowledged the criticism surrounding the proposed reduction, &lt;a href="https://x.com/thsottiaux/status/2115850175868727621" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writing on X&lt;/a&gt; that the company had heard subscribers&amp;#8217; feedback and would preserve existing Pro 200 allowances.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;We heard your kind feedback and won&amp;rsquo;t be reducing usage limits for Pro 200, so your Work and Codex usage will stay the same,&amp;#8221; he wrote. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;However, one forum participant questioned how much those increases would benefit subscribers once ChatGPT conversations begin drawing from the same allowance as Codex. The user, posting as Zigg88, notes that they already regularly approach their weekly Codex limit.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Doubling a resource allocation while simultaneously expanding the number of things consuming it doesn&amp;rsquo;t inherently translate into more usable capacity,&amp;#8221; they &lt;a href="https://community.openai.com/t/please-keep-chatgpt-and-codex-usage-limits-separate-in-december-2026/1411466/17" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;write&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Doubling a resource allocation while simultaneously expanding the number of things consuming it doesn&amp;rsquo;t inherently translate into more usable capacity.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Others &lt;a href="https://community.openai.com/t/why-shared-chatgpt-and-codex-limits-could-disrupt-research-code-review-and-continuous-development/1411856" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;raised concerns&lt;/a&gt; about the impact on their ability to use ChatGPT for research and technical planning while relying on Codex for software development, with one commenter arguing that OpenAI should preserve independent allowances or guarantee equivalent access under the new system.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; reached out to OpenAI to ask when, exactly, the changes would take effect in December, and whether the new combined allowance would be equivalent to the existing separate allowances, or leave some subscribers with less usable capacity. The company declined to answer the questions, instead reiterating its recent increases to Work and Codex usage limits, and directing us to its existing documentation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For now, OpenAI says it expects most users to encounter usage resets no more frequently than they do today. However, without publishing the new token allowances or explaining how they compare with existing limits, subscribers have little way of knowing whether that reassurance will hold true for them.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-chatgpt-codex-shared-limits/"&gt;OpenAI’s new shared usage limit pits ChatGPT against Codex&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>From December, ChatGPT and Codex will draw from a shared token allowance. Subscribers fear losing capacity, and OpenAI won’t say how big the pool will be.</content:encoded>
+    </item>
+    <item>
       <title>Open-source security in the AI exploit era: Patch without changing a thing</title>
       <link>https://web.archive.org/web/https://thenewstack.io/patchmageddon-open-source-security22842502/</link>
       <dc:creator>Oren Penso</dc:creator>
@@ -31,10 +711,10 @@
       <category>Sponsored</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842502</guid>
-      <description>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A vibrant digital illustration of an open combination padlock against a dark navy background. The lock features a colorful purple-to-green gradient and five tumblers displaying bright green asterisks, symbolizing an unlocked or compromised security system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled.jpg" /&gt;&lt;p&gt;Here&amp;#8217;s how a vulnerability in a popular open-source library plays out in 2026: A maintainer merges a fix and publishes&lt;/p&gt;
+      <description>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A vibrant digital illustration of an open combination padlock against a dark navy background. The lock features a colorful purple-to-green gradient and five tumblers displaying bright green asterisks, symbolizing an unlocked or compromised security system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled.jpg" /&gt;&lt;p&gt;Here&amp;#8217;s how a vulnerability in a popular open-source library plays out in 2026: A maintainer merges a fix and publishes&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/patchmageddon-open-source-security22842502/"&gt;Open-source security in the AI exploit era: Patch without changing a thing&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A vibrant digital illustration of an open combination padlock against a dark navy background. The lock features a colorful purple-to-green gradient and five tumblers displaying bright green asterisks, symbolizing an unlocked or compromised security system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="675" src="https://cdn.thenewstack.io/media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled-1024x675.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A vibrant digital illustration of an open combination padlock against a dark navy background. The lock features a colorful purple-to-green gradient and five tumblers displaying bright green asterisks, symbolizing an unlocked or compromised security system." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/564ec44f-getty-images-t3grnwa0cdy-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Here&amp;rsquo;s how a vulnerability in a popular open-source library plays out in 2026:&lt;/strong&gt; A maintainer merges a fix and publishes an advisory. Within hours, someone points a model at the diff between the old and new versions and gets a working exploit back. Your scanner flags the CVE the next morning, a ticket gets filed, and the fix is scheduled into next week&amp;rsquo;s change window. By then the exploit has been circulating for days.&lt;/p&gt;
 
 
@@ -234,7 +914,7 @@
       <category>Sponsored</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842479</guid>
-      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustrated computer monitor with lines of text, reaching hands, an atom, and an eye, evoking AI code review" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-scaled.png" /&gt;&lt;p&gt;Agents verify; people decide. Most teams running AI code review today have it the other way around. They point a&lt;/p&gt;
+      <description>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustrated computer monitor with lines of text, reaching hands, an atom, and an eye, evoking AI code review" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-scaled.png" /&gt;&lt;p&gt;Agents verify; people decide. Most teams running AI code review today have it the other way around. They point a&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-code-review-invariants/"&gt;A step-by-step guide for how to kill the line-by-line code review&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-1024x640.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustrated computer monitor with lines of text, reaching hands, an atom, and an eye, evoking AI code review" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/94458d7e-hj-project-ww1udlgosi0-unsplash-scaled.png" /&gt;
@@ -264,7 +944,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819e59f&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819e59f" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce6299b1&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce6299b1" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -381,7 +1061,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819ee3a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819ee3a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce62a9a0&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce62a9a0" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -454,7 +1134,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819f619&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819f619" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce62b640&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce62b640" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -491,7 +1171,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae883819fb52&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae883819fb52" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce62c006&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce62c006" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3091,7 +3771,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381cafe8&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381cafe8" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="798" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1353f6a4-cybergym-e2e.png" alt="" class="wp-image-22842242"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce67ce0c&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce67ce0c" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="798" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1353f6a4-cybergym-e2e.png" alt="" class="wp-image-22842242"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3124,7 +3804,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381cb4a4&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381cb4a4" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="801" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/e3dafb41-terminal-bench-4.0.png" alt="" class="wp-image-22842243"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce67d68c&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce67d68c" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="801" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/e3dafb41-terminal-bench-4.0.png" alt="" class="wp-image-22842243"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3439,7 +4119,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381d1602&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381d1602" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1973762f-img_5949-edit-1024x768.jpg" alt="" class="wp-image-22842149"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce687c05&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce687c05" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1973762f-img_5949-edit-1024x768.jpg" alt="" class="wp-image-22842149"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3522,7 +4202,7 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381d1e3a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381d1e3a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/91c580ab-img_5947-1024x768.jpg" alt="" class="wp-image-22842150"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce6884af&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce6884af" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/91c580ab-img_5947-1024x768.jpg" alt="" class="wp-image-22842150"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3649,775 +4329,6 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/github-agentic-infrastructure-rebuild/"&gt;“I don&amp;#8217;t think the world needs a new GitHub”: What GitHub&amp;#8217;s leaders really think about their new rivals&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>GitHub is rebuilding its backend for AI agents. Its leaders tell The New Stack what broke, how free repos stay free, and why the world doesn&amp;#039;t need a new GitHub.</content:encoded>
-    </item>
-    <item>
-      <title>Why Kubernetes platforms keep rebuilding a layer they could share</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/kubernetes-resource-composition-layer/</link>
-      <dc:creator>Adam Crowder</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 13:00:00 +0000</pubDate>
-      <category>Cloud Native Ecosystem</category>
-      <category>Kubernetes</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-cncf</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842226</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/fe7a9f2e-steve-a-johnson-owq7lathhsc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital rendering of fragmented geometric planes in a loop above a red grid, representing Kubernetes resource graphs." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/fe7a9f2e-steve-a-johnson-owq7lathhsc-unsplash.jpg" /&gt;&lt;p&gt;Ask a platform team what they built last year, and the list likely includes a Kubernetes controller that creates a&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-resource-composition-layer/"&gt;Why Kubernetes platforms keep rebuilding a layer they could share&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/fe7a9f2e-steve-a-johnson-owq7lathhsc-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital rendering of fragmented geometric planes in a loop above a red grid, representing Kubernetes resource graphs." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/fe7a9f2e-steve-a-johnson-owq7lathhsc-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Ask a platform team what they built last year,&lt;/strong&gt; and the list likely includes a Kubernetes controller that creates a few objects in order and copies fields between them. No business logic, just wiring. A Deployment, a Service in front of it, and a ConfigMap whose one interesting value is the hostname the Service reports in its status. &lt;a href="https://book.kubebuilder.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kubebuilder&lt;/a&gt; turns &lt;a href="https://thenewstack.io/kubernetes-controllers-at-scale/" data-type="link" data-id="https://thenewstack.io/kubernetes-controllers-at-scale/" class="local-link"&gt;building the first controller&lt;/a&gt; into a pleasant afternoon. The tenth brings its own reconcile bugs, upgrade path, and on-call rotation. It&amp;rsquo;s the same controller. It&amp;rsquo;s slightly different each time, and it exists in thousands of organizations.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-every-ingredient-no-recipe" class="wp-block-heading"&gt;Every ingredient, no recipe&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kubernetes has the ingredients: CRDs define new types. &lt;a href="https://kubernetes.io/docs/concepts/architecture/controller/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Controllers&lt;/a&gt; give them behavior. &lt;a href="https://kubernetes.io/docs/reference/using-api/server-side-apply/#field-management" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Server-side apply&lt;/a&gt; tracks who owns each field. &lt;a href="https://kubernetes.io/docs/reference/using-api/cel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CEL&lt;/a&gt; evaluates expressions, and &lt;a href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#validation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenAPI schemas&lt;/a&gt; type every field. What Kubernetes does not provide is the recipe. Nothing says that several resources form one thing, or that a value in one comes from the status of another and must wait for it.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;KubeCon + CloudNativeCon is taking place in Salt Lake City from November 9 to 12.&lt;/em&gt;&lt;/strong&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;Register now&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Every tool that manages a set of resources builds that piece itself, and keeps adding to it. Helm does it at render time, and Helm 4 added server-side apply and waiting on resource status. Argo CD has &lt;a href="https://argo-cd.readthedocs.io/en/stable/user-guide/sync-waves/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;sync waves, hooks&lt;/a&gt;, and &lt;a href="https://argo-cd.readthedocs.io/en/stable/operator-manual/health/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;health checks&lt;/a&gt; because manifests cannot say what order they need or when they are done. Crossplane has &lt;a href="https://docs.crossplane.io/latest/composition/compositions/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;compositions and functions&lt;/a&gt;, and v2 composes native Kubernetes resources directly. Operators do it in Go, by hand. Strip them down and the kernel is the same: a set of objects, dependencies between them, values flowing along the edges, and something that keeps re-checking whether the cluster still matches. Each recent addition reaches for a part the tool lacked: order, readiness, per-field ownership, evaluation inside the cluster.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Kubernetes has the ingredients. What Kubernetes does not provide is the recipe. Nothing says that several resources form one thing, or that a value in one comes from the status of another and must wait for it.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If everyone is building the same piece, the question is whether it should be shared. That is the position of &lt;a href="https://kro.run/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;kro&lt;/a&gt;, the &lt;a href="https://thenewstack.io/the-kro-project-giving-kubernetes-users-what-they-want/" data-type="link" data-id="https://thenewstack.io/the-kro-project-giving-kubernetes-users-what-they-want/" class="local-link"&gt;Kube Resource Orchestrator&lt;/a&gt;, and why it moved to &lt;a href="https://github.com/kubernetes/community/blob/main/sig-cloud-provider/README.md#kro" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kubernetes SIG Cloud Provider&lt;/a&gt; in September 2025 as a primitive that other things build on, not another end-to-end platform.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Taking the controller apart&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kro started by taking the hand-written controller apart. API mechanics and lifecycle are the same in every one; only the wiring differs. Its answer, the &lt;a href="https://kro.run/docs/concepts/rgd/overview/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ResourceGraphDefinition&lt;/a&gt;, writes the wiring down as data, and one controller interprets every definition. CRDs, OpenAPI, CEL, and server-side apply were already there, and kro connects them.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="936" height="450" src="https://cdn.thenewstack.io/media/2026/10/bbfbaa23-image.png" alt="Diagram showing parts of the glue controllers that are shared, vs those that differ." class="wp-image-22842227"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A ResourceGraphDefinition holds two separable things:&lt;/p&gt;
-
-
-
-&lt;ol class="wp-block-list"&gt;
-&lt;li&gt;The composition (the template with resources behind each instance and the CEL expressions to reference between them)&lt;/li&gt;
-
-
-
-&lt;li&gt;The API (a schema, the CRD generated from it, and the instances application teams create)&lt;/li&gt;
-&lt;/ol&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The composition&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;kro &lt;a href="https://kro.run/docs/concepts/rgd/dependencies-ordering/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;derives the dependency graph&lt;/a&gt; from the references in CEL expressions (so order is never explicitly declared) and &lt;a href="https://kro.run/docs/concepts/rgd/static-type-checking/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;type-checks every expression&lt;/a&gt; against OpenAPI before an instance exists. The opening example&amp;#8217;s ConfigMap needs the Service&amp;#8217;s hostname, so its template names that field. That reference is the entire ordering rule: the ConfigMap reads from the Service, so the Service comes first, and nobody writes the order down. An explicitly declared order is a second description of a relationship the manifests already contain, and the two can disagree after any rename or reorder. An inferred order cannot drift, because it is derived rather than defined separately. The dependency is the reference. Wherever order is declared apart from the reference that needs it, there are two sources of truth, and an opportunity for drift.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The API&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A platform team writes the ResourceGraphDefinition and application teams get a Kubernetes API like any other, with kubectl, RBAC, and &lt;a href="https://thenewstack.io/how-to-scale-gitops-without-hitting-the-argo-ceiling/" data-type="link" data-id="https://thenewstack.io/how-to-scale-gitops-without-hitting-the-argo-ceiling/" class="local-link"&gt;GitOps working as usual&lt;/a&gt;. Ten glue controllers become ten definitions run by one controller. Wiring as data makes an API cheap to create, and a cheap API is still a promise. Application teams point manifests, RBAC, and pipelines at it, and from then on a removed field breaks something the platform team cannot see. kro &lt;a href="https://kro.run/docs/concepts/rgd/overview/#breaking-changes" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;refuses a ResourceGraphDefinition schema change&lt;/a&gt; that would break existing instances unless the author explicitly allows it. The cost of an abstraction moved from writing it to owning it: ten codebases gone, ten APIs left. Teams should count APIs, not controllers.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;The primitive on its own&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Once composition became cheap, people found more use-cases, and not all of it needed its own dedicated API. A default-deny NetworkPolicy in every labeled Namespace. Labeled Services folded into one Ingress. A DNS stack installed once and kept healthy. Nothing directly requests these; they react to what is already in the cluster. They are one-off definitions that do not need a repeatable API.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;kro 0.10 adds a primitive for this case. A Graph is the composition piece alone; namespaced, with no schema, no CRD, and no instances. The Ingress case, abbreviated:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-apiVersion: kro.run/v1alpha1
-kind: Graph
-spec:
-  nodes:
-    - id: services
-      ref:                          # read only, never owned
-        kind: Service
-        metadata:
-          selector: {matchLabels: {expose: &amp;quot;true&amp;quot;}}
-    - id: ingress
-      template:                     # created and owned
-        kind: Ingress
-        spec:
-          rules: &amp;gt;-
-            ${services.map(svc, {&amp;quot;host&amp;quot;: svc.metadata.name + &amp;quot;.example.com&amp;quot;, ...})}
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Nobody creates an instance. The Services already exist, and the Graph follows them: label one and a rule appears; remove the label, and it goes.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="936" height="374" src="https://cdn.thenewstack.io/media/2026/10/3c74120a-image.png" alt="Architectural diagram comparing kro 0.9 and kro 0.10" class="wp-image-22842228"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Of the two halves, only one was ever new. The API half is a CRD, which is a primitive Kubernetes already has. ResourceGraphDefinitions make them cheaper to write, but the primitive was already there. The composition half is the piece Kubernetes lacked and every tool built for itself. Graph is that half on its own, and standing alone it shows what was easy to miss before: the API was never the input, only one kind of input. A composition reconciles against cluster state, and a new instance of a custom resource is just one of the many changes to that state it can react to. Whatever the change, the work is the kernel from earlier: objects, references between them, and a continuous declarative reconciliation loop keeping them in sync. That is the primitive. A ResourceGraphDefinition is the same primitive with a CRD in front of it.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Strip the trigger from anything that creates objects, copies values between them, and keeps checking, and what is left is a composition.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The split travels. Strip the trigger from anything that creates objects, copies values between them, and keeps checking, and what is left is a composition. An operator serving one custom resource is a composition with an API in front. A pipeline stage that applies manifests in order and waits for them is a composition with a commit in front, minus the loop. A runbook that creates a Namespace, its quotas, and its role bindings is a composition with a ticket in front. Seen that way, the question is no longer which tool to adopt but where composition is already happening and what is doing it.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Graphs in disguise&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kubernetes platforms are already full of resource graphs; they just aren&amp;#8217;t written down as such. A naming convention so two manifests agree on a string. Sync waves or hooks that encode a dependency graph as step order. A script that copies a status field into another object. Each exists because the tool underneath cannot express a dependency between two objects, or cannot see what the cluster holds right now, so the dependency lives somewhere else such as a string, a step number, or a script. A composition tool puts it back as a reference between the objects. In kro that reference is a CEL expression continuously watched and evaluated inside a graph.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="936" height="556" src="https://cdn.thenewstack.io/media/2026/10/251ae485-image.png" alt="Diagram comparing indirect resource dependency methods with direct, continuous object references." class="wp-image-22842229"/&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;A familiar move&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kubernetes has grown this way before. Rolling updates were a &lt;a href="https://github.com/kubernetes/kubernetes/pull/88057" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;kubectl subcommand&lt;/a&gt; until the Deployment controller took them over, and everything above got simpler. Composition looks due for the same move. kro, a Kubernetes SIG Cloud Provider subproject on &lt;a href="https://github.com/kubernetes-sigs/kro" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub&lt;/a&gt;, shows what changes when the composition machinery becomes reusable, and the relationships become declarative. The question is bigger than any one project: if composition is what nearly every platform needs, should every platform have to build it for itself? Composition may be the primitive Kubernetes is missing.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/kubernetes-resource-composition-layer/"&gt;Why Kubernetes platforms keep rebuilding a layer they could share&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Stop rebuilding glue controllers. Learn how declarative resource composition provides the missing orchestration primitive Kubernetes needs.</content:encoded>
-    </item>
-    <item>
-      <title>The 5 essential layers of AI agent sandboxing on Kubernetes</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-sandboxing-kubernetes/</link>
-      <dc:creator>Mickey Boxell</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 12:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Kubernetes</category>
-      <category>Security</category>
-      <category>sponsor-cncf</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842215</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/926c3e14-joshua-earle-bbso944xe1u-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Massive brutalist concrete structures and sharp overhangs, representing Kubernetes workload isolation boundaries" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/926c3e14-joshua-earle-bbso944xe1u-unsplash.jpg" /&gt;&lt;p&gt;An AI agent given autonomy to run code will inevitably run code no human has reviewed. It may install model-selected&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-sandboxing-kubernetes/"&gt;The 5 essential layers of AI agent sandboxing on Kubernetes&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/926c3e14-joshua-earle-bbso944xe1u-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Massive brutalist concrete structures and sharp overhangs, representing Kubernetes workload isolation boundaries" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/926c3e14-joshua-earle-bbso944xe1u-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;An AI agent given autonomy to run code&lt;/strong&gt; will inevitably run code no human has reviewed. It may install model-selected packages, run scripts generated moments earlier, and iterate until a developer&amp;#8217;s test passes; that risk is limited to a laptop. For a company, it can extend beyond the agent&amp;rsquo;s workload to any workload deployed on &lt;a href="https://thenewstack.io/agentic-ai-kubernetes-management/" data-type="link" data-id="https://thenewstack.io/agentic-ai-kubernetes-management/" class="local-link"&gt;shared Kubernetes infrastructure&lt;/a&gt;. Cluster configurations can limit a container&amp;rsquo;s system calls, but an allowed call that reaches a kernel vulnerability can still expose the underlying node.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As agents proliferate, this gap has shifted workload isolation from a niche hardening requirement to a baseline need for platforms that run agents. This is a challenge our users at Oracle Cloud Infrastructure (OCI) have asked us to help solve.&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;KubeCon + CloudNativeCon takes place in Salt Lake City, Utah, from November 9 to 12.&lt;/em&gt;&lt;/strong&gt; &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/register/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;Register now.&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-
-
-&lt;hr class="wp-block-separator has-alpha-channel-opacity"/&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As expected in the cloud-native space, the community has developed solutions.&amp;nbsp;These solutions exist across five layers: from the pod request, down to the node, and back up to the agent&amp;rsquo;s session. Platform teams can assemble the stack rather than reinvent it, while native provider support simplifies configuration and maintenance. Managed Kubernetes services offer sandboxed pods this way, but runtimes &lt;a href="https://thenewstack.io/cpu-agentic-ai-axion/" data-type="link" data-id="https://thenewstack.io/cpu-agentic-ai-axion/" class="local-link"&gt;isolate agentic workloads differently&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The following sections cover the options and tradeoffs before showing how the components fit together.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="468" height="311" src="https://cdn.thenewstack.io/media/2026/10/21c51667-image.png" alt="The five layers of a pod sandboxing stack, each built from open-source components." class="wp-image-22842216"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Figure 1.&lt;/em&gt; &lt;em&gt;&lt;em&gt;The five layers of a pod sandboxing stack, each built from open-source components.&lt;/em&gt;&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-1-the-isolation-layer-choosing-your-risk-boundary" class="wp-block-heading"&gt;1. The isolation layer: choosing your risk boundary&lt;/h2&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="468" height="311" src="https://cdn.thenewstack.io/media/2026/10/67746b80-image.png" alt="Diagram of rgw same pod under three runtimes, with the boundary each one draws around agent code." class="wp-image-22842217"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Figure 2.&lt;/em&gt; &lt;em&gt;&lt;em&gt;The same pod under three runtimes, with the boundary each one draws around agent code.&lt;/em&gt;&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;First choose between minimal isolation, a restricted kernel interface, and full VM isolation. Each option comes with trade-offs between security and performance.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://github.com/opencontainers/runc" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;runc&lt;/a&gt; offers the greatest performance through a shared host kernel. Seccomp-based filtering restricts the system calls a process can make.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://gvisor.dev/docs/architecture_guide/intro/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gVisor&lt;/a&gt; suits use cases where a restricted kernel interface is sufficient. Its user-space application kernel handles system calls instead of booting a guest Linux kernel, so the workload reaches the host through a small interface. gVisor implements a subset of Linux, so it starts quickly and packs densely. Applications must work with the interfaces Sentry implements, which can constrain agent behavior.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A separate guest kernel with hardware virtualization avoids surprises where system-call emulation falls short and unexpectedly handcuffs agents.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/README.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kata Containers&lt;/a&gt; suit use cases requiring full VM isolation. Each pod runs in a lightweight VM with its own guest kernel, at the cost of a VM boot and guest-kernel memory. Nearly anything that runs in a container runs in Kata. Agents exercise package managers, compilers, nested builds, and headless browsers. For that code, a separate guest kernel with hardware virtualization avoids surprises where system-call emulation falls short and unexpectedly handcuffs agents.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-2-the-node-assembling-it-and-accounting-for-it" class="wp-block-heading"&gt;2. The node: assembling it and accounting for it&lt;/h2&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/10/e8adb0d4-image-1024x685.png" alt="Inside a worker node when a pod selects the Kata runtime. Everything outside the microVM runs on the host." class="wp-image-22842218"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&lt;em&gt;Figure 3. Inside a worker node when a pod selects the Kata runtime. Everything outside the microVM runs on the host.&lt;/em&gt;&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Worker nodes must be configured for the selected sandboxed runtime.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://github.com/opencontainers/runc" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;runc&lt;/a&gt; containers use Linux namespaces to separate process, filesystem, and network views, and cgroups to control resource use. They share the host kernel. Nodes need runc configured through a runtime such as containerd, but no guest kernel or hypervisor.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://gvisor.dev/docs/architecture_guide/intro/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gVisor&lt;/a&gt; handles workload system calls in Sentry, while a separate Gofer process mediates access to host-backed files. Each eligible node needs the &lt;a href="https://gvisor.dev/docs/user_guide/containerd/quick_start/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;gVisor runtime installed and integrated with containerd&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://github.com/kata-containers/kata-containers/blob/main/docs/design/architecture/README.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kata Containers&lt;/a&gt; place each pod in a lightweight VM. Workload system calls go to the guest Linux kernel, separated from the host by hardware-backed virtualization. This adds overhead and requires bare-metal nodes or VMs that support nested virtualization. In aKernel-based Virtual Machine (&lt;a href="https://linux-kvm.org/page/Main_Page" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KVM&lt;/a&gt;) setup, nodes need the Kata runtime shim, a supported virtual machine monitor (VMM), KVM and hardware virtualization, plus a guest kernel and image containing the kata-agent. You must maintain that guest image. A kernel CVE means patching two kernels. For use cases requiring flexibility and strict isolation, that burden may be necessary.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-3-the-access-layer-limiting-the-agent-s-reach" class="wp-block-heading"&gt;3. The access layer: limiting the agent&amp;rsquo;s reach&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/how-to-sandbox-agents/" data-type="link" data-id="https://thenewstack.io/how-to-sandbox-agents/" class="local-link"&gt;A sandbox&lt;/a&gt; protects the host from the agent, not from anything it&amp;#8217;s handed. Code inside can still delete a writable repository, read a mounted secret, or send data wherever the network allows. Sandbox policy matters as much as the sandbox itself:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Network:&lt;/strong&gt; Default-deny egress with a &lt;code&gt;NetworkPolicy&lt;/code&gt;, then allow only the destinations a task needs, such as a package mirror or model endpoint.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Credentials:&lt;/strong&gt; Issue short-lived credentials scoped to the task, not long-lived tokens mounted into the pod. A leaked credential expires with the task.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Storage:&lt;/strong&gt; Mount repositories and data read-only unless the task needs to write, and give writable workspaces their own volume.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Remote tools:&lt;/strong&gt; Give API endpoints and MCP servers their own authorization. They run outside the sandbox, so its boundary does not cover them.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;h2 id="h-4-the-request-runtimeclass" class="wp-block-heading"&gt;4. The request: RuntimeClass&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kubernetes lets users retain the standard Pod API while selected pods, including agents, opt into a more isolated runtime. &lt;a href="https://kubernetes.io/docs/concepts/containers/runtime-class/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RuntimeClass&lt;/a&gt; lets pods select the security and performance balance they need without taxing non-agentic workloads.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Additional isolation affects resource consumption and pod readiness. gVisor&amp;rsquo;s Sentry processes and Kata&amp;rsquo;s guest kernel, kata-agent, and VMM add memory and CPU overhead. Add measured overhead to the &lt;code&gt;RuntimeClass&lt;/code&gt; so the Kubernetes scheduler and resource quotas account for it. Measure your workloads rather than copying an example.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cluster administrators create a &lt;code&gt;RuntimeClass&lt;/code&gt; matching the node&amp;rsquo;s configured runtime. It tells Kubernetes the runtime is available, how pods select it, and what overhead it needs:&lt;/p&gt;
-
-
-&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: kata
-handler: kata              # runtime name in the node&amp;#039;s containerd config
-overhead:
-  podFixed:
-    memory: &amp;quot;160Mi&amp;quot;        # example value; measure your own
-    cpu: &amp;quot;250m&amp;quot;
-scheduling:
-  nodeSelector:
-    sandbox.example.com/kata: &amp;quot;true&amp;quot;
-A pod opts in through the runtimeClassName field of its spec: 
-apiVersion: v1
-kind: Pod
-metadata:
-  name: agent-task
-spec:
-  runtimeClassName: kata   # or gvisor; omit for the default runc
-  containers:
-  - name: workspace
-    image: python:3.12
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Everything else stays the same. Workloads that do not need sandboxing omit the field and use the default runtime. A cluster can expose each runtime as a separate &lt;code&gt;RuntimeClass&lt;/code&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-5-the-session-layer-agent-sandbox" class="wp-block-heading"&gt;5. The session layer: Agent Sandbox&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agent work comes in bursts. An agent runs code, then waits minutes or hours for the next interaction with a model or human. Keeping a VM running keeps it ready to resume work but consumes capacity. Tearing it down saves capacity but requires rebuilding it later. Warm pools offer a middle ground, but reserve capacity.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Agent work comes in bursts. An agent runs code, then waits minutes or hours for the next interaction with a model or human.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://github.com/kubernetes-sigs/agent-sandbox" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Sandbox&lt;/a&gt; project, owned by &lt;a href="https://github.com/kubernetes/community/blob/main/sig-apps/README.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kubernetes SIG Apps&lt;/a&gt;, standardizes this choice. Its Sandbox API creates stateful single-pod environments with stable identities and persistent storage, plus extensions for templates, claims, and warm pools. It remains runtime-agnostic and leaves isolation to the selected &lt;code&gt;RuntimeClass&lt;/code&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-our-approach-building-on-community-projects" class="wp-block-heading"&gt;Our approach: building on community projects&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Community projects have helped us achieve our goal of letting users run untrusted agent code on shared infrastructure using Kubernetes tools they already know. They keep workloads portable: the same pod spec runs on any conformant cluster. Security fixes and design reviews come from a network larger than any one vendor. And frameworks that integrate with Agent Sandbox do not need a new API. Thanks to the community, users can adopt these new tools without reinventing the wheel.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We are thankful to be a part of this dynamic space and excited to see it evolve.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-sandboxing-kubernetes/"&gt;The 5 essential layers of AI agent sandboxing on Kubernetes&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Discover the five essential layers for sandboxing autonomous AI agent workloads securely on shared Kubernetes infrastructure.</content:encoded>
-    </item>
-    <item>
-      <title>“Urgency is an inherently subjective call”: Anthropic tells TNS how it grades Claude Duet</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/claude-duet-agent-judgment/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 11:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Operations</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842047</guid>
-      <description>&lt;img width="1024" height="601" src="https://cdn.thenewstack.io/media/2026/10/38fadf75-getty-images-2e66tpvgzn8-unsplash-1024x601.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Robot hand over keyboard" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/38fadf75-getty-images-2e66tpvgzn8-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic built Claude Duet, an AI assistant that monitors your connected apps and works on tasks in the background, to&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-duet-agent-judgment/"&gt;“Urgency is an inherently subjective call”: Anthropic tells TNS how it grades Claude Duet&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="601" src="https://cdn.thenewstack.io/media/2026/10/38fadf75-getty-images-2e66tpvgzn8-unsplash-1024x601.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Robot hand over keyboard" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/38fadf75-getty-images-2e66tpvgzn8-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic built Claude Duet&lt;/strong&gt;, an AI assistant that monitors your connected apps and works on tasks in the background, to decide what needs your attention &lt;em&gt;without&lt;/em&gt; being asked. A week after its October 21 debut, the frontier lab with &lt;a href="https://thenewstack.io/claude-codes-enterprise-20-to-1/" class="local-link"&gt;an IPO in its sights&lt;/a&gt; has shared with &lt;em&gt;The New Stack&lt;/em&gt; how it is testing whether Duet gets those priorities right.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic has developed internal graders to assess how Duet prioritizes tasks, though urgency can be subjective. The stakes rise when an agent manages work across email, calendars, and B2B apps. Duet can remain within its permissions and still get its priorities wrong.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-claude-duet-launched-october-21-on-claude-opus-5-5-with-the-ability-to-monitor-connected-apps-prepare-work-and-flag-anything-it-thinks-needs-attention-without-waiting-for-instructions-anthropic-has-been-testing-that-approach-with-its-own-employees-using-their-day-to-day-work-to-see-how-duet-handles-competing-priorities"&gt;Powered by &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt;, Duet can prepare work and flag items it thinks need attention without waiting for instructions. Anthropic has been testing that approach with its own employees, using their day-to-day work to see how Duet handles competing priorities.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-testing-duet-s-judgment" class="wp-block-heading"&gt;Testing Duet&amp;rsquo;s judgment&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;After using Duet for our day-to-day work at Anthropic, we calibrated graders that assess correctness in task prioritization, and we run them offline against cases representative of internal use and early external testing,&amp;rdquo; a company representative tells &lt;em&gt;The New Stack&lt;/em&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those graders measure whether Duet can distinguish what deserves attention from what can wait, though Anthropic acknowledges the difficulty of evaluating those decisions. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Urgency is an inherently subjective call, so we found building an eval for it imperfect but quite helpful,&amp;#8221; a company representative says. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Duet can spot tasks like an approaching deadline or an email requiring a reply, but it doesn&amp;#8217;t always know which task should be a priority, and the company admits the agent can misread conversations or misjudge urgency. Anthropic&amp;rsquo;s public launch and support materials do not say how often that happens.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-testing-duet-s-safeguards" class="wp-block-heading"&gt;Testing Duet&amp;rsquo;s safeguards&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On October 23, two days after Duet&amp;rsquo;s debut, Anthropic published a &lt;a href="https://claude.com/resources/articles/claude-duet-safety-privacy-and-security" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;closer look at its safety, privacy, and security safeguards&lt;/a&gt;. Duet team lead Karan Ahuja pointed to the post while addressing feedback received through messages, emails, and public posts.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;We&amp;rsquo;ve been humbled by the interest in Claude Duet, and are working hard to get people off the waitlist. In the meantime, a few thoughts based on DMs, emails, posts we&amp;rsquo;ve seen.&lt;br&gt;&lt;br&gt;&amp;rarr; Who can use it: Pro and Max subscribers in the US, for now.&lt;br&gt;&lt;br&gt;&amp;rarr;&amp;nbsp;Where: You can use it on iOS,&amp;hellip; &lt;a href="https://t.co/9MMMZbHpLw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/9MMMZbHpLw&lt;/a&gt;&lt;/p&gt;&amp;mdash; karan ahuja (@ahuja_karan) &lt;a href="https://x.com/ahuja_karan/status/2113768265562620109?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 23, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic keeps the part of Duet that does the work separate from the part that checks whether the work matches what the user actually asked for. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A separate, automated check runs alongside each action, built on the auto mode classifier from Claude Code and extended for Claude Duet,&amp;rdquo; the rep tells &lt;em&gt;The New Stack&lt;/em&gt;. &amp;ldquo;It assesses whether the action matches your intent.&amp;rdquo; &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Because that check runs independently of the model performing the task, Anthropic says instructions hidden in a webpage can&amp;rsquo;t directly steer the classifier&amp;rsquo;s decision.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic says an outside firm penetration-tested Duet, but its public materials don&amp;#8217;t show how reliably the separate check catches actions outside the user&amp;rsquo;s intent. Related research illustrates the difficulty of enforcing this agent scope: Researchers found that &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/" class="local-link"&gt;removing a prompt section defining authorized and out-of-scope actions&lt;/a&gt; in Claude Code tests increased out-of-scope actions, although that study did not test Duet&amp;rsquo;s separate classifier.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-limiting-prompt-injection" class="wp-block-heading"&gt;Limiting prompt injection&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The separation is designed to reduce prompt injection, where malicious instructions embedded in emails, documents, or webpages try to redirect an agent. Researchers have already explored this risk by &lt;a href="https://thenewstack.io/rogue-ai-agent-fleet-tencent/" class="local-link"&gt;leaving hidden messages for rogue agents&lt;/a&gt; and observing how they responded. Anthropic&amp;rsquo;s support materials still tell users to review drafts and approval requests because Duet may encounter prompt injection.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Duet uses the apps already connected to a user&amp;rsquo;s Claude account. Disconnecting an app stops new access, but information Duet has already stored in memory remains until the user resets it. Anthropic says Duet never sees passwords, browser cookies, or sign-in tokens, and can&amp;#8217;t save them to memory. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Duet is designed to seek approval before actions such as making payments or deleting items. Sharing private health or financial information requires consent, though an explicit request to share it can count as that consent, while trading securities, moving money between bank accounts, and accessing someone else&amp;#8217;s account remain off-limits entirely.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-summaries-not-surveillance" class="wp-block-heading"&gt;Summaries, not surveillance&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Users can see what Duet has finished and what&amp;rsquo;s still underway through its task list, with a separate page for each job. They can also give the agent new instructions while it&amp;rsquo;s working.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But users can&amp;rsquo;t see everything happening behind the scenes. During the research preview, users can&amp;#8217;t watch Duet work in its cloud browser or take over the browser. Users can review its task activity and approve actions, but they can&amp;rsquo;t inspect each browser step as it happens. (The public launch and support materials do not describe a way to undo completed actions across connected apps.)&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-background-work-costs" class="wp-block-heading"&gt;What background work costs&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Duet uses the same allowance as regular Claude conversations, so background work counts against a subscriber&amp;rsquo;s plan limits. How much it uses depends on the job. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Larger tasks, like building a financial model or a deck, will require more model turns and background work,&amp;rdquo; the Anthropic rep tells &lt;em&gt;The New Stack&lt;/em&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Even Duet&amp;#8217;s routine checks across connected apps count toward the five-hour session and weekly limits.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those checks happen every few hours rather than continuously, partly to avoid using up a subscriber&amp;rsquo;s allowance. The downside is that something urgent could arrive between checks and go unnoticed until the next one. Checking more often would use more resources, while checking less often could leave users waiting longer for an alert. (Anthropic&amp;rsquo;s public launch and support materials do not quantify how much of a typical subscriber&amp;rsquo;s usage goes toward background activity.)&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-duet-s-research-preview-is-limited-to-u-s-pro-and-max-subscribers-for-now-with-international-availability-planned-early-users-have-put-it-to-work-on-overnight-to-do-lists-and-talked-through-their-workloads-while-out-for-a-walk-though-anthropic-admits-the-agent-isn-t-as-reliable-with-consumer-tasks-like-booking-tickets-the-company-has-already-made-changes-based-on-feedback-and-expects-more-updates-as-testing-continues"&gt;Duet&amp;rsquo;s research preview is available by waitlist to U.S. Pro and Max subscribers. Anthropic employees have used it to work through to-do lists while they&amp;rsquo;re away and talk through workloads on walks, though Anthropic admits the agent isn&amp;#8217;t as reliable with consumer tasks like booking tickets. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-duet-s-research-preview-is-limited-to-u-s-pro-and-max-subscribers-for-now-with-international-availability-planned-early-users-have-put-it-to-work-on-overnight-to-do-lists-and-talked-through-their-workloads-while-out-for-a-walk-though-anthropic-admits-the-agent-isn-t-as-reliable-with-consumer-tasks-like-booking-tickets-the-company-has-already-made-changes-based-on-feedback-and-expects-more-updates-as-testing-continues"&gt;The company expects to keep adjusting the product as testing continues.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-duet-agent-judgment/"&gt;“Urgency is an inherently subjective call”: Anthropic tells TNS how it grades Claude Duet&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic’s Claude Duet is an AI agent that decides what needs your attention. Here’s how it tests its judgment — and where it still falls short.</content:encoded>
-    </item>
-    <item>
-      <title>Google just handed its rivals the keys to Android</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/android-agents-build-debug/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Wed, 28 Oct 2026 17:43:09 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842102</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/fe17422f-mohamed-nohassi-bpvdngbw1c-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Green circuit board" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/fe17422f-mohamed-nohassi-bpvdngbw1c-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google is giving coding agents like Anthropic&amp;#8217;s Claude Code and OpenAI&amp;#8217;s Codex deeper access to its Android development tools, including&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/android-agents-build-debug/"&gt;Google just handed its rivals the keys to Android&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/fe17422f-mohamed-nohassi-bpvdngbw1c-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Green circuit board" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/fe17422f-mohamed-nohassi-bpvdngbw1c-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Google is giving coding agents like Anthropic&amp;rsquo;s Claude Code and OpenAI&amp;rsquo;s Codex deeper access &lt;/strong&gt;to its Android development tools, including devices, performance profilers and production crash reports; now, agents can now investigate bugs, test changes, and verify their own fixes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The push spans Android Studio and the terminal-based Android CLI, with Google opening both to third-party agents rather than steering developers toward Gemini. &lt;a href="https://www.linkedin.com/in/matthewjmmccullough/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Matthew McCullough&lt;/a&gt;, vice president of product for Android, has emphasized giving developers the freedom to choose their own models and coding agents. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a&lt;a href="https://developer.android.com/blog/posts/android-dev-summit-26-developer-tools-performance" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Wednesday post&lt;/a&gt;, &lt;a href="https://www.linkedin.com/in/adarsh-fernando-87905462/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adarsh Fernando&lt;/a&gt;, senior product manager for Android developer tools, describes the goal as giving developers and their agents &amp;ldquo;the tools and knowledge to build high-quality Android apps faster.&amp;rdquo; The updates were announced Wednesday at &lt;a href="https://developer.android.com/events/dev-summit" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Android Dev Summit&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-bring-your-own-agent" class="wp-block-heading"&gt;Bring your own agent&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company&amp;rsquo;s Bring Your Own Agent feature now supports more than 40 coding agents that speak the open &lt;a href="https://agentclientprotocol.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Client Protocol&lt;/a&gt;, among them Anthropic&amp;rsquo;s Claude Agent, OpenAI&amp;rsquo;s Codex, and Google&amp;rsquo;s own Antigravity, and Google says the feature is now stable in Wednesday&amp;rsquo;s release of Android Studio Rabbit 2. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A developer can install several and switch between them without leaving the IDE, and connected agents inherit the IDE&amp;rsquo;s own read on a project &amp;mdash; its structure, build configuration, symbols, and tools such as Compose Preview, the emulator, and Logcat &amp;mdash; context they would otherwise have to rebuild through code searches and terminal guesswork.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Alongside it, a new Change Review feature scans an agent&amp;rsquo;s pending changes for common issues and can walk a developer through a large set of modifications before anything is applied, and Google is pushing the same reach beyond the IDE with official Android CLI plugins for Claude Code, and Codex that cover project creation, emulator management, UI inspection, and its Android documentation.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-compose-previews-from-the-terminal" class="wp-block-heading"&gt;Compose previews from the terminal&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Another announcement includes the new android preview command that lets coding agents render Jetpack Compose previews directly in the terminal without launching an IDE or emulator. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company says agents using it completed UI tasks 77% faster while using up to three times fewer tokens, though it shared little about how it measured those results. The CLI also adds android device remote, giving agents access to physical devices in Google&amp;#8217;s lab for testing.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;agents using it completed UI tasks 77% faster while using up to three times fewer tokens, though it shared little about how it measured those results.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-finding-memory-leaks-with-claude" class="wp-block-heading"&gt;Finding memory leaks with Claude&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google is also giving agents more ways to investigate problems after an app is built, including performance issues, production crashes and memory leaks. In one demo, Claude Code worked with LeakCanary, an open source leak-detection library, to check critical user journeys for memory leaks using a single instruction from the developer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Claude Code ran the journeys across multiple devices in parallel, analyzed heap dumps through the CLI&amp;#8217;s LeakCanary integration, and traced the leaks back to the offending code. It then made the fixes and reran the tests to confirm they worked. Google says the tooling helped capable models complete these investigations nearly twice as fast while using up to 25% fewer tokens.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;autonomous bug-finding can outrun autonomous bug-fixing &amp;mdash; an Anthropic scanner flagged some 29,000 possible vulnerabilities in open-source code while only a few hundred were ever fixed.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The demo is very impressive, and it also runs against a record that counsels patience, since autonomous bug-finding can outrun autonomous bug-fixing &amp;mdash; an Anthropic scanner flagged &lt;a href="https://thenewstack.io/anthropic-oss-scanner-vulnerabilities/" class="local-link"&gt;some 29,000 possible vulnerabilities in open-source code while only a few hundred were ever fixed&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A companion android signals command now pipes Android vitals and Firebase Crashlytics data into the same terminal workflow, which gives agents a direct line to production crashes, ANRs, and memory problems, but none of this retires the human in the loop, as developers who watched &lt;a href="https://thenewstack.io/torvalds-claude-code-kernel/" class="local-link"&gt;Claude Code land a Linux kernel fix only for reviewers to catch a race condition&lt;/a&gt; can attest.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;A companion android signals command now pipes Android vitals and Firebase Crashlytics data into the same terminal workflow&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-benchmarking-agents-with-android-bench" class="wp-block-heading"&gt;Benchmarking agents with Android Bench&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google is also introducing Android Bench 2.0 to evaluate how models and agent harnesses perform on more complex Android development tasks. It tests whether completed apps actually run with assignments ranging from building an app from mockups to migrating an existing interface. Some tasks are modeled on work that would take an Android engineer several days, and the benchmark also measures completion time and cost.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/android-agents-build-debug/"&gt;Google just handed its rivals the keys to Android&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google is opening Android Studio and its CLI to AI agents like Claude Code and Codex, letting them build, test and debug apps, not just write the code.</content:encoded>
-    </item>
-    <item>
-      <title>GitHub debuts Copilot Fusion, a new model selection &amp; orchestration system that beats Claude Code for half the API cost</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/github-copilot-fusion/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Wed, 28 Oct 2026 16:19:31 +0000</pubDate>
-      <category>AI Models</category>
-      <category>Developer tools</category>
-      <category>Software Development</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842031</guid>
-      <description>&lt;img width="617" height="341" src="https://cdn.thenewstack.io/media/2026/10/b78f2934-screenshot-2026-10-28-at-12.17.49.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="GitHub Universe 2026" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b78f2934-screenshot-2026-10-28-at-12.17.49.png" /&gt;&lt;p&gt;GitHub has debuted GitHub Copilot Fusion, a new system that handles model selection and orchestration for coding tasks so developers&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-copilot-fusion/"&gt;GitHub debuts Copilot Fusion, a new model selection &amp;amp; orchestration system that beats Claude Code for half the API cost&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="617" height="341" src="https://cdn.thenewstack.io/media/2026/10/b78f2934-screenshot-2026-10-28-at-12.17.49.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="GitHub Universe 2026" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b78f2934-screenshot-2026-10-28-at-12.17.49.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;GitHub has debuted GitHub &lt;strong&gt;Copilot Fusion&lt;/strong&gt;&lt;/strong&gt;, a new system that handles model selection and orchestration for coding tasks so developers don&amp;rsquo;t have to.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Combining the advanced runtime model orchestration from &lt;a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Project HydraFusion&lt;/a&gt; with &lt;a href="https://docs.github.com/en/copilot/concepts/models/auto-model-selection" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Copilot Auto Model Selection&lt;/a&gt;, Copilot Fusion can now handle both model selection and orchestration. GitHub says Fusion Max delivered comparable benchmark performance to Claude Code with Opus 5.5 Max at about half the average API cost and in about 40% less time per task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Generally available now, GitHub Copilot Fusion is part of GitHub&amp;rsquo;s new vision to make GitHub &amp;ldquo;the most comprehensive software delivery system in the world,&amp;rdquo; with developers delegating model choices while retaining responsibility for the direction and outcome of the work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GitHub announced the news on Wednesday at GitHub Universe in San Francisco, the company&amp;#8217;s flagship developer event.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381deda9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381deda9" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/c44d441c-img_5934-1024x768.jpg" alt="" class="wp-image-22842074"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;Copilot Fusion debuted Wednesday at GitHub Universe in San Francisco. (Credit: &lt;em&gt;The New Stack&lt;/em&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-github-copilot-fusion-is-the-decider-now-nbsp" class="wp-block-heading"&gt;GitHub Copilot Fusion is the decider now&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For tasks involving reasoning, code generation, debugging, or tool use, GitHub says developers can delegate decisions about which models to use and how they work together. Its instructions: &amp;ldquo;choose Copilot Fusion and let Copilot intelligently route and orchestrate which models it uses for you.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That sounds like a time-saver, since different tasks benefit from different models based on capabilities and cost. With Copilot Fusion working as the &amp;ldquo;model picker,&amp;rdquo; developers don&amp;rsquo;t have to weigh performance and price for every task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;More compelling is the idea that developers can use Copilot Fusion to strategically switch models mid-workflow, letting the system jump between models based on what best suits each step.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;After analyzing what the task requires and choosing a model, the system orchestrates the next steps based on what makes the most sense. That may be a single model doing everything, a &amp;ldquo;cascading&amp;rdquo; workflow where a quality check evaluates one model&amp;rsquo;s response and then decides to accept it or escalate it, or a &amp;ldquo;critique&amp;rdquo; workflow where one model reviews another&amp;rsquo;s work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That could reduce the mental load for developers who may inadvertently choose inefficient models when their attention drifts.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As&amp;nbsp;&lt;a href="https://www.linkedin.com/in/hari-pokhrel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Hari Pokhrel&lt;/a&gt;, principal software engineer at AT&amp;amp;T, describes in a statement for GitHub: &amp;ldquo;Previously, developers would often choose a more powerful model for a complex task and forget to switch back for everyday activities.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-so-what-do-developers-get-to-decide-for-themselves" class="wp-block-heading"&gt;So, what do developers get to decide for themselves?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Mostly, the effort level.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While Copilot Fusion handles model selection and orchestration, developers choose the effort level: Fusion Standard for everyday coding; Fusion High for more challenging tasks and deeper reasoning; Fusion Max for the most demanding, complex work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That&amp;rsquo;s if you&amp;rsquo;re free and comfortable letting GitHub&amp;rsquo;s systems take the lead. If you prefer, developers can implement other controls.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Per GitHub, enterprise administrators can control which models Copilot Fusion can choose from, disabling certain models for Copilot Fusion without disabling them for the entire developer team. Administrators can also adjust the policy state for each model independently and set whether Copilot Fusion is or isn&amp;rsquo;t the default model for Copilot users.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae88381df4a4&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae88381df4a4" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="417" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/c0749e77-screenshot-2026-10-28-at-12.23.25-1024x417.png" alt="" class="wp-image-22842084"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;Click to enlarge image.&amp;nbsp;(Credit: &lt;em&gt;The New Stack&lt;/em&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-the-case-for-letting-copilot-fusion-be-your-guide" class="wp-block-heading"&gt;The case for letting Copilot Fusion be your guide&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to GitHub and Pokhrel&amp;rsquo;s statement, offloading model selection and orchestration to the new fusion system is the smarter route for developers, letting you balance performance and cost without the friction of choosing between models.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;GitHub says it has improved performance since launching Project HydraFusion as a research preview in September 2026. On the &lt;a href="https://artificialanalysis.ai/agents/coding-agents" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Artificial Analysis Coding Agent Index&lt;/a&gt;, GitHub reports that Copilot Fusion Max scored 60, within two points of Claude Code with Opus 5.5 Max. GitHub says Fusion Max delivered that result at about half the average API cost per task, using about half as many tokens and taking about 40% less time per task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the statement supplied to &lt;em&gt;The New Stack &lt;/em&gt;by GitHub, Pokhrel credits Copilot Fusion Standard with improving token efficiency at AT&amp;amp;T, reducing unnecessary spending, and preserving capacity for higher-value work.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-model-routing-is-becoming-the-default" class="wp-block-heading"&gt;Model routing is becoming the default&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Copilot Fusion is one piece of GitHub&amp;rsquo;s future vision, released alongside a slew of other products at the conference, including the GitHub Copilot app, Copilot Projects, and Copilot Automations.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;By deferring model selection to its system, GitHub thinks developers will have more time and brainspace to focus on other work.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It looks like everyone is moving that way. This month, Ramp described &lt;a href="https://thenewstack.io/ramp-laminar-agent-harness" class="local-link"&gt;moving model selection into Open SWE&lt;/a&gt;, its open-source coding agent. In the summer, &lt;a href="https://thenewstack.io/replit-model-routing-default/" class="local-link"&gt;Replit did the same&lt;/a&gt;, making its &amp;ldquo;intelligent model routing&amp;rdquo; system the default across every account.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-copilot-fusion/"&gt;GitHub debuts Copilot Fusion, a new model selection &amp;amp; orchestration system that beats Claude Code for half the API cost&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Developers pick the effort level. Copilot Fusion picks the models. An AT&amp;amp;T engineer say it&amp;#039;s &amp;quot;improved token efficiency.&amp;quot;</content:encoded>
     </item>
   </channel>
 </rss>
