@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Mon, 02 Nov 2026 23:16:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 23:27:40 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,622 @@
       <height>32</height>
     </image>
     <item>
+      <title>A developer opened Postman. Then two AI coding agents changed without their permission.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/postman-plugin-coding-agents/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Tue, 03 Nov 2026 23:17:04 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842653</guid>
+      <description>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Puppet strings attached to man on his computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-scaled.jpg" /&gt;&lt;p&gt;A developer says Postman&amp;#8217;s desktop app installed plugins into Claude Code and OpenAI Codex without their permission. The app also&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/postman-plugin-coding-agents/"&gt;A developer opened Postman. Then two AI coding agents changed without their permission.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Puppet strings attached to man on his computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;A developer says Postman&amp;rsquo;s desktop app installed plugins into Claude Code and OpenAI Codex without their permission. The app also tried to approve its own startup hook, which tells Codex to use Postman&amp;rsquo;s tools for API development tasks.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The developer, known as &amp;#8220;indicava&amp;#8221; on GitHub, &lt;a href="https://github.com/postmanlabs/postman-app-support/issues/14370" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reported the issue on October 25&lt;/a&gt; after Codex began showing authentication errors and repeatedly loading Postman skills without being asked.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s raised concerns about how easily third-party applications can change how AI coding agents work, especially when those changes happen without a clear opt-in.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-plugins-installed-without-permission" class="wp-block-heading"&gt;Plugins installed without permission&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to the report, opening Postman desktop version 12.33.4 on macOS triggered an installation process affecting both Claude Code and Codex.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Postman&amp;rsquo;s application logs, included in the GitHub issue, show an installation event on October 24 marked auto-existing-upgrade, with results indicating that plugins for both coding agents had been installed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The developer also found changes to Codex&amp;#8217;s user-level configuration file, &lt;code&gt;~/.codex/config.toml&lt;/code&gt;, including an enabled Postman plugin, a new plugin marketplace, and a trusted session-start hook.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The report also found a Postman CLI executable on the machine, with timestamps matching the installation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Claude Code&amp;rsquo;s configuration similarly showed an installed Postman plugin. The report also found a Postman CLI executable on the machine, with timestamps matching the installation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The developer says they had not explicitly authorized these changes. The report documents one macOS installation, and the behavior has not been independently reproduced across other systems.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-self-approving-startup-hook" class="wp-block-heading"&gt;The self-approving startup hook&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But perhaps even more interesting is how Postman gets Codex to trust its plugin in the first place. According to Postman&amp;rsquo;s &lt;a href="https://learning.postman.com/docs/postman-plugin/install/detected-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;own documentation&lt;/a&gt;, its installer can automatically approve a session-start hook on the user&amp;rsquo;s behalf.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;According to Postman&amp;rsquo;s own documentation, its installer can automatically approve a session-start hook on the user&amp;rsquo;s behalf. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers who install the plugin directly through Codex, however, must review and approve the hook themselves. The &lt;a href="https://github.com/postmanlabs/postman-plugin/blob/6c8e452e0f4237f4bcc0901cb1ac442dec707e49/installer/src/hosts/codex-hooks.ts" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;installer&amp;rsquo;s source code&lt;/a&gt; shows exactly what happens. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Postman checks whether Codex already trusts the hook. If it doesn&amp;#8217;t, the installer uses &lt;code&gt;config/batchWrite&lt;/code&gt; to add the hook&amp;#8217;s trusted hash to Codex&amp;#8217;s configuration. It checks that the hook hasn&amp;#8217;t changed before approving it, and if approval fails or can&amp;#8217;t be confirmed, it logs a message telling the developer to review the hook in Codex.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Session-start hooks can &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/" class="local-link"&gt;give coding agents instructions automatically&lt;/a&gt;, even when the developer hasn&amp;rsquo;t asked for them. Postman&amp;rsquo;s &lt;a href="https://github.com/postmanlabs/postman-plugin/blob/6c8e452e0f4237f4bcc0901cb1ac442dec707e49/hooks/session-start-context.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;startup instructions&lt;/a&gt; tell Codex to load the &lt;code&gt;postman:api-engineer&lt;/code&gt; skill before handling most API development tasks.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Codex is still supposed to follow the developer&amp;rsquo;s instructions first. But for many API tasks, it&amp;rsquo;s also being told to use Postman&amp;rsquo;s tools by default, whether the developer asked for them or not.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That might be useful for developers who chose to install the plugin. The concern here is that Postman&amp;rsquo;s desktop app reportedly added those instructions to an existing coding environment without the developer&amp;rsquo;s permission.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-developers-raise-security-concerns" class="wp-block-heading"&gt;Developers raise security concerns&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The findings have drawn criticism from developers on GitHub and X. Security researcher &lt;a href="https://www.linkedin.com/in/frankdenis/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Frank Denis&lt;/a&gt; &lt;a href="https://x.com/jedisct1/status/2117688330779582772?" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;called the integrations &amp;#8220;junk&amp;#8221; on X&lt;/a&gt; and pointed out that Postman&amp;#8217;s installer attempts to trust its own startup hook.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/sidgarimella/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Siddharth Garimella&lt;/a&gt; went further, &lt;a href="https://x.com/sidgarimella/status/2117686014022181000" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;claiming that Postman&amp;rsquo;s hooks intercept API data&lt;/a&gt; and send it back to the company. However, the GitHub report provides no evidence that Postman collected or transmitted API data. It documents changes to agent settings and a remote MCP connection, not data theft.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The developer also found that Postman had configured a connection to its remote MCP server at &lt;code&gt;https://mcp.postman.com/mcp&lt;/code&gt;, but Codex repeatedly failed to authenticate.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The criticism has also spread to GitHub, where one commenter &lt;a href="https://github.com/postmanlabs/postman-app-support/issues/14370#issuecomment-6599154379" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;calls the behavior&lt;/a&gt; &amp;ldquo;unacceptable, even creating risk in corporate environment.&amp;rdquo; Another &lt;a href="https://github.com/postmanlabs/postman-app-support/issues/14370#issuecomment-6614109517" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;urges Postman&lt;/a&gt; to be transparent and ask for permission.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-who-controls-the-agent" class="wp-block-heading"&gt;Who controls the agent&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The developer wants Postman to stop installing plugins for existing users without their permission and leave hook approval up to Codex. They also want a way to fully undo the changes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Postman &lt;a href="https://learning.postman.com/docs/postman-plugin/install/detected-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;provides an uninstall command&lt;/a&gt;, but the developer says that isn&amp;rsquo;t enough. Removing the integration should also clear any changes to agent settings, trusted hooks, MCP connections, and installed CLI tools.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For now, developers can check their Claude Code and Codex settings for unfamiliar plugins, hooks, or MCP connections.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Postman&amp;rsquo;s installer can approve its own Codex hook without the usual manual review. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The complaint comes as developers are &lt;a href="https://thenewstack.io/claude-code-developer-refusals/" class="local-link"&gt;pushing for more control over their coding agents&lt;/a&gt;. Postman&amp;rsquo;s installer can approve its own Codex hook without the usual manual review. What remains unanswered is why an existing desktop installation reportedly triggered that process without the user&amp;rsquo;s permission.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; reached out to Postman to ask about the automatic installations, hook approvals, and user consent. The company had not responded by the time of publication.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/postman-plugin-coding-agents/"&gt;A developer opened Postman. Then two AI coding agents changed without their permission.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>A developer found Postman’s desktop app installed plugins into Claude Code and Codex without permission, reviving questions about coding agent control.</content:encoded>
+    </item>
+    <item>
+      <title>Can agent standards keep up with the companies building them?</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/mazin-gilbert-aaif-interview/</link>
+      <dc:creator>Frederic Lardinois</dc:creator>
+      <pubDate>Tue, 03 Nov 2026 22:50:15 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Anthropic</category>
+      <category>Podcast</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-podcast</category>
+      <category>Video</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842590</guid>
+      <description>&lt;img width="1024" height="559" src="https://cdn.thenewstack.io/media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12-1024x559.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Mazin Gilbert AAIF - AGNT Con + MCP Con 2026 - The New Stack Podcast with Frederic Lardinois" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12.png" /&gt;&lt;p&gt;Mazin Gilbert, executive director of the Linux Foundation&amp;#8217;s Agentic AI Foundation, left Google earlier this year to&amp;#160;lead the new AAIF,&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/mazin-gilbert-aaif-interview/"&gt;Can agent standards keep up with the companies building them?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="559" src="https://cdn.thenewstack.io/media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12-1024x559.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Mazin Gilbert AAIF - AGNT Con + MCP Con 2026 - The New Stack Podcast with Frederic Lardinois" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Mazin Gilbert, executive director of the Linux Foundation&amp;#8217;s Agentic AI Foundation&lt;/strong&gt;, left Google earlier this year to&amp;nbsp;lead the new AAIF, and he recently shared with&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;&amp;nbsp;a truth&amp;nbsp;central to its mission: The &lt;a href="https://aaif.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AAIF&lt;/a&gt; has to move faster than its members. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/mazin-gilbert-mba-ph-d-28b426/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gilbert&lt;/a&gt;, speaking in an interview at AGNTCon + MCPCon North America in San Jose last month, said on&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;&amp;nbsp;podcast, &amp;#8220;If this foundation does not move at the speed of light, it becomes irrelevant.&amp;#8221; &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He also talked about how he gets OpenAI, Anthropic, and Google to agree on standards &amp;mdash; even though they compete on products. Those companies are going to build products &amp;#8220;with and without the standards,&amp;#8221; he says. &lt;/p&gt;
+
+
+&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/VyT_zuwyfg0?si=ssw0r72R_uy2rD_7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;All of this is happening while the foundation&amp;#8217;s own members are often still figuring out how to build and use agents themselves. Some contribute to protocols and ship products, but others are still trying to get their agents out of the lab and into production. Gilbert says a third group of companies &amp;#8220;frankly are panicking,&amp;#8221; because they don&amp;#8217;t have an agent strategy yet.&lt;/p&gt;
+
+
+&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/d2466782-326c-41fe-8158-091e8f79543d?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;The San Jose event drew 4,300 registrants, he says, double the size of the foundation&amp;#8217;s previous largest event in Amsterdam earlier this year.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-mcp-gets-built" class="wp-block-heading"&gt;How MCP gets built&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Before our recording, Gilbert had just met with a group of maintainers from &amp;#8220;very fiercely competing companies&amp;#8221; who were working on the protocols together. All of those companies depend on these standards, he says, so they have a reason to get the work done.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;These protocols are the air you breathe.&amp;#8221; &lt;br&gt;&amp;mdash;Mazin Gilbert, executive director, AAIF.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;These protocols are the air you breathe. These protocols are the plumbing,&amp;#8221; Gilbert says. &amp;#8220;They may not be that sexy, maybe, but if we don&amp;#8217;t get those right, that entire agentic AI space will be a mess, expensive and prohibitive basically for any company to deploy this at scale.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As an example, he points to the&amp;nbsp;&lt;a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;July release&lt;/a&gt;&amp;nbsp;of the Model Context Protocol (MCP) specification, which made the protocol stateless. &amp;#8220;Every one of those companies not only contributed to it, but they ended up completely updating their entire stack to the stateless MCP,&amp;#8221; he says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;MCP downloads grew tenfold in the protocol&amp;#8217;s first 10 months at the foundation, according to Gilbert, after&amp;nbsp;&lt;a href="https://thenewstack.io/anthropic-donates-the-mcp-protocol-to-the-agentic-ai-foundation/" class="local-link"&gt;Anthropic donated it&lt;/a&gt;&amp;nbsp;last December. Today, fewer than 15 percent of its maintainers work at Anthropic, and more than 1,000 organizations contribute 75 percent of the pull requests, he says. Those contributors include U.S. retailers and companies around the world.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At the Cloud Native Computing Foundation (CNCF), many projects started at startups before they were donated. At the AAIF, Gilbert says, large companies tend to contribute the protocols, and smaller companies extend them and build businesses on top.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Some of those startups were doing something &amp;#8220;very different&amp;#8221; six months or a year ago, he says, and some didn&amp;#8217;t exist yet. Now they&amp;#8217;re building enterprise products on MCP and the foundation&amp;#8217;s gateway projects to connect agents to companies&amp;#8217; back-end systems.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-getting-members-to-contribute" class="wp-block-heading"&gt;Getting members to contribute&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The AAIF now has 305 members, and Gilbert said in his keynote that about one new company joins every business day. He calls it the fastest-growing foundation in the Linux Foundation&amp;#8217;s history. About 40 percent of its members are startups, and 19 percent are nonprofits, national labs, and academic institutions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;None of us have done this before, so I just want to be very clear about that. We are learning this as we go,&amp;#8221; he says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Part of the job is making membership worth enough that companies actively contribute. &amp;#8220;It&amp;#8217;s not about the money. Their time is far more valuable than their money. Their people are far more valuable than the money,&amp;#8221; Gilbert says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He&amp;#8217;d like every member to contribute, but also acknowledges that&amp;#8217;s not the case yet. He knows who does, because he uses his own agents to track contributions across the foundation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Some companies are still trying to understand what agents can do for them and what they&amp;#8217;d get back on the investment. Others don&amp;#8217;t know how to contribute. Gilbert encourages them to start by joining a working group and listening, and says they don&amp;#8217;t have to arrive as experts. For companies still learning, the foundation launched its first certification in September: the&amp;nbsp;&lt;a href="https://www.linuxfoundation.org/press/agentic-ai-foundation-launches-mcpa-certification-to-validate-mcp-expertise" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Model Context Protocol Associate&lt;/a&gt;&amp;nbsp;(MCPA).&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The&amp;nbsp;&lt;a href="https://aaif.io/news/agentic-ai-foundation-welcomes-the-gates-foundation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gates Foundation&lt;/a&gt;, which joined in September, now sits on the AAIF&amp;#8217;s board. Gilbert says it&amp;#8217;s helping developers in parts of Africa and South Asia get the training and certification they need to contribute, and to attend events they couldn&amp;#8217;t otherwise afford.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pressed on whether nonprofits and for-profit companies clash inside the foundation, Gilbert says he hasn&amp;#8217;t seen it yet. &amp;#8220;Whether you are a nonprofit, for-profit, small, large, your value, your impact, your power in this foundation really depends on contributions,&amp;#8221; he says.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-many-gateways-do-you-need" class="wp-block-heading"&gt;How many gateways do you need?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The foundation is also choosing which projects to accept. The community has submitted 65 projects through its public intake process, Gilbert says, and the AAIF has declined some. The first 10 to 20 projects &amp;#8220;really define the DNA of this foundation,&amp;#8221; he says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With the four projects it announced in San Jose (Agent Skills from Anthropic, Open Responses from OpenAI, OpenEnv from Hugging Face, and OpenSandbox from Alibaba), the AAIF now hosts 10.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In some cases, the foundation is taking in technologies that are already widely adopted, like MCP and Agent Skills. In others, nobody agrees yet on what a standard should look like.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Gateways are one example. The AAIF approved two gateway projects this year, Solo.io&amp;#8217;s&amp;nbsp;&lt;a href="https://aaif.io/blog/designing-agentgateway-a-unified-high-performance-gateway-for-ai-and-api-traffic" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;agentgateway&lt;/a&gt;&amp;nbsp;and&amp;nbsp;&lt;a href="https://aaif.io/blog/agent-router-joins-aaif" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Router&lt;/a&gt;, which moved over from the CNCF&amp;#8217;s Envoy project in September. Gilbert says five or six more companies want to contribute their own. Does the community need &amp;#8220;six gateways or 10 gateways,&amp;#8221; he asks, &amp;#8220;or do we need to harmonize those together?&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He doesn&amp;#8217;t have an answer yet, and says the community doesn&amp;#8217;t either. The foundation gives those companies neutral governance to work it out together, he says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The technical committee and governing board evaluate each proposal, including whether the AAIF is the right home for it, Gilbert says. They look at every layer of the stack, including agent frameworks, execution harnesses, gateways, guardrails, memory, protocols, observability, and identity. Not every project the foundation accepts will become the standard, he notes.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-agents-that-can-transact" class="wp-block-heading"&gt;Agents that can transact&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Gilbert wants the foundation to work on identity, security, trust, and observability. He also wants it to take on agent commerce.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;These agents, the internet of agents, must be transactional,&amp;#8221; he says. An agent making a purchase would need to discover a catalog, talk to a merchant&amp;#8217;s agent, negotiate, pay, and handle returns or disputes, and Gilbert says each step still needs a protocol.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He&amp;#8217;s also excited about physical AI, meaning protocols for agents that talk to machines and appliances instead of databases. &amp;#8220;Your refrigerator, your washing machines. It&amp;#8217;s so cool,&amp;#8221; he says. &amp;#8220;It&amp;#8217;s like science fiction, but it&amp;#8217;s happening now.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Wherever the protocols fall short, Gilbert says, companies will write custom code, and customers will end up paying to support it. A standard that arrives after a customer has built and deployed its own integration still leaves that customer with code to maintain.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/mazin-gilbert-aaif-interview/"&gt;Can agent standards keep up with the companies building them?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+    </item>
+    <item>
+      <title>Goldman Sachs restricted Claude Code for bankers — but made one surprising exception</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-coding-agents-security/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Tue, 03 Nov 2026 19:18:34 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842640</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Wall St. sign" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Replit CEO Amjad Masad is warning that AI coding agents running on employee devices are becoming a security risk for&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-agents-security/"&gt;Goldman Sachs restricted Claude Code for bankers — but made one surprising exception&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Wall St. sign" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Replit CEO Amjad Masad is warning that AI coding agents running on employee devices&lt;/strong&gt; are becoming a security risk for enterprises and governments, as financial institutions begin restricting access to tools such as Claude Code.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI agents running on employee endpoints are becoming a systemic security risk for enterprises &amp;amp; governments,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/amjadmasad/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Masad&lt;/a&gt; writes &lt;a href="https://x.com/amasad/status/2117481616943820843" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on X&lt;/a&gt;, Tuesday. &amp;ldquo;Some are responding by restricting tools like Claude Code, as Goldman Sachs reportedly has.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Some are responding by restricting tools like Claude Code, as Goldman Sachs reportedly has.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-why-finance-restricts-coding-agents" class="wp-block-heading"&gt;Why finance restricts coding agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His comments follow a &lt;a href="https://news.bloomberglaw.com/capital-markets/goldman-restricts-traders-and-bankers-from-using-some-ai-tools" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bloomberg report&lt;/a&gt; that Goldman Sachs has restricted access to Anthropic&amp;rsquo;s Claude Code and Microsoft&amp;rsquo;s GitHub coding tools to engineers. The restrictions apply to bankers and traders, but certain quantitative employees known as strats are exempt.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Goldman spokesperson &lt;a href="https://www.linkedin.com/in/nick-carcaterra-a2119212/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nick Carcaterra&lt;/a&gt; told Bloomberg the bank weighs productivity gains against potential risks when deciding which employees can continue using AI tools.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Masad suggests Goldman Sachs is not alone. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is widespread in finance. The ban hammer is coming down,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is widespread in finance. The ban hammer is coming down,&amp;rdquo; he writes, responding to a post about the bank&amp;rsquo;s restrictions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When asked what was driving the crackdown, Masad points to &amp;ldquo;Supply chain attacks etc.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-credential-exposure-problem" class="wp-block-heading"&gt;The credential exposure problem&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Running coding agents directly on employee machines raises concerns about credential exposure, malicious instructions and compromised dependencies, each of which has already surfaced well beyond the finance sector. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The credential question has been pushing vendors toward short-lived tokens for months, a shift &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/" class="local-link"&gt;Vercel recently forced on its own suppliers&lt;/a&gt; by setting a deadline to abandon the long-lived keys that an agent operating on an endpoint could quietly read and reuse.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When asked on X whether banks were more worried about code leaving their environments or a lack of audit trails, Masad says, &amp;ldquo;So many things.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He offered no examples of security incidents that prompted Goldman&amp;rsquo;s restrictions or other financial institutions adopting similar policies.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-isolating-agents-in-the-cloud" class="wp-block-heading"&gt;Isolating agents in the cloud&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Alongside his comments, Masad shares a &lt;a href="https://frontier.replit.com/managed-cloud-environments-for-ai-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;security advisory published by Replit&lt;/a&gt; on Monday. Written by &lt;a href="https://www.linkedin.com/in/lhchavez/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Luis H&amp;eacute;ctor Ch&amp;aacute;vez&lt;/a&gt;, Replit&amp;rsquo;s chief technology officer, and engineering lead at Replit, &lt;a href="https://www.linkedin.com/in/manishmehta/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Manish Mehta&lt;/a&gt;, it recommends keeping AI agents off employee devices and running them in company-controlled cloud environments instead.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI agents should operate in dedicated, organization-controlled environments with limited access to the resources each task requires,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI agents should operate in dedicated, organization-controlled environments with limited access to the resources each task requires,&amp;rdquo; Masad writes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Replit recommends running agents in isolated environments, with credentials, audit logs, and approvals managed separately.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The advisory points to recent security incidents, including a compromised Claude Code extension distributed through the Cursor marketplace, as an example of how attackers can exploit developer tools. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That pattern has played out repeatedly across the ecosystem this year, including an attack in which intruders &lt;a href="https://thenewstack.io/hackers-hijacked-1900-github-accounts-then-they-went-after-30000-repos/" class="local-link"&gt;hijacked roughly 1,900 GitHub accounts before moving against some 30,000 repositories&lt;/a&gt;, a reminder that a single poisoned link in the chain can reach far past the machine where it started.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-controlling-what-agents-can-access" class="wp-block-heading"&gt;Controlling what agents can access&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But restricting AI coding agents to engineers doesn&amp;rsquo;t necessarily solve the problem. Even experienced developers can run agents that &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/" class="local-link"&gt;follow malicious instructions&lt;/a&gt; or pull in compromised software, and research has shown how little it takes to knock an agent off course, with one team finding that stripping a single line from Claude Code&amp;rsquo;s instructions sent its out-of-scope actions climbing. Replit argues that companies need to control what agents can do, not just who gets to use them.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-this-means-for-enterprise-ai-adoption" class="wp-block-heading"&gt;What this means for enterprise AI adoption&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Goldman&amp;rsquo;s restrictions suggest companies may be rethinking how widely they allow employees to use AI coding tools. Giving non-developers the ability to build software has been a major selling point, but that becomes harder to justify when agents have access to sensitive corporate systems.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Masad argues that companies don&amp;rsquo;t need to stop using agents. They need to keep them off employee devices and put tighter controls around what they can access.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Whether financial institutions broadly adopt that model remains to be seen. Masad has described restrictions as widespread, but has not provided public evidence establishing how many organizations have introduced them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack &lt;/em&gt;has reached out to Replit for additional comment on the reported restrictions, the security concerns driving them, and whether financial institutions are changing their approach to AI coding agents.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-agents-security/"&gt;Goldman Sachs restricted Claude Code for bankers — but made one surprising exception&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Replit’s CEO says AI coding agents on employee devices are a growing security risk, as banks like Goldman Sachs restrict tools such as Claude Code.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic speeds up Claude Code with message threads. But your token bill stays the same.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-message-threads/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Tue, 03 Nov 2026 13:46:14 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842598</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a desktop monitor, laptop, keyboard and phone displaying code, representing Claude Code and developer tools." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic has announced a new feature that aims to speed up long-running Claude Code sessions by reducing the amount of&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-message-threads/"&gt;Anthropic speeds up Claude Code with message threads. But your token bill stays the same.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a desktop monitor, laptop, keyboard and phone displaying code, representing Claude Code and developer tools." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Anthropic has announced a new feature that aims to speed up long-running Claude Code sessions by reducing the amount of conversation data repeatedly sent to its API, helping developers get responses faster as their coding sessions grow.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://platform.claude.com/docs/en/build-with-claude/message-threads" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Message threads&lt;/a&gt;, as it&amp;#8217;s called, is available now in public beta for Anthropic&amp;#8217;s Messages API and is already enabled by default for &amp;#8220;most&amp;#8221; Claude Code users, according to an &lt;a href="https://claude.com/resources/articles/message-threads" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;article published by Anthropic&lt;/a&gt; on Monday.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company says that the feature has reduced median time to first token (TTFT) &amp;#8212; the time it takes Claude to begin generating a response &amp;#8212; by approximately 35% for Claude Code requests containing between 500,000 and 1 million tokens.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Given that it&amp;#8217;s now part of the Messages API, the feature also extends beyond Claude Code to developers building their own AI agents, particularly those handling lengthy conversations, repeated tool calls, and large amounts of data.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-message-threads-works" class="wp-block-heading"&gt;How message threads works&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To understand what&amp;#8217;s changed, it&amp;#8217;s worth looking at how the Messages API has traditionally handled conversations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every time an agent sends a new request to Claude, it includes the entire conversation history. That means all messages and tool calls must be transmitted again, even though the API has previously received them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For example, a coding agent working through a complex task will likely entail hundreds of API calls. As it reads files and modifies code, the conversation history grows, and by the time that history reaches 500,000 tokens, every subsequent request requires sending those 500,000 tokens again, along with whatever new information has been thrown into the mix. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The API then has to validate and tokenize the incoming data before Claude can begin responding. This rinse-and-repeat processing can add significant latency, particularly during lengthy coding sessions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And so message threads switches things up by allowing Anthropic to temporarily retain the conversation history on its servers. The first request still sends the complete conversation, including any system prompts and tool definitions. But subsequent requests need only contain new messages and a reference to the previous response.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Behind the scenes, Anthropic reconstructs the full conversation on its servers before passing it to Claude, negating the need for the client to keep uploading the same information. This detail is important, because Claude still processes the &lt;em&gt;entire&lt;/em&gt; conversation on every turn &amp;#8212; if the history contains 500,000 tokens, the model still receives that context, even though the client has transmitted only the latest messages.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;While each request is smaller with message threads, Claude still reads the full conversation on every turn, so token usage stays the same.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As such, message threads doesn&amp;#8217;t inherently reduce API costs &amp;#8212; Anthropic continues to charge for the tokens Claude processes. &amp;#8220;While each request is smaller with message threads, Claude still reads the full conversation on every turn, so token usage stays the same,&amp;#8221; the company notes. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers can, however, &lt;a href="https://platform.claude.com/docs/en/build-with-claude/message-threads#prompt-caching" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;combine message threads&lt;/a&gt; with Claude&amp;#8217;s existing &lt;a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prompt caching feature&lt;/a&gt;, which allows previously processed content to be reused at discounted token rates. The two features can work in tandem to reduce latency and processing costs respectively.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic identifies several use-cases where message threads could be particularly useful. These include long-running coding agents that accumulate file edits and tool results, computer-use agents that repeatedly capture screenshots, and applications handling large volumes of documents or images. In each case, avoiding repeated uploads reduces the amount of data transmitted during a session.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/guillaumelebedel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Guillaume Lebedel&lt;/a&gt;, co-founder and CTO of AI agent infrastructure company &lt;a href="https://www.stackone.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;StackOne&lt;/a&gt;, took to LinkedIn on Tuesday to illustrate the potential benefits of message threads for &lt;a href="https://thenewstack.io/claude-computer-use/" class="local-link"&gt;computer-use&lt;/a&gt; agents, using a simulation to estimate how much data could be saved.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His calculations assume an agent captures one 150 KB screenshot at each step. Without message threads, the 50th request would need to upload approximately 7.5 MB of accumulated screenshots. With message threads, that request would carry just the latest screenshot, approximately 0.15 MB.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Across the entire 50-step session, the cumulative screenshot data uploaded would fall from roughly 191 MB to 7.5 MB &amp;#8212; a reduction of approximately 25 times.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;While these figures aren&amp;#8217;t based on a live API test, they illustrate the potential benefits for agents that repeatedly upload large files. Indeed, Lebedel predicts that computer-use agents could spearhead adoption of the feature, with widespread uptake before the end of the year.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;My bet &amp;#8212; computer-use agents adopt it before coding agents do, since a screenshot per step is what makes the resend heavy.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;My bet &amp;#8212; computer-use agents adopt it before coding agents do, since a screenshot per step is what makes the resend heavy, and most have it on by the end of December,&amp;#8221; he &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7523204166257889280/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-how-to-use-message-threads" class="wp-block-heading"&gt;How to use message threads&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To implement the feature, Anthropic has introduced a new thread parameter to the Messages API. The initial request creates a thread by including &lt;code&gt;thread={"type": "create"}&lt;/code&gt;, alongside the full conversation history, system prompt, and any tools being used.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Subsequent requests use &lt;code&gt;thread={"type": "continue", "previous_message_id": first.id}&lt;/code&gt;, where &lt;code&gt;first.id&lt;/code&gt; refers to the response ID returned by the initial request.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;These follow-up requests contain only the new messages. The API retains the earlier conversation and its original system prompt and tool definitions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Because the feature remains in beta, developers making requests directly must also include the &lt;code&gt;anthropic-beta&lt;/code&gt; header with the value &lt;code&gt;message-threads-2026-08-12&lt;/code&gt;. In the Python SDK, this can be supplied through &lt;code&gt;betas=["message-threads-2026-08-12"]&lt;/code&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic also provides a simpler approach through its SDK thread helper, which manages the conversation history and API parameters automatically.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Using the Python SDK, developers first create a client with &lt;code&gt;client = anthropic.Anthropic()&lt;/code&gt;, before initialising a thread through &lt;code&gt;client.beta.messages.thread()&lt;/code&gt;. The latter accepts the model, maximum output tokens and initial system prompt, among other parameters.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Once configured, developers use &lt;code&gt;thread.send()&lt;/code&gt; to submit messages. The SDK thread helper automatically creates the thread on the first request, then continues it on subsequent turns, supplying the necessary parameters and retaining a local copy of the conversation history.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The SDK thread helper also adds the required beta header automatically, removing the need for developers to specify it with each request.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/11/ef081582-gif2.gif" alt="Message threads in action" class="wp-image-22842612"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Message threads in action&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id="h-message-threads-expire" class="wp-block-heading"&gt;Message threads expire&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There is, however, one notable limitation in all of this. Message threads expire after just five minutes of inactivity. And as one &lt;a href="https://x.com/Cydr4l/status/2117334700016730233?a=qmSR8V8ROR9n_WlxgMs&amp;amp;s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;user observed on X&lt;/a&gt;, &amp;ldquo;Five minutes at the coffee machine and the thread expires.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Another user went further, &lt;a href="https://x.com/zuLunis/status/2117365300647563375?a=u6ATWqzP_K4_orWtBYA&amp;amp;s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writing&lt;/a&gt;: &amp;ldquo;Only 5 minutes for cache expires is almost useless.&amp;rdquo; The user appears to be referring to the message thread expiry, which is separate from Claude&amp;#8217;s prompt caching feature.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Five minutes at the coffee machine and the thread expires.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That might seem like an unforgiving restriction for a feature designed to improve lengthy coding sessions, however the implications are perhaps not so dramatic. If a developer steps away for ten minutes, say, the thread will indeed have expired. However, provided the client has retained the conversation history, the SDK helper automatically resends it to establish a new thread when they return. So the first request after a break may therefore take longer, but the coding session can continue without losing its previous context.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For agents operating continuously, the limitation may be even less consequential. Every successful request stored in the thread refreshes the five-minute expiry period, meaning an agent making regular API calls can maintain the same thread throughout a lengthy task.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Developers managing threads directly must handle expiry themselves. An attempt to continue an unavailable thread returns a 404 error, requiring the client to resend the complete conversation and establish a new thread.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There are also some data-handling considerations. Anthropic says thread contents are encrypted and held in server memory without being written to persistent storage. Although threads expire after five minutes of inactivity, their contents may remain in memory for up to an hour after their last use.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The feature is currently ineligible for zero data retention and HIPAA, which could restrict its use in environments with stringent data-handling requirements. Certain context-management capabilities, including on-demand compaction, are also unsupported.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Message threads is available across all Claude models in beta, including through Claude Platform on AWS, Claude in Microsoft Foundry, and Anthropic-managed Claude Models on Google Cloud.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-message-threads/"&gt;Anthropic speeds up Claude Code with message threads. But your token bill stays the same.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Message threads stop Claude Code resending whole conversations. They expire after five minutes idle, though, so maybe don’t take that coffee break.</content:encoded>
+    </item>
+    <item>
       <title>OpenAI built itself a new Git backend, too</title>
       <link>https://web.archive.org/web/https://thenewstack.io/openai-pando-git-backend/</link>
       <dc:creator>Frederic Lardinois</dc:creator>
@@ -29,10 +645,10 @@
       <category>Developer tools</category>
       <category>Open Source</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842572</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;&lt;p&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of&lt;/p&gt;
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;&lt;p&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-pando-git-backend/"&gt;OpenAI built itself a new Git backend, too&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of commits its developers and their agents now create.&lt;/p&gt;
 
 
@@ -97,7 +713,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="457" src="https://cdn.thenewstack.io/media/2026/11/da899961-screenshot-2026-11-02-at-2.23.37-pm-1024x457.png" alt="" class="wp-image-22842573"/&gt;&lt;figcaption class="wp-element-caption"&gt;Pando stores the writer&amp;#8217;s packfile in blob storage and records the ref version in a shared key-value store. On fetch, Pando selects the packs the reader needs, and Express serves them. Credit: OpenAI.&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="457" src="https://cdn.thenewstack.io/media/2026/11/da899961-screenshot-2026-11-02-at-2.23.37-pm-1024x457.png" alt="" class="wp-image-22842573"/&gt;&lt;figcaption class="wp-element-caption"&gt;Pando stores the writer&amp;#8217;s packfile in blob storage and records the ref version in a shared key-value store. On fetch, Pando selects the packs the reader needs, and Express serves them. Credit: OpenAI.&lt;/figcaption&gt;&lt;/figure&gt;
 
 
 
@@ -944,7 +1560,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce6299b1&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce6299b1" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b2b53&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b2b53" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1061,7 +1677,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce62a9a0&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce62a9a0" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b3432&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b3432" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1134,7 +1750,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce62b640&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce62b640" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b3c73&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b3c73" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1171,7 +1787,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce62c006&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce62c006" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b41b9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b41b9" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3631,704 +4247,6 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-copilot-harness-foundry/"&gt;Microsoft’s new Copilot harness makes agents easy — until you want to switch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Microsoft is opening the GitHub Copilot agent harness to developers through Foundry, a managed runtime for building and running AI agents — with limits.</content:encoded>
-    </item>
-    <item>
-      <title>Why MCP servers should tell agents what to do next</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/aws-mcp-agent-observability/</link>
-      <dc:creator>Matthew Burns</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 15:55:39 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Model Context Protocol</category>
-      <category>Observability</category>
-      <category>Podcast</category>
-      <category>sponsor-aws-marketplace</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>sponsored-premium-event-coverage</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842199</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/47ca69a6-for-thumbnail-16-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="James Ward, AWS Fellow and technical committee member of the Agentic AI Foundation, joins The New Stack&amp;#039;s Matt Burns at AgntCon+MCPCon 2026 to discuss the rapid evolution of developer and agent experiences." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/47ca69a6-for-thumbnail-16.png" /&gt;&lt;p&gt;Many MCP servers do just one thing. An agent asks for data and the server hands it back. AWS&amp;#8217;s James&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-mcp-agent-observability/"&gt;Why MCP servers should tell agents what to do next&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/47ca69a6-for-thumbnail-16-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="James Ward, AWS Fellow and technical committee member of the Agentic AI Foundation, joins The New Stack&amp;#039;s Matt Burns at AgntCon+MCPCon 2026 to discuss the rapid evolution of developer and agent experiences." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/47ca69a6-for-thumbnail-16.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Many MCP servers do just one thing. &lt;/strong&gt;An agent asks for data and the server hands it back. AWS&amp;rsquo;s &lt;a href="https://www.linkedin.com/in/jamesward/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;James Ward&lt;/a&gt; thinks that leaves a lot on the table. The protocol works best, he told me, when the server acts less like a database and more like another voice in the conversation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ward is a principal developer advocate at AWS and sits on the technical committee of the Agentic AI Foundation, the Linux Foundation group that now houses MCP. I sat down with him last week at AGNTCon + MCPCon in San Jose the day before he and co-presenter Alexander Ioffe were set to give a session on moving MCP from a basic API to an agent integration interface.&amp;nbsp;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/RywJRuJVTUk?si=PM9ABIz3bbKEXP6G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Many times our MCP servers are just these APIs, like &amp;lsquo;get me the customers,&amp;rsquo; and that is a good place to start,&amp;rdquo; Ward said. &amp;ldquo;I imagine MCP as the third person in this conversation, or a fourth or a fifth, depending on how many MCP servers you have.&amp;rdquo;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/dedf4e2e-7840-4541-a137-5a2a134a6630?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;In practice, that means a tool response carries guidance with the data. It tells the agent what it just did, what it might want to do next, and where to find more.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The other half of his pitch is visibility. Web developers can trace a click on a page all the way down to the database. &amp;ldquo;MCP by default doesn&amp;rsquo;t have any way to do trace ID,&amp;rdquo; Ward said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The workaround AWS uses is rather low-tech. Add a session ID parameter to the tools and tell the agent to pass it on every call, so individual calls can be stitched into one journey. A second parameter can carry the user&amp;rsquo;s prompt or a summary of their goal. Teams can then compare what the user wanted with the path the agent took, build an eval around it, adjust a tool description or parameter, and measure whether more tasks get completed. Ward said AWS built much of this for the MCP servers its own developers use.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In May, AWS opened its &lt;a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-mcp-server/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP Server&lt;/a&gt; to everyone and added &lt;a href="https://aws.amazon.com/about-aws/whats-new/2026/09/aws-mcp-server-serverless/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lambda diagnostics in September&lt;/a&gt;. In an &lt;a href="https://aaif.io/blog/james-ward-thinks-your-mcp-server-could-use-some-work" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agentic AI Foundation profile&lt;/a&gt; published before the conference, Ward described an agent fetching customer records one at a time because the server only offered a one-record tool. Watching the full journey is how teams spot that pattern and build a batch tool to fix it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ward didn&amp;rsquo;t present MCP as the only solution. AWS also ships a CLI and skills, he said, partly because MCP&amp;rsquo;s OAuth model can&amp;rsquo;t toggle between AWS user profiles the way the CLI can. Which works best depends on the model, the tool descriptions, and how the agent discovers tools, so AWS tests them against each other with evals.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;None of this is exotic, and Ward knows it. &amp;ldquo;There&amp;rsquo;s nothing new under the sun,&amp;rdquo; he said. Observe the journey, reproduce it, measure it, and improve it. The difference is that teams now have to understand the path a human and an agent take together, and test whether changes to their tools actually help them finish the task.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-mcp-agent-observability/"&gt;Why MCP servers should tell agents what to do next&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Many MCP servers still behave like thin APIs that hand an agent raw data. James Ward, a developer advocate at AWS, argues they should guide the agent’s next move, and that teams need to see the agent’s whole journey to improve it.</content:encoded>
-    </item>
-    <item>
-      <title>Mistral’s Large 4 open weights arrive with a 1-point coding lead over GLM-5.3: “There’s nothing you can’t do with this model that you can do with competitors.”</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/mistral-chonk-coding-model/</link>
-      <dc:creator>Meredith Shubel</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 14:49:44 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Models</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842240</guid>
-      <description>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/c4e85706-resource-database-8y0cqyxbfce-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c4e85706-resource-database-8y0cqyxbfce-unsplash-scaled.jpg" /&gt;&lt;p&gt;On Thursday, Mistral released the weights for its frontier open model, Mistral Large 4 (ML4), on Hugging Face.&amp;#160; Made available&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mistral-chonk-coding-model/"&gt;Mistral’s Large 4 open weights arrive with a 1-point coding lead over GLM-5.3: &amp;#8220;There’s nothing you can’t do with this model that you can do with competitors.&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="819" src="https://cdn.thenewstack.io/media/2026/10/c4e85706-resource-database-8y0cqyxbfce-unsplash-1024x819.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c4e85706-resource-database-8y0cqyxbfce-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;On Thursday, Mistral released the weights&lt;/strong&gt; for its frontier open model, Mistral Large 4 (ML4), on Hugging Face.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Made available for preview just three weeks ago, the French AI company says ML4 has significantly improved since then, thanks to reinforcement learning and testing with customers and partners. Now, it claims, ML4 is the &amp;ldquo;best open agentic coding model in the world,&amp;rdquo; beating GLM-5.3 on cybersecurity and coding benchmarks (though only barely on the latter), at a fraction of the cost, Mistral says.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We want to be in a position in which we dictate the frontier.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;From here, the AI company promises continued growth. In an embargoed press briefing attended by &lt;em&gt;The New Stack&lt;/em&gt;, &lt;a href="https://www.linkedin.com/in/pierrestock/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Pierre Stock&lt;/a&gt;, Mistral&amp;#8217;s VP of Science, calls ML4 merely &amp;ldquo;a stepping stone,&amp;rdquo; saying, &amp;ldquo;We want to be in a position in which we dictate the frontier.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-mistral-s-vp-of-science-doesn-t-want-to-live-in-a-world-without-open-weights" class="wp-block-heading"&gt;Mistral&amp;rsquo;s VP of Science doesn&amp;rsquo;t want to live in a world without open weights&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Stock told reporters that Mistral fully supports &amp;ldquo;the power of open weight,&amp;rdquo; calling it essential to ensure business continuity, transparency, and auditability for everyone: &amp;ldquo;I&amp;rsquo;m not comfortable living in a world in which open weights [don&amp;rsquo;t] exist,&amp;rdquo; he said.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I&amp;rsquo;m not comfortable living in a world in which open weights [don&amp;rsquo;t] exist,&amp;rdquo; he said.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Recalling when &lt;a href="https://thenewstack.io/anthropic-spacex-cursor-compute-openai/" class="local-link"&gt;OpenAI announced plans to cut off Cursor&amp;rsquo;s direct access to its models&lt;/a&gt; or when &lt;a href="https://thenewstack.io/fable-ban-open-weights/" class="local-link"&gt;the US&lt;/a&gt; &lt;a href="https://thenewstack.io/fable-ban-open-weights/" class="local-link"&gt;government ordered Anthropic to suspend Claude Fable 5 and Mythos 5 for all foreign nationals&lt;/a&gt;, Stock&amp;rsquo;s case for open weights bears weight &amp;mdash; perhaps why he says the philosophy is in the French company&amp;rsquo;s DNA.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Our stance is that AI is going to be like electricity.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Our stance is that AI is going to be like electricity. You don&amp;rsquo;t want to live in a world in which your neighbor or an oligopoly can cut off electricity from one day to another.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Mistral puts open weights at the center of its approach. Anthropic CEO and co-founder &lt;a href="https://www.linkedin.com/in/dario-amodei-3934934/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Dario Amodei&lt;/a&gt; has &lt;a href="https://thenewstack.io/amodei-open-weights-compute-regulation/" class="local-link"&gt;argued&lt;/a&gt; that open weights alone cannot resolve the concentration of AI power because access to computing infrastructure remains concentrated.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As Stock points out, this way, &amp;ldquo;nobody can switch it off because it can run either on your infrastructure or on an infrastructure that you can trust.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-coding-cyber-the-biggest-impact" class="wp-block-heading"&gt;Coding + cyber = the biggest impact&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An open-weight model, though, does need the goods to back it up, and Mistral says ML4 is there, calling it &amp;ldquo;the best open model built in the West.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To back those claims, the company points to Terminal-Bench 4.0, one component of Artificial Analysis&amp;rsquo;s Coding Agent Index, where, by Mistral&amp;#8217;s numbers, &lt;a href="https://thenewstack.io/mistral-large-4-weights/" class="local-link"&gt;Le Chonk&lt;/a&gt; &amp;mdash; Mistral&amp;rsquo;s official nickname for ML4 &amp;mdash; ranks as the top open model in the world for agentic coding, scoring 41% to Muse Spark Open&amp;rsquo;s 6%, Kimi K3&amp;rsquo;s 21%, and just eking past GLM 5.3&amp;rsquo;s 40%.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce67ce0c&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce67ce0c" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="798" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1353f6a4-cybergym-e2e.png" alt="" class="wp-image-22842242"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;Click to enlarge image. &lt;em&gt;(&lt;em&gt;Source: Mistral&lt;/em&gt;)&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;What the graph doesn&amp;rsquo;t tell you,&amp;rdquo; Stock said, &amp;ldquo;is that it&amp;rsquo;s more efficient than the competitors,&amp;rdquo; adding that Le Chonk uses 47% fewer tokens per task on average than GLM 5.3. &amp;ldquo;It means that you can get things done way faster and at a lower cost,&amp;rdquo; he explained.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Coding prowess, however, wasn&amp;rsquo;t the startup&amp;rsquo;s only focus when training its model.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We identified, really, coding and cyber as the two main areas that impact and that can benefit our customers and help them transform their entire business with AI,&amp;rdquo; Stock said in the briefing.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So Mistral backed investments to advance the model&amp;rsquo;s cyber capabilities. In CyberGym E2E from the Artificial Analysis Cyber Index, which tests defensive cybersecurity capabilities, the French model once again pulls ahead of much of the competition, scoring 79% to GLM-5.3&amp;rsquo;s 29% (though Z.ai&amp;rsquo;s smaller GLM-5.3 Flash scored 74% in the same chart). In Mistral&amp;rsquo;s comparison, ML4 exceeded DeepSeek v4.1 Flash 1017&amp;rsquo;s 76% and tied MiMo-V2.6-Pro&amp;rsquo;s 79%.&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce67d68c&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce67d68c" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="801" height="449" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/e3dafb41-terminal-bench-4.0.png" alt="" class="wp-image-22842243"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;Click to enlarge image. (&lt;em&gt;Source: Mistral&lt;/em&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To that point, Stock explains how some Mistral customers are already putting the model to work, using it to support automated pen testing, where specialized agents analyze an application&amp;rsquo;s logs and test for potential entry points.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-breakneck-improvements-at-a-fraction-of-the-cost" class="wp-block-heading"&gt;Breakneck improvements, at a fraction of the cost&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When &lt;a href="https://thenewstack.io/mistral-large-4-weights/" class="local-link"&gt;Mistral launched ML4 in public preview at the start of October&lt;/a&gt;, it came after about two months of training on about 3,800 Nvidia Grace Blackwell GPUs in its European data centers. In the last three weeks, Stock says the model has undergone &amp;ldquo;significant improvement,&amp;rdquo; which he chalked up to the team&amp;rsquo;s reinforcement learning. Mistral&amp;rsquo;s own Terminal-Bench 4.0 score rose from 28% at preview to 41%.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I have no information about someone being able to do it with this amount of resources.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;More notably, he claims, the French company ran that reinforcement learning on only 10 megawatts of power, &amp;ldquo;a fraction of what all the competitors have.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When pressed on how Mistral can know with certainty that it&amp;rsquo;s more cost-efficient than its competitors, Stock told reporters, &amp;ldquo;I have no information about someone being able to do it with this amount of resources.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He also said Mistral&amp;rsquo;s resource efficiency means the French startup could advance further with the right investments: &amp;ldquo;If you give us 10 times more capital, then we&amp;rsquo;ll factor in these efficiency gains.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-mistral-wants-to-lead-the-frontier" class="wp-block-heading"&gt;Mistral wants to lead the frontier&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Throughout the embargoed briefing, Stock consistently referred to ML4 as &amp;ldquo;a stepping stone,&amp;rdquo; hinting at Mistral&amp;rsquo;s plans for what&amp;rsquo;s next.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One certainty? Developers can expect smaller versions of Le Chonk to ship in the coming months, with Stock confirming, &amp;ldquo;There&amp;rsquo;s going to be a family of models, and one of them is going to be on a laptop.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Mistral says ML4 can help software engineers modernize legacy codebases (where &lt;a href="https://thenewstack.io/penai-cobol-migration-benchmark/" class="local-link"&gt;OpenAI has recently made a striking leap for COBOL migration&lt;/a&gt;), as well as in finance, manufacturing, industrial engineering, and geospatial applications. Looking ahead, the French company seems to have its sights set on playing an even bigger role:&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We think the only way forward [is] to own the entire stack.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mistral-chonk-coding-model/"&gt;Mistral’s Large 4 open weights arrive with a 1-point coding lead over GLM-5.3: &amp;#8220;There’s nothing you can’t do with this model that you can do with competitors.&amp;#8221;&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>The French AI company calls Le Chonk “the best open agentic coding model in the world&amp;quot; — and says it is cheaper than anyone else.</content:encoded>
-    </item>
-    <item>
-      <title>AWS Elastic Beanstalk for regulated workloads: Built for the next decade, not just the first deploy</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/elastic-beanstalk-regulated-workloads/</link>
-      <dc:creator>Sabari Sawant</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 14:00:00 +0000</pubDate>
-      <category>Cloud Services</category>
-      <category>Compliance</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-aws-marketplace</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842208</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/c6c7a0c1-kamran-abdullayev-j077gtmuk2u-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital render of curved metallic ribs and light streaks against black space, representing resilient cloud infrastructure architecture" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c6c7a0c1-kamran-abdullayev-j077gtmuk2u-unsplash.jpg" /&gt;&lt;p&gt;For more than a decade, the managed application platform industry has optimized around a compelling promise: get code running as&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/elastic-beanstalk-regulated-workloads/"&gt;AWS Elastic Beanstalk for regulated workloads: Built for the next decade, not just the first deploy&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/c6c7a0c1-kamran-abdullayev-j077gtmuk2u-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Dark abstract 3D digital render of curved metallic ribs and light streaks against black space, representing resilient cloud infrastructure architecture" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/c6c7a0c1-kamran-abdullayev-j077gtmuk2u-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;For more than a decade, the managed application platform industry has optimized around a compelling promise: get code running as quickly as possible.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Five-minute deployments. Git-based workflows. Minimal configuration. Infrastructure abstracted away from developers. That simplicity changed how software gets built, and for good reason. Application teams should spend more time building software and less time assembling infrastructure. But for organizations in regulated industries, getting an application running is only the beginning.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A patient scheduling system, financial application, government service, or aerospace workload may remain in production for years. During that time, operating systems need patching. Runtimes reach end of support. Security requirements evolve. Applications scale. Teams change. Auditors ask for evidence. Regulatory frameworks expand.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For these organizations, the question is no longer simply: How quickly can we deploy? It is: How easily can we deploy, and keep that application secure, supported, observable, auditable, and operational for years?&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The services built for fast starts also need to support long stays.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That is why platform selection for regulated workloads runs on three axes rather than one. Developer simplicity still matters. But compliance posture and service continuity decide whether that simplicity survives an audit or a roadmap change.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-missing-middle-in-regulated-industries" class="wp-block-heading"&gt;The missing middle in regulated industries&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Large enterprises often address this challenge by building specialized organizations around their applications: &lt;a href="https://thenewstack.io/why-up-to-70-of-platform-engineering-teams-fail-to-deliver-impact/" data-type="link" data-id="https://thenewstack.io/why-up-to-70-of-platform-engineering-teams-fail-to-deliver-impact/" class="local-link"&gt;platform engineering teams&lt;/a&gt;, SRE organizations, cloud centers of excellence, security engineering teams, FinOps practices, and dedicated compliance functions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Many mid-size organizations operate under similar regulatory expectations without comparable specialization. A healthcare software company still needs to satisfy HIPAA requirements. A financial services company still operates within PCI DSS or SOX controls. Government contractors encounter FedRAMP requirements.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Data residency, security reviews, vulnerability remediation, access controls, and audit evidence don&amp;#8217;t disappear just because an organization has fewer engineers. Regulatory obligations do not scale down with the size of the engineering organization.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That creates a difficult operating equation. These teams need production-grade infrastructure and strong governance. But every hour their application developers spend maintaining deployment infrastructure, investigating platform issues, patching underlying systems, or reconciling configuration is an hour not spent improving the applications the business depends on. Workforce shortages in specialized IT roles compound the problem: the team keeping a patient scheduling application running is frequently the same team preparing audit evidence. This is not a question of technical maturity. It is an operating-model problem.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-applications-already-exist" class="wp-block-heading"&gt;The applications already exist&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Modernization discussions often begin with the destination: containers, cloud-native architectures, microservices, and increasingly sophisticated infrastructure platforms. Regulated organizations rarely have the luxury of beginning with a blank sheet of paper.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A mid-size healthcare organization might operate patient portal front-ends on Java and Tomcat, HL7 integration services on .NET and IIS, patient intake workflows in PHP, and lab data pipelines in Python. All in audit scope, all maintained by the same small team that also manages network security and prepares evidence for the next compliance review. Every organization has a modernization roadmap. Most are longer than the compliance calendar is patient.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Every organization has a modernization roadmap. Most are longer than the compliance calendar is patient.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That creates an important test for any application platform intended for this market: Can it improve how organizations operate the applications they have today, not only the applications they hope to build tomorrow?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A Java Spring Boot application packaged as a JAR file should deploy without containerization, without a Dockerfile, without a container registry. A .NET Framework application running on IIS should deploy to Windows Server environments.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That workload has no equivalent managed path on most modern platforms that focus exclusively on Linux containers. A Python service processing regulatory reports should deploy alongside a Java integration service in the same portfolio, managed through the same interface, with the same operational model applying to both. Modernization should not require transformation before organizations can realize operational benefits.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-from-an-application-problem-to-a-portfolio-problem" class="wp-block-heading"&gt;From an application problem to a portfolio problem&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Managing one production application is an engineering problem. Managing dozens of independently operated applications becomes an operating-model problem. Consider an organization with 30 applications, each provisioned and managed independently. Each application brings its own deployment configuration, scaling model, monitoring setup, patching cadence, security controls, runtime lifecycle, and operational procedures.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For regulated organizations, that fragmentation carries another cost: evidence. Controls have to be understood. Exceptions have to be documented. Patching needs to be demonstrated. Security findings need to be remediated. Operational practices need to be defensible.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Compliance programs rarely fail because of a single application. They fail because of drift.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As the application portfolio grows, operational inconsistency becomes the largest source of complexity. The problem is not infrastructure cost. It is the multiplication of operational responsibility, and the enemy has a name: drift. Five applications deployed five different ways, each with its own conventions, gaps, and undocumented exceptions. Compliance programs rarely fail because of a single application. They fail because of drift.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The application platform therefore has a second job beyond making deployment easier: help create a repeatable operational model across applications, and &lt;a href="https://thenewstack.io/the-engineers-guide-to-controlling-configuration-drift/" data-type="link" data-id="https://thenewstack.io/the-engineers-guide-to-controlling-configuration-drift/" class="local-link"&gt;make drift visible&lt;/a&gt; before it becomes an audit finding.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So what kind of platform addresses drift without removing the visibility regulated teams require?&lt;/p&gt;
-
-
-
-&lt;h2 id="h-managed-simplicity-visible-control" class="wp-block-heading"&gt;Managed simplicity, visible control&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The answer is not to hide infrastructure completely. For regulated workloads, abstraction without sufficient visibility creates a different problem. A service that abstracts infrastructure without providing audit visibility creates a compliance gap that no amount of developer experience can close.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The people accountable for the workload need to understand where it runs, how access is controlled, how networking is configured, how security policies apply, what gets patched, what changed, and what evidence is available to auditors. The more useful model is managed operational responsibility with appropriate customer visibility and control.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The application team provides its application and configuration. The platform automates the repetitive infrastructure work required to run it: provisioning, deployment, capacity management, load balancing, health monitoring, scaling, and platform maintenance. At the same time, the workload stays within the organization&amp;rsquo;s cloud environment, where its identity, networking, monitoring, security, and governance models still apply.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The right model delivers simplicity and account-level visibility, because the people accountable for the workload need both.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/elastic-beanstalk-operational-ownership/" data-type="link" data-id="https://thenewstack.io/elastic-beanstalk-operational-ownership/" class="local-link"&gt;AWS Elastic Beanstalk&lt;/a&gt; has operated this model since 2011. A team provides application source code or a Dockerfile and configuration. The service orchestrates the AWS resources needed to run it: compute capacity, load balancing, auto-scaling, health monitoring, and deployment workflows. Environments run in the team&amp;rsquo;s own AWS account, not behind an opaque abstraction.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;A service that abstracts infrastructure without providing audit visibility creates a compliance gap that no amount of developer experience can close.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That transparency distinction matters for compliance. Elastic Beanstalk is HIPAA-eligible and appears among AWS services in scope of SOC, PCI, ISO, and FedRAMP. Regulated industries ask about these frameworks by name. The claim is verifiable: organizations can download third-party audit reports through AWS Artifact and hand them directly to their own assessors.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-from-individual-environments-to-a-shared-operational-baseline" class="wp-block-heading"&gt;From individual environments to a shared operational baseline&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Over more than a decade of operating this model, AWS has spoken with more than 10,000 customers about how they build, deploy, and operate applications. Those conversations reinforced something important: customers were not asking us to choose between simplicity and production readiness. They wanted both. They wanted application developers to deploy without becoming infrastructure specialists. They wanted existing applications to benefit from managed operations without rewriting every workload first.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;They wanted AWS to take on more repetitive operational work while retaining the visibility, security boundaries, and controls their organizations require. And as their application portfolios grew, they wanted the operational model to grow with them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The portfolio dimension matters most in this evolution. When each environment operates independently (its own deployment pipeline, scaling configuration, and patching schedule), the operational surface area grows linearly with the portfolio.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Elastic Beanstalk&amp;rsquo;s new Cluster Mode addresses this directly: multiple applications share managed infrastructure with a consistent operational baseline.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The implication for regulated teams is structural. The difference between twelve isolated environments and one shared operational baseline is not incremental cost savings. It reduces duplicated infrastructure controls, provides a consistent platform-maintenance model, and gives assessors one operational baseline to evaluate. Application code and dependency patching remain workload-specific. One operational model, applied across the portfolio, turns consistency from an aspiration into evidence an assessor can verify.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-production-readiness-is-about-time" class="wp-block-heading"&gt;Production readiness is about time&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What happens six months after deployment? What happens when a runtime reaches end of support? What happens when the security organization introduces a new requirement? What happens when an auditor asks for evidence? What happens when the organization grows from five applications to fifty? And what happens when the platform itself changes direction?&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These are not edge cases for regulated industries. They are part of the expected lifecycle of production software. Among engineering leaders in healthcare, aerospace, defense, and finance, service continuity now ranks as the top evaluation criterion, ahead of developer experience and pricing. The industry spent a decade optimizing for developer onboarding speed. Regulated teams need platforms built for long-term operations.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/elastic-beanstalk-regulated-workloads/"&gt;AWS Elastic Beanstalk for regulated workloads: Built for the next decade, not just the first deploy&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AWS Elastic Beanstalk gives regulated organizations the visibility and compliance controls needed for long-term operational stability.</content:encoded>
-    </item>
-    <item>
-      <title>“I don’t think the world needs a new GitHub”: What GitHub’s leaders really think about their new rivals</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/github-agentic-infrastructure-rebuild/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 13:30:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Infrastructure</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842113</guid>
-      <description>&lt;img width="1024" height="498" src="https://cdn.thenewstack.io/media/2026/10/4b27efd0-daigle-parikh-github-26-1024x498.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/4b27efd0-daigle-parikh-github-26-scaled.jpg" /&gt;&lt;p&gt;At its annual Universe &amp;#8217;26 conference in San Francisco this week, GitHub took to the question of the platform&amp;#8217;s stability&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-agentic-infrastructure-rebuild/"&gt;“I don&amp;#8217;t think the world needs a new GitHub”: What GitHub&amp;#8217;s leaders really think about their new rivals&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="498" src="https://cdn.thenewstack.io/media/2026/10/4b27efd0-daigle-parikh-github-26-1024x498.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/4b27efd0-daigle-parikh-github-26-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;At its annual Universe &amp;#8217;26 conference in San Francisco this week,&lt;/strong&gt; GitHub took to the &lt;a href="https://thenewstack.io/github-2-9b-monthly-commits/" class="local-link"&gt;question of the platform&amp;#8217;s stability&lt;/a&gt; head-on. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The code-hosting company spent a significant part of the event&amp;#8217;s keynote to talk about the investments it is making. That includes &lt;a href="https://thenewstack.io/github-7-4b-commits-september/" class="local-link"&gt;adding 4 million cores and 160 petabytes of storage&lt;/a&gt;, along with a full rearchitecting of its backend infrastructure.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But at a press conference and in interviews with &lt;em&gt;The New Stack&lt;/em&gt; after the keynote, the leadership team of &lt;a href="https://www.linkedin.com/in/jayparikh" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jay Parikh&lt;/a&gt;, the executive VP of CoreAI at Microsoft who now leads GitHub, and GitHub COO &lt;a href="https://www.linkedin.com/in/kyledaigle/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kyle Daigle&lt;/a&gt; also answered questions about what GitHub&amp;#8217;s role is in this changing developer landscape &amp;mdash; and how they feel about some of the &lt;a href="https://thenewstack.io/cursor-origin-github-alternative/" class="local-link"&gt;competition that is now popping up&lt;/a&gt; in response to these changes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s a timely question, since former GitHub CEO Thomas Dohmke launched a &lt;a href="https://thenewstack.io/entire-trails-agentic-code-review/" class="local-link"&gt;GitHub alternative&lt;/a&gt; just a few days before GitHub&amp;#8217;s conference.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked about &lt;a href="https://thenewstack.io/thomas-dohmke-interview-entire/" class="local-link"&gt;Entire, Dohmke&amp;#8217;s startup&lt;/a&gt;, at the press conference &amp;mdash; and Microsoft&amp;#8217;s M12 investment arm funding of Entire &amp;mdash; Daigle diplomatically noted that Microsoft often invests in tools &amp;#8220;that compete not only with GitHub but with the entirety of the Microsoft product estate. And that&amp;#8217;s a good thing. That&amp;#8217;s not a bad thing.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle noted that GitHub operates at a global scale, serves more than 225 million developers, and keeps iterating to better serve them.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I don&amp;#8217;t think the world needs a new GitHub.&amp;#8221;&lt;br&gt;&amp;mdash;GitHub COO Kyle Daigle&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I don&amp;#8217;t think the world needs a new GitHub,&amp;#8221; he said. &amp;#8220;They might need different tools. That&amp;#8217;s great, but what they need is [GitHub] to evolve for the agentic era, which is what we&amp;#8217;re doing. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The stats for the Git layer that we showed today kind of speak for themselves.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce687c05&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce687c05" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/1973762f-img_5949-edit-1024x768.jpg" alt="" class="wp-image-22842149"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: The New Stack&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle stressed to &lt;em&gt;The New Stack&lt;/em&gt; the role GitHub plays in the overall software development ecosystem &amp;mdash; spanning individual developers, large open source projects, and Fortune 100 enterprises.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle argued that the conversation about new Git forges, or version control forges more broadly, focuses too narrowly on companies and the economic use of those platforms. &amp;#8220;I think that loses a core component of the problem,&amp;#8221; he told &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;We&amp;#8217;ve never been the only Git host. We&amp;#8217;ve never been the only SCM host,&amp;#8221; Daigle said, pointing to Perforce and other options companies have relied on for years. What sets GitHub apart, he argued, is hosting all developers together at scale, rather than focusing only on enterprises or only on open source. &amp;#8220;I don&amp;#8217;t see folks trying to go solve that problem. They&amp;#8217;re trying to solve a part of the problem,&amp;#8221; he said. &amp;#8220;There are places where they&amp;#8217;re very opinionated and doing it in a unique way. I think that&amp;#8217;s always been true.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle&amp;#8217;s argument, at its core, is that it is much easier to build tools that focus on the enterprise. At least for now, that is where Entire and most other Git forges have their focus.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;More sharply, Daigle said this moment &amp;#8220;feels similar to the end of the zero interest rate era,&amp;#8221; when &amp;#8220;there were a lot of really talented, interesting developer tools, but they were just incredibly narrow.&amp;#8221; He added: &amp;#8220;Luckily, a lot of those folks ended up joining GitHub &amp;mdash; and doing some really great work.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;GitHub may not think there needs to be a new GitHub, but developers clearly do.&amp;#8221; &lt;br&gt;&amp;mdash;Entire CEO Thomas Dohmke&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-entire-s-reaction" class="wp-block-heading"&gt;Entire&amp;#8217;s reaction&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked by &lt;em&gt;The New Stack &lt;/em&gt;to comment on Daigle&amp;#8217;s assessment that the world doesn&amp;#8217;t need a new GitHub, Dohmke provided the following statement: &amp;#8220;GitHub may not think there needs to be a new GitHub, but developers clearly do. Do we really want to put the future of software development and open source into the hands of a single big tech company? We are building &lt;a href="https://thenewstack.io/entire-trails-agentic-code-review/" class="local-link"&gt;Entire&lt;/a&gt; so the new home of the community is open source, scalable, and resident in many regions around the world.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-platforms-versus-products" class="wp-block-heading"&gt;Platforms versus products&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With new competition for users debuting in the form of Dohmke&amp;#8217;s Entire platform, Parikh emphasized the importance of GitHub&amp;#8217;s user community and the platform it offers at Wednesday&amp;#8217;s press conference: &amp;ldquo;With how fast the world is changing around how we build and the lifecycle of software, the power of the community, I think, is more important than it&amp;rsquo;s ever been in terms of what we&amp;rsquo;re creating, how we&amp;rsquo;re sharing, how we&amp;rsquo;re learning together.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Parikh made a similar point in a later interview with&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;, drawing a distinction between individual development tools and the platform that supports them when asked about the competitive landscape GitHub now faces.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;GitHub and Microsoft have always been platform companies,&amp;rdquo; he said. &amp;ldquo;So much of what&amp;rsquo;s out there are products, and yes, we have products, and we have platforms.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For Parikh, that means offering a complete development workflow while also letting developers choose which pieces they use. Or as Daigle put it, &amp;ldquo;we&amp;#8217;ll give you the full flow, or we&amp;#8217;ll give you the primitives, which I think is what most companies want. Everyone&amp;#8217;s interested in what is the one way to do this, but nobody wants to buy the only way. They want to have the optionality and the choice.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-where-agents-break-things" class="wp-block-heading"&gt;Where agents break things&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Supporting those varied workflows ended up forcing GitHub to reconsider some of the assumptions the team had made about which services were most likely to fail.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The places that have failed are not the places we would have expected to fail historically, because agents act in such a different way than a human being,&amp;#8221; Daigle said. &amp;ldquo;Some services that were scaling perfectly, and we thought were good to go for quite some time, had a surprising failure.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6ae9cce6884af&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6ae9cce6884af" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/91c580ab-img_5947-1024x768.jpg" alt="" class="wp-image-22842150"/&gt;&lt;button
-			class="lightbox-trigger"
-			type="button"
-			aria-haspopup="dialog"
-			data-wp-bind--aria-label="state.thisImage.triggerButtonAriaLabel"
-			data-wp-init="callbacks.initTriggerButton"
-			data-wp-on--click="actions.showLightbox"
-			data-wp-style--right="state.thisImage.buttonRight"
-			data-wp-style--top="state.thisImage.buttonTop"
-		&gt;
-			&lt;svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 12 12"&gt;
-				&lt;path fill="#fff" d="M2 0a2 2 0 0 0-2 2v2h1.5V2a.5.5 0 0 1 .5-.5h2V0H2Zm2 10.5H2a.5.5 0 0 1-.5-.5V8H0v2a2 2 0 0 0 2 2h2v-1.5ZM8 12v-1.5h2a.5.5 0 0 0 .5-.5V8H12v2a2 2 0 0 1-2 2H8Zm2-12a2 2 0 0 1 2 2v2h-1.5V2a.5.5 0 0 0-.5-.5H8V0h2Z" /&gt;
-			&lt;/svg&gt;
-		&lt;/button&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Credit: The New Stack&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Those failures began emerging in early summer, prompting GitHub to look beyond adding capacity as the main solution.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It&amp;rsquo;s not just increasing the number of cores, the overall horizontal scaling, but looking at core services that need to be completely rewritten because the behavior pattern is so incredibly different,&amp;rdquo; Daigle said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Parikh, whose experience includes scaling infrastructure at Facebook and Akamai, said the current growth rate makes incremental improvements pointless.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You have to take a full systems look at it,&amp;rdquo; he said. &amp;ldquo;Getting five or 10% here or there, it lasts you two weeks or a week now.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What makes all of this harder is that GitHub has to make those changes while keeping the service running and compatible with existing workflows. And in the meantime, the traffic patterns are changing, too, Parikh said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The traffic patterns are also not static right now &amp;#8230; We optimized CPU, and now all of a sudden the bottleneck is going to move somewhere, and then you&amp;rsquo;re like, &amp;lsquo;Oh, I thought it would show up here, but it showed up here.&amp;rsquo; Right now, the good news is you do these in staged rollouts. You test these things, and then you adjust,&amp;rdquo; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One substantial architectural change the team has committed to is separating compute from storage in GitHub&amp;rsquo;s Git infrastructure. This now allows the company to more easily scale each according to demand.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Depending on what that traffic is, time of day, who&amp;rsquo;s using it and what type of product offering sits on top of it, you can scale these things independently and optimize for how that compute workload changes and how that storage workload changes,&amp;rdquo; Parikh said at the press conference.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/github-will-prioritize-migrating-to-azure-over-feature-development/" class="local-link"&gt;Moving from GitHub&amp;rsquo;s own data centers to Azure&lt;/a&gt; also provides more capacity, geographic flexibility and redundancy, Parikh said, which the existing facilities could not offer. But he also stressed that the work remains unfinished and includes additional changes to harden and scale GitHub Actions, for example.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We can&amp;rsquo;t add the capacity. We don&amp;rsquo;t have the scale in those fixed data centers that GitHub has operated on, and so moving into cloud infrastructure that gives us flexibility and scale and location and redundancy and network and all that is much better for us,&amp;rdquo; Parikh told &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-keeping-free-repos-free" class="wp-block-heading"&gt;Keeping free repos free&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Interestingly, these architecture changes also affect the economics of hosting all open-source code and free repositories on GitHub.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle said that separating compute and storage should reduce the cost of storing Git repositories, helping GitHub maintain access as developers and their agents create more work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle said GitHub has a responsibility to its community. Suddenly limiting developers to a handful of private repositories &amp;ldquo;breaks the whole contract of what GitHub is,&amp;#8221; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle said anyone writing code, whether they&amp;#8217;ve done it for years or are just starting, should have a home on GitHub. &amp;#8220;A repo should not be hidden out on your laptop, or [be] an HTML file shared between friends,&amp;#8221; he said. &amp;#8220;We have a place for that.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He did, however, distinguish that commitment from the cost of supplying AI models. GitHub cannot give everyone unlimited free tokens, he said, and has had to decide &lt;a href="https://thenewstack.io/github-copilot-usage-billing/" class="local-link"&gt;where to subsidize access&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-rethinking-git-and-verification" class="wp-block-heading"&gt;Rethinking Git and verification&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Beyond GitHub&amp;rsquo;s own infrastructure, Daigle also sees room to change Git itself. He wants the company to work with the community on its underpinnings and sees a role for something like &amp;ldquo;a porcelain layer on top of Git,&amp;rdquo; which he described as a higher-level interface that simplifies access to the underlying system.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle said GitHub needs to &amp;#8220;assert our role in the community&amp;#8221; and work with established and new players alike to rethink some of Git&amp;#8217;s underpinnings. &amp;#8220;They kind of didn&amp;#8217;t make sense before the agent change,&amp;#8221; he said, &amp;#8220;and now they really, really don&amp;#8217;t make sense.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At the same time, though, Daigle remains cautious about whether this agentic era needs an entirely different version control system.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I want to know we need to move before we move,&amp;#8221; he said. &amp;#8220;I don&amp;#8217;t think we&amp;#8217;re done with [Git] yet. I just think we do need to lean in more.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You actually need to review it, you need to push it into production, you need to run other workflows, you need to do AI scanning for security issues,&amp;rdquo; Parikh said at the press conference.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Daigle expects verification &amp;mdash; reviewing, testing, and deciding whether software should reach production &amp;mdash; to become the next bottleneck.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Daigle expects verification &amp;mdash; reviewing, testing, and deciding whether software should reach production &amp;mdash; to become the next bottleneck. He argued that even unlimited CPUs wouldn&amp;#8217;t make running every build after every agent commit desirable.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If I have 5 or 10 agents running at a single time, I don&amp;rsquo;t actually want or need all those builds for the sake of the agent,&amp;rdquo; he said. &amp;ldquo;And that requires a change in behavior for the agents or the humans involved.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Among the possibilities he raised were signing locally executed builds and submitting them with an agent&amp;rsquo;s work, selecting a smaller set of relevant tests, and exploring proof-driven development. The right combination of tests, evaluations and live verification will depend on the application.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you&amp;rsquo;re an automaker, you&amp;rsquo;re not going to say, &amp;lsquo;Well, I&amp;rsquo;ll let my agent check if the brake caliper was engaged or not,&amp;rsquo;&amp;rdquo; he said.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/github-agentic-infrastructure-rebuild/"&gt;“I don&amp;#8217;t think the world needs a new GitHub”: What GitHub&amp;#8217;s leaders really think about their new rivals&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>GitHub is rebuilding its backend for AI agents. Its leaders tell The New Stack what broke, how free repos stay free, and why the world doesn&amp;#039;t need a new GitHub.</content:encoded>
     </item>
   </channel>
 </rss>
