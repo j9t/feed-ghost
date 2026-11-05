@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Tue, 03 Nov 2026 23:27:40 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 03:23:50 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,1096 @@
       <height>32</height>
     </image>
     <item>
+      <title>Anthropic found a way to prove which AI model answered you — but there’s a costly catch</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-flashprove-model-verification/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Wed, 04 Nov 2026 22:50:18 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Open Source</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842743</guid>
+      <description>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/11/caa0e2d8-chloe-f5wzv43ls-0-unsplash-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract window scene" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/caa0e2d8-chloe-f5wzv43ls-0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Developers using AI APIs have little way of knowing whether the model answering their requests is actually the one they&amp;#8217;re&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-flashprove-model-verification/"&gt;Anthropic found a way to prove which AI model answered you — but there&amp;#8217;s a costly catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="724" src="https://cdn.thenewstack.io/media/2026/11/caa0e2d8-chloe-f5wzv43ls-0-unsplash-1024x724.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract window scene" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/caa0e2d8-chloe-f5wzv43ls-0-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Developers using AI APIs have little way of knowing whether the model answering their requests is actually the one they&amp;rsquo;re paying for. A provider could route requests to a cheaper model, or an attacker could interfere with responses, without customers having an obvious way to detect the switch.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now, Anthropic wants to change that. The company&amp;rsquo;s Frontier Red Team has released &lt;a href="https://www.anthropic.com/research/provable-inference" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;FlashProve&lt;/a&gt;, an open-source cryptographic system designed to verify which AI model produced a response without exposing its underlying weights.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://x.com/AnthropicAI/status/2117710942826123294" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Announced Tuesday&lt;/a&gt;, the research could eventually help developers verify third-party AI services and detect compromised inference systems. But FlashProve remains a research prototype, and the cost of generating proofs makes it impractical for routine API traffic.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;But FlashProve remains a research prototype, and the cost of generating proofs makes it impractical for routine API traffic.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-how-flashprove-proves-the-model" class="wp-block-heading"&gt;How FlashProve proves the model&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;FlashProve uses &lt;a href="https://www.anthropic.com/research/provable-inference" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;zkSNARKs&lt;/a&gt; to verify that a response came from a specific set of model weights without revealing those weights. The commitment still has to come from a trusted source, or the proof means little.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic has released &lt;a href="https://github.com/anthropics/FlashProve" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;FlashProve on GitHub&lt;/a&gt;, where developers can download the code and test the system themselves. It&amp;rsquo;s still a research prototype, however, and isn&amp;rsquo;t available as a feature of the Claude API.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-cost-of-every-proof" class="wp-block-heading"&gt;The cost of every proof&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic tested FlashProve on Meta&amp;rsquo;s Llama 4 Maverick, a 400-billion-parameter mixture-of-experts model, rather than Claude.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to Anthropic&amp;rsquo;s &lt;a href="https://www.anthropic.com/research/provable-inference" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;benchmarks&lt;/a&gt;, FlashProve processed roughly 110 prompt tokens per second while generating proofs on a single Nvidia H100 GPU. Each proof was about 18.78 MB and took around 21 seconds to verify on a single CPU thread. Generating the proof is far more expensive than checking it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Compared with standard inference using vLLM, FlashProve needed 70 to 95 times more GPU time to generate proofs. It also generates them in batches after requests are completed, rather than verifying tokens as they&amp;rsquo;re delivered.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;FlashProve cuts proof sizes to roughly 19 MB and verification times to seconds&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;FlashProve cuts proof sizes to roughly 19 MB and verification times to seconds, although generating those proofs remains expensive and less practical for applications that need immediate verification of every response.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For developers already &lt;a href="https://thenewstack.io/minimax-flash-agent-costs/" class="local-link"&gt;watching every token of their inference spend&lt;/a&gt;, adding that much GPU overhead would be difficult to justify for routine API traffic.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Still, Anthropic says FlashProve is substantially faster than previous open-source systems. An earlier system called &lt;a href="https://github.com/JamesPetrie/VerInf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;VerInf&lt;/a&gt; needed 14.3 hours to generate a proof covering 1,000 tokens. The resulting proof was 93.6 GB and took almost a day to verify. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-claude-built-it-humans-verified" class="wp-block-heading"&gt;Claude built it, humans verified&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic credits Claude with much of FlashProve&amp;rsquo;s development, including optimizations that made its cryptographic proofs substantially faster. But the researchers still had to verify that those improvements hadn&amp;rsquo;t compromised the protocol&amp;rsquo;s security guarantees.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The team used &lt;a href="https://www.anthropic.com/research/provable-inference" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lean&lt;/a&gt; to formally verify the protocol&amp;rsquo;s mathematical properties, including that it accepts valid proofs, rejects forged proofs with overwhelming probability, and doesn&amp;rsquo;t reveal the model&amp;rsquo;s weights beyond what the responses disclose.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;FlashProve includes two verifiers: a faster C++ implementation and a Lean version backed by formal proofs. The C++ verifier passed Anthropic&amp;rsquo;s comparison tests, but it hasn&amp;rsquo;t been formally verified. Neither has the GPU prover.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic says the C++ verifier and GPU prover have been tested against the formally defined protocol, but neither has the same mathematical guarantees as the Lean implementation.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-why-flashprove-isn-t-production-ready" class="wp-block-heading"&gt;Why FlashProve isn&amp;rsquo;t production-ready&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;FlashProve is still limited to 1,024 tokens of context. It also uses integer-based inference and greedy decoding, while production models typically rely on floating-point calculations and sampling.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s no indication of when, or whether, FlashProve will make its way into the Claude API.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s no indication of when, or whether, FlashProve will make its way into the Claude API. Anthropic describes the &lt;a href="https://github.com/anthropics/FlashProve" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub release&lt;/a&gt; as a research artifact that isn&amp;#8217;t being maintained or accepting contributions.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-flashprove-model-verification/"&gt;Anthropic found a way to prove which AI model answered you — but there&amp;#8217;s a costly catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic’s FlashProve uses cryptographic proofs to verify which AI model answered your request without exposing its weights. The catch is the cost.</content:encoded>
+    </item>
+    <item>
+      <title>Render just removed its AI sandbox time limit — and Vercel still has a 24-hour cap</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/render-vercel-ai-sandboxes/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Wed, 04 Nov 2026 18:04:17 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Cloud Services</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842701</guid>
+      <description>&lt;img width="1024" height="607" src="https://cdn.thenewstack.io/media/2026/11/88af2b32-getty-images-1rdhxhol-xu-unsplash-1024x607.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Man working inside an hour glass" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/88af2b32-getty-images-1rdhxhol-xu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Render is taking on Vercel with AI sandboxes that can run indefinitely, along with new tools for managing long-running agent&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/render-vercel-ai-sandboxes/"&gt;Render just removed its AI sandbox time limit — and Vercel still has a 24-hour cap&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="607" src="https://cdn.thenewstack.io/media/2026/11/88af2b32-getty-images-1rdhxhol-xu-unsplash-1024x607.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Man working inside an hour glass" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/88af2b32-getty-images-1rdhxhol-xu-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Render is taking on Vercel with AI sandboxes that can run indefinitely, along with new tools for managing long-running agent workflows and shared storage.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Announced Wednesday, the launch removes &lt;a href="https://render.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Render&lt;/a&gt;&amp;rsquo;s previous 30-day continuous runtime limit on paid workspace plans. Vercel caps individual sandbox sessions at 24 hours, while Render says its environments can suspend when idle and resume with their files, memory and running processes intact.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render founder and CEO &lt;a href="https://www.linkedin.com/in/anuragoel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anurag Goel&lt;/a&gt;, a former Stripe engineer and head of risk, built the platform as an alternative to AWS without the same infrastructure complexity. Now he&amp;#8217;s extending that approach to AI agents, combining sandboxes, durable workflows, and shared storage with the applications and databases they depend on.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Not everything is ready yet. Credential brokering will initially be available only to selected customers, private networking for sandboxes is still in development, and Render has yet to settle how its shared storage will handle simultaneous writes to the same file.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-sandboxes-that-resume-mid-task" class="wp-block-heading"&gt;Sandboxes that resume mid-task&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With this launch, Render sandboxes can stay active through a multi-day codebase migration or while an agent tests an entire application.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The bigger difference comes when a sandbox needs to resume work. Vercel &lt;a href="https://vercel.com/changelog/vercel-sandbox-can-now-run-for-up-to-24-hours" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;limits uninterrupted sessions to 24 hours&lt;/a&gt;, and while persistent sandboxes can restart, their running processes start over.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render takes a different approach. A sandbox &amp;ldquo;suspends when it goes idle and wakes on the next command with its files and memory intact, so the agent picks up mid-task instead of rebuilding its state,&amp;rdquo; the company tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;suspends when it goes idle and wakes on the next command with its files and memory intact, so the agent picks up mid-task instead of rebuilding its state.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;h2 id="h-credentials-that-never-enter" class="wp-block-heading"&gt;Credentials that never enter&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One of the launch&amp;rsquo;s security features is credential brokering, which attaches credentials to an agent&amp;rsquo;s outbound requests as they leave the sandbox so that secrets never enter it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Pressed on whether that sets Render apart from Vercel, which already offers scoped credentials for agents through its Connect service and has &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/" class="local-link"&gt;been pushing its own vendors toward short-lived credentials&lt;/a&gt;, the company does not claim an edge. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Credential brokering &amp;ldquo;is not a competitive differentiator&amp;rdquo; and &amp;ldquo;is rapidly becoming table stakes,&amp;rdquo; Render tells &lt;em&gt;The New Stack&lt;/em&gt;, calling it &amp;ldquo;a feature we believe users of Render will appreciate having access to, rather than one users of other platforms will migrate for.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render tells &lt;em&gt;The New Stack&lt;/em&gt;, it is &amp;ldquo;turning credential brokering on for small groups of customers first to make sure the experience meets our quality bar&amp;rdquo; before expanding in the coming weeks, while every developer in the beta gets outbound controls that can &amp;ldquo;block all traffic from a sandbox or allow only the domains you list.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s larger argument is that the sandbox matters less than everything around it. Developers choose Render over Vercel, the company contends, because an agent usually has to run inside a larger product and do heavy background work that needs an API staying up and holding its database connections, along with background workers, cron jobs, and the database itself.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-compute-flexibility-less-complexity" class="wp-block-heading"&gt;Compute flexibility, less complexity&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Vercel started with the frontend and serverless functions and is strong there; Render allows, but the company tells &lt;em&gt;The New Stack&lt;/em&gt; that Vercel&amp;rsquo;s &amp;ldquo;underlying &amp;lsquo;fluid compute&amp;rsquo; model is inflexible and inefficient for running the compute-heavy backend workloads that agentic applications depend on,&amp;rdquo; noting that a single function &amp;ldquo;tops out at 2 CPUs and 4 GB of RAM,&amp;rdquo; a ceiling that applies to Vercel Functions rather than its sandboxes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render tells &lt;em&gt;The New Stack&lt;/em&gt;, it &amp;ldquo;gives developers the compute flexibility of AWS but takes the complexity off their plate.&amp;rdquo; &lt;a href="https://www.linkedin.com/in/cristianhg/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cristian Herrera&lt;/a&gt;, CTO of OCMI, which considered Vercel while moving away from AWS, tells Render that &amp;ldquo;Vercel is a different story,&amp;rdquo; adding that &amp;ldquo;if you need to do anything outside of Next.js, you&amp;rsquo;re fighting the platform.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;if you need to do anything outside of Next.js, you&amp;rsquo;re fighting the platform.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Vercel acknowledged &lt;em&gt;The New Stack&amp;rsquo;s&lt;/em&gt; request for comment but had not provided a statement by publication time.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-workflows-that-survive-crashes" class="wp-block-heading"&gt;Workflows that survive crashes&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render&amp;rsquo;s new Durable Workflows let developers resume long-running jobs after a failure without starting over. Developers can write workflows in Python or TypeScript, with individual tasks running for up to 24 hours. Render &amp;ldquo;saves the result of every step as it finishes,&amp;rdquo; the company tells &lt;em&gt;The New Stack&lt;/em&gt;. If a process crashes, the workflow can resume on a new machine using those saved results, so &amp;ldquo;model calls, payments, and database writes that have already succeeded don&amp;rsquo;t run again.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A risk remains if a process crashes after a payment goes through but before the result is saved. Render recommends using idempotency keys to prevent duplicate charges or database writes. Shared Filesystems let sandboxes and workflow tasks access the same persistent files, even after the compute that created them shuts down.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render says the feature is designed for &amp;ldquo;many agents reading the same repo or dataset, with each one writing its own output.&amp;rdquo; But handling &amp;ldquo;concurrent writes to the same file, including locking and conflict resolution, is something we&amp;rsquo;re still studying,&amp;rdquo; the company tells &lt;em&gt;The New Stack&lt;/em&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Render says AWS and Vercel are &amp;ldquo;the two platforms new users most often tell us they&amp;rsquo;re leaving today, citing complexity and &lt;a href="https://thenewstack.io/minimax-flash-agent-costs/" class="local-link"&gt;cost&lt;/a&gt; as major factors,&amp;rdquo; the company tells &lt;em&gt;The New Stack&lt;/em&gt;. Render doesn&amp;#8217;t yet have figures showing how many customers have migrated from Vercel.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Render says AWS and Vercel are &amp;ldquo;the two platforms new users most often tell us they&amp;rsquo;re leaving today&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/render-vercel-ai-sandboxes/"&gt;Render just removed its AI sandbox time limit — and Vercel still has a 24-hour cap&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Render is challenging Vercel with AI sandboxes that run indefinitely, plus durable workflows and shared storage for long-running agent jobs.</content:encoded>
+    </item>
+    <item>
+      <title>Fortra says AI could save file transfer admins up to 160 hours a year</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/failed-file-transfer-ai-troubleshooting/</link>
+      <dc:creator>Matthew Burns</dc:creator>
+      <pubDate>Wed, 04 Nov 2026 17:53:47 +0000</pubDate>
+      <category>AI Operations</category>
+      <category>DevOps</category>
+      <category>Observability</category>
+      <category>Operations</category>
+      <category>sponsor-fortra</category>
+      <category>sponsored-webinar</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842682</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/a62d5edd-mohamed-nohassi-rhjeofe8w4e-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract data-transfer visualization: two dense fields of red and pink dots stream inward from the left and right edges, converge into a narrow bright cyan-blue bundle of light streams at the center against a black background, suggesting data being compressed, channeled, or migrated through a bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/a62d5edd-mohamed-nohassi-rhjeofe8w4e-unsplash-scaled.jpg" /&gt;&lt;p&gt;Fortra makes software that moves files between companies on a schedule and says AI could give admins back up to&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/failed-file-transfer-ai-troubleshooting/"&gt;Fortra says AI could save file transfer admins up to 160 hours a year&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/06/a62d5edd-mohamed-nohassi-rhjeofe8w4e-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract data-transfer visualization: two dense fields of red and pink dots stream inward from the left and right edges, converge into a narrow bright cyan-blue bundle of light streams at the center against a black background, suggesting data being compressed, channeled, or migrated through a bottleneck." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/06/a62d5edd-mohamed-nohassi-rhjeofe8w4e-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Fortra makes software that moves files between companies on a schedule&lt;/strong&gt; and says AI could give admins back up to 160 hours a year. That&amp;#8217;s 3.1 hours a week admins would otherwise spend figuring out why a transfer failed.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Managed file transfer (MFT) sits behind payroll exports, bank settlements, and purchase orders. Fortra ships two MFT platforms, GoAnywhere MFT and Globalscape EFT. The new AI feature behind the estimate here is Guided Diagnostics, which works inside GoAnywhere.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://linkedin.com/in/heath-kath-66305a17" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Heath Kath&lt;/a&gt;, Team Lead, Solutions Engineering at Fortra, is joining me for a demonstration on Thursday, November 19, at noon (9 a.m. Pacific). Kath will run Guided Diagnostics against a simulated failure and take questions on how the estimate was built.&amp;nbsp;&lt;/p&gt;
+
+
+
+
+
+    &lt;div class="block--tns-airmeet-webinar"&gt;
+        &lt;div
+	id="tns-webinar-frame-content-block-airmeet"
+	class="webinar-content-block"
+	data-section="airmeet"
+&gt;
+	&lt;div class="section-heading"&gt;
+		REGISTER NOW FOR THIS WEBINAR
+	&lt;/div&gt;
+	&lt;div class="airmeet-container" data-event-id="7acb4990-cfd6-11f1-83fc-cbcabef94aa5"&gt;
+		&lt;div class="airmeet-inner"&gt;
+
+			&lt;!-- Registration Form: package this  --&gt;
+			&lt;form class="airmeet-webinar-form airmeet-registration-form"&gt;
+				&lt;input type="hidden" name="event_id" value="7acb4990-cfd6-11f1-83fc-cbcabef94aa5" /&gt;
+				&lt;input type="hidden" name="utm_source" value="" /&gt;
+				&lt;input type="hidden" name="utm_medium" value="" /&gt;
+				&lt;input type="hidden" name="utm_campaign" value="" /&gt;
+				&lt;input type="hidden" name="utm_term" value="" /&gt;
+				&lt;input type="hidden" name="utm_content" value="" /&gt;
+				&lt;div class="airmeet-questions"&gt;
+														&lt;label class="airmeet-question--choices"&gt;
+										&lt;p&gt;
+											Which best describes your current MFT environment?																							&lt;span class="airmeet-required"&gt;*&lt;/span&gt;
+																					&lt;/p&gt;
+										&lt;select data-question="Which best describes your current MFT environment?" name="airmeet-question-0" required&gt;
+											&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
+																							&lt;option value="We use Fortra GoAnywhere MFT or Globalscape EFT today"&gt;We use Fortra GoAnywhere MFT or Globalscape EFT today&lt;/option&gt;
+																							&lt;option value="We use a different MFT platform"&gt;We use a different MFT platform&lt;/option&gt;
+																							&lt;option value="We&amp;#039;re evaluating MFT platforms"&gt;We&amp;#039;re evaluating MFT platforms&lt;/option&gt;
+																							&lt;option value="We don&amp;#039;t currently use a dedicated MFT platform"&gt;We don&amp;#039;t currently use a dedicated MFT platform&lt;/option&gt;
+																					&lt;/select&gt;
+									&lt;/label&gt;
+													&lt;/div&gt;
+
+				&lt;div class="airmeet-questions airmeet-profile-fields" hidden&gt;
+					&lt;label&gt;
+						&lt;p&gt;Email &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+						&lt;input type="email" name="email" required /&gt;
+					&lt;/label&gt;
+					&lt;label&gt;
+						&lt;p&gt;First Name &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+						&lt;input type="text" name="first-name" required /&gt;
+					&lt;/label&gt;
+					&lt;label&gt;
+						&lt;p&gt;Last Name &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+						&lt;input type="text" name="last-name" required /&gt;
+					&lt;/label&gt;
+					&lt;label&gt;
+						&lt;p&gt;Job Role &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+						&lt;select name="job-role" required&gt;
+							&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
+							&lt;option value="ai-researcher"&gt;AI Researcher / Research Scientist&lt;/option&gt;
+							&lt;option value="architect"&gt;Architect&lt;/option&gt;
+							&lt;option value="business-development"&gt;Business Development/Marketing/Sales&lt;/option&gt;
+							&lt;option value="community-manager-devrel"&gt;Community Manager / Developer Advocate&lt;/option&gt;
+							&lt;option value="data-analyst"&gt;Data Analyst / Business Intelligence Analyst&lt;/option&gt;
+							&lt;option value="data-engineer"&gt;Data Engineer&lt;/option&gt;
+							&lt;option value="data-scientist"&gt;Data Scientist&lt;/option&gt;
+							&lt;option value="developer-engineer"&gt;Developer / Software Engineer&lt;/option&gt;
+							&lt;option value="devops-engineer"&gt;DevOps Engineer&lt;/option&gt;
+							&lt;option value="educator-instructor"&gt;Educator / Instructor&lt;/option&gt;
+							&lt;option value="enthusiast-hobbyist"&gt;Enthusiast/Hobbyist&lt;/option&gt;
+							&lt;option value="founder-investor-vc"&gt;Founder / Entrepreneur / Investor / VC&lt;/option&gt;
+							&lt;option value="it-management-cio-ciso-cto"&gt;IT management, including CIO/CISO/CTO/CDO&lt;/option&gt;
+							&lt;option value="machine-learning-engineer"&gt;Machine Learning Engineer&lt;/option&gt;
+							&lt;option value="ml-ops-engineer"&gt;MLOps Engineer / Infrastructure Engineer&lt;/option&gt;
+							&lt;option value="product-manager"&gt;Product Manager&lt;/option&gt;
+							&lt;option value="security-professional"&gt;Security / Privacy Professional&lt;/option&gt;
+							&lt;option value="statistician-quantitative-analyst"&gt;Statistician / Quantitative Analyst&lt;/option&gt;
+							&lt;option value="student"&gt;Student&lt;/option&gt;
+							&lt;option value="sysadmin-ops-sre"&gt;SysAdmin/Operations/SRE&lt;/option&gt;
+							&lt;option value="technical-writer"&gt;Technical Writer&lt;/option&gt;
+							&lt;option value="ui-ux-vis-designer"&gt;UX / UI Designer / Data Visualization Specialist&lt;/option&gt;
+						&lt;/select&gt;
+					&lt;/label&gt;
+
+					&lt;div class="airmeet-job-more-fields" hidden&gt;
+						&lt;label&gt;
+							&lt;p&gt;Job Level &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+							&lt;select name="job-level" required&gt;
+								&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
+								&lt;option value="C-Level"&gt;C-Level&lt;/option&gt;
+								&lt;option value="Founder/Owner"&gt;Founder/Owner&lt;/option&gt;
+								&lt;option value="VP/Director"&gt;VP/Director&lt;/option&gt;
+								&lt;option value="Manager/Supervisor"&gt;Manager/Supervisor&lt;/option&gt;
+								&lt;option value="Mid Level or Senior Non-Managerial Staff"&gt;Mid Level or Senior Individual Contributor&lt;/option&gt;
+								&lt;option value="Entry Level/Junior Staff"&gt;Entry Level or Junior Individual Contributor&lt;/option&gt;
+								&lt;option value="Freelancer/Contractor"&gt;Freelancer/Contractor&lt;/option&gt;
+								&lt;option value="Educator (Teacher, Instructor, Professor)"&gt;Educator (Teacher, Instructor, Professor)&lt;/option&gt;
+								&lt;option value="Student/Intern"&gt;Student/Intern&lt;/option&gt;
+								&lt;option value="Other"&gt;Other&lt;/option&gt;
+								&lt;option value="N/A"&gt;N/A&lt;/option&gt;
+							&lt;/select&gt;
+						&lt;/label&gt;
+						&lt;label&gt;
+							&lt;p&gt;Industry &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+							&lt;select name="industry" required&gt;
+								&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
+								&lt;option value="advertising-marketing"&gt;Advertising/Marketing&lt;/option&gt;
+								&lt;option value="aerospace-aviation"&gt;Aerospace/Aviation&lt;/option&gt;
+								&lt;option value="agriculture"&gt;Agriculture&lt;/option&gt;
+								&lt;option value="automotive"&gt;Automotive&lt;/option&gt;
+								&lt;option value="biotech-pharma"&gt;Biotech/Pharmaceutical&lt;/option&gt;
+								&lt;option value="business-services"&gt;Business Services (accounting, consulting, etc.)&lt;/option&gt;
+								&lt;option value="computers-it"&gt;Computers/Information Technology&lt;/option&gt;
+								&lt;option value="construction"&gt;Construction&lt;/option&gt;
+								&lt;option value="education"&gt;Education&lt;/option&gt;
+								&lt;option value="facilities"&gt;Facilities/Service Industry&lt;/option&gt;
+								&lt;option value="fintech"&gt;Finance/Financial Services (banking, insurance, etc.)&lt;/option&gt;
+								&lt;option value="government"&gt;Government&lt;/option&gt;
+								&lt;option value="healthcare"&gt;Healthcare&lt;/option&gt;
+								&lt;option value="human-resources"&gt;Human Resources&lt;/option&gt;
+								&lt;option value="legal"&gt;Legal&lt;/option&gt;
+								&lt;option value="life-sciences"&gt;Life sciences (biotech, pharmaceuticals, etc.)&lt;/option&gt;
+								&lt;option value="manufacturing"&gt;Manufacturing&lt;/option&gt;
+								&lt;option value="media"&gt;Media&lt;/option&gt;
+								&lt;option value="non-profit"&gt;Non-profit&lt;/option&gt;
+								&lt;option value="real-estate"&gt;Real Estate&lt;/option&gt;
+								&lt;option value="retail-consumer-goods"&gt;Retail/Consumer Goods&lt;/option&gt;
+								&lt;option value="telecommunications"&gt;Telecommunications&lt;/option&gt;
+								&lt;option value="transportation-logistics"&gt;Transportation/Logistics&lt;/option&gt;
+								&lt;option value="travel-hospitality-entertainment"&gt;Travel/Hospitality/Entertainment&lt;/option&gt;
+								&lt;option value="utilitiy-energy"&gt;Utility/Energy&lt;/option&gt;
+							&lt;/select&gt;
+						&lt;/label&gt;
+						&lt;label&gt;
+							&lt;p&gt;Organization &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+							&lt;input type="text" name="organization" required /&gt;
+						&lt;/label&gt;
+					&lt;/div&gt;
+
+					&lt;label&gt;
+						&lt;p&gt;Country &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+						&lt;select name="country" required&gt;
+							&lt;option value="" selected disabled&gt;Please select&lt;/option&gt;
+							&lt;option value="US"&gt;United States&lt;/option&gt;
+							&lt;option value="CA"&gt;Canada&lt;/option&gt;
+							&lt;option value="GB"&gt;United Kingdom&lt;/option&gt;
+							&lt;option value="AF"&gt;Afghanistan&lt;/option&gt;
+							&lt;option value="AL"&gt;Albania&lt;/option&gt;
+							&lt;option value="DZ"&gt;Algeria&lt;/option&gt;
+							&lt;option value="AD"&gt;Andorra&lt;/option&gt;
+							&lt;option value="AO"&gt;Angola&lt;/option&gt;
+							&lt;option value="AG"&gt;Antigua and Barbuda&lt;/option&gt;
+							&lt;option value="AR"&gt;Argentina&lt;/option&gt;
+							&lt;option value="AM"&gt;Armenia&lt;/option&gt;
+							&lt;option value="AU"&gt;Australia&lt;/option&gt;
+							&lt;option value="AT"&gt;Austria&lt;/option&gt;
+							&lt;option value="AZ"&gt;Azerbaijan&lt;/option&gt;
+							&lt;option value="BS"&gt;Bahamas&lt;/option&gt;
+							&lt;option value="BH"&gt;Bahrain&lt;/option&gt;
+							&lt;option value="BD"&gt;Bangladesh&lt;/option&gt;
+							&lt;option value="BB"&gt;Barbados&lt;/option&gt;
+							&lt;option value="BY"&gt;Belarus&lt;/option&gt;
+							&lt;option value="BE"&gt;Belgium&lt;/option&gt;
+							&lt;option value="BZ"&gt;Belize&lt;/option&gt;
+							&lt;option value="BJ"&gt;Benin&lt;/option&gt;
+							&lt;option value="BT"&gt;Bhutan&lt;/option&gt;
+							&lt;option value="BO"&gt;Bolivia&lt;/option&gt;
+							&lt;option value="BA"&gt;Bosnia and Herzegovina&lt;/option&gt;
+							&lt;option value="BW"&gt;Botswana&lt;/option&gt;
+							&lt;option value="BR"&gt;Brazil&lt;/option&gt;
+							&lt;option value="BN"&gt;Brunei&lt;/option&gt;
+							&lt;option value="BG"&gt;Bulgaria&lt;/option&gt;
+							&lt;option value="BF"&gt;Burkina Faso&lt;/option&gt;
+							&lt;option value="BI"&gt;Burundi&lt;/option&gt;
+							&lt;option value="CV"&gt;Cabo Verde&lt;/option&gt;
+							&lt;option value="KH"&gt;Cambodia&lt;/option&gt;
+							&lt;option value="CM"&gt;Cameroon&lt;/option&gt;
+							&lt;option value="CF"&gt;Central African Republic&lt;/option&gt;
+							&lt;option value="TD"&gt;Chad&lt;/option&gt;
+							&lt;option value="CL"&gt;Chile&lt;/option&gt;
+							&lt;option value="CN"&gt;China&lt;/option&gt;
+							&lt;option value="CO"&gt;Colombia&lt;/option&gt;
+							&lt;option value="KM"&gt;Comoros&lt;/option&gt;
+							&lt;option value="CG"&gt;Congo&lt;/option&gt;
+							&lt;option value="CD"&gt;Congo (Democratic Republic)&lt;/option&gt;
+							&lt;option value="CR"&gt;Costa Rica&lt;/option&gt;
+							&lt;option value="CI"&gt;Cote d&amp;#8217;Ivoire&lt;/option&gt;
+							&lt;option value="HR"&gt;Croatia&lt;/option&gt;
+							&lt;option value="CU"&gt;Cuba&lt;/option&gt;
+							&lt;option value="CY"&gt;Cyprus&lt;/option&gt;
+							&lt;option value="CZ"&gt;Czech Republic&lt;/option&gt;
+							&lt;option value="DK"&gt;Denmark&lt;/option&gt;
+							&lt;option value="DJ"&gt;Djibouti&lt;/option&gt;
+							&lt;option value="DM"&gt;Dominica&lt;/option&gt;
+							&lt;option value="DO"&gt;Dominican Republic&lt;/option&gt;
+							&lt;option value="EC"&gt;Ecuador&lt;/option&gt;
+							&lt;option value="EG"&gt;Egypt&lt;/option&gt;
+							&lt;option value="SV"&gt;El Salvador&lt;/option&gt;
+							&lt;option value="GQ"&gt;Equatorial Guinea&lt;/option&gt;
+							&lt;option value="ER"&gt;Eritrea&lt;/option&gt;
+							&lt;option value="EE"&gt;Estonia&lt;/option&gt;
+							&lt;option value="SZ"&gt;Eswatini&lt;/option&gt;
+							&lt;option value="ET"&gt;Ethiopia&lt;/option&gt;
+							&lt;option value="FJ"&gt;Fiji&lt;/option&gt;
+							&lt;option value="FI"&gt;Finland&lt;/option&gt;
+							&lt;option value="FR"&gt;France&lt;/option&gt;
+							&lt;option value="GA"&gt;Gabon&lt;/option&gt;
+							&lt;option value="GM"&gt;Gambia&lt;/option&gt;
+							&lt;option value="GE"&gt;Georgia&lt;/option&gt;
+							&lt;option value="DE"&gt;Germany&lt;/option&gt;
+							&lt;option value="GH"&gt;Ghana&lt;/option&gt;
+							&lt;option value="GR"&gt;Greece&lt;/option&gt;
+							&lt;option value="GD"&gt;Grenada&lt;/option&gt;
+							&lt;option value="GT"&gt;Guatemala&lt;/option&gt;
+							&lt;option value="GN"&gt;Guinea&lt;/option&gt;
+							&lt;option value="GW"&gt;Guinea-Bissau&lt;/option&gt;
+							&lt;option value="GY"&gt;Guyana&lt;/option&gt;
+							&lt;option value="HT"&gt;Haiti&lt;/option&gt;
+							&lt;option value="HN"&gt;Honduras&lt;/option&gt;
+							&lt;option value="HU"&gt;Hungary&lt;/option&gt;
+							&lt;option value="IS"&gt;Iceland&lt;/option&gt;
+							&lt;option value="IN"&gt;India&lt;/option&gt;
+							&lt;option value="ID"&gt;Indonesia&lt;/option&gt;
+							&lt;option value="IR"&gt;Iran&lt;/option&gt;
+							&lt;option value="IQ"&gt;Iraq&lt;/option&gt;
+							&lt;option value="IE"&gt;Ireland&lt;/option&gt;
+							&lt;option value="IL"&gt;Israel&lt;/option&gt;
+							&lt;option value="IT"&gt;Italy&lt;/option&gt;
+							&lt;option value="JM"&gt;Jamaica&lt;/option&gt;
+							&lt;option value="JP"&gt;Japan&lt;/option&gt;
+							&lt;option value="JO"&gt;Jordan&lt;/option&gt;
+							&lt;option value="KZ"&gt;Kazakhstan&lt;/option&gt;
+							&lt;option value="KE"&gt;Kenya&lt;/option&gt;
+							&lt;option value="KI"&gt;Kiribati&lt;/option&gt;
+							&lt;option value="KP"&gt;Korea (North)&lt;/option&gt;
+							&lt;option value="KR"&gt;Korea (South)&lt;/option&gt;
+							&lt;option value="KW"&gt;Kuwait&lt;/option&gt;
+							&lt;option value="KG"&gt;Kyrgyzstan&lt;/option&gt;
+							&lt;option value="LA"&gt;Laos&lt;/option&gt;
+							&lt;option value="LV"&gt;Latvia&lt;/option&gt;
+							&lt;option value="LB"&gt;Lebanon&lt;/option&gt;
+							&lt;option value="LS"&gt;Lesotho&lt;/option&gt;
+							&lt;option value="LR"&gt;Liberia&lt;/option&gt;
+							&lt;option value="LY"&gt;Libya&lt;/option&gt;
+							&lt;option value="LI"&gt;Liechtenstein&lt;/option&gt;
+							&lt;option value="LT"&gt;Lithuania&lt;/option&gt;
+							&lt;option value="LU"&gt;Luxembourg&lt;/option&gt;
+							&lt;option value="MG"&gt;Madagascar&lt;/option&gt;
+							&lt;option value="MW"&gt;Malawi&lt;/option&gt;
+							&lt;option value="MY"&gt;Malaysia&lt;/option&gt;
+							&lt;option value="MV"&gt;Maldives&lt;/option&gt;
+							&lt;option value="ML"&gt;Mali&lt;/option&gt;
+							&lt;option value="MT"&gt;Malta&lt;/option&gt;
+							&lt;option value="MH"&gt;Marshall Islands&lt;/option&gt;
+							&lt;option value="MR"&gt;Mauritania&lt;/option&gt;
+							&lt;option value="MU"&gt;Mauritius&lt;/option&gt;
+							&lt;option value="MX"&gt;Mexico&lt;/option&gt;
+							&lt;option value="FM"&gt;Micronesia&lt;/option&gt;
+							&lt;option value="MD"&gt;Moldova&lt;/option&gt;
+							&lt;option value="MC"&gt;Monaco&lt;/option&gt;
+							&lt;option value="MN"&gt;Mongolia&lt;/option&gt;
+							&lt;option value="ME"&gt;Montenegro&lt;/option&gt;
+							&lt;option value="MA"&gt;Morocco&lt;/option&gt;
+							&lt;option value="MZ"&gt;Mozambique&lt;/option&gt;
+							&lt;option value="MM"&gt;Myanmar&lt;/option&gt;
+							&lt;option value="NA"&gt;Namibia&lt;/option&gt;
+							&lt;option value="NR"&gt;Nauru&lt;/option&gt;
+							&lt;option value="NP"&gt;Nepal&lt;/option&gt;
+							&lt;option value="NL"&gt;Netherlands&lt;/option&gt;
+							&lt;option value="NZ"&gt;New Zealand&lt;/option&gt;
+							&lt;option value="NI"&gt;Nicaragua&lt;/option&gt;
+							&lt;option value="NE"&gt;Niger&lt;/option&gt;
+							&lt;option value="NG"&gt;Nigeria&lt;/option&gt;
+							&lt;option value="MK"&gt;North Macedonia&lt;/option&gt;
+							&lt;option value="NO"&gt;Norway&lt;/option&gt;
+							&lt;option value="OM"&gt;Oman&lt;/option&gt;
+							&lt;option value="PK"&gt;Pakistan&lt;/option&gt;
+							&lt;option value="PW"&gt;Palau&lt;/option&gt;
+							&lt;option value="PS"&gt;Palestine&lt;/option&gt;
+							&lt;option value="PA"&gt;Panama&lt;/option&gt;
+							&lt;option value="PG"&gt;Papua New Guinea&lt;/option&gt;
+							&lt;option value="PY"&gt;Paraguay&lt;/option&gt;
+							&lt;option value="PE"&gt;Peru&lt;/option&gt;
+							&lt;option value="PH"&gt;Philippines&lt;/option&gt;
+							&lt;option value="PL"&gt;Poland&lt;/option&gt;
+							&lt;option value="PT"&gt;Portugal&lt;/option&gt;
+							&lt;option value="QA"&gt;Qatar&lt;/option&gt;
+							&lt;option value="RO"&gt;Romania&lt;/option&gt;
+							&lt;option value="RU"&gt;Russia&lt;/option&gt;
+							&lt;option value="RW"&gt;Rwanda&lt;/option&gt;
+							&lt;option value="KN"&gt;Saint Kitts and Nevis&lt;/option&gt;
+							&lt;option value="LC"&gt;Saint Lucia&lt;/option&gt;
+							&lt;option value="VC"&gt;Saint Vincent and the Grenadines&lt;/option&gt;
+							&lt;option value="WS"&gt;Samoa&lt;/option&gt;
+							&lt;option value="SM"&gt;San Marino&lt;/option&gt;
+							&lt;option value="ST"&gt;Sao Tome and Principe&lt;/option&gt;
+							&lt;option value="SA"&gt;Saudi Arabia&lt;/option&gt;
+							&lt;option value="SN"&gt;Senegal&lt;/option&gt;
+							&lt;option value="RS"&gt;Serbia&lt;/option&gt;
+							&lt;option value="SC"&gt;Seychelles&lt;/option&gt;
+							&lt;option value="SL"&gt;Sierra Leone&lt;/option&gt;
+							&lt;option value="SG"&gt;Singapore&lt;/option&gt;
+							&lt;option value="SK"&gt;Slovakia&lt;/option&gt;
+							&lt;option value="SI"&gt;Slovenia&lt;/option&gt;
+							&lt;option value="SB"&gt;Solomon Islands&lt;/option&gt;
+							&lt;option value="SO"&gt;Somalia&lt;/option&gt;
+							&lt;option value="ZA"&gt;South Africa&lt;/option&gt;
+							&lt;option value="SS"&gt;South Sudan&lt;/option&gt;
+							&lt;option value="ES"&gt;Spain&lt;/option&gt;
+							&lt;option value="LK"&gt;Sri Lanka&lt;/option&gt;
+							&lt;option value="SD"&gt;Sudan&lt;/option&gt;
+							&lt;option value="SR"&gt;Suriname&lt;/option&gt;
+							&lt;option value="SE"&gt;Sweden&lt;/option&gt;
+							&lt;option value="CH"&gt;Switzerland&lt;/option&gt;
+							&lt;option value="SY"&gt;Syria&lt;/option&gt;
+							&lt;option value="TW"&gt;Taiwan&lt;/option&gt;
+							&lt;option value="TJ"&gt;Tajikistan&lt;/option&gt;
+							&lt;option value="TZ"&gt;Tanzania&lt;/option&gt;
+							&lt;option value="TH"&gt;Thailand&lt;/option&gt;
+							&lt;option value="TL"&gt;Timor-Leste&lt;/option&gt;
+							&lt;option value="TG"&gt;Togo&lt;/option&gt;
+							&lt;option value="TO"&gt;Tonga&lt;/option&gt;
+							&lt;option value="TT"&gt;Trinidad and Tobago&lt;/option&gt;
+							&lt;option value="TN"&gt;Tunisia&lt;/option&gt;
+							&lt;option value="TR"&gt;Turkey&lt;/option&gt;
+							&lt;option value="TM"&gt;Turkmenistan&lt;/option&gt;
+							&lt;option value="TV"&gt;Tuvalu&lt;/option&gt;
+							&lt;option value="UG"&gt;Uganda&lt;/option&gt;
+							&lt;option value="UA"&gt;Ukraine&lt;/option&gt;
+							&lt;option value="AE"&gt;United Arab Emirates&lt;/option&gt;
+							&lt;option value="UY"&gt;Uruguay&lt;/option&gt;
+							&lt;option value="UZ"&gt;Uzbekistan&lt;/option&gt;
+							&lt;option value="VU"&gt;Vanuatu&lt;/option&gt;
+							&lt;option value="VA"&gt;Vatican City&lt;/option&gt;
+							&lt;option value="VE"&gt;Venezuela&lt;/option&gt;
+							&lt;option value="VN"&gt;Vietnam&lt;/option&gt;
+							&lt;option value="YE"&gt;Yemen&lt;/option&gt;
+							&lt;option value="ZM"&gt;Zambia&lt;/option&gt;
+							&lt;option value="ZW"&gt;Zimbabwe&lt;/option&gt;
+						&lt;/select&gt;
+					&lt;/label&gt;
+
+					&lt;div class="airmeet-state-field" hidden&gt;
+						&lt;label&gt;
+							&lt;p&gt;State &lt;span class="airmeet-required"&gt;*&lt;/span&gt;&lt;/p&gt;
+							&lt;input type="text" name="state" required /&gt;
+						&lt;/label&gt;
+					&lt;/div&gt;
+
+					&lt;label&gt;
+							&lt;p&gt;Phone Number&lt;/p&gt;
+							&lt;input type="text" name="phone-number" /&gt;
+						&lt;/label&gt;
+
+				&lt;/div&gt;
+
+				&lt;!-- Signup Button --&gt;
+				&lt;button type="submit"class="airmeet-register" disabled&gt;Register&lt;/button&gt;
+
+				&lt;div class="airmeet-disclaimer"&gt;
+					By registering, you consent to The New Stack&amp;#8217;s &lt;a href="https://thenewstack.io/privacy-policy/" target="_blank" rel="noopener" class="local-link"&gt;Privacy Policy&lt;/a&gt;, &lt;a href="https://thenewstack.io/terms-of-use/" target="_blank" rel="noopener" class="local-link"&gt;Terms of Use&lt;/a&gt;
+					and to receiving email communication from The New Stack and our event partner. You may opt out at any time.
+				&lt;/div&gt;
+			&lt;/form&gt;
+
+			&lt;!-- Success --&gt;
+			&lt;div class="airmeet-success" hidden&gt;
+				&lt;svg class="success-tick" xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true" focusable="false" viewBox="0 0 48 48" style="display:inline-block;vertical-align:middle;"&gt;
+					&lt;circle cx="24" cy="24" r="24" fill="white"/&gt;
+					&lt;path d="M19.6 30.5l-6.1-6.1c-.6-.6-.6-1.5 0-2.1s1.5-.6 2.1 0l4.1 4.1 10.7-10.7c.6-.6 1.5-.6 2.1 0s.6 1.5 0 2.1l-11.7 11.7c-.6.5-1.5.5-2.1 0z" fill="#22b573"/&gt;
+				&lt;/svg&gt;
+				&lt;p&gt;You have successfully registered for the webinar.&lt;/p&gt;
+			&lt;/div&gt;
+
+			
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+$(document).ready(function() {
+
+	// Get UTM parameters.
+	var utm_source = window.tns.getUTMParameterValue('utm_source');
+	var utm_medium = window.tns.getUTMParameterValue('utm_medium');
+	var utm_campaign = window.tns.getUTMParameterValue('utm_campaign');
+	var utm_term = window.tns.getUTMParameterValue('utm_term');
+	var utm_content = window.tns.getUTMParameterValue('utm_content');
+
+	if (utm_source) { $('input[name="utm_source"]').val(utm_source) }
+	if (utm_medium) { $('input[name="utm_medium"]').val(utm_medium) }
+	if (utm_campaign) { $('input[name="utm_campaign"]').val(utm_campaign) }
+	if (utm_term) { $('input[name="utm_term"]').val(utm_term) }
+	if (utm_content) { $('input[name="utm_content"]').val(utm_content) }
+
+	if ( $('.airmeet-container[data-event-id]').length ) {
+		initAirmeetRegistrationForm();
+	}
+
+	/*
+	window.dataLayer.push({
+		'event' : 'webinar_registration_started',
+		'object_id' : '22841681',
+		'object_type' : 'webinar',
+		'post_title' : '160 Admin Hours a Year: How AI Guided Diagnostics Finds Root Causes Faster',
+	});
+	*/
+
+	function showFormStage( stage ){
+		if ( stage == 1 ) {
+			$('.airmeet-profile-fields').attr('hidden', true).hide();
+			$('.airmeet-register').prop('disabled', true);
+		} else if ( stage == 2 ) {
+			$('.airmeet-profile-fields').removeAttr('hidden').show();
+			$('.airmeet-register').prop('disabled', false);
+		}
+	}
+
+	function initAirmeetRegistrationForm() {
+		window.webinar_registration_started = false;
+
+		var $form = $('.airmeet-registration-form');
+		var $questionFields = $form.find('.airmeet-questions [data-question]');
+
+		if ( $questionFields.length === 0 ) {
+			showFormStage(2);
+		}
+
+		// Listen for question field values.
+		$questionFields.on('change input', function() {
+			var allFilled = $questionFields.filter(function() {
+				return $.trim($(this).val()) !== '';
+			}).length === $questionFields.length;
+
+			if ( allFilled ) {
+				showFormStage(2);
+			}
+
+			if ( ! window.webinar_registration_started ) {
+				window.dataLayer.push({
+					'event' : 'webinar_registration_started',
+					'object_id' : '22841681',
+					'object_type' : 'webinar',
+					'post_title' : '160 Admin Hours a Year: How AI Guided Diagnostics Finds Root Causes Faster',
+				});
+			}
+			window.webinar_registration_started = true;
+		});
+
+		// Listen for job-role field, show additional fields if necessary.
+		$form.find('select[name="job-role"]').on('change', function() {
+			var val = $(this).val();
+			if ( val &amp;&amp; val !== 'student' &amp;&amp; val !== 'enthusiast-hobbyist' ) {
+				$('.airmeet-job-more-fields').removeAttr('hidden').show();
+				$('.airmeet-job-more-fields').find('select, input').prop('disabled', false);
+			} else {
+				$('.airmeet-job-more-fields').find('select, input').val('').prop('disabled', true);
+				$('.airmeet-job-more-fields').attr('hidden', true).hide();
+			}
+		});
+
+		// Listen for country field, show state field for US/CA.
+		$form.find('select[name="country"]').on('change', function() {
+			var val = $(this).val();
+			if ( val === 'US' || val === 'CA' ) {
+				$('.airmeet-state-field').removeAttr('hidden').show();
+				$('.airmeet-state-field').find('input').prop('disabled', false);
+			} else {
+				$('.airmeet-state-field').find('input').val('').prop('disabled', true);
+				$('.airmeet-state-field').attr('hidden', true).hide();
+			}
+		});
+
+		// Listen for changes on all non-question fields.
+		$form.find('input, select').not('[data-question]').not('[type="hidden"]').on('change input', function() {
+			window.dataLayer.push({
+				'event' : 'webinar_registration_form_interaction',
+				'object_id' : '22841681',
+				'object_type' : 'webinar',
+				'post_title' : '160 Admin Hours a Year: How AI Guided Diagnostics Finds Root Causes Faster',
+			});
+		});
+
+		$form.on('submit', function(e) {
+			e.preventDefault();
+			handleSubmit();
+		});
+	}
+
+	function handleSubmit() {
+		var $form = $('.airmeet-registration-form');
+		var $btn = $form.find('.airmeet-register');
+		$btn.prop('disabled', true).text('Registering...');
+
+		// Collect CMS-configured questions
+		var questions = [];
+		$form.find('[data-question]').each(function() {
+			questions.push({
+				question: $(this).data('question'),
+				answer: $(this).val()
+			});
+		});
+
+		var data = {
+			event_id:     $form.find('input[name="event_id"]').val(),
+			utm_source:   $form.find('input[name="utm_source"]').val(),
+			utm_medium:   $form.find('input[name="utm_medium"]').val(),
+			utm_campaign: $form.find('input[name="utm_campaign"]').val(),
+			utm_term:     $form.find('input[name="utm_term"]').val(),
+			utm_content:  $form.find('input[name="utm_content"]').val(),
+			questions:    questions,
+			'email':        $form.find('input[name="email"]').val(),
+			'first-name':   $form.find('input[name="first-name"]').val(),
+			'last-name':    $form.find('input[name="last-name"]').val(),
+			'job-role':     $form.find('select[name="job-role"]').val(),
+			'job-level':    $form.find('select[name="job-level"]').val(),
+			'industry':     $form.find('select[name="industry"]').val(),
+			'organization': $form.find('input[name="organization"]').val(),
+			'country':      $form.find('select[name="country"]').val(),
+			'state':        $form.find('input[name="state"]').val(),
+			'phone-number': $form.find('input[name="phone-number"]').val()
+		};
+
+		$.ajax({
+			url: '/wp-json/airmeet/register-webinar',
+			method: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			success: function(response) {
+				var status = response &amp;&amp; response.status;
+				var eventName = status === 'already_registered'
+					? 'webinar_registration_already_registered'
+					: 'webinar_registration_completed';
+
+				window.dataLayer.push({
+					'event' : eventName,
+					'object_id' : '22841681',
+					'object_type' : 'webinar',
+					'post_title' : '160 Admin Hours a Year: How AI Guided Diagnostics Finds Root Causes Faster',
+				});
+
+				showSuccess();
+			},
+			error: function(xhr) {
+				var msg = 'Registration failed. Please try again.';
+				if ( xhr.responseJSON &amp;&amp; xhr.responseJSON.error ) {
+					msg = xhr.responseJSON.error;
+				}
+				alert(msg);
+				$btn.prop('disabled', false).text('Register');
+			}
+		});
+	}
+
+	function showSuccess() {
+		var mastheadHeight = $('#tns-header-masthead').length ? $('#tns-header-masthead').outerHeight() : 0;
+		var adminBarHeight = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0;
+		var padding = $(window).width() &gt; 1024 ? 120 : 50;
+		$('html, body').animate({ scrollTop: $('.airmeet-container').offset().top - mastheadHeight - adminBarHeight - padding }, 300, function() {
+			$('.airmeet-registration-form').attr('hidden', true).hide();
+			
+			if ( $('.airmeet-video').length ) {
+				// Video embed, prepare the iframe and show.
+				$('.airmeet-video iframe').attr('src', $('.airmeet-video iframe').attr('data-src'));
+				$('.airmeet-video').show().removeAttr('hidden');
+			} else {
+				// Thank you screen.
+				$('.airmeet-success').removeAttr('hidden').hide().fadeIn();
+			}
+		});
+	}
+
+});
+&lt;/script&gt;
+
+
+    &lt;/div&gt;
+    
+
+
+&lt;h2 id="h-one-failed-transfer-took-50-minutes-to-figure-out" class="wp-block-heading"&gt;&lt;strong&gt;One failed transfer took 50 minutes to figure out&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kath tells &lt;em&gt;The New Stack&lt;/em&gt; that most failed transfers he sees come down to a connection or login problem with an outside trading partner. The log usually shows one of four error types: authentication, network, permissions, or a missing file. He mostly works in GoAnywhere and said the pattern holds on Globalscape and other MFT platforms.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He points to an example of a financial services company that sends a daily settlement file to a trading partner over SFTP, a secure way to move files between servers. And one day, the partner reports the file never arrived.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So the admin searches logs to find the right one, which shows an authentication failure. The admin then checks the SFTP connection settings and tests the password. When that doesn&amp;#8217;t work, the admin asks the partner to inspect its own server logs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And that&amp;#8217;s where the answers are found. The partner had rotated its SSH keys without notifying others, so GoAnywhere was signing in with a key the partner no longer accepted. The team deployed the right key, tested the connection, and reran the job. The file went out as expected.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kath&amp;#8217;s tally:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/0856811c-fortra-v2-time-breakdown-1024x576.jpg" alt="" class="wp-image-22842683"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Forty minutes of the 50 were spent investigating the problem. The fix took only 5 to 10 minutes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The opportunity isn&amp;#8217;t simply making file transfers faster,&amp;#8221; Kath says. &amp;#8220;It&amp;#8217;s reducing the administrative friction around managing them.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;h2 id="h-guided-diagnostics-points-to-the-likely-cause-and-leaves-the-fix-to-the-admin" class="wp-block-heading"&gt;&lt;strong&gt;Guided Diagnostics points to the likely cause and leaves the fix to the admin&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Guided Diagnostic lives in GoAnywhere&amp;#8217;s admin console. So when a job fails, it reads the failure and lays out a ranked list of things to check. The admin can skip the set that matches logs, settings, and help articles.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On the settlement-file failure, it would flag &amp;#8220;Authentication failure detected,&amp;#8221; list the likely causes, and suggest next steps. It doesn&amp;#8217;t change any setting, Kath says. &amp;#8220;It would reduce the effort required to identify the likely cause and determine the next appropriate action.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The admin can still make the change, and that&amp;#8217;s the right call for software that handles a bank&amp;#8217;s settlement files.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This online event will also cover three related features: Anomaly detection, log insights, and AI-generated documentation of how to build each workflow.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-160-hours-of-troubleshooting" class="wp-block-heading"&gt;&lt;strong&gt;160 hours of troubleshooting&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The 160 hours is one part of a bigger number. Fortra MFT asked dozens of customers how long routine MFT tasks take by hand, then compared that with the same tasks using the AI features. Across each task it asked about, the estimate reached 571 hours a year per user. Troubleshooting spent up to 160 of the 571 hours.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here&amp;#8217;s how Kath splits the troubleshooting estimates.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/9ac661e6-fortra-v2-estimate-counts-1024x576.jpg" alt="" class="wp-image-22842684"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In Kath&amp;#8217;s own example, the root cause was on the partner&amp;#8217;s own server. The time spent waiting for the partner to respond was not part of the estimate.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-repeat-errors-get-the-most-help" class="wp-block-heading"&gt;&lt;strong&gt;Repeat errors get the most help&lt;/strong&gt;&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kath expects Guided Diagnostics to help with the common failures that leave an error message behind. It helps less with intermittent network drops, problems found on the partner&amp;#8217;s side, complex workflow failures, performance bottlenecks, or custom integrations.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A good admin should still take over when the cause sits outside GoAnywhere, when several things break simultaneously, when a fix carries security or operational risk, or when no one on the team has experienced the specific error.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kath will take questions on all of this during the live Q&amp;amp;A on November 19. &lt;a href="https://thenewstack.io/webinar/ai-managed-file-transfer-troubleshooting/" class="local-link"&gt;Register here&lt;/a&gt; to join the discussion. The research behind the number will also appear in &lt;em&gt;The Next Era of MFT: How AI Transforms Managed File Transfer&lt;/em&gt;, an upcoming ebook from Fortra. &lt;a href="https://thenewstack.io/ebooks/observability/how-ai-transforms-managed-file-transfer/" class="local-link"&gt;Sign up to get an advance copy here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/failed-file-transfer-ai-troubleshooting/"&gt;Fortra says AI could save file transfer admins up to 160 hours a year&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Fortra MFT estimates AI could save file transfer admins up to 160 hours a year. See a 50-minute failed SFTP example and what the estimate counts.</content:encoded>
+    </item>
+    <item>
+      <title>“Signing in to your company’s plugins one by one is annoying”: Anthropic’s fix puts Claude in the identity business</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-plugin-identity-issuer/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Wed, 04 Nov 2026 16:59:22 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Model Context Protocol (MCP)</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842687</guid>
+      <description>&lt;img width="1024" height="589" src="https://cdn.thenewstack.io/media/2026/11/74ad82db-a-c-wqzc_ohsrwo-unsplash-2-1024x589.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Picture of a fingerprint depicting the concept of identity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/74ad82db-a-c-wqzc_ohsrwo-unsplash-2.jpg" /&gt;&lt;p&gt;Anthropic is now letting businesses automatically connect employees to approved Claude plugins, saving staff from having to sign in to&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-plugin-identity-issuer/"&gt;“Signing in to your company’s plugins one by one is annoying”: Anthropic’s fix puts Claude in the identity business&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="589" src="https://cdn.thenewstack.io/media/2026/11/74ad82db-a-c-wqzc_ohsrwo-unsplash-2-1024x589.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Picture of a fingerprint depicting the concept of identity." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/74ad82db-a-c-wqzc_ohsrwo-unsplash-2.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Anthropic is now letting businesses automatically connect employees to approved Claude plugins, saving staff from having to sign in to and authorize each service individually. The feature also allows Claude to verify users&amp;#8217; organizational membership directly, making it easier for companies to manage access to workplace applications.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The feature builds on the Enterprise-Managed Authorization (&lt;a href="https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;EMA&lt;/a&gt;) extension to the Model Context Protocol (MCP), which debuted back in June. As &lt;em&gt;The New Stack&lt;/em&gt; &lt;a href="https://thenewstack.io/mcp-gets-its-missing-enterprise-authorization-layer/" class="local-link"&gt;reported at the time&lt;/a&gt;, this ushered in a way for companies to manage MCP connections centrally through their existing identity providers, with Okta becoming the first to support it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic also &lt;a href="https://claude.com/resources/articles/enterprise-managed-auth" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced support&lt;/a&gt; for the extension in Claude, Claude Code and Cowork on the same day, and &lt;a href="https://claude.com/docs/connectors/building/enterprise-managed-auth" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;published implementation guidance&lt;/a&gt; for developers building compatible MCP servers. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In its original guise, the approach relied on the company&amp;#8217;s identity provider being compatible with EMA. Okta was the first to support the extension, and adoption among other providers remains limited, meaning many organizations have still had to authorize connections individually.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Claude itself can issue the signed identity assertions that participating MCP services use to recognize employees.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On the ClaudeDevs X account on Tuesday, Anthropic &lt;a href="https://x.com/ClaudeDevs/status/2117680635561312732?s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;introduced another option&lt;/a&gt;: Claude &lt;em&gt;itself &lt;/em&gt;can issue the signed identity assertions that participating MCP services use to recognize employees. This effectively means businesses can enable automatic connections without requiring their identity provider to support the extension.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If you&amp;rsquo;re building plugins for Claude, add support so users get started faster and stay connected without re-authorizing,&amp;#8221; the company writes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The new Claude authorization feature is available in beta now, for Team and Enterprise customers.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-claude-takes-over-the-identity-check" class="wp-block-heading"&gt;Claude takes over the identity check&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Taking to X on Tuesday, &lt;a href="https://www.linkedin.com/in/bcherny/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Boris Cherny&lt;/a&gt;, head of applications at Anthropic, points to the frustration of employees having to repeatedly authenticate workplace applications.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Signing in to your company&amp;#8217;s plugins one by one is annoying.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Signing in to your company&amp;#8217;s plugins one by one is annoying, so we let Claude auto-connect to them now,&amp;#8221; Cherny &lt;a href="https://x.com/bcherny/status/2117693181651542387" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;Signing in to your company&amp;#39;s plugins one by one is annoying, so we let Claude auto-connect to them now.&lt;br&gt;&lt;br&gt;Team and Enterprise admins can set them up, and teammates are connected automatically the first time they use the plugins. &lt;a href="https://t.co/w2oxw0bKOZ" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;https://t.co/w2oxw0bKOZ&lt;/a&gt;&lt;/p&gt;&amp;mdash; Boris Cherny (@bcherny) &lt;a href="https://x.com/bcherny/status/2117693181651542387?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;November 3, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Administrators can choose which supported services to enable, and which employee roles should receive access. For example, a company might be comfortable giving all employees access to a general-purpose productivity tool, while restricting access to more sensitive systems, such as company databases, to specific roles because of the risks associated with exposing confidential information or making unauthorized changes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When an eligible user opens a plugin, Claude sends a signed assertion identifying them as a member of the organization. The receiving service checks that assertion before providing an access token.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The process also handles subsequent connections automatically, so users don&amp;#8217;t have to repeatedly authorize the same service when tokens expire.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The initial rollout spans a broad array of more than a dozen services, including Amplitude, Apollo.io, Atlassian, Datadog, Dropbox, Figma, Granola, HubSpot, Linear, Mixpanel, Notion, PagerDuty, Semrush, and Supabase.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-full is-resized"&gt;&lt;img loading="lazy" decoding="async" width="652" height="425" src="https://cdn.thenewstack.io/media/2026/11/1b4f0174-untitled.gif" alt="14 services have signed up for auto-connect plugins at launch." class="wp-image-22842692" style="width:652px;height:auto"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;14 services have signed up to Claude&amp;#8217;s auto-connect plugins at launch.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;In a November 3 &lt;a href="https://supabase.com/blog/claude-issued-enterprise-managed-auth-for-mcp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt;, Supabase explained that customers can now use Claude to authenticate employees accessing its MCP server, even if their identity provider lacks EMA support.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Indeed, the company points specifically to the limited adoption of the extension among enterprise identity providers as a key obstacle that the new feature addresses.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Okta was the only identity provider that supported the extension at launch and most still don&amp;#8217;t,&amp;rdquo; Supabase writes. &amp;ldquo;Organizations on those providers no longer have to wait because Claude can now be the issuer instead.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To configure the connection, a Supabase administrator first approves Claude for the organization. An administrator then selects Claude-issued authorization in Claude&amp;#8217;s connector settings, registers the unique issuer URL in Supabase, tests the connection and enables access for the relevant employee roles.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="979" src="https://cdn.thenewstack.io/media/2026/11/469db13d-stuff-1024x979.jpg" alt="Supabase authorization screen showing Claude requesting access to a user's account." class="wp-image-22842694"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Authorizing Claude to access Supabase.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that employees must already have a matching Supabase SSO account, and their existing permissions determine what they can access. The company also cautions that removing someone from the company&amp;#8217;s identity provider alone will not revoke Claude-issued access, and administrators must remove departing employees from both Claude and Supabase.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-claude-as-an-identity-provider" class="wp-block-heading"&gt;Claude as an identity provider?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The upshot of all this is that Claude is now taking on a role traditionally handled by enterprise identity providers, vouching for users when they access third-party services. While it&amp;#8217;s still early days, and the feature is currently limited to those in the business realm, the announcement has already prompted some positive reactions.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Tired of reauthorizing in every other session.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is soo good, tired of reauthorizing in every other session,&amp;rdquo; one user &lt;a href="https://x.com/rayycfu/status/2117852073110950128" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes on X&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Others are keen to see more companies support the feature, with one eager for payments giant Stripe to join the party. &amp;#8220;I spend more time reconnecting Stripe than every other plugin combined,&amp;#8221; the user &lt;a href="https://x.com/CEOAlexColon/status/2117685913925165164?a=sMlQLOgkpo1L-QElKyU&amp;amp;s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The implications for enterprise authentication also caught people&amp;#8217;s attention. &amp;ldquo;Claude becoming an identity provider,&amp;rdquo; one &lt;a href="https://x.com/hudson_gri/status/2117686804795310255" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;user remarked&lt;/a&gt;, raising a broader question about Anthropic&amp;#8217;s growing role in verifying user identities.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Technically, Claude is acting as a trusted issuer for participating MCP services, verifying that users belong to a particular Claude organization. It doesn&amp;#8217;t provide the full range of functions associated with a traditional identity provider, and connected services remain responsible for enforcing their own access permissions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So for now, Claude&amp;#8217;s identity ambitions extend only as far as the services willing to take its word for who you are.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-plugin-identity-issuer/"&gt;“Signing in to your company’s plugins one by one is annoying”: Anthropic’s fix puts Claude in the identity business&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>No Okta? No problem. Claude itself can now vouch for employees, so workplace plugins such as Notion, Figma, and Supabase connect automatically.</content:encoded>
+    </item>
+    <item>
       <title>A developer opened Postman. Then two AI coding agents changed without their permission.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/postman-plugin-coding-agents/</link>
       <dc:creator>Amanda Caswell</dc:creator>
@@ -28,10 +1118,10 @@
       <category>Developer tools</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842653</guid>
-      <description>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Puppet strings attached to man on his computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-scaled.jpg" /&gt;&lt;p&gt;A developer says Postman&amp;#8217;s desktop app installed plugins into Claude Code and OpenAI Codex without their permission. The app also&lt;/p&gt;
+      <description>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Puppet strings attached to man on his computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-scaled.jpg" /&gt;&lt;p&gt;A developer says Postman&amp;#8217;s desktop app installed plugins into Claude Code and OpenAI Codex without their permission. The app also&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/postman-plugin-coding-agents/"&gt;A developer opened Postman. Then two AI coding agents changed without their permission.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Puppet strings attached to man on his computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-scaled.jpg" /&gt;
+      <content:encoded>&lt;img width="1024" height="616" src="https://cdn.thenewstack.io/media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-1024x616.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Puppet strings attached to man on his computer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/436954c5-gustopo-gqirstz41ky-unsplash-scaled.jpg" /&gt;
 &lt;p class="wp-block-paragraph"&gt;A developer says Postman&amp;rsquo;s desktop app installed plugins into Claude Code and OpenAI Codex without their permission. The app also tried to approve its own startup hook, which tells Codex to use Postman&amp;rsquo;s tools for API development tasks.&lt;/p&gt;
 
 
@@ -172,10 +1262,10 @@
       <category>sponsored-podcast</category>
       <category>Video</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842590</guid>
-      <description>&lt;img width="1024" height="559" src="https://cdn.thenewstack.io/media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12-1024x559.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Mazin Gilbert AAIF - AGNT Con + MCP Con 2026 - The New Stack Podcast with Frederic Lardinois" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12.png" /&gt;&lt;p&gt;Mazin Gilbert, executive director of the Linux Foundation&amp;#8217;s Agentic AI Foundation, left Google earlier this year to&amp;#160;lead the new AAIF,&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/40aa7ce1-mazin-gilbert-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="At AGNTCon + MCPCon in San Jose, Mazin Gilbert, executive director of the Agentic AI Foundation, joins The New Stack’s Frederic Lardinois to discuss the rapid growth of agentic AI and the importance of open standards in shaping its future." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/40aa7ce1-mazin-gilbert.png" /&gt;&lt;p&gt;Mazin Gilbert, executive director of the Linux Foundation&amp;#8217;s Agentic AI Foundation, left Google earlier this year to&amp;#160;lead the new AAIF,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/mazin-gilbert-aaif-interview/"&gt;Can agent standards keep up with the companies building them?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
-      <content:encoded>&lt;img width="1024" height="559" src="https://cdn.thenewstack.io/media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12-1024x559.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Mazin Gilbert AAIF - AGNT Con + MCP Con 2026 - The New Stack Podcast with Frederic Lardinois" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4e36bc34-screenshot-2026-11-03-at-17.45.12.png" /&gt;
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/40aa7ce1-mazin-gilbert-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="At AGNTCon + MCPCon in San Jose, Mazin Gilbert, executive director of the Agentic AI Foundation, joins The New Stack’s Frederic Lardinois to discuss the rapid growth of agentic AI and the importance of open standards in shaping its future." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/40aa7ce1-mazin-gilbert.png" /&gt;
 &lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Mazin Gilbert, executive director of the Linux Foundation&amp;#8217;s Agentic AI Foundation&lt;/strong&gt;, left Google earlier this year to&amp;nbsp;lead the new AAIF, and he recently shared with&amp;nbsp;&lt;em&gt;The New Stack&lt;/em&gt;&amp;nbsp;a truth&amp;nbsp;central to its mission: The &lt;a href="https://aaif.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AAIF&lt;/a&gt; has to move faster than its members. &lt;/p&gt;
 
 
@@ -187,13 +1277,13 @@
 &lt;p class="wp-block-paragraph"&gt;He also talked about how he gets OpenAI, Anthropic, and Google to agree on standards &amp;mdash; even though they compete on products. Those companies are going to build products &amp;#8220;with and without the standards,&amp;#8221; he says. &lt;/p&gt;
 
 
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/VyT_zuwyfg0?si=ssw0r72R_uy2rD_7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/xo5TkWYoypE?si=UraWCDUPX8zs4W3m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;All of this is happening while the foundation&amp;#8217;s own members are often still figuring out how to build and use agents themselves. Some contribute to protocols and ship products, but others are still trying to get their agents out of the lab and into production. Gilbert says a third group of companies &amp;#8220;frankly are panicking,&amp;#8221; because they don&amp;#8217;t have an agent strategy yet.&lt;/p&gt;
 
 
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/d2466782-326c-41fe-8158-091e8f79543d?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/d2466782-326c-41fe-8158-091e8f79543d?dark=true"&gt;&lt;/iframe&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;The San Jose event drew 4,300 registrants, he says, double the size of the foundation&amp;#8217;s previous largest event in Amsterdam earlier this year.&lt;/p&gt;
@@ -1560,7 +2650,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b2b53&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b2b53" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aec7724a8cf1&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aec7724a8cf1" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="857" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/3a16e809-image-1024x857.png" alt="" class="wp-image-22842482" style="aspect-ratio:1.1931166347992352"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1677,7 +2767,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b3432&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b3432" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aec7724a9565&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aec7724a9565" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="562" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/ce3429e5-acceptance-criteria-invariants-1024x562.png" alt="" class="wp-image-22842483"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1750,7 +2840,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b3c73&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b3c73" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aec7724a9cfc&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aec7724a9cfc" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="552" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/7f022afb-verify.review-1024x552.png" alt="" class="wp-image-22842484"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1787,7 +2877,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aeb2111b41b9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aeb2111b41b9" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aec7724aa1f7&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aec7724aa1f7" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="563" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/10/a8791394-invariants_waivehistory-1024x563.png" alt="" class="wp-image-22842485"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3820,433 +4910,6 @@ curl -s https://your-docs-site.com/page | grep -c &amp;#039;application/ld+json&
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-6-1-terra-vs-gpt-6-astra/"&gt;GPT-6.1 Terra vs. GPT-6 Astra: One sacrifices accuracy for lower cost and higher speed at high effort&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>OpenAI prices GPT-6.1 Terra at one-tenth of Astra’s standard input and output token rates. In these three tests at high reasoning effort, Terra used less time and cost less, but scored lower on two tests.</content:encoded>
-    </item>
-    <item>
-      <title>What five P99 CONF talks reveal about database trade-offs</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/p99-conf-database-tradeoffs/</link>
-      <dc:creator>Doug Sillars</dc:creator>
-      <pubDate>Fri, 30 Oct 2026 13:00:00 +0000</pubDate>
-      <category>Data</category>
-      <category>Databases</category>
-      <category>Storage</category>
-      <category>sponsor-scylladb</category>
-      <category>Sponsored</category>
-      <category>sponsored-post</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842289</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/b257c733-steve-a-johnson-td85e3w3w6i-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D grid of stacked metallic blocks glowing red and purple, evoking layered database storage" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b257c733-steve-a-johnson-td85e3w3w6i-unsplash-scaled.jpg" /&gt;&lt;p&gt;P99 CONF is a virtual conference on high-performance, low-latency applications. Its 2026 event ran October 21&amp;#8211;22. Here, we cover five&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/p99-conf-database-tradeoffs/"&gt;What five P99 CONF talks reveal about database trade-offs&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/10/b257c733-steve-a-johnson-td85e3w3w6i-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D grid of stacked metallic blocks glowing red and purple, evoking layered database storage" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/b257c733-steve-a-johnson-td85e3w3w6i-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;P99 CONF is a virtual conference&lt;/strong&gt; on high-performance, low-latency applications. Its 2026 event ran &lt;a href="https://p99conf.io/agenda/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 21&amp;ndash;22&lt;/a&gt;. Here, we cover five of its &lt;a href="https://p99conf.io/session/how-scylladb-eliminates-read-amplification-at-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;60-plus&lt;/a&gt; sessions. The recordings are available on demand at p99conf.io after registration.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Database storage design balances &lt;a href="https://slatedb.io/docs/design/overview/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;read amplification&lt;/a&gt;, write amplification, and space amplification (RUM conjecture). Improving one can increase another, depending on the workload and configuration. The five talks below show how engineers make those trade-offs across different database systems.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-can-everything-be-an-lsm-nbsp" class="wp-block-heading"&gt;&lt;a href="https://p99conf.io/session/can-everything-be-an-lsm/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&amp;ldquo;Can Everything be an LSM?&amp;rdquo;&lt;/a&gt;&amp;nbsp;&lt;/h2&gt;
-
-
-
-&lt;h2 id="h-almog-gavra-co-founder-at-responsive-now-databricks" class="wp-block-heading"&gt;&lt;strong&gt;Almog Gavra&lt;/strong&gt;, Co-Founder at Responsive (now Databricks)&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gavra frames database design around &lt;a href="https://slatedb.io/docs/design/overview/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;read amplification&lt;/a&gt; (data read per result), write amplification (data written per logical write), and space amplification (storage used relative to live data). A log favors fast writes but makes reads work harder; a sorted array does the reverse. As Gavra put it, &amp;ldquo;I think about LSM trees as a mechanism for tuning between these two extremes.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;LSMs were built for local disks, but their &lt;a href="https://slatedb.io/blog/introducing-slatedb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;immutable files&lt;/a&gt; also fit object storage. Gavra points to Amazon S3&amp;rsquo;s lower storage cost, durability, and availability, then names the trade-offs: objects must be replaced rather than edited, each GET and PUT has a price, and cold reads are slower. In his example, a local NVMe cache miss takes about 150 microseconds, versus 20&amp;ndash;30 milliseconds for S3 Standard &amp;mdash; roughly two orders of magnitude. LSMs batch writes into immutable files; caching helps keep object-store reads off the hot path.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gavra&amp;rsquo;s &lt;a href="https://slatedb.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SlateDB&lt;/a&gt; is an open-source, object-store-native LSM library. It exposes a key-value interface over stores such as S3, GCS, and R2, so developers can build data systems without implementing their own LSM.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-scylladb-eliminates-read-amplification-at-scale" class="wp-block-heading"&gt;&lt;a href="https://p99conf.io/session/how-scylladb-eliminates-read-amplification-at-scale/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;How ScyllaDB Eliminates Read Amplification at Scale&lt;/a&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Michael Litvak&lt;/strong&gt; (Senior Software Engineer) and &lt;strong&gt;Felipe Cardeneti Mendes&lt;/strong&gt; (Technical Director), ScyllaDB&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;ScyllaDB&amp;rsquo;s presentation examines &lt;a href="https://www.scylladb.com/2026/07/06/scylladb-vs-aerospike-wide-column-vs-key-value/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Logstor&lt;/a&gt;, an opt-in storage engine for read-intensive key-value workloads, not a replacement for its existing LSM engine. For each key, an in-memory index stores a hash and the record&amp;#8217;s location on flash. A read can return a cached value or find the record with one disk I/O, avoiding an LSM search across SSTables, Bloom Filters, and Indexed data structures. Tables using either engine can run in the same cluster with ScyllaDB&amp;rsquo;s existing drivers and consistency options.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The speakers&amp;rsquo; preliminary read-dominant test sustained 1.1 million reads per second with p99.9 latency below one millisecond and p99.99 latency around 1.5 milliseconds. That test used 2 KB values; the earlier LSM examples in the talk used 1 KB values, so the results are not direct comparisons. They also reported similar throughput and sub-millisecond p99.9 latency in an 80% read, 20% write workload.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Logstor pays for those reads with a larger RAM index and more work on writes. Even a small update writes the full new value to a log, leaving the old record as dead space; segment compaction later reclaims it. The speaker positions it for bounded key sets, frequent overwrites, and point lookups where the extra memory is acceptable. During this talk, Mendes called the trade-off &amp;ldquo;optimized for time at the sacrifice of space.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-vertical-scaling-wall-and-how-valkey-gets-over-it" class="wp-block-heading"&gt;&lt;a href="https://p99conf.io/session/the-vertical-scaling-wall-and-how-valkey-gets-over-it/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Vertical Scaling Wall, and How Valkey Gets Over It&lt;/a&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Madelyn Olson&lt;/strong&gt;, Principal Software Engineer at AWS&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Not every bottleneck is storage. Olson begins with Amazon ElastiCache customers who saw sudden p50 latency spikes, then tests where Valkey&amp;rsquo;s main execution thread reached its limit.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Olson&amp;rsquo;s unpipelined GET benchmark, with about three million keys and 650 clients, p50 latency rose sharply near 150,000 requests per second. Valkey already had &lt;a href="https://valkey.io/blog/valkey-8-0-0-rc1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;I/O threads&lt;/a&gt;, but they sat idle while the main thread executed commands. The team used lockless queues to keep network I/O and command parsing active on those threads while command execution stayed on the main thread.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Olson reported a new ceiling of about 1.2 million requests per second in that workload &amp;mdash; roughly eight times the earlier threshold. (This is the talk&amp;rsquo;s workload-specific result, rather than a general throughput guarantee.)&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For horizontal scaling, Valkey 9.0 introduced atomic &lt;a href="https://valkey.io/blog/atomic-slot-migration/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;slot migration&lt;/a&gt;. The source shard keeps ownership while it streams a snapshot and subsequent changes to a target, then transfers ownership once the target catches up. Olson said a roughly 40 GB, three-to-four-shard test ran about 10 times faster without load and about five times faster under a heavy GET workload. If a migration fails before handoff, the staged transfer can be aborted without losing end-user data.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The I/O threads can be added or removed as workload demands change. Olson&amp;rsquo;s operating advice is to use horizontal scaling for baseline capacity and vertical scaling for short bursts, while keeping command execution single-threaded for now. Her guiding principle? &amp;ldquo;Efficiency trumps headline numbers.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-searching-100b-vectors-on-object-storage-200ms-p99" class="wp-block-heading"&gt;&lt;a href="https://p99conf.io/session/searching-100b-vectors-on-object-storage-200ms-p99/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Searching 100B Vectors on Object Storage @ 200ms P99&lt;/a&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Nathan VanBenschoten&lt;/strong&gt;, Chief Architect at turbopuffer&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;VanBenschoten described turbopuffer&amp;rsquo;s search index at a scale of 100 billion vectors, representing more than 200 TiB of dense vector data. The company reports 200 ms p99 latency at more than 1,000 queries per second and 92% recall in early results. Object storage is the durable backing store, but this high-query-rate workload pins its data in local &lt;a href="https://marketplace.turbopuffer.com/blog/ann-v3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SSD caches&lt;/a&gt;. Hierarchical clustering groups nearby vectors; &lt;a href="https://p99conf.io/session/searching-100b-vectors-on-object-storage-200ms-p99/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RaBitQ&lt;/a&gt; binary quantization shrinks a shadow index to one bit per dimension, allowing the search to narrow candidates before reranking a small subset using full-precision vectors.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The uncompressed search was limited by the bandwidth needed to move vectors from storage into memory. Quantization shifts more work into higher cache tiers, but it also increases arithmetic intensity, making the system CPU-bound.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Often when you push down one bottleneck, a new one emerges,&amp;rdquo; VanBenschoten said. That gives the team a different optimization target, including more efficient vector instructions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To hold an index this large on SSDs, turbopuffer splits it across machines. VanBenschoten says its separated compute-and-storage architecture favors fewer, &lt;a href="https://p99conf.io/session/searching-100b-vectors-on-object-storage-200ms-p99/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;larger shards&lt;/a&gt;: a replacement machine can point to object storage and hydrate its local cache instead of receiving a full shard from another node. Queries fan out to the shards, and a coordinator combines their top results.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-fastest-object-storage-client-in-the-world" class="wp-block-heading"&gt;&lt;a href="https://p99conf.io/session/the-fastest-object-storage-client-in-the-world/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Fastest Object Storage Client in the World*&lt;/a&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Georg Kreuzmayr&lt;/strong&gt;, Software Engineer at TigerBeetle&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;TigerBeetle is a financial transactions database. In this talk, Kreuzmayr describes the concept of &amp;ldquo;diagonal scaling&amp;rdquo;: keeping hot data on local NVMe while extending the storage hierarchy to shared object storage for colder data.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A failed machine doesn&amp;#8217;t need to reconstruct data already stored in object storage. As a scale illustration, he estimates that recovering 128 TB over a 100 Gbps network takes about three hours at line rate; if recovery takes longer than the interval between failures, a cluster can enter a failure spiral.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That design needs an object storage client compatible with TigerBeetle&amp;rsquo;s single-core transaction processing. Kreuzmayr cites the AWS C++ SDK&amp;rsquo;s blocking `getaddrinfo` call as one mismatch: A call on that core would stall transaction work. SDK thread pools, runtime allocation, and dependencies also conflicted with the project&amp;rsquo;s design goals.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;TigerBeetle therefore built its own multi-cloud client rather than adapting the official SDKs. It supports S3, Azure, and GCP and can be tested with simulated I/O and injected faults.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Built in Zig, the client includes custom DNS, TLS, and HTTP components, uses `&lt;a href="https://p99conf.io/session/the-fastest-object-storage-client-in-the-world/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;io_uring&lt;/a&gt;` and zero-copy sends, and allocates its working memory at startup. Kreuzmayr says the implementation is under 40,000 lines of code and has no dependencies beyond its toolchain. Those choices follow TigerStyle&amp;rsquo;s three principles: safety, performance, and developer experience.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the talk&amp;rsquo;s S3 `PutObject` test &amp;mdash; 8 MB requests over plain HTTP without checksums on an AWS `c7gn.metal-24xlarge` instance &amp;mdash; Kreuzmayr reports uploads around 20 times faster than official SDKs and five times faster than a research implementation. For `GetObject`, he reports about three times the SDK throughput and roughly 25% more than the research implementation. He attributes the smaller download gain to the cloud TCP receive path. These are results for the stated test setup. The conference summarizes the broader client comparison as &lt;a href="https://p99conf.io/session/the-fastest-object-storage-client-in-the-world/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;4&amp;ndash;10&lt;/a&gt; times faster than official GCP and AWS SDKs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Kreuzmayr&amp;rsquo;s takeaway is that building the client required more upfront work but made the code easier to test and tune. As he puts it, &amp;ldquo;code stops being technical debt and ends up being an asset.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h1 id="h-performance-is-a-process" class="wp-block-heading"&gt;Performance is a process&lt;/h1&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Across the five talks, engineers identify different bottlenecks in storage, search, networking, and scaling. Their designs improve specific workloads while introducing new costs or complexity elsewhere.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;Watch these and more than 200 other P99 CONF talks on demand at&lt;/em&gt;&lt;/strong&gt; &lt;a href="http://p99conf.io" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;&lt;em&gt;p99conf.io&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;&lt;em&gt;. Registration is required. P99 CONF is a ScyllaDB community.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/p99-conf-database-tradeoffs/"&gt;What five P99 CONF talks reveal about database trade-offs&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Faster reads cost memory. Faster writes cost reads. Five P99 CONF talks show where engineers at ScyllaDB, AWS, and TigerBeetle chose to pay.</content:encoded>
-    </item>
-    <item>
-      <title>Sam Altman almost scrapped token pricing. Here’s why he backed off.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-token-pricing-reversal/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 22:19:18 +0000</pubDate>
-      <category>AI Models</category>
-      <category>AI Strategy</category>
-      <category>FinOps</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842296</guid>
-      <description>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48-1024x585.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman, OpenAI CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48.png" /&gt;&lt;p&gt;OpenAI considered dropping token-based pricing for its next model, letting developers submit a prompt and receive a price for the&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-token-pricing-reversal/"&gt;Sam Altman almost scrapped token pricing. Here’s why he backed off.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="585" src="https://cdn.thenewstack.io/media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48-1024x585.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Sam Altman, OpenAI CEO" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/f7a6563d-screenshot-2026-03-04-at-14.29.48.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI considered dropping token-based pricing for its next model&lt;/strong&gt;, letting developers submit a prompt and receive a price for the work, before negative customer feedback convinced the company to back away from the idea, CEO Sam Altman says.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-flat-fee-pricing-idea" class="wp-block-heading"&gt;The flat-fee pricing idea&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Speaking Thursday with Stripe President &lt;a href="https://www.linkedin.com/in/johnbcollison/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;John Collison&lt;/a&gt; on the &lt;a href="https://cheekypint.transistor.fm/39" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;Cheeky Pint&lt;/em&gt;&lt;/a&gt; podcast, Altman recalls that OpenAI &amp;ldquo;almost made a very &amp;mdash; what would&amp;rsquo;ve been a bad call&amp;rdquo; to stop pricing its next model in tokens altogether, moving instead to an arrangement where a developer hands over a prompt and OpenAI hands back a price.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The billing would have worked &amp;ldquo;like AWS,&amp;rdquo; he explained, where you &amp;ldquo;just do something and we send you a bill&amp;rdquo; rather than metering the exchange token by token. Altman does not name the model in question or give a timeline for when the change was under consideration.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;ve cued up the exchange in the video below:&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" title="Why Sam Altman is against a single superintelligence" width="500" height="281" src="https://www.youtube.com/embed/iMsUcCYNKqY?start=2968&amp;amp;feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-why-customers-pushed-back" class="wp-block-heading"&gt;Why customers pushed back&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The idea ran into resistance when OpenAI tried to gauge how customers felt about receiving a price with no breakdown. &amp;ldquo;The customer response on that is so negative,&amp;rdquo; Altman recounts, with buyers telling the company, &amp;ldquo;&amp;#8217;I need to know what I&amp;rsquo;m paying for somehow.&amp;#8217;&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;&amp;#8217;I need to know what I&amp;rsquo;m paying for somehow.&amp;#8217;&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers already spend plenty of time tracking &lt;a href="https://thenewstack.io/minimax-flash-agent-costs/" class="local-link"&gt;input and output tokens&lt;/a&gt; to keep costs down and estimate what they&amp;#8217;ll spend as usage grows. Getting a price without knowing how it was calculated would only make that harder.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-paying-more-for-clarity" class="wp-block-heading"&gt;Paying more for clarity&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What makes the admission worth a second look is that, according to Altman, the people he consulted would rather pay more to keep that visibility. He put the question to &amp;ldquo;a few people,&amp;rdquo; asking whether they would take a higher rate for the same output as long as it stayed priced in consistent tokens, and the answer, he said, was that they would &amp;ldquo;much rather you inflate the tokens and pay more,&amp;rdquo; because &amp;ldquo;I know there&amp;rsquo;s a real thing there.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;much rather you inflate the tokens and pay more &amp;hellip; I know there&amp;rsquo;s a real thing there.&amp;rdquo; &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers resist a single opaque price, he reasons, because they suspect that over the long run they are &amp;ldquo;gonna get screwed somehow,&amp;rdquo; the same instinct that once had buyers paying for CPU hours instead of for a finished job.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The proposal could have had significant implications for developers building agents, whose multistep workflows already consume unpredictable amounts of compute and make spending difficult to forecast even under today&amp;rsquo;s token-based model. Altman does not explain how OpenAI would have set those per-job prices, or whether customers could have weighed one charge against another.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-tokens-a-fake-unit" class="wp-block-heading"&gt;Tokens, a &amp;lsquo;fake unit&amp;rsquo;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The subject came up when Collison pressed Altman on whether tokens were the right way to measure AI usage. Altman acknowledged the limitations of token pricing but had no clear alternative to offer.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Tokens are a kind of fake unit &amp;hellip; they&amp;rsquo;re real in some sense, but they&amp;rsquo;re not a good unit.&amp;rdquo; &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Tokens are a kind of fake unit,&amp;rdquo; he said. &amp;ldquo;I mean, they&amp;rsquo;re real in some sense, but they&amp;rsquo;re not a good unit.&amp;rdquo; He balked at Collison&amp;rsquo;s half-serious pitch to coin an intelligence-equivalent token, comparing it to the way chipmakers still market nanometer figures that no longer correspond to any physical measurement on the chip.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Altman admits developers incur real overhead when &lt;a href="https://thenewstack.io/?p=22841688" class="local-link"&gt;choosing between a cheaper model and a more capable one&lt;/a&gt;, especially when they also have to guess how much reasoning a given task will demand. &amp;ldquo;That&amp;rsquo;s just cognitive overhead that I don&amp;rsquo;t think actually adds any value,&amp;rdquo; he said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The exchange comes as OpenAI continues to rely on token pricing, even as Altman has &lt;a href="https://blog.samaltman.com/three-observations" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;argued&lt;/a&gt; that the cost of a given level of AI falls roughly tenfold a year. For now, token pricing remains in place, even as Altman acknowledges its shortcomings and OpenAI struggles to find a better alternative.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-token-pricing-reversal/"&gt;Sam Altman almost scrapped token pricing. Here’s why he backed off.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Sam Altman says OpenAI nearly dropped token-based pricing for a flat per-job fee, but developers pushed back, wanting to know what they pay for.</content:encoded>
-    </item>
-    <item>
-      <title>AWS’s Hydro team wants the compiler to catch coding agents’ mistakes</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-agents-compiler-guardrails/</link>
-      <dc:creator>Matthew Burns</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 21:53:05 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Rust</category>
-      <category>Software Testing</category>
-      <category>Podcast</category>
-      <category>sponsor-aws-marketplace</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>sponsored-premium-event-coverage</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842193</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/5253e95e-for-thumbnail-17-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shadaj Laddad, research lead for the Hydro team at AWS, believes the solution lies in automated correctness checks that operate outside an AI agent’s control." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/5253e95e-for-thumbnail-17.png" /&gt;&lt;p&gt;Earlier this month, the team behind Hydro developed a new way to check that a distributed system still works correctly&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-compiler-guardrails/"&gt;AWS&amp;#8217;s Hydro team wants the compiler to catch coding agents&amp;#8217; mistakes&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/10/5253e95e-for-thumbnail-17-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Shadaj Laddad, research lead for the Hydro team at AWS, believes the solution lies in automated correctness checks that operate outside an AI agent’s control." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/5253e95e-for-thumbnail-17.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Earlier this month, the team behind Hydro developed a new way&lt;/strong&gt; to check that a distributed system still works correctly when it resends messages after a failure. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This produced what &lt;a href="https://linkedin.com/in/shadaj" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Shadaj Laddad&lt;/a&gt; described to me as &amp;ldquo;like a 5000 line PR.&amp;rdquo; Hydro is an open-source Rust framework for distributed systems, the software that runs across many machines at once, and agents now write most of it with humans driving. The PR was difficult to split into smaller pieces as its components worked together.&amp;nbsp;&lt;/p&gt;
-
-
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/aCEp98i5ShU?si=9MK-YNgt-Ciu1bz2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;That&amp;#8217;s a lot of code to review for a tool developers count on to catch bugs. Laddad, research lead for the Hydro team at AWS, says it&amp;rsquo;s something the team spends a lot of time thinking about. I sat down with him last week at AGNTCon + MCPCon in San Jose. He was set to give a keynote the next day where he was going to argue code review can&amp;rsquo;t keep pace with how agents write code.&lt;/p&gt;
-
-
-&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/5db84738-cd00-4bb9-bf47-45e182637ba4?dark=true"&gt;&lt;/iframe&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Agents have let the team aim higher, Laddad told me, saying PRs arrive faster and run longer. &amp;ldquo;You can have the feature work well in isolation, then you mix it with something else, and suddenly the guarantees break down,&amp;rdquo; he said.&lt;br&gt;&lt;br&gt;And you can&amp;rsquo;t just trust the tests. In most agent workflows, he says, the agent writes both the code and the unit tests. &amp;ldquo;Agents are great, but they&amp;rsquo;re unpredictable,&amp;rdquo; Laddad said. That unpredictability is part of what makes them creative, and it makes it hard for a human to review all those tests and confirm they do what the team wants.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;His answer is shared Correctness checks outside the agent&amp;rsquo;s &amp;ldquo;zone of trust,&amp;rdquo; such as those enforced by a compiler. Rust&amp;rsquo;s borrow checker is his example: It catches race conditions before the code ever runs. Hydro does something similar for distributed systems, catching several types of bugs at compile time so an agent gets instant feedback on mistakes it introduced. The wider goal, which the team is still exploring, is domain-specific guardrails that agents can share.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To find candidates, the team studies historical projects for recurring patterns. Idempotency, ensuring a retried request doesn&amp;#8217;t run twice, comes up repeatedly in design reviews, so the team is asking whether it can become a general-purpose guardrail. Laddad sees this as the next rung on an old ladder. C spared programmers from mangling function calls in assembly. Java took memory allocation off their plate. Agents, he argued, make the next layer more urgent.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Compilers have limits, though. As &lt;em&gt;The New Stack&lt;/em&gt; reported in August, &lt;a href="https://thenewstack.io/canonical-c-rust-apparmor/" class="local-link"&gt;AI-generated Rust can compile perfectly and still be wrong&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same team also built &lt;a href="https://aws.amazon.com/blogs/opensource/introducing-infinity-a-runtime-for-extreme-agent-concurrency/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Infinity&lt;/a&gt;, an open-source agent runtime AWS announced on October 23. It suspends an agent while it waits on a tool call or a CI job instead of keeping it running. Laddad cited a benchmark showing 75,000 concurrent agents on a single Raspberry Pi. According to the AWS announcement, that figure is extrapolated from a server test in which each idle agent used about 100 KB.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Hydro itself is an early release, built for teams running high-throughput, low-latency services who are constantly worried about distributed systems bugs. Laddad noted that users should expect rough edges and a learning curve right now. The payoff is the confidence to change a system without fearing it will break a few months later.&lt;br&gt;&lt;br&gt;&lt;em&gt;Hydro and Infinity are open source at &lt;a href="https://hydro.run" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;hydro.run&lt;/a&gt;, built jointly by AWS and UC Berkeley.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agents-compiler-guardrails/"&gt;AWS&amp;#8217;s Hydro team wants the compiler to catch coding agents&amp;#8217; mistakes&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Agents now drive most development of Hydro, an open-source Rust framework for distributed systems, producing larger pull requests at a faster pace.</content:encoded>
-    </item>
-    <item>
-      <title>Microsoft’s new Copilot harness makes agents easy — until you want to switch</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/microsoft-copilot-harness-foundry/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Thu, 29 Oct 2026 20:54:15 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842276</guid>
-      <description>&lt;img width="1024" height="679" src="https://cdn.thenewstack.io/media/2026/10/1d1484de-ian-taylor-h7b1suempis-unsplash-1024x679.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="One way signage" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/1d1484de-ian-taylor-h7b1suempis-unsplash-scaled.jpg" /&gt;&lt;p&gt;Microsoft is opening up the GitHub Copilot agent harness to outside developers through Microsoft Foundry, bringing the same orchestration infrastructure&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-copilot-harness-foundry/"&gt;Microsoft’s new Copilot harness makes agents easy — until you want to switch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="679" src="https://cdn.thenewstack.io/media/2026/10/1d1484de-ian-taylor-h7b1suempis-unsplash-1024x679.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="One way signage" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/10/1d1484de-ian-taylor-h7b1suempis-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Microsoft is opening up the GitHub Copilot agent harness to outside developers&lt;/strong&gt; through Microsoft Foundry, bringing the same orchestration infrastructure used across its Copilot products into a managed service for building and deploying autonomous agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Announced Wednesday&lt;/a&gt;, the Microsoft Copilot harness is now available in public preview through Foundry Agent Service. It comes with built-in sandboxing, reusable skills, MCP integrations, and support for subagents. Microsoft takes care of running the agent and managing its execution environment, leaving developers to choose a supported model and configure the instructions and tools for their applications.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The same harness now supports Copilot Code, Copilot Studio, GitHub Copilot, the CLI, and VS Code.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company is also using GitHub&amp;rsquo;s agent infrastructure across more of its Copilot products. It&amp;rsquo;s a continuation of the &lt;a href="https://thenewstack.io/microsoft-foundry-build-2026-ai-agents/" class="local-link"&gt;Foundry strategy outlined at Build 2026&lt;/a&gt;, which focuses on making AI agents easier for companies to run, manage, and control. The same harness now supports Copilot Code, Copilot Studio, GitHub Copilot, the CLI, and VS Code.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-inside-the-managed-copilot-harness" class="wp-block-heading"&gt;Inside the managed Copilot harness&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Microsoft&amp;rsquo;s harness manages model and tool calls, tracks context, and keeps agents within configured policies. Skills can package instructions, scripts, and supporting resources, while MCP integrations require authentication and approval. Agents can also work with files, run code, and delegate tasks to subagents, with the main agent coordinating the results.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Microsoft&amp;rsquo;s harness manages model and tool calls, tracks context, and keeps agents within configured policies. &lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-how-developers-deploy-agents" class="wp-block-heading"&gt;How developers deploy agents&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s technical walkthrough shows how this works with a research agent. A Markdown-based skill lays out the steps for collecting evidence, analyzing data, and writing a report, while an&lt;code&gt; azure.yaml &lt;/code&gt;file defines the model deployment, tools, instructions, and harness.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers select &lt;code&gt;microsoft_copilot_preview&lt;/code&gt; as the harness type, deploy the agent using &lt;code&gt;azd deploy --all&lt;/code&gt; and invoke it through the Azure Developer CLI. They can keep agent configurations and supporting files in source control, making it easier to track changes alongside their application code.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-runtime-limits-and-lock-in" class="wp-block-heading"&gt;Runtime limits and lock-in&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Copilot harness must be selected when creating a prompt agent, and that choice can&amp;rsquo;t be changed later, even in a new version. Microsoft also controls how much CPU and memory the agent gets and how long it can sit idle. Developers can decide what their agents do, but have less control over the environment they run in.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Developers can decide what their agents do, but have less control over the environment they run in.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Microsoft is positioning its broader harness strategy as multi-model, although there are limits.  Developers can choose from compatible models deployed through Foundry, but &lt;a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/ai-gateway" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;bringing their own models&lt;/a&gt; isn&amp;#8217;t supported with the managed Copilot harness.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams that want more control can use Foundry&amp;rsquo;s hosted agents instead. Teams can build and run agents using their own frameworks and customize how they operate, while Microsoft handles the hosting. The company also announced general availability of long-running resilience for hosted agents on Wednesday, helping them recover from interruptions during tasks that take hours or even days to complete.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-foundry-agent-pricing-explained" class="wp-block-heading"&gt;Foundry agent pricing explained&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Copilot harness in Foundry Agent Service for free until December 1, 2026, although model inference and some tools and connected services still come with separate charges.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;After that, Microsoft will charge $0.0994 per vCPU-hour for compute and $0.0118 per GiB-hour for memory. Those rates may vary depending on the region and customer agreement.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/microsoft-copilot-harness-foundry/"&gt;Microsoft’s new Copilot harness makes agents easy — until you want to switch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Microsoft is opening the GitHub Copilot agent harness to developers through Foundry, a managed runtime for building and running AI agents — with limits.</content:encoded>
     </item>
   </channel>
 </rss>
