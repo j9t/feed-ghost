@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Fri, 06 Nov 2026 19:39:05 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 19:03:26 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,523 @@
       <height>32</height>
     </image>
     <item>
+      <title>How we review 4x more AI code without reading every line</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/scale-ai-code-reviews/</link>
+      <dc:creator>Ankit Jain</dc:creator>
+      <pubDate>Sat, 07 Nov 2026 17:30:00 +0000</pubDate>
+      <category>AI Engineering</category>
+      <category>Developer tools</category>
+      <category>Software Development</category>
+      <category>sponsor-aviator</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843111</guid>
+      <description>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/11/1df0904e-designiments-jmtwi3ixcpa-unsplash-1024x614.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract blue and purple digital glitch pattern representing the complexity of scaling AI code reviews." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/1df0904e-designiments-jmtwi3ixcpa-unsplash.jpg" /&gt;&lt;p&gt;Do you need to read every line of AI-generated code to trust it?&amp;#160; Not necessarily. Instead, check five things: the&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/scale-ai-code-reviews/"&gt;How we review 4x more AI code without reading every line&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="614" src="https://cdn.thenewstack.io/media/2026/11/1df0904e-designiments-jmtwi3ixcpa-unsplash-1024x614.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract blue and purple digital glitch pattern representing the complexity of scaling AI code reviews." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/1df0904e-designiments-jmtwi3ixcpa-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Do you need to read every line of AI-generated code to trust it?&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Not necessarily. Instead, check five things: the intent behind a change, its acceptance criteria, the invariants it can&amp;#8217;t break, the decisions made along the way, and evidence that it works.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At &lt;a href="https://www.aviator.co/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Aviator&lt;/a&gt;, that shift let the same nine engineers merge 4&amp;times; more pull requests, cut &lt;a href="https://thenewstack.io/ai-code-review-pipelines/" data-type="link" data-id="https://thenewstack.io/ai-code-review-pipelines/" class="local-link"&gt;median time to merge&lt;/a&gt; from 2.1 days to 3.4 hours, and drop reverts by 40%. A human still signs off on every PR. What changed is what that human reads.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Decisions need a person, and a diff is the worst place to make them.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;We got the insight by sorting our own review comments. Most of what a reviewer writes on a PR is either a rule they&amp;#8217;ve written before or a decision. Machines should check rules every time. Decisions need a person, and a diff is the worst place to make them.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-problem-code-review-doesn-t-scale-with-ai" class="wp-block-heading"&gt;The problem: Code review doesn&amp;#8217;t scale with AI&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Our code flipped from human-written with AI help to AI-generated with human help. Weekly merged PRs went from about 100 to more than 400. Our median AI-generated PR reached 640 lines, well past 400 lines, widely considered the limit where bug detection falls off.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Catching bugs was never the main point of code review anyway. In Microsoft&amp;#8217;s 2013 study (Bacchelli &amp;amp; Bird), only 14% of review comments were about defects. Review is how &lt;a href="https://www.aviator.co/blog/ai-code-review-knowledge-sharing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;engineers share knowledge&lt;/a&gt; and keep their mental model of the system current, and that&amp;#8217;s the part worth protecting. When agents write most of the code, it&amp;#8217;s also the part most at risk.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Catching bugs was never the main point of code review anyway. Review is how engineers share knowledge and keep their mental model of the system current, and that&amp;#8217;s the part worth protecting.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Since I argued that &lt;a href="https://www.aviator.co/blog/how-to-kill-the-code-review/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;code reviews are dead&lt;/a&gt;, the most common pushback I hear is, &amp;#8220;So you just stopped reviewing?&amp;#8221; No. We stopped reviewing the diff.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;So, what didn&amp;#8217;t work?&lt;/h2&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;An AI reviewer.&lt;/strong&gt; On one of my own PRs, it opened 16 of 18 threads: magic numbers, array-index React keys, a component that ran too long. One thread caught a real race condition. The two comments that mattered, both design decisions from teammates, got buried under nits.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A four-hour review SLA.&lt;/strong&gt; We couldn&amp;#8217;t add reviewers, so we added a rule. First reviews got faster, and approvals got emptier, as reviewers skimmed to hit the clock and their own work stalled.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;A self-review skill tuned to our conventions.&lt;/strong&gt; Its findings were far better than the generic bot&amp;#8217;s. But it still read the diff after the code was written, and the most useful part of the exchange, what it argued about and what we decided, died in a chat window.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;All three tried to read the diff better. But the diff is the &lt;a href="https://www.aviator.co/blog/move-code-review-before-the-code/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;least important part of code review&lt;/a&gt; anyway. It shows what changed, never why.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To see what review actually contained, I went back to a PR I&amp;#8217;d reviewed in 2025. It had 14 threads. Eight came from a bot and caught one real bug. Three of my six comments were rules I&amp;#8217;d already written on other PRs, like &amp;#8220;Use GraphQLRetryableException so Celery retries on it.&amp;#8221; Only two were real decisions, like &amp;#8220;No comments extracted: should we tell the user on the PR?&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="536" src="https://cdn.thenewstack.io/media/2026/11/df6598e4-image-1024x536.png" alt="Infographic showing what happened when nine engineers stopped reading AI-generated diffs." class="wp-image-22843112"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;What did work: Verify intent, not lines&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Code review used to do several jobs at once: catch bugs, enforce team conventions, settle design decisions, and keep everyone&amp;#8217;s understanding of the system current. We split those jobs up and gave each one a better home.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Argue before the PR exists.&lt;/strong&gt; Our review agent cross-examines the author&amp;#8217;s agent, running on a different model, and writes down every disagreement. On one recent PR, the agents raised four disagreements and settled three with a stated reason. The only one left for a human was a naming call.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Capture intent and acceptance criteria.&lt;/strong&gt; Not as an up-front spec, but captured from the coding session with the agent. Every time an engineer corrects the agent or answers its question, we create a criterion. We used to throw those away when the session ended. Intent answers why we&amp;#8217;re making the change; acceptance criteria answer how it should behave. Intent without criteria can&amp;#8217;t be checked, and criteria without intent can&amp;#8217;t be judged.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Intent answers why we&amp;#8217;re making the change; acceptance criteria answer how it should behave. Intent without criteria can&amp;#8217;t be checked, and criteria without intent can&amp;#8217;t be judged.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Codify repeated comments as invariants.&lt;/strong&gt; We mined a year of review history in three passes: drop the noise (bot summaries, bare &amp;#8220;LGTMs&amp;#8221;), classify every comment as a rule, proposal, one-off fix, or question, then merge the repeats. 11,400 comments became 212 candidate rules and 64 approved &lt;a href="https://docs.aviator.co/verify/concepts/invariants" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;invariants&lt;/a&gt;. Each has a scope, a verification method, provenance, and an owner.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Take &amp;#8220;Every config change writes an audit-log entry, only when something changed.&amp;#8221; It covers GraphQL mutations and API handlers that write config, is verified by a preview run that saves twice and reads the audit log, was mined from 23 review threads across 17 PRs, and belongs to the platform team.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A model checking every invariant on every PR is slow and not perfectly repeatable, so where possible an agent compiles invariants into ast-grep rules that run in shadow beside the model until they agree. A comment we&amp;#8217;d left on nine PRs, &amp;#8220;Add a timeout, this hung a worker,&amp;#8221; is now an eight-line rule. Nineteen invariants run deterministically, in 0.3 seconds.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Prove every criterion with evidence.&lt;/strong&gt; Each criterion becomes a scenario. An agent spins up a preview environment, drives it like a user, and records screenshots, requests, and logs. For the audit-log invariant, it saves a setting, confirms one new log entry, saves again with nothing changed, and confirms there&amp;#8217;s still one.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That second half is exactly what a reviewer reading the diff would never check. Not every criterion needs a browser: an API contract is proven by a recorded request and response, a code rule by an ast-grep match or a file-and-line citation. Pick the cheapest proof that settles the question. A &lt;a href="https://thenewstack.io/ci-bottleneck-agent-verification/" data-type="link" data-id="https://thenewstack.io/ci-bottleneck-agent-verification/" class="local-link"&gt;green CI check&lt;/a&gt; only says the tests you thought of passed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Debate the decisions.&lt;/strong&gt; Decisions come from three places: the coding session, the agents&amp;#8217; argument, and failed verification runs. The PR lists every one, where it came from, and who settled it. On a PR that added retries for failed webhook deliveries, four of five decisions were settled; the agents disagreed on whether to deduplicate retried deliveries, so a person settled that one.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Reviewers skim what&amp;#8217;s settled, settle what the agents couldn&amp;#8217;t, reopen anything they&amp;#8217;d call differently, and talk it through with the author. That conversation builds understanding of the system.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Own the rules.&lt;/strong&gt; Engineers stop &lt;a href="https://thenewstack.io/review-decisions-not-code/" data-type="link" data-id="https://thenewstack.io/review-decisions-not-code/" class="local-link"&gt;reading every line&lt;/a&gt;. They own the rules that check every line, and keep their understanding of the system by reading intent, evidence, and decisions.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The results&lt;/h2&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;PRs merged per week: 4&amp;times;, with the same nine engineers&lt;/li&gt;
+
+
+
+&lt;li&gt;Median time to merge: 2.1 days &amp;rarr; 3.4 hours&lt;/li&gt;
+
+
+
+&lt;li&gt;Human threads per PR: 6.2 &amp;rarr; 1.3&lt;/li&gt;
+
+
+
+&lt;li&gt;Reverts per 100 PRs: down 40%&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Review work didn&amp;#8217;t disappear. It moved to refining invariants, debating decisions, and improving verification. Expect the transition to hurt: month one is double work, by month two invariants catch up enough that reviews shrink, and by month three you read intent and evidence, not code.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/scale-ai-code-reviews/"&gt;How we review 4x more AI code without reading every line&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Review 4x more AI code without reading every line by verifying intent, invariants, decisions, and concrete evidence instead of raw diffs.</content:encoded>
+    </item>
+    <item>
+      <title>In the software factory, engineers become process engineers</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/engineers-become-process-engineers/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 07 Nov 2026 16:30:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Platform Engineering</category>
+      <category>Software Development</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843121</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/d06de8b4-nigel-hoare-6d3z1kl2bgm-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Chromatic digital glitch and light refraction abstract representing AI software engineering systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/d06de8b4-nigel-hoare-6d3z1kl2bgm-unsplash.jpg" /&gt;&lt;p&gt;For most of software&amp;#8217;s history, the scarce resource was people who could write code. Every process the industry built assumed&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/engineers-become-process-engineers/"&gt;In the software factory, engineers become process engineers&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/d06de8b4-nigel-hoare-6d3z1kl2bgm-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Chromatic digital glitch and light refraction abstract representing AI software engineering systems." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/d06de8b4-nigel-hoare-6d3z1kl2bgm-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;For most of software&amp;#8217;s history, the scarce resource was people who could write code. Every process the industry built assumed it. Sprints, code review, staging, and release trains were all designed around humans doing the work by hand.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That assumption is gone. By September, &lt;a href="https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;more than 40% of pull requests on GitHub started with an agent&amp;#8217;s first draft&lt;/a&gt;, up from 17% in March. Work is moving to machines, but the process around it hasn&amp;#8217;t caught up.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents made &lt;a href="https://thenewstack.io/ai-coding-tools-in-2025-welcome-to-the-agentic-cli-era/" data-type="link" data-id="https://thenewstack.io/ai-coding-tools-in-2025-welcome-to-the-agentic-cli-era/" class="local-link"&gt;generating code cheap&lt;/a&gt; and fast. For the most part, they have not yet had the same impact on shipping it. CircleCI&amp;#8217;s 2026 delivery data showed &lt;a href="https://circleci.com/blog/five-takeaways-2026-software-delivery-report" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;average daily workflow runs grew 59% year over year&lt;/a&gt;, with the top 5% of teams up 97% and the bottom quartile showing no measurable increase. A study of one company that mandated doubling pull request output found that &lt;a href="https://arxiv.org/abs/2607.01904" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;load per reviewer doubled&lt;/a&gt; and automated review overtook human review in coverage within months.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When work gets automated in any industry, the people don&amp;#8217;t disappear. They stop doing the work and start designing the system the work runs through.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When work gets automated in any industry, the people don&amp;#8217;t disappear. Their job changes. They stop doing the work and start designing the system the work runs through. Software engineers are becoming process engineers, and what they build is a software factory.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-three-manufacturing-lessons-carry-over-to-agents" class="wp-block-heading"&gt;Three manufacturing lessons carry over to agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Software is not a car plant. A factory builds the same product thousands of times, and software never ships the same change twice. But three ideas carry over, because they are about running a system where machines do the work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first is that people design the system, not the output. Ford&amp;#8217;s Model T went from &lt;a href="https://www.thehenryford.org/collections/explore/articles/ford-methods-and-the-ford-shops" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;12.5 hours per car to one every 93 minutes by 1914&lt;/a&gt;, and the workers did not get eight times faster. Engineers redesigned the line.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Second, quality gets built in at every step. Sakichi Toyoda invented &lt;a href="https://www.lean.org/lexicon-terms/jidoka/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;a loom that stopped automatically when any thread broke&lt;/a&gt;, so one operator could run many machines instead of watching one. Toyota built its production system around that idea, and W. Edwards Deming spent decades telling manufacturers to stop relying on end-of-line inspection.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The third is that the slowest step sets the pace. That was Eliyahu Goldratt&amp;#8217;s point in &amp;#8220;The Goal.&amp;#8221; Speed up any step other than the bottleneck, and you pile up work in front of it. Agents sped up coding, and the pile is now in review and verification.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;A software factory is a network of agents&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A software factory runs on many specialized agents, each good at one job, passing work to others across the lifecycle. A research agent turns usage data and customer calls into a brief, and a spec agent writes requirements with acceptance criteria. A coding agent writes the change, and a review agent reviews the change. A test agent runs the change and sends failures back, and a release agent rolls it out behind feature flags. A site reliability engineering (SRE) agent triages what breaks in production and opens the next piece of work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most handoffs in that loop are agent-to-agent, and that changes what a handoff is. Between humans, a handoff can be a Slack thread and some shared context. Between agents, it has to be a contract that states what gets passed, in what shape, and with what proof. A spec without acceptance criteria gives the coding agent nothing to aim at, and a change without test evidence gives the release agent nothing to trust.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;A spec without acceptance criteria gives the coding agent nothing to aim at, and a change without test evidence gives the release agent nothing to trust.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agent-to-agent work also fails in new ways. Errors compound, because each agent builds on the last one&amp;#8217;s output. Agents can agree too easily, or loop forever trading the same fix back and forth. A factory of agents needs what a factory of machines needs: checks between the stations, and someone who decides where those checks go.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="350" src="https://cdn.thenewstack.io/media/2026/11/24891d2a-image-1024x350.png" alt="Diagram of an agent network" class="wp-image-22843122"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Software engineers become process engineers&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That someone is the software engineer. The job moves from writing code to designing the system that writes, tests, and ships it. That is more technical, not less, because you are now responsible for how all the code gets made. The work comes down to four jobs, and the first is designing the flow: which agents exist, what each one owns, what runs in parallel, and what each handoff must contain.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The second is defining good. An agent can&amp;#8217;t hit a target nobody wrote down. Specs, acceptance criteria, performance budgets, and API contracts used to live in people&amp;#8217;s heads. Now they have to be explicit enough for a machine to check.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The third is improving the line. When an agent ships a bug, the useful question is not why the agent did that but why the line let it through. Every escaped defect is a process bug.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The fourth is placing the human gates. Humans belong where a mistake is expensive, and the call takes judgment. Line-by-line human review of every agent pull request is a craft-era habit, the factory equivalent of hand-inspecting every bolt.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When an agent ships a bug, the useful question is not why the agent did that but why the line let it through. Every escaped defect is a process bug.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents write code and fix tests. A schema migration is costly to get wrong but cheap for a machine to check, so agents run it behind hard checks. User interface (UI) copy tastes but is cheap to change, so a human reviews it after it ships. What to build and where a security boundary sits gets a human gate.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/11/efd4a054-image-1024x512.png" alt="Diagram of the human gates, placed according to the amount of judgment needed and the cost of a mistake." class="wp-image-22843123"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Quality gets built into every change, not inspected at the end&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Most teams still run the old model of quality assurance. Changes pile up, then go through one inspection at the end: a shared staging environment and a human reviewer. That is a single test bench for the whole plant, and once agents multiply the number of changes, it becomes the &lt;a href="https://thenewstack.io/merge-gate-coding-agents/" data-type="link" data-id="https://thenewstack.io/merge-gate-coding-agents/" class="local-link"&gt;bottleneck Goldratt described&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Toyoda&amp;#8217;s loom freed the operator because it checked every thread as it ran and stopped the moment one broke. Agent-written code needs the same mechanism. In a working software factory, the test agent checks every change as it is made, the coding agent fixes what fails, and nothing moves until it passes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That check only means something if it runs where the failure would show up. Mocks don&amp;#8217;t count, because they tell you a change works in a world that doesn&amp;#8217;t exist. They were a stopgap that made sense when the pace of change was slow and standing up a production-like environment for every change was hard.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So, each change gets its own environment that behaves like production, with the services, databases, and APIs it will meet after release. A human only sees the change if it hits a gate, and by then it already works, with the evidence attached.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That model needs a test station for every change, cheap enough to use on every attempt. In practice, that means an environment that comes up in seconds, deploys only what the change touched and shares everything else so that you can verify the change end to end before merge.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="606" src="https://cdn.thenewstack.io/media/2026/11/47fd00eb-image-1024x606.png" alt="Diagram comparing one inspection at the end vs. every change being verified on its own." class="wp-image-22843124"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Guardrails belong in the line, not in the prompt&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Verification catches mistakes. Guardrails stop the ones that would cost too much to catch late. Assume agents will do anything the line allows, and design the line so that everything it allows is safe.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Manufacturing calls this error-proofing. You don&amp;#8217;t put up a sign telling workers to insert the part the right way. You build a fixture that fits only one way. For agents, an instruction in a prompt is a sign on the wall, and a permission boundary is a fixture.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;So each agent holds only the access its station needs, and the coding agent never holds production credentials. Every run is isolated, so one agent&amp;#8217;s test can&amp;#8217;t corrupt another&amp;#8217;s. Required checks are enforced, every release can roll back on its own, and when a check can&amp;#8217;t run, the change stops.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A line that quietly skips a broken inspection is worse than no inspection, because everyone believes it&amp;#8217;s working. Agent-to-agent work adds one more rule: trust doesn&amp;#8217;t pass down the chain. A review agent approving a change shouldn&amp;#8217;t widen what the release agent can do.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Judgment stays human, and it becomes most of the job&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Factories didn&amp;#8217;t get rid of engineers. They created industrial engineering. You can&amp;#8217;t design a line for work you don&amp;#8217;t understand, so the best factory builders will be engineers who know what good code, good tests, and a safe rollout look like from doing it by hand.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Some work stays off the line. The first version of something new, a strange production bug, and a design nobody has tried are bench work. They stay hands-on until they are understood well enough to standardize.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Some decisions never move to a machine: what&amp;#8217;s worth building, what a customer means rather than what they said, when to trade speed for risk and who answers for what ships. Those were always the hard part of the job. Now they&amp;#8217;re most of it.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The best process wins, not the best model&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agents made code cheap, and every team can reach for the same models. What separates the teams pulling ahead is the line they build around those agents, with contracts between stations, human gates where judgment matters, and &lt;a href="https://thenewstack.io/ci-bottleneck-agent-verification/" data-type="link" data-id="https://thenewstack.io/ci-bottleneck-agent-verification/" class="local-link"&gt;verification on every change&lt;/a&gt;. Designing that line is now the software engineer&amp;#8217;s job. We built &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q4_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Signadot&lt;/a&gt; to give every change its own test station, and it is a practical place to start building yours.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/engineers-become-process-engineers/"&gt;In the software factory, engineers become process engineers&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>As AI agents automate coding, engineers become process engineers—designing the automated pipelines and human gates of the software factory.</content:encoded>
+    </item>
+    <item>
+      <title>Why AWS wants developers to stop babysitting their AI agents</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/kiro-bots-agent-memory/</link>
+      <dc:creator>Adrian Bridgwater</dc:creator>
+      <pubDate>Sat, 07 Nov 2026 15:30:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Software Development</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22842933</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/5295f7a6-getty-images-scwdwfcr94i-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hand touching a glowing network of connected user icons, illustrating how developers coordinate a crew of AI agent bots" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/5295f7a6-getty-images-scwdwfcr94i-unsplash-scaled.jpg" /&gt;&lt;p&gt;AWS first introduced Kiro, its agentic, spec-driven development environment, in July 2025. It also introduced Kiro Crew in August of&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kiro-bots-agent-memory/"&gt;Why AWS wants developers to stop babysitting their AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/5295f7a6-getty-images-scwdwfcr94i-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Hand touching a glowing network of connected user icons, illustrating how developers coordinate a crew of AI agent bots" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/5295f7a6-getty-images-scwdwfcr94i-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;AWS first introduced Kiro&lt;/strong&gt;, its agentic, &lt;a href="https://thenewstack.io/spec-driven-development-the-key-to-scalable-ai-agents/" class="local-link"&gt;spec-driven development&lt;/a&gt; environment, in July 2025. It also introduced &lt;a href="https://kiro.dev/crew/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kiro Crew&lt;/a&gt; &lt;a href="https://kiro.dev/blog/introducing-kiro-crew/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in August&lt;/a&gt; of this year, its persistent, open-source development workspace that remembers context. Now, to help developers juggle more complex tasks executed in parallel,&amp;nbsp;&lt;a href="https://kiro.dev/blog/crew-bots/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AWS introduced Kiro bots&lt;/a&gt;&amp;nbsp;on Thursday, adding persistent agent memory and delegated workflow management to the toolset. Kiro Crew already carried memory across sessions; bots give each agent its own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Described as a &amp;ldquo;named, long-running agent that you define and customize for a specific part of your work&amp;rdquo; (such as reading new issues in a ticket queue), Kiro bots retain their own memory and start with only the tools provided to them at creation.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The bot function also runs its own sessions (by which AWS means parallel worker sessions the bot launches and monitors), so software engineers don&amp;#8217;t have to track them one by one or weave them together.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;According to AWS, the arrival of &lt;a href="https://kiro.dev/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kiro&lt;/a&gt; bots heralds the shift from delegating tasks to delegating processes.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-babysitting-vs-bots-building-better" class="wp-block-heading"&gt;Babysitting vs. bots building better&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS Agentic AI director of engineering &lt;a href="https://www.linkedin.com/in/kathykam/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Kathy Kam&lt;/a&gt; tells &lt;em&gt;The New Stack&lt;/em&gt; that agents are only useful when developers can trust them to act on their own, but when a session ends, nobody owns the work anymore.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Developers end up as the go-between, carrying context from one session to the next. Kiro bots take that job off their plate, so developers can now spend the day deciding what&amp;#8217;s worth building instead of babysitting sessions,&amp;rdquo; Kam says.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Developers can now spend the day deciding what&amp;#8217;s worth building, instead of babysitting sessions.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Up to now, if this babysitting to carefully shepherd agents from one point to the next with more durable memory isn&amp;rsquo;t there, then the negative consequences show up pretty fast.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;You get what a lot of developers now call &lt;a href="https://thenewstack.io/context-rot-enterprise-ai-llms/" class="local-link"&gt;context rot&lt;/a&gt;, which can make it feel like nagging an agent to redo what you told it yesterday,&amp;rdquo; Kam explains. &amp;ldquo;It spreads fast when parallel tasks each hold their own drifting version of reality. So we gave every Kiro bot its own &lt;a href="https://thenewstack.io/how-to-add-persistence-and-long-term-memory-to-ai-agents/" class="local-link"&gt;durable memory&lt;/a&gt;, with a notes &lt;a href="https://daringfireball.net/projects/markdown/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;[.md] file&lt;/a&gt; it reads and writes, and that developers can edit directly. Fix a mistake once &amp;#8211; and it stays fixed, instead of resurfacing across every task in flight.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Each Kiro bot works with only the tools and permissions its job needs.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For example, a research bot can search the web and read files, but it can&amp;rsquo;t change them. A deployment bot can run deployment scripts and ask for approval before each change. A bot can ask developers for more tools, but nothing changes until the software engineer actually approves the request. Because each bot has its own memory, what the deployment bot learns about the release process does not mix with what the research bot learns. Separate lessons keep each bot aligned to its own responsibility, as judged by the developer at the outset.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-trust-comes-from-track-record" class="wp-block-heading"&gt;Trust comes from track record&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If this feels like bots and agents are developing more of their own personalities and being anthropomorphized into some sort of hierarchy, with some acting in a more senior capacity than others, then AWS&amp;rsquo;s Kam says that&amp;rsquo;s the wrong way to think about it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A hierarchy of agents based purely on IQ is the wrong measure. What matters is what an agent is allowed to touch, and a Kiro bot earns trust by building a track record,&amp;rdquo; underlines Kam.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A hierarchy of agents based purely on IQ is the wrong measure. What matters is what an agent is allowed to touch, and a Kiro bot earns trust by building a track record.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;No anthropomorphization as yet, but still, each Kiro bot has a name, an avatar, its own memory, and one ongoing chat channel where developers set its direction and come back for results.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Behind that chat, the bot starts sessions in parallel and monitors them. It can redirect a session that drifts from the plan and combine the results when the sessions finish. If one task needs a human decision, the bot can ask the engineer while it keeps working on parts that don&amp;#8217;t depend on an answer. Developers can set up routines in the chat, so a bot can investigate overnight build failures before the coding team even starts its day.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-yes-aws-but-what-if" class="wp-block-heading"&gt;Yes, AWS, but what if&amp;hellip;?&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;There still feels like a lot of &lt;em&gt;yes, but what if&amp;hellip;&lt;/em&gt; questions to surface here. What happens when bots are instructed to wait for human developer decisions, but the bot and wider agent framework already has enough institutional or historical knowledge to tell it the human doesn&amp;rsquo;t need to be involved? Doesn&amp;rsquo;t this mean the human coder should be overridden with an automation to reduce time-wasting?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;As more companies shift toward &lt;a href="https://thenewstack.io/warp-software-factory-infrastructure/" class="local-link"&gt;software factories&lt;/a&gt;, agents can end up remembering more information and context across a team than an individual developer, but that doesn&amp;rsquo;t put the agent in charge,&amp;rdquo; clarifies AWS&amp;rsquo; Kam. &amp;ldquo;The human is still the one accountable, while the agent is responsible for executing the work. The software engineer sets how much access each Kiro bot gets for its job, so a deployment bot can require approval before every change while a research bot runs with fewer checkpoints.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Kam further notes that a Kiro bot can &amp;ldquo;ask for more authority, but it can never take it&amp;rdquo; unmanaged. However, as already emphasized, while it waits for an answer, it keeps moving on everything that doesn&amp;#8217;t need the human-in-the-loop.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="807" height="1024" src="https://cdn.thenewstack.io/media/2026/11/4cd9e813-bots-sidebar-list-807x1024.jpg" alt="" class="wp-image-22842940"/&gt;&lt;/figure&gt;
+
+
+
+&lt;h2 id="h-each-kiro-bot-understands-its-specialty-outcome-trade-offs-limits-amp-decisions" class="wp-block-heading"&gt;Each Kiro bot understands its specialty, outcome, trade-offs, limits &amp;amp; decisions&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In its official launch blog, AWS said developers using Kiro bots will find the direction given to the bot stays visible and revisable. It is set through ongoing conversation and feedback, and Kiro Crew&amp;#8217;s learning builds within each bot. This lets the developer hand off an ongoing responsibility, not a single task. Each bot understands, for its specialty, the outcome it should aim for, the reason behind a trade-off, the limits around a change, and decisions already made.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One Kiro bot can own issue intake while another owns release readiness, and each follows the rules set for that work. AWS noted that taken together, each developer&amp;rsquo;s &amp;ldquo;crew of bots&amp;rdquo; supports the programmer&amp;rsquo;s unique approach to development and work requirements without flattening into one generic workflow.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Bots can&amp;rsquo;t delegate work to other bots &amp;mdash; and that&amp;#8217;s by design to prevent context rot and ensure Kiro bots can remain independent.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Bots can&amp;rsquo;t delegate work to other bots &amp;mdash; and that&amp;#8217;s by design to prevent context rot and ensure Kiro bots can remain independent,&amp;rdquo; highlights Kam. &amp;ldquo;A Kiro bot splits big jobs across its own parallel workstreams and pulls the results into one recommendation. Developers stay the one defining each&amp;rsquo;s boundaries and connecting Kiro bots to each other, so no decision that you want to provide input on moves between them without you being involved.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS also explained that over time, a developer&amp;#8217;s bot crew &amp;ldquo;reflects how you actually develop&amp;rdquo;, because each bot carries the requirements and boundaries for its part of the work needed. The software engineer still decides how those processes change and where judgment belongs.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;To get started, AWS has encouraged developers to open the bots workspace in the Kiro Crew sidebar, add a bot, and choose the default or a custom agent as its base. A custom agent supplies the prompt, model, tools, and skills, so users can build on a setup they already use without changing existing chats. In summary, with all the autonomy swirling around here, we might suggest that AWS isn&amp;rsquo;t asking developers to give up the steering wheel, but perhaps it&amp;rsquo;s asking them to sit further away from the passenger seat when AI is doing the driving.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/kiro-bots-agent-memory/"&gt;Why AWS wants developers to stop babysitting their AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AWS’s new Kiro bots keep their own memory and run parallel agent sessions. The promise: developers stop ferrying context and decide what to build.</content:encoded>
+    </item>
+    <item>
       <title>AI agents are getting more complex. Developers shouldn’t have to babysit them.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/harness-engineering-coding-agents/</link>
       <dc:creator>Kimberly Fessel</dc:creator>
@@ -33,7 +550,7 @@
       <category>sponsored-podcast</category>
       <category>Video</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22842906</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b10277a0-for-thumbnail-22-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In the latest episode of The New Stack podcast, Vanitha Kumar, Marketing Technology Director and Technical Partner at Thoughtworks, explains how automated tests, feedback loops, and guardrails allow agents to handle longer running tasks with less human intervention while working in parallel." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b10277a0-for-thumbnail-22.png" /&gt;&lt;p&gt;What if your coding agent could catch its own mistakes before you ever reviewed its work?&amp;#160; A few years ago,&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b10277a0-for-thumbnail-22-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In the latest episode of The New Stack podcast, Vanitha Kumar, Marketing Technology Director and Technical Partner at Thoughtworks, explains how automated tests, feedback loops, and guardrails allow agents to handle longer running tasks with less human intervention while working in parallel." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b10277a0-for-thumbnail-22.png" /&gt;&lt;p&gt;What if your coding agent could catch its own mistakes before you ever reviewed its work?&amp;#160; A few years ago,&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/harness-engineering-coding-agents/"&gt;AI agents are getting more complex. Developers shouldn&amp;#8217;t have to babysit them.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b10277a0-for-thumbnail-22-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In the latest episode of The New Stack podcast, Vanitha Kumar, Marketing Technology Director and Technical Partner at Thoughtworks, explains how automated tests, feedback loops, and guardrails allow agents to handle longer running tasks with less human intervention while working in parallel." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b10277a0-for-thumbnail-22.png" /&gt;
@@ -44,7 +561,7 @@
 &lt;p class="wp-block-paragraph"&gt;A few years ago, AI hallucinations seemed to be everywhere. (Just how many r&amp;rsquo;s &lt;em&gt;are&lt;/em&gt; there in strawberry?) Early AI tools required extensive human oversight, with developers constantly reviewing code and checking for errors. But today, advances in AI agent engineering are making self-correction a reality.&amp;nbsp;&lt;/p&gt;
 
 
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/EaNOeUq56SA?si=03y3Wh6j32ztymEh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/EaNOeUq56SA?si=03y3Wh6j32ztymEh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;Through harness engineering, teams can equip their agents with automated tests, feedback loops, and guardrails that help them identify and correct mistakes before humans review them. &lt;/p&gt;
@@ -66,14 +583,14 @@
 &lt;p class="wp-block-paragraph"&gt;As a result, agents can tackle longer-running tasks with less intervention, while multiple agents work in parallel without stepping on each other&amp;rsquo;s toes.&lt;/p&gt;
 
 
-&lt;p&gt;&lt;iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/a2f41f5e-454d-40f8-8f86-7326dfbe7a3e?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/a2f41f5e-454d-40f8-8f86-7326dfbe7a3e?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
 
 
-&lt;p class="wp-block-paragraph"&gt;Our guest on the latest episode of &lt;em&gt;The New Stack&lt;/em&gt; podcast, &lt;a href="https://www.linkedin.com/in/vanithakumar403/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vanitha Kumar&lt;/a&gt; of Thoughtworks, explains that harness engineering has two parts. &lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Our guest on the latest episode of &lt;em&gt;The New Stack&lt;/em&gt; podcast, &lt;a href="https://www.linkedin.com/in/vanithakumar403/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vanitha Kumar&lt;/a&gt;, principal technologist at Thoughtworks, explains that harness engineering has two parts.&lt;/p&gt;
 
 
 
-&lt;p class="wp-block-paragraph"&gt;Kumar &amp;mdash; who is Head of Technology for Retail, CPG, Travel &amp;amp; Hospitality Market for Thoughtworks Americas &amp;mdash; tells TNS: &amp;ldquo;Do it right the first time and also self-correct when you have done it for the first time.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+&lt;p class="wp-block-paragraph"&gt;Kumar tells TNS: &amp;ldquo;Do it right the first time and also self-correct when you have done it for the first time.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
 
 
 
@@ -802,7 +1319,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aef06ddd4bb7&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aef06ddd4bb7" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="508" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/9e1e8618-screenshot-2026-11-05-at-10.12.07-am-1024x508.png" alt="" class="wp-image-22842902"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af059def31dc&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af059def31dc" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="508" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/9e1e8618-screenshot-2026-11-05-at-10.12.07-am-1024x508.png" alt="" class="wp-image-22842902"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -847,7 +1364,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aef06ddd5173&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aef06ddd5173" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="461" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/02ede9bf-image2-1024x461.png" alt="" class="wp-image-22842904"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af059def3803&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af059def3803" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="461" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/02ede9bf-image2-1024x461.png" alt="" class="wp-image-22842904"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1034,7 +1551,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aef06ddd9378&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aef06ddd9378" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="640" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/97fd8b3d-raindrop-simulations3-1024x640.png" alt="" class="wp-image-22842888"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af059df038f8&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af059df038f8" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="640" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/97fd8b3d-raindrop-simulations3-1024x640.png" alt="" class="wp-image-22842888"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -1097,7 +1614,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6aef06ddd9a73&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6aef06ddd9a73" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="640" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/0efe0476-raindrop-simulations1-1024x640.png" alt="" class="wp-image-22842889"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af059df04052&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af059df04052" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="640" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/0efe0476-raindrop-simulations1-1024x640.png" alt="" class="wp-image-22842889"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4072,458 +4589,6 @@ $(document).ready(function() {
 &lt;p class="wp-block-paragraph"&gt;Wherever the protocols fall short, Gilbert says, companies will write custom code, and customers will end up paying to support it. A standard that arrives after a customer has built and deployed its own integration still leaves that customer with code to maintain.&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/mazin-gilbert-aaif-interview/"&gt;Can agent standards keep up with the companies building them?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
-    </item>
-    <item>
-      <title>Goldman Sachs restricted Claude Code for bankers — but made one surprising exception</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ai-coding-agents-security/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 03 Nov 2026 19:18:34 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842640</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Wall St. sign" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-scaled.jpg" /&gt;&lt;p&gt;Replit CEO Amjad Masad is warning that AI coding agents running on employee devices are becoming a security risk for&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-agents-security/"&gt;Goldman Sachs restricted Claude Code for bankers — but made one surprising exception&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Wall St. sign" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/17533fd2-supradoc-s5m88l_ts_0-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Replit CEO Amjad Masad is warning that AI coding agents running on employee devices&lt;/strong&gt; are becoming a security risk for enterprises and governments, as financial institutions begin restricting access to tools such as Claude Code.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI agents running on employee endpoints are becoming a systemic security risk for enterprises &amp;amp; governments,&amp;rdquo; &lt;a href="https://www.linkedin.com/in/amjadmasad/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Masad&lt;/a&gt; writes &lt;a href="https://x.com/amasad/status/2117481616943820843" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;on X&lt;/a&gt;, Tuesday. &amp;ldquo;Some are responding by restricting tools like Claude Code, as Goldman Sachs reportedly has.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Some are responding by restricting tools like Claude Code, as Goldman Sachs reportedly has.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-why-finance-restricts-coding-agents" class="wp-block-heading"&gt;Why finance restricts coding agents&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;His comments follow a &lt;a href="https://news.bloomberglaw.com/capital-markets/goldman-restricts-traders-and-bankers-from-using-some-ai-tools" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Bloomberg report&lt;/a&gt; that Goldman Sachs has restricted access to Anthropic&amp;rsquo;s Claude Code and Microsoft&amp;rsquo;s GitHub coding tools to engineers. The restrictions apply to bankers and traders, but certain quantitative employees known as strats are exempt.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Goldman spokesperson &lt;a href="https://www.linkedin.com/in/nick-carcaterra-a2119212/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nick Carcaterra&lt;/a&gt; told Bloomberg the bank weighs productivity gains against potential risks when deciding which employees can continue using AI tools.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Masad suggests Goldman Sachs is not alone. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is widespread in finance. The ban hammer is coming down,&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;This is widespread in finance. The ban hammer is coming down,&amp;rdquo; he writes, responding to a post about the bank&amp;rsquo;s restrictions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked what was driving the crackdown, Masad points to &amp;ldquo;Supply chain attacks etc.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-the-credential-exposure-problem" class="wp-block-heading"&gt;The credential exposure problem&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Running coding agents directly on employee machines raises concerns about credential exposure, malicious instructions and compromised dependencies, each of which has already surfaced well beyond the finance sector. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The credential question has been pushing vendors toward short-lived tokens for months, a shift &lt;a href="https://thenewstack.io/vercel-oidc-static-credentials/" class="local-link"&gt;Vercel recently forced on its own suppliers&lt;/a&gt; by setting a deadline to abandon the long-lived keys that an agent operating on an endpoint could quietly read and reuse.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When asked on X whether banks were more worried about code leaving their environments or a lack of audit trails, Masad says, &amp;ldquo;So many things.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He offered no examples of security incidents that prompted Goldman&amp;rsquo;s restrictions or other financial institutions adopting similar policies.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-isolating-agents-in-the-cloud" class="wp-block-heading"&gt;Isolating agents in the cloud&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Alongside his comments, Masad shares a &lt;a href="https://frontier.replit.com/managed-cloud-environments-for-ai-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;security advisory published by Replit&lt;/a&gt; on Monday. Written by &lt;a href="https://www.linkedin.com/in/lhchavez/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Luis H&amp;eacute;ctor Ch&amp;aacute;vez&lt;/a&gt;, Replit&amp;rsquo;s chief technology officer, and engineering lead at Replit, &lt;a href="https://www.linkedin.com/in/manishmehta/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Manish Mehta&lt;/a&gt;, it recommends keeping AI agents off employee devices and running them in company-controlled cloud environments instead.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI agents should operate in dedicated, organization-controlled environments with limited access to the resources each task requires,&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;AI agents should operate in dedicated, organization-controlled environments with limited access to the resources each task requires,&amp;rdquo; Masad writes.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Replit recommends running agents in isolated environments, with credentials, audit logs, and approvals managed separately.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The advisory points to recent security incidents, including a compromised Claude Code extension distributed through the Cursor marketplace, as an example of how attackers can exploit developer tools. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That pattern has played out repeatedly across the ecosystem this year, including an attack in which intruders &lt;a href="https://thenewstack.io/hackers-hijacked-1900-github-accounts-then-they-went-after-30000-repos/" class="local-link"&gt;hijacked roughly 1,900 GitHub accounts before moving against some 30,000 repositories&lt;/a&gt;, a reminder that a single poisoned link in the chain can reach far past the machine where it started.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-controlling-what-agents-can-access" class="wp-block-heading"&gt;Controlling what agents can access&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But restricting AI coding agents to engineers doesn&amp;rsquo;t necessarily solve the problem. Even experienced developers can run agents that &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/" class="local-link"&gt;follow malicious instructions&lt;/a&gt; or pull in compromised software, and research has shown how little it takes to knock an agent off course, with one team finding that stripping a single line from Claude Code&amp;rsquo;s instructions sent its out-of-scope actions climbing. Replit argues that companies need to control what agents can do, not just who gets to use them.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-this-means-for-enterprise-ai-adoption" class="wp-block-heading"&gt;What this means for enterprise AI adoption&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Goldman&amp;rsquo;s restrictions suggest companies may be rethinking how widely they allow employees to use AI coding tools. Giving non-developers the ability to build software has been a major selling point, but that becomes harder to justify when agents have access to sensitive corporate systems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Masad argues that companies don&amp;rsquo;t need to stop using agents. They need to keep them off employee devices and put tighter controls around what they can access.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Whether financial institutions broadly adopt that model remains to be seen. Masad has described restrictions as widespread, but has not provided public evidence establishing how many organizations have introduced them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack &lt;/em&gt;has reached out to Replit for additional comment on the reported restrictions, the security concerns driving them, and whether financial institutions are changing their approach to AI coding agents.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-coding-agents-security/"&gt;Goldman Sachs restricted Claude Code for bankers — but made one surprising exception&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Replit’s CEO says AI coding agents on employee devices are a growing security risk, as banks like Goldman Sachs restrict tools such as Claude Code.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic speeds up Claude Code with message threads. But your token bill stays the same.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-claude-message-threads/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 03 Nov 2026 13:46:14 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842598</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a desktop monitor, laptop, keyboard and phone displaying code, representing Claude Code and developer tools." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic has announced a new feature that aims to speed up long-running Claude Code sessions by reducing the amount of&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-message-threads/"&gt;Anthropic speeds up Claude Code with message threads. But your token bill stays the same.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a desktop monitor, laptop, keyboard and phone displaying code, representing Claude Code and developer tools." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4a4a1bb5-prakasit-khuansuwan-h_keeku145y-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Anthropic has announced a new feature that aims to speed up long-running Claude Code sessions by reducing the amount of conversation data repeatedly sent to its API, helping developers get responses faster as their coding sessions grow.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://platform.claude.com/docs/en/build-with-claude/message-threads" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Message threads&lt;/a&gt;, as it&amp;#8217;s called, is available now in public beta for Anthropic&amp;#8217;s Messages API and is already enabled by default for &amp;#8220;most&amp;#8221; Claude Code users, according to an &lt;a href="https://claude.com/resources/articles/message-threads" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;article published by Anthropic&lt;/a&gt; on Monday.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company says that the feature has reduced median time to first token (TTFT) &amp;#8212; the time it takes Claude to begin generating a response &amp;#8212; by approximately 35% for Claude Code requests containing between 500,000 and 1 million tokens.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Given that it&amp;#8217;s now part of the Messages API, the feature also extends beyond Claude Code to developers building their own AI agents, particularly those handling lengthy conversations, repeated tool calls, and large amounts of data.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-message-threads-works" class="wp-block-heading"&gt;How message threads works&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To understand what&amp;#8217;s changed, it&amp;#8217;s worth looking at how the Messages API has traditionally handled conversations.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Every time an agent sends a new request to Claude, it includes the entire conversation history. That means all messages and tool calls must be transmitted again, even though the API has previously received them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For example, a coding agent working through a complex task will likely entail hundreds of API calls. As it reads files and modifies code, the conversation history grows, and by the time that history reaches 500,000 tokens, every subsequent request requires sending those 500,000 tokens again, along with whatever new information has been thrown into the mix. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The API then has to validate and tokenize the incoming data before Claude can begin responding. This rinse-and-repeat processing can add significant latency, particularly during lengthy coding sessions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And so message threads switches things up by allowing Anthropic to temporarily retain the conversation history on its servers. The first request still sends the complete conversation, including any system prompts and tool definitions. But subsequent requests need only contain new messages and a reference to the previous response.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Behind the scenes, Anthropic reconstructs the full conversation on its servers before passing it to Claude, negating the need for the client to keep uploading the same information. This detail is important, because Claude still processes the &lt;em&gt;entire&lt;/em&gt; conversation on every turn &amp;#8212; if the history contains 500,000 tokens, the model still receives that context, even though the client has transmitted only the latest messages.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;While each request is smaller with message threads, Claude still reads the full conversation on every turn, so token usage stays the same.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As such, message threads doesn&amp;#8217;t inherently reduce API costs &amp;#8212; Anthropic continues to charge for the tokens Claude processes. &amp;#8220;While each request is smaller with message threads, Claude still reads the full conversation on every turn, so token usage stays the same,&amp;#8221; the company notes. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can, however, &lt;a href="https://platform.claude.com/docs/en/build-with-claude/message-threads#prompt-caching" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;combine message threads&lt;/a&gt; with Claude&amp;#8217;s existing &lt;a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prompt caching feature&lt;/a&gt;, which allows previously processed content to be reused at discounted token rates. The two features can work in tandem to reduce latency and processing costs respectively.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic identifies several use-cases where message threads could be particularly useful. These include long-running coding agents that accumulate file edits and tool results, computer-use agents that repeatedly capture screenshots, and applications handling large volumes of documents or images. In each case, avoiding repeated uploads reduces the amount of data transmitted during a session.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/guillaumelebedel/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Guillaume Lebedel&lt;/a&gt;, co-founder and CTO of AI agent infrastructure company &lt;a href="https://www.stackone.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;StackOne&lt;/a&gt;, took to LinkedIn on Tuesday to illustrate the potential benefits of message threads for &lt;a href="https://thenewstack.io/claude-computer-use/" class="local-link"&gt;computer-use&lt;/a&gt; agents, using a simulation to estimate how much data could be saved.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;His calculations assume an agent captures one 150 KB screenshot at each step. Without message threads, the 50th request would need to upload approximately 7.5 MB of accumulated screenshots. With message threads, that request would carry just the latest screenshot, approximately 0.15 MB.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Across the entire 50-step session, the cumulative screenshot data uploaded would fall from roughly 191 MB to 7.5 MB &amp;#8212; a reduction of approximately 25 times.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While these figures aren&amp;#8217;t based on a live API test, they illustrate the potential benefits for agents that repeatedly upload large files. Indeed, Lebedel predicts that computer-use agents could spearhead adoption of the feature, with widespread uptake before the end of the year.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;My bet &amp;#8212; computer-use agents adopt it before coding agents do, since a screenshot per step is what makes the resend heavy.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;My bet &amp;#8212; computer-use agents adopt it before coding agents do, since a screenshot per step is what makes the resend heavy, and most have it on by the end of December,&amp;#8221; he &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7523204166257889280/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writes&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-to-use-message-threads" class="wp-block-heading"&gt;How to use message threads&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To implement the feature, Anthropic has introduced a new thread parameter to the Messages API. The initial request creates a thread by including &lt;code&gt;thread={"type": "create"}&lt;/code&gt;, alongside the full conversation history, system prompt, and any tools being used.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Subsequent requests use &lt;code&gt;thread={"type": "continue", "previous_message_id": first.id}&lt;/code&gt;, where &lt;code&gt;first.id&lt;/code&gt; refers to the response ID returned by the initial request.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These follow-up requests contain only the new messages. The API retains the earlier conversation and its original system prompt and tool definitions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Because the feature remains in beta, developers making requests directly must also include the &lt;code&gt;anthropic-beta&lt;/code&gt; header with the value &lt;code&gt;message-threads-2026-08-12&lt;/code&gt;. In the Python SDK, this can be supplied through &lt;code&gt;betas=["message-threads-2026-08-12"]&lt;/code&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic also provides a simpler approach through its SDK thread helper, which manages the conversation history and API parameters automatically.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Using the Python SDK, developers first create a client with &lt;code&gt;client = anthropic.Anthropic()&lt;/code&gt;, before initialising a thread through &lt;code&gt;client.beta.messages.thread()&lt;/code&gt;. The latter accepts the model, maximum output tokens and initial system prompt, among other parameters.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Once configured, developers use &lt;code&gt;thread.send()&lt;/code&gt; to submit messages. The SDK thread helper automatically creates the thread on the first request, then continues it on subsequent turns, supplying the necessary parameters and retaining a local copy of the conversation history.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The SDK thread helper also adds the required beta header automatically, removing the need for developers to specify it with each request.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/11/ef081582-gif2.gif" alt="Message threads in action" class="wp-image-22842612"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Message threads in action&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;h2 id="h-message-threads-expire" class="wp-block-heading"&gt;Message threads expire&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There is, however, one notable limitation in all of this. Message threads expire after just five minutes of inactivity. And as one &lt;a href="https://x.com/Cydr4l/status/2117334700016730233?a=qmSR8V8ROR9n_WlxgMs&amp;amp;s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;user observed on X&lt;/a&gt;, &amp;ldquo;Five minutes at the coffee machine and the thread expires.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Another user went further, &lt;a href="https://x.com/zuLunis/status/2117365300647563375?a=u6ATWqzP_K4_orWtBYA&amp;amp;s=20" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;writing&lt;/a&gt;: &amp;ldquo;Only 5 minutes for cache expires is almost useless.&amp;rdquo; The user appears to be referring to the message thread expiry, which is separate from Claude&amp;#8217;s prompt caching feature.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Five minutes at the coffee machine and the thread expires.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That might seem like an unforgiving restriction for a feature designed to improve lengthy coding sessions, however the implications are perhaps not so dramatic. If a developer steps away for ten minutes, say, the thread will indeed have expired. However, provided the client has retained the conversation history, the SDK helper automatically resends it to establish a new thread when they return. So the first request after a break may therefore take longer, but the coding session can continue without losing its previous context.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For agents operating continuously, the limitation may be even less consequential. Every successful request stored in the thread refreshes the five-minute expiry period, meaning an agent making regular API calls can maintain the same thread throughout a lengthy task.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers managing threads directly must handle expiry themselves. An attempt to continue an unavailable thread returns a 404 error, requiring the client to resend the complete conversation and establish a new thread.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are also some data-handling considerations. Anthropic says thread contents are encrypted and held in server memory without being written to persistent storage. Although threads expire after five minutes of inactivity, their contents may remain in memory for up to an hour after their last use.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The feature is currently ineligible for zero data retention and HIPAA, which could restrict its use in environments with stringent data-handling requirements. Certain context-management capabilities, including on-demand compaction, are also unsupported.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Message threads is available across all Claude models in beta, including through Claude Platform on AWS, Claude in Microsoft Foundry, and Anthropic-managed Claude Models on Google Cloud.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-message-threads/"&gt;Anthropic speeds up Claude Code with message threads. But your token bill stays the same.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Message threads stop Claude Code resending whole conversations. They expire after five minutes idle, though, so maybe don’t take that coffee break.</content:encoded>
-    </item>
-    <item>
-      <title>OpenAI built itself a new Git backend, too</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/openai-pando-git-backend/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Tue, 03 Nov 2026 00:00:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Developer tools</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842572</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;&lt;p&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-pando-git-backend/"&gt;OpenAI built itself a new Git backend, too&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/02/33c02ff1-img_2596-scaled-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/02/33c02ff1-img_2596-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;OpenAI on Monday detailed how it built a new Git backend for its monorepo to power the ever-increasing number of commits its developers and their agents now create.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Pando, as the team calls the new backend, cut push latency by nearly 5x, the company says, and it currently serves close to a petabyte of Git data per day at OpenAI.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI is obviously an early adopter of agentic coding tools. Compared to the first quarter of 2024, the quarterly commits to its monorepo will have increased by over 2,400% by the end of this year, the company says. But the issues it is facing are similar to what many other enterprises and Git forges like GitHub are now seeing.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With the pace of development increasing, Git itself is becoming a bottleneck. GitHub, for example, spent much of its recent&amp;nbsp;&lt;a href="https://thenewstack.io/?p=22842113" class="local-link"&gt;Universe keynote&lt;/a&gt;&amp;nbsp;on how it is&amp;nbsp;&lt;a href="https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;improving its infrastructure&lt;/a&gt;&amp;nbsp;to become faster and more reliable, all while serving billions of pull requests every month.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That has given rise to startups like&amp;nbsp;&lt;a href="https://thenewstack.io/entire-git-for-agents/" class="local-link"&gt;Entire&lt;/a&gt;&amp;nbsp;(from former GitHub CEO Thomas Dohmke) and projects like &lt;a href="https://thenewstack.io/cursor-origin-github-alternative/" class="local-link"&gt;Origin from Cursor&lt;/a&gt;. Like OpenAI&amp;#8217;s work, those are based on Git, but others, like&amp;nbsp;&lt;a href="https://thenewstack.io/anthropic-scion-git-replacement/" class="local-link"&gt;Anthropic&lt;/a&gt;, basically start from scratch with a new client and architecture.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-why-openai-stayed-with-git" class="wp-block-heading"&gt;Why OpenAI stayed with Git&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The OpenAI team explicitly notes that it wanted to retain compatibility with Git. The team was seeing the reliability of its Git backend fall below 90%, with slow fetches and failed merges, but decided to stay within the Git ecosystem.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As OpenAI&amp;#8217;s Aaron Friel, Taylor Blau, and Ted Nyman ask in the announcement, the question the team asked itself was if it had &amp;#8220;reached a limit of Git itself, or of the way we served our monorepo?&amp;#8221; The answer for OpenAI was that the Git client and protocol weren&amp;#8217;t really the problem (though the team is also making some tweaks there), but the way conventional Git servers are built.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;For more than two decades, developers have adapted their tools around Git as the way they build software has changed,&amp;#8221; they write. &amp;#8220;When we started to feel friction in our own monorepo, it mattered to us that we could keep building on that work.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-pando-works" class="wp-block-heading"&gt;How Pando works&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Pando drops two things most Git servers treat as requirements. The first is keeping every branch in the repository in a consistent state at once. The second is building a custom packfile, Git&amp;#8217;s format for bundling compressed objects, for every client that fetches code.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Git, a branch is  simply a pointer to that latest commit. Moving that pointer is the only part of a push that requires coordination. Conventional Git servers order those updates across the entire repository, so when there are many developers working in parallel, a push to one agent&amp;#8217;s branch can end up waiting on another&amp;#8217;s.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Pando, on the other hands, doesn&amp;#8217;t coordinate every write across the whole repository. Instead, it handles each branch on its own. Because of this, pushes to unrelated branches then don&amp;#8217;t have to wait on each other.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There&amp;#8217;s a tradeoff here, the team acknowledges. When a client is looking at several branches at once, it may see them at slightly different points in time. In practice, however, users and agents only care about the order of updates to a single branch, OpenAI argues.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When a client pushes, Pando validates the incoming packfile as it streams it into blob storage, without unpacking it into a local repository. It records the new branch tip, the packfile&amp;rsquo;s location, and its dependencies in a metadata store. By default, Pando advertises only the trunk branch as a base for feature-branch pushes. That makes each pack reusable by other clients that already have the advertised trunk history.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Then, when another client fetches the branch, Pando selects the stored packs it needs based on the history it already has. It then returns download links through packfile-uri, a Git protocol feature that lets clients download packs separately.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="457" src="https://cdn.thenewstack.io/media/2026/11/da899961-screenshot-2026-11-02-at-2.23.37-pm-1024x457.png" alt="" class="wp-image-22842573"/&gt;&lt;figcaption class="wp-element-caption"&gt;Pando stores the writer&amp;#8217;s packfile in blob storage and records the ref version in a shared key-value store. On fetch, Pando selects the packs the reader needs, and Express serves them. Credit: OpenAI.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A caching service called Express then serves those packs from regional caches, with a hit rate above 99%, the company says. On standard cloud VMs, clones and fetches can max out a 10 Gbps network link.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A busy monorepo would otherwise leave clients downloading tens of thousands of small packs a day, so background workers merge them into larger ones over time, much like a log-structured database compacts its data. That also lets Pando work out which packs a client needs in logarithmic time.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-pando-vs-standard-git-servers" class="wp-block-heading"&gt;Pando vs. standard Git servers&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On a standard Git server, every fetch means working out which objects the client is missing and compressing a fresh packfile just for that client. Those packs are expensive to generate and hard to cache, OpenAI says. Pando mostly hands out bytes it already has.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Before a push, a regular Git server also lists every branch it holds so the client can skip objects the server already has. With millions of branches, that list alone can grow past 100 MiB, according to OpenAI. Advertising only trunk keeps it small, but it means repeat pushes to the same branch resend everything that isn&amp;#8217;t on trunk. The team says that&amp;#8217;s a fair trade, since the median pack in its monorepo is still under 20 KiB.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Regular Git servers also have to repack and garbage-collect repositories to keep them fast, which eats up compute and disk I/O. Pando never throws a pack away. It keeps packs at every compaction level and serves from all of them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For developers, little of this is visible. They keep using standard Git commands, though OpenAI now ships its own Git build to developer machines and inside the ChatGPT desktop app.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI built Pando in Rust in 10 weeks, with one engineer designing the core and teams of Codex agents implementing it. It went into production in April.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-what-goes-back-into-open-source-git" class="wp-block-heading"&gt;What goes back into open source Git?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Building on Git also meant running into some of Git&amp;#8217;s own rough edges, and OpenAI says it&amp;#8217;s sending many of its fixes back to the project. Because Pando leans so heavily on packfile-uri, which a Google engineer&amp;nbsp;&lt;a href="https://lore.kernel.org/all/871s1stlf4.fsf@evledraar.gmail.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;first proposed in 2019&lt;/a&gt;, the team had to fix how the Git client handles concurrent pack downloads, cleans up after interrupted transfers, and resumes downloads that had already finished. It also added tracing for those downloads, which makes it easier to tell whether a slow fetch is spending its time generating packs or transferring them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Not all of that work has landed in Git yet. OpenAI says several of its changes are already upstream, while many others for now only live in the company&amp;#8217;s public Git repository. Those include support for downloading and indexing packs in parallel and a new &amp;#8220;explicit haves&amp;#8221; feature, which lets a server tell a pushing client where a branch currently points without letting the client leave that history out of its pack. The company is tracking all of this in a public patch tracker.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Pando itself isn&amp;#8217;t part of that, though. OpenAI isn&amp;#8217;t open sourcing the backend, and as of now, it only says that it&amp;#8217;s looking into ways to share the underlying technology with its users. Anthropic, too, has said it has no plans to release Scion, either.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-pando-git-backend/"&gt;OpenAI built itself a new Git backend, too&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Unlike Anthropic, OpenAI kept Git. Its new backend, Pando, cut push latency nearly 5x and serves close to a petabyte of Git data a day.</content:encoded>
     </item>
   </channel>
 </rss>
