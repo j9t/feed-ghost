@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 14 Nov 2026 09:17:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 22:52:03 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,1098 @@
       <height>32</height>
     </image>
     <item>
+      <title>AWS Emulator proves agents need a verification loop. Realism is the hard part.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/aws-emulator-verification-loops/</link>
+      <dc:creator>Arjun Iyer</dc:creator>
+      <pubDate>Sat, 14 Nov 2026 17:30:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>Software Testing</category>
+      <category>sponsor-signadot</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843708</guid>
+      <description>&lt;img width="1024" height="573" src="https://cdn.thenewstack.io/media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash-1024x573.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract refracted rainbow light waves sliced into dark vertical bands, representing AI coding agent verification loops." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash.jpg" /&gt;&lt;p&gt;This week, Amazon Web Services released AWS Emulator, a local copy of AWS that coding agents can test against. It&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-emulator-verification-loops/"&gt;AWS Emulator proves agents need a verification loop. Realism is the hard part.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="573" src="https://cdn.thenewstack.io/media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash-1024x573.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract refracted rainbow light waves sliced into dark vertical bands, representing AI coding agent verification loops." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;This week, Amazon Web Services released AWS Emulator,&lt;/strong&gt; a local copy of AWS that coding agents can test against. It covers more than 200 AWS services and was written entirely by agents. The most useful part of the launch is a story Swami Sivasubramanian tells in the announcement.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;About 20 years ago, Sivasubramanian helped build the replication engine inside Alf, a Paxos-based lock service that still powers AWS systems such as S3 and DynamoDB. The first build took about four months. When he later asked Kiro, AWS&amp;#8217;s agentic coding tool, to rebuild it, he supervised the agent for four nights before he saw the problem: The agent had no way to check its own results. Once it had a spec and a test environment, the rebuild took about two hours.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Same agent, same task. Four nights became two hours because the feedback loop changed.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;An agent is only as good as its verification loop, and a verification loop is only as good as what it runs against.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As Sivasubramanian puts it, distributed systems are hard to test. That matches what I see across &lt;a href="https://thenewstack.io/ai-engineering-trends-in-2025-agents-mcp-and-vibe-coding/" data-type="link" data-id="https://thenewstack.io/ai-engineering-trends-in-2025-agents-mcp-and-vibe-coding/" class="local-link"&gt;teams running coding agents&lt;/a&gt; on production systems. An agent is only as good as its verification loop, and a verification loop is only as good as what it runs against. AWS Emulator solves that for the AWS APIs your code calls. It does not solve it for the services your team owns, and that is where most agent-written changes break.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-aws-puts-infrastructure-inside-the-agent-s-loop" class="wp-block-heading"&gt;AWS puts infrastructure inside the agent&amp;#8217;s loop&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A coding agent works in a loop. It writes code, runs it, reads the result, and decides what to change next. Sivasubramanian&amp;#8217;s point is that in distributed systems, that loop runs inside infrastructure. If the services the code calls do not behave like the real ones, the agent learns the wrong lesson and keeps going.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS Emulator puts AWS into that loop on a laptop. Point existing AWS tools and code at it with one environment variable, and tests run against emulated services without changes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Autonomous &lt;a href="https://www.aboutamazon.com/news/aws/how-autonomous-ai-agents-built-aws-emulator" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;agents wrote every line&lt;/a&gt; of the emulator, working from AWS&amp;#8217;s public API models. Each behavior is pinned by a fidelity test that first passes against real AWS, then against the emulator, and every change passes a merge gate where security agents review it. Sivasubramanian&amp;#8217;s conclusion is that when agents write the code, the engineer&amp;#8217;s job is to build the specs, tests, and merge gates that decide when the work is correct.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The first reactions on Hacker News went straight to trust. One commenter &lt;a href="https://news.ycombinator.com/item?id=50457091" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;counted roughly 30,000 commits in three weeks&lt;/a&gt; and questioned the quality. That is a fair question aimed at the wrong thing. Who wrote the code tells you little. What it was verified against tells you a lot, and AWS&amp;#8217;s answer is real AWS.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Slow or unrealistic feedback was a tax on people. For agents, it decides whether the loop works at all.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;What changed is who runs the loop. A developer checks a change a few times a day, and an agent checks it on every iteration. Slow or unrealistic feedback was a tax on people. For agents, it decides whether the loop works at all.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Every loop runs against mocks, an emulator, or the running system&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An agent can verify its work against one of three things, and each has a different weakness.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mocks are the weakest option, and AI has made them cheap. One Hacker News commenter argued that it is now &lt;a href="https://news.ycombinator.com/item?id=50456857" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;faster to have AI mock your APIs&lt;/a&gt;, adding that &amp;#8220;AI has been a boon for test coverage.&amp;#8221; But an agent that writes its own mocks writes them to match its own assumptions. The tests pass because they were built to pass, so coverage goes up while confidence should not.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Emulators are a real step up. AWS Emulator is checked against real AWS, so its behavior comes from the service rather than from the agent.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An emulator is still a model, though, and AWS is open about that. The repository keeps a folder of behaviors the agents found that do not match real AWS yet, and operations that are not implemented return an error instead of a fake success. An IDC analyst &lt;a href="https://www.infoworld.com/article/4247383/aws-unveils-local-emulator-service-to-help-enterprises-accelerate-app-development-and-testing.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;noted that at launch&lt;/a&gt; the emulator does not simulate throttling, outages, or per-Region availability, which is where retry and failover logic gets exercised.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;An agent that writes its own mocks writes them to match its own assumptions. The tests pass because they were built to pass, so coverage goes up while confidence should not.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sivasubramanian says as much about his own work on Alf. Simulation ironed out most of its concurrency bugs before it ran on real servers. Testing on real servers then turned up different problems, because &amp;#8220;the real world exposes things a simulation cannot.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/11/82bdab6b-image-1024x546.png" alt="Infographic detailing the three things a loop runs against." class="wp-image-22843709"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;You can&amp;#8217;t emulate your own system the way AWS emulated its own&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In the same HN thread, a self-described Amazonian outlined the approach most teams take with agents today: Close off as much of the system as possible, mock or simulate the dependencies that cannot be closed off, then let the agent loose. That works when the part you cannot close off is a cloud API with a published spec. It breaks down when that part is your own system.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;AWS Emulator works because AWS had two things most teams will never have for their own software: a complete, machine-readable spec of every operation and a stable reference to check against in real AWS.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now picture a payments platform with 60 microservices. The contracts between those services live in code, in a &lt;a href="https://thenewstack.io/openapi-initiative-new-standards-and-a-peek-at-the-roadmap/" data-type="link" data-id="https://thenewstack.io/openapi-initiative-new-standards-and-a-peek-at-the-roadmap/" class="local-link"&gt;few OpenAPI files that&lt;/a&gt; drifted months ago and in the heads of the engineers who wrote them. There is no single spec, and the reference implementation is the running system itself, which changes every time someone merges. With agents opening pull requests (PRs) multiple times a day, it changes faster than any model of it could keep up with.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That is also where agent-written application code tends to break. The failures are rarely about how a managed queue handles a visibility timeout. They are a field renamed in one service that a consumer two teams away still reads, an event payload a downstream service does not expect, a query that is fast on fixtures and slow on production-sized data, or configuration, feature flags and secrets that only exist in the cluster. No emulator of a cloud provider will ever see them.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;The environment belongs on the engineer&amp;#8217;s list&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sivasubramanian lists specs, tests, and merge gates as the engineer&amp;#8217;s job now. I would add the environment, because it decides what the agent can catch.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A realistic loop has six properties. The change runs in a &lt;a href="https://thenewstack.io/its-time-to-kill-staging-the-case-for-testing-in-production/" data-type="link" data-id="https://thenewstack.io/its-time-to-kill-staging-the-case-for-testing-in-production/" class="local-link"&gt;production-like environment&lt;/a&gt;, next to the services, data, and configuration it will ship into. Each change gets its own isolated environment, so 10 agents working in parallel do not step on each other. The environment starts in seconds, because an agent that waits 20 minutes stops using it and the loop collapses back to unit tests. And the agent creates the environment and reads results itself, without filing a ticket.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The loop also runs the integration and end-to-end suites the team already trusts, not tests the agent wrote to agree with itself. And it produces evidence a reviewer or merge gate can act on before the change merges.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The hard part is getting production-like fidelity and fast startup at the same time. Cloning a full stack for every change buys fidelity and loses on speed and cost. A team of 10 engineers running multiple parallel agent sessions might produce 100 PRs a day or more that need to be verified. No team can justify the cost of 100+ full copies of the system.&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Emulate what you don&amp;#8217;t own, and run what you own for real&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Emulators and production-like environments are not competing ideas. They are layers in the same loop.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For managed cloud services with published contracts, an emulator gives agents fast, free feedback on a laptop. If a service writes to S3 and reads from a queue, AWS Emulator catches API misuse in seconds without touching an AWS account.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Emulators and production-like environments are not competing ideas. They are layers in the same loop.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For the system you own, deploy only what the change modifies instead of cloning the stack. Requests and messages tagged for that change&amp;#8217;s environment reach the new versions, and everything else is served by the shared stable environment that is already running. Databases and queues get lightweight per-environment schemas or topics only where the change needs data isolation. That is how an environment starts in seconds and still behaves like production. Uber and Lyft built internal systems on this model for the same reason.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then make the merge gate ask for both. A PR that passed against an emulator and against the system it is joining is one a reviewer can trust.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="631" src="https://cdn.thenewstack.io/media/2026/11/d357cef8-image-1024x631.png" alt="Infographic detailing a framework where you emulate what you don't own, and run what you own for real." class="wp-image-22843710"/&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;h2 class="wp-block-heading"&gt;Every agent will have a loop, and realism is what separates them&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Sivasubramanian&amp;#8217;s agent went from four nights to two hours once it could check its own work. For application teams, the next jump depends on what it checks against. An emulator covers the cloud APIs you call, and only the running system covers the services you own.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Having a verification loop is now expected. The realism of that loop is what decides how much you can trust the code that comes out of it. If you want your agents verifying every change in a production-like environment before merge, we built &lt;a href="https://www.signadot.com/?utm_source=tns&amp;amp;utm_medium=sponsorship&amp;amp;utm_campaign=q4_26_sponsored_content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Signadot&lt;/strong&gt;&lt;/a&gt; to make that the default.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-emulator-verification-loops/"&gt;AWS Emulator proves agents need a verification loop. Realism is the hard part.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>AWS Emulator proves coding agents need realistic verification loops—emulate cloud APIs you don&amp;#039;t own, and run your services for real.</content:encoded>
+    </item>
+    <item>
+      <title>Claude Fable 5.2 vs. Fable 5.1: Fewer refusals, with small savings on the login fix</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-fable-5-2-vs-fable-5-1/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Sat, 14 Nov 2026 17:00:00 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Anthropic</category>
+      <category>Security</category>
+      <category>Software Development</category>
+      <category>Software Testing</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843664</guid>
+      <description>&lt;img width="1024" height="682" src="https://cdn.thenewstack.io/media/2026/11/83d1a882-new-material-ug-sm8dogsq-unsplash-scaled-e1794608865950-1024x682.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Wooden spheres and blue cubes spill from opposite clear tubes on dark gray, illustrating a Claude Fable model comparison" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/83d1a882-new-material-ug-sm8dogsq-unsplash-scaled-e1794608865950.jpg" /&gt;&lt;p&gt;Anthropic’s Claude Fable 5.2 promises fewer refusals and lower token prices, but those changes played out very differently in our&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-fable-5-1/"&gt;Claude Fable 5.2 vs. Fable 5.1: Fewer refusals, with small savings on the login fix&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="682" src="https://cdn.thenewstack.io/media/2026/11/83d1a882-new-material-ug-sm8dogsq-unsplash-scaled-e1794608865950-1024x682.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Wooden spheres and blue cubes spill from opposite clear tubes on dark gray, illustrating a Claude Fable model comparison" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/83d1a882-new-material-ug-sm8dogsq-unsplash-scaled-e1794608865950.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic’s Claude Fable 5.2 promises fewer refusals&lt;/strong&gt; and lower token prices, but those changes played out very differently in our head-to-head coding comparisons.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic compared &lt;a href="https://thenewstack.io/anthropic-fable-coding-upgrade/" class="local-link"&gt;Fable 5.2&lt;/a&gt; with its predecessor, &lt;a href="https://thenewstack.io/anthropic-fable-5-1-launch/" class="local-link"&gt;Fable 5.1&lt;/a&gt;, on safeguard blocks, output speed, and API pricing. The &lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;company states&lt;/a&gt; that Fable 5.2 triggered about 55% fewer safeguard blocks than Fable 5.1 overall and about 60% fewer in cybersecurity in early testing across claude.ai, Claude Code, and Cowork. It also says Fable 5.2 generates output up to 30% faster and lists &lt;a href="https://platform.claude.com/docs/en/release-notes/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;standard API rates&lt;/a&gt; of $8 per million uncached input tokens and $40 per million output tokens. Both rates are 20% lower than Fable 5.1’s $10 and $50.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I compared Fable 5.2 and Fable 5.1 on three developer tasks and tracked refusals, accuracy, tokens, estimated cost, and elapsed time. The comparison uses one run per model for each task or version, including the October Fable 5.1 webhook result. That’s a small sample, and the API runs used a different setup from Anthropic’s safeguard testing.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tests" class="wp-block-heading"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For the new runs, I used Anthropic’s API with the &lt;a href="https://platform.claude.com/docs/en/models/fable-5-1/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;default effort setting of High&lt;/a&gt; for both models, with no turn cap or fallback model. A script graded every run against an answer key I created for the tests. The dollar figures are estimated API costs. Anthropic &lt;a href="https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2#pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prices uncached input, cache reads, cache writes, and output separately&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Webhook chat&lt;/strong&gt;: I reused a 50-turn scripted chat that I first ran on Fable 5.1 in October. It simulates a dev lead building a small webhook relay. The chat contains 25 project rules, eight of which change later and three of which are only implied. At the end, the model writes the config and code and then takes an eight-question recall quiz.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Signature checker&lt;/strong&gt;: I gave each model a written spec for code that verifies signed webhooks, rejects replays, and rate-limits senders, and then sent a change request. A hidden suite of 50 tests graded the final code output.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Login repo fix&lt;/strong&gt;: Each model worked as an agent in a small login library with interacting bugs in passwords, lockouts, reset tokens, and sessions. The library also had one wrong test that the model should report but not edit. &lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-webhook-chat" class="wp-block-heading"&gt;Webhook chat&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In the October &lt;a href="https://thenewstack.io/muse-wonder-claude-fable/" class="local-link"&gt;Fable 5.1 run&lt;/a&gt; I’m using for comparison, the API refused 34 of 50 turns. The first refusal came on turn 5, when I asked the model to read the relay’s target URL from an environment variable. In that October run, I kept my prompts in the chat history and discarded refused model responses. Fable 5.1 also refused the final code and the quiz, so it scored zero on both. The task was to build an ordinary backend relay.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The first refusal came on turn 5, when I asked the model to read the relay’s target URL from an environment variable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2 finished the same script without a refusal. That gave me a complete run to grade for long-conversation recall. Its code used the most recent version of all eight rules, which changed midway, and on the quiz it answered “unknown” to the three questions that had no answer. Fable 5.2 didn’t fill gaps with guesses. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;• &lt;strong&gt;Fable 5.2&lt;/strong&gt;: 50 turns, 298,709 in, 41,828 out (28,550 reasoning), $4.06, 427 s.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;• &lt;strong&gt;Fable 5.1 (October)&lt;/strong&gt;: 34 of 50 turns refused, with no code or quiz answers.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-signature-checker" class="wp-block-heading"&gt;Signature checker&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.1 refused both turns of this test in under a second each, and the API labeled both refusals “cyber.” The spec asked for code that verifies signed webhooks, rejects replays, and rate-limits senders. The API returned no output on either turn. Anthropic says &lt;a href="https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;benign security work can trigger its cyber classifier&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2 took the same spec, handled the change request, and passed all 50 hidden tests, including the edge cases on timestamps, rotated secrets, and replays.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 2 turns, 21,299 in, 26,167 out (18,407 reasoning), $1.22, 253 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Fable 5.1&lt;/strong&gt;: 2 turns, both refused, 3,206 reported input tokens, 0 output tokens, $0.00 under Anthropic’s &lt;a href="https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback#how-refusals-are-billed" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;billing rules for cyber refusals before output&lt;/a&gt;, 2 s.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-login-repo-fix" class="wp-block-heading"&gt;Login repo fix&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This was the one test where both models completed the work, showing how they compare once refusals are out of the picture. The models kept getting perfect scores, so I made the tests harder and reran them twice. Here’s what differed between the tests:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt;: The library had bugs in four modules that handle password hashing, lockouts, reset tokens, and sessions. It also had one wrong test.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt;: I added a one-time-code module with its own bugs and tightened the rules in the existing modules. Usernames had to match across Unicode forms, and sessions had to handle a clock that runs backward.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 3&lt;/strong&gt;: I added an audit log that must redact secrets and a rate limiter. Neither module came with any tests.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The models tied on all three versions of the login repo fix. Both scored 50/50 on each version, fixing the bugs the grader covered and reporting the wrong test without editing it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.1 never refused on the login repo fix, even though the task covered passwords, lockouts, and reset tokens.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Across the three versions, dividing total output tokens (including reasoning) by total elapsed time gives about 107 tokens per second for Fable 5.2 and 82 for Fable 5.1. The elapsed time includes the entire task run. Fable 5.2 took four turns on each version, while Fable 5.1 took 7, 21, and 25. Fable 5.2 also produced more reasoning tokens on each version. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2 finished the first two versions faster and at a lower estimated cost. It took longer and cost more on the third.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Version 1
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 4 turns, 16,149 in, 4,502 out (1,178 reasoning), $0.27, 43 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Fable 5.1&lt;/strong&gt;: 7 turns, 33,935 in, 4,761 out (1,149 reasoning), $0.36, 52 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 2
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 4 turns, 24,081 in, 10,024 out (4,887 reasoning), $0.56, 95 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Fable 5.1&lt;/strong&gt;: 21 turns, 139,189 in, 9,475 out (4,018 reasoning), $0.68, 118 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 3
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 4 turns, 34,269 in, 17,964 out (10,578 reasoning), $0.96, 166 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Fable 5.1&lt;/strong&gt;: 25 turns, 208,826 in, 10,638 out (4,342 reasoning), $0.79, 132 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-results" class="wp-block-heading"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The token, cost, and time totals below cover the signature checker and all three login repo versions. Fable 5.1 produced no output on the signature checker, while Fable 5.2 spent 253 seconds and an estimated $1.22 completing it. Across the three login versions that both models completed, elapsed time and estimated cost were close. The combined totals include the work only Fable 5.2 completed on the signature checker.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Fable 5.2&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Fable 5.1&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Webhook chat refusals (of 50)&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;34 (October)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Webhook chat code and quiz&lt;/td&gt;&lt;td&gt;25 of 25, 8 of 8&lt;/td&gt;&lt;td&gt;0 of 25, 0 of 8 (October)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Signature checker (of 50)&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;td&gt;0, both turns refused&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Login repo fix, 3 versions (of 150)&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Tokens in / out, signature checker and login fix&lt;/td&gt;&lt;td&gt;95,798 / 58,657&lt;/td&gt;&lt;td&gt;385,156 / 24,874&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Estimated cost, signature checker and login fix (sum of displayed estimates)&lt;/td&gt;&lt;td&gt;$3.01&lt;/td&gt;&lt;td&gt;$1.83&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time, signature checker and login fix (sum of displayed times)&lt;/td&gt;&lt;td&gt;557 s&lt;/td&gt;&lt;td&gt;304 s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;h3 id="h-what-do-i-think" class="wp-block-heading"&gt;What do I think?&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In my tests, the biggest improvement with Fable 5.2 was fewer refusals. Fable 5.1 blocked ordinary webhook and signature-checking work, and Fable 5.2 completed both without a single refusal. Anthropic says the newer model &lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-2#safeguards" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;still uses cyber safeguards&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;In my tests, the biggest improvement with Fable 5.2 was fewer refusals.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Across the three login repo versions, Fable 5.2 produced about 30% more output tokens per second of elapsed time, including reasoning, while taking about the same total time. The runs took 304 seconds in total on Fable 5.2 and 302 seconds on Fable 5.1. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The displayed cost estimates add up to $1.79 and $1.83, respectively, a savings of about 2% for these runs. Anthropic’s 20% price cut applies to its standard per-token rates. I ran each version once per model, so I’d try both on your own workload to see what the numbers look like for you.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-fable-5-1/"&gt;Claude Fable 5.2 vs. Fable 5.1: Fewer refusals, with small savings on the login fix&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Claude Fable 5.2 stopped refusing ordinary webhook and security code in our tests. Its 20% price cut barely moved the bill once both models finished.</content:encoded>
+    </item>
+    <item>
+      <title>Web search for agents is here: Why ranking still decides the answer</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ai-agent-search-ranking/</link>
+      <dc:creator>Bonnie Chase</dc:creator>
+      <pubDate>Sat, 14 Nov 2026 16:00:00 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>AI Infrastructure</category>
+      <category>sponsor-vespa-ai</category>
+      <category>sponsored-post-contributed</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843715</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/3302ce70-planet-volumes-gcebcjvfzcs-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital spectrum of purple and orange vertical lines on black, symbolizing AI search relevance." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/3302ce70-planet-volumes-gcebcjvfzcs-unsplash.jpg" /&gt;&lt;p&gt;AI agents have had a URL problem for a while. When an agent needs current information but has no search&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-search-ranking/"&gt;Web search for agents is here: Why ranking still decides the answer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/3302ce70-planet-volumes-gcebcjvfzcs-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract digital spectrum of purple and orange vertical lines on black, symbolizing AI search relevance." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/3302ce70-planet-volumes-gcebcjvfzcs-unsplash.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;AI agents have had a URL problem for a while. When an agent needs current information but has no search tool, it often makes up the web address it thinks the answer lives at. It might guess something like &lt;code&gt;docs.example.com/v4.2/auth&lt;/code&gt;, try to load it, and get a “page not found” error because the page doesn’t exist. Then it either keeps guessing or falls back on outdated information from its training.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“Live web search gives AI agents fresh pages. Deciding which ones to trust over your own data is still a ranking problem.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Infrastructure providers have noticed. In October, &lt;a href="https://www.infoq.com/news/2026/10/cloudflare-web-search-api/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;InfoQ reported&lt;/a&gt; that Cloudflare opened a &lt;a href="https://thenewstack.io/deepseek-web-search-api/" data-type="link" data-id="https://thenewstack.io/deepseek-web-search-api/" class="local-link"&gt;beta Web Search API&lt;/a&gt; in its AI Gateway. Agents can call several search providers through one interface and get live results back with source links, logging, and access controls attached. Cloudflare’s reasoning was refreshingly direct: Without search, agents tend to guess.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is a welcome change, and live search will probably be a default agent tool within a year, but it solves only the finding part of the problem. Once fresh pages are in front of an agent, something still has to decide which of those pages, and which of your own documents, the agent should actually rely on. That decision lives in your retrieval layer.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-problem-two-pools-of-evidence-one-context-window" class="wp-block-heading"&gt;The problem: two pools of evidence, one context window&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;An agent working inside a company rarely answers from the web alone. It also has the data that makes it useful to that company: product catalogs, documentation, contracts, support history, account records,s and permissions. With web search wired in, every step of a task can now pull from two very different pools.&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Web results&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Internal data&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Freshness&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Often hours or days old&lt;/td&gt;&lt;td&gt;Can be months out of date without anyone noticing&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Quality&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Uneven: official docs next to forum threads&lt;/td&gt;&lt;td&gt;Curated, but written for a past state of the product&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Structure&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Mostly unstructured text&lt;/td&gt;&lt;td&gt;Mix of text, metadata and structured records&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Authority&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Has to be inferred from the source&lt;/td&gt;&lt;td&gt;Known, but rarely stored as a field&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Access control&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;Public&lt;/td&gt;&lt;td&gt;Per customer, region, contract or role&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The agent has to reconcile these, often several times within one task. And the questions it needs answered are ones a search API was never built to handle. When yesterday’s vendor changelog contradicts an internal knowledge base article from last spring, which one wins? Does this result apply to this customer’s version and region? Is the agent even allowed to show it?&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Those are ranking and filtering decisions. They depend on your data and business rules, so you have to make them where both are available.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-why-concatenating-results-breaks-in-production" class="wp-block-heading"&gt;Why concatenating results breaks in production&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The simplest integration is to run a web search, run an internal search, append one list to the other, and let the model sort it out. It may work well at first, but once it’s running against growing data and traffic, it tends to fail in a few predictable ways:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Conflicts go unresolved.&lt;/strong&gt; The model sees two confident sources that disagree and has no signal for which is newer or more authoritative, so it picks one or blends them into an answer that matches neither. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Staleness hides.&lt;/strong&gt; A 3-month-old knowledge base article that matches the user’s wording almost exactly will beat a 4-day-old changelog on similarity alone. Nothing in the embedding says the article is out of date. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Permissions are applied too late.&lt;/strong&gt; If access rules run after retrieval, restricted content may already be in the prompt. If they run crudely, useful results get dropped along with sensitive ones. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Cost and latency compound.&lt;/strong&gt; A person runs one search and reads the results. An agent can trigger a dozen or more retrieval calls in a single task as it plans, checks, and refines. Sending every candidate to the model on every call adds up quickly, and more context doesn’t reliably produce better answers.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A bigger context window doesn’t fix any of these. Sending the model fewer, better-chosen pieces of evidence does. &lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“A bigger context window doesn’t fix any of these. Sending the model fewer, better-chosen pieces of evidence does.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Clarm, a Y Combinator company that builds sales and support agents for open-source software companies, &lt;a href="https://blog.vespa.ai/agentic-ai-powered-sales-for-developers-with-vespa/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;hit this early&lt;/a&gt;. Its founder, Marcus Storm-Mollard, said the team realized “search, not generation, was the real problem to solve.” Generating an answer was the easy part. Finding the right information to ground it in was the hard part, which is why Clarm runs text search, vector similarity, and structured filters through a single query instead of stitching separate stores together.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-changes-when-agents-search-across-sources" class="wp-block-heading"&gt;What changes when agents search across sources&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When agents combine live web results with internal data, they need to account for different retrieval methods, metadata, permissions, and ranking signals. Four design considerations stand out.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-1-retrieve-across-methods-in-one-query-nbsp" class="wp-block-heading"&gt;1. Retrieve across methods in one query &lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Keyword matching catches exact product names, error codes, and version strings, which embeddings are notoriously bad at. Vector search catches paraphrases and intent. Structured filters enforce hard constraints like customer, version, and entitlement.  &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Within a single indexed collection, hybrid retrieval can combine keyword matching, vector similarity, and structured filters. That does not, by itself, fuse results from an external web search API with results from an internal index. The two-source integration requires a separate design decision.&lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+select * from evidence where
+  ({targetHits: 200}nearestNeighbor(embedding, q) or userQuery())
+  and visibility contains "customer"
+  and product_version contains "4.2"
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;The broader lesson is that retrieval systems need to handle lexical matching, semantic similarity, and filtering together. These requirements matter regardless of the search platform chosen. Perplexity hit this wall when it set out to build search in-house for its answer engine. Its CEO, Aravind Srinivas, has summed up the company’s approach as “first solve search, then solve everything else.” But when the team &lt;a href="https://vespa.ai/case-studies/why-perplexity-chose-vespa-for-ai-search/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;evaluated existing tools&lt;/a&gt;, it found that vector databases couldn’t reliably support even simple Boolean filters, while traditional search backends offered only primitive semantic ranking. It needed lexical retrieval, semantic retrieval, and filtering in one engine, at consumer scale, and chose Vespa to build it.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-2-rank-on-more-than-similarity" class="wp-block-heading"&gt;2. Rank on more than similarity&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Relevance to the query is only one signal. Agents also need to weigh freshness, source authority, and business rules together: official documentation over forum threads, last week’s changelog over last year’s wiki page, the customer’s contracted version over the latest release.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://docs.vespa.ai/en/ranking/phased-ranking.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Multiphase ranking&lt;/a&gt; is a practical way to do this. A cheap first phase scores thousands of candidates on a blend of signals, and a more expensive learned model reorders the few that remain: &lt;/p&gt;
+
+
+&lt;div class="wp-block-syntaxhighlighter-code "&gt;&lt;pre class="brush: plain; gutter: false; title: ; notranslate"&gt;
+rank-profile agent_evidence {
+    inputs {
+        query(q) tensor&amp;amp;lt;float&amp;gt;(x[384])
+    }
+    rank-properties {
+        freshness(published_at).maxAge: 7776000
+    }
+    first-phase {
+        expression: bm25(body) + closeness(field, embedding) + 0.5 * freshness(published_at) + attribute(source_authority)
+    }
+    second-phase {
+        rerank-count: 100
+        expression: xgboost("evidence-ranker.json")
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;The important part isn’t the specific weights. It’s that freshness and authority are explicit, inspectable inputs to the score, not something you hope the model infers from the text. (The &lt;code&gt;maxAge&lt;/code&gt; setting controls how quickly &lt;a href="https://docs.vespa.ai/en/reference/ranking/rank-feature-configuration.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;freshness decays&lt;/a&gt;; here it’s 90 days.)&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“The important part isn’t the specific weights. It’s that freshness and authority are explicit, inspectable inputs to the score, not something you hope the model infers from the text.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://blog.vespa.ai/agent-driven-intelligence-on-vespa-cloud/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Metal AI&lt;/a&gt;, which builds an intelligence platform for private equity firms, runs into this with due diligence questionnaires. Firms answer thousands of them from investors, and a model can’t freely generate the answers. They have to come from a bank of responses that legal has already approved, and that bank changes over time and lives in documents and spreadsheets. Similarity alone could easily surface an approved answer that’s been replaced. So Metal indexes the answer bank with recency in mind and ranks freshness alongside semantic similarity, so the agent pulls the current approved answer, not just the closest match. &lt;/p&gt;
+
+
+
+&lt;h3 id="h-3-treat-web-results-as-candidates-not-answers" class="wp-block-heading"&gt;3. Treat web results as candidates, not answers&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Web search and internal retrieval often return separate result sets, each with its own relevance signals. Simply passing both sets to the model leaves it to reconcile differences in freshness, authority, and relevance. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;A more deliberate approach is to evaluate &lt;a href="https://thenewstack.io/building-trust-agentic-rag/" data-type="link" data-id="https://thenewstack.io/building-trust-agentic-rag/" class="local-link"&gt;evidence from both sources&lt;/a&gt; against a consistent set of criteria before selecting what goes into the prompt. Vespa’s flexible ranking capabilities can support this approach, but the implementation depends on how the external results are integrated into the retrieval pipeline.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Depending on provider terms and system constraints, teams might index permitted external content into a shared search collection or retrieve from separate systems and apply a subsequent fusion or reranking step. There is no universal fusion method. Each option has trade-offs in latency, freshness, score comparability, and operational complexity.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-4-hold-up-at-agent-call-volume" class="wp-block-heading"&gt;4. Hold up at agent call volume&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This isn’t a hypothetical load pattern. At Metal, AI agents handle &lt;a href="https://blog.vespa.ai/agent-driven-intelligence-on-vespa-cloud/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;95% of retrieval&lt;/a&gt;, not people. When someone asks for a portfolio company’s EBITDA, an agent decides which entity types to query (documents, companies, metrics, activities), applies recency and workflow filters, runs the query, and then keeps going, paginating or pulling related entities until it has enough context to answer. &lt;a href="https://blog.vespa.ai/agentic-ai-powered-sales-for-developers-with-vespa/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Clarm sees something similar&lt;/a&gt; from the other direction: developers working alongside its agents send thousands of queries a day, in sessions that have run as long as 22 hours.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“They need the precision and controls of expert search, delivered with the low latency and high throughput of consumer search.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Every one of those calls sits on the critical path to the agent’s answer. Retrieval and ranking need to stay predictable under that load, which favors &lt;a href="https://blog.vespa.ai/improving-llm-context-ranking-with-cross-encoders/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;running inference where the data already lives&lt;/a&gt; instead of shipping large candidate sets across the network to a separate ranking service. Every network hop you remove is latency you get back on every call, multiplied by every step of the task. Jon Bratseth, Vespa’s CEO, &lt;a href="https://vespa.ai/vespa-voice/#relevance-is-your-moat" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;describes this&lt;/a&gt; as the central engineering challenge with agents: They need the precision and controls of expert search, delivered with the low latency and high throughput of consumer search.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-worked-example-the-support-agent-and-the-changelog" class="wp-block-heading"&gt;A worked example: the support agent and the changelog&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here’s a scenario most support teams will recognize. A customer upgrades a payments SDK from 4.1 to 4.2, their checkout integration stops working, and they open a ticket. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The agent does what you’d want and searches the web first. It finds the SDK’s changelog from four days ago, which deprecates the authentication call the integration relies on, and a forum thread where another developer posted a workaround. Then it searches internally, returning a March knowledge base article that still tells customers to use the old call, the customer’s account record showing they’re on 4.2, and a restricted engineering ticket about the same bug.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Handed to the model as one long list, this is a trap. The knowledge base article matches the customer’s wording almost exactly, so it ranks well on similarity. The forum workaround reads confidently. The engineering ticket contains notes the customer should never see. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When the retrieval layer is doing its job, both sets of evidence go through the same pipeline. In this example, the team uses a shared collection: web results are indexed into Vespa as short-lived documents alongside internal data, retrieved with one query and scored by rank profiles aligned with the same business rules:&lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="843" src="https://cdn.thenewstack.io/media/2026/11/1ed4d624-image-1024x843.png" alt="Diagram showing how both web search API data and internal data go through the same pipeline." class="wp-image-22843716"&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For this ticket, that means:&lt;/p&gt;
+
+
+
+&lt;ol class="wp-block-list"&gt;
+&lt;li&gt;The visibility filter excludes the internal ticket at query time, so it never reaches the prompt.&lt;/li&gt;
+
+
+
+&lt;li&gt;The version filter keeps only material that applies to the library version on the customer’s account. &lt;/li&gt;
+
+
+
+&lt;li&gt;Ranking boosts the changelog for authority and recency, demotes the older knowledge base article, and keeps the forum thread as supporting evidence.&lt;/li&gt;
+
+
+
+&lt;li&gt;The model receives three or four well-ordered passages instead of twenty, each with its source.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In this illustrative outcome, the answer cites the changelog, explains the change, and points to the supported fix. The search API helps find fresh evidence, and the retrieval design determines which evidence the agent receives.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-before-you-wire-web-search-into-an-agent" class="wp-block-heading"&gt;Before you wire web search into an agent&lt;/h2&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Store dates and source types on everything.&lt;/strong&gt; Internal or external, every document needs a publication date and a source type you can rank on. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Write signals into the documents themselves.&lt;/strong&gt; Keep freshness, authority, and source type on each document instead of in a separate feature store. That way they shape ranking from the first phase, not just when reranking the top results.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Always include lexical signals.&lt;/strong&gt; Even when your embeddings are strong, keyword matching is what catches the exact version numbers, error codes, and product names agents depend on. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Filter in the query.&lt;/strong&gt; Apply permissions at retrieval time, not in post-processing.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Send passages, not pages.&lt;/strong&gt; Rank the chunks within each retrieved document and pass only the most relevant spans to the model, sized to what it actually needs per call.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Measure retrieval on its own.&lt;/strong&gt; Build a test set of real agent questions and track whether the right evidence lands in the top results, separately from how the model phrases the answer. &lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Load-test at agent volume.&lt;/strong&gt; Benchmark with the number of retrieval calls a typical task actually makes, not one query per request.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-final-thoughts" class="wp-block-heading"&gt;Final thoughts&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Managed web search for agents removes a real, frustrating failure mode, and more teams will adopt it as it leaves beta. That makes the next question more pressing. When an agent can see the open web and your private data at the same time, the quality of its work depends on how well it chooses between them. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Bratseth puts it more simply: &lt;a href="https://vespa.ai/vespa-voice/#relevance-is-your-moat" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Relevance is your moat&lt;/a&gt;. As models get more capable and more widely available, most companies end up with access to roughly the same intelligence. What sets them apart is their own information and how well their systems use it. He breaks relevance into four parts: comprehensiveness, freshness, recall accuracy, and ranking quality. Live web search helps with the first two. The last two are still yours to build.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The model shouldn’t improvise that choice on every call. It belongs in a retrieval layer you can inspect, test, and tune, where you weigh freshness, authority, permissions, and relevance together. Web search helps agents find evidence. Ranking is how they decide what to believe.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For teams building agents, the practical next step is to &lt;a href="https://thenewstack.io/retrieval-ai-agent-architecture/" data-type="link" data-id="https://thenewstack.io/retrieval-ai-agent-architecture/" class="local-link"&gt;evaluate retrieval quality&lt;/a&gt; separately from answer generation: test whether the right evidence appears, whether permissions are enforced before context assembly, and whether fresh and authoritative sources are prioritized when documents conflict.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If you want to try this pattern, &lt;a href="http://www.vespa.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Vespa&lt;/a&gt; combines lexical, vector, and structured retrieval with multi-phase ranking in one pipeline, and it’s available as open source or as a managed service on Vespa Cloud. The &lt;a href="https://github.com/vespa-engine/sample-apps/blob/master/rag-blueprint/README.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;RAG Blueprint&lt;/a&gt; walks through how to design the schema, retrieval strategy, and ranking phases step by step, and you can start a &lt;a href="https://vespa.ai/free-trial/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;free trial&lt;/a&gt; to build it yourself.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ai-agent-search-ranking/"&gt;Web search for agents is here: Why ranking still decides the answer&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Live web search stops AI agents from guessing URLs, yet ranking and retrieval still decide whether web results or internal data win.</content:encoded>
+    </item>
+    <item>
+      <title>DuckLake 1.1 solves the absurd complexity of data lakes at AI scale</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/ducklake-sql-lakehouse-metadata/</link>
+      <dc:creator>Jennifer Riggins</dc:creator>
+      <pubDate>Sat, 14 Nov 2026 15:45:04 +0000</pubDate>
+      <category>AI</category>
+      <category>Data</category>
+      <category>Databases</category>
+      <category>Open Source</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>Sponsored</category>
+      <category>sponsored-podcast</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843553</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b52163ee-for-thumbnail-25-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Pedro Holanda, lead DuckLake developer and principal engineer at DuckLake, discusses how the open-source table format reduces complexity, improves performance, and makes large-scale data management more accessible." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b52163ee-for-thumbnail-25.png" /&gt;&lt;p&gt;How much simpler could a data lakehouse get if an ordinary SQL database kept track of its files? That&amp;#8217;s the&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ducklake-sql-lakehouse-metadata/"&gt;DuckLake 1.1 solves the absurd complexity of data lakes at AI scale&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b52163ee-for-thumbnail-25-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Pedro Holanda, lead DuckLake developer and principal engineer at DuckLake, discusses how the open-source table format reduces complexity, improves performance, and makes large-scale data management more accessible." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b52163ee-for-thumbnail-25.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;How much simpler could a data lakehouse get if an ordinary SQL database kept track of its files? That&amp;rsquo;s the question in this episode of &lt;em&gt;The New Stack &lt;/em&gt;podcast.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DuckLake is an open-source table lakehouse format created by Amsterdam-based &lt;a href="https://duckdb.org" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DuckLabs&lt;/a&gt; that acts as a traffic cop for data management by storing table metadata inside a standard SQL database, rather than scattering manifest files across object storage. Unlike traditional table formats, DuckLake treats lakehouse metadata as a relational database problem. These advanced data lake features, served by Parquet files and SQL databases, reduce the traditional lakehouse complexity.&amp;nbsp;&lt;/p&gt;
+
+
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/udq3cBHj9k8?si=VfQfPutimg1A-1r0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;In October, DuckLake 1.1 launched alongside &lt;a href="https://duckdb.org/2026/10/21/announcing-duckdb-200" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DuckDB 2.0.0 LTS&lt;/a&gt;. &lt;em&gt;The New Stack&lt;/em&gt; sat down with &lt;a href="https://www.linkedin.com/in/pdet/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Pedro Holanda&lt;/a&gt;, lead DuckLake developer and principal engineer at DuckLabs at their Amsterdam headquarters, to talk about the launch. Holanda has contributed to the &lt;a href="https://github.com/duckdb/duckdb" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DuckDB open-source project&lt;/a&gt; since it was an early research prototype, and shares the full evolution of DuckLake to our conversation.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;These lakehouse formats exist so people can exchange their database systems without having to do migrations,&amp;rdquo; Holanda tells &lt;em&gt;The New Stack&lt;/em&gt;. Because of the complexity, &amp;ldquo;you need a database system to keep track of which table has its last version.&amp;rdquo;&lt;/p&gt;
+
+
+&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/25d03905-a3d6-4f90-a86e-f663c7ac3ef1?dark=true"&gt;&lt;/iframe&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;DuckLake applies decades of research, Holanda says, in order to reduce files and therefore complexity at a time of rapid data growth, taking advantage of how everyone who uses database systems is familiar with SQL and how schemas work.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The simplicity is the way you fetch your data,&amp;rdquo; Holanda says of DuckLake. &amp;ldquo;You&amp;rsquo;re going to issue queries somewhere. The server is going to answer these questions back, and you know exactly which Parquet files you have to read. So the Parquet files don&amp;rsquo;t change. Just the catalog.&amp;rdquo;&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Maintainers of your data lake often have many maintenance tasks to perform. If you end up with many files, he says, DuckLake lets you glue them into one file to reduce the number of requests. This can also be done across multiple snapshots, further reducing the number of files. It also solves the &amp;ldquo;small files problem&amp;rdquo; in streaming data lakes and lakehouses by using inlining and flushing.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Whereas for traditional data lakes, across multiple data sources being inserted at a time, &amp;ldquo;you end up with so many files, so when you have to query it, you&amp;rsquo;re going to have to traverse a bunch of metadata files just to figure out which Parquet files you need to read, and then you&amp;rsquo;re going to have a bunch of Parquet files to read as well,&amp;rdquo; Holanda says, slowing everything down and frustrating the developer.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DuckLake is known to be fast, simple to use, and not requiring massive server clusters to run. Part of that comes from Parquet being very similar to DuckDB storage: both are columnar and organized in row groups, which keeps the massaging step to a minimum.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;One thing that we realized when we were building DuckLake is that, &amp;#8216;Hey, we have a database system now, we have a catalog; what if we do this radical idea of storing data on tables?'&amp;#8221; he says. &amp;ldquo;With DuckLake, you get your actual data representation as a table in a catalog, and we call this inlining.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;With DuckLake, you get your actual data representation as a table in a catalog, and we call this inlining.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;During Amazon&amp;rsquo;s Q3 earnings call in late October, CEO Andy Jassy called out the complexity of moving data between data stores and analytics engines, especially as AWS customers&amp;#8217; data generation continues to increase. Amazon is famous for dogfooding, and Jassy pointed to DuckDB&amp;rsquo;s solution to this complexity as a reason for &lt;a href="https://aws.amazon.com/blogs/big-data/aws-and-ducklabs-building-the-future-of-analytics-together/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;its DuckLabs acquisition&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;With our acquisition of DuckLabs, DuckDB will become the universal SQL dialect of AWS storage and analytics, simplifying data processing with a modern analytics engine that is fast, simple to use and ubiquitous, and where customers will be able to write SQL queries once and then execute using any AWS analytics service,&amp;rdquo; Jassy said. &amp;ldquo;For the first time in analytics, customers will have zero migration or portability costs between query engines. This is a big deal, and you can imagine how it will also help agents do efficient querying as well.&amp;rdquo; &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DuckDB and DuckLake remain free and open source under the MIT license, overseen by the independent DuckDB Foundation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Overall, this recent DuckLake release pairs new features with more than 200 bug fixes for quality and stability, and it runs natively in DuckDB.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/ducklake-sql-lakehouse-metadata/"&gt;DuckLake 1.1 solves the absurd complexity of data lakes at AI scale&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>On The New Stack Podcast, Pedro Holanda explains how DuckLake uses a SQL database to keep track of files and make data lakes easier to manage.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic wants you to build on Claude. There’s a catch.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-enterprise-developer-competition/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Sat, 14 Nov 2026 15:15:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Strategy</category>
+      <category>Developer tools</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843663</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/2d5f82cf-pablo-dr-yvf7hmzw3hu-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Man stuck in a maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2d5f82cf-pablo-dr-yvf7hmzw3hu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic wants developers to build businesses on Claude, but its expansion into enterprise software is raising concerns among founders that&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-enterprise-developer-competition/"&gt;Anthropic wants you to build on Claude. There’s a catch.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/2d5f82cf-pablo-dr-yvf7hmzw3hu-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Man stuck in a maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2d5f82cf-pablo-dr-yvf7hmzw3hu-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic wants developers to build businesses on Claude&lt;/strong&gt;, but its expansion into enterprise software is raising concerns among founders that the company supplying their models could eventually become their biggest competitor.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-nervous-warning-to-wrappers" class="wp-block-heading"&gt;A nervous warning to wrappers&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/gerald-zingraf/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gerald Zingraf&lt;/a&gt;, president and COO of GlacierGrid, &lt;a href="https://www.linkedin.com/in/gerald-zingraf/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;raised the concern on LinkedIn&lt;/a&gt; following Anthropic&amp;rsquo;s Tuesday expansion of Claude&amp;rsquo;s enterprise lineup, comparing its strategy to Amazon&amp;rsquo;s private-label business.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Makes me nervous for wrappers and pure SaaS companies,&amp;rdquo; Zingraf writes, drawing on his experience selling products he designed through Amazon before watching the retailer introduce competing products.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Makes me nervous for wrappers and pure SaaS companies,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;His concern is that Anthropic can see which third-party integrations customers use most frequently and potentially draw on that information when deciding which capabilities to build itself.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Anthropic has the same view,&amp;rdquo; he argues, although he offers no evidence that the company uses integration data to identify competitors or inform its product roadmap. For some developers, the risk is no longer hypothetical.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-partners-become-rivals" class="wp-block-heading"&gt;When partners become rivals&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/scottas/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Scott Stevenson&lt;/a&gt;, CEO of legal AI startup Spellbook, described what happened when Anthropic moved into his company&amp;#8217;s market in a November 2 interview with &lt;em&gt;&lt;a href="https://www.forbes.com/sites/rashishrivastava/2026/11/02/inside-silicon-valleys-love-hate-relationship-with-anthropic/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Forbes&lt;/a&gt;&lt;/em&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Spellbook uses Claude models for everything from reviewing contracts and suggesting revisions to automating legal workflows. Stevenson recalls Anthropic employees assuring him the company had no plans to compete directly in legal software, before Anthropic launched Claude for Legal, which includes contract-review capabilities that overlap with Spellbook&amp;#8217;s business.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Anthropic has been a great partner, but it made us realize that they are a massive company and two parts of the org can have conflicting mandates,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Anthropic has been a great partner, but it made us realize that they are a massive company and two parts of the org can have conflicting mandates,&amp;rdquo; Stevenson said in the interview. &amp;ldquo;Ultimately this is inevitable.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Spellbook hasn&amp;rsquo;t abandoned Claude. Anthropic still &lt;a href="https://claude.com/customers/spellbook" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;features the startup as a customer&lt;/a&gt;, reporting roughly 530,000 monthly contract reviews performed by its Claude-powered agents, while Stevenson also appears in Anthropic&amp;rsquo;s &lt;a href="https://claude.com/resources/articles/introducing-artifacts-for-legal-work" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 28 announcement of legal artifacts&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The relationship illustrates a difficult position for developers whose products depend on frontier models. Spellbook still benefits from Anthropic&amp;rsquo;s technology, even as Anthropic develops applications aimed at some of the same customers. Nothing in Stevenson&amp;rsquo;s account establishes that Anthropic used Spellbook&amp;rsquo;s proprietary information to develop its legal offering.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-the-platform-ships-your-product" class="wp-block-heading"&gt;When the platform ships your product&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Tech founder and Dalton Mills CEO &lt;a href="https://www.linkedin.com/in/tosaunders/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Todd Saunders&lt;/a&gt; made a similar argument in a &lt;a href="https://x.com/toddsaunders/status/2031116948411429149" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;March 10 post on X&lt;/a&gt;, following Anthropic&amp;rsquo;s introduction of &lt;a href="https://thenewstack.io/anthropic-launches-a-multi-agent-code-review-tool-for-claude-code/" class="local-link"&gt;Claude Code Review&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Anthropic is the new Amazon,&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Anthropic is the new Amazon,&amp;rdquo; Saunders writes, warning developers building on Claude&amp;rsquo;s SDK that the company could observe application usage and eventually incorporate competing functionality into Claude.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s &lt;a href="https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;November 10 announcement&lt;/a&gt; introduced Claude Sheets, Claude Whiteboards, and Claude Data, while previewing Claude Meetings. Expanded interactive connectors also let partners embed applications directly inside Claude, including software from Adobe and Atlassian.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-the-policies-leave-unsaid" class="wp-block-heading"&gt;What the policies leave unsaid&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic has access to information about how customers interact with third-party apps and services, something the company acknowledges in its &lt;a href="https://www.anthropic.com/legal/privacy" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;privacy policy&lt;/a&gt;, effective September 10, 2026. What isn&amp;rsquo;t clear is whether Anthropic looks at which integrations are most popular when deciding what to build next.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The rules are different for business customers. Under Anthropic&amp;rsquo;s &lt;a href="https://www.anthropic.com/legal/commercial-terms" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;commercial terms&lt;/a&gt;, customers retain rights to their inputs and own their outputs, while Anthropic agrees not to use their content to train its models. Its &lt;a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;commercial privacy documentation&lt;/a&gt; also says feedback data excludes content pulled through connectors, including local and remote &lt;a href="https://thenewstack.io/model-context-protocol-bridges-llms-to-the-apps-they-need/" class="local-link"&gt;MCP servers&lt;/a&gt;, unless users paste it directly into a conversation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Neither document settles how Anthropic uses aggregated integration data.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tradeoff-developers-accept" class="wp-block-heading"&gt;The tradeoff developers accept&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company is still encouraging developers to build on Claude. It&amp;rsquo;s just that access to its growing enterprise customer base comes with a tradeoff, since Anthropic &lt;a href="https://thenewstack.io/claude-enterprise-apps-connectors" class="local-link"&gt;controls the interface&lt;/a&gt; and can introduce competing features without consulting the developers who depend on it.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For now, Anthropic is asking developers to trust it as both a technology provider and a business partner, even as it moves into markets those same developers are trying to build businesses in. Whether that relationship remains sustainable may depend less on what Anthropic promises today than on what it decides to ship next.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; has contacted Anthropic for comment and has not received a response.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-enterprise-developer-competition/"&gt;Anthropic wants you to build on Claude. There’s a catch.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic is expanding into enterprise software, and developers who build on Claude worry their model provider could become their biggest rival.</content:encoded>
+    </item>
+    <item>
+      <title>Claude Fable 5.2 vs. GPT-6 Astra: A lower list price didn’t mean a lower bill</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-fable-5-2-vs-gpt-6-astra/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Sat, 14 Nov 2026 14:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Anthropic</category>
+      <category>Large Language Models</category>
+      <category>Software Testing</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843653</guid>
+      <description>&lt;img width="1024" height="800" src="https://cdn.thenewstack.io/media/2026/11/4d6230a3-igor-omilaev-ufre8j7i8r4-unsplash-1024x800.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Two floating wireframe towers hold different arrangements of metallic cubes and textured spheres in mint green and lavender." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4d6230a3-igor-omilaev-ufre8j7i8r4-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic is positioning its new model, Claude Fable 5.2, for demanding coding and technical work. Anthropic launched Fable 5.2 on&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-gpt-6-astra/"&gt;Claude Fable 5.2 vs. GPT-6 Astra: A lower list price didn’t mean a lower bill&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="800" src="https://cdn.thenewstack.io/media/2026/11/4d6230a3-igor-omilaev-ufre8j7i8r4-unsplash-1024x800.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Two floating wireframe towers hold different arrangements of metallic cubes and textured spheres in mint green and lavender." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/4d6230a3-igor-omilaev-ufre8j7i8r4-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic is positioning its new model&lt;/strong&gt;, &lt;a href="https://thenewstack.io/anthropic-fable-coding-upgrade/" class="local-link"&gt;Claude Fable 5.2&lt;/a&gt;, for demanding coding and technical work. Anthropic launched Fable 5.2 on Nov. 9 and reported higher scores than OpenAI’s GPT-6 Astra on two coding benchmarks. Fable 5.2 also has lower standard API rates.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic’s launch benchmarks&lt;/a&gt; put Fable 5.2 ahead of Astra, 49.1% to 42.8% on FrontierCode 2.0 and 69.9% to 65.5% on FrontierSWE v2. Fable’s 49.1% came at X high effort. At High, &lt;a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;its default on the Claude API&lt;/a&gt;, it scored 45.3%. Benchmark leads don’t always carry over to real work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The cost side is less simple than the price list. Tokens are the chunks of text a model reads and writes, and AI companies bill by them. At standard API rates, Fable 5.2 costs $8 per million uncached input tokens and $40 per million output tokens. &lt;a href="https://thenewstack.io/openai-gpt6-astra-benchmarks/" class="local-link"&gt;OpenAI launched GPT-6 Astra&lt;/a&gt; in September at standard API rates of $10 per million uncached input tokens and $50 per million output tokens. “The price per task is what matters,” OpenAI President Greg Brockman said at Astra’s launch. Both APIs charge for &lt;a href="https://developers.openai.com/api/docs/guides/reasoning" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;reasoning tokens as output&lt;/a&gt; and have &lt;a href="https://developers.openai.com/api/docs/guides/prompt-caching" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;separate rates for cached input&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In my experience, Anthropic’s models have used more tokens than OpenAI’s. I put this positioning to the test and ran Fable 5.2 against Astra on tasks that simulate real developer work.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tests" class="wp-block-heading"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I ran both models on the same three tasks, once each, through each vendor’s API at default settings. Each test is worth 50 points, and I used a script to grade all the answers. Here are the tests:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Bug fix&lt;/strong&gt;: I planted 10 bugs in a 2,600-line billing codebase and wrote a support ticket describing 10 customer complaints. The ticket’s guesses about the causes are wrong, two of the codebase’s own tests are wrong, and one bug only shows up after another is fixed.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Code review&lt;/strong&gt;: I planted 45 defects in its VAT ID checks for 27 countries, its IBAN rules, its European Central Bank payment calendar, and its date formats for 50 locales in an EU invoicing package. The models had to prove each defect with an input the code gets wrong and identify the correct answer. Flagging false alarms cost the models points.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Code writing&lt;/strong&gt;: The model wrote the same helpers from scratch, including VAT ID validation for 27 countries, IBAN checks for 34 countries, the payment calendar, and long dates.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-bug-fix" class="wp-block-heading"&gt;Bug fix&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2 and Astra fixed all 10 bugs and passed all 50 hidden checks, both in 12 turns (the matching number of turns surprised me).&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The difference is in how much each model spent to get there. Fable 5.2 used more than 17,000 reasoning tokens, and Astra used 819 (wow). Astra passed the checks in about two minutes at an estimated cost of 98 cents. Fable 5.2 took more than five minutes and cost an estimated $2.51.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 12 turns, 696,863 in, 36,135 out (17,387 reasoning), $2.51, 326 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Astra&lt;/strong&gt;: 12 turns, 231,854 in, 6,823 out (819 reasoning), $0.98, 122 s.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-code-review" class="wp-block-heading"&gt;Code review&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This is the only test where the scores differ. Fable 5.2 scored 49, and Astra scored 45. Fable 5.2 proved 44 of the 45 defects and raised no false alarms across 71 findings. Astra proved 41 and incorrectly classified one Spanish ID as valid. Astra missed defects in check-digit rules for Spain, Ireland, and Luxembourg. Both models missed the same Spanish defect: two swapped letters in a 23-letter lookup table.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2’s thoroughness came at a price. It cost more than six times what Astra did and took more than four times as long. If your code handles invoices (or simple approvals), one validation rule the review misses can get real invoices rejected, so Fable 5.2’s four extra points may be worth the higher price. For a routine review, Astra found 91% of the defects for 16% of the cost. Each model ran once, so a four-point gap could shift on another run.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 26 turns, 2,207,564 in, 103,240 out (77,641 reasoning), $6.05, 993 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Astra&lt;/strong&gt;: 12 turns, 192,018 in, 8,664 out (4,307 reasoning), $0.95, 227 s.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-code-writing" class="wp-block-heading"&gt;Code writing&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both models scored 50 of 50. Each one wrote working checks for 27 countries’ VAT IDs and 34 countries’ IBANs with no libraries to lean on. Neither model had trouble here. Both passed all the checks in one run.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Astra took 23 turns, almost as many as Fable 5.2’s 24. Fable 5.2 still cost 2.3 times as much and took 1.7 times as long for the same score. In this run, the extra tokens didn’t raise the score.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Fable 5.2: 24 turns, 1,495,712 in, 87,542 out (47,458 reasoning), $4.83, 838 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;Astra: 23 turns, 460,271 in, 24,007 out (9,328 reasoning), $2.06, 483 s.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-results" class="wp-block-heading"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Fable 5.2&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;GPT-6 Astra&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Bug fix (of 50)&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Code review (of 50)&lt;/td&gt;&lt;td&gt;49&lt;/td&gt;&lt;td&gt;45&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Code writing (out of 50)&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;td&gt;50&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens in / out&lt;/td&gt;&lt;td&gt;4,400,139 / 226,917&lt;/td&gt;&lt;td&gt;884,143 / 39,494&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Estimated cost&lt;/td&gt;&lt;td&gt;$13.39&lt;/td&gt;&lt;td&gt;$3.99&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;2,157 s&lt;/td&gt;&lt;td&gt;832 s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2 led on code review and tied Astra on the other two tasks. Across the two tied tasks, its estimated API cost was 2.4 times Astra’s ($7.34 vs. $3.04), and it took 1.9 times as long (1,164 vs. 605 seconds).&lt;/p&gt;
+
+
+
+&lt;h3 id="h-what-do-i-think" class="wp-block-heading"&gt;What do I think?&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For tasks like these, I’d start with Astra. It matched Fable 5.2’s scores on bug fixing and code writing at about 41% of the estimated cost, and it finished all three tasks faster. I’d consider Fable 5.2 for a careful code review, where it found three more defects in this test. Both models missed defects.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2’s standard token rates are lower, but it used about five times as many tokens as Astra across these three runs. Brockman’s point about price per task held up here.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-gpt-6-astra/"&gt;Claude Fable 5.2 vs. GPT-6 Astra: A lower list price didn’t mean a lower bill&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>We compared Claude Fable 5.2 and GPT-6 Astra head-to-head. The biggest difference was in the cost. Fable 5.2 has the lower list price, but across the three tests, it used about five times as many tokens, and its estimated API cost was 236% higher.</content:encoded>
+    </item>
+    <item>
       <title>Anthropic now lets you self-host Claude Managed Agents. The catch? 8 hours to act if it flags a safety risk in the software</title>
       <link>https://web.archive.org/web/https://thenewstack.io/self-hosted-claude-managed-agents/</link>
       <dc:creator>Paul Sawers</dc:creator>
@@ -29,7 +1121,7 @@
       <category>AI Infrastructure</category>
       <category>Security</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22843612</guid>
-      <description>&lt;img width="1024" height="646" src="https://cdn.thenewstack.io/media/2026/11/2876cde1-public-domain-vectors-grxqbf6y-dq-unsplash-1024x646.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A finger on the button, depicting roll-backs and kill-switches." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2876cde1-public-domain-vectors-grxqbf6y-dq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic has unveiled a self-hosted version of its platform for building and running AI agents. Self-hosted Claude Managed Agents, as&lt;/p&gt;
+      <description>&lt;img width="1024" height="646" src="https://cdn.thenewstack.io/media/2026/11/2876cde1-public-domain-vectors-grxqbf6y-dq-unsplash-1024x646.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A finger on the button, depicting roll-backs and kill-switches." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2876cde1-public-domain-vectors-grxqbf6y-dq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic has unveiled a self-hosted version of its platform for building and running AI agents. Self-hosted Claude Managed Agents, as&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/self-hosted-claude-managed-agents/"&gt;Anthropic now lets you self-host Claude Managed Agents. The catch? 8 hours to act if it flags a safety risk in the software&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="646" src="https://cdn.thenewstack.io/media/2026/11/2876cde1-public-domain-vectors-grxqbf6y-dq-unsplash-1024x646.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="A finger on the button, depicting roll-backs and kill-switches." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/2876cde1-public-domain-vectors-grxqbf6y-dq-unsplash-scaled.jpg" /&gt;
@@ -95,7 +1187,7 @@
 
 
 &lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img decoding="async" width="1024" height="172" src="https://cdn.thenewstack.io/media/2026/11/a589ff56-safety-rollback-screenshot-with-torn-edges-1024x172.png" alt="&amp;sect;5.3 Eight hours to roll back or disable" class="wp-image-22843625"/&gt;&lt;figcaption class="wp-element-caption"&gt;&amp;sect;5.3 Eight hours to roll back or disable&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="172" src="https://cdn.thenewstack.io/media/2026/11/a589ff56-safety-rollback-screenshot-with-torn-edges-1024x172.png" alt="&amp;sect;5.3 Eight hours to roll back or disable" class="wp-image-22843625"/&gt;&lt;figcaption class="wp-element-caption"&gt;&amp;sect;5.3 Eight hours to roll back or disable&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
 
@@ -117,7 +1209,7 @@
 
 
 &lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img decoding="async" width="1024" height="289" src="https://cdn.thenewstack.io/media/2026/11/407f225c-5.6-access-path-original-screenshot-1024x289.png" alt="&amp;sect;5.6 Anthropic can reserve models for hosted access" class="wp-image-22843623"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&amp;sect;5.6 Anthropic can reserve models for hosted access&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="289" src="https://cdn.thenewstack.io/media/2026/11/407f225c-5.6-access-path-original-screenshot-1024x289.png" alt="&amp;sect;5.6 Anthropic can reserve models for hosted access" class="wp-image-22843623"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;&amp;sect;5.6 Anthropic can reserve models for hosted access&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/div&gt;
 
 
@@ -2398,7 +3490,7 @@ $(document).ready(function() {
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af846d389141&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af846d389141" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="317" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/4ae1026f-image1-1024x317.png" alt="Diagram illustrating how Amazon CloudWatch accelerated compute insights provides end-to-end observability for AI inference workloads and accelerator efficiency on Amazon EKS." class="wp-image-22843327"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af99d9ddcabe&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af99d9ddcabe" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="317" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/4ae1026f-image1-1024x317.png" alt="Diagram illustrating how Amazon CloudWatch accelerated compute insights provides end-to-end observability for AI inference workloads and accelerator efficiency on Amazon EKS." class="wp-image-22843327"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3736,735 +4828,6 @@ helm install amazon-cloudwatch-observability \
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-4-carbon-swarm/"&gt;Google says Gemini 4 Carbon proved Signal’s encryption in weeks&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Google’s Gemini 4 Carbon brings /swarm multi-agent coding to Antigravity, with new benchmarks, pricing, and stronger cybersecurity for developers.</content:encoded>
-    </item>
-    <item>
-      <title>Grok API text watermarking was meant to be on by default from Nov. 7. Now, it’s opt-in.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/grok-api-watermarking-default/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Tue, 10 Nov 2026 15:58:44 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <category>Compliance</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843231</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/082ecce8-allison-saeng-skfgtjrao0o-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="An illustration depicting an on/off switch." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/082ecce8-allison-saeng-skfgtjrao0o-unsplash-scaled.jpg" /&gt;&lt;p&gt;The thorny issue of watermarking AI-generated text took an interesting turn this past week, with SpaceXSI seemingly U-turning on plans&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-api-watermarking-default/"&gt;Grok API text watermarking was meant to be on by default from Nov. 7. Now, it’s opt-in.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/082ecce8-allison-saeng-skfgtjrao0o-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="An illustration depicting an on/off switch." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/082ecce8-allison-saeng-skfgtjrao0o-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;The thorny issue of watermarking AI-generated text took an interesting turn this past week, with &lt;a href="https://x.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SpaceXSI&lt;/a&gt; seemingly U-turning on plans to automatically watermark text generated by its &lt;a href="https://thenewstack.io/grok-4-7-agent-stamina/" class="local-link"&gt;Grok AI models&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As per its updated &lt;a href="https://docs.x.ai/developers/advanced-api-usage/watermarking" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;output watermarking documentation&lt;/a&gt;, Elon Musk&amp;#8217;s AI company &amp;#8212; which recently &lt;a href="https://www.reuters.com/business/media-telecom/musk-says-he-will-rename-spacexai-spacexsi-2026-10-04/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;rebranded from SpaceXAI&lt;/a&gt; &amp;#8212; says the feature is now off by default, with developers able to enable it for individual models through their team&amp;#8217;s administration settings.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;News of the watermarking feature itself started to emerge in late October, though there was no formal public announcement. The &lt;a href="https://web.archive.org/web/20261106053200/https://docs.x.ai/developers/advanced-api-usage/watermarking" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;earlier version of the documentation&lt;/a&gt;, captured for posterity by the Internet Archive&amp;#8217;s Wayback Machine on both November 1 and November 6, was quite different to the existing one, noting that watermarking would be &lt;em&gt;on&lt;/em&gt; by default starting from November 7. The pending change &lt;a href="https://x.com/AndrewCurran_/status/2116654648082022668" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;was spotted&lt;/a&gt; by &lt;a href="https://x.com/XFreeze/status/2116585881457119513" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;some X users&lt;/a&gt; on October 31.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-embed is-type-rich is-provider-x wp-block-embed-x"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
-&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;SpaceXSI is introducing text watermarking across its Grok API models, starting November 7, 2026&lt;br&gt;&lt;br&gt;All text outputs from supported Grok models will include a watermark by default&lt;br&gt;&lt;br&gt;Models included:&lt;br&gt;&amp;bull; Grok 4.7&lt;br&gt;&amp;bull; Grok 4.6&lt;br&gt;&amp;bull; Grok 4.5&lt;br&gt;&amp;bull; Grok 4.3&lt;br&gt;&amp;bull; Grok 4.20 Reasoning&lt;br&gt;&amp;bull; Grok 4.20&amp;hellip; &lt;a href="https://t.co/wJiuPSEuUH" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/wJiuPSEuUH&lt;/a&gt;&lt;/p&gt;&amp;mdash; X Freeze (@XFreeze) &lt;a href="https://x.com/XFreeze/status/2116585881457119513?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 31, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
-&lt;/div&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;SpaceXSI has now reversed course, however, making watermarking an opt-in feature for developers using Grok through its API. One online documentation archiving service, Spybara, &lt;a href="https://spybara.com/xai/api/history/docs/en/2026-11-09-2300..2026-11-10-0959/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;indicates that the change happened&lt;/a&gt; some time between Monday night (November 9) and Tuesday morning (November 10), suggesting that the documentation continued to describe watermarking as enabled by default for nearly three days after its scheduled November 7 rollout.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;SpaceXSI has now reversed course, however, making watermarking an opt-in feature for developers using Grok through its API.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company has given no public explanation for the change, and it&amp;#8217;s unclear whether the original &lt;em&gt;default-on &lt;/em&gt;policy ever fully came into effect.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-meeting-the-watermarking-obligations" class="wp-block-heading"&gt;Meeting the watermarking obligations&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To rewind just a little, text watermarking is a technique for embedding an invisible, machine-readable signal into AI-generated text. The process subtly influences which words or tokens a model chooses when generating a response, and over a sufficiently long passage of text, those choices create a statistical pattern that can be detected later, helping to establish whether it originated from an AI model.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Detection typically requires access to specialised tools, with the major model labs restricting access to their watermark detectors to approved applicants.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The technology has become increasingly relevant in Europe, where &lt;a href="https://thenewstack.io/a-field-guide-to-2026-federal-state-and-eu-ai-laws/" class="local-link"&gt;the EU AI Act&lt;/a&gt; introduced transparency obligations for providers of AI systems that generate synthetic content. Under &lt;a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Article 50(2)&lt;/a&gt;, providers must ensure that AI-generated text, images, audio and video are marked in a machine-readable format, with the relevant provisions &lt;a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/eu-ai-act-implementation-timeline" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;taking effect on August 2, 2026&lt;/a&gt;. A subsequent amendment introduced a limited grace period until December 2 for systems already on the market before August 2, meaning that the clock is ticking for AI companies yet to meet the requirements.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that the various AI companies have taken different approaches to their text watermarking obligations. In August, &lt;a href="https://thenewstack.io/anthropic-claude-text-watermark/" class="local-link"&gt;Anthropic became one of the first major AI labs&lt;/a&gt; to announce text watermarking, applying the feature globally across supported Claude models and products, including its API. The decision &lt;a href="https://www.businessinsider.com/anthropic-claude-text-watermark-concerns-tech-community-answers-2026-8" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;proved somewhat&lt;/a&gt; controversial, &lt;a href="https://www.wired.com/story/coders-say-they-already-found-workarounds-to-claudes-invisible-watermarks/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;particularly among developers concerned&lt;/a&gt; about how watermarking &lt;a href="https://www.forbes.com/sites/maryroeloffs/2026/08/11/claude-will-put-invisible-watermarks-on-ai-text-and-images-and-the-internet-isnt-happy/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;might affect generated code&lt;/a&gt;, and the fact that Anthropic provided no mechanism for opting out.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Meanwhile, OpenAI &lt;a href="https://thenewstack.io/openai-api-text-watermarking/" class="local-link"&gt;followed suit in October&lt;/a&gt;, introducing its own text watermarking system called textGrain. However, it took a different approach, making the feature optional for API developers while introducing automatic watermarking for eligible ChatGPT and Codex text output in the EU.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google, for its part, has been deploying its own &lt;a href="https://deepmind.google/models/synthid/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SynthID&lt;/a&gt; watermarking technology across various products and services over the past couple of years, including its Gemini API. The technology supports text alongside images, audio and video, with the text watermark embedded into the model&amp;#8217;s output as it generates responses. In July, &lt;a href="https://blog.google/company-news/outreach-and-initiatives/public-policy/eu-ai-act-transparency-code-of-practice/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;the company confirmed&lt;/a&gt; it was signing the EU&amp;#8217;s Code of Practice on Transparency of AI-Generated Content.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Notably, SpaceXSI&amp;#8217;s updated documentation also confirms that it&amp;#8217;s using SynthID Text for its own watermarking feature.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-change-of-heart" class="wp-block-heading"&gt;A change of heart&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;SpaceXSI &lt;a href="https://digital-strategy.ec.europa.eu/en/news/strong-backing-code-practice-transparency-ai-generated-content" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;was the only major AI lab&lt;/a&gt; that hadn&amp;#8217;t signed the EU&amp;#8217;s Code of Practice on Transparency of AI-Generated Content, with &lt;a href="https://www.cityam.com/chatgpt-might-follow-claudes-watermark-pledge-but-grok-to-swerve-it/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;at least one report at the time&lt;/a&gt; suggesting it would steer clear of watermarking Grok&amp;#8217;s text.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, the emergence of SpaceXSI&amp;#8217;s documentation in late October was the first clear indication that it was preparing to join the fray. And the original text was quite explicit about the company&amp;#8217;s rationale. &amp;#8220;SpaceXSI watermarks text model output to comply with the EU AI Act,&amp;#8221; the document noted. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Watermarking can help enable compliance with the EU AI Act.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That statement has since been replaced by more cautious language. &amp;#8220;Watermarking can help enable compliance with the EU AI Act,&amp;#8221; it now reads. &lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="260" src="https://cdn.thenewstack.io/media/2026/11/24ffdb9e-torn-paper-watermarking-note-1024x260.png" alt="SpaceXSI's updated output watermarking text " class="wp-image-22843238"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;SpaceXSI&amp;#8217;s updated output watermarking text &lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;That shift is notable, insofar as the original wording reflected a policy in which SpaceXSI took it upon itself to automatically watermark Grok&amp;#8217;s output, ostensibly to comply with the EU AI Act. Now, the company appears to be passing the responsibility for enabling watermarking to developers, while being more circumspect about whether the technology is sufficient to satisfy the bloc&amp;#8217;s legal requirements.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are some practical consequences to all this, too. The &lt;a href="https://docs.x.ai/developers/advanced-api-usage/watermarking#how-to-enable-text-watermarking" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;feature is controlled at team level&lt;/a&gt;, meaning an administrator can enable or disable watermarking for individual Grok models, with the setting applying to every API key belonging to that team. There is no option to switch watermarking on or off for individual requests, meaning developers serving customers in different regions can&amp;#8217;t apply different watermarking policies to the same model within a single team. They would need to maintain separate team configurations to do so.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s revised documentation establishes that watermarking is available across seven Grok models, including Grok 4.7 and 4.6, but disabled by default. What remains unclear is why SpaceXSI abandoned its previously stated plans to make the feature automatic.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; has reached out to SpaceXSI for comment, and will update when, or if, we hear back.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/grok-api-watermarking-default/"&gt;Grok API text watermarking was meant to be on by default from Nov. 7. Now, it’s opt-in.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>With an EU deadline looming, SpaceXSI quietly introduced watermarking to Grok API outputs. It then quietly switched the default off.</content:encoded>
-    </item>
-    <item>
-      <title>New CNCF report: 75% of cloud-native developers ship code with AI. Jonathan Bryce explains why.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cncf-developer-ai-adoption/</link>
-      <dc:creator>Alex Wilhelm</dc:creator>
-      <pubDate>Tue, 10 Nov 2026 15:42:54 +0000</pubDate>
-      <category>AI</category>
-      <category>Cloud Native Ecosystem</category>
-      <category>Kubecon Cloudnativecon NA 2026</category>
-      <category>Open Source</category>
-      <category>Podcast</category>
-      <category>sponsor-cncf</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843242</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/602f17cd-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI adoption is accelerating among cloud-native developers, who are leading the charge in integrating artificial intelligence into software development. According to the Cloud Native Computing Foundation’s (CNCF) Q3 2026 State of Cloud Native Development report, 21.2 million developers—41% of the global developer population—work with cloud-native technologies. Of those, 75% use AI to write and ship code, compared with just 50% of non-cloud-native developers. In this episode of The New Stack podcast, CNCF Executive Director Jonathan Bryce discusses the rapid growth of the cloud-native ecosystem, evolving developer trends, and the expanding role of open source in driving innovation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/602f17cd-thumbnail-20.png" /&gt;&lt;p&gt;Today&amp;#8217;s developers are AI-pilled. Cloud native developers even more so. That&amp;#8217;s the key takeaway from the Cloud Native Computing Foundation&amp;#8217;s&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cncf-developer-ai-adoption/"&gt;New CNCF report: 75% of cloud-native developers ship code with AI. Jonathan Bryce explains why.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/602f17cd-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AI adoption is accelerating among cloud-native developers, who are leading the charge in integrating artificial intelligence into software development. According to the Cloud Native Computing Foundation’s (CNCF) Q3 2026 State of Cloud Native Development report, 21.2 million developers—41% of the global developer population—work with cloud-native technologies. Of those, 75% use AI to write and ship code, compared with just 50% of non-cloud-native developers. In this episode of The New Stack podcast, CNCF Executive Director Jonathan Bryce discusses the rapid growth of the cloud-native ecosystem, evolving developer trends, and the expanding role of open source in driving innovation." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/602f17cd-thumbnail-20.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Today&amp;rsquo;s developers are AI-pilled. &lt;/strong&gt;Cloud native developers even more so. That&amp;rsquo;s the key takeaway from the Cloud Native Computing Foundation&amp;rsquo;s (CNCF) &lt;a href="https://www.cncf.io/reports/the-state-of-cloud-native-development-q3-2026/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;latest report on cloud-native developers&lt;/a&gt;, released on Tuesday in collaboration with SlashData during KubeCon + CloudNativeCon North America in Salt Lake City.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The data is clear: As of the third quarter, there were 21.2 million cloud-native developers, or 41% of the total developer population. &lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/MJuYoHW3Fnw?si=NDe4vKoIcMqZ_3hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;And while half of non-cloud-native developers use AI to help code, a full three-quarters of their cloud-native peers use AI to ship code today. (Just under two-thirds of all developers using AI to write code use the technology as a central, or core, part of their workflow, according to the dataset.)&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/d0fc06a9-a89b-496b-9a72-974b00504b6e?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Why are cloud native developers so comfortable using AI? According to the &lt;a href="https://www.cncf.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CNCF&lt;/a&gt;&amp;rsquo;s executive director &lt;a href="https://www.linkedin.com/in/jbryce" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jonathan Bryce&lt;/a&gt;, &amp;ldquo;they&amp;#8217;re looking for an edge, they&amp;#8217;re looking for an opportunity to work on the latest things and really push the envelope in their career and in their technology use.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ahead of the report&amp;#8217;s release, Bryce sat down with &lt;em&gt;The New Stack&lt;/em&gt; to chat all things CNCF and developer trends. And we left the conversation with good news: Alongside a growing developer pool &amp;mdash; &amp;ldquo;more folks are making their way into development roles,&amp;rdquo; in part-time and full-time fashion, Bryce told TNS &amp;mdash; the collection of production-ready tools for the cloud-native developer is rapidly expanding.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;More folks are making their way into development roles&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Like many open-source software foundations, the CNCF has a tiered approach to adopting, maturing, and releasing new tools. First, there&amp;rsquo;s the &amp;lsquo;sandbox,&amp;rsquo; where projects &amp;ldquo;develop the kind of rigorous processes that make an open source project trustworthy and predictable and something that you might integrate into a real system,&amp;rdquo; according to Bryce. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Next is the incubation stage, followed by graduation. Of some 250 projects under the CNCF, only a handful reach full graduation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;&lt;em&gt;See also: &lt;a href="https://thenewstack.io/open-source-ai-kubernetes/" class="local-link"&gt;The CNCF is graduating projects faster than ever. AI agents are helping with the due diligence.&lt;/a&gt; &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But their ranks may swell in the coming years. New in the sandbox at CNCF? &lt;a href="https://daily.dev/posts/donating-kuberay-to-cncf-gbdcudwyo" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeRay&lt;/a&gt;, &lt;a href="https://www.cncf.io/projects/agent-substrate/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agent Substrate&lt;/a&gt;, &lt;a href="https://www.cncf.io/projects/openshell/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenShell&lt;/a&gt;, &lt;a href="https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenRL&lt;/a&gt;, and others. New to incubation? &lt;a href="https://www.cncf.io/projects/meshery/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Meshery&lt;/a&gt;, &lt;a href="https://www.cncf.io/projects/k8gb/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;K8GB&lt;/a&gt;, and others. And &lt;a href="https://www.cncf.io/projects/kubevirt/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeVirt&lt;/a&gt;, &lt;a href="https://www.cncf.io/projects/karmada/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Karmada&lt;/a&gt;, and &lt;a href="https://www.cncf.io/projects/kubeflow/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeFlow&lt;/a&gt; are graduating.&amp;nbsp;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Lost amidst the sea of project names? Better do your research. &amp;ldquo;[W]herever you are in the industry, whatever type of organization you are right now, you need to understand open source technologies because that&amp;#8217;s going to give your company leverage options,&amp;rdquo; Bryce argues.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And as we saw from the data we started today with, the number of developers hungry to put the new to work is only getting larger.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Our chat covers the &lt;em&gt;&lt;a href="https://www.cncf.io/reports/the-state-of-cloud-native-development-q3-2026/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Q3 2026 State of Cloud Native Development&lt;/a&gt;&lt;/em&gt; report, new and graduating projects, the Kubernetes AI Conformance program, and more. Sit back, hit play, and let&amp;rsquo;s have some fun!&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cncf-developer-ai-adoption/"&gt;New CNCF report: 75% of cloud-native developers ship code with AI. Jonathan Bryce explains why.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Three-quarters of cloud-native developers now ship code with AI. CNCF’s Jonathan Bryce explains why — and which projects are climbing the ladder.</content:encoded>
-    </item>
-    <item>
-      <title>A $60 billion fintech hired a 14-year-old. Its CEO explains why.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/ramp-hires-teen-intern/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Mon, 09 Nov 2026 23:18:34 +0000</pubDate>
-      <category>AI Engineering</category>
-      <category>Tech Careers</category>
-      <category>Tech Culture</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843211</guid>
-      <description>&lt;img width="1024" height="584" src="https://cdn.thenewstack.io/media/2026/11/9af45641-jesus-alejandro-paramo-alvarado-ycgi7ajxlzu-unsplash-1024x584.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Young gamer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/9af45641-jesus-alejandro-paramo-alvarado-ycgi7ajxlzu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Ramp hired a 14-year-old intern after discovering an app he had built for fun that attracted attention from roughly a&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ramp-hires-teen-intern/"&gt;A $60 billion fintech hired a 14-year-old. Its CEO explains why.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="584" src="https://cdn.thenewstack.io/media/2026/11/9af45641-jesus-alejandro-paramo-alvarado-ycgi7ajxlzu-unsplash-1024x584.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Young gamer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/9af45641-jesus-alejandro-paramo-alvarado-ycgi7ajxlzu-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Ramp hired a 14-year-old intern after discovering an app he had built for fun that attracted attention from roughly a million people on Twitter.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Co-CEO &lt;a href="https://www.linkedin.com/in/eglyman/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Eric Glyman&lt;/a&gt; discussed the hire during a &lt;a href="https://www.upstartsmedia.com/p/podcast-ramp-eric-glyman" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;November 5 interview&lt;/a&gt; with founder and editor of Upstairs Media, &lt;a href="https://www.linkedin.com/in/alexrkonrad/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Alex Konrad&lt;/a&gt;, explaining how the $60 billion fintech company evaluates engineering talent beyond traditional qualifications, &lt;a href="https://thenewstack.io/ai-junior-developer-hiring/" class="local-link"&gt;a recalibration playing out across the industry as AI redraws what a junior role even means&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-viral-app-no-assignment" class="wp-block-heading"&gt;A viral app, no assignment&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We had an intern who was 14 years old,&amp;rdquo; Glyman said. &amp;ldquo;Part of how we found him was he had built his own app for fun that was genuinely useful, and a million people saw it on Twitter and interacted with it. There was no one who was telling him, &amp;lsquo;Hey, go build this project.&amp;rsquo; He just was interested in it.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Glyman did not identify the teenager or specify when he worked at Ramp. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Part of how we found him was he had built his own app for fun that was genuinely useful, and a million people saw it on Twitter&amp;hellip;&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-the-minecraft-server-test" class="wp-block-heading"&gt;The Minecraft server test&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Glyman says Ramp looks for developers who have pursued projects on their own, even when that experience doesn&amp;rsquo;t come from a conventional job, &lt;a href="https://thenewstack.io/how-to-build-a-developer-career-when-the-first-rung-is-gone/" class="local-link"&gt;a premium on self-direction that grows sharper as AI erodes the entry-level tasks that once trained new engineers&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A lot of what we&amp;rsquo;re looking for is strong evidence that someone has built something on their own, created something on their own, and shown their drive where it didn&amp;rsquo;t come from other people saying, &amp;lsquo;I need you to go do something&amp;rsquo;.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A lot of what we&amp;rsquo;re looking for is strong evidence that someone has built something on their own&amp;hellip; and shown their drive where it didn&amp;rsquo;t come from other people saying, &amp;lsquo;I need you to go do something&amp;rsquo;.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a separate &lt;a href="https://www.blackstone.com/insights/article/ramp-co-founder-and-co-ceo-eric-glyman-on-ai-adoption-jobs-and-token-spend/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;November 3 interview with Blackstone&lt;/a&gt;, Glyman said Ramp also looks for developers who got their start running Minecraft servers as teenagers.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Some teens built their own servers before high school, gaining practical programming experience long before entering the workforce.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Glyman acknowledged that the approach has limits, since talented candidates who haven&amp;rsquo;t had the time, resources, or opportunity to build something independently could be overlooked at precisely the moment &lt;a href="https://thenewstack.io/whats-happening-with-entry-level-development-jobs/" class="local-link"&gt;the entry-level rungs of the industry are already thinning out&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-28-year-old-running-engineering" class="wp-block-heading"&gt;A 28-year-old running engineering&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In June, Ramp appointed &lt;a href="https://www.linkedin.com/in/rahul-gs/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Rahul Sengottuvelu&lt;/a&gt; as chief technology officer at 28, replacing co-founder &lt;a href="https://www.linkedin.com/in/karimatiyeh/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Karim Atiyeh&lt;/a&gt;, who became co-CEO alongside Glyman.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Sengottuvelu joined Ramp through a 2023 acquisition and later led its applied AI team. He was already building AI products before ChatGPT became a household name.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In its &lt;a href="https://ramp.com/blog/welcoming-my-co-founder-karim-as-co-ceo-of-ramp" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;leadership announcement&lt;/a&gt;, Ramp pointed to Sengottuvelu&amp;rsquo;s experience building AI products and his ability to make tough technical decisions. He took over as CTO as the company was putting AI to work in more of its products and day-to-day operations.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-small-teams-own-the-call" class="wp-block-heading"&gt;Small teams own the call&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Glyman also described how Ramp organizes its engineers into small teams of five or six people, giving them responsibility for deciding how to complete their projects.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you look really deep into Ramp&amp;rsquo;s organizational design, it&amp;rsquo;s tons of small teams where we say, &amp;lsquo;Here&amp;rsquo;s the outcome we want you to drive, but it&amp;rsquo;s up to you.&amp;rsquo; You can make the call on how you want to spend your time. Why hire someone who can surprise you with their creativity and then tell them, &amp;lsquo;Don&amp;rsquo;t make your own recipe&amp;rsquo;?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Why hire someone who can surprise you with their creativity and then tell them, &amp;lsquo;Don&amp;rsquo;t make your own recipe&amp;rsquo;?&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Glyman says adding more engineers doesn&amp;#8217;t always mean getting work done faster since bigger teams often mean more people weighing in on decisions, which can add churn and slow workflow.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Ramp instead gives smaller groups ownership of specific projects, with leadership setting the goals rather than prescribing every step.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For Glyman, hiring people capable of making their own decisions only makes sense if they&amp;rsquo;re allowed to do so once they&amp;rsquo;re on the job.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/ramp-hires-teen-intern/"&gt;A $60 billion fintech hired a 14-year-old. Its CEO explains why.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Ramp co-CEO Eric Glyman on why the fintech hired a 14-year-old intern — and how it finds engineering talent through side projects, not résumés.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic launches Fable 5.2 with a price cut and stronger coding scores</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-fable-coding-upgrade/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Mon, 09 Nov 2026 19:08:20 +0000</pubDate>
-      <category>AI</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843164</guid>
-      <description>&lt;img width="1024" height="492" src="https://cdn.thenewstack.io/media/2026/11/75d15cd2-claude-fable-5.2-image-1024x492.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/75d15cd2-claude-fable-5.2-image.jpg" /&gt;&lt;p&gt;On Monday, Anthropic&amp;#160;launched Claude Fable 5.2 and Mythos 5.2, the latest versions of its duo of flagship models. Like before,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-fable-coding-upgrade/"&gt;Anthropic launches Fable 5.2 with a price cut and stronger coding scores&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="492" src="https://cdn.thenewstack.io/media/2026/11/75d15cd2-claude-fable-5.2-image-1024x492.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/75d15cd2-claude-fable-5.2-image.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;On Monday, Anthropic&amp;nbsp;&lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched Claude Fable 5.2 and Mythos 5.2&lt;/a&gt;, the latest versions of its duo of flagship models.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Like before, Fable 5.2 will be available on all platforms today, including Amazon Web Services, Google Cloud, and Microsoft Azure, while direct access to Mythos remains limited to organizations in Anthropic&amp;rsquo;s&amp;nbsp;&lt;a href="https://www.anthropic.com/news/cyber-verification-program" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cyber&lt;/a&gt;&amp;nbsp;and&amp;nbsp;&lt;a href="https://www.anthropic.com/news/life-sciences-verification-program" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Life Sciences&lt;/a&gt;&amp;nbsp;verification programs. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Also like before, Fabe and Mythos share the same underlying model, but Fable ships with stricter cybersecurity and biology safeguards.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;rsquo;s maybe a bit of a surprise that Anthropic didn&amp;rsquo;t designate these models as &amp;ldquo;5.5,&amp;rdquo; given that its Claude Opus, Sonnet, and Haiku models are now at that version number.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company stresses that it continues to recommend that users go with Opus 5.5 for most coding and knowledge tasks, while Fable 5.2 is meant to help users &amp;ldquo;tackle the most daunting technical challenges.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And while both models show improvements in coding, reasoning, and vision, according to Anthropic, one feature the company is stressing here is speed. Fable 5.2 and Mythos 5.2, the company says, generate output up to 30 percent faster than Fable 5.1 and Mythos 5.1, respectively.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="800" height="1024" src="https://cdn.thenewstack.io/media/2026/11/df96c5c9-screenshot-2026-11-09-at-11.06.08-am-800x1024.png" alt="" class="wp-image-22843201"/&gt;&lt;figcaption class="wp-element-caption"&gt;Credit: Anthropic.&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;h2 id="h-fable-fast-mode" class="wp-block-heading"&gt;Fable Fast mode&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For those who want an even faster response, there is now also a Fast mode for both models, which Anthropic says speeds up token generation by up to 2.5 times. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It is available in Claude Code, on the Claude Platform, through Claude Models on Google Cloud, and through Anthropic-hosted Microsoft Foundry.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-pricing" class="wp-block-heading"&gt;Pricing&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As for pricing, Fable still carries a premium over Opus, but Anthropic is cutting the price from $10/$50 per million input/output tokens to $8/$40. Mythos 5.2 gets the same rates. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;OpenAI&amp;rsquo;s flagship&amp;nbsp;&lt;a href="https://developers.openai.com/api/docs/models/gpt-6-astra" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GPT-6 Astra still costs $10/$50&lt;/a&gt;&amp;nbsp;at its standard rates for prompts of up to 272,000 input tokens, putting Anthropic 20 percent below its rival on those token rates (at least for the time being).&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Fast mode costs $16 per million input tokens and $80 per million output tokens for either model, twice the standard rates. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Even after the price cut, Fable&amp;rsquo;s standard input and output rates are twice&amp;nbsp;&lt;a href="https://platform.claude.com/docs/en/about-claude/pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Opus 5.5&amp;rsquo;s current prices&lt;/a&gt;, though Anthropic&amp;rsquo;s new evaluations suggest that doesn&amp;rsquo;t necessarily translate into a higher cost per task.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-fable-5-2-targets-complex-coding" class="wp-block-heading"&gt;Fable 5.2 targets complex coding&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;On FrontierCode 2.0, Anthropic reports that Fable 5.2 scored 49.1 percent, compared with 32.4 percent for Fable 5.1, 45.5 percent for Opus 5.5, and 42.8 percent for GPT-6 Astra. On FrontierSWE v2, it scored 69.9 percent, ahead of Astra&amp;rsquo;s 65.5 percent and Opus&amp;rsquo;s 62.3 percent.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The cost comaprison with Opus may be even more interesting, though. In early FrontierCode 2.0 testing, Anthropic says Fable 5.2 at High effort performed about as well as Opus 5.5 at Max effort for roughly half the cost per task. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Medium is now the default effort level for Fable 5.2 in Claude apps and Claude Code.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that the results aren&amp;rsquo;t a clean sweep for Fable 5.2, though. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gemini 4 Carbon leads Fable on AutomationBench, which tests business workflows, at 53.9 percent versus 51.4 percent. Meanwhile, Opus still retains a small lead on the Elo measure of AA-Briefcase v1.1, a knowledge-work evaluation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic says Fable can act as an adviser that smaller models consult on harder problems, or as an orchestrator that delegates simpler tasks to them. In one internal experiment, an engineer asked Fable 5.2 to build a prototype operating system from an empty folder. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company says it coordinated more than 1,000 subagents over eight days and produced an OS that boots on a laptop, complete with drivers, persistent storage, a graphical interface, and an installer.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-fable-promises-fewer-safety-blocks" class="wp-block-heading"&gt;Fable promises fewer safety blocks&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic says Fable 5.2&amp;rsquo;s cyber and biology safeguards remain as robust as those in 5.1. In early testing across Claude.ai, Claude Code, and Cowork, the company observed about 55 percent fewer blocks overall, including about 60 percent fewer in cybersecurity and 40 percent fewer in biology.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That could reduce interruptions to legitimate work, though fewer blocks don&amp;rsquo;t necessarily mean broader permissions. Fable still blocks high-risk cyber activities, including penetration testing and exploit generation, as well as most research biology tasks. When a query is blocked, Anthropic says users instead receive a response from Opus 4.8 for cybersecurity or Opus 5 for biology.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Direct Mythos access remains gated, but there is another route for enterprise security work: Claude Enterprise customers can use Claude Security, which now includes Mythos 5.2, even if they aren&amp;rsquo;t members of the Cyber Verification Program.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic also says it deliberately limited improvements in certain AI-development capabilities during training, including accelerator kernel optimization and work on large language model architectures. In those areas, the models perform at about Opus 5.5&amp;rsquo;s level, according to the company. It says those limits do not affect agentic coding, hardware development, or traditional machine learning research.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For API developers, Anthropic is expanding preserved thinking to all accounts. The feature restricts changes to Claude&amp;rsquo;s prior context that could be used to extract its reasoning for distillation.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-enterprise-safeguards-enter-private-beta" class="wp-block-heading"&gt;Enterprise safeguards enter private beta&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.anthropic.com/news/enterprise-frontier-safeguards" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Enterprise Frontier Safeguards&lt;/a&gt;, which the company first announced in September, is also moving into private beta, with Bridgewater, Salesforce, and Stripe among the early customers. Automated safety monitoring runs on prompts and responses stored in customers&amp;rsquo; own infrastructure, making it compatible with zero data retention, Anthropic says.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Eligible customers can continue using Fable 5.2 and Mythos 5.2 with zero data retention before implementing the system. For other customers, Anthropic retains data for 30 days for safety monitoring.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-fable-for-physics" class="wp-block-heading"&gt;Fable for physics&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph" id="h-fable-for-physics-argues-that-its-models-coding-abilities-carry-over-to-scientific-research-because-so-much-of-that-work-runs-through-software-whether-that-s-analyzing-data-modeling-molecules-designing-parts-or-controlling-instruments"&gt;Anthropic argues that its models&amp;rsquo; coding abilities also apply to scientific research because so much of that work is also based on software, including analyzing data, modeling molecules, designing parts, or controlling instruments.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company says Fable 5.2 solved two open theoretical-physics problems involving black holes and holographic duality. One involved completing a calculation proposed in 2003 to determine whether black-hole formation remains an abrupt transition in a small-universe quantum description. The other established the limit of a technique used to rule out candidate theories of quantum gravity in a simplified universe.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The Fermat claim is more specific than the early announcement suggested. Anthropic says a team of 1,000 Fable 5.2 agents fully formalized the proof of Fermat&amp;rsquo;s Last Theorem in Lean in 30 hours, with minimal human intervention. Formalization expresses a proof in a language that a computer can check step by step; it is distinct from discovering a new proof.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The agents received a list of intermediate theorem statements to measure progress, but no mathematical references, according to Anthropic. An earlier research version of Claude took 11 days with a purpose-built harness and human guidance. The company&amp;rsquo;s comparison used a single run per model, with Opus 5.5 reaching 26 percent after 18 hours and making little additional progress by 30 hours.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic also tested Fable 5.2 on hardware design, working with circuit-board company Diode to produce a voice-assistant hub, a USB speakerphone, and a handheld virtual pet. The company says Claude selected components, designed the boards and enclosures, and wrote the software. Diode built the boards, and its engineers tested and assembled the devices with Claude&amp;rsquo;s guidance. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;All three worked without electrical modifications, according to Anthropic.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-fable-coding-upgrade/"&gt;Anthropic launches Fable 5.2 with a price cut and stronger coding scores&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Claude Fable 5.2 cuts token prices by 20% and leads Anthropic’s coding comparisons, while a new Fast mode promises up to 2.5 times faster token generation.</content:encoded>
-    </item>
-    <item>
-      <title>Google claims its new AI software cuts inference latency by over 90% — but there’s a catch</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/google-tpu-sync-inference/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Mon, 09 Nov 2026 18:40:01 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Infrastructure</category>
-      <category>Hardware</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843187</guid>
-      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/d5205145-winston-chen-ize21dzhnug-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="server rack" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/d5205145-winston-chen-ize21dzhnug-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google&amp;#8217;s eighth-generation TPU announcement on Monday included more than new chips, introducing TPU Sync, an open-source system designed to speed&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-tpu-sync-inference/"&gt;Google claims its new AI software cuts inference latency by over 90% — but there&amp;#8217;s a catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/d5205145-winston-chen-ize21dzhnug-unsplash-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="server rack" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/d5205145-winston-chen-ize21dzhnug-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Google&amp;rsquo;s eighth-generation TPU announcement on Monday included more than new chips, introducing &lt;a href="https://github.com/google/tpu-sync/wiki" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TPU Sync&lt;/a&gt;, an open-source system designed to speed up AI inference by tackling a problem that worsens as context windows grow: moving data between different types of memory.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;software&lt;/a&gt; is made for developers running large models, particularly ones handling million-token contexts and reinforcement-learning workloads. The company claims it can cut KV-cache transfer latency and time to first token by more than 90% in some tests.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The company claims it can cut KV-cache transfer latency and time to first token by more than 90% in some tests.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-inside-the-memory-hierarchy" class="wp-block-heading"&gt;Inside the memory hierarchy&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Written in C++, the framework moves data between accelerator memory, host DRAM, storage, and the network. It uses zero-copy transfers and native PjRtBuffer hardware descriptors to avoid unnecessary copies.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Combined host-to-device and device-to-host throughput reached 223 GB/s per Ironwood TPU host, approaching the theoretical 256 GB/s PCIe Gen5 limit.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Google&amp;#8217;s numbers, with caveats&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In &lt;a href="https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google&amp;#8217;s benchmarks&lt;/a&gt;, moving KV caches for the 235-billion-parameter Qwen3 model went from taking several seconds to about 230 milliseconds. That cut the average time to first token (TTFT) by 60% when relatively few requests were running at once. With a larger 480-billion-parameter model, the reduction reached 90%.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google saw similar gains when testing prefix caching with 64,000-token contexts. TTFT dropped by as much as 90%, throughput increased by more than 50%, and P99 inter-token latency fell 30%. Developers may see different results depending on what they&amp;#8217;re running, how much cached data they can reuse, and how much network bandwidth they have available.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://inferencex.semianalysis.com/glossary/tpu-sync" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;SemiAnalysis&lt;/a&gt;, offers some context for the gains. Its analysis suggests that external TPU serving previously lacked the infrastructure needed to separate prefill and decode workloads effectively. &lt;/p&gt;
-
-
-
-&lt;h2 id="h-where-nvidia-still-leads" class="wp-block-heading"&gt;Where Nvidia still leads&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Nvidia may still have an advantage in some workloads. SemiAnalysis&amp;rsquo;s InferenceX data shows its GB200 and GB300 NVL72 systems ahead in parts of the disaggregated-serving performance curve, although a direct comparison with a fully tuned TPU v7 setup has yet to be published.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-chipping-away-at-the-cuda-moat" class="wp-block-heading"&gt;Chipping away at the CUDA moat&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can use the new software with the inference tools they already have since the company released the project alongside &lt;a href="https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;TorchTPU&lt;/a&gt;, with support for &lt;a href="https://lmsys.org/blog/2026-10-20-sglang-torchtpu" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;vLLM and SGLang&lt;/a&gt;, two widely used open-source inference engines. Developers already using those frameworks can run disaggregated workloads on TPUs without rebuilding their serving stack from scratch.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Developers already using those frameworks can run disaggregated workloads on TPUs without rebuilding their serving stack from scratch.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This also fits with Google&amp;rsquo;s broader effort to make its custom chips more competitive. The company has emphasized reducing inference costs through hardware changes, including &lt;a href="https://thenewstack.io/google-frozen-gemini-chip/" class="local-link"&gt;reportedly designing chips around Gemini&amp;rsquo;s architecture&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Now it&amp;rsquo;s addressing the software problems that can leave those chips waiting for data. Making TPU infrastructure easier to use with familiar frameworks could give developers another reason to consider Google&amp;rsquo;s hardware instead of defaulting to Nvidia and CUDA; whether it can match Nvidia&amp;rsquo;s inference performance remains an open question.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-not-production-ready-yet" class="wp-block-heading"&gt;Not production-ready yet&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The software isn&amp;#8217;t production-ready for everyone just yet. Google warns in its &lt;a href="https://github.com/google/tpu-sync" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GitHub repository&lt;/a&gt; that the APIs are still changing and recommends sticking to a verified commit or tagged release. Support is also limited to Cloud TPU v7x and v6e, with specific JAX and PyTorch version requirements.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Support is also limited to Cloud TPU v7x and v6e, with specific JAX and PyTorch version requirements.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/google-tpu-sync-inference/"&gt;Google claims its new AI software cuts inference latency by over 90% — but there&amp;#8217;s a catch&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google’s new open-source TPU Sync aims to speed AI inference by moving KV-cache data between memory tiers, cutting time to first token by up to 90%.</content:encoded>
-    </item>
-    <item>
-      <title>Cursor and Google join OpenAI in giving coding agents a voice. Claude Code stays silent.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cursor-antigravity-voice-agents/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Mon, 09 Nov 2026 18:22:41 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843155</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b6289d67-ruliff-andrean-d42u7dk0m9w-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a talking robot" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b6289d67-ruliff-andrean-d42u7dk0m9w-unsplash-scaled.jpg" /&gt;&lt;p&gt;Two of the biggest players in the AI coding space are betting that developers want to talk to their agents&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cursor-antigravity-voice-agents/"&gt;Cursor and Google join OpenAI in giving coding agents a voice. Claude Code stays silent.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b6289d67-ruliff-andrean-d42u7dk0m9w-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a talking robot" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b6289d67-ruliff-andrean-d42u7dk0m9w-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Two of the biggest players in the AI coding space are betting that developers want to talk to their agents while they work, with both announcing a two-way voice feature that lets users ask questions and give follow-up instructions without returning to the keyboard.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://cursor.com/changelog/voice-chat" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;On Friday&lt;/a&gt;, Cursor announced &lt;a href="https://cursor.com/docs/agent/voice-chat" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Voice Chat with Agents&lt;/a&gt;, a &lt;a href="https://x.ai/news/grok-voice-think-fast-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grok Voice&lt;/a&gt;-powered feature that lets developers call an agent and talk through a change. On the very same day, Google &lt;a href="https://antigravity.google/blog/antigravity-voice-mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced Voice mode in Antigravity&lt;/a&gt;, which uses &lt;a href="https://support.google.com/gemini/answer/15274899" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini Live&lt;/a&gt; to bring spoken conversations to its desktop app and command-line tool.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://antigravity.google/blog/antigravity-voice-mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; announcing the feature, &lt;a href="https://www.linkedin.com/in/nickvander/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Nick Van der Auwermeulen&lt;/a&gt;, developer relations engineer at Google, contrasts the back-and-forth dynamic of human colleagues with the &amp;#8220;rhythm&amp;#8221; of working with coding agents. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Some of the best engineering happens out loud,&amp;rdquo; Van der Auwermeulen writes. &amp;ldquo;You talk a bug through with a teammate, think out loud in front of a whiteboard, or say &amp;lsquo;&lt;em&gt;wait, try it the other way&lt;/em&gt;&amp;rsquo; halfway through a pairing session. Working with an agent has mostly had a different rhythm: you type a prompt, the agent works, you read what it did, and you type again.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Some of the best engineering happens out loud.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The longer a job runs, he adds, the more often developers need to check in. A command might be waiting for approval, or a developer might spot a requirement the original instructions missed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Each of those moments pulls you back to the keyboard and away from whatever you were looking at,&amp;rdquo; he continues.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;And so Antigravity&amp;rsquo;s voice mode keeps a live call open while the coding agent works, so the developer can hear an update or approve a command without reaching for the keyboard.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cursor, for its part, makes a similar pitch for keeping the conversation going.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Describe a change out loud, ask what an agent is working on, and hear updates as the work moves forward,&amp;rdquo; the company writes.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Describe a change out loud, ask what an agent is working on, and hear updates as the work moves forward.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-look-who-s-talking" class="wp-block-heading"&gt;Look who&amp;#8217;s talking &lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://antigravity.google/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Antigravity&lt;/a&gt;, for the uninitiated, is Google&amp;rsquo;s agentic software development platform. It &lt;a href="https://thenewstack.io/antigravity-is-googles-new-agentic-development-platform/" class="local-link"&gt;debuted alongside Gemini 3 last November&lt;/a&gt;, with &lt;a href="https://thenewstack.io/google-io-antigravity-codemender-ai-agentic/" class="local-link"&gt;version 2.0 landing in May&lt;/a&gt; replete with a separate desktop app. There&amp;rsquo;s also a terminal client, &lt;a href="https://antigravity.google/blog/introducing-google-antigravity-cli/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Antigravity CLI&lt;/a&gt;, and extensions &lt;a href="https://thenewstack.io/google-antigravity-ide-extensions/" class="local-link"&gt;for developers who want to work from editors&lt;/a&gt; such as VS Code, JetBrains IDEs and Xcode. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Antigravity is now where Google is consolidating its various coding tools, having &lt;a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;moved individual Gemini CLI users to Antigravity&lt;/a&gt; in June, while it&amp;#8217;s also in the midst of &lt;a href="https://x.com/julesagent/status/2115883717705261283" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;sunsetting Jules&lt;/a&gt;, a previously launched background coding agent.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that Antigravity&amp;rsquo;s &lt;a href="https://antigravity.google/blog/introducing-google-antigravity-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;existing dictation feature&lt;/a&gt; already turns speech into a written prompt. Now, &lt;a href="https://antigravity.google/docs/voice-mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;to start a two-way call&lt;/a&gt; in the desktop app, the user clicks the waveform button beside it and tells the agent what they want it to do. &lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/11/98af36c0-gif1.gif" alt="Starting a voice call" class="wp-image-22843160"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Starting a voice call&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Antigravity replies aloud and keeps the call open while the coding agent works, with the user able to ask how it&amp;rsquo;s going or give it further instructions. You can also interrupt the agent mid-sentence to ask a question or give it another instruction.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/11/5a9db8bf-gif2.gif" alt="Antigravity responds out loud" class="wp-image-22843161"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Antigravity responds out loud&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;When the agent finishes, its written summary and a button to review the code changes appear in the same chat. &lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/11/dee44a5e-gif3.gif" alt="Reviewing the fix mid-call" class="wp-image-22843162"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Reviewing the fix mid-call&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Additionally, voice mode also works in the Antigravity CLI. Users run the &lt;code&gt;/voice live&lt;/code&gt; command to start a call, and hear the agent reply while it works away in the terminal.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="800" height="450" src="https://cdn.thenewstack.io/media/2026/11/ed88c811-cligif.gif" alt="Starting a terminal voice call" class="wp-image-22843163"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Starting a terminal voice call&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;h2 id="h-coding-agents-talk-back" class="wp-block-heading"&gt;Coding agents talk back&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cursor, which was &lt;a href="https://cursor.com/blog/joining-spacex" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;acquired by Elon Musk&amp;#8217;s SpaceX&lt;/a&gt; in August for $60 billion, has followed a similar path toward embracing voice. It added &lt;a href="https://cursor.com/changelog/2-0" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;dictation in October 2025&lt;/a&gt;, and in &lt;a href="https://prod.cursor.com/docs/release-notes" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;release notes&lt;/a&gt; last month, the company said it had updated existing voice calls to let agents give short spoken progress updates.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One difference with Cursor&amp;#8217;s rollout is &lt;em&gt;where &lt;/em&gt;you can call from. Cursor supports voice chat on the web and iOS as well as on desktop, while Google offers it in the Antigravity desktop app and CLI. Cursor&amp;rsquo;s calls run on &lt;a href="https://x.ai/news/grok-voice-think-fast-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Grok Voice&lt;/a&gt;, which xAI &lt;a href="https://x.ai/news/grok-voice-think-fast-1" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched through its API back in April&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;The push now, it seems, is to keep the conversation going after the agent starts work.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;However, Google and Cursor aren&amp;#8217;t the first AI companies to bring two-way voice to coding agents. OpenAI &lt;a href="https://openai.com/index/introducing-the-codex-app/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched&lt;/a&gt; a Codex desktop app in February with a &lt;a href="https://learn.chatgpt.com/docs/whats-new#february-26-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;built-in dictation feature&lt;/a&gt;. And as &lt;em&gt;The New Stack &lt;/em&gt;&lt;a href="https://thenewstack.io/voice-ai-openai-anthropic/" class="local-link"&gt;reported in July&lt;/a&gt;, the company added two-way voice to Codex in the ChatGPT desktop app, letting developers give instructions and check on tasks by speaking. The Codex CLI has offered live voice conversations &lt;a href="https://github.com/openai/codex/releases/tag/rust-v0.119.0#new-features" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;since the spring&lt;/a&gt;, with OpenAI enabling them by &lt;a href="https://github.com/openai/codex/releases/tag/rust-v0.156.0#new-features" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;default in September&lt;/a&gt;. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic, for what it&amp;#8217;s worth, has a &lt;a href="https://support.claude.com/en/articles/11101966-use-voice-mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;voice mode&lt;/a&gt; which offers two-way voice functionality inside the Claude app only. In Claude Code, specifically, voice still only goes one way via dictation &amp;#8212; the &lt;code&gt;/voice&lt;/code&gt; command turns developers&amp;#8217; vocal instructions &lt;a href="https://code.claude.com/docs/en/voice-dictation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;into prompt text&lt;/a&gt;, and the agent replies in writing.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Dictation itself is useful for describing a bug or sketching out a feature aloud, and it&amp;rsquo;s showing up across the AI coding landscape, from the major AI labs to well-funded startups &lt;a href="https://docs.replit.com/updates/2026/06/19/changelog#voice-mode" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;such as Replit&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The push now, it seems, is to keep the conversation going &lt;em&gt;after &lt;/em&gt;the agent starts work, so developers can follow up about a decision, clarify a requirement, or change direction before the work is finished.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cursor-antigravity-voice-agents/"&gt;Cursor and Google join OpenAI in giving coding agents a voice. Claude Code stays silent.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Cursor, Antigravity, and Codex users can now talk to their agents and hear updates aloud. Voice input in Anthropic’s coding agent remains dictation-only.</content:encoded>
     </item>
   </channel>
 </rss>
