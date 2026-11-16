@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sat, 14 Nov 2026 22:52:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 15:05:59 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,417 @@
       <height>32</height>
     </image>
     <item>
+      <title>DuckDB has an answer to “bloated” database messages</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/duckdb-quack-database-protocol/</link>
+      <dc:creator>Jennifer Riggins</dc:creator>
+      <pubDate>Sun, 15 Nov 2026 15:05:56 +0000</pubDate>
+      <category>Backend development</category>
+      <category>Data</category>
+      <category>Databases</category>
+      <category>Podcast</category>
+      <category>sponsor-aws-marketplace</category>
+      <category>Sponsored</category>
+      <category>sponsored-podcast</category>
+      <category>Video</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843575</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/dcee749a-for-thumbnail-26-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Guillermo Sánchez Dionis, product lead at DuckLabs, explains how Quack addresses the limitations of traditional database protocols, which often introduce unnecessary overhead and inefficient data serialization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dcee749a-for-thumbnail-26.png" /&gt;&lt;p&gt;Older database protocols were built before big data. Some still send results row by row, repeating details like column names&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/duckdb-quack-database-protocol/"&gt;DuckDB has an answer to “bloated” database messages&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/dcee749a-for-thumbnail-26-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Guillermo Sánchez Dionis, product lead at DuckLabs, explains how Quack addresses the limitations of traditional database protocols, which often introduce unnecessary overhead and inefficient data serialization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dcee749a-for-thumbnail-26.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Older database protocols were built before big data.&lt;/strong&gt; Some still send results row by row, repeating details like column names and types with every row. The result, says &lt;a href="https://ducklabs.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;DuckLabs&lt;/a&gt; product team lead &lt;a href="https://www.linkedin.com/in/guillermo-s%C3%A1nchez-dionis/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Guillermo S&amp;aacute;nchez Dionis&lt;/a&gt;, is &amp;ldquo;quite a bloated message.&amp;rdquo; That overhead adds up when you&amp;rsquo;re moving large query results.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;DuckDB&amp;rsquo;s answer is &lt;a href="https://duckdb.org/quack/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Quack&lt;/a&gt;, an HTTP-based protocol that streams query results in batches of column data as DuckDB produces them. It was previewed in May and was released in October as part of DuckDB 2.0.0 LTS.&lt;/p&gt;
+
+
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/qLPUsdsFjJs?si=KeIFhcIZ4hS6jfMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;On this latest episode of &lt;em&gt;The New Stack&lt;/em&gt; podcast, recorded at DuckLabs headquarters in Amsterdam, S&amp;aacute;nchez Dionis explains how that design lets developers start working with results while a query is still running.&lt;/p&gt;
+
+
+&lt;iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/7e949b2f-4e35-4b7c-9e0f-ba93f2d085af?dark=true"&gt;&lt;/iframe&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;A database protocol is a formal set of rules and message formats that dictates how a client application communicates with a database server. It acts as a specialized language that lets a software application securely send SQL queries, receive structured data tables, and manage transactions over a network. It handles connection and authentication, query packaging, data serialization, and error management.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;But according to S&amp;aacute;nchez Dionis, most protocols were designed pre-big data for other types of systems, with serialized rows rather than columns. They also add a lot of unnecessary data, he says, like column types and column names per row.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It becomes quite a bloated message. That already makes the protocol not only not good for analytical systems, but it&amp;rsquo;s also quite heavy,&amp;rdquo; he contends. As protocols evolved for analytical systems, they did start using columns, but &amp;ldquo;they were still doing things like serializing one value at a time and other things that are really not efficient. Modern systems are trying to converge on using vectorized execution to be able to serialize more values at a time and trying to use more efficient representations of columnar data formats to send over the wire.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;All while the Quack protocol, he says, is aiming for a different, highly efficient approach.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Quack is DuckDB&amp;#8217;s HTTP-based client/server protocol, with its first production release shipping in DuckDB 2.0.0 on Oct. 21. Not only does this signal Quack moving out of the preview stage, but the protocol now offers certain developer-friendly features:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;The CONNECT statement allows developers to attach to and query a remote Quack server via standard SQL commands.&lt;/li&gt;
+
+
+
+&lt;li&gt;The new -serve CLI argument instantly starts a Quack server instance from the command line, and -connect connects to one.&lt;/li&gt;
+
+
+
+&lt;li&gt;Multiple clients can write to the same database concurrently, with transactions handled under DuckDB&amp;#8217;s multi-version concurrency control (MVCC) isolation.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Quack uses DuckDB&amp;rsquo;s data chunks &amp;mdash; which is our columnar representation of data. We also serialize in a very efficient manner because we are a vectorized engine. We also make sure that we send the results in a streaming fashion,&amp;rdquo; S&amp;aacute;nchez Dionis explains.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;One of the most important things is tightly coupling the engine. Once you start producing results, instead of waiting for the query execution to end and then serializing all of the results at once, you serialize and send results as they are emitted by the engine. Therefore, the client can keep consuming results without having to stop the engine.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For developers, he says, that means they don&amp;rsquo;t have to do anything.&amp;nbsp;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I think the biggest advantage that you will see is you will have a very small memory footprint&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;You run a query from the comfort of your laptop, and you just get streaming results back. I think the biggest advantage that you will see is you will have a very small memory footprint,&amp;rdquo; he says. &amp;ldquo;What&amp;rsquo;s cool about Quack is that you install and load it wherever you are. You can also create another client on the [same] laptop with the Quack extension, and they will communicate with each other.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then, the scale of how many DuckDB servers is up to you and your team. And the overhead of running it on that server is next to none, S&amp;aacute;nchez Dionis continues, as it&amp;#8217;s Quack&amp;#8217;s biggest efficiency gain yet.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;More Quack improvements are expected in upcoming DuckDB 2.0 patch releases, as the DuckLabs team looks to build stability on the server side.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/duckdb-quack-database-protocol/"&gt;DuckDB has an answer to “bloated” database messages&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Why do some database protocols still send column names with every row? DuckLabs’ Guillermo Sánchez Dionis tells us how DuckDB’s Quack fixes that.</content:encoded>
+    </item>
+    <item>
+      <title>Claude Fable 5.2 vs. Opus 5.5: Same scores at almost 4x the cost</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/claude-fable-5-2-vs-opus-5-5/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Sun, 15 Nov 2026 15:00:00 +0000</pubDate>
+      <category>AI</category>
+      <category>Large Language Models</category>
+      <category>Software Development</category>
+      <category>Software Testing</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843681</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/fd7d63c5-steve-a-johnson-cnkk7hrczto-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Gold and green 3D spheres with cut-out holes linked by ribbons, evoking a Claude Fable 5.2 vs. Opus 5.5 comparison" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/fd7d63c5-steve-a-johnson-cnkk7hrczto-unsplash-scaled.jpg" /&gt;&lt;p&gt;Anthropic released Claude Fable 5.2 on November 9 and said it beats Claude Opus 5.5 in almost every capability the&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-opus-5-5/"&gt;Claude Fable 5.2 vs. Opus 5.5: Same scores at almost 4x the cost&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/fd7d63c5-steve-a-johnson-cnkk7hrczto-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Gold and green 3D spheres with cut-out holes linked by ribbons, evoking a Claude Fable 5.2 vs. Opus 5.5 comparison" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/fd7d63c5-steve-a-johnson-cnkk7hrczto-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic &lt;a href="https://thenewstack.io/anthropic-fable-coding-upgrade/" class="local-link"&gt;released Claude Fable 5.2&lt;/a&gt; on November 9 &lt;/strong&gt;and said it beats &lt;a href="https://thenewstack.io/claude-opus-5-5-release/" class="local-link"&gt;Claude Opus 5.5&lt;/a&gt; in almost every capability the company measured. In the same announcement, it &lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;recommended starting with Opus&lt;/a&gt; for most coding and knowledge tasks, calling it its “strongest daily driver.” I wanted to find out why a company would steer people away from its best model, and whether the cheaper one really is enough.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;…why a company would steer people away from its best model, and whether the cheaper one really is enough.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On &lt;a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic’s coding benchmarks&lt;/a&gt;, Fable 5.2 scored 49.1% at Xhigh effort on FrontierCode 2.0, compared with 45.5% for Opus 5.5 at Max. Anthropic also reports that Fable scored 45.3% at High effort at roughly half the cost per task of that Opus run. On FrontierSWE v2, the company reports 69.9% for Fable and 62.3% for Opus. Fable’s &lt;a href="https://platform.claude.com/docs/en/models/opus-5-5/overview" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;standard API rates&lt;/a&gt; are twice Opus’s: $8 per million uncached input tokens and $40 per million output tokens, versus $4 and $20.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Twice the price should make a meaningful difference, so I gave both models three coding and agent jobs and measured how well they did, how many tokens they used, what they cost, and how long they took. My tests are much smaller than Anthropic’s benchmarks and can’t prove or disprove those scores. &lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tests" class="wp-block-heading"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I ran each model once per test through Anthropic’s API at default settings, with no turn cap. Anthropic’s API defaults on Fable and Opus aren’t equal. Fable 5.2 runs at high effort, and Opus 5.5 runs at medium, so these results show what a developer gets without tuning anything. I used a script to grade each answer the model gave for each test. The dollar figures are estimated API costs based on reported token usage. Anthropic &lt;a href="https://platform.claude.com/docs/en/models/fable-5-2/whats-new-fable-5-2#pricing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;prices&lt;/a&gt; uncached input, cache reads, cache writes, and output separately.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here are the tests I ran:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Cron scheduler&lt;/strong&gt;: I gave each model a written spec for code that runs when the next scheduled job runs, then sent a change request. I used a hidden suite of 50 tests to grade the final code.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Invoicing repo fix&lt;/strong&gt;: Each model worked as an agent in a small invoicing library with interacting bugs in rounding, discounts, tax, and shipping. The library also had one wrong test that the model should report but not edit.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Incident investigation&lt;/strong&gt;: Each model used a terminal to find the cause of a payments outage from logs, metrics, and deployment records. The data included decoy deploys and servers with wrong clocks.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The models tied with perfect scores on the first version of every test, so I made each test harder and reran it twice.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-cron-scheduler" class="wp-block-heading"&gt;Cron scheduler&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This test checks whether a model can turn a detailed spec into correct code and then absorb a change without breaking it. Here’s what differed between the versions.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt;: The spec covered standard cron schedules, such as every 15 minutes or weekdays at 9 a.m.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt;: I added rules like “the weekday nearest the 15th” and “the last Friday of the month,” and the change request reversed how two fields combine.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 3&lt;/strong&gt;: The code had to handle time zones and daylight saving time by hand, without Python’s time zone library.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both models scored 50/50 on all three versions. The difference was in how much work each one did to get there. Fable 5.2 wrote two to three times as much reasoning as Opus 5.5 on every version. The extra reasoning did not raise Fable’s score on any of the three versions.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The extra reasoning did not raise Fable’s score on any of the three versions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Across the three scheduler versions, Opus matched Fable’s scores in 358 seconds versus 661 and cost an estimated $0.99 versus $3.29.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Version 1
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 2 turns, 14,471 in, 18,732 out (11,122 reasoning), $0.87, 170 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Opus 5.5&lt;/strong&gt;: 2 turns, 8,055 in, 9,431 out (3,846 reasoning), $0.22, 80 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 2
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 2 turns, 20,215 in, 23,990 out (14,627 reasoning), $1.12, 226 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Opus 5.5&lt;/strong&gt;: 2 turns, 14,090 in, 15,991 out (6,695 reasoning), $0.38, 131 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 3
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 2 turns, 21,121 in, 28,254 out (17,452 reasoning), $1.30, 265 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Opus 5.5&lt;/strong&gt;: 2 turns, 12,651 in, 17,205 out (6,533 reasoning), $0.39, 147 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-invoicing-repo-fix" class="wp-block-heading"&gt;Invoicing repo fix&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This bug hunt is similar to the work agents do for developers daily. Here’s how I adjusted the tests with each round:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt;: The library had bugs in rounding, discounts, tax, and shipping. It also had one wrong test.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt;: I added buy-two-get-one promotions, weight-based shipping, and refunds, each with its own bugs.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 3&lt;/strong&gt;: I added currency conversion and invoice numbering, again with bugs.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This test produced the widest gap in cost and time between the two models. Both models scored 50 of 50 on all three versions, fixing the bugs the grader covered and reporting the wrong test without editing it. Opus 5.5 used fewer reasoning tokens on every version. It finished each version in under a minute, while Fable 5.2 took about one minute and 46 seconds to just under four minutes and cost eight times as much across the three.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On these runs, Fable’s extra reasoning didn’t improve its score.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Version 1
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 4 turns, 17,585 in, 11,511 out (5,909 reasoning), $0.58, 106 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Opus 5.5&lt;/strong&gt;: 4 turns, 10,585 in, 2,975 out (519 reasoning), $0.09, 28 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 2
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 6 turns, 88,697 in, 25,980 out (11,820 reasoning), $1.39, 223 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Opus 5.5&lt;/strong&gt;: 4 turns, 13,938 in, 4,457 out (777 reasoning), $0.13, 39 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 3
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 4 turns, 29,660 in, 24,020 out (14,022 reasoning), $1.18, 214 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Opus 5.5&lt;/strong&gt;: 5 turns, 24,208 in, 6,013 out (1,178 reasoning), $0.17, 51 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-incident-investigation" class="wp-block-heading"&gt;Incident investigation&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This test rewards careful digging more than fast coding, so I expected it to favor Fable 5.2.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here are the changes I made for each test version.&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Version 1&lt;/strong&gt;: The outage data had decoy deploys and one server whose clock ran seven minutes slow.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 2&lt;/strong&gt;: I added a clock that was corrected partway through the incident, retried requests, a compressed log file, and duplicated log lines.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Version 3&lt;/strong&gt;: I added a server that logged in Chicago time and an unrelated error spike inside the incident window.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both models scored perfectly (50 out of 50) across all three versions. Fable 5.2 took fewer turns in every version, 9 to 11 versus Opus 5.5’s 12 to 14. Across all three versions, Fable’s estimated cost was $2.54 versus Opus’s $0.91.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Version 1
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Fable 5.2: 9 turns, 155,925 in, 14,309 out (8,638 reasoning), $0.94, 143 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 5.5: 12 turns, 111,618 in, 7,405 out (2,801 reasoning), $0.25, 73 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 2
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Fable 5.2: 11 turns, 168,913 in, 9,416 out (3,551 reasoning), $0.68, 105 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 5.5: 13 turns, 188,846 in, 7,218 out (2,518 reasoning), $0.32, 82 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+
+
+
+&lt;li&gt;Version 3
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Fable 5.2: 10 turns, 205,601 in, 11,887 out (4,474 reasoning), $0.92, 127 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;Opus 5.5: 14 turns, 253,958 in, 7,598 out (2,041 reasoning), $0.34, 70 s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2 id="h-results" class="wp-block-heading"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Fable 5.2&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Opus 5.5&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Cron scheduler, 3 versions (of 150)&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Invoicing repo fix, 3 versions (of 150)&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Incident investigation, 3 versions (of 150)&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;td&gt;150&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens in / out&lt;/td&gt;&lt;td&gt;722,188 / 168,099&lt;/td&gt;&lt;td&gt;637,949 / 78,293&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total estimated cost (sum of displayed estimates)&lt;/td&gt;&lt;td&gt;$8.98&lt;/td&gt;&lt;td&gt;$2.29&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;1,579 s&lt;/td&gt;&lt;td&gt;701 s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The scores were identical across all nine runs per model. Fable 5.2 cost almost four times as much and took more than twice as long.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-what-do-i-think" class="wp-block-heading"&gt;What do I think?&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;These tests give me a reason to start with Opus 5.5 for work like this. It matched Fable 5.2’s score and finished faster on every version, at about a quarter of the estimated cost overall.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That doesn’t make Fable 5.2 a bad model. My tests were hard but short. Anthropic recommends Fable for more open-ended technical work. I tested each model at its API default, so the comparison leaves open how much of the gap comes from the different effort settings. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;I’d start with Opus 5.5 and move up to Fable 5.2 only when Opus stops producing ideal results.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-opus-5-5/"&gt;Claude Fable 5.2 vs. Opus 5.5: Same scores at almost 4x the cost&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Anthropic says Fable 5.2 beats Opus 5.5 yet tells developers to start with Opus. In hands-on tests, Opus matched Fable’s scores at a quarter of the cost.</content:encoded>
+    </item>
+    <item>
       <title>AWS Emulator proves agents need a verification loop. Realism is the hard part.</title>
       <link>https://web.archive.org/web/https://thenewstack.io/aws-emulator-verification-loops/</link>
       <dc:creator>Arjun Iyer</dc:creator>
@@ -30,7 +441,7 @@
       <category>sponsor-signadot</category>
       <category>sponsored-post-contributed</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22843708</guid>
-      <description>&lt;img width="1024" height="573" src="https://cdn.thenewstack.io/media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash-1024x573.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract refracted rainbow light waves sliced into dark vertical bands, representing AI coding agent verification loops." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash.jpg" /&gt;&lt;p&gt;This week, Amazon Web Services released AWS Emulator, a local copy of AWS that coding agents can test against. It&lt;/p&gt;
+      <description>&lt;img width="1024" height="573" src="https://cdn.thenewstack.io/media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash-1024x573.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract refracted rainbow light waves sliced into dark vertical bands, representing AI coding agent verification loops." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash.jpg" /&gt;&lt;p&gt;This week, Amazon Web Services released AWS Emulator, a local copy of AWS that coding agents can test against. It&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-emulator-verification-loops/"&gt;AWS Emulator proves agents need a verification loop. Realism is the hard part.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="573" src="https://cdn.thenewstack.io/media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash-1024x573.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract refracted rainbow light waves sliced into dark vertical bands, representing AI coding agent verification loops." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/42906fc6-imkara-visual-0vhccw56zg4-unsplash.jpg" /&gt;
@@ -116,7 +527,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/11/82bdab6b-image-1024x546.png" alt="Infographic detailing the three things a loop runs against." class="wp-image-22843709"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="546" src="https://cdn.thenewstack.io/media/2026/11/82bdab6b-image-1024x546.png" alt="Infographic detailing the three things a loop runs against." class="wp-image-22843709"/&gt;&lt;/figure&gt;
 
 
 
@@ -190,7 +601,7 @@
 
 
 
-&lt;figure class="wp-block-image size-large"&gt;&lt;img decoding="async" width="1024" height="631" src="https://cdn.thenewstack.io/media/2026/11/d357cef8-image-1024x631.png" alt="Infographic detailing a framework where you emulate what you don't own, and run what you own for real." class="wp-image-22843710"/&gt;&lt;/figure&gt;
+&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="631" src="https://cdn.thenewstack.io/media/2026/11/d357cef8-image-1024x631.png" alt="Infographic detailing a framework where you emulate what you don't own, and run what you own for real." class="wp-image-22843710"/&gt;&lt;/figure&gt;
 
 
 
@@ -3490,7 +3901,7 @@ $(document).ready(function() {
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6af99d9ddcabe&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6af99d9ddcabe" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="317" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/4ae1026f-image1-1024x317.png" alt="Diagram illustrating how Amazon CloudWatch accelerated compute insights provides end-to-end observability for AI inference workloads and accelerator efficiency on Amazon EKS." class="wp-image-22843327"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6afafc9aa810a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6afafc9aa810a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="317" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/4ae1026f-image1-1024x317.png" alt="Diagram illustrating how Amazon CloudWatch accelerated compute insights provides end-to-end observability for AI inference workloads and accelerator efficiency on Amazon EKS." class="wp-image-22843327"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4540,294 +4951,6 @@ helm install amazon-cloudwatch-observability \
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/coreweave-tests-ai-integrations/"&gt;CoreWeave tests AI integrations on its cloud before you migrate&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>CoreWeave validates AI integrations under production traffic, helping teams migrate models, data, and security tools with confidence.</content:encoded>
-    </item>
-    <item>
-      <title>Anthropic wants Claude to be the front end for your entire enterprise app stack</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/claude-enterprise-apps-connectors/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 10 Nov 2026 20:00:58 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Model Context Protocol (MCP)</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843292</guid>
-      <description>&lt;img width="1024" height="670" src="https://cdn.thenewstack.io/media/2026/03/21bf8ca8-screenshot-2026-03-27-at-12.21.10-1024x670.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Anthropic Claude AI March 2026 roundup — abstract illustration with colorful overlapping circles on a dark background representing the rapid pace of AI model releases and MCP protocol growth" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/21bf8ca8-screenshot-2026-03-27-at-12.21.10.png" /&gt;&lt;p&gt;Anthropic is expanding Claude&amp;#8217;s ability to work directly inside enterprise applications; it can now open full software interfaces, retrieve information,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-enterprise-apps-connectors/"&gt;Anthropic wants Claude to be the front end for your entire enterprise app stack&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="670" src="https://cdn.thenewstack.io/media/2026/03/21bf8ca8-screenshot-2026-03-27-at-12.21.10-1024x670.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Anthropic Claude AI March 2026 roundup — abstract illustration with colorful overlapping circles on a dark background representing the rapid pace of AI model releases and MCP protocol growth" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/03/21bf8ca8-screenshot-2026-03-27-at-12.21.10.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Anthropic is expanding Claude&amp;rsquo;s ability to work directly inside &lt;/strong&gt;enterprise applications; it can now open full software interfaces, retrieve information, and make changes without requiring users to move between applications.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At &lt;a href="https://www.anthropic.com/events/the-briefing-work-at-the-frontier-ls" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;The Briefing: Work at the Frontier&lt;/a&gt; in San Francisco on Tuesday, the company announced expanded interactive connectors, along with new tools for meetings, spreadsheets, shared workspaces, and business data.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;For years, we&amp;rsquo;ve learned to work around software. Now Claude works around you,&amp;rdquo; said &lt;a href="https://www.linkedin.com/in/amvora/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Ami Vora&lt;/a&gt;, Anthropic&amp;rsquo;s chief product officer, in remarks prepared for the event.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;For years, we&amp;rsquo;ve learned to work around software. Now Claude works around you,&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-full-apps-open-inside-claude" class="wp-block-heading"&gt;Full apps open inside Claude&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic&amp;rsquo;s &lt;a href="https://claude.com/resources/articles/interactive-connectors-full-tool" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;interactive connectors&lt;/a&gt; previously let users see a small preview of a connected app in Claude. Now, they can open and work in the full application within the conversation, starting with Adobe, Atlassian, and HubSpot.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For example, Claude can edit a Confluence page directly or update an Adobe design using assets from a company&amp;rsquo;s brand kit. Users do still need to approve those changes before Claude executes.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-built-on-mcp-apps" class="wp-block-heading"&gt;Built on MCP Apps&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The expanded connectors are built on &lt;a href="https://modelcontextprotocol.io/docs/extensions/apps" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP Apps&lt;/a&gt;, which lets MCP servers provide interactive interfaces instead of relying solely on tool calls. Developers can bring existing application interfaces into Claude using app tools and embedded websites, without rebuilding them for the assistant. The new capabilities are in public preview and aren&amp;rsquo;t limited to Claude, since other AI clients that support MCP Apps can use them too.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The new capabilities are in public preview and aren&amp;rsquo;t limited to Claude, since other AI clients that support MCP Apps can use them too.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic says Claude Marketplace now includes more than 9,000 connectors and plugins, continuing &lt;a href="https://thenewstack.io/mcp-sql-the-secret-weapon-to-connect-ai-to-enterprise-systems/" class="local-link"&gt;the effort to connect AI systems with enterprise infrastructure&lt;/a&gt;. For applications without a supported connector, Claude can use its built-in browser to interact with them.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-existing-permissions-still-apply" class="wp-block-heading"&gt;Existing permissions still apply&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company says connectors respect the permissions employees already have in the underlying application. For example, a user who cannot access a particular Google Drive document cannot retrieve it through Claude.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Administrators can also restrict individual connector capabilities, including allowing Claude to read Slack messages without permission to send messages.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Additionally, Anthropic is introducing Claude auto-connect in beta, a ten-minute setup that lets administrators enable connectors across an organization without requiring employees to configure them individually. Smart Reports, meanwhile, gives administrators visibility into team usage, completed work, and spending.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-claude-data-gets-certified-queries" class="wp-block-heading"&gt;Claude Data gets certified queries&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic is also making Claude Data generally available, following its October launch as &lt;a href="https://thenewstack.io/claude-dashboards-data-motion/" class="local-link"&gt;Claude Dashboards&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The update introduces certified queries, allowing data teams to approve the queries Claude uses for reporting so different teams get consistent numbers from the same data.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The update introduces certified queries, allowing data teams to approve the queries Claude uses for reporting so different teams get consistent numbers from the same data. A second feature, live sharing, lets employees access updated dashboards without needing direct access to the underlying data source.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Both features are still in beta. Anthropic hasn&amp;#8217;t detailed how it handles versioning for certified queries or changes to the source data&amp;#8217;s schema.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-task-delegation-moves-beyond-engineering" class="wp-block-heading"&gt;Task delegation moves beyond engineering&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Claude Meetings, which Anthropic says is coming soon, will join video calls to create project plans, answer questions, and retrieve information from connected applications. The feature is planned for Team and Enterprise customers but won&amp;#8217;t be available to organizations using zero data retention, HIPAA-ready configurations, or customer-managed encryption keys.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Another feature, Claude Whiteboards, gives teams a shared space to develop projects with Claude, while Claude Sheets lets them build and edit spreadsheets together. Both are available in beta on paid plans.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-enterprise-adoption-moves-beyond-engineering" class="wp-block-heading"&gt;Enterprise adoption moves beyond engineering&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At Datadog, product managers are using Claude to develop product requirements documents and testable prototypes. &lt;a href="https://www.linkedin.com/in/udaytennety/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Uday Tennety&lt;/a&gt;, the company&amp;rsquo;s head of technology partnerships, said the approach has shortened the time between an initial idea and a working prototype.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Anthropic also reports that Mercado Libre has deployed Claude to more than 26,000 employees, with 78% using it weekly. These figures have not been independently verified.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-enterprise-apps-connectors/"&gt;Anthropic wants Claude to be the front end for your entire enterprise app stack&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic wants Claude to be the front end for enterprise software, opening full apps through connectors and pushing task delegation beyond engineering.</content:encoded>
-    </item>
-    <item>
-      <title>Google says Gemini 4 Carbon proved Signal’s encryption in weeks</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/gemini-4-carbon-swarm/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Tue, 10 Nov 2026 16:17:22 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843270</guid>
-      <description>&lt;img width="1024" height="677" src="https://cdn.thenewstack.io/media/2026/11/94b532e0-getty-images-ngci-nquuq-unsplash-1024x677.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Chat bubble" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/94b532e0-getty-images-ngci-nquuq-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google released Gemini 4 Carbon to paying developers Tuesday, positioning its newest frontier model above Gemini 4 Argon for complex&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-4-carbon-swarm/"&gt;Google says Gemini 4 Carbon proved Signal’s encryption in weeks&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="677" src="https://cdn.thenewstack.io/media/2026/11/94b532e0-getty-images-ngci-nquuq-unsplash-1024x677.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Chat bubble" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/94b532e0-getty-images-ngci-nquuq-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Google released Gemini 4 Carbon to paying developers Tuesday&lt;/strong&gt;, positioning its newest frontier model above Gemini 4 Argon for complex software engineering, cybersecurity, and scientific reasoning.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Argon remains Google&amp;rsquo;s recommended model for everyday engineering and knowledge work. while Carbon is designed for more demanding tasks, including multi-package migrations, cross-subsystem debugging, and long-horizon agentic workflows.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/koray-kavukcuoglu-0439a720/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Koray Kavukcuoglu&lt;/a&gt;, SVP of Google DeepMind and Google&amp;rsquo;s chief AI architect, described Carbon in the &lt;a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launch announcement&lt;/a&gt; as the company&amp;rsquo;s strongest model for complex, multi-step work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The release also introduces &lt;code&gt;/swarm&lt;/code&gt;, a preview feature in Google Antigravity that coordinates multiple coding agents from a single prompt.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-multi-agent-coding-arrives" class="wp-block-heading"&gt;Multi-agent coding arrives&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Carbon can build, test, and debug full-stack applications, checking both the code and rendered UI. Google says it performs particularly well on multi-package migrations and debugging across subsystems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What Google hasn&amp;#8217;t explained is how &lt;code&gt;/swarm &lt;/code&gt;shares context between agents, handles conflicting changes, or decides which tasks need Carbon instead of a lighter model.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google claims Carbon ranks first on CursorBench 4.0, Perplexity&amp;rsquo;s WANDR and Zapier&amp;rsquo;s AutomationBench, completing tasks at less than half the cost of the next-best model.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;What Google hasn&amp;rsquo;t explained is how /swarm shares context between agents, handles conflicting changes, or decides which tasks need Carbon instead of a lighter model.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-pricing-doubles-november-30" class="wp-block-heading"&gt;Pricing doubles November 30&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company hasn&amp;#8217;t provided enough detail to independently verify those cost comparisons. Carbon launches at $2 per million input tokens and $10 per million output tokens, matching Argon, before doubling to $4 and $20 after November 30.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Whether Carbon&amp;#8217;s performance offsets those higher costs, including the overhead of multi-agent orchestration and verification, remains to be seen in production.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-proving-signal-s-code" class="wp-block-heading"&gt;Proving Signal&amp;rsquo;s code&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One of the more technically ambitious examples in Google&amp;rsquo;s announcement involves AlphaProof Code, a new agentic framework for formal verification.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google researchers used Carbon alongside other models to mathematically prove key security properties of the code underlying Signal&amp;rsquo;s cryptographic protocol.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The researchers translated security requirements into mathematical theorems and used AlphaProof Code agents to generate millions of lines of &lt;a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lean&lt;/a&gt;, a language used to express and check mathematical proofs.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google says the work took weeks, compared with the years that similar verification efforts have historically required from expert teams.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The announcement doesn&amp;rsquo;t specify the full scope of the verified properties, how much human intervention it required, or whether Google will make the proof artifacts publicly available.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Google says the work took weeks, compared with the years that similar verification efforts have historically required from expert teams.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-security-that-cuts-both-ways" class="wp-block-heading"&gt;Security that cuts both ways&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google initially made Carbon&amp;rsquo;s cybersecurity capabilities available to selected defenders through its &lt;a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fairwind Program&lt;/a&gt; in late October.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company says Carbon leads on SEC-bench Pro, ExploitGym and CWE-bench v1, benchmarks covering vulnerability discovery, exploitation and patching.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Project Fortify, Google&amp;rsquo;s autonomous scanning, triage and remediation system, Carbon achieved 100% scanning recall and 95% triage precision on an internal benchmark. Google also reports a relative improvement of more than 25% over Argon&amp;rsquo;s recall rate when testing open-source repositories.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google&amp;#8217;s Cloud Vulnerability Research team used Carbon to confirm that two bugs in a popular open-source project could be exploited, prompting maintainers to classify them as critical and release patches. Google says the vulnerabilities were comparable in severity to the recent &lt;a href="https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;PHP2Shell exploit&lt;/a&gt;, but hasn&amp;#8217;t named the affected project while the disclosure process is still underway.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Separately, Wiz used Carbon through its Scan for Good program to uncover zero-day vulnerabilities in two major SaaS providers in under two hours. The affected organizations worked with the researchers on remediation.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-cybersecurity-s-double-edge" class="wp-block-heading"&gt;Cybersecurity&amp;rsquo;s double edge&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The stronger exploitation capabilities also raise misuse concerns. Google says Carbon&amp;rsquo;s safeguards blocked 99% of attack trajectories attempted by an adaptive red-teaming agent in simulated environments, reducing the per-attempt breach rate to 0.8%, compared with 3.1% for Argon.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company also reports a 0% attack success rate on Gray Swan&amp;rsquo;s indirect prompt-injection benchmark, while acknowledging that more sophisticated attacks remain an area for improvement.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These results come from specific evaluation environments and don&amp;rsquo;t establish that Carbon is resistant to all real-world attacks.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;These results come from specific evaluation environments and don&amp;rsquo;t establish that Carbon is resistant to all real-world attacks.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;h2 id="h-getting-access-to-carbon" class="wp-block-heading"&gt;Getting access to Carbon&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gemini 4 Carbon is available through the paid Gemini API tier in Google AI Studio and Android Studio, as well as Google&amp;rsquo;s enterprise offerings.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google AI Ultra subscribers can access Carbon through Antigravity, the Gemini app, and AI Mode in Search. The /swarm orchestration feature remains in preview.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Access to Carbon&amp;rsquo;s advanced cybersecurity tools still requires approval through Fairwind. Google is also giving selected scientists six months of free access to Carbon through Antigravity, with applications open and new researchers added each week.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google has published an updated &lt;a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gemini 4 developer guide&lt;/a&gt; covering migration and implementation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-4-carbon-swarm/"&gt;Google says Gemini 4 Carbon proved Signal’s encryption in weeks&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google’s Gemini 4 Carbon brings /swarm multi-agent coding to Antigravity, with new benchmarks, pricing, and stronger cybersecurity for developers.</content:encoded>
     </item>
   </channel>
 </rss>
