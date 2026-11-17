@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Sun, 15 Nov 2026 15:05:59 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Nov 2026 01:03:31 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,497 @@
       <height>32</height>
     </image>
     <item>
+      <title>AI agents were all over KubeCon. Production is another story</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cncf-bryce-ai-agents/</link>
+      <dc:creator>Frederic Lardinois</dc:creator>
+      <pubDate>Mon, 16 Nov 2026 22:08:42 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>Cloud Native Ecosystem</category>
+      <category>Kubecon Cloudnativecon NA 2026</category>
+      <category>Podcast</category>
+      <category>sponsor-cncf</category>
+      <category>sponsored-video</category>
+      <category>Video</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843794</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/81c5d979-thumbnail-24-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="The New Stack’s Frederic Lardinois sat down with Jonathan Bryce, executive director of the Cloud Native Computing Foundation (CNCF), to discuss how AI is reshaping cloud native infrastructure, open source innovation, and the developer community." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/81c5d979-thumbnail-24.png" /&gt;&lt;p&gt;AI agents are testing systems that were originally built for people, and Jonathan Bryce thinks the cloud-native community has a&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cncf-bryce-ai-agents/"&gt;AI agents were all over KubeCon. Production is another story&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/81c5d979-thumbnail-24-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="The New Stack’s Frederic Lardinois sat down with Jonathan Bryce, executive director of the Cloud Native Computing Foundation (CNCF), to discuss how AI is reshaping cloud native infrastructure, open source innovation, and the developer community." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/81c5d979-thumbnail-24.png" /&gt;
+&lt;p class="wp-block-paragraph"&gt;AI agents are testing systems that were originally built for people, and Jonathan Bryce thinks the cloud-native community has a lot of work to do to help those systems keep up in this new era.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The New Stack sat down with Bryce, the executive director of the Cloud Native Computing Foundation (CNCF), at KubeCon + CloudNativeCon North America in Salt Lake City to talk about the projects joining the foundation and how AI is changing its work.&lt;/p&gt;
+
+
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/lmfaWWd_894?si=AndMW5gkR340Ggh7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Bryce tells &lt;em&gt;The New Stack&lt;/em&gt;, &amp;ldquo;A lot of the existing systems in our world were built for human speed, and agent speed is a completely different type of usage pattern and scenario, and so these systems are just not scalable and resilient enough to handle the kind of workloads that agents are generating.&amp;rdquo;&lt;/p&gt;
+
+
+&lt;iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/9f864b0f-49e7-40be-9835-765a3bab56f6?dark=true"&gt;&lt;/iframe&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Running training and inference workloads on Kubernetes is already a familiar job for this community, and Bryce argues that the financial services, healthcare, and transportation systems that agents interact with will also need the elasticity and observability that cloud-native technologies provide.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-openshell-and-agent-substrate" class="wp-block-heading"&gt;OpenShell and Agent Substrate&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At KubeCon, Nvidia announced that it was &lt;a href="https://thenewstack.io/nvidia-donates-openshell-cncf/" class="local-link"&gt;contributing OpenShell to the CNCF&lt;/a&gt;. Google had also &lt;a href="https://cloud.google.com/blog/products/containers-kubernetes/open-infrastructure-for-autonomous-agents-comes-to-cncf/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;announced the donation of Agent Substrate&lt;/a&gt; ahead of the show. Both joined the CNCF as Sandbox projects, the foundation&amp;rsquo;s entry-level tier.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At its core, OpenShell enforces policies, including which files, networks, credentials, and model endpoints an agent can access. Agent Substrate tackles a related but different issue by providing isolated environments for agents on Kubernetes, with features like support for suspending idle sessions and resuming them when needed.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We can make AI systems that have security and control architected into them from the infrastructure side,&amp;rdquo; Bryce says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He sees this as a responsibility for the community, given the questions AI has raised about security and resource consumption. Moving a project like OpenShell into neutral governance also lets more companies contribute to it, he says.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-doing-more-with-existing-hardware" class="wp-block-heading"&gt;Doing more with existing hardware&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Agent workloads also aren&amp;rsquo;t as evenly distributed as those of more traditional enterprise applications.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Your agent, even if it&amp;rsquo;s always waiting around to be at your beck and call, it&amp;rsquo;s not necessarily doing work 24/7,&amp;rdquo; Bryce says. &amp;ldquo;How do you spin it down and spin it up where it feels like it&amp;rsquo;s ready for you at any time? That&amp;rsquo;s going to be the user experience that people demand. How do you do that without just having it sit there and burn CPU cycles on nothing?&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://thenewstack.io/kubernetes-ai-agent-runtime/" class="local-link"&gt;Agent Substrate&lt;/a&gt; saves the agent&amp;rsquo;s state and frees up the compute it was using, then restores the session onto an available worker.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Bryce also highlighted &lt;a href="https://thenewstack.io/llm-d-cncf-kubernetes-inference/" class="local-link"&gt;llm-d&lt;/a&gt;, the distributed inference framework, as an example of software getting more out of existing hardware. While hardware is expensive, expensive to run, and (at least currently) in limited supply, software gives developers something they can work on now.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-a-flood-of-vulnerability-reports" class="wp-block-heading"&gt;A flood of vulnerability reports&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Zero-days and security also came up more at this KubeCon than in previous years.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As more people use AI tools to find and report vulnerabilities, Bryce says, open source maintainers have been flooded with duplicate and unverified reports that they still have to take seriously. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He thinks the pace may no longer be accelerating the way it was early this year, but he isn&amp;rsquo;t sure what 2027 will bring as the models keep getting better.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Y2K didn&amp;rsquo;t end up being that big of a deal,&amp;rdquo; he says. &amp;ldquo;This is really a moment that could be a big deal if we don&amp;rsquo;t actually just all get together and work as quickly as we can.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;h3 id="h-agent-adoption-is-still-early" class="wp-block-heading"&gt;Agent adoption is still early&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For all the talk about agents at the show, though, Bryce&amp;rsquo;s assessment of adoption is measured.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Beyond software development, adoption is still quite low,&amp;rdquo; he says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;He sees production use in customer service and other areas with a well-defined, historical base of knowledge.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;re very, very, very early in the path to billions of agents that are taking action on our behalf on a constant basis,&amp;rdquo; Bryce says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Companies remain cautious about what happens when they give an agent access and something goes wrong, which won&amp;rsquo;t come as a surprise if you&amp;rsquo;ve recently spent any time talking to big enterprises and their customers.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For now, Bryce sees this as a positive, because it may just allow the community enough time to harden projects like OpenShell and Agent Substrate before enterprises put agents to work more broadly.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cncf-bryce-ai-agents/"&gt;AI agents were all over KubeCon. Production is another story&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>At KubeCon, CNCF’s Jonathan Bryce says AI agents strain systems built for human speed and that adoption beyond coding is still very early.</content:encoded>
+    </item>
+    <item>
+      <title>Google found hackers using autonomous AI agents to turn security patches into exploits</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/autonomous-ai-exploit-agents/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 16 Nov 2026 21:27:38 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Model Context Protocol (MCP)</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843793</guid>
+      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/1ae72a75-ghariza-mahavira-rtg-vu9xjiu-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="computer screen with a mysterious set of eyes peeking out" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/1ae72a75-ghariza-mahavira-rtg-vu9xjiu-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google&amp;#8217;s Threat Intelligence Group says attackers are using autonomous AI agents to reverse-engineer security patches, generate exploits, and attempt to&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/autonomous-ai-exploit-agents/"&gt;Google found hackers using autonomous AI agents to turn security patches into exploits&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/1ae72a75-ghariza-mahavira-rtg-vu9xjiu-unsplash-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="computer screen with a mysterious set of eyes peeking out" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/1ae72a75-ghariza-mahavira-rtg-vu9xjiu-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Google&amp;rsquo;s Threat Intelligence Group says attackers are using autonomous AI agents to reverse-engineer security patches, generate exploits, and attempt to execute them without human approval. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;report published Monday&lt;/a&gt;, Google and Mandiant describe the first cases their researchers have identified of attackers using LLM frameworks to fully automate vulnerability discovery and exploitation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The framework uses an orchestrator to coordinate specialized agents, share context, and invoke tools through interfaces such as MCP. The agents apply familiar coding workflows to offensive security, identifying vulnerabilities, generating exploit candidates, and testing them against targets.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-inside-the-exploit-pipeline" class="wp-block-heading"&gt;Inside the exploit pipeline&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Google found a publicly exposed staging server running a multi-agent framework called&lt;code&gt; exploit_agent &lt;/code&gt;alongside stolen victim data and scripts used after a successful intrusion. The framework connected several frontier and locally hosted language models to automate patch diffing, turning potential vulnerabilities into exploit code that it could then attempt to execute.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The server also contained scripts for reconnaissance, brute-force attacks, installing webshells, and removing those left by competing attackers. Google found evidence that the operators were interested in French media, entertainment, and education websites, and that the framework had examined access controls in the Spectra WordPress plugin.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;What&amp;#8217;s changed is that agents can now do much of that work themselves.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Patch diffing is nothing new. Attackers have been comparing code before and after security patches for years to figure out what was fixed and how to exploit it. What&amp;#8217;s changed is that agents can now do much of that work themselves.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Google didn&amp;rsquo;t identify which models handled individual tasks or disclose how often the generated exploits succeeded. And while the server contained stolen data, researchers couldn&amp;rsquo;t determine whether &lt;code&gt;exploit_agent &lt;/code&gt;obtained it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-agent-harnesses-go-offensive" class="wp-block-heading"&gt;Agent harnesses go offensive&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Google also found attackers using open-source offensive frameworks built around orchestration patterns familiar from &lt;a href="https://thenewstack.io/claude-code-vs-cursor-vs-codex-vs-antigravity-2026/" class="local-link"&gt;coding agents&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;CAIRN coordinates specialized agents through a shared blackboard and an observe-orient-decide-act loop, using the results of each task to determine what happens next. Google observed the framework in intrusions targeting U.S. aerospace organizations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Other frameworks take different approaches. CyberStrikeAI uses a Go backend to orchestrate commercial and open-weight models across more than 100 security tools, YAML attack recipes, and custom scripts. HexStrike AI exposes more than 150 offensive security tools through &lt;a href="https://thenewstack.io/model-context-protocol-roadmap-2026/" class="local-link"&gt;MCP&lt;/a&gt;, with specialized agents handling reconnaissance, exploitation and binary analysis.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-faster-than-patch-cycles" class="wp-block-heading"&gt;Faster than patch cycles&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Publicly available vulnerability information is also reaching attackers faster, &lt;a href="https://thenewstack.io/patchmageddon-open-source-security22842502/" class="local-link"&gt;leaving defenders less time to deploy fixes&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;After two PaperCut vulnerabilities were exploited as zero-days in August, security researchers and Huntress developed working exploits with LLM assistance within a day of disclosure.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The attacker moved from initial access to domain administrator within minutes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;GreyNoise documented a campaign four days after the initial disclosure in which an attacker likely used language models to develop exploits, build target lists, and attack hundreds of organizations. The attacker moved from initial access to domain administrator within minutes.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Two PHP vulnerabilities, CVE-2026-109618 and CVE-2026-109619, presented a similar risk when patched code and a proof-of-concept video became public ahead of the official October 21 release.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Hundreds of purported exploits appeared online after the patches shipped, although many didn&amp;rsquo;t work and were likely generated with LLM assistance. Security teams then had to determine which exploits posed a real threat and which were simply nonfunctional code.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-velocity-over-stealth" class="wp-block-heading"&gt;Velocity over stealth&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;These frameworks are still relatively easy to detect. Google found that they generate substantial network traffic and leave behind recognizable signatures and code artifacts. Researchers noted that attackers &amp;ldquo;currently trade stealth for velocity.&amp;rdquo; &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The agents also hallucinate technical details and nonexistent targets, sometimes derailing attacks or exposing operators.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For &lt;a href="https://thenewstack.io/snyk-pentesting-ai-agents-security/" class="local-link"&gt;application security teams&lt;/a&gt;, the concern is how quickly attackers can move from a published patch to a working exploit.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The agents also hallucinate technical details and nonexistent targets, sometimes derailing attacks or exposing operators.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/autonomous-ai-exploit-agents/"&gt;Google found hackers using autonomous AI agents to turn security patches into exploits&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Google and Mandiant found attackers using autonomous AI agents to diff patches, write exploits, and run them, moving from disclosure to attack in minutes.</content:encoded>
+    </item>
+    <item>
+      <title>Dax Raad rebuilt his browser tool in Rust for $60. Then memory use fell 97%.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/opencode-browse-rust-rewrite/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Mon, 16 Nov 2026 17:59:39 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>Developer tools</category>
+      <category>Rust</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843771</guid>
+      <description>&lt;img width="1024" height="753" src="https://cdn.thenewstack.io/media/2026/11/57fc2d31-rizki-ardia-i-aetokirtk-unsplash-1024x753.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="developer with code on his screen" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/57fc2d31-rizki-ardia-i-aetokirtk-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenCode developer Dax Raad says he rebuilt the project&amp;#8217;s browser automation tool in Rust for $60, replacing the parts of&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/opencode-browse-rust-rewrite/"&gt;Dax Raad rebuilt his browser tool in Rust for $60. Then memory use fell 97%.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="753" src="https://cdn.thenewstack.io/media/2026/11/57fc2d31-rizki-ardia-i-aetokirtk-unsplash-1024x753.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="developer with code on his screen" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/57fc2d31-rizki-ardia-i-aetokirtk-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenCode developer Dax Raad says he rebuilt the project&amp;#8217;s browser automation tool in Rust for $60, replacing the parts of Playwright and Patchright it actually used and dramatically reducing its memory footprint.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-4-3-mb-binary" class="wp-block-heading"&gt;A 4.3 MB binary&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The figures &lt;a href="https://thdxr.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;he&lt;/a&gt; posted to &lt;a href="https://x.com/thdxr/status/2121692397323350468" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;X on Saturday&lt;/a&gt; are striking. The new Rust binary is just 4.3 MB, compared with 53 to 64 MB for the previous Node version. Memory use for each &lt;a href="https://github.com/anomalyco/browse" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenCode Browse&lt;/a&gt; connector also fell from roughly 190 MB to 5.6 MB after a few calls, a reduction of about 97%.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;The new Rust binary is just 4.3 MB, compared with 53 to 64 MB for the previous Node version.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The relay that wires AI coding agents to the browser shows a similar gap, with Raad&amp;rsquo;s comparison putting the Rust implementation at 6 MB idle, or 6.6 MB once it has served calls, against 353 MB for the old Node relay after six days of running.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-replacing-playwright-and-patchright" class="wp-block-heading"&gt;Replacing Playwright and Patchright&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenCode Browse connects AI coding agents to a developer&amp;rsquo;s existing browser through a Chromium extension and an &lt;a href="https://thenewstack.io/model-context-protocol-bridges-llms-to-the-apps-they-need/" class="local-link"&gt;MCP server&lt;/a&gt;. The previous Node implementation used Playwright for browser automation and Patchright to reduce detection, but Raad rebuilt the functionality Browse needed in Rust to cut runtime overhead.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Raad rebuilt the functionality Browse needed in Rust to cut runtime overhead.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The new Rust relay communicates with the Chromium extension over WebSockets and uses the Chrome DevTools Protocol to handle browser operations, agent sessions, recordings, and network captures. It also embeds QuickJS to execute agent-supplied JavaScript without requiring the previous Node runtime.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-inside-the-pull-request" class="wp-block-heading"&gt;Inside the pull request&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://github.com/anomalyco/browse/pull/264" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;merged pull request&lt;/a&gt; confirms that Raad replaced the Node-based CLI and relay while keeping the existing Chromium extension and using the Chrome DevTools Protocol for browser operations.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The team ran two rounds of testing with about 10 regression agents against a real Chrome browser. Browse scored 85% on Stealth Bench v2, compared with 90.5% for Browser Use Cloud, although the pull request doesn&amp;#8217;t include a score for the old Node version.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Not everything made it into the rewrite; Raad dropped time zone and locale emulation along with the download tool, which Chrome blocks for extensions. The Rust version also retains a problem from the Node implementation where a busy-looping eval can&amp;#8217;t be stopped through the extension.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Browse still includes relay authentication, extension pairing and origin restrictions, and agents are limited to tabs they open themselves or that users explicitly share with them.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-real-60-cost" class="wp-block-heading"&gt;The real $60 cost&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Raad says the rewrite &amp;ldquo;only cost $60&amp;rdquo; and confirmed in a reply on X that he used Claude Opus as his main coding model and DeepSeek as a subagent. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The two models helped him replace the Playwright and Patchright functionality Browse needed, although the $60 figure doesn&amp;#8217;t include the time he spent checking, testing, and fixing the code. The &lt;a href="https://thenewstack.io/is-a-rust-rewrite-really-worth-it/" class="local-link"&gt;challenge with Rust rewrites&lt;/a&gt; is finding a smaller replacement that matches the original&amp;#8217;s functionality without creating more maintenance work.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;the $60 figure doesn&amp;rsquo;t include the time he spent checking, testing, and fixing the code&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The memory savings are impressive, but Raad has also taken on responsibility for code that Playwright and Patchright previously maintained. His team will also have to deal with browser updates, authentication changes and security fixes that previously came through those libraries. That&amp;#8217;s where &lt;a href="https://thenewstack.io/ai-technical-debt-verification/" class="local-link"&gt;AI-generated technical debt&lt;/a&gt; can become a problem, especially when code is cheap to produce but takes considerably more work to maintain.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/opencode-browse-rust-rewrite/"&gt;Dax Raad rebuilt his browser tool in Rust for $60. Then memory use fell 97%.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>OpenCode developer Dax Raad rewrote the Browse automation tool in Rust for $60, cutting per-connector memory use by about 97% over the old Node version.</content:encoded>
+    </item>
+    <item>
+      <title>With Qwen4-Max, Alibaba puts the open source jacket back on the hanger</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/qwen4-max-alibaba-open-weights/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Mon, 16 Nov 2026 16:54:17 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Models</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22843746</guid>
+      <description>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/63d83074-zonghe-ma-3xzz4akzbau-unsplash-1-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Alibaba Xixi Campus in Hangzhou, Zhejiang, China." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/63d83074-zonghe-ma-3xzz4akzbau-unsplash-1.jpg" /&gt;&lt;p&gt;Alibaba has officially unveiled Qwen4-Max, the first model in its next-generation Qwen4 family, with a focus on complex professional tasks&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/qwen4-max-alibaba-open-weights/"&gt;With Qwen4-Max, Alibaba puts the open source jacket back on the hanger&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="683" src="https://cdn.thenewstack.io/media/2026/11/63d83074-zonghe-ma-3xzz4akzbau-unsplash-1-1024x683.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Alibaba Xixi Campus in Hangzhou, Zhejiang, China." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/63d83074-zonghe-ma-3xzz4akzbau-unsplash-1.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;Alibaba has officially unveiled Qwen4-Max, the first model in its next-generation Qwen4 family, with a focus on complex professional tasks and autonomous AI agents.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The Chinese tech titan teased the new Qwen4 family last week, &lt;a href="https://x.com/Alibaba_Qwen/status/2120335993643684315" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;taking to X&lt;/a&gt; to promise improvements in coding, reasoning and real-world knowledge, while initially making Qwen4-Max available in preview through several of its products.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Now, the company has formally detailed the model&amp;#8217;s capabilities, pitching it as an always-available &amp;#8220;AI teammate&amp;#8221; capable of tackling everything from software development to scientific research. &lt;/p&gt;
+
+
+
+&lt;figure class="wp-block-embed is-type-rich is-provider-twitter wp-block-embed-twitter"&gt;&lt;div class="wp-block-embed__wrapper"&gt;
+&lt;blockquote class="twitter-tweet" data-width="500" data-dnt="true"&gt;&lt;p lang="en" dir="ltr"&gt;&amp;#128226; Meet Qwen4-Max, your new AI teammate for work, creativity, and discovery!&lt;br&gt;&lt;br&gt;Qwen4-Max is built on a new MoE architecture with native vision and a 1M-token context window.&lt;br&gt;&lt;br&gt;Highlights:&lt;br&gt;&amp;#8211; Outperforms Qwen3.8-Max with up to ~50% fewer tokens, while average cost per task drops over&amp;hellip; &lt;a href="https://t.co/2Rlkoc6Dm3" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;pic.twitter.com/2Rlkoc6Dm3&lt;/a&gt;&lt;/p&gt;&amp;mdash; Qwen (@Alibaba_Qwen) &lt;a href="https://x.com/Alibaba_Qwen/status/2122148127520289151?ref_src=twsrc%5Etfw" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;November 16, 2026&lt;/a&gt;&lt;/blockquote&gt;&lt;script async src="https://platform.x.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;However, Alibaba appears to be keeping its most powerful model proprietary, despite the open-weight releases that have helped establish Qwen as a major force in the AI realm.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-under-the-hood-of-qwen4-max" class="wp-block-heading"&gt;Under the hood of Qwen4-Max&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://qwen.ai/blog?id=qwen4-max" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Monday, Alibaba revealed that Qwen4-Max is built on a new mixture-of-experts (MoE) architecture comprising 2.4 trillion backbone parameters, with 71 billion activated for each token. It also includes another 328 billion parameters dedicated to a technique called &amp;#8220;N-gram Embedding,&amp;#8221; which helps the model process patterns in text more efficiently.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The model supports images as well as text, and comes with a one-million-token context window, allowing it to process large amounts of information in a single interaction.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Qwen4-Max is available through Alibaba&amp;#8217;s QwenCloud platform, with API pricing starting at $1.50 per million input tokens and $4.50 per million output tokens. It can also be accessed through QwenWork, Qoder and QwenStudio, while&lt;a href="https://vercel.com/changelog/qwen4-max-now-available-on-ai-gateway" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt; Vercel has added&lt;/a&gt; Qwen4-Max to its AI Gateway, allowing developers to use the model through coding tools such as Claude Code, Codex and Cursor.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Alibaba claims the new architecture delivers substantial improvements over its predecessor, Qwen3.8-Max, particularly when performing complex tasks involving multiple tools and extended periods of autonomous execution.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On &lt;a href="https://qwen.ai/blog?id=qwen4-max#work360" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Work360&lt;/a&gt;, an internal benchmark developed to assess professional tasks across hundreds of specialised fields, Qwen4-Max scored 52.69 compared with 47.74 for Qwen3.8-Max. Alibaba also claims the newer model uses between 24% and 35% fewer tokens on that benchmark, depending on the reasoning effort selected.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company reports even greater token savings on Terminal-Bench 4.0, a test of AI agents&amp;#8217; ability to carry out tasks in a terminal environment, where token usage fell by nearly half compared with Qwen3.8-Max.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Alibaba says those improvements, combined with lower API prices, reduced the average cost of completing a task in its Work360 evaluation by 62%, from $4.43 to $1.67.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Of course, those are Alibaba&amp;#8217;s own results. Independent &lt;a href="https://artificialanalysis.ai/models/qwen4-max" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;testing by Artificial Analysis&lt;/a&gt; offers another perspective, awarding Qwen4-Max a score of 43 on its Intelligence Index, placing it 38th among 81 models in the comparison. That puts it slightly above the median score of 41 for models in its price category, but lagging leading competitors such as &lt;a href="https://thenewstack.io/anthropic-fable-coding-upgrade/" class="local-link"&gt;Anthropic&amp;#8217;s Claude Fable 5.2&lt;/a&gt; (65), &lt;a href="https://thenewstack.io/gemini-4-carbon-swarm/" class="local-link"&gt;Google&amp;#8217;s Gemini 4 Carbon&lt;/a&gt; (60) and &lt;a href="https://thenewstack.io/openai-gpt6-astra-benchmarks/" class="local-link"&gt;OpenAI&amp;#8217;s GPT-6 Astra&lt;/a&gt; (57).&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Artificial Analysis also calculated an average cost of $3.27 per task across its evaluations, while noting that Qwen4-Max generated 127 million output tokens, considerably more than the median of 78.6 million among comparable models.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="517" src="https://cdn.thenewstack.io/media/2026/11/1bdf98ac-asdfasdf-1024x517.png" alt="Caption: Qwen4-Max scores 43 at $3.27 per task." class="wp-image-22843753"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Caption: Qwen4-Max scores 43 at $3.27 per task.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id="h-alibaba-pulls-its-weight-s" class="wp-block-heading"&gt;Alibaba pulls its weight(s)&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The proprietary nature of Qwen4-Max is particularly notable given Alibaba&amp;#8217;s recent history. When the company introduced Qwen3.8-Max in August, it made an unusual commitment: for the first time, it would release the weights underlying one of its flagship Max models, allowing developers to download and run a version on their own infrastructure.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That marked a departure from Alibaba&amp;#8217;s previous approach, with Qwen3.6-Max-Preview and Qwen3.7-Max both remaining proprietary. In hindsight, Qwen3.8-Max looks more like an exception than the beginning of a broader shift towards open weights.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The announcement followed Alibaba&amp;#8217;s efforts to demonstrate that its models could compete with leading proprietary systems from the likes of Anthropic. As &lt;em&gt;The New Stack&lt;/em&gt; reported &lt;a href="https://thenewstack.io/alibaba-qwen-anthropic-fable/" class="local-link"&gt;at the time&lt;/a&gt;, the company had already been making increasingly ambitious performance claims for its Qwen family.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Qwen3.8-Max also arrived with &lt;a href="https://thenewstack.io/qwen-autonomous-coding-audit/" class="local-link"&gt;a demonstration of autonomous software development&lt;/a&gt;, in which an AI coding agent worked on a project over 16 days, producing hundreds of commits and more than 100 pull requests.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;However, the open-weight promise initially attracted scepticism when Alibaba announced the model release before making the files available.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;That is not a technical footnote; that is the API business model wearing an open source jacket for the launch photo.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In &lt;a href="https://thenewstack.io/alibaba-qwen3-8-max-reactions/" class="local-link"&gt;reactions gathered&lt;/a&gt; by &lt;em&gt;The New Stack&lt;/em&gt;, independent AI consultant &lt;a href="https://www.linkedin.com/in/thejeffbrokaw/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jeff Brokaw&lt;/a&gt; questioned the significance of advertising downloadable weights that developers could not yet obtain. He also drew parallels with Chinese AI startup &lt;a href="https://thenewstack.io/kimi-k3-open-weights/" class="local-link"&gt;Moonshot AI&amp;#8217;s Kimi K3&lt;/a&gt;, which had similarly been promoted as an open-weight model ahead of the files becoming available.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;That is not a technical footnote; that is the API business model wearing an open source jacket for the launch photo,&amp;#8221; Brokaw said at the time. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Alibaba, for its part, did eventually follow through on August 12, &lt;a href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;publishing&lt;/a&gt; the underlying Qwen3.8-2.4T-A95B weights &amp;#8212; but there were notable strings attached. The downloadable model came under a custom &lt;a href="https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/blob/main/LICENSE" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;licence&lt;/a&gt;, versus the more permissive Apache 2.0 terms Alibaba had used for various earlier Qwen releases. Businesses operating &amp;#8220;model-as-a-service&amp;#8221; or AI work assistant products, with combined revenue exceeding $50 million over any consecutive 12-month period, were required to obtain a separate commercial licence, although internal use was exempt under specified conditions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The licence also required certain commercial products with more than 100 million monthly active users, or $20 million in monthly revenue, to prominently display the model&amp;#8217;s name.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For comparison, &lt;a href="https://thenewstack.io/xiaomi-mimo-vs-6-open-source/" class="local-link"&gt;Xiaomi released its MiMo-V2.6 models&lt;/a&gt; under the permissive MIT licence in September, alongside technical documentation and a public record of its reinforcement-learning training costs. The company also committed to publishing thousands of training environments and associated tools, giving outside developers a potentially deeper view of how the models were developed.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Alibaba was willing to wear the &amp;#8220;open source jacket,&amp;#8221; while keeping some of its most valuable capabilities behind a commercial API. And with Qwen4-Max, the company appears to be putting that jacket back on the hanger.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The released Qwen3.8-Max weights also represented a more limited version of the hosted product, lacking some of the capabilities available through Alibaba&amp;#8217;s API, including native image input.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In other words, Alibaba was willing to wear the &amp;#8220;open source jacket,&amp;#8221; while keeping some of its most valuable capabilities behind a commercial API. And with Qwen4-Max, the company appears to be putting that jacket back on the hanger completely &amp;#8212; no downloadable weights have been announced for the new model, and Alibaba has made no commitment to publish them.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://x.com/Alibaba_Qwen/status/2122148127520289151" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;On X&lt;/a&gt; and the accompanying blog post, Alibaba did say that the &amp;#8220;open weights of smaller Qwen4 models will be released,&amp;#8221; although it has yet to specify which models or when they will become available. But for Qwen4-Max itself, developers remain reliant on Alibaba&amp;#8217;s hosted services or third-party API providers.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/qwen4-max-alibaba-open-weights/"&gt;With Qwen4-Max, Alibaba puts the open source jacket back on the hanger&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>After opening Qwen3.8-Max, Alibaba is back to its old playbook: Qwen4-Max is API-only. But smaller Qwen4 models will eventually get open weights.</content:encoded>
+    </item>
+    <item>
       <title>DuckDB has an answer to “bloated” database messages</title>
       <link>https://web.archive.org/web/https://thenewstack.io/duckdb-quack-database-protocol/</link>
       <dc:creator>Jennifer Riggins</dc:creator>
@@ -33,7 +524,7 @@
       <category>sponsored-podcast</category>
       <category>Video</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22843575</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/dcee749a-for-thumbnail-26-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Guillermo Sánchez Dionis, product lead at DuckLabs, explains how Quack addresses the limitations of traditional database protocols, which often introduce unnecessary overhead and inefficient data serialization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dcee749a-for-thumbnail-26.png" /&gt;&lt;p&gt;Older database protocols were built before big data. Some still send results row by row, repeating details like column names&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/dcee749a-for-thumbnail-26-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Guillermo Sánchez Dionis, product lead at DuckLabs, explains how Quack addresses the limitations of traditional database protocols, which often introduce unnecessary overhead and inefficient data serialization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dcee749a-for-thumbnail-26.png" /&gt;&lt;p&gt;Older database protocols were built before big data. Some still send results row by row, repeating details like column names&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/duckdb-quack-database-protocol/"&gt;DuckDB has an answer to “bloated” database messages&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/dcee749a-for-thumbnail-26-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, Guillermo Sánchez Dionis, product lead at DuckLabs, explains how Quack addresses the limitations of traditional database protocols, which often introduce unnecessary overhead and inefficient data serialization." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/dcee749a-for-thumbnail-26.png" /&gt;
@@ -44,13 +535,13 @@
 &lt;p class="wp-block-paragraph"&gt;DuckDB&amp;rsquo;s answer is &lt;a href="https://duckdb.org/quack/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Quack&lt;/a&gt;, an HTTP-based protocol that streams query results in batches of column data as DuckDB produces them. It was previewed in May and was released in October as part of DuckDB 2.0.0 LTS.&lt;/p&gt;
 
 
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/qLPUsdsFjJs?si=KeIFhcIZ4hS6jfMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/qLPUsdsFjJs?si=KeIFhcIZ4hS6jfMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;On this latest episode of &lt;em&gt;The New Stack&lt;/em&gt; podcast, recorded at DuckLabs headquarters in Amsterdam, S&amp;aacute;nchez Dionis explains how that design lets developers start working with results while a query is still running.&lt;/p&gt;
 
 
-&lt;iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/7e949b2f-4e35-4b7c-9e0f-ba93f2d085af?dark=true"&gt;&lt;/iframe&gt;
+&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/7e949b2f-4e35-4b7c-9e0f-ba93f2d085af?dark=true"&gt;&lt;/iframe&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;A database protocol is a formal set of rules and message formats that dictates how a client application communicates with a database server. It acts as a specialized language that lets a software application securely send SQL queries, receive structured data tables, and manage transactions over a network. It handles connection and authentication, query packaging, data serialization, and error management.&amp;nbsp;&lt;/p&gt;
@@ -3901,7 +4392,7 @@ $(document).ready(function() {
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6afafc9aa810a&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6afafc9aa810a" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="317" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/4ae1026f-image1-1024x317.png" alt="Diagram illustrating how Amazon CloudWatch accelerated compute insights provides end-to-end observability for AI inference workloads and accelerator efficiency on Amazon EKS." class="wp-image-22843327"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6afc57cca3002&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6afc57cca3002" class="wp-block-image size-large wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="317" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/4ae1026f-image1-1024x317.png" alt="Diagram illustrating how Amazon CloudWatch accelerated compute insights provides end-to-end observability for AI inference workloads and accelerator efficiency on Amazon EKS." class="wp-image-22843327"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -4178,779 +4669,6 @@ helm install amazon-cloudwatch-observability \
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/claude-fable-game-demos/"&gt;Anthropic’s Claude Fable 5.2 built a shooter in 1 prompt — and it only took 8 hours and $550&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Claude Fable 5.2’s viral demos build games from a single prompt — but behind them sit hours of compute, steep token bills, and real work left undone.</content:encoded>
-    </item>
-    <item>
-      <title>AWS had its agents build a free and open emulator for AWS. They now maintain it, too.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/aws-emulator-ai-agents/</link>
-      <dc:creator>Frederic Lardinois</dc:creator>
-      <pubDate>Wed, 11 Nov 2026 17:30:00 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Strategy</category>
-      <category>Open Source</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22842696</guid>
-      <description>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/ad6fe451-img_5814-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AWS logo" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/ad6fe451-img_5814-scaled.jpg" /&gt;&lt;p&gt;AWS on Wednesday launched an emulator for AWS called AWS Emulator. That, by itself, is interesting and may raise some&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-emulator-ai-agents/"&gt;AWS had its agents build a free and open emulator for AWS. They now maintain it, too.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/ad6fe451-img_5814-1024x768.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="AWS logo" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/ad6fe451-img_5814-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;AWS on Wednesday launched an emulator for AWS called AWS Emulator.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That, by itself, is interesting and may raise some questions about the &lt;a href="https://www.localstack.cloud" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;future of LocalStack&lt;/a&gt;. But what&amp;rsquo;s maybe most interesting is that the emulator was entirely built by a team of agents and will also be maintained by them going forward.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Since AWS wasn&amp;rsquo;t sure it could actually copyright the work of these agents &amp;#8212; and didn&amp;rsquo;t want to assert copyright where none may exist &amp;#8212; the emulator is available under the &lt;a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Creative Commons Zero license&lt;/a&gt;, which puts the code into the public domain.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Tom &amp;lsquo;Spot&amp;rsquo; Callaway, a principal open source software strategist at AWS, told The New Stack that there have obviously been other emulators in the past &amp;#8212; and AWS itself has built some, too.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The challenge is that they get out of date very quickly,&amp;rdquo; he explains. &amp;ldquo;They don&amp;rsquo;t always reflect reality on the ground, and because of that, they&amp;rsquo;re often not trusted. And we didn&amp;rsquo;t even trust them internally.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With the rise of &lt;a href="https://thenewstack.io/claude-code-vs-cursor-vs-codex-vs-antigravity-2026/" class="local-link"&gt;agentic coding tools&lt;/a&gt;, the team also saw a need for a better emulator that could help agents &lt;a href="https://thenewstack.io/runtime-verification-coding-agents/" class="local-link"&gt;test code against AWS services&lt;/a&gt; without having to hand over AWS credentials to the agents.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="556" src="https://cdn.thenewstack.io/media/2026/11/e05101e5-screenshot-2026-11-11-084900-1024x556.png" alt="" class="wp-image-22843384"/&gt;&lt;figcaption class="wp-element-caption"&gt;The agent system building AWS Emulator. Credit: AWS. &lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Meanwhile, the team was also looking at a test case for building a full project with agents, and the emulator proved to be a good testing ground, in large part because it provided a bounded problem with clear goals and the ability to test the results. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Since AWS already publishes a full set of API models as Smithy models and generates all its SDKs from those files, &amp;ldquo;there&amp;rsquo;s no reason that we can&amp;rsquo;t also generate mock emulation around that same logic,&amp;rdquo; Callaway says.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-a-weekend-kiro-experiment" class="wp-block-heading"&gt;A weekend Kiro experiment&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The project goes back to an experiment by Matt Goldberg, a senior principal engineer on the AWS Developer Tools team. Callaway says the team was &amp;ldquo;heavily inspired by the Anthropic work where they instantiated a compiler,&amp;rdquo; referring to the C compiler that Anthropic researchers had &lt;a href="https://thenewstack.io/anthropics-opus-4-6-is-a-step-change-for-the-enterprise/" class="local-link"&gt;a team of agents&lt;/a&gt; build earlier this year.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Goldberg writes in a &lt;a href="https://aboutamazon.com/news/aws/how-autonomous-ai-agents-built-aws-emulator" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; that he first asked &lt;a href="https://thenewstack.io/kiro-is-awss-specs-centric-answer-to-windsurf-and-cursor/" class="local-link"&gt;Kiro&lt;/a&gt;, AWS&amp;rsquo;s agentic coding tool, to build an emulator for Amazon Simple Queue Service (SQS). It came back with a first version 15 minutes later. He then had Kiro build out the rest of AWS over a weekend. That version unsurprisingly had gaps, he notes, but his team started testing its own software against it the following Monday.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I got to admit, the first time I heard about this, I was like, &amp;lsquo;Are we sure this is a good idea?&amp;rsquo;&amp;rdquo; Callaway says. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The more the team iterated on it, he adds, the more comfortable he became that this was a good problem for agents to take on.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In its current version, AWS Emulator supports 438 public AWS API models covering more than 200 services. As AWS updates them and releases new services, the agents will quickly update the emulator, too.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Callaway expects the gap between a new AWS service launching and the emulator supporting it to be &amp;ldquo;days, not weeks, not months,&amp;rdquo; though he notes the team hasn&amp;rsquo;t yet seen how that plays out with the project in public.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The emulator itself is written in Rust and runs locally on Linux, macOS, and Windows, without a network connection or an AWS account.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;There&amp;rsquo;s no AI inside of AWS Emulator,&amp;rdquo; Callaway says. &amp;ldquo;It does not do an LLM callout at all.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h3 id="h-three-teams-of-agents" class="wp-block-heading"&gt;Three teams of agents&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AWS says it divides the work among three teams of agents. The first develops test scenarios from the public Smithy models and runs them against real AWS services to establish how the emulator should behave.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;These scenarios can involve several services working together, rather than just individual API calls. As Callaway explains, &amp;ldquo;if the docs don&amp;rsquo;t tell the truth, then the cloud becomes the source of truth.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The second team runs those scenarios against the emulator and investigates where its behavior differs from AWS. It groups failures that appear to have a common cause and files issues in the code repository.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Finally, the third team picks up those issues and changes the code to address them. Before those changes can merge, they have to pass build and test checks, as well as reviews by other agents for security problems, coding standards, and regressions in the emulator&amp;rsquo;s behavior.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The human engineers, meanwhile, focus on improving the system that directs the agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We don&amp;rsquo;t edit it. We don&amp;rsquo;t modify it,&amp;rdquo; Callaway says of the emulator&amp;rsquo;s code. &amp;ldquo;If we find that the code has issues, we try and trace those issues back to the agent and fix the agent so that it doesn&amp;rsquo;t make bad code.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So when there is a problem in the code those agents generated, the team will change how the agents work, rather than patch the code by hand.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Goldberg writes that an earlier version of the agents at one point decided to write their own Python interpreter so the emulator could support Lambda functions. The team has since instructed them to reuse existing libraries.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I think we&amp;rsquo;ve learned a lot about sandboxing,&amp;rdquo; Callaway says, &amp;ldquo;haven&amp;rsquo;t we all in the last few months?&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The first iterations of the system &amp;ldquo;did not have as aggressive a &lt;a href="https://thenewstack.io/cloud-agent-code-sandboxes/" class="local-link"&gt;sandbox&lt;/a&gt; as they needed to,&amp;rdquo; he says, and there was some early concern about the agents looking at the source code of AWS&amp;rsquo;s internal services to figure out how to implement something like Aurora. The team also spent a lot of time reassuring Amazon executives that the framework building the emulator wasn&amp;rsquo;t going to &amp;ldquo;go rogue.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;h3 id="h-no-pull-requests-accepted" class="wp-block-heading"&gt;No pull requests accepted&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That hands-off approach goes for outside contributors, too.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;We&amp;rsquo;re not going to take pull requests on the project at all,&amp;rdquo; Callaway says. &amp;ldquo;The agents will be doing that. We will take issues from customers.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He describes the agents as &amp;ldquo;their own little pull request army.&amp;rdquo; If they keep getting a particular API wrong, &amp;ldquo;that&amp;rsquo;s a bug in the agent,&amp;rdquo; he says, and he expects customers to mostly contribute scenarios the emulator doesn&amp;rsquo;t handle well yet.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AWS is also publishing the benchmark it uses to test the emulator &amp;ldquo;so that you can not trust us,&amp;rdquo; Callaway says. &amp;ldquo;You can run that benchmark.&amp;rdquo; Others could also use it to benchmark their own work, he notes.&lt;/p&gt;
-
-
-
-&lt;h3 id="h-what-the-emulator-can-t-do" class="wp-block-heading"&gt;What the emulator can&amp;rsquo;t do&lt;/h3&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Users shouldn&amp;rsquo;t expect the emulator to do the things the actual services do, though.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I run this SQL query, and I don&amp;rsquo;t get the right results,&amp;rdquo; Callaway says. &amp;ldquo;Well, guess what? There&amp;rsquo;s no database.&amp;rdquo; The emulator, he says, &amp;ldquo;really was built for the purposes of testing coverage.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;AWS says it will share more about the project at its re:Invent conference, which starts Nov. 30. The New Stack will be there &amp;#8212; and &lt;a href="https://thenewstack.io/event/aws-reinvent-reception-with-sourcegraph-and-opslevel/" class="local-link"&gt;we&amp;#8217;re even throwing a party&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-emulator-ai-agents/"&gt;AWS had its agents build a free and open emulator for AWS. They now maintain it, too.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>AWS Emulator lets developers and coding agents test against AWS locally. No human wrote the code, and AWS won’t take pull requests for it.</content:encoded>
-    </item>
-    <item>
-      <title>Developers have been hacking around MCP’s file-upload problem for two years. A fix is taking shape.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/mcp-file-upload-extension/</link>
-      <dc:creator>Paul Sawers</dc:creator>
-      <pubDate>Wed, 11 Nov 2026 17:11:55 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>Model Context Protocol</category>
-      <category>Model Context Protocol (MCP)</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843335</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b857591d-alex-shuper-ehko-zsjnoi-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Arrows pointing up and down, depicting the concept of file uploads and downloads." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b857591d-alex-shuper-ehko-zsjnoi-unsplash.jpg" /&gt;&lt;p&gt;The Model Context Protocol (MCP) has played an instrumental part in connecting AI assistants to external tools and data since&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-file-upload-extension/"&gt;Developers have been hacking around MCP’s file-upload problem for two years. A fix is taking shape.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b857591d-alex-shuper-ehko-zsjnoi-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Arrows pointing up and down, depicting the concept of file uploads and downloads." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b857591d-alex-shuper-ehko-zsjnoi-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://thenewstack.io/model-context-protocol-a-primer-for-the-developers/" class="local-link"&gt;Model Context Protocol&lt;/a&gt; (MCP) has played an instrumental part in connecting AI assistants to external tools and data since &lt;a href="https://www.anthropic.com/news/model-context-protocol" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Anthropic launched the project some two years ago&lt;/a&gt;. Want to have a coding agent check the status of a bug? Give it access to your issue tracker through an MCP server. Or ask an assistant how many orders your company shipped last week? Connect it to a tool that can query your database.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Part of the Agentic AI Foundation &lt;a href="https://thenewstack.io/anthropic-donates-the-mcp-protocol-to-the-agentic-ai-foundation/" class="local-link"&gt;since last December&lt;/a&gt;, MCP &lt;a href="https://thenewstack.io/model-context-protocol-roadmap-2026/" class="local-link"&gt;has a roadmap&lt;/a&gt; that reflects the demands of running the protocol in production. For instance, maintainers have been working to make servers easier to deploy without keeping track of individual client sessions, and to let companies manage access through their existing identity systems.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;But a perennial problem developers have faced is how to pass a file from an AI app to an MCP tool. For example, say you attach a PDF to a chat and ask the assistant to save it to cloud storage &amp;#8212; the assistant can call a tool to save the file, but developers &lt;em&gt;still&lt;/em&gt; have to work out how to get the PDF from the chat app to the tool. That can mean issuing a temporary upload link, or perhaps sending the user to a separate upload page. &lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To address this gap, the folks at the MCP project have outlined a &lt;a href="https://github.com/modelcontextprotocol/experimental-ext-file-uploads/blob/main/specification/draft/file-uploads.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;draft extension&lt;/a&gt; that gives clients and tools a common way to handle uploads and downloads.&lt;/p&gt;
-
-
-&lt;div class="wp-block-image"&gt;
-&lt;figure class="aligncenter size-full"&gt;&lt;img loading="lazy" decoding="async" width="478" height="381" src="https://cdn.thenewstack.io/media/2026/11/688112ca-file-transfer-round-trip.gif" alt="MCP's finally tackling the file-upload problem" class="wp-image-22843341"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;MCP&amp;#8217;s finally tackling the file-upload problem&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;/div&gt;
-
-
-&lt;h2 id="h-why-mcp-needs-a-way-to-move-files" class="wp-block-heading"&gt;Why MCP needs a way to move files&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://blog.modelcontextprotocol.io/posts/exploring-file-uploads-and-downloads-in-mcp/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Tuesday, &lt;a href="https://den.dev/about/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Den Del&lt;/a&gt;&lt;a href="https://www.linkedin.com/in/dendeli/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;i&lt;/a&gt;&lt;a href="https://den.dev/about/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;marsky&lt;/a&gt;, lead maintainer of MCP and member of technical staff at Anthropic, and Google software engineer &lt;a href="https://www.linkedin.com/in/wilstcharles/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Wil St. Charles&lt;/a&gt;, lay out the rationale for the new extension, noting that developers&amp;rsquo; needs have changed as they&amp;rsquo;ve started asking agents to do more with the tools MCP connects them to.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Many of those MCP server projects now need to work with files &amp;#8212; often driven by increasing agent capabilities and autonomy.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Over the past two years, the things people build with the protocol have become more ambitious. &lt;em&gt;Much &lt;/em&gt;more ambitious,&amp;#8221; they write. &amp;#8220;Many of those MCP server projects now need to work with files &amp;#8212; often driven by increasing agent capabilities and autonomy.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This demand has shown up in the community more or less since MCP&amp;#8217;s inception. In &lt;a href="https://github.com/modelcontextprotocol/modelcontextprotocol/discussions/1197" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;December 2024&lt;/a&gt;, a developer building a tool to process files asked on GitHub how to get a file from the client to the server. An Anthropic team member &lt;a href="https://github.com/modelcontextprotocol/modelcontextprotocol/discussions/1197#discussioncomment-11450043" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;acknowledged&lt;/a&gt; the difficulty and said they were exploring how a tool could send a file back to an AI app. Other community members subsequently chipped in with advice, with &lt;a href="https://github.com/modelcontextprotocol/modelcontextprotocol/discussions/1197#discussioncomment-12708679" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;one noting that they had built&lt;/a&gt; their own way to send files from the AI app to the MCP server. Their MCP client uploaded the file directly to the server before calling the tool, with the upload itself happening outside the protocol.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers &lt;a href="https://www.reddit.com/r/Anthropic/comments/1o2982x/file_uploads_through_an_mcp_server_anyone_doing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;have been looking for ways&lt;/a&gt; to hack around the gap ever since. In one &lt;a href="https://www.reddit.com/r/mcp/comments/1w1jtu9/file_uploads_with_mcp_what_are_people_doing/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Reddit thread&lt;/a&gt; a few months back, one user said a temporary S3 upload link worked in Claude once outbound access was enabled, but they couldn&amp;rsquo;t get the same approach working in ChatGPT, so they built a separate web app and upload page. Another developer &lt;a href="https://www.reddit.com/r/mcp/comments/1w1jtu9/comment/p6ldrsd/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;said they had built&lt;/a&gt; a drag-and-drop interface to an MCP App, which let users submit files themselves but still left the agent without a way to initiate the upload on its own.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are packaged options, too. &lt;a href="https://gofastmcp.com/docs/apps/providers/file-upload" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;FastMCP offers&lt;/a&gt; a drag-and-drop upload component for developers building MCP Apps, while Box &lt;a href="https://support.box.com/hc/en-us/articles/52446938146067-Upload-and-download-PDFs-PowerPoint-Word-and-Excel-files-via-Box-MCP-server" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;recently launched secure file upload and download&lt;/a&gt; support for PDFs and Office documents through its own MCP server.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The folks at the MCP project, for their part, have been slowly working toward a common standard. Delimarsky &lt;a href="https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1306" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;opened an exploratory upload proposal&lt;/a&gt; in August 2025, and a File Uploads Working Group, initially made up of members from Anthropic and OpenAI, &lt;a href="https://modelcontextprotocol.io/community/working-groups/file-uploads" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;followed in April&lt;/a&gt;. In October, the group &lt;a href="https://modelcontextprotocol.io/community/working-groups/file-uploads#changelog" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;added file downloads&lt;/a&gt; to its remit.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Now, a &lt;a href="https://github.com/modelcontextprotocol/experimental-ext-file-uploads/blob/main/specification/draft/file-uploads.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;draft specification&lt;/a&gt; sets out how transfers in both directions could work. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;While we have the shape outlined, we&amp;rsquo;re not sure yet that what we started with is what we&amp;rsquo;ll end up with.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;While we have the shape outlined, we&amp;rsquo;re not sure yet that what we started with is what we&amp;rsquo;ll end up with,&amp;#8221; the authors write. &amp;#8220;The best way to find out is, you guessed it &amp;#8212; contact with reality.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-mcp-would-move-files" class="wp-block-heading"&gt;How MCP would move files&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The experimental file-transfer extension builds on the framework for extensions &lt;a href="https://blog.modelcontextprotocol.io/posts/2026-07-28/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;MCP introduced in July&lt;/a&gt; to let clients and servers opt into new features without changing the core protocol. The &lt;a href="https://modelcontextprotocol.io/extensions/overview#experimental-extensions" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;experimental stage&lt;/a&gt; gives developers a place to prototype and refine an idea before, or alongside, a formal Specification Enhancement Proposal (SEP).&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Either way, the file itself bypasses the model.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Under the extension, if you ask an assistant to save an attached PDF to cloud storage, for example, the model calls the tool and the MCP client handles the upload. The client can send a small file within the tool request, and for a larger file, the client uploads it separately and calls the tool again to finish the job. Either way, the file itself bypasses the model.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For downloads, a tool that exports a CSV, for example, can include a download URL once it&amp;rsquo;s finished producing the file. The client can then fetch the CSV directly, and the model gets a message telling it what the tool produced.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One of the big &lt;a href="https://github.com/modelcontextprotocol/experimental-ext-file-uploads/blob/main/specification/draft/file-uploads.md#security-implications" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;security implications&lt;/a&gt; centres around &lt;em&gt;how much&lt;/em&gt; control the host should have over where files go. As things stand, the proposed extension limits when a client can send its MCP credentials to an upload destination. The host asks the user to approve the upload before the MCP server supplies that destination, so the user may not know where the file will go when they approve it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;These safeguards control where the client&amp;rsquo;s MCP credential is sent, but they don&amp;rsquo;t by themselves control where the file goes,&amp;rdquo; the authors write.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;So a user who thinks they&amp;rsquo;re saving a confidential PDF to company storage could end up sending it to an endpoint controlled by a malicious server operator. The authors recommend limiting external uploads to approved destinations, and are asking whether hosts should be required to enforce that restriction.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s worth noting that developers can prototype against the draft today by implementing the proposed transfer on a test client and server. However, there&amp;rsquo;s no formal reference implementation yet.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;That&amp;rsquo;s because we expect that a lot of the inner workings will, in fact, be quite different once we start integrating our experiment with third-party file services, such as cloud storage, database import/export, and many others that require file input and output,&amp;rdquo; the authors add.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The MCP maintainers say they are targeting a stable release by year-end, and support will remain optional &amp;#8212; developers who choose to skip the extension won&amp;rsquo;t need to change their existing MCP clients or servers.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/mcp-file-upload-extension/"&gt;Developers have been hacking around MCP’s file-upload problem for two years. A fix is taking shape.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>MCP began as a way to help developers connect models with tools. But it never had a standard way to move files - a new draft extension aims to close that gap.</content:encoded>
-    </item>
-    <item>
-      <title>Why Nitric stopped asking one AI agent to do everything</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/specialized-ai-agent-workflows/</link>
-      <dc:creator>Rak Siva</dc:creator>
-      <pubDate>Wed, 11 Nov 2026 16:00:00 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>DevOps</category>
-      <category>Model Context Protocol (MCP)</category>
-      <category>sponsor-nitric</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843313</guid>
-      <description>&lt;img width="1024" height="670" src="https://cdn.thenewstack.io/media/2026/11/16ba7ed5-getty-images-8pwk-ctbm2y-unsplash-1024x670.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital visualization of glowing red and cyan network nodes and telemetry waveforms representing AI incident triage." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/16ba7ed5-getty-images-8pwk-ctbm2y-unsplash.jpg" /&gt;&lt;p&gt;We&amp;#8217;re a team of five engineers, and we used to wake the on-call engineer three or four times a week&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/specialized-ai-agent-workflows/"&gt;Why Nitric stopped asking one AI agent to do everything&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="670" src="https://cdn.thenewstack.io/media/2026/11/16ba7ed5-getty-images-8pwk-ctbm2y-unsplash-1024x670.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract 3D digital visualization of glowing red and cyan network nodes and telemetry waveforms representing AI incident triage." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/16ba7ed5-getty-images-8pwk-ctbm2y-unsplash.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;We&amp;#8217;re a team of five engineers, and we used to wake the on-call engineer&lt;/strong&gt; three or four times a week over production incidents. Most were noise rather than serious outages, but at two in the morning, being overly cautious seemed preferable to letting a genuine problem slip through the cracks.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;ve since reduced both unnecessary overnight interruptions and recurring issues by iterating on triage and following investigations through to fixes. &lt;a href="https://thenewstack.io/durable-ai-agent-operations/" data-type="link" data-id="https://thenewstack.io/durable-ai-agent-operations/" class="local-link"&gt;Specialized AI agents&lt;/a&gt; help us investigate incidents, organize follow-up work, and prepare changes, with engineers reviewing and correcting the work along the way.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What surprised us was how much more comfortable we became relying on the process. Engineers could inspect an assessment, challenge its assumptions, and use those corrections to improve how we handled later incidents. As follow-up fixes addressed recurring issues, we felt more confident about when to wake the on-call engineer.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That experience has made us question the shape of the work we give our agents. A &lt;a href="https://thenewstack.io/ai-coding-tools-in-2025-welcome-to-the-agentic-cli-era/" data-type="link" data-id="https://thenewstack.io/ai-coding-tools-in-2025-welcome-to-the-agentic-cli-era/" class="local-link"&gt;capable coding agent&lt;/a&gt; could potentially investigate an incident, raise a ticket, and prepare a fix, so why divide those responsibilities?&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When an agent&amp;#8217;s work needs correction, can you identify the responsibility involved and make a change you can evaluate independently?&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For us, it&amp;#8217;s about improving one part of the workflow and judging whether the change helped. When an agent&amp;#8217;s work needs correction, can you identify the responsibility involved and make a change you can evaluate independently?&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-shared-workspace-for-people-and-agents" class="wp-block-heading"&gt;A shared workspace for people and agents&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;re building &lt;a href="https://sugabots.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sugabots&lt;/a&gt; as an open-source, self-hosted workspace where a team can work with several agents on the same task. Engineers can ask questions, contribute evidence, review findings, and bring in another agent, with those exchanges available to other participants.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We organize that work into shared environments called pods, with connections to &lt;a href="https://thenewstack.io/model-context-protocol-a-primer-for-the-developers/" data-type="link" data-id="https://thenewstack.io/model-context-protocol-a-primer-for-the-developers/" class="local-link"&gt;external systems through MCP&lt;/a&gt;. Each agent can have its own model and instructions, while the pod&amp;#8217;s connections and tool policies define the access its agents share. The team can configure agents for specific responsibilities and refine their instructions as engineers review the work. Our incident workflow has helped us explore which responsibilities benefit from that separation.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-how-we-run-incident-triage-in-sugabots" class="wp-block-heading"&gt;How we run incident triage in Sugabots&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Our incident workflow depends on each engineer or agent being able to continue from the evidence, decisions, and corrections recorded during the investigation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Our Sentry triage agent investigates new, regressed, or escalating issues and decides whether to &lt;a href="https://thenewstack.io/ai-sre-agent-autonomy-phases/" data-type="link" data-id="https://thenewstack.io/ai-sre-agent-autonomy-phases/" class="local-link"&gt;alert the on-call engineer&lt;/a&gt;, request an in-hours review, hand a small fix directly to an implementation agent, or keep the issue in Sentry for monitoring. It records follow-up work in Linear, where a backlog agent helps organize tickets, and the implementation agent can prepare a GitHub pull request for review.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="624" height="316" src="https://cdn.thenewstack.io/media/2026/11/a2056af1-image1.png" alt="Workflow diagram of incident triage in Sugabots" class="wp-image-22843314"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Our incident workflow: agents handle distinct responsibilities while engineers contribute to the shared investigation. Engineers can take on any of the contributions shown.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Engineers participate throughout, reviewing findings, challenging urgency assessments, correcting assumptions, and deciding whether to ship a proposed change. The investigation remains available as work moves between people and agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Safeguards back that growing confidence. The instructions call for urgent escalation when an issue could plausibly be a production outage, and urgency is uncertain. Issues classified as noise are archived until escalating, and Sentry retains a direct spike-alert route to incident.io as a backup.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The follow-up matters as much as the initial assessment. Previously, the on-call engineer might investigate an alert, determine it could wait until office hours, and return to other work. Recording the underlying problem in the backlog and prioritizing it gave the team a chance to resolve it before the next on-call engineer encountered the same alert.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Having the backlog agent record follow-up work in Linear gives the team a consistent way to prioritize fixes for the recurring issues behind the interruptions.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Specialize around a decision&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We configure each agent for a particular responsibility, choosing its model and instructions to suit the work and defining what a useful result looks like.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We chose Opus 5.5 for Sentry triage, and its instructions cover evidence gathering, classification, escalation, handoffs, and recovery from tool failures. This abbreviated excerpt shows the decisions we ask it to make:&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Inspect the full Sentry issue, including customer impact, affected users, release, and event trend, then check for existing tickets or incidents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Choose an outcome:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Urgent:&lt;/strong&gt; active customer harm requiring immediate attention; alert the on-call engineer through incident.io.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;In-hours review:&lt;/strong&gt; a defect requiring engineering judgment that can wait; notify the on-call engineer at low urgency.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Auto-fix:&lt;/strong&gt; a small, non-urgent code change outside restricted areas such as authentication, billing, and migrations; brief the implementation agent to prepare a PR.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;No action:&lt;/strong&gt; expected or transient noise; archive until escalating so a spike brings it back.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;State the evidence and uncertainty behind the decision. Implementation briefs must stand alone and include the relevant findings and links.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The backlog manager&amp;#8217;s instructions reflect the decisions involved in organizing follow-up work: checking for duplicates, looking up the current Linear cycle, and distinguishing actionable work from issues that need an engineer to clarify scope or make a design decision. Those rules provide defaults while preserving the team&amp;#8217;s explicit choices about priority, assignment, and scheduling, and we can refine them independently of the criteria used to assess an incident&amp;#8217;s urgency.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Triage and implementation make a useful comparison. Triage asks whether the available evidence justifies interrupting an engineer. Implementation asks what change would resolve the problem and how to verify it. Those decisions have different failure modes: a missed urgent incident, an unnecessary interruption, or a plausible fix that introduces another bug.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Triage asks whether the available evidence justifies interrupting an engineer. Implementation asks what change would resolve the problem and how to verify it. Those decisions have different failure modes.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We&amp;#8217;ve found it useful to maintain those responsibilities separately because we can refine how incidents are classified while keeping the implementation instructions stable. If an investigation leads to an ineffective fix, we can examine the assessment&amp;#8217;s accuracy, the evidence preserved in the ticket, and how the implementation addressed the recorded problem. Each gives us a specific part of the workflow to improve.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Each responsibility also gives us concrete questions to evaluate:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Triage:&lt;/strong&gt; Did it escalate genuinely urgent incidents? Did it unnecessarily interrupt an engineer?&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Backlog management:&lt;/strong&gt; Did it record the follow-up work, recognize existing tickets, and preserve enough evidence to act on it?&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Implementation:&lt;/strong&gt; Did the proposed change address the problem, and what did an engineer need to correct before accepting it?&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We need to evaluate the reduction in wake-up calls alongside how we handle genuinely urgent incidents, including any that triage missed. Fewer interruptions could reflect both better classification and fixes that reduce the volume of incidents arriving. Those outcomes help us judge how the workflow is performing and where to improve it.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same question applies to the agents already in your workflow: when their output improves, can you explain what improved and what evidence supports that judgment? Separating responsibilities gives you a narrower decision to examine and a clearer basis for evaluating changes.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Match permissions to responsibilities&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Separating responsibilities also helps us decide which tool actions each agent needs and when an engineer should approve them.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Our triage instructions include specific write actions: creating Linear issues, sending alerts through incident.io, and archiving Sentry issues until escalating. Tool access needs to reflect those responsibilities, including which actions require an engineer&amp;#8217;s approval.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Agent-specific instructions define responsibilities within the access available to the pod; they do not enforce separate permissions for agents sharing that pod.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Sugabots, the team configures tool-level Off, Ask, and Allow policies on a pod&amp;#8217;s connections, and every agent in that pod inherits those policies. Configuring them once gives the team a consistent set of rules for automatic actions, engineer approvals, and disabled tools, including when another agent joins the work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Triage needs access to evidence and a way to escalate, while implementation needs enough access to prepare a change. Genuinely different access boundaries require separate enforcement, potentially through different pods with different tool policies or appropriately scoped connections. Merge and deployment authority also need explicit policies and, where available, appropriately scoped credentials.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Separate the working context from the investigation&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;There are three things here with different useful lifetimes:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;strong&gt;Configuration:&lt;/strong&gt; the maintained model, instructions, tools, and expectations for a responsibility.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Execution context:&lt;/strong&gt; the messages and tool results available to the model while it works on a particular task.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;Shared history:&lt;/strong&gt; the record of evidence, hypotheses, corrections, and decisions that people and agents accumulate.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Consider an investigation where the agent rules out an outage and concludes that an issue can wait until office hours. After enough tool calls, its context may need to be compacted. A summary might preserve the conclusion while omitting the evidence that ruled out the outage.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That detail becomes important if an engineer challenges the assessment. Keeping the original history gives them a way to inspect the reasoning and evidence behind the summary. The agent can work with a compacted context while the fuller record remains available for inspection or retrieval.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To continue the investigation, the next agent needs the relevant evidence and corrections selected from that record and passed along in a brief, or retrieved as it works. Preserving the conversation gives us a source to draw from; selecting the working context remains an explicit part of the handover.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Keep people in the investigation&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The same distinction matters when work moves between engineers. An engineer may recognize a pattern the agent missed or explain why an apparently sensible fix would introduce a regression elsewhere in the codebase. That contribution needs to remain available to the engineer or agent continuing the investigation or preparing the fix.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In separate chats, people become responsible for carrying those corrections across. Even when both agents can inspect the same repository and tickets, each conversation contains a different account of what the team has learned.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="624" height="223" src="https://cdn.thenewstack.io/media/2026/11/b70aaf1b-image3.png" alt="Diagram showing the reviewer and author relaying findings between their separate chats." class="wp-image-22843315"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;The reviewer and author relay findings and corrections between their separate chats.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In Sugabots, engineers can contribute to the shared discussion, leaving their corrections alongside the findings that prompted them. The next engineer can see how the investigation changed direction, and an agent continuing the work can receive that correction with its brief.&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-full"&gt;&lt;img loading="lazy" decoding="async" width="624" height="286" src="https://cdn.thenewstack.io/media/2026/11/b9bafbeb-image2.png" alt="Diagram showing engineers and agents contributing to a shared discussion." class="wp-image-22843316"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Engineers and agents contribute to a shared discussion that preserves their findings and corrections.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;MCP gives the agent access to evidence, while a shared workspace gives the team access to the investigation.&lt;/strong&gt;&lt;/p&gt;
-
-
-
-&lt;figure class="wp-block-image size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="640" src="https://cdn.thenewstack.io/media/2026/11/50be6f13-image4-1024x640.png" alt="Screenshot of a staged Sentry triage conversation in the Sugabots interface." class="wp-image-22843317"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;A staged Sentry triage conversation rendered in the actual Sugabots interface. The messages, event counts, issue reference, and handoff are scripted demonstration data, showing how an engineer&amp;#8217;s correction can remain alongside the assessment and implementation brief.&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;When is another specialist worth it?&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Each additional specialist brings configuration to maintain and a handover whose context needs care. Splitting agents by language, service, or deployment environment is useful when that boundary helps the team maintain and evaluate the work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Our current divisions follow responsibilities that already existed: the on-call engineer assessed urgency, the team organized follow-up work in the backlog, and engineers prepared and reviewed fixes. Giving agents distinct configurations for those responsibilities lets us improve each part of the workflow independently.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For a team trying this, I&amp;#8217;d start with one recurring responsibility where you can describe a useful result and recognize a bad one. Write down the success criteria, including the errors that matter: for triage, that means examining missed urgent incidents as well as unnecessary escalations. Define the evidence the agent needs, choose a configuration that enforces the required tool access, and specify when an engineer should review its findings or approve an action.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Keep the investigation history, including the evidence behind decisions and the corrections engineers make, so the next engineer or agent can continue from it. Review those corrections to decide whether the instructions, available evidence, permissions, or handover need to change. Earlier investigations can then provide cases to revisit alongside new work, checking whether a change addresses the original mistake without introducing another.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Increasingly, I&amp;#8217;m interested in whether we can define an engineering responsibility clearly enough that every investigation, correction, and reviewed fix helps us improve how we handle the next one.&amp;#8221;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That may justify a dedicated agent, or it may be enough to load a reusable configuration when the job appears. The question is whether the separation makes the work easier to maintain and evaluate.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We started by wondering whether we should specialize our agents. Increasingly, I&amp;#8217;m interested in whether we can define an engineering responsibility clearly enough that every investigation, correction, and reviewed fix helps us improve how we handle the next one.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Try Sugabots&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If you&amp;#8217;d like to try this approach with your team, &lt;a href="https://sugabots.ai" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sugabots&lt;/a&gt; is open source and self-hosted. Start with one recurring engineering task and a colleague who can review the agent&amp;#8217;s work, then use the shared discussion and corrections to refine how it handles that responsibility.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;If the project looks useful, &lt;a href="https://github.com/nitrictech/sugabots" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;give Sugabots a star on GitHub&lt;/a&gt; and share it with a team that might benefit. Stars and recommendations go a long way in helping an open-source project reach the engineers who could use it or contribute to it.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/specialized-ai-agent-workflows/"&gt;Why Nitric stopped asking one AI agent to do everything&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Why Nitric stopped relying on one AI agent, dividing triage and fixes into specialized workflows to eliminate noisy 2 AM on-call alerts.</content:encoded>
-    </item>
-    <item>
-      <title>CoreWeave tests AI integrations on its cloud before you migrate</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/coreweave-tests-ai-integrations/</link>
-      <dc:creator>Seann Gardiner</dc:creator>
-      <pubDate>Wed, 11 Nov 2026 15:00:00 +0000</pubDate>
-      <category>AI Infrastructure</category>
-      <category>AI Operations</category>
-      <category>Platform Engineering</category>
-      <category>sponsor-coreweave</category>
-      <category>sponsored-post-contributed</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843223</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2025/12/8d3fb16d-network-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Futuristic digital visualization of global trade data." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2025/12/8d3fb16d-network.jpg" /&gt;&lt;p&gt;Moving an AI workload to another cloud means bringing more than a model and its data. Your serving layer, observability&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/coreweave-tests-ai-integrations/"&gt;CoreWeave tests AI integrations on its cloud before you migrate&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2025/12/8d3fb16d-network-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Futuristic digital visualization of global trade data." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2025/12/8d3fb16d-network.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Moving an AI workload to another cloud&lt;/strong&gt; means bringing more than a model and its data. Your serving layer, observability dashboards, security controls, and &lt;a href="https://www.coreweave.com/products/storage?utm_source=coreweave.com&amp;amp;utm_medium=site#object-storage" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;storage systems&lt;/a&gt; have to work together on the new infrastructure. For platform teams, proving those connections under real traffic can become the slowest and riskiest part of the move.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;As a stack grows across vendors and clouds, each project adds more integration questions. A compatible specification is a starting point. It doesn&amp;#8217;t guarantee a tool will behave as expected in production, or that the runbooks and security workflows built around it will carry over.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-make-production-validation-visible" class="wp-block-heading"&gt;Make production validation visible&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;An integration needs to work on the infrastructure where you plan to run it, under production traffic. The tools should also be ones your team already uses or has asked for.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A compatible specification is a starting point. It doesn&amp;#8217;t guarantee a tool will behave as expected in production, or that the runbooks and security workflows built around it will carry over.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We built the &lt;a href="https://www.coreweave.com/coreweave-partner-network?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Partner Network&lt;/a&gt; to make that validation visible. It brings relationships with CrowdStrike, VAST Data, Reflection, IBM, and other technology vendors into a curated network of integrations tested under real-world production conditions on &lt;a href="https://www.coreweave.com/platform?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Cloud&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The network covers four parts of the AI stack, from &lt;a href="https://www.coreweave.com/solutions/ai-model-training?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;training&lt;/a&gt; and inference to data movement, security, and the next iteration:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;Infrastructure: compute, storage, networking, servers, and interconnects, with partners including VAST Data, Dell, AMD, IBM, BackBlaze, and Pulumi.&lt;/li&gt;
-
-
-
-&lt;li&gt;Data services: storing, processing, moving, and accessing AI data throughout its lifecycle, with ClickHouse, Encord, LanceDB, and Datology.&lt;/li&gt;
-
-
-
-&lt;li&gt;Independent software vendors (ISVs): orchestration, observability, and model development, including Grafana, Datadog, Union, SkyPilot, IBM, Pinecone, Redis, LlamaIndex, and Clockwork. A dedicated security segment includes CrowdStrike, Zscaler, and Cranium.&lt;/li&gt;
-
-
-
-&lt;li&gt;Models, agents, and inference: foundational software and services for building, training, serving, and scaling applications, with Reflection, RadixArk, Inferact, OpenRouter, and Red Hat.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Together, these integrations support running and observing models, curating data, improving behavior, and evaluating the next release. Every partner must meet the same requirement: an integration that works on CoreWeave infrastructure under production conditions. Partners enter the network because customers run them or ask for them.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-read-the-workload-evidence" class="wp-block-heading"&gt;Read the workload evidence&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.coreweave.com/resources/case-studies/ibm?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;IBM trained its Granite models on CoreWeave&lt;/a&gt; around one of the first deployments of Nvidia GB200 NVL72 clusters. &lt;a href="https://www.coreweave.com/resources/case-studies/cohere-accelerates-training-of-north-agentic-ai-for-enterprise?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Cohere built North&lt;/a&gt;, its &lt;a href="https://thenewstack.io/agentic-ai-the-next-frontier-of-ai-power/" data-type="link" data-id="https://thenewstack.io/agentic-ai-the-next-frontier-of-ai-power/" class="local-link"&gt;agentic AI platform&lt;/a&gt;, on one of the industry&amp;rsquo;s first production GB200 NVL72 clusters and reported training three times faster than on Nvidia Hopper.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.coreweave.com/resources/case-studies/mistral-ai?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mistral AI trains its models entirely on CoreWeave&lt;/a&gt; and cites training 2.5 times faster on Nvidia GB200 NVL72 systems. &lt;a href="https://www.coreweave.com/resources/videos/creating-realtime-ai-experiences?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Decart uses Nvidia HGX B200 at production scale&lt;/a&gt; through its CoreWeave collaboration, on a platform that includes &lt;a href="https://www.coreweave.com/companies/weights-and-biases?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Weights &amp;amp; Biases&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The underlying relationships predate the network announcement. CoreWeave and Weights &amp;amp; Biases have run production integrations with Encord, Pinecone, and other partners since the early wave of open-source large language models (LLMs) and frontier-model training.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.linkedin.com/in/jonjones1/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jon Jones&lt;/a&gt;, CoreWeave&amp;rsquo;s Chief Revenue Officer, describes the change as making existing partner work visible before customers build. The network also provides a repeatable way to pursue deeper integrations, joint go-to-market work, and shared innovation.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The partners emphasize different parts of that system. VAST Data co-founder and chief technology officer Alon Horev describes combining CoreWeave&amp;rsquo;s AI cloud with the VAST AI Operating System across large-scale training, fine-tuning, production inference, and continuous &lt;a href="https://thenewstack.io/ai-cloud-taxonomy-2026/" data-type="link" data-id="https://thenewstack.io/ai-cloud-taxonomy-2026/" class="local-link"&gt;agentic workloads&lt;/a&gt;. CrowdStrike CEO and founder &lt;a href="https://www.linkedin.com/in/georgekurtz/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;George Kurtz&lt;/a&gt; emphasizes security built into the infrastructure running AI. &lt;a href="https://www.linkedin.com/in/adamelawrence/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Adam Lawrence&lt;/a&gt;, general manager of IBM Americas, points to IBM and Red Hat technologies as a way to expand choice and reduce integration work when deploying and scaling AI.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-carry-over-the-operations-you-already-use" class="wp-block-heading"&gt;Carry over the operations you already use&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Your team has already built runbooks around its observability tools. Grafana and Datadog integrations let you carry that work over. CrowdStrike, Zscaler, and Cranium provide security integrations, bringing existing threat visibility and response tooling.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.coreweave.com/solutions/ai-inference?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Inference integrations&lt;/a&gt; serve a similar purpose: keeping the models available as teams expand onto CoreWeave, without &lt;a href="https://thenewstack.io/5-tech-predictions-for-2026-from-ai-inference-to-kubernetes/" data-type="link" data-id="https://thenewstack.io/5-tech-predictions-for-2026-from-ai-inference-to-kubernetes/" class="local-link"&gt;rebuilding the serving layer&lt;/a&gt;. The goal is to add capacity while retaining the parts of the stack that already work.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;A marketplace listing still leaves your team to validate the integration. An LLM can suggest what&amp;rsquo;s popular without telling you what works on your infrastructure.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A marketplace listing still leaves your team to validate the integration. An LLM can suggest what&amp;rsquo;s popular without telling you what works on your infrastructure. We select partners based on customer demand and test their integrations across all four segments.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-include-the-tools-your-agents-call" class="wp-block-heading"&gt;Include the tools your agents call&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The integration problem also reaches inside agent execution. Most closed models include web search, while most open-weight models do not. Teams choosing open weights for cost, control, or customization have often had to connect a search provider separately.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;CoreWeave is extending its partner approach to these tools, beginning with Exa, Parallel Web Systems, and You.com. The announced search layer provides access through one integration instead of a separate contract for each provider.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Teams can enable it through a single setting on a standard inference request or access it from inside a &lt;a href="https://www.coreweave.com/products/coreweave-sandboxes?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;CoreWeave Sandbox&lt;/a&gt;, without setting up a separate software development kit (SDK) or account. The arrangement is nonexclusive, so using the integration does not restrict future provider choices.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;We announced the search partnerships at Fully Connected, with the remaining integration work planned for the following weeks. As those integrations become available, they will meet the same production-validation standard as the rest of the network.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-start-with-the-connections-your-workload-needs" class="wp-block-heading"&gt;Start with the connections your workload needs&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Before adding another cloud, check the serving, data, observability, and security connections your workload depends on. Ask which integrations have been tested under production conditions and what your team will still need to validate.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;Before adding another cloud, check the serving, data, observability, and security connections your workload depends on.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The CoreWeave Partner Network lists validated partners. CoreWeave account teams can discuss a specific integration and workload, and partner sessions from &lt;a href="https://www.coreweave.com/fully-connected-2026?utm_source=coreweave.com&amp;amp;utm_medium=site" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Fully Connected 2026&lt;/a&gt; offer another way to see the integrations in use. Teams interested in new collaborations can explore the &lt;a href="https://www.coreweave.com/coreweave-partner-network?utm_source=coreweave.com&amp;amp;utm_medium=site#partner-with-coreweave" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;partner program&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/coreweave-tests-ai-integrations/"&gt;CoreWeave tests AI integrations on its cloud before you migrate&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>CoreWeave validates AI integrations under production traffic, helping teams migrate models, data, and security tools with confidence.</content:encoded>
     </item>
   </channel>
 </rss>
