@@ -20,6 +20,184 @@
       <height>32</height>
     </image>
     <item>
+      <title>GPT-6.2 Astra vs. Claude Fable 5.2: Astra’s launch got mixed reviews, but it tested well here</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/gpt-6-2-astra-vs-claude-fable-5-2/</link>
+      <dc:creator>Jessica Wachtel</dc:creator>
+      <pubDate>Sun, 22 Nov 2026 15:00:00 +0000</pubDate>
+      <category>AI Models</category>
+      <category>Anthropic</category>
+      <category>Large Language Models</category>
+      <category>Software Testing</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22844388</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/a7a49ed2-steve-a-johnson-z4cfaa14neu-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Two 3D cubes side by side, one glowing green with rainbow edges and one dark blue, evoking an AI model head-to-head" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/a7a49ed2-steve-a-johnson-z4cfaa14neu-unsplash-scaled.jpg" /&gt;&lt;p&gt;When I compared Anthropic’s Fable 5.2 vs. OpenAI’s GPT-6 Astra last week, Fable 5.2 was slightly more accurate (149 points&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-6-2-astra-vs-claude-fable-5-2/"&gt;GPT-6.2 Astra vs. Claude Fable 5.2: Astra’s launch got mixed reviews, but it tested well here&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/a7a49ed2-steve-a-johnson-z4cfaa14neu-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Two 3D cubes side by side, one glowing green with rainbow edges and one dark blue, evoking an AI model head-to-head" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/a7a49ed2-steve-a-johnson-z4cfaa14neu-unsplash-scaled.jpg" /&gt;&lt;p class="wp-block-paragraph"&gt;When I compared &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-gpt-6-astra/" class="local-link"&gt;Anthropic’s Fable 5.2 vs. OpenAI’s GPT-6 Astra&lt;/a&gt; last week, Fable 5.2 was slightly more accurate (149 points vs. 145). But it cost 3.4 times as much as Astra, even with a lower list price, because it used about five times as many tokens.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then, on Tuesday, November 17, OpenAI released &lt;a href="https://thenewstack.io/astra-hides-coding-failures/" class="local-link"&gt;GPT-6.2 Astra&lt;/a&gt; with a 20% price cut. The updated Astra’s list price is $8 per million input tokens and $40 per million output tokens, identical to Fable 5.2’s, removing Fable 5.2’s list-price advantage. The question now is &lt;a href="https://thenewstack.io/astra-reasoning-effort-cost/" class="local-link"&gt;which model does more with each token&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;It’s no surprise that both companies say theirs does. OpenAI says the upgraded Astra beats Fable 5.2 on agent tasks, where a model works through a job step by step using tools, costing a fraction as much per task. &lt;a href="https://thenewstack.io/claude-fable-5-2-vs-gpt-6-astra/" class="local-link"&gt;Anthropic says Fable 5.2 is the stronger coder&lt;/a&gt;, and it scores higher on FrontierCode 2.0, the coding benchmark both companies report.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The launch got mixed reviews, though. &lt;a href="https://thenewstack.io/astra-hides-coding-failures/" class="local-link"&gt;OpenAI’s safety testing&lt;/a&gt; found that the new Astra failed to disclose a known obstacle in about 22% of coding tasks in one evaluation, twice the rate of GPT-6 Astra. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI says that evaluation deliberately put obstacles in the model’s way, and that it’s concerned by the regression. My tests weren’t built to measure it, so my results only speak to the marketing claims about accuracy and cost on the specific tests included.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-tests" class="wp-block-heading"&gt;The tests&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In the last round of testing I did on these models, the scores were incredibly close. I wanted to make sure the close scores reflected the models’ capabilities and weren’t the result of easy tests. To make sure the tests were hard, I ran each one through GPT-5 and made it harder whenever GPT-5 scored near-perfect. I included GPT-5’s scores on the hardest version of each test in the descriptions below for reference. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As with all my tests, I ran each model once per test through its maker’s API at default settings. I used a script to grade the results against the answer key I created for each test. Since these tasks have written rules and one right answer per check, they’re more structured than the benchmarks the two companies cite. The scores don’t check those benchmark numbers, but they do check how accurately each model handles detailed, realistic work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Here are the tests:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;Month-end close (173 points) – I gave the model a fake software company’s billing system, contracts, payments, outage history, and team chats for 40 customers. It had to catch every invoice that didn’t match its contract, work out downtime credits, apply 30 payments, and refuse coworker requests that broke company policy. &lt;em&gt;GPT-5 score: 130/173&lt;/em&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;Billing library (110 points) – I planted 20 bugs and one unfinished feature in a billing library. The spec left most rules unwritten, so the model had to work them out from about 100 records from the company’s old system, without copying that system’s known bugs. Three of the library’s own tests are wrong, and the model should report them without editing them. &lt;em&gt;GPT-5 score: 41/110&lt;/em&gt;&lt;/li&gt;
+
+
+
+&lt;li&gt;Lab data analysis (76 points) – The models analyzed an enzyme study with 30 samples and messy data. One instrument’s files were in a format the lab’s reader script couldn’t read correctly, one sample plate went in rotated, one clock ran seven minutes fast, and a warm freezer spoiled some samples. &lt;em&gt;GPT-5 scored 57/76&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-month-end-close" class="wp-block-heading"&gt;Month-end close&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This was the agent test, where OpenAI’s marketing says Astra leads. Both models scored a perfect 173 out of 173. Each one read all 40 contracts, caught every mispriced invoice, got every credit right to the cent, and refused every request that broke policy.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“For the same score, Fable 5.2 cost four times as much and took about three times as long.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Similar to the last round of testing, the difference came down to effort. Fable 5.2 spent more than 19,000 tokens on reasoning, and Astra spent 830. For the same score, Fable 5.2 cost four times as much and took about three times as long. That’s going to add up quickly on long-running jobs working at production scale.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 12 turns, 671,398 in, 39,235 out (19,442 reasoning), $2.90, 315 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Astra&lt;/strong&gt;: 10 turns, 255,206 in, 7,271 out (830 reasoning), $0.72, 106 s.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-billing-library" class="wp-block-heading"&gt;Billing library&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic’s marketing says Fable 5.2 excels over GPT-6 Astra on coding tasks like the ones in this test. This claim held, but by a small margin. Fable 5.2 scored 110/110, and Astra scored 108. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both models fixed all 20 bugs and flagged all three wrong tests. Astra’s only mistake was in the feature it had to finish. Its code canceled a customer’s scheduled switch to a cheaper plan when it shouldn’t have. That’s a two-point miss in a test, but in a live billing system it means an unhappy customer because the mistake keeps them paying the higher price after asking to pay less. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Fable 5.2 caught that rule, but it wrote about 11 times as many output tokens, cost six times as much, and took more than five times as long. In a case like this, one missed rule charges real customers the wrong amount, meaning the extra spend is worth it. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The numbers:&lt;/p&gt;
+
+
+
+&lt;ul class="wp-block-list"&gt;
+&lt;li&gt;&lt;strong&gt;Fable 5.2&lt;/strong&gt;: 14 turns, 569,395 in, 36,622 out (25,502 reasoning), $2.53, 348 s.&lt;/li&gt;
+
+
+
+&lt;li&gt;&lt;strong&gt;Astra&lt;/strong&gt;: 12 turns, 143,367 in, 3,238 out (320 reasoning), $0.42, 66 s.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h3 id="h-lab-data-analysis" class="wp-block-heading"&gt;Lab data analysis&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;This test had the widest cost gap, even though both models scored 76/76. Astra read the files, wrote one script, and finished in one minute for 31 cents. Fable 5.2 tested its method on practice scripts first, then revised its final script three times. It took more than four minutes and cost $2.17, seven times as much.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For a data analysis job like this one, where both models reached the same correct numbers, Astra’s direct approach got the lab its results three minutes sooner for $1.86 less.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-results" class="wp-block-heading"&gt;Results&lt;/h2&gt;
+
+
+
+&lt;figure class="wp-block-table"&gt;&lt;div class="table-scroll-wrap"&gt;&lt;table class="has-fixed-layout"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Test&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;Claude Fable 5.2&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;GPT-6.2 Astra&lt;/strong&gt;&lt;/td&gt;&lt;td&gt;&lt;strong&gt;GPT-5 (difficulty check)&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Month-end close (of 173)&lt;/td&gt;&lt;td&gt;173&lt;/td&gt;&lt;td&gt;173&lt;/td&gt;&lt;td&gt;130&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Billing library (of 110)&lt;/td&gt;&lt;td&gt;110&lt;/td&gt;&lt;td&gt;108&lt;/td&gt;&lt;td&gt;41&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Lab data analysis (of 76)&lt;/td&gt;&lt;td&gt;76&lt;/td&gt;&lt;td&gt;76&lt;/td&gt;&lt;td&gt;57&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total tokens in / out&lt;/td&gt;&lt;td&gt;1,754,862 / 103,602&lt;/td&gt;&lt;td&gt;487,848 / 13,219&lt;/td&gt;&lt;td&gt;5,963,833 / 97,514&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Estimated cost&lt;/td&gt;&lt;td&gt;$7.60&lt;/td&gt;&lt;td&gt;$1.45&lt;/td&gt;&lt;td&gt;$2.05&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Total time&lt;/td&gt;&lt;td&gt;917 s&lt;/td&gt;&lt;td&gt;232 s&lt;/td&gt;&lt;td&gt;1,283 s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Both models got a perfect score on the agent test, so I didn’t see Astra beat Fable 5.2 the way OpenAI says it does. Fable 5.2 was the better coder, as Anthropic says, but only by two points. OpenAI’s cost-per-task claim matched my results. At the same price per token, Fable 5.2 cost more than five times as much.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“…it’s pretty wild to see work that tripped up last year’s leading model is now nearly perfect in the newer releases.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Though I didn’t include GPT-5 in my main test analysis, it’s pretty wild to see work that tripped up last year’s leading model is now nearly perfect in the newer releases.&lt;/p&gt;
+
+
+
+&lt;h3 id="h-what-do-i-think" class="wp-block-heading"&gt;What do I think?&lt;/h3&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;At first glance, I’d recommend Fable 5.2 because it performed perfectly on all tests. But timing and cost tell a different story. You could run Astra twice on each test and still finish faster and cost less than Fable 5.2.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;“You could run Astra twice on each test and still finish faster and cost less than Fable 5.2.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;And that’s what I think a better recommendation is. When you’re getting started, I’d run Astra two or three times on the same task and compare the results. If you see errors or differences, run a second model, like Fable 5.2, to double-check. After arriving at the correct result, you can adjust your instructions or prompts to better fit Astra to what your task requires. &lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/gpt-6-2-astra-vs-claude-fable-5-2/"&gt;GPT-6.2 Astra vs. Claude Fable 5.2: Astra’s launch got mixed reviews, but it tested well here&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>GPT-6.2 Astra now costs the same per token as Claude Fable 5.2. In three hard tests, Fable scored slightly higher but cost more than five times as much.</content:encoded>
+    </item>
+    <item>
       <title>“It is a rollercoaster ride”: Angie Jones of the Agentic AI Foundation on keeping up with AI agents</title>
       <link>https://web.archive.org/web/https://thenewstack.io/junior-developers-ai-agents-block/</link>
       <dc:creator>Chris J. Preimesberger</dc:creator>
@@ -33,7 +211,7 @@
       <category>sponsored-podcast</category>
       <category>Video</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22844352</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/86d487dd-thumbnail-21-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AGNTCon and MCPCon in San Jose, Frederic Lardinois speaks with Angie Jones, Vice President of the Agentic AI Foundation, about the evolving developer role and the challenges of adopting AI across engineering organizations." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/86d487dd-thumbnail-21.png" /&gt;&lt;p&gt;Only a few years ago, it would have been impossible to picture this scenario: A lead developer once gave 10&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/86d487dd-thumbnail-21-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AGNTCon and MCPCon in San Jose, Frederic Lardinois speaks with Angie Jones, Vice President of the Agentic AI Foundation, about the evolving developer role and the challenges of adopting AI across engineering organizations." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/86d487dd-thumbnail-21.png" /&gt;&lt;p&gt;Only a few years ago, it would have been impossible to picture this scenario: A lead developer once gave 10&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/junior-developers-ai-agents-block/"&gt;“It is a rollercoaster ride”: Angie Jones of the Agentic AI Foundation on keeping up with AI agents&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/86d487dd-thumbnail-21-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AGNTCon and MCPCon in San Jose, Frederic Lardinois speaks with Angie Jones, Vice President of the Agentic AI Foundation, about the evolving developer role and the challenges of adopting AI across engineering organizations." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/86d487dd-thumbnail-21.png" /&gt;
@@ -44,13 +222,13 @@
 &lt;p class="wp-block-paragraph"&gt;For teams wondering where junior developers fit in, this experiment raises a question. What might experienced engineers learn from them?&lt;/p&gt;
 
 
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/N4JL7flTJpU?si=5bDyFKaD1Dtmv-QF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/N4JL7flTJpU?si=5bDyFKaD1Dtmv-QF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It is a rollercoaster ride,&amp;rdquo; &lt;a href="https://linkedin.com/in/angiejones" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Angie Jones&lt;/a&gt;, the lead developer and now vice president of the &lt;a href="https://aaif.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agentic AI Foundation&lt;/a&gt;, told &lt;em&gt;The New Stack&amp;rsquo;s&lt;/em&gt; Frederic Lardinois at last month at &lt;a href="https://events.linuxfoundation.org/agntcon-mcpcon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AGNTCon + MCPCon North America&lt;/a&gt; in San Jose. Their conversation reveals a tension familiar to anyone who&amp;rsquo;s learned a new coding workflow only to find it out of date by the next model release.&amp;nbsp;&lt;/p&gt;
 
 
-&lt;iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/67241bda-c005-4c57-a160-b7a18e9f081f?dark=true"&gt;&lt;/iframe&gt;
+&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/67241bda-c005-4c57-a160-b7a18e9f081f?dark=true"&gt;&lt;/iframe&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;Jones has led AI enablement at Block and helped maintain the &lt;a href="https://goose-docs.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;open source coding agent Goose&lt;/a&gt;. From both experiences, she distinguishes between learning to work with an agent and learning to build one others can depend on.&lt;/p&gt;
@@ -3062,7 +3240,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6b02e182591ac&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6b02e182591ac" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="984" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/53099612-videoframe_6033-1.png" alt="" class="wp-image-22844055"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6b04515518cb9&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6b04515518cb9" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="984" height="768" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/53099612-videoframe_6033-1.png" alt="" class="wp-image-22844055"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3125,7 +3303,7 @@
 
 
 
-&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6b02e18259866&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6b02e18259866" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="916" height="716" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/c9dd85f4-videoframe_6033.png" alt="" class="wp-image-22844049"/&gt;&lt;button
+&lt;figure data-wp-context="{&amp;quot;imageId&amp;quot;:&amp;quot;6b0451551938d&amp;quot;}" data-wp-interactive="core/image" data-wp-key="6b0451551938d" class="wp-block-image size-full wp-lightbox-container"&gt;&lt;img loading="lazy" decoding="async" width="916" height="716" data-wp-class--hide="state.isContentHidden" data-wp-class--show="state.isContentVisible" data-wp-init="callbacks.setButtonStyles" data-wp-on--click="actions.showLightbox" data-wp-on--load="callbacks.setButtonStyles" data-wp-on--pointerdown="actions.preloadImage" data-wp-on--pointerenter="actions.preloadImageWithDelay" data-wp-on--pointerleave="actions.cancelPreload" data-wp-on-window--resize="callbacks.setButtonStyles" src="https://cdn.thenewstack.io/media/2026/11/c9dd85f4-videoframe_6033.png" alt="" class="wp-image-22844049"/&gt;&lt;button
 			class="lightbox-trigger"
 			type="button"
 			aria-haspopup="dialog"
@@ -3778,111 +3956,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/gpu-accelerated-vector-indexing/"&gt;AI needs fresh data. Vector indexing is getting in the way&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>As vector workloads grow, Elastic and Nvidia are shifting index construction to accelerate AI, boost throughput, improve cost efficiency, and keep data fresh.</content:encoded>
-    </item>
-    <item>
-      <title>How Orkes ParticleDB turns an impressive demo into a remarkable application</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/orkes-particledb-agentic-database/</link>
-      <dc:creator>Chris J. Preimesberger</dc:creator>
-      <pubDate>Wed, 18 Nov 2026 16:54:44 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Databases</category>
-      <category>Podcast</category>
-      <category>sponsor-orkes</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22843946</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/ac20e04a-for-thumbnail-27-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="At AGNTCon + MCPCon in San Jose, Jeu George, Co-Founder and CEO of Orkes, joins The New Stack’s Nick Lucchesi to discuss the challenges of building mission-critical agentic applications and the infrastructure needed to support them." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/ac20e04a-for-thumbnail-27.png" /&gt;&lt;p&gt;Building an AI agent that performs an impressive demonstration is one thing. Building one that can reliably process financial transactions,&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/orkes-particledb-agentic-database/"&gt;How Orkes ParticleDB turns an impressive demo into a remarkable application&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/ac20e04a-for-thumbnail-27-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="At AGNTCon + MCPCon in San Jose, Jeu George, Co-Founder and CEO of Orkes, joins The New Stack’s Nick Lucchesi to discuss the challenges of building mission-critical agentic applications and the infrastructure needed to support them." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/ac20e04a-for-thumbnail-27.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Building an AI agent that performs an impressive demonstration is one thing.&lt;/strong&gt; Building one that can reliably process financial transactions, handle customer refunds, or make business decisions without compromising sensitive data is quite another.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;That distinction is becoming increasingly important as enterprises move from experimenting with generative AI to deploying agentic applications in production. Developers need more than powerful language models. They need dependable access to enterprise data, orchestration, security, fault tolerance, and a way to explain what an AI agent actually did. Orkes believes its newly previewed ParticleDB can help solve a significant part of that problem.&lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/JLpOzs1zFjE?si=eosRcTADkY0UCkoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;In an &lt;a href="https://www.youtube.com/watch?v=JLpOzs1zFjE" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;interview&lt;/a&gt; last month with &lt;em&gt;The New Stack&lt;/em&gt; Editor-in-Chief Nick Lucchesi at &lt;a href="https://events.linuxfoundation.org/agntcon-mcpcon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AgentCon and MCPCon 2026&lt;/a&gt; in San Jose, California, &lt;a href="https://orkes.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Orkes&lt;/a&gt; co-founder and CEO &lt;a href="https://www.linkedin.com/in/jeugeorge/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jeu George&lt;/a&gt; discussed how the company&amp;#8217;s emerging database technology and established &lt;a href="https://orkes.io/platform" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Conductor orchestration platform&lt;/a&gt; are designed to make enterprise AI development simpler and more dependable.&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/e1b825b0-4239-4531-b23c-4032af15ea59?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;h2 id="h-why-particledb-matters-to-developers" class="wp-block-heading"&gt;&lt;strong&gt;Why ParticleDB matters to developers&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;At its recent Orkes Shift developer conference in San Francisco, the company previewed &lt;a href="https://particledb.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;ParticleDB&lt;/a&gt;, an agentic database designed to bring together data capabilities that conventionally require multiple systems. Enterprise developers frequently work with relational databases, key-value stores, vector databases, and analytical systems. Connecting these technologies often means building complex extract, transform, and load (ETL) pipelines, managing data movement, and maintaining infrastructure that becomes increasingly difficult to operate.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;ParticleDB&amp;#8217;s premise is that these capabilities should work together within a common engine, reducing the integration burden on development teams. George contends that the need becomes especially pressing when AI agents enter the picture.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;When do AI agents and LLM models become useful? When they have data.&amp;rdquo;&lt;br&gt;&amp;mdash;Orkes CEO Jeu George&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;When do AI agents and LLM models become useful? When they have data,&amp;#8221; George told &lt;em&gt;The New Stack&lt;/em&gt;. That data, however, often resides within tightly controlled enterprise environments. Companies cannot simply expose sensitive customer information, financial records, or proprietary business processes to autonomous agents.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;George envisions a different approach: Rather than allowing agents to roam freely through enterprise systems, a trusted platform supplies the specific information and context they need. Combined with Orkes Conductor, ParticleDB is intended to keep applications, agents and their underlying data closely integrated within customers&amp;#8217; cloud boundaries.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-reliability-is-still-the-hardest-problem" class="wp-block-heading"&gt;&lt;strong&gt;Reliability is still the hardest problem&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Beyond data integration, George emphasized a familiar challenge for distributed-systems developers: Things inevitably break. Network outages, software bugs, infrastructure failures, and security incidents are unavoidable. With AI agents potentially executing workflows for hours or even days, recovering from failure without duplicating transactions becomes essential.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;If you design systems from the ground up that things are always going to fail, you simulate failures all the time, and that&amp;rsquo;s how you get to a robust application.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;If you design systems from the ground up that things are always going to fail, you simulate failures all the time, and that&amp;#8217;s how you get to a robust application,&amp;#8221; George said. Orkes Conductor addresses that problem through workflow orchestration, recovery mechanisms, security controls, and audit trails. Developers can combine deterministic business processes with AI-driven decisions while retaining visibility into individual actions.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;For regulated industries such as banking and insurance, that visibility is particularly valuable. Organizations need to reconstruct an agent&amp;#8217;s decisions, identify which models and systems were involved, and explain outcomes to customers or regulators.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-knowing-when-to-use-an-agent" class="wp-block-heading"&gt;&lt;strong&gt;Knowing when to use an agent&lt;/strong&gt;&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;One particularly useful part of the conversation examines a straightforward e-commerce refund. George explains why AI agents should handle ambiguous tasks, such as interpreting customer complaints, while predictable operations &amp;ndash; issuing refunds, updating financial records and generating receipts &amp;ndash; remain conventional workflows. Unusual or high-risk cases can be escalated to humans.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;&amp;hellip;successful agentic applications aren&amp;rsquo;t necessarily the most autonomous. They&amp;rsquo;re the ones that combine intelligence with dependable execution.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The broader message for developers is that successful agentic applications aren&amp;#8217;t necessarily the most autonomous. They&amp;#8217;re the ones that combine intelligence with dependable execution.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Watch our&lt;/strong&gt; &lt;a href="https://www.youtube.com/watch?v=JLpOzs1zFjE" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;full interview with Jeu George&lt;/strong&gt;&lt;/a&gt; to learn how Orkes is approaching enterprise data integration, agent orchestration, security, and explainability &amp;ndash; and why George believes the next generation of AI applications will require a fundamentally different production infrastructure.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/orkes-particledb-agentic-database/"&gt;How Orkes ParticleDB turns an impressive demo into a remarkable application&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Orkes CEO Jeu George tells The New Stack how ParticleDB and Conductor can help developers build reliable, secure AI agents that move beyond demos and into production.</content:encoded>
     </item>
   </channel>
 </rss>
