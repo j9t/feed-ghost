@@ -5,7 +5,7 @@
     <atom:link href="https://thenewstack.io/blog/feed/" rel="self" type="application/rss+xml" />
     <link>https://thenewstack.io/blog/</link>
     <description />
-    <lastBuildDate>Wed, 25 Nov 2026 00:47:57 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 12:53:45 +0000</lastBuildDate>
     <language>en-US</language>
     <sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,510 @@
       <height>32</height>
     </image>
     <item>
+      <title>Cognition’s new engineers aren’t even downloading code anymore — they build entirely through Devin</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/cognition-devin-automated-engineering/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Thu, 26 Nov 2026 12:53:43 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Engineering</category>
+      <category>AI Operations</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22844798</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b4387bc3-chris-yang-1tns_bvy9jk-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="silhouette of engineer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b4387bc3-chris-yang-1tns_bvy9jk-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Some engineers joining Cognition no longer set up local development environments. Instead, Devin has become their primary interface for software&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cognition-devin-automated-engineering/"&gt;Cognition’s new engineers aren’t even downloading code anymore — they build entirely through Devin&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/b4387bc3-chris-yang-1tns_bvy9jk-unsplash-1-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="silhouette of engineer" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/b4387bc3-chris-yang-1tns_bvy9jk-unsplash-1-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Some engineers joining Cognition no longer set up local development environments&lt;/strong&gt;. Instead, Devin has become their primary interface for software development.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Speaking to &lt;a href="https://www.linkedin.com/in/patrick-o-shaughnessy-6721176/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Patrick O&amp;rsquo;Shaughnessy&lt;/a&gt; on Tuesday&amp;rsquo;s episode of &lt;em&gt;Invest Like the Best&lt;/em&gt;, Cognition co-founder and CEO &lt;a href="https://www.linkedin.com/in/scott-wu-8b94ab96/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Scott Wu&lt;/a&gt; describes how the company&amp;rsquo;s internal engineering practices have changed as coding agents have become more capable.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-no-terminal-no-download" class="wp-block-heading"&gt;No terminal, no download&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The funniest moment for me, I would say, was actually around like four or five months ago when we started to realize that new engineers that joined our team just didn&amp;rsquo;t even download the code on their computer,&amp;rdquo; Wu says. &amp;ldquo;Like they didn&amp;rsquo;t pull up a terminal. They didn&amp;rsquo;t run a command line or anything.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;new engineers that joined our team just didn&amp;rsquo;t even download the code on their computer &amp;hellip; They didn&amp;rsquo;t run a command line or anything.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Over roughly a year, Cognition doubled its engineering headcount while increasing its rate of merged pull requests 20-fold, Wu says. That amounts to approximately ten times as many merged pull requests per engineer, despite the company&amp;rsquo;s already extensive use of AI coding tools a year earlier.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Perhaps more significant, Wu estimates, is that approximately 90% of Cognition&amp;rsquo;s internal Devin usage is now automated in some form.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-devin-runs-itself" class="wp-block-heading"&gt;When Devin runs itself&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Wu cites incident response as an example of Cognition&amp;#8217;s automated Devin workflows, where an error can trigger an investigation before an on-call engineer intervenes.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It doesn&amp;rsquo;t involve a human saying, &amp;lsquo;Hey, Devin, I need you to go work on this thing&amp;rsquo; to kick it off.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;It doesn&amp;rsquo;t involve a human saying, &amp;lsquo;Hey, Devin, I need you to go work on this thing&amp;rsquo; to kick it off,&amp;rdquo; Wu says.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Although Wu does not specify whether the 90% figure represents session count, token consumption, or another metric, automated execution has implications for compute provisioning and budget allocation as inference demand becomes less dependent on individual developer activity.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cognition has already introduced &lt;a href="https://thenewstack.io/22842541cognition-devin-hierarchical-budgets/" class="local-link"&gt;hierarchical budgets for Devin&lt;/a&gt;, which give enterprises spending controls across organizational levels.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-250-000-pull-requests-monthly" class="wp-block-heading"&gt;250,000 pull requests monthly&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Wu says one of Cognition&amp;rsquo;s largest banking customers was on track to merge 250,000 pull requests with Devin in October. Until a few months earlier, the entire organization had been merging approximately 400,000 pull requests per month.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The bank has approximately 80,000 engineering personnel, according to Wu, and only a fraction of the organization had been fully onboarded to Devin at the time of the interview.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Separately, Citi CEO &lt;a href="https://www.linkedin.com/in/jane-fraser-dbe-3292068/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Jane Fraser&lt;/a&gt; says during the bank&amp;rsquo;s &lt;a href="https://earningsreport.io/app/event/US/C/2026/q3-40f1504b4123/transcript" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;third-quarter earnings call&lt;/a&gt; that 14,000 engineers use Devin.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Neither Cognition&amp;rsquo;s internal figures nor the banking customer&amp;rsquo;s projected PR volume account for the complexity of individual changes. Wu does not provide corresponding data on change failure rates or &lt;a href="https://thenewstack.io/harness-augment-cosmos-acquisition/" class="local-link"&gt;review workloads&lt;/a&gt;, metrics that would help establish whether the rest of the SDLC has kept pace with implementation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The disparity between implementation and review capacity has already prompted vendors such as CodeRabbit to expand into &lt;a href="https://thenewstack.io/coderabbit-agentic-change-management-review/" class="local-link"&gt;agentic change management&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Wu argues that enterprise adoption also requires engineering leaders to reconsider their roadmaps and organizational structures to accommodate additional implementation capacity.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-watching-the-agent-swarms" class="wp-block-heading"&gt;Watching the agent swarms&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The shift from individual background agents to swarms is a particular concern for Wu because monitoring becomes more difficult when multiple agents work together.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Cognition has been exploring this execution model with its recently introduced &lt;a href="https://thenewstack.io/cognition-devin-bots-management/" class="local-link"&gt;Devin Bots&lt;/a&gt;, persistent agents that manage other agents&amp;#8217; work.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Wu stresses the need to &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/" class="local-link"&gt;catch unintended agent behavior early&lt;/a&gt; and limit what agents can access, especially when workflows run without an engineer supervising them.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-engineering-skill-ceiling-hasn-t-changed" class="wp-block-heading"&gt;The engineering skill ceiling hasn&amp;rsquo;t changed&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The barrier to entry has for sure gotten a lot lower,&amp;rdquo; Wu says. &amp;ldquo;However, I think the skill ceiling and, you know, a lot of the particular skill sets that you need are still very much the same as they always have been.&amp;rdquo;&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I think people who can do that really well have always been valuable and now they&amp;rsquo;re just 10 times more valuable.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;For Wu, writing code is only one part of software engineering. Engineers still have to figure out what an incomplete or ambiguous specification actually means and make architectural decisions that could affect the business for years, even if an agent handles the implementation.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;I think people who can do that really well have always been valuable and now they&amp;rsquo;re just 10 times more valuable,&amp;rdquo; Wu says.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/cognition-devin-automated-engineering/"&gt;Cognition’s new engineers aren’t even downloading code anymore — they build entirely through Devin&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>New engineers at Cognition don’t download the code anymore — CEO Scott Wu says roughly 90% of internal Devin usage now runs without a human trigger.</content:encoded>
+    </item>
+    <item>
+      <title>Anthropic set more than 1,700 traps for Claude — what it found is both reassuring and unsettling</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/anthropic-siren-sandbox-escape/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Wed, 25 Nov 2026 19:45:18 +0000</pubDate>
+      <category>AI Agents</category>
+      <category>AI Infrastructure</category>
+      <category>Security</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22844670</guid>
+      <description>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/11/afef36d4-anton-zaharchenko-_nnkfihzhhs-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/afef36d4-anton-zaharchenko-_nnkfihzhhs-unsplash-scaled.jpg" /&gt;&lt;p&gt;As coding agents take on longer-running engineering tasks, Anthropic is examining how models behave when their execution environments fail to&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-siren-sandbox-escape/"&gt;Anthropic set more than 1,700 traps for Claude — what it found is both reassuring and unsettling&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="512" src="https://cdn.thenewstack.io/media/2026/11/afef36d4-anton-zaharchenko-_nnkfihzhhs-unsplash-1024x512.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="abstract maze" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/afef36d4-anton-zaharchenko-_nnkfihzhhs-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;As coding agents take on longer-running engineering tasks&lt;/strong&gt;, Anthropic is examining how models behave when their execution environments fail to enforce intended security boundaries.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;hellip;documenting a sandbox&amp;rsquo;s intended isolation properties in the system prompt reduced the likelihood of agents reaching outside their authorized environments by 68% to 96%&amp;hellip;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The company&amp;rsquo;s safeguards team found that explicitly documenting a sandbox&amp;rsquo;s intended isolation properties in the system prompt reduced the likelihood of agents reaching outside their authorized environments by 68% to 96% across six Claude models.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In research published Tuesday, Anthropic introduced &lt;a href="https://safeguards.anthropic.com/2026/siren/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Siren&lt;/a&gt;, an internal evaluation designed to measure a model&amp;rsquo;s propensity to exploit weaknesses in its execution environment to complete otherwise legitimate tasks.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The researchers tested more than 1,700 scenarios across 26 sandbox configurations, including Docker, gVisor and QEMU. Drawing on publicly reported sandbox escapes, they focused primarily on misconfigurations and deliberately placed resources outside the sandbox that could help agents complete routine DevOps assignments.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-reaching-outside-the-sandbox" class="wp-block-heading"&gt;Reaching outside the sandbox&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic evaluated the six models without the safeguards included in its commercial deployments. The Claude 5.5 series and Claude Mythos 5.2 attempted to access or accessed external resources in 21% to 32% of scenarios.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;However, use of those resources that could not reasonably be interpreted as authorized occurred in just 0.6% to 1.6% of scenarios, compared with 12.7% for Claude Mythos 5.1 and 25.8% for Claude Mythos 5.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic cautioned against interpreting these figures as real-world incident rates.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-spelling-out-the-sandbox-rules" class="wp-block-heading"&gt;Spelling out the sandbox rules&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Anthropic found that recent models frequently rationalized their use of external resources as permissible within the context of their assignments. Tasks that were impossible to complete within the sandbox produced particularly high rates of boundary-crossing behavior.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Tasks that were impossible to complete within the sandbox produced particularly high rates of boundary-crossing behavior.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Across 366 scenarios involving impossible tasks, removing language that encouraged exhaustive searches and granted broad authority over the machine reduced the frequency of reaching outside the sandbox by 23 to 26 percentage points in five of the six models tested. A separate study earlier this fall found that &lt;a href="https://thenewstack.io/coding-agents-overstep-scope/" class="local-link"&gt;removing a single sentence pushed Claude Code&amp;rsquo;s out-of-scope rate from zero to 17.1%&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When researchers spelled out the sandbox&amp;rsquo;s rules, the rate of reaching outside dropped to around 2% or less for the Claude 5.5 series and Claude Mythos 5.2. Anthropic already uses this approach in &lt;a href="https://code.claude.com/docs/en/sandboxing" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Claude Code&lt;/a&gt; when sandboxing is enabled.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-reporting-weaknesses-instead-of-exploiting" class="wp-block-heading"&gt;Reporting weaknesses instead of exploiting&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The researchers also gave agents a sanctioned way to report sandbox weaknesses to infrastructure operators and to check whether another agent had already flagged the same problem.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Combined with Anthropic&amp;rsquo;s auto mode, which uses a classifier to assess whether tool calls align with user intent, the mitigations eliminated measured misaligned use in five of the six models. Claude Mythos 5 recorded a rate of 0.1%.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Two models saw completion rates fall by roughly nine percentage points on tasks achievable within the sandbox, and Anthropic tuned its classifier on the same scenarios used to evaluate it.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-when-claude-senses-the-test" class="wp-block-heading"&gt;When Claude senses the test&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Although none of the six models were trained on Siren&amp;rsquo;s scenarios or transcripts, evaluation awareness ranged from 43% to 67% among the four newest models, compared with 29% and 36% for their predecessors, with Claude Sonnet 5.5 recording the highest rate.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;evaluation awareness ranged from 43% to 67% among the four newest models&amp;hellip; with Claude Sonnet 5.5 recording the highest rate.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Newer models were also less likely to reach outside their sandboxes, though Anthropic could not establish whether evaluation awareness contributed to that restraint or whether both behaviors resulted from changes in model training.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-siren-sandbox-escape/"&gt;Anthropic set more than 1,700 traps for Claude — what it found is both reassuring and unsettling&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+    </item>
+    <item>
+      <title>OpenAI claims to have solved a 57-year-old math problem at the heart of AI computation</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/openai-matrix-multiplication-exponent/</link>
+      <dc:creator>Amanda Caswell</dc:creator>
+      <pubDate>Wed, 25 Nov 2026 18:14:05 +0000</pubDate>
+      <category>AI Infrastructure</category>
+      <category>Hardware</category>
+      <category>Science</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22844666</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/91f0c755-getty-images-anlxx3-ywe8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract matrix grid" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/91f0c755-getty-images-anlxx3-ywe8-unsplash-scaled.jpg" /&gt;&lt;p&gt;OpenAI claims to have solved a problem that has occupied theoretical computer scientists since 1969. In a preprint published Tuesday&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-matrix-multiplication-exponent/"&gt;OpenAI claims to have solved a 57-year-old math problem at the heart of AI computation&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/91f0c755-getty-images-anlxx3-ywe8-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Abstract matrix grid" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/91f0c755-getty-images-anlxx3-ywe8-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;OpenAI claims to have solved a problem that has occupied theoretical computer scientists since 1969.&lt;/strong&gt; In a preprint published Tuesday on GitHub, the company presents a lower bound for the exponent of square matrix multiplication that matches the upper bound of 2.25 it reported in October.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenAI claims to have solved a problem that has occupied theoretical computer scientists since 1969.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;If the proof holds, developers working on numerical libraries and AI infrastructure will know where the mathematical limit lies and can focus on other ways to improve performance.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The paper is one of &lt;a href="https://github.com/openai/math/blob/main/history.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;nine manuscripts OpenAI released Tuesday&lt;/a&gt;, seven of which apply a new geometric theory of tensors to problems in arithmetic complexity and combinatorics.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-bounding-the-exponent-at-2-25" class="wp-block-heading"&gt;Bounding the exponent at 2.25&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In 1969, &lt;a href="https://en.wikipedia.org/wiki/Volker_Strassen" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Volker Strassen&lt;/a&gt; showed that two n &amp;times; n matrices could be multiplied with an arithmetic exponent below three, prompting researchers to see how close they could get to two.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The previous record was approximately 2.371 before OpenAI claimed an upper bound of 2.25 over the complex numbers in an &lt;a href="https://github.com/openai/math/tree/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 2 preprint&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-independent-researchers-weigh-in" class="wp-block-heading"&gt;Independent researchers weigh in&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Researchers Mahmut Levent Do&amp;#287;an, Vladimir Lysikov, Keiya Sakabe, and Michael Walter from LMU Munich in Germany published their own &lt;a href="https://arxiv.org/abs/2611.09716" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;exposition of the proof&lt;/a&gt; earlier this month.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The researchers arrived at the same upper bound over arbitrary fields by substituting a variant of the tensor value introduced by IBM researchers Don Coppersmith and Shmuel Winograd for the spectral points used in OpenAI&amp;#8217;s original proof.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;OpenAI approaches the problem through a computational lower bound for determining whether the entries in several independent lists are distinct.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In Tuesday&amp;#8217;s 111-page manuscript, &amp;#8220;The matrix multiplication exponent is nine fourths,&amp;#8221; OpenAI approaches the problem through a computational lower bound for determining whether the entries in several independent lists are distinct.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://github.com/openai/math/tree/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;companion paper on tensor geometry&lt;/a&gt;, OpenAI develops the mathematical framework for its argument that bringing the exponent below 2.25 would allow certain tensor networks to be compressed in violation of the lower bound for the distinctness problem.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The authors put the lower bound for multiplying two n &amp;times; n matrices at &amp;lceil;n&amp;sup2;&amp;middot;&amp;sup2;&amp;#8309;/2&amp;rceil; nonscalar multiplications or divisions in a formal arithmetic circuit, even if linear operations are free and for any n &amp;ge; 2.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-what-lean-actually-verifies" class="wp-block-heading"&gt;What Lean actually verifies&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI released a Lean formalization alongside the manuscript as developers explore AI-assisted &lt;a href="https://thenewstack.io/leanstral-formal-verification-code/" class="local-link"&gt;formal verification&lt;/a&gt; in software engineering.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The LMU Munich researchers also published their own &lt;a href="https://github.com/qit-lmu/omega" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lean formalization&lt;/a&gt; of the upper-bound proof in November. Their implementation establishes the bound in terms of asymptotic tensor rank but does not formalize the arithmetic computational model discussed in their paper.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;One limitation noted in OpenAI&amp;#8217;s documentation is that the Lean proofs cover formal polynomial identities over arbitrary fields using division-free arithmetic programs. The lower bound for circuits that permit division has not been formalized in Lean as part of this release.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In OpenAI&amp;#8217;s &lt;a href="https://github.com/openai/math/blob/main/lean/OAI/LinearAlgebra/SpectralBooks/ExactExponent.lean" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Lean source code&lt;/a&gt;, the square exponent theorem relies on two imported theorems that connect the formal arithmetic model to the matrix multiplication exponent.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;OpenAI presents an exact formula for rectangular matrix multiplication exponents and puts the dual exponent at 0.5, which would mean that multiplying an n &amp;times; n matrix by an n &amp;times; &amp;lceil;n&amp;#7511;&amp;rceil; matrix has an arithmetic exponent of two for values of t between zero and 0.5.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;On October 7, OpenAI &lt;a href="https://github.com/openai/math/blob/main/history.md" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;withdrew three manuscripts and revised 14 others&lt;/a&gt;. The withdrawals followed the discovery of a sign error in a paper on algebraic geometry that invalidated a construction used in two dependent papers. None of the three concerned matrix multiplication.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-gpu-performance-in-practice" class="wp-block-heading"&gt;GPU performance in practice&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The rectangular matrix multiplication results are worth a closer look considering how much activation matrix dimensions vary with batch size and token count in transformer workloads.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;Given the different computational demands of prefill and autoregressive decoding, the rectangular exponent may be a more useful result for inference optimization than the square exponent of 2.25.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Given the different computational demands of prefill and autoregressive decoding, the rectangular exponent may be a more useful result for inference optimization than the square exponent of 2.25.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;GPU utilization also depends on implementation. Nvidia&amp;#8217;s &lt;a href="https://docs.nvidia.com/deeplearning/performance/dl-performance-matrix-multiplication/index.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;GEMM performance documentation&lt;/a&gt; explains how larger tiles can improve data reuse while leaving fewer thread blocks available to keep the GPU busy.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Any claims about lower training or inference costs will have to wait until researchers can benchmark new algorithms against existing &lt;a href="https://thenewstack.io/nvidia-wants-more-programming-languages-to-support-cuda/" class="local-link"&gt;CUDA implementations&lt;/a&gt; at production matrix sizes and precisions.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/openai-matrix-multiplication-exponent/"&gt;OpenAI claims to have solved a 57-year-old math problem at the heart of AI computation&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>OpenAI’s new preprint claims the exponent of square matrix multiplication is exactly 2.25 — what the proof could mean for AI infrastructure developers.</content:encoded>
+    </item>
+    <item>
+      <title>JetBrains’ latest Mellum coding model uses 45% fewer tokens. It got there by not thinking.</title>
+      <link>https://web.archive.org/web/https://thenewstack.io/jetbrains-mellum2-1-instruct-coding-model/</link>
+      <dc:creator>Paul Sawers</dc:creator>
+      <pubDate>Wed, 25 Nov 2026 17:23:47 +0000</pubDate>
+      <category>AI</category>
+      <category>AI Agents</category>
+      <category>AI Models</category>
+      <category>Open Source</category>
+      <guid isPermaLink="false">https://thenewstack.io/?p=22844648</guid>
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/1381c9a4-vecto-vecto-oysxhuljwhq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a pile of tokens." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/1381c9a4-vecto-vecto-oysxhuljwhq-unsplash-scaled.jpg" /&gt;&lt;p&gt;JetBrains has launched a new variant of its open source coding model, one designed to tackle quick code edits, tool&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/jetbrains-mellum2-1-instruct-coding-model/"&gt;JetBrains&amp;#8217; latest Mellum coding model uses 45% fewer tokens. It got there by not thinking.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/1381c9a4-vecto-vecto-oysxhuljwhq-unsplash-1024x576.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Illustration of a pile of tokens." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/1381c9a4-vecto-vecto-oysxhuljwhq-unsplash-scaled.jpg" /&gt;
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.jetbrains.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;JetBrains&lt;/a&gt; has launched a new variant of its open source coding model, one designed to tackle quick code edits, tool calls and all the smaller tasks that AI coding agents perform in the course of solving bigger problems.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Instruct" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mellum2.1 Instruct&lt;/a&gt;, as it&amp;#8217;s called, is the latest installment in JetBrains&amp;#8217; in-house coding model lineup. The original Mellum, which &lt;a href="https://blog.jetbrains.com/blog/2024/10/22/introducing-mellum-jetbrains-new-llm-built-for-developers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;debuted back in 2024&lt;/a&gt;, was a proprietary model built specifically for low-latency code completion in JetBrains&amp;#8217; IDEs. &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Then in June this year, &lt;a href="https://thenewstack.io/jetbrains-mellum2-open-source-coding-model/" class="local-link"&gt;JetBrains introduced Mellum2&lt;/a&gt;, a more versatile, 12-billion-parameter mixture-of-experts (MoE) model released under an Apache 2.0 license in both reasoning (Thinking) and non-reasoning (Instruct) variants. While Mellum2 was trained to handle individual coding tasks and tool calls, the next iteration would focus more specifically on how agents operate across entire code repositories.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;That came &lt;a href="https://blog.jetbrains.com/ai/2026/10/mellum2-1-gets-to-work-a-fast-open-model-for-coding-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;last month with Mellum2.1 Thinking&lt;/a&gt;, which retained the same underlying architecture as Mellum2, but with an additional stage of reinforcement learning (RL) in which the model learned to navigate repositories, use shell and file tools, and make changes that would pass hidden tests.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;With Mellum2.1 Instruct, JetBrains is now extending that same repository-level training to its non-reasoning model, which generates answers without an explicit chain-of-thought. As with its Thinking sibling, the company used Nvidia&amp;#8217;s open source &lt;a href="https://docs.nvidia.com/nemo/rl/0.7.0/index.html" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;NeMo RL&lt;/a&gt; and &lt;a href="https://docs.nvidia.com/nemo/megatron-bridge/latest/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;NeMo Megatron-Bridge&lt;/a&gt; libraries to train the model using infrastructure capable of running 10,000 sandboxes concurrently.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;The result is a leaner coding model fine-tuned for speed and token efficiency, capable of handling many of the same agentic tasks as its Thinking counterpart, with about half the token consumption, according to JetBrains&amp;#8217; testing.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-the-cost-of-overthinking" class="wp-block-heading"&gt;The cost of overthinking&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In a &lt;a href="https://blog.jetbrains.com/ai/2026/11/mellum2-1-instruct-is-out-bringing-faster-answers-for-coding-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;blog post&lt;/a&gt; published on Wednesday, &lt;a href="https://www.linkedin.com/in/gleb-ingman/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Gleb Ingman&lt;/a&gt;, who works on the Mellum model team at JetBrains, notes that Mellum2.1 Instruct was built specifically for &amp;#8220;sub-agents, tool loops, and chat.&amp;#8221; &lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In real terms, this means that while Mellum2.1 Thinking is better suited to investigative tasks such as diagnosing why a unit test is failing, much of a coding agent&amp;#8217;s day-to-day work involves more straightforward operations, such as modifying a few lines of code or retrieving information from a codebase. It&amp;#8217;s these kinds of tasks that Mellum2.1 Instruct is geared toward, either operating independently or handling assignments delegated to it by a more powerful model.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;Every extra thinking token adds to the time you&amp;rsquo;re waiting.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;In these cases, reasoning adds time and computing resources without adding quality,&amp;#8221; Ingman writes. &amp;#8220;This is especially true when the model runs locally &amp;#8212; every extra thinking token adds to the time you&amp;rsquo;re waiting.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Indeed, in the wake of the Thinking release, Ingman says that JetBrains fielded numerous requests from developers running models locally for a less verbose alternative capable of handling &amp;#8220;moderately hard tasks.&amp;#8221;&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;In its own benchmarking, JetBrains pits Mellum2.1 Instruct against the previous &lt;a href="https://huggingface.co/JetBrains/Mellum2-12B-A2.5B-Instruct" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mellum2 Instruct model&lt;/a&gt;, as well as Alibaba&amp;#8217;s &lt;a href="https://huggingface.co/Qwen/Qwen3.5-9B" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Qwen3.5 9B&lt;/a&gt; and &lt;a href="https://huggingface.co/google/gemma-4-E4B-it" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Google&amp;#8217;s Gemma 4 E4B&lt;/a&gt;, with reasoning disabled in both competing models. The six benchmarks cover agentic coding, multilingual code generation, tool use, instruction following and mathematical problem-solving.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mellum2.1 Instruct doubled its predecessor&amp;#8217;s score on SWE-bench Verified, which measures a model&amp;#8217;s ability to resolve real-world software issues, jumping from 20.2% to 40.4%. It also outperformed all three models on the MultiPL-E code generation benchmark and broadly matched Qwen3.5 9B on ToolHop, which evaluates multi-step tool use.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/9435507b-benchmarkoverview-1024x768.webp" alt="Mellum2.1 Instruct vs Thinking: Benchmark overview" class="wp-image-22844655"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Mellum2.1 Instruct: Comparative benchmark performance&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;Qwen3.5 9B, it&amp;#8217;s worth noting, still came out ahead on SWE-bench Verified, scoring 49.8%. However, JetBrains points to Mellum&amp;#8217;s MoE architecture, which activates just 2.5 billion of its 12 billion parameters for each token. According to the company&amp;#8217;s earlier testing, this enables Mellum2.1 to generate tokens around 1.4 times as fast as Qwen3.5 9B for individual requests and 1.8 times as fast under load.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Perhaps more pertinent to this particular release, though, is how Mellum2.1 Instruct compares with its Thinking sibling in terms of token generation. In JetBrains&amp;#8217; agentic coding tests, the new model generated an average of 5,600 tokens per task, compared with 10,100 for Thinking &amp;#8212; a reduction of 45%.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;When tokens associated with tool calls were excluded, that reduction rose to 73%.&lt;/p&gt;
+
+
+&lt;div class="wp-block-image"&gt;
+&lt;figure class="aligncenter size-large"&gt;&lt;img loading="lazy" decoding="async" width="1024" height="768" src="https://cdn.thenewstack.io/media/2026/11/0acdb4c4-tokensgeneratedpertask-1024x768.webp" alt="Mellum2.1 Instruct vs Thinking: Tokens per task" class="wp-image-22844656"/&gt;&lt;figcaption class="wp-element-caption"&gt;&lt;em&gt;Mellum2.1 Instruct vs Thinking: Tokens per task&lt;/em&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/div&gt;
+
+
+&lt;p class="wp-block-paragraph"&gt;There are trade-offs, of course. While the two variants perform almost equally well on SWE-bench Verified, the gap widens on benchmarks that draw on competitive programming and mathematics competitions.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;On hard algorithmic and math problems, such as those in LiveCodeBench and AIME, thinking is crucial, and so Mellum2.1 Thinking remains the better choice,&amp;#8221; Ingman writes.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;&amp;#8220;On hard algorithmic and math problems&amp;#8230;. thinking is crucial, and so Mellum2.1 Thinking remains the better choice.&amp;#8221;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mellum2.1 Instruct is available on Hugging Face under an Apache 2.0 license, including a GGUF version for running the model locally on hardware with limited memory. JetBrains is also releasing a multi-token prediction (MTP) head alongside the model, which predicts multiple tokens ahead to accelerate generation by up to 1.8 times, according to the company.&lt;/p&gt;
+
+
+
+&lt;h2 id="h-a-model-for-the-multi-agent-era" class="wp-block-heading"&gt;A model for the multi-agent era&lt;/h2&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Mellum2.1 Instruct arrives as JetBrains increasingly focuses its core developer tools on agent orchestration. In September, the company &lt;a href="https://thenewstack.io/jetbrains-air-agents-ide/" class="local-link"&gt;introduced a revamped version of Air&lt;/a&gt;, its development environment for working with multiple coding agents. JetBrains has also been expanding the capabilities of Junie, the &lt;a href="https://blog.jetbrains.com/junie/2025/01/meet-junie-your-coding-agent-by-jetbrains/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;coding agent it launched last year&lt;/a&gt;, with a renewed &lt;a href="https://thenewstack.io/jetbrains-junie-local-agent/" class="local-link"&gt;emphasis on local execution&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
+&lt;p class="wp-block-paragraph"&gt;As developers delegate more work to agents, and those agents in turn delegate tasks to other agents, there is clear scope for using different models according to the complexity of the job at hand.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;As developers delegate more work to agents, and those agents in turn delegate tasks to other agents, there is clear scope for using different models according to the complexity of the job at hand. A more token-efficient model such as Mellum2.1 Instruct, therefore, could help keep inference costs and latency in check across such a system.&lt;/p&gt;
+
+
+
+&lt;p class="wp-block-paragraph"&gt;Whether JetBrains intends to deploy Mellum2.1 Instruct in its own agentic products, such as Air or Junie, remains unclear.&lt;/p&gt;
+&lt;p&gt;The post &lt;a href="https://thenewstack.io/jetbrains-mellum2-1-instruct-coding-model/"&gt;JetBrains&amp;#8217; latest Mellum coding model uses 45% fewer tokens. It got there by not thinking.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
+</content:encoded>
+      <content:encoded>Mellum2.1 Instruct drops the reasoning step of its Thinking sibling to speed up routine agent work, though it falls behind on harder problems.</content:encoded>
+    </item>
+    <item>
       <title>Please don’t give the robot my SSH keys: How to keep AI out of trouble</title>
       <link>https://web.archive.org/web/https://thenewstack.io/teleport-agent-delegated-identity/</link>
       <dc:creator>Chris J. Preimesberger</dc:creator>
@@ -33,7 +537,7 @@
       <category>sponsored-podcast</category>
       <category>Video</category>
       <guid isPermaLink="false">https://thenewstack.io/?p=22844577</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/f559b693-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, recorded at KubeCon + CloudNativeCon 2026 in Salt Lake City, Frederic Lardinois speaks with Boris Kurktchiev, field CTO at Teleport, about the challenges of securing AI agents at scale and why sandboxing alone is insufficient." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" fetchpriority="high" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/f559b693-thumbnail-20.png" /&gt;&lt;p&gt;Say a developer asks an AI agent to find out why a Kubernetes pod keeps crashing. The agent needs logs.&lt;/p&gt;
+      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/f559b693-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, recorded at KubeCon + CloudNativeCon 2026 in Salt Lake City, Frederic Lardinois speaks with Boris Kurktchiev, field CTO at Teleport, about the challenges of securing AI agents at scale and why sandboxing alone is insufficient." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/f559b693-thumbnail-20.png" /&gt;&lt;p&gt;Say a developer asks an AI agent to find out why a Kubernetes pod keeps crashing. The agent needs logs.&lt;/p&gt;
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/teleport-agent-delegated-identity/"&gt;Please don&amp;#8217;t give the robot my SSH keys: How to keep AI out of trouble&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </description>
       <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/f559b693-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack Podcast, recorded at KubeCon + CloudNativeCon 2026 in Salt Lake City, Frederic Lardinois speaks with Boris Kurktchiev, field CTO at Teleport, about the challenges of securing AI agents at scale and why sandboxing alone is insufficient." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/f559b693-thumbnail-20.png" /&gt;
@@ -44,13 +548,13 @@
 &lt;p class="wp-block-paragraph"&gt;In a conversation with &lt;em&gt;The New Stack&amp;rsquo;s&lt;/em&gt; Frederic Lardinois at &lt;a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;KubeCon + CloudNativeCon&lt;/a&gt; this month in Salt Lake City, &lt;a href="https://goteleport.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Teleport&lt;/a&gt; field CTO &lt;a href="https://linkedin.com/in/kurktchiev" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Boris Kurktchiev&lt;/a&gt; uses that debugging scenario to explain delegated identity. The agent starts without access and requests what it needs for the job. The audit trail links the person who requested the work to the actions the agent took. A developer can send the agent to investigate without lending it their keys.&lt;/p&gt;
 
 
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/kBrNFSAWmKE?si=UhsziTeRgp2Ahc1L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/kBrNFSAWmKE?si=UhsziTeRgp2Ahc1L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
 
 
 &lt;p class="wp-block-paragraph"&gt;&amp;ldquo;The agent had access on behalf of Boris,&amp;rdquo; Kurktchiev said.&lt;/p&gt;
 
 
-&lt;iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/021c33a7-bb5f-4c16-847e-da0f102d642f?dark=true"&gt;&lt;/iframe&gt;
+&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/021c33a7-bb5f-4c16-847e-da0f102d642f?dark=true"&gt;&lt;/iframe&gt;
 
 
 &lt;h2 id="h-one-access-policy-across-the-stack" class="wp-block-heading"&gt;One access policy across the stack&lt;/h2&gt;
@@ -3243,472 +3747,6 @@
 &lt;p&gt;The post &lt;a href="https://thenewstack.io/anthropic-claude-code-verification/"&gt;Anthropic says Claude writes and reviews 90% of its team&amp;#8217;s code. The catch is how it checks the work.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
 </content:encoded>
       <content:encoded>Anthropic’s Claude Code team lets AI write 90% of its code. Here’s how automated checks verify that work without engineers reviewing every change.</content:encoded>
-    </item>
-    <item>
-      <title>Does your AI agent need an LLM to decide what to do next?</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/aws-decider-models-agents/</link>
-      <dc:creator>Chris J. Preimesberger</dc:creator>
-      <pubDate>Fri, 20 Nov 2026 01:37:32 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>AI Models</category>
-      <category>Podcast</category>
-      <category>sponsor-amazon-web-services-aws</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22844265</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/65a3138e-for-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AGNTCon + MCPCon in San Jose, Nick Lucchesi speaks with Mike Chambers, Senior AI Developer Experience Engineer at AWS, about how small decision models could make AI agents faster, more efficient, and cost-effective. Unlike large language models (LLMs) that generate responses through multiple processing steps, decider models quickly evaluate information and return probability-based decisions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/65a3138e-for-thumbnail-20.png" /&gt;&lt;p&gt;Say &amp;#8220;good morning&amp;#8221; to an AI agent, and it might search its long-term memory before saying hello back. Somewhere in&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-decider-models-agents/"&gt;Does your AI agent need an LLM to decide what to do next?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/65a3138e-for-thumbnail-20-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AGNTCon + MCPCon in San Jose, Nick Lucchesi speaks with Mike Chambers, Senior AI Developer Experience Engineer at AWS, about how small decision models could make AI agents faster, more efficient, and cost-effective. Unlike large language models (LLMs) that generate responses through multiple processing steps, decider models quickly evaluate information and return probability-based decisions." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/65a3138e-for-thumbnail-20.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Say &amp;ldquo;good morning&amp;rdquo; to an AI agent&lt;/strong&gt;, and it might search its long-term memory before saying hello back. Somewhere in that system, a service performs a semantic lookup to determine whether your greeting requires understanding your beverage preferences. Even if you take your coffee very seriously, this seems like a lot of infrastructure for two words.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Does this request need a more capable model than conventional options? Is this retrieved memory relevant? Should the workflow pause for a human?&lt;/p&gt;
-
-
-&lt;p&gt;&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/AiC47db6eEA?si=vdmU4tS2vc4bvIgC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This inefficiency and indecision is where &lt;a href="https://www.linkedin.com/in/mikegchambers/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Mike Chambers&lt;/a&gt;, a senior AI DevEx engineer at AWS, sees an opportunity. In a conversation last month at &lt;a href="https://events.linuxfoundation.org/agntcon-mcpcon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AGNTCon + MCPCon North America 2026&lt;/a&gt; in San Jose, California, Chambers explained to &lt;em&gt;The New Stack&lt;/em&gt; Editor-in-Chief Nick Lucchesi how developers can use &lt;a href="https://aws.amazon.com/blogs/machine-learning/use-decision-models-with-amazon-bedrock-agentcore-evaluations/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;decider models&lt;/a&gt; to handle the small judgments that add up inside an agent.&amp;nbsp;&lt;/p&gt;
-
-
-&lt;p&gt;&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/8dc4d5df-7509-4356-b4f4-b1908a24fa9f?dark=true"&gt;&lt;/iframe&gt;&lt;/p&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;Decider models (also called decision models or System One models) are specialized AI models that choose from a fixed set of options or rate inputs on a scale &amp;mdash; returning calibrated probabilities without generating free-form text. Popularized by &lt;a href="https://thenewstack.io/typesafe-jev-system-one/" class="local-link"&gt;TypeSafe AI&amp;#8217;s Jev&lt;/a&gt;, they give software and agentic workflows fast, low-latency judgments with explicit confidence scores. (AWS&amp;rsquo;s Strands Labs released its own open-source decision model, the 2-billion-parameter &lt;a href="https://thenewstack.io/aws-strands-decider-model/" class="local-link"&gt;Strands Decider 2B&lt;/a&gt;, on October 1.)&lt;/p&gt;
-
-
-
-&lt;h2 id="h-an-if-statement-with-a-feel-for-language" class="wp-block-heading"&gt;An if statement with a feel for language&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Chambers describes the approach as &amp;ldquo;a little bit like having an agentic-powered &amp;#8216;if&amp;#8217; statement inside of your code.&amp;rdquo;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers have used classifiers for years. What makes this generation of decider models interesting, Chambers told &lt;em&gt;The New Stack&lt;/em&gt;, is that general-purpose pretraining lets you try one on a new classification task without first training a model of your own. You supply context in natural language, ask a question about it, and get a numeric score your application can use to choose a branch.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In the models Chambers describes, that score comes back in a single forward pass. There&amp;rsquo;s no token sequence to generate. That can make a decider attractive for a choice that sits on the critical path of every request. A model router, for example, can use a score to send routine prompts to a smaller model and reserve a more capable one for harder jobs. The potential savings come from both the routing decision itself and the downstream work it saves.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-when-an-agent-can-skip-the-memory-search" class="wp-block-heading"&gt;When an agent can skip the memory search&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Chambers tried the idea with the open-source &lt;a href="https://strandsagents.com/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Strands framework&lt;/a&gt; and &lt;a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-memory-building-context-aware-agents/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Amazon Bedrock AgentCore Memory&lt;/a&gt;. He put Strands Decider in front of the memory lookup to judge whether an incoming message called for fetching anything from past conversations. A greeting could go straight through. A request that depends on something the user said earlier could still trigger a search.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;He also tried using a decider after retrieval. A memory service can return the top matches to a query, but some may have little bearing on the task at hand. A decider can score each result for relevance before the agent includes it in the context it sends to the model. One decision can save a service call. The other can give the model less extraneous material to sort through.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-predictable-output-still-needs-testing" class="wp-block-heading"&gt;A predictable output still needs testing&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A number in a predictable JSON field makes a decider easy to wire into an application. Whether that number is reliable enough to act on takes testing. &amp;ldquo;Will the number be correct? That&amp;rsquo;s for your testing to be able to go and figure out whether that&amp;rsquo;s the case or not,&amp;rdquo; Chambers said.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Chambers calls his memory experiment experimental. The interview also gets into what happens when the stakes rise. A missed preference might mean a mediocre coffee recommendation. An agent about to spend money is a different matter, and Chambers argues for checks outside the agent&amp;rsquo;s loop and human approval for decisions that are hard to reverse.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Watch the &lt;a href="https://www.youtube.com/watch?v=AiC47db6eEA" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;full interview&lt;/a&gt; on &lt;a href="https://www.youtube.com/c/TheNewStack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The New Stack&lt;/em&gt;&amp;rsquo;s YouTube channel&lt;/a&gt; for Chambers&amp;rsquo; walkthrough of the memory experiment and a look at where developers are taking open-source deciders next, from documents to robotics.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/aws-decider-models-agents/"&gt;Does your AI agent need an LLM to decide what to do next?&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Every agent makes small judgment calls. AWS’s Mike Chambers says decider models can make them in one pass, with a confidence score your code can use.</content:encoded>
-    </item>
-    <item>
-      <title>Google just gave Gemini the run of your Mac — three days after Apple tightened the rules</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/gemini-mac-computer-use/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Thu, 19 Nov 2026 21:35:09 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>Emerging technologies</category>
-      <category>Security</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22844257</guid>
-      <description>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/11/eedb006c-joshua-woroniecki-lzh3hptjz9c-unsplash-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing Macbook" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/eedb006c-joshua-woroniecki-lzh3hptjz9c-unsplash-scaled.jpg" /&gt;&lt;p&gt;Google is adding computer use to its Gemini app for macOS. The assistant can now work across desktop applications and&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-mac-computer-use/"&gt;Google just gave Gemini the run of your Mac — three days after Apple tightened the rules&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="685" src="https://cdn.thenewstack.io/media/2026/11/eedb006c-joshua-woroniecki-lzh3hptjz9c-unsplash-1024x685.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="Glowing Macbook" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/eedb006c-joshua-woroniecki-lzh3hptjz9c-unsplash-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;Google is adding computer use to its Gemini app for macOS. The assistant can now work across desktop applications and websites in a separate background window without taking over the user&amp;#8217;s screen. Gemini handles tasks in the background while users continue working.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;feature&lt;/a&gt; includes a live preview in the chat so users can monitor the agent&amp;#8217;s activity, pause execution, and approve actions when necessary.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s announcement Thursday comes just three days after Apple introduced tighter permission controls for macOS automation.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company&amp;#8217;s announcement Thursday comes just three days after Apple introduced tighter permission controls for macOS automation. Google hasn&amp;#8217;t explained how Gemini will operate under the new restrictions.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Apple tightens agent permissions&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The &lt;a href="https://developer.apple.com/news/?id=oqng0zjk" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;macOS 27.3 beta 2 changes&lt;/a&gt; split Device Control and Data Access permissions into two categories; System &amp;amp; App Protection Override and Accessibility.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Apps requesting broad system access will face more explicit permission prompts, and users can approve individual requests instead of granting ongoing access.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers building desktop agents will also need to account for &lt;a href="https://thenewstack.io/least-privilege-ai-agents/" class="local-link"&gt;least-privilege access&lt;/a&gt;, since users can restrict or revoke permissions while an agent is running.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-gemini-s-new-mac-powers" class="wp-block-heading"&gt;Gemini&amp;rsquo;s new Mac powers&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google says Gemini can extract shipping details from local PDFs, gather dashboard metrics for presentations, edit batches of photos, and work with 3D design software.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company hasn&amp;#8217;t detailed how the background environment is isolated from macOS, how it maintains state across applications, or which actions require user approval.&lt;/p&gt;
-
-
-
-&lt;h2 class="wp-block-heading"&gt;Google&amp;#8217;s existing computer-use API&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Google introduced computer use with Gemini 2.5 in October 2025 and later integrated it directly into Gemini 3.5 Flash.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;According to the &lt;a href="https://ai.google.dev/gemini-api/docs/computer-use" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;developer documentation&lt;/a&gt;, the model works from screenshots and returns actions for client-side execution. Developers manage the execution environment, while the API provides configurable safety policies, and optional screenshot scanning for prompt injection.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The new Mac feature is part of the consumer Gemini app, not a separate developer API.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The new Mac feature is part of the consumer Gemini app, not a separate developer API. It&amp;rsquo;s unclear whether the app uses the same execution architecture or whether Google plans to open its background environment to third-party developers.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-where-google-stays-silent" class="wp-block-heading"&gt;Where Google stays silent&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company has documented prompt-injection safeguards for its developer-facing computer-use tools but hasn&amp;#8217;t said which protections are built into the Mac app. Agents with access to local files and privileged applications also risk &lt;a href="https://thenewstack.io/inside-out-agent-security/" class="local-link"&gt;untrusted input reaching the agent harness&lt;/a&gt;, and influencing the actions it executes.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Reliability questions remain unanswered since the company has not shared any performance figures for the Mac app or explained what happens when an action fails, or an application behaves unexpectedly.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Reliability questions remain unanswered since the company has not shared any performance figures for the Mac app or explained what happens when an action fails, or an application behaves unexpectedly.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-rollout-requirements-and-tiers" class="wp-block-heading"&gt;Rollout, requirements and tiers&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Gemini computer use is rolling out in English in the United States for personal Google accounts belonging to users 18 and older. The feature requires an Apple Silicon Mac running macOS Sequoia 15.0 or later and a Google AI Plus, Pro, or Ultra subscription.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/gemini-mac-computer-use/"&gt;Google just gave Gemini the run of your Mac — three days after Apple tightened the rules&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Google is adding computer use to the Gemini Mac app so the assistant works across apps, files and websites in a background window as you keep working.</content:encoded>
-    </item>
-    <item>
-      <title>An engineer didn’t message his AI for 22 of 44 days. It built an Android app anyway.</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/cognition-devin-bots-management/</link>
-      <dc:creator>Amanda Caswell</dc:creator>
-      <pubDate>Thu, 19 Nov 2026 20:22:18 +0000</pubDate>
-      <category>AI Agents</category>
-      <category>AI Engineering</category>
-      <category>Developer tools</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22844229</guid>
-      <description>&lt;img width="1024" height="647" src="https://cdn.thenewstack.io/media/2026/11/e4ef422e-milhad-yaktvxoa6gc-unsplash-1-1024x647.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="person texting" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/e4ef422e-milhad-yaktvxoa6gc-unsplash-1-scaled.jpg" /&gt;&lt;p&gt;Cognition has spent nearly three years developing Devin as an autonomous engineer that takes a ticket and ships a pull&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cognition-devin-bots-management/"&gt;An engineer didn&amp;#8217;t message his AI for 22 of 44 days. It built an Android app anyway.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="647" src="https://cdn.thenewstack.io/media/2026/11/e4ef422e-milhad-yaktvxoa6gc-unsplash-1-1024x647.jpg" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="person texting" style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/e4ef422e-milhad-yaktvxoa6gc-unsplash-1-scaled.jpg" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;Cognition has spent nearly three years developing Devin&lt;/strong&gt; as an autonomous engineer that takes a ticket and ships a pull request.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With Tuesday&amp;rsquo;s launch of &lt;a href="https://devin.ai/blog/introducing-devin-bots" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Devin Bots&lt;/a&gt;, the company is moving into management, introducing persistent agents that oversee multiple Devin coding sessions, and take responsibility for engineering outcomes over days or weeks.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-coordination-becomes-the-product" class="wp-block-heading"&gt;Coordination becomes the product&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;CEO &lt;a href="https://www.linkedin.com/in/scott-wu-8b94ab96/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Scott Wu&lt;/a&gt; argues that eliminating even a small amount of remaining human work could produce outsized productivity gains. In a &lt;a href="https://x.com/ScottWu46/status/2122776629995049377" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;post on X&lt;/a&gt;, he asks how much more developers could accomplish if coding agents went from handling 98% of their work to 99%, and says Cognition had seen enormous differences among beta testers and internal teams.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;The percentages are hypothetical, but Wu is making the case that coordination, not just coding, is the next opportunity for automation.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The percentages are hypothetical, but Wu is making the case that coordination, not just coding, is the next opportunity for automation.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-from-tickets-to-targets" class="wp-block-heading"&gt;From tickets to targets&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cognition founding team member &lt;a href="https://www.linkedin.com/in/silasalberti/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Silas Alberti&lt;/a&gt; described the change &lt;a href="https://x.com/silasalberti/status/2122772443274330590" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;in a post on X&lt;/a&gt; as a move toward assigning agents ongoing goals instead of individual tasks. He says the team has already used Devin Bots to compress weeks of research into days.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The company shares the example of keeping an Android app in sync with its iOS version. As new features are added to iOS, a Devin Bot can assign the corresponding Android work without an engineer having to create a ticket for every update.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The idea builds on a trend toward &lt;a href="https://thenewstack.io/ai-coding-agents-level-up-from-helpers-to-team-players/" class="local-link"&gt;coding agents that function as team members&lt;/a&gt;. Devin Bots takes that a step further by putting an agent in charge of coordinating the work.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-an-android-app-barely-supervised" class="wp-block-heading"&gt;An Android app, barely supervised&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;When the company set out to build an Android version of Devin, it had no dedicated Android engineers. Instead, the company assigned the project to a Devin Bot on September 28 and let it coordinate the coding work.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Over the next 44 days, Cognition says the Bot merged 1,134 pull requests, wrote 344,651 lines of Kotlin and closed 1,217 tickets. It also ran 2,841 screenshot tests. The engineer overseeing the project sent 183 messages during that period, including none on 22 of those days.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;In its &lt;a href="https://devin.ai/blog/introducing-devin-bots#1-building-devins-android-app" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;write-up&lt;/a&gt;, Cognition explains that the Bot opened tickets and assigned them to individual Devin sessions, then merged changes once they passed continuous integration and Devin Review. The team could follow along through daily Slack updates that included screen recordings. The Android app is now in open testing on Google Play, though it still needs work before it matches the iOS version.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cognition&amp;rsquo;s &lt;a href="https://devin.ai/blog/introducing-devin-bots#2-keeping-the-devin-app-from-jumping" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Layout Bot&lt;/a&gt; checks the company&amp;rsquo;s web app for visual bugs every three hours, rebuilds the latest production code, and tests the interface under different loading conditions. Engineers merged 159 of its fixes over three weeks, reducing layout lag by 70%, according to Cognition.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Cognition says the studio went from producing around 50 pull requests a week to 1,900.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;A &lt;a href="https://devin.ai/blog/introducing-devin-bots#3-running-a-game-studio-247" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;mobile game studio&lt;/a&gt; also has roughly 20 bots reporting to another agent named Super Jenny. Four times a day, Super Jenny brings decisions to a human operator. Cognition says the studio went from producing around 50 pull requests a week to 1,900.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-where-oversight-runs-thin" class="wp-block-heading"&gt;Where oversight runs thin&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Multiple coding agents working on the same project can introduce conflicting dependencies or bugs that affect other agents&amp;rsquo; work. Cognition hasn&amp;rsquo;t explained how Devin Bots handle those conflicts.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;Tasks requiring approval go to a &amp;ldquo;Needs You&amp;rdquo; inbox for an engineer to review.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers can protect specific CI checks and set compute spending limits before assigning a project to a Bot. Tasks requiring approval go to a &amp;ldquo;Needs You&amp;rdquo; inbox for an engineer to review. The company hasn&amp;rsquo;t disclosed how the supervising Bot decides when code is ready to merge or when repeated failures warrant human intervention.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Code verification remains another concern when agents write tests for their own implementations. Agent-generated pull requests are already putting pressure on &lt;a href="https://thenewstack.io/ai-code-review-pipelines/" class="local-link"&gt;conventional code review pipelines&lt;/a&gt;, and some teams are developing &lt;a href="https://thenewstack.io/ai-coding-verification-loops/" class="local-link"&gt;independent verification loops&lt;/a&gt; to catch errors that the original coding agent might miss.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack has asked Cognition for more information about how Devin Bots coordinate parallel agents, evaluate completed work and determine when human intervention is necessary.&lt;/em&gt;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Cognition hasn&amp;rsquo;t disclosed how much engineering time was spent reviewing the Bots&amp;rsquo; pull requests or fixing failed implementations.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/cognition-devin-bots-management/"&gt;An engineer didn&amp;#8217;t message his AI for 22 of 44 days. It built an Android app anyway.&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Cognition’s Devin Bots put AI agents in charge of teams of Devin coding agents, running software projects for weeks with little human direction.</content:encoded>
-    </item>
-    <item>
-      <title>“Be ready for change”: AAIF’s CTO on why the agent stack won’t settle</title>
-      <link>https://web.archive.org/web/https://thenewstack.io/agentic-ai-foundation-projects/</link>
-      <dc:creator>Chris J. Preimesberger</dc:creator>
-      <pubDate>Thu, 19 Nov 2026 18:24:12 +0000</pubDate>
-      <category>AI</category>
-      <category>AI Agents</category>
-      <category>AI Infrastructure</category>
-      <category>Open Source</category>
-      <category>Podcast</category>
-      <category>Sponsored</category>
-      <category>sponsored-podcast</category>
-      <category>Video</category>
-      <guid isPermaLink="false">https://thenewstack.io/?p=22844096</guid>
-      <description>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/8772578e-new-thumbnail-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AgentCon + MCPCon in San Jose, host Nick Lucchesi speaks with Manik Surtani, co-founder and CTO of the Agentic AI Foundation (AAIF), about the growing importance of open standards, interoperability, and vendor-neutral governance in agentic AI." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/8772578e-new-thumbnail.png" /&gt;&lt;p&gt;If you&amp;#8217;ve spent any time over the past year trying to get AI agents to talk to each other without&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-foundation-projects/"&gt;&amp;#8220;Be ready for change&amp;#8221;: AAIF’s CTO on why the agent stack won’t settle&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</description>
-      <content:encoded>&lt;img width="1024" height="576" src="https://cdn.thenewstack.io/media/2026/11/8772578e-new-thumbnail-1024x576.png" class="webfeedsFeaturedVisual wp-post-image wp-stateless-item" alt="In this episode of The New Stack podcast, recorded at AgentCon + MCPCon in San Jose, host Nick Lucchesi speaks with Manik Surtani, co-founder and CTO of the Agentic AI Foundation (AAIF), about the growing importance of open standards, interoperability, and vendor-neutral governance in agentic AI." style="display: block; margin: auto; margin-bottom: 20px;max-width: 100%;" link_thumbnail="" decoding="async" loading="lazy" data-image-size="large" data-stateless-media-bucket="cdn.thenewstack.io" data-stateless-media-name="media/2026/11/8772578e-new-thumbnail.png" /&gt;
-&lt;p class="wp-block-paragraph"&gt;&lt;strong&gt;If you&amp;rsquo;ve spent any time over the past year&lt;/strong&gt; trying to get AI agents to talk to each other without tearing your architecture apart, you know the struggle: vendor lock-in, fragmented protocols, and context that definitely vanishes the second you attempt to make a cross-framework handoff.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;It&amp;#8217;s astounding how fast developers&amp;#8217; needs have changed just in 10 months since the &lt;a href="https://aaif.io/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Agentic AI Foundation (AAIF)&lt;/a&gt; was formed to help solve those problems.&amp;nbsp;&lt;/p&gt;
-
-
-&lt;div class="youtube-embed-wrapper"&gt;&lt;iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/KY7oz7qOpXI?si=M0fqT5jfoGQ1Zsxn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;The Linux Foundation-backed AAIF gives shared agent infrastructure a home outside any one vendor&amp;rsquo;s control. It &lt;a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;launched in December 2025&lt;/a&gt; with three projects, including the Model Context Protocol (MCP), which connects AI applications to external tools and data.&lt;/p&gt;
-
-
-&lt;iframe loading="lazy" height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/f4e7f52b-9b8c-4dbb-b946-f67b6def8d3d?dark=true"&gt;&lt;/iframe&gt;
-
-
-&lt;p class="wp-block-paragraph"&gt;On &lt;a href="https://aaif.io/news/agentic-ai-foundation-announces-four-new-projects" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;October 22&lt;/a&gt;, Anthropic contributed Agent Skills, and OpenAI contributed Open Responses to the foundation, alongside projects from Hugging Face and Alibaba. The additions brought AAIF to 10 hosted projects.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;em&gt;The New Stack&lt;/em&gt; Editor-in-Chief Nick Lucchesi sat down with &lt;a href="https://www.linkedin.com/in/maniksurtani/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Manik Surtani&lt;/a&gt;, AAIF&amp;rsquo;s co-founder and CTO, for &lt;em&gt;The New Stack&lt;/em&gt; podcast at &lt;a href="https://events.linuxfoundation.org/agntcon-mcpcon-north-america/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;AGNTCon + MCPCon&lt;/a&gt; in San Jose, shortly after Surtani announced the additions in his October 22 keynote. The news was still fresh &amp;mdash; the problems behind it, though, were all too familiar.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I think that&amp;#8217;s always been there,&amp;#8221; Surtani said of the needs these projects address. &amp;#8220;We&amp;#8217;ve always known that sandboxes are really important.&amp;#8221; Agent Skills, too, was already in use before joining the foundation. What had changed was where these projects would be governed.&lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;&amp;hellip;having a standardized way to speak to a model is super important.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;I&amp;#8217;m really happy [Agent Skills] is here. And Open Responses as well. I mean, having a standardized way to speak to a model is super important. And I&amp;#8217;m glad to see that it&amp;#8217;s now happening in a way that is vendor-neutral, in a neutral governance and everything else.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-four-giant-projects-join-the-foundation" class="wp-block-heading"&gt;Four giant projects join the foundation&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;The big news from Surtani was this: Four heavy-hitting projects had joined the AAIF. Here&amp;#8217;s what each brings to the table:&lt;/p&gt;
-
-
-
-&lt;ul class="wp-block-list"&gt;
-&lt;li&gt;&lt;a href="https://agentskills.io/home" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Agent Skills&lt;/strong&gt;&lt;/a&gt; (Anthropic): An open format for bundling instructions, scripts, and reference materials that an agent can load when it needs to perform a particular task. Write those instructions once, and use them across agents that support the format.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;a href="https://www.openresponses.org/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;strong&gt;Open Responses&lt;/strong&gt;&lt;/a&gt; (OpenAI): An open specification, based on OpenAI&amp;#8217;s Responses API, for how applications send requests to language models and receive results. A shared format means less translation work when developers switch between compatible model providers.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;&lt;a href="https://huggingface.co/openenv" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenEnv&lt;/a&gt;&lt;/strong&gt; (Hugging Face): A framework for building and sharing reinforcement learning environments, where agents practice tasks and receive feedback that can be used to train them.&lt;/li&gt;
-
-
-
-&lt;li&gt;&lt;strong&gt;&lt;a href="https://open-sandbox.ai/" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;OpenSandbox&lt;/a&gt;&lt;/strong&gt; (Alibaba): A platform for running agent-generated code and other work in isolated environments, separating that execution from the surrounding system.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;While Anthropic, OpenAI, Hugging Face, and Alibaba rallying around a neutral foundation sounds like an AI miracle, Surtani noted that developer demand for open governance has existed from Day 1. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;More than faster, I think people are going to be able to build on top of things that they can trust more.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;More than faster, I think people are going to be able to build on top of things that they can trust more,&amp;#8221; Surtani said. &amp;#8220;It&amp;#8217;s not like you couldn&amp;#8217;t trust open responses before. Of course you could. But now everyone has a say in how it&amp;#8217;s going to grow and how it&amp;#8217;s going to get shaped.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Developers learned this lesson the hard way during the early cloud-native boom. Nobody wants to build core enterprise infrastructure on tech they can&amp;#8217;t help steer.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-tackling-the-real-pain-points-agent-memory-and-portability" class="wp-block-heading"&gt;Tackling the real pain points: Agent memory and portability&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;What problem keeps Surtani up at night? In the near term, it&amp;#8217;s agent memory and context management &amp;mdash; the information an agent needs to keep working on a task, including what&amp;#8217;s already happened. A harness is the software around a model that manages its tools and workflow. Carrying that context from one model or harness to another remains difficult, Surtani said; he wants teams to be able to share it across the agents and people working on the same problem.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Beyond context portability, Surtani emphasized that software engineering teams should design for model independence right now using abstractions, proxies, and standardized interfaces. In practical terms, that means keeping the application from being tied too tightly to one model provider: A proxy or router sits between the application and the model, letting a team switch the model behind the scenes. It doesn&amp;#8217;t solve everything, he cautioned, but it handles much of the heavy lifting.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Unlike the cloud stack associated with the Cloud Native Computing Foundation (CNCF) &amp;mdash; which Surtani described as already well-defined &amp;mdash; the agentic AI stack is inherently fluid. &lt;/p&gt;
-
-
-
-&lt;blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"&gt;
-&lt;p class="wp-block-paragraph"&gt;&amp;ldquo;My advice to people is just be ready for change. Change is going to happen.&amp;rdquo;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&amp;#8220;My advice to people is just be ready for change. Change is going to happen,&amp;#8221; Surtani told &lt;em&gt;The New Stack&lt;/em&gt;. &amp;#8220;Now, the good thing in all of this is that change is actually easy as well. With agents actually building themselves and writing code, it&amp;#8217;s not going to be that expensive or that hard to migrate from one thing to the other.&amp;#8221;&lt;/p&gt;
-
-
-
-&lt;h2 id="h-a-sandbox-for-early-stage-projects" class="wp-block-heading"&gt;A sandbox for early-stage projects&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;With more than 300 member organizations signing on in just 10 months (ranging from fintechs to non-tech giants such as the Gates Foundation), AAIF realized its initial high barrier to entry &amp;mdash; borrowed from the mature CNCF template &amp;mdash; was ill-suited for a space evolving at warp speed.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;To adapt, the foundation launched a new &lt;a href="https://aaif.io/blog/aaif-sandbox-phase" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Sandbox lifecycle phase&lt;/a&gt; on September 1 to bring in early-stage, high-momentum community tools before they hit massive enterprise scale.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;This Sandbox phase is a project maturity category, separate from the isolated execution environments provided by OpenSandbox. It gives promising young projects a place to develop under neutral governance, even before they have widespread production use.&lt;/p&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;Surtani&amp;rsquo;s main call-to-action for developers? Push your vendors for open standards, transparent specs, and true longevity.&lt;/p&gt;
-
-
-
-&lt;h2 id="h-watch-the-full-interview" class="wp-block-heading"&gt;Watch the full interview&lt;/h2&gt;
-
-
-
-&lt;p class="wp-block-paragraph"&gt;&lt;a href="https://www.youtube.com/watch?v=KY7oz7qOpXI" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;Watch our full interview with Surtani&lt;/a&gt; to get his take on agentic commerce, agent permissions, advertising without human eyes, and why an AI stack might &lt;em&gt;never&lt;/em&gt; fully solidify. Subscribe to &lt;a href="https://www.youtube.com/c/TheNewStack" class="ext-link" rel="external nofollow" onclick="this.target=&amp;#039;_blank&amp;#039;;"&gt;&lt;em&gt;The New Stack&lt;/em&gt;&amp;#8216;s YouTube channel&lt;/a&gt; to keep up with our new episodes as they are released.&lt;/p&gt;
-&lt;p&gt;The post &lt;a href="https://thenewstack.io/agentic-ai-foundation-projects/"&gt;&amp;#8220;Be ready for change&amp;#8221;: AAIF’s CTO on why the agent stack won’t settle&lt;/a&gt; appeared first on &lt;a href="https://thenewstack.io"&gt;The New Stack&lt;/a&gt;.&lt;/p&gt;
-</content:encoded>
-      <content:encoded>Anthropic and OpenAI handed their agent specs to a neutral foundation. AAIF’s CTO explains what that changes and what developers should build for next.</content:encoded>
     </item>
   </channel>
 </rss>
